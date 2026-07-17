@@ -1,0 +1,3007 @@
+label d7a:
+    $ daily_main_mission = True
+    $ m_d7a = True
+    Zt "It's time to prepare [S] for the Zone and discuss the map with her."
+    scene vs1-0
+    with slowfade
+    pause 1
+    scene d7a-1
+    with dissolve
+    Z "I brought you something."
+    scene d7a-2
+    with dissolve
+    S "What is it?"
+    scene d7a-3
+    with dissolve
+    Z "You need to be properly equipped, for your journey."
+    Z "So I have collected some protective gear I want you to try out."
+    scene d7a-4
+    with dissolve
+    S "You want to play dress up, hmm?"
+    Z "Yeah, right, that's exactly..."
+    S "I'm kidding [persistent.dad]. I'll get ready, give me a minute!"
+    scene d7a-5
+    with slowfade
+    Z "..."
+    S "Soo, what's in the crate?"
+    scene d7a-6x
+    with vpunch
+    Z "Is that what you call ready??!"
+    scene d7a-6
+    with dissolve
+    S "Most of my clothes are being washed."
+    scene d7a-7
+    with fade
+    S "And you know how I am when it comes to surprises."
+    scene d7a-8
+    play sound "audio/sounds/objects/chest open.mp3"
+    with dissolve
+    S "Let's see..."
+    scene d7a-9
+    with dissolve
+    S "A coat... makes sense..."
+    scene d7a-10
+    with dissolve
+    S "Gloves... a scarf... pants.."
+    S "See? I didn't need to put mine on after all."
+    S "The coat looks warm though, are you sure I won't melt in the sun?"
+    Z "..."
+    S "[persistent.dad!c]?"
+    Z "Uh... no. It's mostly for the night, but there's more to it."
+    Z "Temperatures can change quickly in the Zone, well beyond the normal day and night shift..."
+    S "Hmmm, I see. What else... boots..."
+    S "Wait, no way!"
+    S "I have to try this on now..."
+    scene d7a-11
+    with dissolve
+    S "My own gas mask!!"
+    Z "Looks good {i}and{/i} it saves your life."
+    S "I know right? What more do I need?"
+    Z "Try it all on, and then I will give you the most important thing." #not the D
+    scene d7a-12
+    with dissolve
+    S "Let's do it." #still not the D
+    scene black
+    with fade
+    Z "Okay, first put these on."
+    S "..."
+    S "Done."
+    scene d7a-12x-4
+    with fade
+    Z "Now... about the coat... It has 4 pockets; two are on the inside."
+    Z "You need to keep your meds on you at all times."
+    Z "The coat is thick enough to protect you from the dust, and it's fire resistant."
+    scene d7a-12x-3
+    with fade
+    S "Okay, but what if-"
+    Z "In a case of fire you {i}have to{/i} strap the coat all the way down to your ankles."
+    scene d7a-12x-1
+    with fade
+    Z "The filter on the mask is new, but you need to keep track of its wear at all times."
+    S "[persistent.dad!c]..."
+    scene d7a-12x-2
+    with dissolve
+    Z "Changing the filter can make noise; you need to plan ahead, don't ever run out of air while hiding from beasts."
+    Z "When in doubt, just put on two at the same ti-"
+    scene black pic
+    stop music fadeout 1
+    with hpunch
+    S "[persistent.dad!c]!!!"
+    scene d7a-13
+    play music "audio/music/exploration/was this the end.mp3" fadein 2
+    with slowfade
+    S "I am not in the Zone yet."
+    S "Calm down. I am already nervous enough."
+    Z "I... you're right."
+    Z "But these things are important."
+    Z "I don't want you to..."
+    scene d7a-14
+    with dissolve
+    S "...die?"
+    Z "..."
+    scene d7a-15
+    with dissolve
+    S "..."
+    Z "I am not doubting your readiness, I promise."
+    Z "I just think that-"
+    scene d7a-17
+    with hpunch
+    Z "...!"
+    scene d7a-16
+    with dissolve
+    Z "..."
+    scene d7a-18
+    with dissolve
+    S "..."
+    S "I know that you don't."
+    S "It's just..."
+    S "If you weren't here, I would have to prepare on my own."
+    S "And even with your help, I don't know if it will be enough..."
+    S "...if {i}I{/i} will be enough."
+    scene d7a-19
+    with dissolve
+    Z "Don't say that. You are better prepared than I ever was."
+    Z "You're calm, focused and you don't take this lightly."
+    Z "I have seen that every day, in your commitment... and I admire you for it."
+    Z "Everything will work out."
+    scene d7a-20
+    stop music fadeout 7
+    with slowfade
+    Z "Now... do you want to show off what you're wearing?"
+    Z "I need to see if anything is missing."
+    S "Okay."
+    S "I should take the mask off again. {i}*chuckles*"
+    scene d7a-21
+    play music "audio/music/home/music box september.mp3" fadein 5
+    with stepfade
+    S "Soo... what do you think, am I cute enough to seduce the beasts into leaving me alone?"
+    scene d7a-22
+    with dissolve
+    S "Is this outfit suitable for a place of death and despair?"
+    Z "I need to have a better look... turn around."
+    scene d7a-23
+    with dissolve
+    S "Of course, Master [persistent.player_name]."
+    Z "Really...?"
+    scene d7a-24
+    with dissolve
+    S "Hmmm?"
+    Z "How does the coat feel?"
+    Z "Remember, you may have to also sleep in it."
+    S "It feels snug. I'll be happy to have it, when I'll need it."
+    scene d7a-25
+    with dissolve
+    S "{i}*yawns*{/i} I can't wait to get up in the morning and have a nice stretch after sleeping a mere room away from beasts that would love to eat me..."
+    Z "I take back what I said about you not taking this lightly."
+    Z "In fact, you sound just as cocky as I was back when I started."
+    scene d7a-26
+    with dissolve
+    S "Bleeeh..."
+    scene d7a-27
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        S "Like father like daughter I guess."
+    else:
+        S "I guess I take after the man who raised me. Blame him!"
+    scene d7a-28
+    with stepfade
+    Z "There is one more thing..."
+    Z "My old master, Zosar... I met him again."
+    scene d7a-29
+    with dissolve
+    S "Wait, what?"
+    scene d7a-30
+    with dissolve
+    Z "It's a long story..."
+    Z "The short of it is that he gave me a map."
+    Z "It's supposed to lead to a place that holds something he wants."
+    scene d7a-29
+    with dissolve
+    S "What is that supposed to mean?"
+    scene d7a-30
+    with dissolve
+    Z "He only said you'll know what it is if and when you see it."
+    Z "Even in life, he never did anything without purpose. Might be worth looking into it."
+    Z "I'll tell you more once we are in the library. Follow me..."
+    scene d7a-29
+    with dissolve
+    S "Okay, sure. Didn't your master..."
+    scene d7a-30
+    with dissolve
+    Z "Yes, I know..."
+    Z "As I said, I'll explain..."
+    scene black pic
+    # stop music fadeout 3
+    with slowfade
+    "{i}Eventually..."
+    scene d7a-31
+    # play music "audio/music/exploration/transient.mp3" fadein 4
+    with slowfade
+    pause 0.7
+    scene d7a-32
+    with dissolve
+    S "...and then he gave you this map."
+    S "This seems to be a pretty detailed description of the area."
+    Z "He must've compiled it over the years."
+    Z "The blueprint you see is of the building he wants you to investigate."
+    scene d7a-33
+    with dissolve
+    Z "We don't know whether or not the buildings will be occupied."
+    play sound "audio/sounds/doors/door shut.mp3"
+    S "We don't know that of the entire Zone. I'll be careful."
+    S "The whole area is huge."
+    if not _in_replay:
+        $ mq_d_1.advance()
+        $ mq_d_1.resolution = _("I've handed [S] Abrax's blueprints. That should give her the elements to find what he's looking for.")
+    scene d7a-33x
+    with fade
+    W "I know my favourite adventurers are busy, but I also know that you need to stay hydrated."
+    S "Thanks, [persistent.mom]."
+    Z "Yes, thank you."
+    scene d7a-33
+    with fade
+    play sound "audio/sounds/doors/door shut.mp3"
+    Z "Where were we..."
+    Z "So... the buildings annexed to the factory were most likely lodgings for the workers."
+    Z "You will need to figure out if you want to explore these first."
+    Z "Sometimes, the personal effects of people can hide unexpected treasures, even centuries later."
+    scene d7a-34
+    with dissolve
+    Z "Other than that..."
+    Z "We don't really know anything."
+    Z "You'll just... have to go there and find out, I guess."
+    scene d7a-35
+    with dissolve
+    S "...and I will."
+    scene d7a-36
+    with dissolve
+    Z "If there is one thing I know, it's that whatever, whoever is out there, they better not get in the way of my girl."
+    scene d7a-37
+    with dissolve
+    S "{i}*chuckles*{/i} They better not!"
+    scene black pic
+    stop music fadeout 4
+    with slowfade
+    "{i}After several hours spent going over even the smallest details available, you and [S] decide that it is time to rest on the balcony..."
+    scene d7a-38
+    play music ["<silence 1>", "audio/music/background/different dimensions.mp3"] fadein 7
+    with slowfade
+    pause 3
+    scene d7a-39
+    with w33slow
+    S "..."
+    scene d7a-40
+    with dissolve
+    S "It's always so pretty up here..."
+    scene d7a-42
+    with dissolve
+    Z "It is..."
+    scene d7a-41
+    with dissolve
+    Z "Everytime I question why I decided to build my house so far away from Zeta..."
+    Z "...this reminds me why."
+    Z "The city offers anything you could want to do in a day."
+    Z "But only out here can you really appreciate the beginning and end of the day."
+    scene d7a-43
+    with dissolve
+    S "Tell me..."
+    S "What did it feel like, back then..."
+    scene d7a-44
+    with dissolve
+    S "I mean... heading into a Zone for the first time."
+    S "You didn't know [persistent.mom] back then..."
+    S "Did you have anyone you'd worry about when you first left?"
+    scene d7a-45
+    with dissolve
+    Z "My old Master had left the city during my preparations for my first real mission."
+    Z "With him gone, I had to face preparations by myself, from gathering information, to preparing supplies and establishing objectives."
+    Z "As you are finding out now, a lot goes into such an adventure before it even begins."
+    Z "However, it wasn't so much that I worried for him; I was worried for myself, my survival."
+    Z "When I finished my preparations, I was insecure. I felt, I knew, that I was not ready to head out."
+    Z "Because in the end, nobody is ever really ready for everything that might happen."
+    scene d7a-46
+    with dissolve
+    Z "When the day came and the Zone was burned into the ground, I packed my gear, left everything else behind and headed out."
+    Z "I did not know what was coming next."
+    Z "I was feeling alone, like a castaway with no goal other than to experience the unknown."
+    Z "But as I was walking down the streets, heading ever closer to the Zone, that's when it happened."
+    scene d7a-47
+    with dissolve
+    Z "Something clicked."
+    Z "For the first time in my life, I felt free."
+    Z "And I mean truly free. Not the time you take for yourself after passing a challenge or doing your chores."
+    Z "I was alone, by myself... Out there for myself and nothing and no one else mattered but me."
+    Z "All that I had was my equipment, my training and whatever knowledge I had gained up until that day."
+    Z "This freedom is what I wish for you to experience as well."
+    Z "You will learn to get to know yourself and your goals better than from any of my teachings or those of others."
+    Z "You will learn not to be burdened by what people expect of you, or to be manipulated by them, or even, despite my best intentions, by me."
+    scene d7a-45
+    with dissolve
+    Z "Times will come where you might want to give up that freedom again so you can replace it with something else."
+    Z "But when you head out and walk down those roads, and experience the emissions of the Zone lighting up the sky, maybe then you will get this feeling too."
+    scene d7a-44
+    with dissolve
+    if shani_help >= shani_self:
+        S "That sounds peaceful..."
+    if shani_self > shani_help:
+        S "Freedom to do everything I want... sounds nice."
+    S "I will try to remember what you said... when I see it for myself."
+    S "But..."
+    Z "But...?"
+    scene d7a-48
+    with fade
+    Z "...?"
+    scene d7a-49
+    with dissolve
+    S "I understand what you're saying..."
+    S "And I do get why some things have always been better left unsaid, untouched."
+    scene d7a-50
+    with dissolve
+    S "But I think I don't have to wait for the Zone... to know at least some things that I want." #the D
+    S "The things I want to do... where to live, and who I want to be... I have ideas, plans."
+    S "Some of them are just that, ideas that might change; but not all of them."
+    S "A few things are clear to me, and nothing will change them."
+    scene d7a-51
+    with dissolve
+    S "And even though I have not been out there yet..."
+    S "...and the few missions I've been on with you only gave me a taste of the dread you describe..."
+    scene d7a-52
+    with dissolve
+    "{i}You both start laughing quietly..."
+    scene d7a-53
+    with dissolve
+    S "...I know what I don't want to lose."
+    scene d7a-54
+    with dissolve
+    S "And that is..."
+    scene d7a-55
+    with dissolve
+    S "..."
+    W "[persistent.player_name!c]?! [S]? Are you guys up there?!"
+    scene d7a-56
+    with dissolve
+    Zt "Damn it, really?!"
+    Z "What is it?! Why now?"
+    W "The Queen's guard is here! I need you to come down!"
+    Z "{i}*sighs*"
+    scene d7a-57
+    with dissolve
+    S "...I guess we should go."
+    Z "Yeah..."
+    scene black pic
+    play music "audio/sounds/environment/desert wind.mp3" fadeout 5
+    with slowfade
+    "{i}You head downstairs..."
+    scene d7a-58
+    with slowfade
+    G "Merneith's blessing shines bright tonight."
+    G "Revered Stalker [persistent.player_name], Lady [W]... and your pupil [S], I presume..."
+    scene d7a-60
+    with fade
+    Z "To what do we owe a visit at such a late hour?"
+    G "As you know, our gracious Queen Merneith is holding the royal games tomorrow."
+    scene d7a-59
+    with dissolve
+    G "I was sent here by her majesty herself to invite you, Stalker [persistent.player_name], to attend the games with her."
+    scene d7a-61
+    with dissolve
+    W "Excuse me..."
+    scene d7a-63
+    with dissolve
+    W "I am sure she has her reasons. But my husband and [persistent.da] have some very busy times ahead."
+    W "I'm sure you will understand that he intends to skip the games this time around."
+    W "If our Queen needs to talk to him, I'm sure that the day after will do."
+    scene d7a-64
+    with dissolve
+    G "I am truly sorry, Lady [W], but I was told in no uncertain terms that this was more of a summon than an invitation."
+    scene d7a-62
+    with dissolve
+    G "The Queen mentioned that she is aware of the upcoming departure of your pupil, and that she must speak to you, Stalker [persistent.player_name], before this happens."
+    Z "..."
+    scene d7a-65
+    with dissolve
+    Ww "Love..."
+    scene d7a-66
+    with dissolve
+    Ww "I remember what you told me about your last visit in the palace."
+    if queen_dominant == True: #kneeled
+        Ww "If she wants to speak you this urgently, there must be something she needs."
+        scene d7a-69
+        with dissolve
+        Ww "She is young, hot headed, and wields so much power..."
+        Ww "Whatever it is she needs, convince her that you are the right man for the job..."
+    elif queen_submissive == True: #escalated
+        Ww "It seems that, despite how you left things, she still needs your services."
+        scene d7a-69
+        with dissolve
+        Ww "You tell me she is boastful, arrogant and demanding towards anyone she meets..."
+        Ww "...show her that she should know to treat you differently."
+    Z "..."
+    scene d7a-67
+    with dissolve
+    W "My lady, you can be assured that my husband will attend the games."
+    scene d7a-68
+    with dissolve
+    G "The almighty Queen Merneith will see your husband at her pleasure."
+    scene d7a-62
+    with dissolve
+    G "You are expected in front of the Arena at noon, tomorrow."
+    G "See you then, Stalker."
+    scene d7a-70
+    play sound "audio/sounds/doors/gate.mp3"
+    with slowfade
+    S "Urgh..."
+    scene d7a-71
+    with dissolve
+    S "..."
+    scene d7a-72
+    with dissolve
+    S "What crawled up her ass?!"
+    scene black pic
+    stop music fadeout 5
+    with slowfade
+    "{i}As night falls, you all head inside and soon go to sleep."
+    "{i}The following day, you get ready to head to the stadium."
+    "{i}You can't find [W] anywhere, so you let [S] know that you're leaving."
+    "{i}As you're about to head out..."
+    scene d7a-73
+    play music "audio/music/home/dream town.mp3" fadein 4
+    with slowfade
+    W "Is my husband leaving to deal with the Queen?"
+    Z "[W], I thought you were...-"
+    scene d7a-74
+    with dissolve
+    Z "..."
+    Z "Wow."
+    scene d7a-76
+    with dissolve
+    W "I was feeling nostalgic today..."
+    scene d7a-75
+    with dissolve
+    Z "You wore this gown at our first picnic with Rabiah..."
+    W "So you do remember..."
+    Z "Come here."
+    scene d7a-77
+    with fade
+    Z "You look stunning; and it still fits you perfectly, even after all these years."
+    scene d7a-78
+    with dissolve
+    W "When this is all over, and [S] is safely back home..."
+    scene d7a-79
+    with dissolve
+    W "...you and I are going to have a little celebration of our own."
+    Z "It's a date."
+    W "Is that what they're called? Why, I do have faint memories of..."
+    scene d7a-80
+    with dissolve
+    "{i}*kissing*"
+    scene d7a-81
+    with dissolve
+    W "..."
+    scene d7a-82
+    with dissolve
+    Z "I love you."
+    W "I love you too."
+    W "Now go and take care of our Queen, husband."
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    "{i}You head out and make your way to the stadium."
+    "{i}As you eventually arrive, the guard from yesterday is waiting for you as expected..."
+    scene d7a-83
+    play music "audio/music/zeta/war music intro.mp3" fadein 6
+    with slowfade
+    G "You see that?"
+    scene d7a-84
+    with fade
+    Gx "Yeah... it's him."
+    G "Stalker, over here!"
+    scene d7a-85
+    with w33slow
+    G "Blessed Merneith, you took your time!"
+    Z "Yes I did. Where is everyone? Am I too late?"
+    scene d7a-86
+    with dissolve
+    G "Almost..."
+    G "The games are about to start."
+    G "The Queen is expecting you, but not waiting for you."
+    scene d7a-87
+    with dissolve
+    G "Although..."
+    G "The adoring audience is probably keeping her entertained, and she them."
+    scene d7a-88
+    with dissolve
+    Gx "Do you want to escort him, or should I?"
+    scene d7a-89
+    with dissolve
+    label temp_d7a:
+        G "I will. Call Maibe to cover for me."
+    Gx "As you command."
+    scene d7a-90
+    with fade
+    if queen_dominant == True: #kneeled
+        G "I don't know what you said last time, for her to invite you again."
+        G "And on such an important day."
+        G "But, whatever it is she has to say to you, it seems to be urgent."
+        scene d7a-90x
+        with dissolve
+        G "The whole arena and three guards will be watching you."
+        G "So, don't get cute, because a misstep would be fatal."
+        Z "..."
+    elif queen_submissive == True: #escalated
+        G "Stalker, I must warn you."
+        G "What you did last time was unforgivable, and I don't know why you're still alive."
+        G "There will be guards flanking you."
+        scene d7a-90x
+        with dissolve
+        G "Refuse the Queen's orders or act up again, and your life is forfeit."
+        G "No exceptions; not on my watch."
+        Z "..."
+    show screen cutscene_marker
+    play music "audio/music/zeta/arena intro.mp3" fadeout 0.8
+    scene d7a-91
+    with fade
+    $ renpy.pause(1.0, hard=True)
+    scene d7a-91x
+    with fade
+    $ renpy.pause(1.6, hard=True)
+    show d7a-92-anim
+    with w33slow
+    $ renpy.pause(12.7, hard=True)
+    scene d7a-93
+    with w33slow
+    Q "...{p=6} {nw}"
+    scene d7a-94
+    with fade
+    Sp "That's the Queen!!! {p=3} {nw}"
+    scene d7a-95
+    with dissolve
+    Sp "Look at her!!! {p=3} {nw}"
+    Sp2 "She is so pretty... {p=3} {nw}"
+    scene d7a-96
+    with w33slow
+    Q "CITIZENS OF ZETA AND BEYOND... {p=4} {nw}"
+    scene d7a-97
+    with dissolve
+    Q "...LET THE GAMES... {p=3.65} {nw}"
+    scene d7a-98-anim
+    with w33slow
+    Q "...BEGIN! {p=3.5} {nw}"
+    scene d7a-99
+    with w33slow
+    pause 0.3
+    show d7a-99-anim
+    play sound "audio/sounds/doors/metal gate.mp3"
+    with Dissolve(0.3)
+    pause 2.28
+    scene d7a-100
+    with Dissolve(0.3)
+    pause 1.4
+    scene d7a-101
+    with dissolve
+    pause 1.1
+    scene d7a-102
+    with dissolve
+    pause 1.5
+    scene d7a-103
+    with w33slow
+    pause 0.8
+    scene d7a-103x
+    with Dissolve(0.05)
+    pause 0.8
+    scene d7a-103x-2
+    with Dissolve(0.05)
+    pause 0.25
+    scene d7a-103x-3
+    with Dissolve(0.05)
+    pause 0.28
+    scene d7a-104
+    with Dissolve(0.05)
+    pause 0.21
+    scene d7a-103x-4
+    with Dissolve(0.05)
+    pause 1
+    scene d7a-106
+    with fade
+    Sp "I'm telling you, he can't always win. {p=2.5} {nw}"
+    Sp2 "Don't underestimate the Brute, they don't call him that for nothing... {p=3.5} {nw}"
+    Sp "I've heard stories; I can't wait! {p=2.5} {nw}"
+    scene d7a-105
+    with w33slow
+    play sound "audio/sounds/people/chanting.mp3"
+    Au "{i}*chanting* {p=3} {nw}"
+    scene black pic
+    with fade
+    pause 2
+    scene d7a-107
+    play sound "audio/sounds/objects/sword clash 11.mp3"
+    play music "audio/music/zeta/war music continued.mp3" fadeout 1
+    with vpunch
+    pause 2
+    scene d7a-108
+    with fade
+    Q "May the strongest warrior win... {p=3.5} {nw}"
+    G "My Queen, as requested, Stalker [persistent.player_name] has arrived. {p=3.5} {nw}"
+    scene d7a-109
+    with dissolve
+    Q "About time... not a fan of the opening parade, I guess? {p=3} {nw}"
+    scene d7a-112
+    with dissolve
+    hide screen cutscene_marker
+    menu:
+        "\"To what do I owe the privilege?\"" if queen_dominant == True:
+            Z "To what do I owe the privilege of being here today?"
+            scene d7a-110
+            with dissolve
+            Q "You give proper acknowledgement to my benevolence. Good..."
+            Q "We will discuss the reason for this after the game."
+            scene d7a-111
+            with dissolve
+            Q "Step forward, let us watch the game together, shall we?"
+            jump d7a115
+
+        "\"I was busy.\"":
+            Z "As you know, my [persistent.da] is about to head to the Zone very soon."
+            Z "We were quite busy making preparations for that."
+            scene d7a-110
+            with dissolve
+            Q "I indeed knew about it, and it is precisely the reason why I called you here today."
+            Q "But we shall discuss this matter when this fight is done."
+            scene d7a-111
+            with dissolve
+            Q "Be my guest today, Stalker, let us watch the game together."
+            jump d7a115
+
+        "\"Why did you call me?\"":
+            Z "You know I am preparing my [persistent.da] for the Zone."
+            Z "Why did you call me today?"
+            scene d7a-110
+            with dissolve
+            if queen_dominant == True:
+                Q "So much for your offer to play nice..."
+                Q "Connect the dots, Stalker [persistent.player_name], that is exactly the reason why you are here."
+                scene d7a-111
+                with dissolve
+                Q "But let us discuss this matter afterwards."
+                Q "We have a game to enjoy. Join me, will you."
+                jump d7a115
+            elif queen_submissive == True:
+                Q "So much for your offer to cooperate..."
+                Q "Connect the dots, Stalker [persistent.player_name], this is exactly the reason why you are here."
+                scene d7a-111
+                with dissolve
+                Q "Let us discuss this matter afterwards."
+                Q "We have a game to attend to. Join me, please."
+                jump d7a115
+
+        "\"Missed me?\"" if queen_submissive == True:
+            $ d7a_cocky_mc = True
+            Z "I didn't expect you to call me this soon again, after my last visit."
+            Z "Did you miss me, after all?!"
+            scene d7a-113
+            with dissolve
+            G "Watch your mouth Stalker; disrespecting the Queen like that!"
+            G "Your head will land on a pik-"
+            scene d7a-114
+            with dissolve
+            Q "Don't worry about it, Sharifa."
+            Q "Be wary, Stalker [persistent.player_name]. I do not forget things that quickly."
+            scene d7a-110
+            with dissolve
+            Q "That said, you are mistaken."
+            Q "As for the reason of your presence here, I will explain that later."
+            scene d7a-111
+            with dissolve
+            Q "For now, why don't you step down here and watch the game together with me?"
+            Q "I'm sure it will be entertaining..."
+            jump d7a115
+
+
+label d7a115:
+    scene d7a-115
+    with slowfade
+    Q "Exciting, isn't it?"
+    Q "One of them will suffer a painful death very soon..."
+    Q "I will concede that your... statement last time made me think."
+    Q "And I have come to the conclusion that you had a point."
+    if queen_dominant == True:
+        scene d7a-117
+        with dissolve
+        Q "Take a seat. My guard will take care of you while we watch."
+        Q "Sharifa..."
+        Sh "Yes, my Queen."
+        scene d7a-135
+        with slowfade
+        Sh "Are you feeling comfortable?"
+        Z "Yes."
+        Q "It seems like the \"Brute\" is about to win again."
+        scene d7a-130
+        with dissolve
+        Rai "AAAAHHHHH!!!"
+        Bru "Hngrrr..."
+        if persistent.gore == True:
+            scene d7a-131
+            play sound "audio/sounds/gore/flesh ripped.mp3"
+            with dissolve
+            Rai "MY AAAARMSSS!!!"
+            scene d7a-133
+            with dissolve
+            Rai "AAAHAHAHAHAAAA!"
+            scene d7a-139
+            with dissolve
+        Q "{i}*sighs*"
+        Q "How disappointing..."
+        Z "You don't like the outcome?"
+        Q "Ah well... he is strong, wild and too unpredictable..."
+        Q "...too unpredictable."
+        Q "He was captured after his little tribal village rebelled against my troops."
+        Q "And now he is on his revenge path against me... so they say."
+        Q "I would execute him... but that would cause too much upset. He is a crowd favourite."
+        if persistent.gore == True:
+            scene d7a-134
+            with dissolve
+            Rai "Haaaaagh-"
+            Bru "You die now."
+            Rai "{i}*wails with pain*"
+        scene d7a-136
+        with dissolve
+        if persistent.gore == False:
+            Bru "You die now."
+            Rai "{i}*wails with pain*"
+        Z "..."
+        scene d7a-138
+        with dissolve
+        Bru "ARE YOU NOT ENTERTAINED?!"
+        play sound "audio/sounds/people/applause.mp3"
+        "{i}*Applause*"
+        scene d7a-140
+        with dissolve
+        Q "[persistent.player_name!c], let us leave."
+        Q "We have important matters to discuss."
+        jump d7aseperate
+
+    elif queen_submissive == True:
+        Q "Unfortunately for you, I am the Queen of this city, and what I say, goes."
+        Q "I am sure my personal guard has illustrated her..."
+        scene d7a-116
+        with dissolve
+        Q "...strict security policies."
+        scene d7a-117
+        with dissolve
+        Q "With that in mind... Stalker [persistent.player_name], come stand behind me."
+        Z "..."
+        scene d7a-118
+        with fade
+        Q "You see, during the games, it is customary for one of my slaves to take care of my needs as I witness the fight."
+        Q "When we met last time, you showed you are definitely not afraid to touch things you shouldn't..."
+        Q "...and since my servants seem to have deserted their post..."
+        Q "...why don't you take their place and use those grabby hands of yours to give me a massage?"
+        scene d7a-119
+        with dissolve
+        Zt "She is trying to provoke me..."
+        Q "I assure you, my guards will be watching you like hawks, making sure you don't overstep your boundaries."
+        Q "Isn't that right, Sharifa?"
+        Sh "You can count on me, my Queen."
+        Sh "As I said, Stalker, one bad move..."
+        scene d7a-120
+        with dissolve
+        Q "Well then..."
+        Q "Take off my collar and show the arena how well you can serve your Queen."
+        scene d7a-121
+        with slowfade
+        Q "Hmm, I love getting a massage from a loyal servant while watching the games."
+        Q "Who do you think will win this time, [persistent.player_name]?"
+        Z "..."
+        scene d7a-122
+        with dissolve
+        Q "Why so quiet all of the sudden?"
+        Q "What a shame... you were so eager to voice your thoughts last time..."
+        Q "Do my words make you angry...? I would be lying if I said that that displeases me."
+        Q "I can't complain about your technique though."
+        scene d7a-123
+        with dissolve
+        Q "Focus more on my neck, will you?"
+        Q "You left me a little sore, the last time you touched me there."
+        scene d7a-124
+        with dissolve
+        Z "..."
+        scene d7a-130
+        with dissolve
+        Q "It seems like the \"Brute\" is about to win again."
+        Bru "Hngrrr..."
+        Rai "AAAAHHHHH!!!"
+        if persistent.gore == True:
+            scene d7a-131
+            play sound "audio/sounds/gore/flesh ripped.mp3"
+            with dissolve
+            Rai "MY AAAARMSSS!!!"
+            scene d7a-133
+            with dissolve
+            Rai "AAAHAHAHAHAAAA!"
+        scene d7a-125
+        with dissolve
+        Z "You don't seem pleased..."
+        scene d7a-125x
+        with dissolve
+        Q "He was captured after his little tribal village rebelled against my troops."
+        Q "Since then he has been seeking ways to obtain revenge against me, so they say."
+        Q "I would execute him... but that would cause too much upset."
+        Q "He is strong, unreasonably aggressive and inconsiderate..."
+        scene d7a-125x-2
+        with dissolve
+        Q "I appreciate strength, but it must be more measured... and focused..."
+        if persistent.gore == True:
+            scene d7a-134
+            with dissolve
+            Rai "Haaaaagh-"
+            Bru "You die now."
+            Rai "{i}*wails with pain*"
+        scene d7a-127
+        with dissolve
+        Zw "Control does not always come easy, when you're being provoked like this."
+        Qw "Knowing your life is at stake, can you find the balance between your urges and your survival instinct?"
+        scene d7a-128
+        with dissolve
+        Qw "It must be so difficult... to resist..."
+        Qw "...but you have to."
+        scene d7a-129
+        with dissolve
+        Zw "...for now."
+        scene d7a-138
+        with dissolve
+        Bru "ARE YOU NOT ENTERTAINED?!"
+        play sound "audio/sounds/people/applause.mp3"
+        "{i}*Applause*"
+        scene d7a-125x
+        with dissolve
+        Q "That will be enough; you can stop."
+        Q "[persistent.player_name!c], let us leave, we have other matters to attend."
+        jump d7aseperate
+
+label d7aseperate:
+    scene black pic
+    stop music fadeout 6
+    with slowfade
+    "You are led outside and follow the Queen back to her palace."
+    "On your way, she signals you to follow her guards."
+    if queen_dominant == True:
+        "Unexpectedly, the guards lead you to the royal thermae near the palace."
+        "Eventually, you find yourself relaxing in luxurious pool."
+        jump d7a141
+    elif queen_submissive == True:
+        "You follow her back to her private quarters."
+        "Escorted by several guards, she leads the way..."
+        jump d7a201x
+    else:
+        jump d7a201x
+
+label d7a141:
+    scene d7a-141
+    play music "audio/sounds/environment/water ambience.mp3" fadein 5
+    with slowfade
+    pause 2
+    scene d7a-142
+    with dissolve
+    Zt "So these are the famous royal thermae..."
+    scene d7a-144
+    with dissolve
+    Zt "Not bad..."
+    scene d7a-143
+    with dissolve
+    Zt "Not bad at all."
+    Sl "This way, my Queen."
+    label re_d7a141:
+        scene d7a-145
+        with fade
+    Q "There you are..."
+    Q "I hope you have made yourself comfortable, [persistent.player_name]."
+    scene d7a-146
+    with fade
+    Q "Take my towel, slave."
+    Sl "Of course, my Queen."
+    scene d7a-148
+    with dissolve
+    Q "Do you remember that I promised you a day in the thermae?"
+    Q "I thought that discussing my request would be more enjoyable in this setting."
+    Z "I can't wait to hear what this is about."
+    Q "In a while..."
+    scene d7a-151
+    with dissolve
+    Q "Lend me your hand."
+    scene d7a-152
+    with dissolve
+    Q "You may join me, slave."
+    scene d7a-153
+    with dissolve
+    Zt "She definitely enjoys all the attention she gets."
+    Zt "But all of this comes at a cost."
+    scene d7a-154
+    with dissolve
+    Zt "Despite our sexually liberated culture, the Queen is held to a different standard."
+    scene d7a-155
+    with dissolve
+    Zt "It must be hard to always exert control over one's urges..."
+    scene d7a-156
+    with dissolve
+    Zt "...especially with a body and a temperament like that."
+    scene d7a-158
+    play sound "audio/sounds/environment/water pour.mp3"
+    with slowfade
+    Q "So... about why you are here..."
+    scene d7a-157
+    with dissolve
+    Q "To make it simple, one of my most valued scouts was exploring some ruins not long ago, when the zone engulfed those buildings."
+    Q "My request is for [S] to keep an eye out for him. He is a valued man, knowledgeable in many fields."
+    Q "I would have him returned to me, preferably alive, if possible."
+    Q "The reason why I am asking {i}you{/i} this, and not your [persistent.da] is because you are still her mentor."
+    Q "...and her [persistent.dad]. So I felt it was appropriate to talk to you instead."
+    if not _in_replay:
+        $ mq_z_1.go_to_step(5)
+        $ mq_z_1.resolution = _('Apparently, this time, the Zone is of interest to everybody. The Queen too had a task for [S], to find a scout that has gone missing.')
+    scene d7a-161
+    with dissolve
+    Q "I know that a Zone is almost a holy place for you Stalkers, but I believe taking care of my request should not hinder her main objectives."
+    C "My Queen... we are here as requested."
+    scene d7a-161x
+    with dissolve
+    Q "There you are... took you long enough."
+    scene d7a-162
+    with dissolve
+    Q "I have many appetites, Stalker, but I am not ungracious and do know how to treat my guests."
+    scene d7a-163
+    with dissolve
+    Q "Pick one, [persistent.player_name], and truly be my guest."
+    Q "They're both excellent, trust me."
+    label d7a164:
+        scene d7a-164
+        with dissolve
+        menu:
+            "Take the left one":
+                $ d7a_picked_left = True
+                Z "I choose the left one."
+                Q "You heard him."
+                scene black pic
+                with fade
+                "The slave undresses and comes over to you..."
+                scene d7a-165
+                with fade
+                Sl "Master, can I join you?"
+                scene d7a-166
+                with dissolve
+                Z "You certainly can."
+                scene d7a-174
+                with dissolve
+                Q "I hope you enjoy her company."
+                Z "I already am."
+                scene d7a-176
+                with dissolve
+                Z "She is eager for sure."
+                Q "Of course, only the best slaves serve at the palace."
+                scene d7a-175
+                with dissolve
+                "{i}*Kissing*"
+                Q "Our renewed partnership will benefit us both, I'm sure."
+                Q "And once your [persistent.da] returns with the person I am looking for, we shall celebrate it together."
+                scene d7a-177
+                with dissolve
+                Z "I can agree to that. May my [persistent.da] be successful."
+                scene d7a-178
+                with dissolve
+                Q "I like to hear that."
+                Q "And yes, may your [persistent.da] come home safe."
+                Q "I'd like to see her again..."
+                scene d7a-188
+                with fade
+                Sl "Hn..."
+                scene d7a-189
+                with dissolve
+                Sl "Ah... it's very..."
+                scene d7a-187
+                with dissolve
+                Q "Why is she making these noises?!"
+                Q "Stop acting up, slave."
+                scene d7a-186
+                with dissolve
+                Sl "I... he's very big..."
+                scene d7a-187
+                with dissolve
+                Q "Oh stop it, it can't be that difficult."
+                scene d7a-190
+                with dissolve
+                Z "She seems to be very young and inexperienced"
+                Z "Let's allow her to take the time she needs."
+                scene d7a-192
+                with dissolve
+                Z "I suppose you are more experienced, my Queen?"
+                Q "You... you shouldn't ask me that."
+                scene d7a-191
+                with dissolve
+                Sl "Haa..."
+                show d7a-193-anim
+                with dissolve
+                Sl "Haah..."
+                Sl "Does that feel good, master?"
+                Z "It does, you're doing great."
+                show d7a-194-anim
+                with dissolve
+                hide d7a-193-anim
+                Zt "There is no way she will take it all."
+                Zt "She is still trying though to please me and her Queen."
+                show d7a-193-anim
+                with dissolve
+                hide d7a-194-anim
+                Z "Keep going."
+                Sl "Yes..."
+                with flash
+                Z "..."
+                scene d7a-195
+                with flash
+                Sl "Thank you, master."
+                jump d7a180
+
+            "Take the right one":
+                $ d7a_picked_right = True
+                Z "I choose the right one."
+                Q "You know what to do."
+                scene black pic
+                with fade
+                "The slave undresses and comes over to you..."
+                scene d7a-167
+                with fade
+                pause 2
+                scene d7a-168
+                with dissolve
+                Zt "Wow..."
+                scene d7a-172
+                with fade
+                Sl "I hope to please you well, Master."
+                Z "I'm sure you will."
+                scene d7a-173
+                with dissolve
+                Zt "Her body feels very soft and alluring."
+                scene d7a-170
+                with dissolve
+                Z "Your servants are very well groomed."
+                scene d7a-171
+                with dissolve
+                Q "Of course. The palace provides for those who serve in it."
+                scene d7a-178
+                with dissolve
+                Q "After all, if a servant's purpose is to provide certain services, why not make sure they look the part? Unwinding after a busy day should be a pleasure."
+                Q "I'm sure you can tell of similar experiences in your own harem."
+                scene d7a-196
+                with dissolve
+                Z "Of course. The women of my House always take good care of me, as I take care of them."
+                scene d7a-197
+                with dissolve
+                Sl "Hnn..."
+                scene d7a-198
+                with dissolve
+                Sl "Master, let me put it in..."
+                show d7a-200-anim
+                with fade
+                Sl "Hn... thank... you."
+                Sl "Do I please you enough, Master?"
+                Z "You do."
+                show d7a-199-anim
+                with dissolve
+                hide d7a-200-anim
+                Sl "Haa..."
+                Zt "She clearly enjoys it, even if she does not know me."
+                Zt "I guess the Queen only chooses the most passionate servants for herself..."
+                Q "Our renewed partnership will benefit us both, I'm very sure."
+                Q "And once your [persistent.da] returns with the person I am looking for, we shall celebrate it together."
+                scene d7a-177
+                with dissolve
+                Z "I can agree to that. May my [persistent.da] be successful."
+                scene d7a-178
+                with dissolve
+                Q "I like to hear that."
+                Q "And yes, may your [persistent.da] come home safe."
+                Q "I'd like to see her again..."
+                Sl "Master..."
+                show d7a-200-anim
+                with dissolve
+                Sl "Please, release inside me."
+                Sl "I would be honored to breed another baby for the orphanage..."
+                Z "I can do that..."
+                scene d7a-198x
+                with flash
+                Z "..."
+                Sl "Thank you so much, Master."
+                jump d7a180
+
+            "Pick both" if d7a_picked_both == False:
+                $ d7a_picked_both = True
+                Z "They're equally pretty. I take both."
+                scene d7a-161
+                with dissolve
+                Q "I know that you're used to having this choice in your harem, but this is mine."
+                Q "I grant you one."
+                scene d7a-160
+                with dissolve
+                Q "The other one will serve me, later."
+                jump d7a164
+
+            "Decline the offer":
+                Z "I'm not interested, thanks."
+                scene d7a-161
+                with dissolve
+                Q "As you wish. I am keeping mine; I'm sure you won't mind."
+                scene d7a-161x
+                with dissolve
+                Q "You may leave."
+                Sl "Yes, my Queen."
+                jump d7aending
+
+label d7a180:
+    scene d7a-179
+    with fade
+    Sl "{i}*kissing*"
+    scene d7a-180
+    with dissolve
+    Q "Say, [persistent.player_name]... I'm curious, have you and your [persistent.da] ever enjoyed each other's company?"
+    Sl "My Queen, do you want me to..."
+    scene d7a-182
+    with dissolve
+    Z "We have not. Her training would have been undermined if I had made that sort of concessions to our baser instincts."
+    scene d7a-183
+    with dissolve
+    Q "I see... it is... unfortunate..."
+    scene d7a-184
+    with dissolve
+    Qw "Don't... not in front of the guest..."
+    Slw "But my Queen..."
+    scene d7a-185
+    with dissolve
+    Qw "I said no!"
+    scene black pic
+    with slowfade
+    jump d7aending
+
+label d7aending:
+    if d7a_picked_left == True:
+        scene d7a-177
+        with fade
+    if d7a_picked_right == True:
+        scene d7a-171
+        with fade
+    Z "I thank you for your hospitality, but I should head home now."
+    Z "There are still things that need doing, and I am sure  [S] can use my help."
+    scene d7a-200x
+    with dissolve
+    Q "You're leaving so soon? I see..."
+    scene d7a-200x-2
+    with dissolve
+    Sl "My Queen, may I direct him to the exit?"
+    Z "I don't think the Queen would have anything against it, am I right?"
+    scene d7a-200x-3
+    with dissolve
+    Q "I guess not..."
+    if d7a_picked_left == True:
+        scene d7a-200x-4
+        with fade
+    if d7a_picked_right == True:
+        scene d7a-200x-5
+        with fade
+    scene d7a-200x-3
+    with fade
+    Q "Good luck to your [persistent.da], [persistent.player_name]."
+    Q "May she come back safe..."
+    Sl "My Queen, our guest is gone, should I now...-"
+    Q "No... I am no longer in the mood."
+    scene black pic
+    with slowfade
+    $ renpy.end_replay()
+    "You head back home..."
+    jump mission_end
+
+label d7a201x:
+    play music "audio/music/exploration/spatium.mp3" fadein 3
+    scene d7a-201x
+    with w33slow
+    pause 2
+    scene d7a-201x-2
+    with slowfade
+    Q "..."
+    scene d7a-201x-3
+    with slowfade
+    Q "We have arrived."
+    Q "But before we head inside..."
+    scene d7a-201x-5
+    with dissolve
+    Q "The reason why I called you is because I need your daughter to find a scout of mine, who was exploring some buildings for me when they were engulfed in the Zone."
+    Q "He is a valued member of my entourage, a knowledgeable individual, and I would have him returned to me, preferably alive."
+    Z "Why didn't you ask her yourself. She was with you when the Zone spawned."
+    if not _in_replay:
+        $ mq_z_1.go_to_step(5)
+        $ mq_z_1.resolution = _('Apparently, this time, the Zone is of interest to everybody. The Queen too had a task for [S], to find a scout that has gone missing.')
+    scene d7a-201x-6
+    with dissolve
+    Q "Who do you take me for?! I may be young, but I have been schooled in the traditions of Zeta."
+    scene d7a-201x-7
+    with dissolve
+    Q "I know that a Zone is some sort of holy place for you Stalkers, and that she is still your trainee."
+    Q "Sending her on a mission without your approval would set a bad precedent."
+    scene d7a-201x-8
+    with dissolve
+    Z "Yet you think forcing me to be your public servant in the arena is way to earn my respect?!"
+    scene d7a-201x-9
+    with dissolve
+    Q "There was no way I could have let your last outburst slide, it is not in my nature, and that too, would give the wrong idea."
+    scene d7a-201x-10
+    with dissolve
+    Q "Also... I must admit I like seeing you angry."
+    Z "..."
+    Zt "At least she's honest."
+    scene d7a-201x-11
+    with dissolve
+    Q "You're probably wondering about what you get out of helping me."
+    Q "I know I promised you a day in the thermae before you decided to lose yourself, and I may still give you that opportunity after said mission."
+    scene d7a-201x-12
+    with dissolve
+    Q "Maybe I can arrange a little celebration once [S] returns. I want to see her again."
+    scene d7a-201x-4
+    with dissolve
+    Q "For now, I have something else for you, a reward of sorts, and a little task at the same time."
+    Q "Follow me."
+    scene black pic
+    with slowfade
+    Q "Guards, you may leave us. Wait outside."
+    play sound "audio/sounds/doors/cell door.mp3"
+    play music "audio/music/background/horror ambience.mp3" fadeout 2
+    Z "..."
+    Z "The prison...?"
+    scene d7a-202
+    with fade
+    Q "Yep. Let me show you why."
+    if shani_killed_thug_girl == False:
+        scene d7a-206
+        with dissolve
+        Q "[S] has probably informed you that I took care of the boy who wanted to kidnap your [persistent.da]."
+        scene d7a-207
+        with dissolve
+        Q "She was gracious enough to not kill his partner in crime."
+        Q "If you were wondering what happened to her, she just decided to become a public servant to shorten her jail time..."
+        scene d7a-205
+        with fade
+        Q "To the point, she will start serving the public in a few days to make up for her wrongdoings..."
+        Q "Should you decide to enjoy her services yourself, I will have someone inform you where to find her."
+        scene d7a-204
+        with dissolve
+        Tg "{i}*sighs*"
+        Q "But she is not why we are here today."
+    scene d7a-203
+    with dissolve
+    Q "This one is the reason..."
+    scene d7a-208
+    with fade
+    Q "Time to wake up! Your beloved Queen is here!"
+    scene d7a-209
+    with dissolve
+    Q "I hope you're feeling comfortable."
+    scene d7a-210
+    with dissolve
+    Q "It's going to get much more cosy for you real soon."
+    Z "Why is she here?"
+    scene d7a-211
+    with dissolve
+    Q "She organized a protest during one of my speeches."
+    Q "She even went so far as to insult me in front of an audience."
+    scene d7a-212
+    with dissolve
+    Q "That was her mistake; slandering the Queen in public is a punishable offense."
+    Q "I don't care about her little protest, but what she said that day was personal."
+    Zt "She interrupts my time to prepare [S] for her most important mission in her life because she has to deal with a random offender?!"
+    scene d7a-213
+    with dissolve
+    Q "Hey, I said wake up!"
+    scene d7a-214
+    with dissolve
+    Q "There you are; have you missed me?!"
+    Q "Remember what you said about me?"
+    Q "I figured I'd find someone to do exactly that to you!"
+    scene d7a-215
+    with dissolve
+    Pr "That's why you brought your big man over here?"
+    label re_d7a217:
+        scene d7a-217
+        with dissolve
+    Pr "{i}You're kidding, right?"
+    scene d7a-215
+    with dissolve
+    Pr "You can do what you want, but I won't take back what I said."
+    scene d7a-216
+    with dissolve
+    Pr "Zeta is run by a cruel and self-serving bitch."
+    scene d7a-218
+    with dissolve
+    Q "{i}*sighs*"
+    scene d7a-219
+    with dissolve
+    Q "[persistent.player_name!c], you wanted a reward for your hard work in Old Cairo?"
+    Q "Here it is..."
+    scene d7a-220
+    with dissolve
+    Q "I know how strong your hands can be. Feel free to not hold back with her."
+    Q "Someone needs a reminder on where they stand in the world."
+    scene d7a-219
+    with dissolve
+    Z "I agree with that."
+    scene d7a-221
+    play music "audio/music/zeta/deserts of arabia.mp3" fadeout 1
+    play sound "audio/sounds/actions/drop.mp3"
+    with vpunch
+    Pr "Holy shit..."
+    scene d7a-222
+    with dissolve
+    Q "W-what are you doing!?"
+    Z "You really can't help yourself, can you?"
+    scene d7a-223
+    with dissolve
+    Z "Wasting my time again and again, with trivial things you could demand off of any one of the guards."
+    scene d7a-224
+    with dissolve
+    Q "But... I am... the Que-"
+    scene d7a-226
+    with hpunch
+    Z "Enough of that; I know it is an act."
+    scene d7a-225
+    with dissolve
+    Z "Is this really why you dragged me in here?"
+    Z "Because you need help with some lowly public offender?"
+    scene d7a-226
+    with dissolve
+    Q "Why can't you just... behave like the rest..."
+    scene d7a-227
+    with dissolve
+    Z "Are you sure you want me to?"
+    Q "..."
+    scene d7a-228
+    with dissolve
+    Zw "I know why you really brought me here..."
+    scene d7a-229
+    with dissolve
+    Zw "...why you keep provoking me..."
+    scene d7a-230
+    with dissolve
+    Zw "...and why you left the guards outside."
+    menu:
+        "Grope her":
+            $ d7a_queen_groped = True
+            Zw "You rarely meet people who stand up to you, people like this girl, or me..."
+            scene d7a-231
+            with dissolve
+            Zw "...and you sense danger, which makes you curious."
+            scene d7a-233
+            with dissolve
+            Qw "You can't just... nh..."
+            Zw "I can't what? Feel you up?"
+            scene d7a-232
+            with dissolve
+            Zw "I don't see what is stopping me."
+            Qw "No one... ever dared..."
+            scene d7a-234
+            with dissolve
+            Zw "I have some advice for you."
+            scene d7a-235
+            with dissolve
+            Zw "If you really want this working relationship to function..."
+            scene d7a-236
+            with Dissolve(0.25)
+            Qw "Ah..."
+            scene d7a-235x
+            with dissolve
+            Zw "Try showing some respect and learn to differentiate between your underlings."
+            scene d7a-237
+            with dissolve
+            Zw "And not just in private."
+            Q "..."
+            "You hear muffled voices from outside."
+            G "My Queen? Is everything alright?"
+            jump d7a238
+
+        "Just scold her":
+            Zw "I have some advice for you."
+            Zw "If you really want us to work together..."
+            scene d7a-226
+            with dissolve
+            Zw "Show some respect, and not just in private."
+            Q "..."
+            "You hear muffled voices from outside."
+            G "My Queen? Is everything alright?"
+            jump d7a238
+
+label d7a238:
+    scene black pic
+    play music "audio/music/background/horror ambience.mp3" fadeout 2
+    with fade
+    "You let go of her..."
+    play sound "audio/sounds/doors/squeaky door.mp3"
+    scene d7a-238
+    with fade
+    G "My Queen, it went really quiet in here, for a minute."
+    scene d7a-239
+    with dissolve
+    G "Did something happen?"
+    scene d7a-240
+    with fade
+    Q "Yes. I was... inconvenienced again."
+    scene d7a-241
+    with dissolve
+    Q "..."
+    scene d7a-242
+    with dissolve
+    Q "But Stalker [persistent.player_name] stepped in to put an end to it..."
+    scene d7a-243
+    with dissolve
+    "You smile confidently at her..."
+    Pr "Wait what!? I didn't do anything?!"
+    scene d7a-244
+    with dissolve
+    G "Quiet prisoner, or I'll rip out your tongue myself!"
+    scene d7a-244x
+    with dissolve
+    G "What should we do with her, my Queen?"
+    scene d7a-244x-2
+    with dissolve
+    Q "There is only one thing she deserves now."
+    scene d7a-244x-3
+    with dissolve
+    Sh "I know exactly what you have in mind, my Queen..."
+    scene d7a-246
+    with dissolve
+    Q "Stalker [persistent.player_name] may stay, if he so desires."
+    scene d7a-247
+    with dissolve
+    Q "Now, guard, as you see, I am perfectly safe. Go back to standing guard outside."
+    G "Yes, my Queen."
+    Q "Sharifa, prepare the prisoner."
+    Sh "With pleasure."
+    scene black pic
+    with fade
+    "As the one guard leaves, the other drags the prisoner out of her cage and chains her up..."
+    scene d7a-248
+    with fade
+    Q "Hmm, Sharifa..."
+    scene d7a-249
+    with dissolve
+    Q "I always valued your discipline."
+    Q "Bringing justice to these lands without a second thought on what must be done..."
+    Q "It has been a long time since we last had a private moment, hasn't it?"
+    scene d7a-250
+    with dissolve
+    Sh "I am at hand whenever you need me."
+    Q "Oh, I know that..."
+    scene d7a-251
+    with dissolve
+    Q "Say... have you had any issues lately?"
+    Q "You seem more tense than usual."
+    scene d7a-252
+    with dissolve
+    Q "I can send some slaves to your house if you feel stressed..."
+    Sh "I thank you, but I would rather like to punish this prisoner for what she did to you."
+    scene d7a-253
+    with dissolve
+    "The Queen steps in front of the prisoner..."
+    Pr "I didn't do shit, you're punishing the wrong person!"
+    Pr "It was the Stalker who put her against the wall!"
+    scene d7a-254
+    with dissolve
+    if d7a_queen_groped == True:
+        Pr "And you know what else he did?!"
+        Pr "He actually went ahead and groped her tits!"
+    Pr "And by her reaction, I think she enjoyed it!"
+    scene d7a-255
+    with dissolve
+    Pr "Oh, my Queen, don't look at me like that."
+    scene d7a-256
+    with dissolve
+    Pr "I thought you a prude and arrogant, but turns out it's all a farce."
+    Pr "Seeing the Queen of Zeta getting all shy and put in her place was the hottest thing I've seen in my life..."
+    Pr "That would make a good story, in the taverns of Zeta."
+    Pr "Hey Stalker, you should come here more often."
+    Pr "I bet you're the kind of dick who enjoys beating arrogant stuck up people like her."
+    scene d7a-257
+    with hpunch
+    Sh "ENOUGH."
+    Pr "Agh-"
+    Sh "Even Stalker [persistent.player_name] knows his limits, and you're talking heresy. You want me to believe that holy Merneith would allow that to happen?"
+    Sh "You're lying, insulting the sanctity of the throne, and you will be executed tomorrow."
+    scene d7a-258
+    with dissolve
+    Q "I appreciate it, Sharifa."
+    Q "But you don't run a city by killing off all dissidents."
+    scene d7a-259
+    with dissolve
+    Q "No... there is another method to convince her of the error of her judgement..."
+    Q "...and while it may not be as effective, it is certainly more fun to watch."
+    Pr "You really think punishing me will change me?"
+    scene d7a-260
+    with dissolve
+    Q "Maybe not by tonight..."
+    Q "But you will stay here as long as it takes."
+    scene d7a-261
+    with dissolve
+    Sh "You saw what she did earlier and you heard about her protest."
+    Sh "Do you want to take the lash to her, or shall I?"
+    scene d7a-262
+    with dissolve
+    menu:
+        "\"I will do it.\"":
+            jump d7apunishment
+
+        "\"She does not deserve this.\"":
+            jump d7aimmoral
+
+        "\"I don't have the time to do it.\"":
+            jump d7arefuse
+
+label d7apunishment:
+    Z "I will do it. Where do I find the tools?"
+    scene black pic
+    with fade
+    "She points to a locker at the entrance. You take out a lash..."
+    scene d7a-263
+    with fade
+    Sh "Don't hold back, Stalker."
+    scene d7a-264
+    with dissolve
+    Sh "The things she dared say before she got arrested..."
+    Sh "She deserves all of it."
+    scene d7a-265
+    with dissolve
+    pause 0.5
+    scene d7a-266
+    with Dissolve(0.6)
+    pause 0.3
+    scene black pic
+    play sound "audio/sounds/objects/whipcrack 1.mp3"
+    with vpunch
+    Pr "Hrgh..."
+    scene black pic
+    play sound "audio/sounds/objects/whipcrack 2.mp3"
+    with vpunch
+    Pr "Agh-"
+    scene black pic
+    play sound "audio/sounds/objects/whip.mp3"
+    with vpunch
+    Pr "Haa..."
+    show d7a-267
+    play sound "audio/sounds/objects/whipcrack 1.mp3"
+    with vpunch
+    Q "Are you still so sure about what you saw earlier...?"
+    scene d7a-275
+    with dissolve
+    pause 0.5
+    scene d7a-267
+    play sound "audio/sounds/objects/whip.mp3"
+    with vpunch
+    Pr "Ngh..."
+    scene d7a-268
+    with dissolve
+    Q "You are getting excited, aren't you..."
+    scene d7a-269
+    play sound "audio/sounds/objects/whipcrack 2.mp3"
+    with vpunch
+    Q "What a filthy degenerate..."
+    scene d7a-270
+    with dissolve
+    Prw "{i}*chuckles*{/i} Oh majesty..."
+    Prw "From what I have seen today, you are a lot less pure than you would like people to believe..."
+    Prw "...and I will never forget that."
+    Qw "..."
+    scene d7a-275
+    with dissolve
+    pause 0.5
+    scene d7a-271
+    play sound "audio/sounds/objects/whip.mp3"
+    with vpunch
+    Prw "Ahh..."
+    Prw "But... you win... I..."
+    show d7a-271
+    play sound "audio/sounds/objects/whipcrack 1.mp3"
+    with vpunch
+    Prw "...will not... spread rumors... I swear... Enough, please."
+    Qw "There you go."
+    scene d7a-279
+    with dissolve
+    Zt "She seems to have reached her limit."
+    if persistent.forceplay == False:
+        jump d7a261
+    menu:
+        "End the punishment":
+            label d7a261:
+                Zt "She's had enough."
+            scene d7a-261
+            with dissolve
+            Sh "She swore to keep her mouth shut in the future."
+            Sh "Well done, Stalker."
+            scene d7a-288
+            with dissolve
+            Q "Yes... I agree."
+            scene d7a-289
+            with fade
+            Q "I knew you were the right person for the task."
+            Q "She will stay here for some time... her punishment is not over just."
+            Z "If we're done here, I will head back home now."
+            scene d7a-290
+            with dissolve
+            Q "You can go. Don't forget to tell your [persistent.da] about my request."
+            Q "Tell her the queen of Zeta wishes her a safe return."
+            Q "Until we meet again, [persistent.player_name]."
+            scene d7a-291
+            with dissolve
+            Z "Until we meet again."
+            jump d7a2end
+
+        "Keep going" if persistent.gore == True:
+            $ prisoner_hurt = True
+            scene d7a-265
+            with dissolve
+            Zt "Nah..."
+            scene d7a-273
+            play sound "audio/sounds/objects/whip.mp3"
+            with vpunch
+            Pr "Nhh..."
+            Q "Oh I'm so sorry..."
+            show d7a-269
+            play sound "audio/sounds/objects/whipcrack 1.mp3"
+            with vpunch
+            Q "We are done, but it seems like he isn't."
+            scene d7a-276
+            with dissolve
+            pause 0.5
+            scene d7a-272
+            play sound "audio/sounds/objects/whipcrack 1.mp3"
+            with vpunch
+            Pr "..."
+            scene d7a-265
+            with dissolve
+            pause 0.5
+            scene d7a-272
+            play sound "audio/sounds/objects/whipcrack 1.mp3"
+            with vpunch
+            Q "So pretty... but she's almost passed out."
+            scene d7a-276
+            with dissolve
+            pause 0.5
+            scene d7a-272
+            play sound "audio/sounds/objects/whipcrack 1.mp3"
+            with vpunch
+            Qw "She's so peaceful... when she's quiet."
+            scene d7a-261
+            with dissolve
+            Sh "I think she has had enough; you're overdoing it."
+            Sh "We don't want her dead."
+            scene d7a-278
+            with dissolve
+            Sh "You did a good job. She swore to not run her mouth in the future."
+            Zt "..."
+            menu:
+                "Use her":
+                    $ prisoner_used = True
+                    jump d7a277
+
+                "Finish":
+                    Z "Good. I need to head back home and finish the preparation."
+                    Sh "As you wish."
+                    scene d7a-288
+                    with dissolve
+                    Q "Sharifa, unchain her and put her back in the cage."
+                    Q "I want you to test whether she'll be true to her word, before releasing her."
+                    Sh "Of course, my Queen."
+                    scene d7a-289
+                    with fade
+                    Q "I didn't expect her to give in so quickly."
+                    Q "She will stay here for a while... I think only time will tell if the punishment needs to be repeated to ensure her compliance."
+                    Z "If that is all..."
+                    scene d7a-290
+                    with dissolve
+                    Q "Yes. Go home, Stalker."
+                    Q "Don't forget to tell your [persistent.da] about my request."
+                    Q "Tell her the queen of Zeta wishes her a safe return."
+                    Q "Until we meet again, [persistent.player_name]."
+                    scene d7a-291
+                    with dissolve
+                    Z "Until we meet again."
+                    jump d7a2end
+
+        "Use her":
+            $ prisoner_used = True
+            jump d7a277
+
+
+label d7a277:
+    scene d7a-277
+    with dissolve
+    Zt "Fuck it. I have waited long enough."
+    scene black pic
+    with fade
+    Z "Sharifa, pull up the chains and free her legs."
+    if prisoner_hurt == False:
+        Pr "What... are you..."
+        scene d7a-280
+        with hpunch
+        Pr "Ngh..?!"
+    if prisoner_hurt == True:
+        Sh "What is your plan?"
+        Z "Do as you're told."
+        scene d7a-281
+        with hpunch
+        Z "..."
+    scene d7a-282
+    with dissolve
+    "You keep taking her roughly..."
+    scene d7a-283
+    with dissolve
+    if prisoner_hurt == False:
+        Q "I am {i}so, so{/i} sorry what you're going through."
+        Q "But can you really blame him...?"
+        scene d7a-281
+        with dissolve
+        Pr "Nhh..."
+        scene d7a-284
+        with dissolve
+        Pr "{i}*chuckles*{/i} Are you... sure that..."
+        Pr "...you are not just jealous...?"
+    if prisoner_hurt == True:
+        Q "What a pity, you seem lost for words..."
+        Q "You won't even look me in the eyes anymore."
+        scene d7a-281
+        with dissolve
+        Pr "..."
+        scene d7a-284x
+        with dissolve
+        Q "To be honest [persistent.player_name], I didn't expect you would do this."
+        Q "But seeing her submit, quietly, makes it worth it..."
+    scene d7a-285
+    with dissolve
+    Sh "..."
+    Z "Don't look so distressed, Sharifa."
+    scene d7a-286
+    with dissolve
+    Z "I think I earned this."
+    if prisoner_hurt == False:
+        scene d7a-273
+        with dissolve
+        Pr "Nh... ah..."
+        Zt "I can feel she's enjoying it very much."
+        Pr "I..."
+        scene d7a-272
+        with flash
+        Pr "Hngh..."
+        Zt "Fuck..."
+        scene d7a-287
+        with flash
+        Pr "..."
+        Zt "I needed this, to vent."
+        scene black pic
+        with fade
+        "As you put her on the floor and get up, so does the Queen..."
+        scene d7a-289x
+        with fade
+        Q "I didn't expect that, but..."
+        Q "I guess you were successful."
+        scene d7a-290
+        with dissolve
+        Q "I will keep her here for some time to see if she keeps her word."
+        Z "I need to head back home now."
+        scene d7a-291
+        with dissolve
+        Q "You do... Don't forget to tell your [persistent.da] about my request."
+        Q "Tell her the queen of Zeta wishes her a safe return."
+        Q "Until we meet again, [persistent.player_name]."
+        scene d7a-291
+        with dissolve
+        Z "Until we meet again."
+        jump d7a2end
+
+    if prisoner_hurt == True:
+        scene d7a-273
+        with dissolve
+        Pr "Nh... ah..."
+        Zt "I can feel she's enjoying it very much."
+        Pr "I..."
+        scene d7a-272
+        with flash
+        Pr "Hngh..."
+        Zt "Fuck..."
+        scene d7a-287
+        with flash
+        Pr "..."
+        Zt "I needed this to vent."
+        scene black pic
+        with fade
+        "As you put her on the floor and get up, so does the Queen..."
+        scene d7a-289x-2
+        with fade
+        Q "She will need time to recover, you did well."
+        scene d7a-290
+        with dissolve
+        Q "I assume that you couldn't hold back after the earlier... incident?"
+        Z "That is correct."
+        scene d7a-290x
+        with dissolve
+        Q "I see..."
+        scene d7a-291
+        with dissolve
+        Q "Anyways... Don't forget to tell your [persistent.da] about my request."
+        Q "Tell her the queen of Zeta wishes her a safe return."
+        Q "Until we meet again, [persistent.player_name]."
+        scene d7a-291
+        with dissolve
+        Z "We will meet again."
+        jump d7a2end
+
+label d7aimmoral:
+    $ d7a_immoral_punishment = True
+    Z "She does not deserve this, the punishment is excessive."
+    Z "I am leaving."
+    scene d7a-288
+    with dissolve
+    if d5d_deserved_torture == True:
+        Q "Interesting... when it comes to punishments, you and your [persistent.da] certainly have your differences."
+    if d5d_deserved_torture == False:
+        Q "I see... so wanting to preserve the moral ground runs in the family after all."
+        Q "That's a luxury that not everyone has."
+    Q "It is your turn then, Sharifa."
+    Sh "With pleasure."
+    scene d7a-290
+    with fade
+    Q "You are mature and wise... you know how she would be treated in other places."
+    Q "If my punishment is too light, they will not take me seriously, and no ruler can afford that."
+    scene d7a-290x
+    with dissolve
+    Q "Might makes right, Stalker, but might must be exercised regularly, or the jackals will raise their heads all too soon..."
+    scene d7a-291
+    with dissolve
+    Q "Don't forget to tell your [persistent.da] about my request."
+    Q "Tell her the queen of Zeta wishes her a safe return."
+    Q "Until we meet again, [persistent.player_name]."
+    Z "Until we meet again."
+    jump d7a2end
+
+label d7arefuse:
+    Z "I can't. I need to head back home and finish the preparations."
+    Sh "As you wish."
+    scene d7a-288
+    with dissolve
+    Q "It is your turn then, Sharifa."
+    Sh "With pleasure."
+    scene d7a-289
+    with fade
+    Q "Sharifa is experienced at this, she will fill in for you."
+    scene d7a-289x
+    with dissolve
+    Q "It's still a shame, I would've liked to see you do it."
+    scene d7a-290
+    with dissolve
+    Q "Don't forget to tell your [persistent.da] about my request."
+    Q "Tell her the queen of Zeta wishes her a safe return."
+    Q "Until we meet again, [persistent.player_name]."
+    Z "Until we meet again."
+    jump d7a2end
+
+label d7a2end:
+    $ renpy.end_replay()
+    scene black pic
+    with slowfade
+    "You leave the palace and return back home."
+    "On the way, you reflect on the queen's words. You believe she was at least sincere in hoping for [S]'s' safety."
+    jump mission_end
+
+
+
+label d7b:
+    $ m_d7b = True
+    $ daily_emilia = True
+    scene black pic
+    with fade
+    "As you walk across the hallways of your residence, you hear a faint but angelic voice from one of the rooms..."
+    scene d7b-1x
+    with fade
+    C "...No vil me snu våre..."
+    Zt "This is the maid's room. Is that Emilia singing?"
+    scene black pic
+    with fade
+    "You peek inside..."
+    scene d7b-2
+    with fade
+    E "...fyr ein fulltakjen gut..."
+    scene d7b-4
+    with dissolve
+    E "...som tek på ei reise..."
+    scene d7b-1
+    with dissolve
+    E "...og inkje hell’e ut-"
+    scene d7b-3
+    with dissolve
+    E "...?"
+    scene d7b-5
+    with fade
+    E "Oh, Master, I'm terribly sorry. I didn't notice you coming in!"
+    E "I will be with you in a moment."
+    if emilia_love >= emilia_sub:
+        Z "Don't worry about it. Take your time."
+        scene d7b-5x
+        with dissolve
+        E "I... yes."
+        scene black pic
+        with fade
+        "She fixes her clothes and comes over to you..."
+        scene d7b-6x
+        with fade
+        E "Hello Master, it's good to see you."
+        scene d7b-8x
+        with dissolve
+        E "Mistress [W] allowed me to place a suitable seat in my room, in case you decided to visit me."
+        Z "That's very considerate of you both."
+    if emilia_sub > emilia_love:
+        Z "..."
+        scene black pic
+        with fade
+        "She immediately stops what she was doing and hastily rushes over to you..."
+        scene d7b-6
+        with fade
+        E "Hello Master, thank you for visiting me."
+        E "How may I be of service?"
+        Z "..."
+        "Maintaining her pose, she is waiting for your signal..."
+        Zt "She reacted quickly, without embarrassment or taking time for decency. I can't say she isn't disciplined."
+        Z "You can get up; and cover yourself."
+        scene d7b-7
+        with dissolve
+        E "Yes, Master."
+        scene d7b-8
+        with dissolve
+        Z "I will take a seat."
+    scene black pic
+    with fade
+    "You sit down..."
+    scene d7b-9
+    with fade
+    E "I'm sorry for not wearing my usual dress, but Mistress also told me to try on this lingerie in what free time I have, to better serve you with."
+    if emilia_love >= emilia_sub:
+        Z "Don't be sorry, you couldn't have known I would visit you."
+        Z "I gave you a room to yourself because I know a maid's job isn't easy. During your breaks you can wear whatever you want."
+    if emilia_sub > emilia_love:
+        Z "Aren't you on your break?"
+        E "Yes, Master."
+        Z "Then you are not breaking any rules."
+        Z "Kneel."
+    scene black pic
+    with fade
+    "She kneels down at your feet."
+    scene d7b-10
+    with fade
+    pause 1.5
+    scene d7b-14
+    with dissolve
+    E "Thank you again for gifting me some privacy, Master."
+    if emilia_love >= emilia_sub:
+        scene d7b-13
+        with dissolve
+        Z "It was my decision, yes."
+        Z "But my family stands by the decision."
+        Z "My wife may be a taskmaster to you, but she is not cruel. If you serve us well, we both agree that you should be rewarded, feel safe and be comfortable in this house."
+        Z "Keep that in mind."
+        scene d7b-14
+        with dissolve
+        E "I do, Master."
+        scene d7b-11
+        with dissolve
+        Zt "What she is wearing was clearly picked with her colours in mind."
+        scene d7b-12
+        with dissolve
+        Zt "[W] proves herself to be as tasteful as ever."
+        scene d7b-15
+        with dissolve
+        Z "I notice you have brought some alterations to the room."
+        E "Yes, I enjoyed bringing a personal touch to this place."
+        Z "You did a good job."
+        E "Thank you, Master."
+
+    if emilia_sub > emilia_love:
+        scene d7b-15
+        with dissolve
+        Z "Did you redecorate the room?"
+        E "Yes, Master; the Mistress allowed me to."
+        E "I also prepared this seat for you, in case you decided to visit me."
+        E "I hope you find it suitable."
+        Z "I do."
+        scene d7b-11
+        with dissolve
+        Zt "[W] has chosen the right colours to match Emilia's natural pallor."
+        scene d7b-12
+        with dissolve
+        Zt "A girl like her is a rarity in these lands."
+        Zt "She will make a great impression on my future guests."
+        
+    scene d7b-17
+    with dissolve
+    Z "You were singing a song before I came in."
+    Z "What language was that? I have not heard it before."
+    scene d7b-16
+    with dissolve
+    E "Oh... it's...just a song my mother taught me, back when I was younger."
+    E "I only understand a few words of it... she always said it's a song from our home land."
+    jump d7b13
+
+label d7b13:
+    if  emilia_love >= emilia_sub:
+        scene d7b-13
+        with dissolve
+    if emilia_sub >= emilia_love:
+        scene d7b-17
+        with dissolve
+    menu:
+        "\"What do you mean by your home land?\"" if d7b_question_a == False:
+            $ d7b_question_a = True
+            if emilia_love >= emilia_sub:
+                Z "What do you mean by your home land?"
+                Z "Were you born outside of Egypt?"
+                scene d7b-18
+                with dissolve
+                E "Oh no, I was born here, somewhere in the north west of the region."
+                E "But my mother told me that the song is important for our people's history."
+                scene d7b-19
+                play music "audio/music/exploration/emilias theme short.mp3" fadeout 9
+                with dissolve
+                E "She made sure to teach it to me, like her mother taught it to her..."
+                E "...said it was important that we don't forget where we come from originally."
+                scene d7b-17
+                with dissolve
+                Z "Where are these lands? Did your people come here before your mother was born?"
+                scene d7b-18
+                with dissolve
+                E "She said that it was a place far up north of Europe, as far as you can go, and that no one else came from there since the skies turned red..."
+                E "...but that maybe one day we will return to those lands."
+                scene d7b-17
+                with dissolve
+                Z "It has been many centuries since then."
+                scene d7b-19
+                with dissolve
+                E "For a long time after the war, they say there was a village, right here in Egypt, where the language of the song was commonly known and used."
+                scene d7b-16
+                with dissolve
+                E "But eventually... that place was raided, and everything changed."
+                E "She always painted a picture of how it looked there, based on the tales."
+                scene d7b-21
+                with longflash
+                E "Tales of frozen lakes, so frozen that you can even walk on them."
+                scene d7b-22
+                with Dissolve(1.0)
+                E "Then there are mountains, and a blue sky that pierces through it and stretches across the horizon."
+                scene d7b-23
+                with Dissolve(1.0)
+                E "The air is very cold, not warm like here, and there is snow, as far as the eyes can see."
+                E "Have you ever seen snow, Master?"
+                Z "I have, but only in one of the Zones I visited."
+                Z "It was impure... and toxic."
+                E "My mother said that the snow in our land is white and clean."
+                E "She said it often falls from the sky, and that it feels funny when it falls on your tongue. This is what she was told."
+                scene d7b-20
+                with Dissolve(1.0)
+                E "And even though we were never there, and never crossed the sea up North..."
+                E "...I can imagine it very well... being there."
+                scene d7b-16x
+                play music "audio/music/home/dream town.mp3" fadeout 13
+                with longflash
+                E "..."
+                scene d7b-19
+                with dissolve
+                E "I'm sorry for rambling, Master..."
+                E "I just sometimes can't help thinking about it."
+                jump d7b13
+            if emilia_sub > emilia_love:
+                Z "What do you mean by your home land?"
+                Z "Were you born outside of Egypt?"
+                scene d7b-18
+                with dissolve
+                E "No, I was born in these lands, somewhere in the north west."
+                E "My mother told me that the song is important for our people's history."
+                scene d7b-19
+                with dissolve
+                E "She made sure to teach it to me, like her mother taught it to her..."
+                E "...said it was important that we don't forget where we come from."
+                scene d7b-16
+                with dissolve
+                E "But that was a long time ago."
+                E "It shouldn't concern you, Master."
+                scene d7b-18
+                with dissolve
+                jump d7b13
+        "\"The song sounded very calming.\"" if d7b_question_b == False and d7b_question_d == False and (emilia_love >= emilia_sub):
+            $ d7b_question_b = True
+            Z "The song sounded very comforting."
+            scene d7b-19
+            with dissolve
+            E "I... don't know if everyone sang it like this."
+            scene d7b-16
+            with dissolve
+            E "But she did, back then... when she was trying to comfort me."
+            scene d7b-14
+            with dissolve
+            E "But enough about me, it's just a song after all."
+            Z "It is not just a song for you."
+            scene d7b-17x
+            with dissolve
+            Z "You said she tried to comfort you?"
+            scene d7b-16
+            with dissolve
+            E "We didn't..."
+            scene d7b-16x
+            with dissolve
+            "You can see that it is difficult for her to talk about this."
+            scene d7b-18
+            with dissolve
+            E "Not every Master is like you."
+            scene d7b-19
+            with dissolve
+            E "My first master wasn't as benevolent."
+            scene d7b-24
+            with longflash
+            E "Back then, I did not understand why he would treat me like he did."
+            E "We were always very fearful when he would come home, because even though we did everything he asked us to do, it was never enough."
+            scene d7b-25
+            with Dissolve(1.0)
+            E "Every time he left, I knew that the next time I would see him, his mood would still be just as dark."
+            E "I was feeling helpless and there seemed to be no solution to our misery."
+            scene d7b-26
+            with Dissolve(1.0)
+            E "That is when she would sing to me, telling stories about those far off lands."
+            E "Tales of conquered adversity and proud people. It made things more bearable."
+            scene d7b-18
+            with longflash
+            E "But I didn't have it so bad for very long."
+            scene d7b-29
+            with longflash
+            E "When I was sold to someone in this city, things changed."
+            E "I have had it much better, all things considered."
+            E "I am still a slave; it's all I know anyway. But even someone like me knows the difference between a good and a bad owner."
+            scene d7b-28
+            with dissolve
+            E "And sometimes the Mistress had special requests."
+            scene d7b-27
+            with dissolve
+            E "But she was more predictable, and I didn't have fear anymore."
+            E "I still keep singing the song, but it has a different meaning now."
+            scene d7b-17
+            with longflash
+            jump d7b13
+        "\"It's indeed a pretty song.\"" if d7b_question_bx == False and d7b_question_d == False and (emilia_sub > emilia_love):
+            $ d7b_question_bx = True
+            Z "It's indeed a pretty song."
+            scene d7b-14
+            with dissolve
+            E "My previous Mistress liked it too, if it pleases you I can keep signing it for you Master."
+            scene d7b-13
+            with dissolve
+            Z "Your previous Mistress? You mean the Queen?"
+            scene d7b-18
+            with dissolve
+            E "Yes Master. She was strict but fair, much like you..."
+            scene d7b-19
+            with dissolve
+            E '...although she had some "special" requests from time to time...'
+            jump d7b13
+        "\"What meaning? Do you still want to be free?\"" if d7b_question_c == False and d7b_question_b == True:
+            $ d7b_question_c = True
+            Z "What meaning? Do you still want to be free?"
+            scene d7b-17x
+            with dissolve
+            E "..."
+            "She pauses, seemingly surprised about your question..."
+            scene d7b-18
+            with dissolve
+            E "I've never been asked that question before."
+            scene d7b-16
+            with dissolve
+            E "It never crossed my mind, really."
+            E "My mother and I grew up as servants. She had no memory of things being any different before, from the stories of her mother."
+            scene d7b-19
+            with dissolve
+            E "But I don't mind how things turned out in the end."
+            E "I would not know how to live for myself, and being here, I don't know that I want to."
+            E "And I have not been serving you for long, but you have treated me fairly from the beginning, gave me my own space, and have been very kind."
+            scene d7b-16
+            with dissolve
+            E "I can understand why the girls like living with you..."
+            scene d7b-18
+            with dissolve
+            E "...and I hope I can repay you adequately for your favour."
+            $ emilia_love += 1
+            jump d7b13
+        "\"She was much like me, hm?\"" if d7b_question_cx == False and d7b_question_bx == True:
+            $ d7b_question_cx = True
+            Z "You say she was much like me, hm?"
+            scene d7b-14
+            with dissolve
+            E "Yes Master. I have not been serving you for long, but you have given me clear rules from the start, told me how things are, and treated me fairly."
+            scene d7b-18
+            with dissolve
+            E "I can rest well at night, knowing this."
+            jump d7b13
+        "\"Tell me about the Mistresses special requests.\"" if (d7b_question_d == False and d7b_question_b == True) or (d7b_question_d == False and d7b_question_bx == True):
+            $ d7b_question_d = True
+            Z "Tell me about the Mistresses special requests."
+            scene d7b-18
+            with dissolve
+            E "Whenever her orders were going to be special or even confusing, she would hold up her hand in a way."
+            scene d7b-16
+            with dissolve
+            E "She would want me to come over without saying a word... feel my mouth... and whisper her orders to me... reminding me of my place."
+            scene d7b-16x
+            with dissolve
+            menu:
+                "Raise your hand":
+                    scene d7b-34
+                    with dissolve
+                    E "...?"
+                    scene d7b-35
+                    with dissolve
+                    Z "Like this?"
+                    scene d7b-36
+                    with dissolve
+                    E "Yes, Master... Like this."
+                    scene d7b-37
+                    with dissolve
+                    Z "..."
+                    "You look at her expectingly..."
+                    scene d7b-38
+                    with dissolve
+                    E "..."
+                    scene d7b-39
+                    with dissolve
+                    E "..."
+                    Z "Hmm..."
+                    menu:
+                        "Agree on a new rule":
+                            $ emilia_new_rule = True
+                            $ emilia_love += 1
+                            Zw "You are the most beautiful maid in this city."
+                            Zw "I think showing that to my future guests would be the right thing to do..."
+                            Zw "What do you think?"
+                            scene d7b-40
+                            with dissolve
+                            E "..."
+                            scene d7b-41
+                            with dissolve
+                            Zw "I think that's a yes."
+                            scene d7b-42
+                            with dissolve
+                            Zw "It will be simple. Whenever I give you the signal, you will quietly come to me. No matter what you're doing at the moment."
+                            scene d7b-43
+                            with dissolve
+                            Zw "It's a discrete solution, and allows me to not have to raise my voice."
+                            scene d7b-41
+                            with Dissolve(1.0)
+                            pause 0.7
+                            scene d7b-40
+                            with dissolve
+                            pause 0.7
+                            scene d7b-39
+                            with dissolve
+                            Zw "You can sit down again."
+                            scene black pic
+                            with fade
+                            "She follows your orders..."
+                            jump d7b13
+
+                        "Dictate a new rule":
+                            $ emilia_new_rule = True
+                            $ emilia_sub += 1
+                            Zw "From now on, whenever I raise my hand, you will come to me... without a sound."
+                            scene d7b-40
+                            with dissolve
+                            Zw "And your head will stay in my hand until I give you your task, which you will execute without delay."
+                            scene d7b-41
+                            with dissolve
+                            Zw "I want to show everyone that this beautiful maid belongs to me."
+                            scene d7b-42
+                            with dissolve
+                            E "{i}*licking*"
+                            scene d7b-43
+                            with dissolve
+                            Zw "Good slave."
+                            scene d7b-41
+                            with Dissolve(1.0)
+                            pause 0.7
+                            scene d7b-40
+                            with dissolve
+                            pause 0.7
+                            scene d7b-39
+                            with dissolve
+                            Zw "That's enough."
+                            scene black pic
+                            with fade
+                            "She sits back down..."
+                            jump d7b13
+
+                "Don't":
+                    jump d7b13
+
+        "End the conversation":
+            if shani_zone == False:
+                play sound "audio/sounds/doors/door shut.mp3"
+                S "[persistent.dad!c]?"
+                scene d7b-32
+                with dissolve
+                S "There you are..."
+                "She walks up to you..."
+                scene d7b-30
+                with dissolve
+                S "..."
+                Z "..."
+                S "..."
+                Z "Yes?"
+                scene d7b-31
+                with dissolve
+                S "[persistent.mom!c] said I have to go and buy groceries."
+                scene d7b-31x
+                with dissolve
+                Z "Such a tragedy."
+                scene d7b-31x-2
+                with dissolve
+                S "You know I hate it."
+                scene d7b-31x-3
+                with dissolve
+                S "Emilia knows best what we need to buy."
+                S "Can I have her for a while?"
+                scene d7b-31x-4
+                with dissolve
+                Z "Sure, we were done anyway."
+                scene d7b-14
+                with dissolve
+                E "See you soon, Master."
+            elif shani_zone == True:
+                Z "Well, this has been interesting, but we should get back to make something of today."
+                scene d7b-14
+                with dissolve
+                E "See you soon, Master."
+            if not _in_replay:
+                $ sq_e_1.advance()
+                $ sq_e_1.resolution = _("I found out a bit more about Emilia's past. She seems to be opening up slowly.")
+            scene black pic
+            with fade
+            if shani_zone == False:
+                "The three of you leave the room and part ways."
+            elif shani_zone == True:
+                "The two of you leave the room and part ways."
+            jump mission_end
+
+label d7c:
+    $ daily_side_mission = True
+    $ m_d7c = True
+    play music "audio/music/zeta/city music.mp3" fadeout 4
+    scene d7c-1
+    with slowfade
+    "You reach the market. The weather is nice and people are strolling around and having a good time."
+    "As you look for things to buy, you and [W] stop by Igor's stall..."
+    scene d7c-2
+    with slowfade
+    C "I'm serious, the legates are heading out tonight."
+    C "I wish I could stay, but I have to accompany them."
+    scene d7c-3
+    with slowfade
+    W "This sounds great, Igor. I'm so happy for you!"
+    scene d7c-4
+    with slowfade
+    W "I guess the lonely nights are over then, right?"
+    scene d7c-5
+    with dissolve
+    Ig "Haha, you could say."
+    Ig "But merchant always spends lonely nights with camels even so."
+    scene d7c-6
+    with slowfade
+    W "So, what exactly does she do for a living?"
+    Zt "[W] looks so young when she does herself up like in the old days."
+    Zt "I would love to let her know just how she makes me feel right now, but..."
+    scene d7c-7
+    with dissolve
+    Zt "I guess now is not the time."
+    scene d7c-8
+    with dissolve
+    Zt "Even when we don't talk, Kateryna reaches for my arm every time we meet."
+    scene d7c-9
+    with dissolve
+    Zt "Not that I'm complaining..."
+    scene d7c-10
+    with dissolve
+    pause 1.5
+    scene d7c-11
+    with dissolve
+    pause 1.5
+    scene d7c-12
+    with dissolve
+    Ka "..."
+    scene d7c-13
+    with dissolve
+    "They keep on chatting..."
+    Zt "I love Igor, but now we're just wasting time..."
+    scene d7c-14
+    with dissolve
+    Zt "..."
+    scene d7c-15
+    with dissolve
+    Zt "Wait, isn't that..."
+    Z "Hey [W], guess who's here."
+    scene d7c-16
+    with dissolve
+    W "Mhh?"
+    scene d7c-18
+    with dissolve
+    W "Kateryna? Hello girl..."
+    Z "Not what I meant...Look behind you, the woman in green."
+    scene d7c-17
+    with dissolve
+    W "Huh?"
+    W "No way!"
+    scene d7c-18
+    with dissolve
+    W "It's Rabiah!"
+    scene d7c-19
+    with dissolve
+    W "Kateryna, Igor, it was nice to speak to you, but... that's my sister. I have to go."
+    scene d7c-20
+    with dissolve
+    W "[persistent.player_name!c], please come with me."
+    scene black pic
+    with fade
+    "You say goodbye to Kateryna and Igor and follow your wife..."
+    W "Sister!"
+    Ra "[W]?"
+    W "It's good to see you; I didn't expect you here!"
+    Ra "Come here; let me hug you."
+    scene d7c-21
+    with fade
+    W "So you finally moved back?"
+    Ra "{i}*chuckles* Yes, we did."
+    scene d7c-22
+    with dissolve
+    W "You have been in the village for so long..."
+    scene d7c-24
+    with dissolve
+    W "I really missed having you around."
+    scene d7c-25
+    with dissolve
+    Ra "Aww, don't be like that. I am back now, aren't I?"
+    scene d7c-23
+    with dissolve
+    "They give each other a brief kiss..."
+    scene d7c-24
+    with dissolve
+    W "So... how are you all doing?"
+    Z "Hello Omar, long time no see."
+    scene d7c-26
+    with fade
+    Zt "I'd forgotten his limp handshake."
+    Zt "It's like I'm holding a wet sausage..."
+    scene d7c-27
+    with dissolve
+    Om "Hello [persistent.player_name], it's been a while."
+    scene d7c-28
+    with dissolve
+    Z "How are you holding up? Did you move your business to the city or did you leave it in the village?"
+    scene d7c-29
+    with dissolve
+    Om "{i}*chuckles*{/i} Of course I moved it here. It will be harder to keep a connection with the outside tribes from now on, but I should manage."
+    Om "How is working for the Queen going for you?"
+    scene d7c-28
+    with dissolve
+    Z "I don't work for the Queen, I work {i}with{/i} her."
+    Z "But tell me, how's the family doing? Kian and Nadia must be excited to live here now."
+    scene d7c-27
+    with dissolve
+    Om "They are. The kids growing up is one of the main reasons Rabiah insisted on moving back here."
+    Om "I'm a bit worried about little Nadia, to be honest. The city could give her some... improper ideas."
+    scene d7c-30
+    with dissolve
+    Om "She's growing up fast as well, that one. She has been behaving differently recently..."
+    scene d7c-31
+    with dissolve
+    Ra "She's just going through a phase at the moment."
+    Ra "And you seem to have lost track of her again. We should go and look for her."
+    Ra "[W] tells me the market isn't always safe."
+    scene d7c-32
+    with dissolve
+    Ra "Hello, [persistent.player_name]."
+    scene d7c-33
+    with dissolve
+    Z "Hey [Ra], it's been too long."
+    scene d7c-34
+    with dissolve
+    W "[persistent.player_name!c], is it okay if [Ra] and I go and look for Nadia?"
+    scene d7c-35
+    with dissolve
+    Z "Sure, we will wait here for you."
+    scene d7c-36
+    with fade
+    "The sisters wander off, still chatting..."
+    scene d7c-37
+    with fade
+    Om "You are really lucky [W] found you, [persistent.player_name]. It looks like your wife never ages."
+    Om "I see she likes to dress quite liberally too. {i}*laughs awkwardly*"
+    scene d7c-38
+    with dissolve
+    menu:
+        "\"Luck is only a part of it; I make her feel appreciated.\"":
+            Z "Hm, you think so?"
+            scene d7c-42
+            with fade
+            Z "Let me tell you something."
+            scene d7c-43
+            with dissolve
+            Zw "I was going to ignore your attempt at belittling my rank, but now you're also telling me that finding her was just dumb luck, and that doesn't sit well with me."
+            Zw "I am not lucky, I work for my success."
+            Zw "My wife didn't find me, I chose her."
+            Zw "I make her feel appreciated. She likes to take care of herself, for herself and for me."
+            scene d7c-44
+            with dissolve
+            "You tap him on the chest..."
+            scene d7c-45
+            with dissolve
+            Zw "If you must be obnoxious, I suggest you keep your comments to yourself if you want us to get along."
+            Zw "Just so we understand one another."
+            Om "S-sure, we can agree on this..."
+            jump d7c46
+
+        "\"She's great, especially in bed. Your wife isn't bad either. I remember her...\"":
+            Z "She's great, I agree. In all these years, she's always been the perfect wife, in bed too, even now."
+            Z "But your wife isn't bad either, I don't know why you're so jealous."
+            Z "I remember her being a wildcat when I was with her. Surely that hasn't changed much?"
+            scene d7c-39
+            with dissolve
+            "He looks uncomfortable..."
+            Om "Oh, uh, yes, I guess."
+            scene d7c-40
+            with dissolve
+            Om "I don't really want to impose on her too much. We are not as young as we were, and I like to treat her with respect."
+            scene d7c-41
+            with dissolve
+            Z "Ah, well, she does look a bit more relaxed, I guess, compared to the last time I saw her..."
+            Z "Even dresses much more conservatively than I remember, now that I notice."
+            Zt "Wimp."
+            jump d7c46
+
+label d7c46:
+    scene d7c-46
+    with dissolve
+    $ persistent.met_nadia = True
+    Z "Oh, look who's back."
+    Ra "I told you I don't want you strolling around the market like that."
+    Ra "You've heard what happened to your cousins!"
+    Na "Yeah, yeah, mother."
+    Na "One incident in a century, and suddenly everyone loses their shit."
+    scene black pic
+    with fade
+    "They come over..."
+    Na "Damn! I haven't seen you in ages!"
+    scene d7c-47
+    with fade
+    Na "Hey uncle, good to see you."
+    Z "Is that really you, little Nadia?"
+    Z "I almost didn't recognize you without your ponytails."
+    Na "Those have been gone a long time now."
+    scene d7c-48
+    with fade
+    "You fistbump her..."
+    scene d7c-49
+    with dissolve
+    Na "You still remember me."
+    scene d7c-50
+    with dissolve
+    Z "Of course. Why would I forget my niece?"
+    scene d7c-51
+    with dissolve
+    Na "I think we have a lot to catch up on."
+    scene d7c-52
+    with dissolve
+    Na "Dad, tell mom I'm showing uncle something."
+    Na "We'll be right back."
+    Om "Sure, I guess. Try to not do a-"
+    Na "Yeah yeah, I won't do anything weird, I know..."
+    scene black pic
+    with fade
+    "You separate from your respective families..."
+    scene d7c-53
+    with fade
+    Na "I swear, if he would just get the stick out of his ass for a minute, we'd all be happier for it..."
+    Na "But no, all he does is act like a whiny bore all day long. He even forbids me to go out and have fun, can you believe it?"
+    Na "You don't know how glad I am that we finally left the village. If he had it his way, we'd still be in that boring dump."
+    Na "I have no idea what mom still sees in him."
+    menu:
+        "Look at her ass":
+            $ d7c_nadia_stared = True
+            scene d7c-54
+            with dissolve
+            Zt "She really has grown up since I last saw her."
+            scene d7c-55
+            with dissolve
+            Zt "Her clothes, hair, body... She looks fine."
+            jump d7c57
+
+        "Don't":
+            jump d7c57
+
+label d7c57:
+    scene d7c-57
+    with dissolve
+    Na "...but this city is great, I can tell already."
+    Na "People are much more open-minded here, I need to show you what I found."
+    scene d7c-56
+    with dissolve
+    Na "By the way, is it true that you were fucking both mom and auntie back in the day, and that you dumped mom for her sister?"
+    Na "That's how she tells it."
+    scene d7c-58
+    with dissolve
+    Z "{i}*laughs* I guess you are still as direct as you were as a kid."
+    Z "The story is a bit more complicated, if you ask me, but if you want to go with that, sure."
+    scene d7c-60
+    with dissolve
+    Na "Yeah, I already suspected mom changed a few details to the story."
+    Na "She always gets a little bitter when I ask her about it."
+    scene d7c-62
+    with dissolve
+    Z "She seems to have changed over the years, yes."
+    scene d7c-58
+    with dissolve
+    Na "Hm..."
+    scene d7c-56
+    with dissolve
+    Na "Follow me, we're almost there."
+    scene d7c-57
+    with dissolve
+    Na "{i}*humming*"
+    scene d7c-68
+    with fade
+    "A few steps later..."
+    scene d7c-69
+    with fade
+    Na "I'm curious to know what you think of this!"
+    scene d7c-70
+    with fade
+    Na "..."
+    Z "What is it?"
+    scene d7c-71
+    with fade
+    Naw "We're lucky, they're still discussing."
+    Naw "Listen closely, isn't that a guard?"
+    scene d7c-72
+    with dissolve
+    Sl "Do I really have to?"
+    G "...didn't I tell you already?"
+    scene d7c-74
+    with dissolve
+    G "If you don't want your master to find out that it's not his, you better do what I tell you."
+    scene d7c-73
+    with dissolve
+    G "I'm a Queen's guard, slaves like you should appreciate having a friend like me."
+    Sl "..."
+    scene black pic
+    with fade
+    "Nadia pulls you away from the scene..."
+    scene d7c-64
+    with fade
+    Na "I don't know about you, but this is pretty hot."
+    scene d7c-65
+    with dissolve
+    menu:
+        "\"This guard is corrupt.\"":
+            Z "This guard is corrupt. I should stop him."
+            scene d7c-64
+            with dissolve
+            Na "I guess that's the answer you can expect from a Stalker."
+            Na "But that's not why I called you."
+            jump d7c66
+
+        "\"That slave looks cute.\"":
+            Z "That slave looks cute."
+            scene d7c-64
+            with dissolve
+            Na "She does."
+            Na "But that's not why I called you."
+            jump d7c66
+
+label d7cend:
+    scene d7c-66x-2
+    with dissolve
+    Z "Sure."
+    scene black pic
+    with fade
+    "You head back to the others. You agree to visit each other from time to time, now that Rabiah and her family moved into the city."
+    if not _in_replay:
+        $ sq_rn_1.start()
+        $ sq_rn_1.resolution = _("Meeting Rabiah and her family at the market, I did not expect Nadia to be so forward. I think we'll meet again soon.")
+    "Eventually, you head back home..."
+    jump mission_end
+
+label d7c66:
+    scene d7c-66
+    with dissolve
+    Na "You know... I was watching them earlier before auntie and mom found me."
+    scene d7c-64
+    with dissolve
+    Na "They told me you were also here, and I remembered how cool you always were."
+    Na "So I thought I should bring you here, and we too could have a bit of fun, like them?"
+    scene d7c-67
+    with dissolve
+    Na "I'm old enough now, and curious to see why mom and auntie fell for you..."
+    Na "What do you say?"
+    menu:
+        "\"I won't say no to that, but these two have to leave.\"":
+            $ nadia_sex = True
+            scene d7c-65
+            with dissolve
+            Z "I won't say no to that."
+            Z "But these two have to leave."
+            scene d7c-64
+            with dissolve
+            Na "But how will you deal with it?"
+            scene d7c-63
+            with dissolve
+            Z "Watch me."
+            scene black pic
+            with fade
+            "You both head inside..."
+            scene d7c-75
+            with fade
+            Z "Hey boy, is that what you should be doing right now?"
+            Z "Move along, you corrupt weasel, if you don't want the queen to find out."
+            Z "I'm going to need this space."
+            G "A... a Stalker, a-alright. I'll go."
+            jump d7c67
+
+        "\"Sure, they won't mind us.\"" if persistent.sharing == True:
+            $ nadia_sex = True
+            $ d7c_nadia_watch = True
+            scene d7c-65
+            with dissolve
+            Z "Sure, they won't mind us."
+            scene d7c-64
+            with dissolve
+            Na "You're the coolest uncle ever!"
+            scene d7c-75
+            with fade
+            Z "Don't mind us."
+            Na "Yeah, I just want to have some fun with my uncle."
+            G "Uh, sure."
+            jump d7c67
+
+        "\"This is not a good idea.\"":
+            $ nadia_sex = False
+            scene d7c-65
+            with dissolve
+            Z "You're cute. But I don't think this is a good idea, Nadia."
+            scene d7c-66x
+            with dissolve
+            Na "Alright, fine. I guess I will have no fun at all today."
+            Na "Want to head back to the others then?"
+            if _in_replay:
+                scene black
+                with fade
+                $ renpy.end_replay()
+            jump d7cend
+
+label d7c67:
+    scene d7c-76
+    with fade
+    if d7c_nadia_watch == False:
+        Na "That's one way to deal with it, I guess."
+    if d7c_nadia_watch == True:
+        Na "Cool! So, where do we start?"
+    scene d7c-77
+    with dissolve
+    if d7c_nadia_watch == False:
+        Z "It is. Now to the reason why we're here..."
+    if d7c_nadia_watch == True:
+        Z "Where do you want to start?"
+    scene d7c-80
+    with dissolve
+    "Her voice gains a studied sultry tone."
+    if d7c_nadia_watch == False:
+        Na "I'm curious to see what you can do..."
+    if d7c_nadia_watch == True:
+        Na "You've had my mom, so I guess you know how to handle me..."
+    scene d7c-78
+    with hpunch
+    "You grab her leg..."
+    Z "I have learned a few more tricks, since those days."
+    scene d7c-79
+    with dissolve
+    Na "I bet you have."
+    scene d7c-81
+    with dissolve
+    Na "Do you also want to find out what {i}I{/i} have learned?"
+    Na "Step back..."
+    scene d7c-82
+    with dissolve
+    Z "..."
+    scene d7c-83
+    with dissolve
+    Na "You know... you have not said anything about my looks."
+    Na "Is the hair the only new thing you recognize...?"
+    scene d7c-84
+    with dissolve
+    Na "What do you think of my ass?"
+    if d7c_nadia_stared == True:
+        Na "I saw you take a good look earlier."
+    Na "I also work out a lot, have you seen my abs...?"
+    Z "..."
+    scene d7c-85
+    with dissolve
+    "You grab her arm sternly..."
+    Na "Hmm, are you not the patient type?"
+    Z "Not today."
+    scene d7c-86
+    with dissolve
+    "She bends over..."
+    Na "What if I do this...?"
+    scene d7c-87
+    with dissolve
+    Na "I remember [A] being a little tease too."
+    Na "Do you also get impatient when she teases you?"
+    Na "She's your [persistent.da] after all...?"
+    scene d7c-89
+    with dissolve
+    Z "Maybe you will find out when you visit us."
+    Z "But now, I'm going to show you what teases like you deserve."
+    Z "Just a warning, I'm not like the boys of your age."
+    scene d7c-88
+    play sound "audio/sounds/actions/slap.mp3"
+    with hpunch
+    Na "Nh... they don't know what they're doing, half the time..."
+    scene d7c-90
+    with dissolve
+    Na "...but they are smooth skinned. Your silly beard is all prickly."
+    "She lets out a small but teasing laugh..."
+    scene d7c-91
+    with dissolve
+    Na "Hey... that's my skirt..."
+    scene d7c-92
+    with dissolve
+    Zw "You don't need it now."
+    scene d7c-94
+    with dissolve
+    "She purrs like a cat and her voice drops a little..."
+    Naw "I guess I don't..."
+    scene d7c-95
+    with dissolve
+    Zt "Her ass is tight and small. I'm not sure she could take it all."
+    scene d7c-96
+    with dissolve
+    Zw "Are you sure about this?"
+    scene d7c-94
+    with dissolve
+    Naw "Are you having second thoughts, uncle...?"
+    scene d7c-97
+    with dissolve
+    Zw "Me?"
+    scene d7c-98
+    with dissolve
+    Zw "{i}laughs{/i}"
+    Zw "Not even for a second."
+    scene d7c-100
+    with dissolve
+    Naw "Ahh...!!!"
+    scene d7c-95
+    with dissolve
+    Na "Oh... fuck me... you're big..."
+    Z "I warned you."
+    Z "Twice."
+    scene d7c-101
+    with dissolve
+    Na "Hah... you asshole... {i}*laughs*"
+    if d7c_nadia_watch == True:
+        scene d7c-101x
+        with dissolve
+        Na "Look... they too are getting it on..."
+        scene d7c-105
+        with fade
+        Sl "{i}*sucking*"
+        Gw "Bless Merneith..."
+        scene d7c-106
+        with dissolve
+        Gw "I wonder why it is, that you slaves suck so much more eagerly when you're knocked up..."
+        scene d7c-107
+        with dissolve
+        Gw "I bet you love it, don't you."
+        Gw "That's all you worthless cows are good for anyway: sucking dicks, breeding more slaves and doing chores."
+        scene d7c-108
+        with dissolve
+        Gw "Yeah, keep doing that. Take it all..."
+        scene d7c-109
+        with dissolve
+        Sl "..."
+        scene black pic
+        "Meanwhile..."
+    scene d7c-99
+    with fade
+    Na "Mh..."
+    "You keep fucking her..."
+    scene d7c-102
+    with dissolve
+    Na "This is... amazing..."
+    Na "I think... I'm going to..."
+    scene d7c-103
+    with dissolve
+    Na "Nnnh..."
+    scene d7c-104
+    with dissolve
+    Na "Nhhhhaaa..."
+    scene d7c-104x
+    with dissolve
+    "Her legs are shaking as she is climaxing..."
+    Na "Fuck, fuck-fuck...!"
+    Na "I... wow...!"
+    scene d7c-110
+    with slowfade
+    Na "{i}*pants*"
+    Na "That..."
+    scene d7c-111
+    with dissolve
+    Na "...was the best fun I've had in a long time."
+    scene d7c-112
+    with dissolve
+    Na "You're... {i}*pants*{/i} the best uncle... ever."
+    Z "That's good to hear."
+    scene d7c-113
+    with dissolve
+    Na "...But I'm not done yet."
+    Na "Now it's my turn, I know something you will like!"
+    scene black pic
+    with fade
+    "She kneels down..."
+    scene d7c-114
+    with fade
+    Na "Are you close, uncle?"
+    Z "Yeah..."
+    scene d7c-115
+    with dissolve
+    Na "Release whenever you're ready..."
+    scene d7c-116
+    with dissolve
+    Na "...I want to taste you."
+    Zt "Fuck."
+    scene d7c-117
+    with dissolve
+    Z "You are..."
+    scene d7c-118
+    with flash
+    Z "Hgrh..."
+    scene d7c-119
+    with dissolve
+    pause 0.8
+    scene d7c-120
+    with dissolve
+    Zt "Holy shit, this girl..."
+    scene d7c-121
+    with flash
+    Z "Mgh..."
+    scene d7c-122
+    with dissolve
+    Na "..."
+    scene d7c-123
+    with dissolve
+    Na "{i}*slurp*"
+    scene d7c-124
+    with dissolve
+    Z "...you are pretty incredible."
+    scene d7c-125
+    with dissolve
+    Na "One good turn deserves another, my mum tells me."
+    Na "That was so much fun! We should do it again."
+    Na "Maybe you and auntie will come and visit us sometime?"
+    scene d7c-126
+    with dissolve
+    Z "I'd love to, and I'm sure [W] would like to as well."
+    Z "Do you want to go back to the others? They must be waiting for us."
+    scene d7c-125
+    with dissolve
+    Na "Sure... But you got me in the eye, so let me wipe that off first."
+    scene black pic
+    with fade
+    "She cleans herself up..."
+    $ renpy.end_replay()
+    scene d7c-127
+    with fade
+    Na "Dad doesn't have to know about this, that loser would only be jealous."
+    scene d7c-128
+    with dissolve
+    Z "Jealous?"
+    scene d7c-129
+    with dissolve
+    Na "Yeah, I know for a fact he'd like to fuck me."
+    Na "But I'd rather go with a decayed than him. He's not even my real dad anyway."
+    Na "So, want to head out?"
+    scene black pic
+    with fade
+    "You and Nadia head back to the others."
+    "Oblivious, Omar hesitantly inquires as to what the two of you went off to do."
+    "Winking at her cool uncle, she finds an innocent excuse and you all head your separate ways back home..."
+    if not _in_replay:
+        $ sq_rn_1.start()
+        $ sq_rn_1.resolution = _("Meeting Rabiah and her family at the market, I did not expect Nadia to be so forward. I think we'll meet again soon.")
+    "You could tell that she is happy to have moved into the city, and you and [W] agree to visit Rabiah and her family again."
+    jump mission_end

@@ -1,0 +1,3252 @@
+label harementer:
+    hide screen toggle_ql
+    scene h-empty
+    show h-za
+    if ain_basement == False:
+        show h-ain
+    if emilia_joined == True:
+        show h-em
+    if shani_zone == False:
+        show h-sh
+    if m_d14a_part_2 == True:
+        show h-ka
+    if m_d14g == True:
+        show h-fa
+    play music "audio/music/zeta/city music.mp3" fadeout 2
+    with fade
+    menu (screen = 'harem_choice'):
+        "Call [A]" (blocked = ain_basement, img = 'gui/harem/ain_side.png'):
+            jump ain_entry
+        "Call [S]" (blocked = not m_d15b or not shani_romance, img = 'gui/harem/shani_side.png'):
+            jump shani_entry
+        "Call [W]" (img = 'gui/harem/zahra_side.png'):
+            jump zahra_entry
+        "Call [E]" (img = 'gui/harem/emilia_side.png') if emilia_joined == True and m_d7b == True:
+            jump emilia_entry
+        "Call [F]" (img = 'gui/harem/fairy_side.png') if m_d12a == True:
+            jump fairy_entry
+        "Call [Ka]" (img = 'gui/harem/kateryna_side.png') if m_d14a_part_2 == True:
+            jump kateryna_entry
+        "Go outside" (img = 'gui/harem/home_side.png'):
+            jump harem_ending
+
+label harem_ending:
+    $ daily_harem = True
+    stop music fadeout 3
+    jump daily_home
+
+label ain_entry:
+    Z "Hey [A]."
+    show h-ain-look
+    with dissolve
+    Z "Come here, will you."
+    if shani_zone == False:
+        scene ha-2
+        with fade
+    Z "Have a seat."
+    scene ha-3
+    with fade
+    A "What's up, [persistent.dad]?"
+    scene ha-4
+    with dissolve
+    menu (screen = 'harem_choice'):
+        "Let [S] join" (blocked = shani_zone, img = 'gui/harem/shani_side.png'):
+            jump ain_shani
+        "[W] joins" (img = 'gui/harem/zahra_side.png'):
+            jump ain_zahra
+        # "Let Emilia join" (blocked = True, img = 'gui/harem/emilia_side.png'):
+        #     jump ain_emilia
+        "Focus on her" (img = 'gui/harem/continue_side.png'):
+            jump ain_solo
+
+
+label shani_entry:
+    scene hs-1
+    with fade
+    pause 1
+    scene hs-2
+    with dissolve
+    S "Hm..."
+    scene hs-3
+    with fade
+    S "Hey [persistent.dad]!"
+    scene hs-4
+    with fade
+    Z "Hey, [persistent.da]."
+    scene hs-5
+    with dissolve
+    S "I hope I'm not disturbing... do you want to hang out a little?"
+    scene hs-4
+    with dissolve
+    pause 0.5
+    scene hs-7
+    with dissolve
+    "You feel her legs on your lap..."
+    scene hs-8
+    with dissolve
+    pause 0.5
+    scene hs-9
+    with dissolve
+    
+    menu (screen = 'harem_choice'):
+        "Call [Ka]"(blocked = not introduction_kateryna, img = 'gui/harem/kateryna_side.png'):
+            jump shani_kateryna
+        "Focus on her" (img = 'gui/harem/continue_side.png'):
+            jump shani_solo
+
+label zahra_entry:
+    scene hez-10
+    with dissolve
+    Z "[W]..."
+    scene hez-11
+    with dissolve
+    pause 1.5
+    scene hz-1
+    with fade
+    "She undresses and lays down next to you..."
+    scene hz-2
+    with dissolve
+    W "You called, husband?"
+    scene hz-6
+    with fade
+    menu (screen = 'harem_choice'):
+        # "Call [A]" (blocked = True, img = 'gui/harem/ain_side.png'):
+        #     jump ain_entry
+        # "Call [S]" (blocked = True, img = 'gui/harem/shani_side.png'):
+        #     jump shani_entry
+        # "Call [E]" (blocked = True, img = 'gui/harem/emilia_side.png') if emilia_joined == True and m_d7b == True:
+        #     jump emilia_entry
+        "Focus on her" (img = 'gui/harem/continue_side.png'):
+            jump zahra_solo
+
+label emilia_entry:
+    Z "Emilia."
+    hide h-em
+    show h-em-look
+    if emilia_new_rule == True:
+        show he-1x
+    with dissolve
+    E "...?"
+    if emilia_new_rule == False:
+        Z "Join me for a bit."
+    scene black pic
+    with fade
+    if emilia_new_rule == True:
+        "She gets the hint, hesitantly coming over..."
+    else:
+        "She hesitantly comes over..."
+    scene he-2
+    with fade
+    pause 1.5
+    scene he-3
+    with dissolve
+    E "..."
+    scene he-4
+    with dissolve
+    "Her fingers brush against you..."
+    scene he-5
+    with dissolve
+    E "Master..."
+    "She slowly and carefully starts caressing you..."
+    scene he-8
+    with dissolve
+    E "How can I serve you?"
+    scene he-9
+    with dissolve
+    menu (screen = 'harem_choice'):
+        "Call [A]" (blocked = ain_basement, img = 'gui/harem/Ain_side.png'):
+            jump emilia_ain
+        "Call [W]" (img = 'gui/harem/zahra_side.png'):
+            jump emilia_zahra
+        "Call [F]" (img = 'gui/harem/fairy_side.png') if introduction_fairy == True:
+            jump emilia_fairy
+        "Focus on her" (img = 'gui/harem/continue_side.png'):
+            jump emilia_solo
+
+label kateryna_entry:
+    if fairy_neutral == True:
+        scene hk-1
+    else:
+        scene hk-1x
+    with fade
+    Z "Hey, Kateryna."
+    if fairy_neutral == True:
+        scene hk-2
+    else:
+        scene hk-2x
+    Ka "Yes, [persistent.player_name]?"
+    Z "Come here, sweet one."
+    scene black pic
+    with fade
+    scene hk-5
+    with fade
+    "She kneels down in front of you, her silky robe elegantly trailing her..."
+    scene hk-3
+    with fade
+    Ka "You called me, yes?"
+    scene hk-3
+    with dissolve
+    Z "I did..."
+    menu (screen = 'harem_choice'):
+        # "Call [A]" (blocked = ain_basement, img = 'gui/harem/Ain_side.png'):
+        #     jump emilia_ain
+        # "Call [W]" (img = 'gui/harem/zahra_side.png'):
+        #     jump emilia_zahra
+        # "Call [F]" (img = 'gui/harem/fairy_side.png') if introduction_fairy == True:
+        #     jump emilia_fairy
+        "Focus on her" (img = 'gui/harem/continue_side.png'):
+            jump kateryna_solo
+
+label fairy_entry:
+    if fairy_healed == True:
+        if introduction_kateryna == True:
+            scene hf-1
+        else:
+            scene hf-1x
+        with fade
+        Z "[F]... come over, will you."
+        if introduction_kateryna == True:
+            scene hf-2
+        else:
+            scene hf-2x
+        with dissolve
+        F "Of course, Master!"
+        scene black pic
+        with fade
+        "She approaches you elegantly, clearly proud of her attire..."
+        scene hf-31 #TODO insert hf-31x
+        with fade
+        F "Hello, Master. How can I be of service?"
+        scene hf-31
+        with dissolve
+    else:
+        scene hf-3
+        with fade
+        F "{i}*humming*{/i}"
+        scene hf-4
+        with dissolve
+        F "Mh...?"
+        Z "[F], come here, and get on your knees. I need you to do your duty."
+        scene black pic
+        with fade
+        "She straddles over, and does what she was asked to do..."
+        scene hf-5
+        with fade
+        F "Master... I am here for you."
+        Z "You are, indeed."
+        scene hf-6
+        with fade
+        Z "Hm... what to do with you, today."
+
+    menu (screen = 'harem_choice'):
+        "Focus on her" (img = 'gui/harem/continue_side.png'):
+            jump fairy_solo
+
+label emilia_solo:
+    Z "Show me what you can do."
+    scene black pic
+    with fade
+    "Obedient and eager to please, Emilia lies down between your legs..."
+    "She grabs your dick, bringing your full erection to bear."
+    "Leaning forward, she points your glans towards her lips."
+    show he-10-anim
+    with dissolve
+    "...and starts sucking your manhood with enthusiasm."
+    E "{i}*slurp*{/i}"
+    "You can't help but smile at how her leg movements cause her ass to wiggle."
+    "Her hands are amazingly soft, for a woman who spends most of her time doing some form of manual labour."
+    show he-11-anim
+    with dissolve
+    hide he-10-anim
+    "As she keeps going, Emilia slows the pace, taking you deeper in her throat."
+    "You lay back and consider how this slow rhythm is enhancing the sensations. For once, being lazy and letting a woman do all the work, seems to hit all of your buttons just right."
+    E "Mhg-uhmmm..."
+    show he-12-anim
+    with dissolve
+    hide he-11-anim
+    Z "Yes, keep going just like that."
+    E "{i}*slurp*{/i}"
+    if emilia_sub > emilia_love:
+        Z "Hngh... Take it deeper, slut. Don't make me force you."
+    show he-14-anim
+    with dissolve
+    hide he-12-anim
+    Z "You're good... Damn..."
+    if emilia_sub >= emilia_love:
+        Z "Good slave, that's how I like it."
+    else:
+        Z "You're one of a kind..."
+    show he-13-anim
+    with dissolve
+    hide he-14-anim
+    E "Mh...I ... {i}*slurp*{/i} try my best to please you..."
+    "{i}*sucking*{/i}"
+    E "{i}*muffled*{/i} Masher... very hard..."
+    W "Are you having a good time, dear?"
+    Z "You know I am..."
+    scene he-17
+    with fade
+    W "Will you show her a good time as well?"
+    if emilia_sub >= emilia_love:
+        Z "Well, she says she's happy to serve."
+    else:
+        Z "I intend to."
+    scene he-19
+    with dissolve
+    "You push her head down on your shaft one last time, holding her there for a few seconds, before you let go..."
+    if emilia_sub >= emilia_love:
+        Z "Get up, slave."
+    else:
+        Z "Get up, Emilia."
+    scene he-20
+    with vpunch
+    "She lets go of your dick..."
+    E "Haaah... Master..."
+    scene black pic
+    with fade
+    "Swiftly, Emilia gets up and climbs on top of you..."
+    show he-21-anim
+    with fade
+    Z "Hm... look at you..."
+    "As you lay back and rest your arms on the couch, Emilia quickly impales herself on your cock, and starts riding you as you look her in the eyes..."
+    "...your chin almost resting on her full breasts, she speaks up shily."
+    E "Nh... Am I... serving you well?"
+    "Her pussy clenches your manhood as she slows down the pace, finding a steady rhythm."
+    show he-22-anim
+    with dissolve
+    hide he-21-anim
+    "When she came to you, Emilia was a seasoned and experienced slave. She would have had to be well trained, coming from the Palace staff."
+    "You are happy to verify that her training was extensive, and included the arts of lovemaking, as you let her take her own enjoyment out of the experience." 
+    "A short murmur escapes her lips, as your beard tickles her nipples bobbing up and down in front of you."
+    E "Mh... ah..."
+    "The woman manages to be confident yet respectful in every way, and even as she rides you she remains focused on your face, looking for hints of displeasure."
+    show he-23-anim
+    with dissolve
+    hide he-22-anim
+    if emilia_love >= emilia_sub:
+        Z "I'm lucky to have you. It's rare to find an exotic girl with your dedication..."
+    else:
+        Z "I'm a lucky guy. Slaves with blonde hair like yours are very rare, in these parts."
+        Z "And your talents aren't bad either."
+    show he-24-anim
+    with dissolve
+    hide he-23-anim
+    "You enjoy her efforts, and have no shame in making her do all the work, as you both inch forwards towards an intense climax."
+    show he-23-anim
+    with dissolve
+    hide he-24-anim
+    "Emilia leans towards you as she whispers..."
+    Ew "Today is not a safe day, but... I will bear your child, if you command me, Master."
+    menu:
+        "Cum inside her":
+            Z "We will take our chances. Keep going, I'm close."
+            scene he-25
+            with dissolve
+            E "Ah... Master..."
+            "Emilia's fingers dig into your shoulders, as she quickens the pace."
+            show he-23x-anim
+            with dissolve
+            E "Hm..."
+            "She's riding you faster, now."
+            Zt "Looks like she's really getting into it..."
+            scene he-26
+            with dissolve
+            E "Hnngh..."
+            "One hand climbs to the back of your head, as she closes you in an embrace made soft by her cleavage."
+            scene he-27
+            with vpunch
+            "She cums on your dick, spraying her juice all over it..."
+            E "Mhh..."
+            Z "Emilia... take it all in..."
+            scene he-28
+            with vpunch
+            "She instinctively slams herself on your crotch..."
+            Z "Ngh-"
+            "You cum deep inside her..."            
+            with vpunch
+            "...and more..."
+            E "Master... breed me..."
+            scene he-29
+            with dissolve
+            Z "Fuck..."
+            scene he-28
+            with dissolve
+            "She goes down again, making sure to take more of your cum in..."
+            Zt "She really wants to please her Master. So much, that she's even willing to bear my children on command."
+            scene he-26
+            with dissolve
+            if emilia_love >= emilia_sub:
+                Z "You're perfect, Emilia."
+                E "Nh... thank you..."
+            else:
+                Z "You're a good slave. I should thank our queen for gifting you to us."
+                E "Nh... I'm glad to serve... Master..."
+            jump harem_ending
+
+        "Cum inside her mouth":
+            if emilia_sub > emilia_love:
+                Z "I'm close, now. Suck me off, slave"
+            else:
+                Z "I'm getting close. I want your mouth, Emilia."
+            scene black pic
+            with fade
+            "She changes position quickly..."
+            scene he-30
+            with fade
+            E "Mh..."
+            "Emilia's lips close over the tip of your dick, as she starts sucking you, gently, still prey to her own orgasm."
+            scene he-31
+            with hpunch
+            Z "Hngh-"
+            with hpunch
+            "With a few spurts, you fill her mouth..."
+            scene he-32
+            with fade
+            E "..."
+            Z "Open your mouth. Show me before you swallow."
+            scene he-33
+            with dissolve
+            E "Ah..."
+            scene he-34
+            with dissolve
+            Z "Such a pretty mouth; now more than ever."
+            Z "Now, clean me up, will you?"
+            show he-13-anim
+            with fade
+            E "{i}*slurp*"
+            "She expertly polishes every inch of you with her tongue..."
+            show he-11-anim
+            with dissolve
+            hide he-13-anim
+            Z "Keep going for a bit more. I want to enjoy the sight."
+            E "{i}*cough*{/i} Yhes... Mhashter... {i}*slurp*"
+            "You enjoy her service for a while, before sending her off..."
+            jump harem_ending
+
+label emilia_ain:
+    $ hea_eat_out_emilia = False
+    Z "I might have something in mind..."
+    Z "[A]! Come over."
+    scene hea-1
+    with fade
+    A "[persistent.dad!c]? You want me to help out?"
+    Z "More or less. Undress and sit next to us."
+    Z "You as well, [E]."
+    scene black pic
+    with fade
+    "They do as you say..."
+    scene hea-2
+    with fade
+    if emilia_love >= emilia_sub:
+        Z "Since [E] is already here, I think it's a good time for another lesson."
+    else:
+        Z "Since our maid is already here, I think it's a good time for another lesson."
+    scene hea-3
+    with fade
+    Z "Come, get down you two. I want you to warm me up."
+    scene black pic
+    with fade
+    E "Yes, Master."
+    "[E] does not hesitate and changes position, [A] quickly follows."
+    scene hea-4
+    with fade
+    A "{i}*licking*{/i}"
+    scene hea-5
+    with dissolve
+    E "{i}*slurp*{/i}"
+    Z "Good girls."
+    Z "Emilia, you're quick to follow orders."
+    scene hea-6
+    with fade
+    E "Mh... of chourse Mhahter... {i}*sucking*{/i}..."
+    Zt "What a nice piece of ass. I am lucky to consider someone as exotic as her as part of my harem."
+    scene hea-7
+    with dissolve
+    E "{i}*slurp*{/i}"
+    "Emilia dutifully takes your shaft in her mouth, while [A] is focused on your balls."
+    "They might have noticed it in your tone that you feel a little impatient today..."
+    "...So they're doing their best to quickly follow your directions."
+    scene hea-8
+    with fade
+    if emilia_love >= emilia_sub:
+        Z "Emilia, press your lips together a little more than usual today."
+    else:
+        Z "stroke me a little tighter  with your lips today."
+    "Being an experienced maid, Emilia probably recognized your impatience by the tone of your voice."
+    Z "Keep going, girls..."
+    "The girls have their asses spread and are on display for the entire room, and are fully focused on sucking you off."
+    Z "Alright, let's start with the lesson, [A]. Pay attention from now on."
+    Z "[E], sit up on me."
+    scene black pic
+    with fade
+    E "Yes, Master."
+    scene hea-9
+    with fade
+    E "Like... that... Master?"
+    Z "Yes. Put it inside you."
+    scene hea-10
+    with fade
+    "[A] rests at the end of the sofa, spectating [E] getting ready for her position..."
+    A "That looks hot..."
+    scene hea-11
+    with dissolve
+    E "Mh..."
+    A "Wow... it really slides in so easily..."
+    A "It looks nice when you get wet that quickly, Emilia..."
+    if emilia_love >= emilia_sub:
+        Z "[E], teach her how you're doing it."
+    else:
+        Z "Teach her how you do it, maid."
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Z "My [persistent.da] can never learn enough."
+    else:
+        Z "[A] can never learn enough."
+    scene hea-13
+    with dissolve
+    E "Okay... so... hah..."
+    E "You see, mistress... I always try to..."
+    scene hea-15
+    with dissolve
+    E "...let Master slide in as much as... possible."
+    E "Ah... it feels nice for him... that way."
+    scene hea-16
+    with dissolve
+    "Despite her service, she can't help but get turned on by the act, and starts rubbing herself."
+    E "Mh... hah..."
+    scene hea-14
+    with dissolve
+    E "I know Master likes to have the upper hand...."
+    E "...but sometimes he needs to be motivated."
+    E "If you swing your hips like that..."
+    scene hea-12
+    with fade
+    "She continues to show your [persistent.da] how it's done."
+    "Not that [A] isn't accustomed to serving you, but given Emilia's older age and experience as a sexual servant over the years..."
+    "...she can teach [A] a lot about what she lacks due to her youth."
+    "[A] is always eager and energetic, but [E] is more...calculated. She knows how to pay attention to your reactions and adapt accordingly."
+    Z "[E]... sit on my chest."
+    scene black pic
+    with fade
+    "She does as you say..."
+    scene hea-17
+    with fade
+    Z "Show her what you can do with your hands."
+    E "Always, Master."
+    scene hea-18
+    with dissolve
+    E "Try to read his reactions, [A]."
+    E "Pick up on the subtle cues."
+    E "Know when he wants it slow and gentle, or faster and exciting."
+    scene hea-20
+    with dissolve
+    E "Here, let me show you."
+    A "Okay... like this?"
+    A "You know I've done this a lot already, right?"
+    scene hea-19
+    with fade
+    E "Yes, mistress. But if I may assume... it usually quickly ends up with him wanting your breasts or mouth... no?"
+    scene hea-19x
+    with dissolve
+    "She smiles. Her tone sounds kind but factual, as if she is trying to make an honest point."
+    A "Wait... You're right... but maybe he just likes it more?"
+    scene hea-21
+    with fade
+    E "It depends, mistress. One can not kiss her Master well, if she is on her knees."
+    E "I am sure sometimes Master wants to be close to me... while I take care of him with my hands."
+    E "That way, it is more intimate and he feels cared for..."
+    scene hea-17
+    with fade
+    "Your maid is doing an excellent job at teaching, today, and you think of rewarding her a little..."
+    menu:
+        "Eat her out":
+            $ hea_eat_out_emilia = True
+            Z "You did well, [E]. I am going to reward you for your good work."
+            scene hea-19x-2
+            with fade
+            E "Thank you Master, but I don't expect any..."
+            scene hea-22
+            with hpunch
+            E "Hah..?!"
+            "With one swift motion, you lift up her waist and drag it on top of your face..."
+            scene hea-23
+            with dissolve
+            E "Master... I don't think..."
+            scene hea-24
+            with dissolve
+            E "Nh... oh my..."
+            "You start to passionately eat out your maid..."
+            scene hea-25
+            with dissolve
+            E "Mh..."
+            A "Oh wow..."
+            "Her body almost goes limp as your tongue drives through her pussy lips."
+            scene hea-27
+            with dissolve
+            A "Now you even make me jealous, [E]..."
+            A "So... uh... should I continue...?"
+            E "Yes... why... why not, mistress..."
+            scene hea-26
+            with dissolve
+            "Her body keeps resting on your face as [A] strokes your dick."
+            if emilia_sub >= emilia_love:
+                "Despite how strict you sometimes have to be with your servant, you can't deny your excitement of eating out such an exotic woman."
+            else:
+                "You know that you value her, and what she does as your slave."
+                "Thinking of her exotic body, it makes you even more excited to enjoy her company."
+            "Her light skin, perfect figure and blond hair... many men in Zeta aspire to breed a slave like her."
+            scene hea-27
+            with dissolve
+            "Thinking about all these things, and having [A]'s hands wrapped around your cock, it is easy to get to the limit..."
+            jump hea19x3
+    
+        "Enjoy the moment instead":
+            Z "Well done, [E]. You taught her well, today."
+            Z "I'm getting closer, now."
+            scene hea-19x-2
+            with fade
+            E "Thank you, Master."
+            E "Where do you wish to cum?"
+            scene hea-19x-3
+            with dissolve
+            jump hea19x3
+
+    label hea19x3:
+        menu:
+            "Finish on [A]'s hands":
+                Z "I'm going to cum, [E]."
+                scene hea-35
+                with dissolve
+                E "Mistress... nh... Master is about to... cum..."
+                E "Stroke faster, now."
+                A "Like this...?"
+                scene hea-32
+                with fade
+                E "Yes... like that..."
+                E "I might... also... mhhh..."
+                Z "Mgh-"
+                scene hea-33
+                with vpunch
+                Z "...!"
+                scene hea-32
+                with dissolve
+                "You start shooting jets of cum as you intensify making out with [E]'s lower lips..."
+                scene hea-34
+                with vpunch
+                E "Ah..."
+                scene hea-33
+                with dissolve
+                A "Wow, [persistent.dad]..."
+                "You can feel that [E] came right when you did."
+                "Looks like you pleased your maid well today..."
+                scene hea-35
+                with dissolve
+                E "So... much..."
+                E "Master... I will..."
+                E "...always be yours..~"
+                jump harem_ending
+
+            "Finish in [E]'s mouth":
+                Z "Girls... go back on your knees."
+                Z "[E], I want your mouth."
+                scene black pic
+                with fade
+                "They change positions..."
+                scene hea-8
+                with fade
+                E "{i}*sucking*{/i}"
+                "Emilia and [A] are back to sucking you off. You notice [E] is very eager with her tongue..."
+                scene hea-6
+                with fade
+                Z "Keep going... fuck... I love your ass."
+                E "{i}*slurp*{/i}... thanksh... Mhaster..."
+                scene hea-7
+                with dissolve
+                Z "Girls... I'm close..."
+                with hpunch
+                Z "Ngh-"
+                scene hea-7x
+                with hpunch
+                E "Mh..."
+                "You cum hard inside her throat, with lots of it flowing out of her mouth..."
+                scene hea-7x-2
+                with dissolve
+                A "Mmm..."
+                Z "Damn... not bad, girls."
+                Z "I needed that today. Clean me up a bit more, will you."
+                scene hea-6x
+                with dissolve
+                Zt "I love this girl."
+                Zt "What would I do without my loyal maid..."
+                jump harem_ending
+
+            "Finish inside [E]":
+                Z "[E], sit on my dick."
+                Z "I'm going to cum inside you today."
+                E "Yes... of course, Master."
+                scene black pic
+                with fade
+                "She quickly switches positions..."
+                scene hea-11
+                with fade
+                A "Wow... hehe... [persistent.dad] always gets so big when he is about to release inside..."
+                E "Mh... I can feel it, too..."
+                scene hea-29x
+                with dissolve
+                A "Do you like that, [E]?"
+                "She puts her thumb on [E]'s clit, seemingly driving her nuts..."
+                A "Maybe you want to cum before he fills you up, huh?"
+                E "Yes... ah..."
+                scene hea-28
+                with hpunch
+                E "Hah...!"
+                scene hea-29x
+                with dissolve
+                E "Mh...!"
+                E "Hah..."
+                with hpunch
+                Z "Ngh-"
+                A "Wow..."
+                scene hea-29
+                with hpunch
+                E "Oh..."
+                A "{i}*giggles*{/i}"
+                "You fill [E] up to the brim right after she came. There is no denying she enjoyed the moment a lot."
+                scene hea-13
+                with fade
+                A "[persistent.dad!c]... you always come so much with her..."
+                scene hea-30
+                with dissolve
+                A "Nha..."
+                E "Oh... Mistress..."
+                scene hea-31
+                with fade
+                "She lifts her head and kisses [E] to her surprise..."
+                E "Hah..."
+                E "{i}*kissing*{/i}"
+                Z "{i}*chuckles*{/i}"
+                if emilia_love >= emilia_sub:
+                    Z "I guess you can't teach her that, [E]..."
+                else:
+                    Z "I guess you can't teach her that, slave."
+                jump harem_ending
+    
+label emilia_zahra:
+    scene hez-10
+    with dissolve
+    pause 1.5
+    scene hez-11
+    with dissolve
+    W "..."
+    scene hez-12
+    with fade
+    W "Are you treating your master well, Emilia?"
+    scene hez-13
+    with dissolve
+    E "I am trying, Mistress."
+    scene black pic
+    with fade
+    "She gets up..."
+    scene hez-14
+    with fade
+    W "Answer me one question, Emilia."
+    W "What is the difference between a maid and a [persistent.da]?"
+    scene hez-15
+    with slowfade
+    E "A maid like me is here to take care of her master's needs..."
+    W "And why do you think he called you and not [A]?"
+    E "I... don't know, Mistress."
+    scene hez-16
+    with dissolve
+    W "Emilia, don't get me wrong, but you are not the youngest woman in this house."
+    W "Women like us can convince our man in special ways; you should  know this."
+    scene hez-18
+    with dissolve
+    W "Do you want me to show you what I mean by that?"
+    scene hez-17
+    with dissolve
+    E "Yes please, Mistress."
+    scene black pic
+    with fade
+    "[W] unveils her top, coming closer to you..."
+    scene hez-19
+    with fade
+    W "I know my husband, Emilia."
+    "{i}*sucking*"
+    W "Sometimes he does not want to have his way like he usually does."
+    W "Sometimes he just wants us to take care of him and show some initiative..."
+    scene hez-20
+    with dissolve
+    W "...we both have the bodies for it, you know..."
+    W "Let him know you can nurture him, that you will be there for him."
+    scene hez-21
+    with dissolve
+    "You keep enjoying your wife's breast, lost in the comfortable embrace..."
+    scene hez-22
+    with fade
+    Z "..."
+    Z "She knows what she's talking about..."
+    scene hez-23
+    with dissolve
+    if emilia_sub > emilia_love:
+        E "..."
+        W "Don't get distracted by them, Emilia."
+        W "Get up close..."
+        scene hez-47
+        with slowfade
+        Z "{i}*suckling*"
+        Zt "This is heaven."
+        W "You see? He likes it..."
+        scene hez-48
+        with dissolve
+        W "Even men like him sometimes want to be nurtured."
+        scene hez-49
+        with dissolve
+        W "You're good at this, Emilia."
+        E "Thank you, Mistress... nh..."
+        scene hez-50
+        with dissolve
+        W "Make sure you keep the initiative."
+        W "Massage him, show him your desire to care for him."
+        scene hez-51
+        with dissolve
+        Z "{i}*sucking*"
+        W "Take however long you need, husband."
+        W "We are here for you."
+        scene hez-49
+        with dissolve
+        Ww "Go ahead now, pleasure him in other ways."
+        jump hez30
+
+    else:
+        E "..."
+        Zw "Go ahead, don't be shy."
+        scene hez-23x
+        with dissolve
+        pause 0.8
+        scene hez-23x-2
+        with dissolve
+        W "Oh..."
+        scene hez-24
+        with dissolve
+        E "Ngh..."
+        scene hez-25
+        with dissolve
+        E "{i}*sucking*"
+        scene hez-26
+        with dissolve
+        W "I... didn't expect that..."
+        W "I guess that..."
+        scene hez-27
+        with dissolve
+        W "...I guess that my husband is not the only one who needs the care from time to time."
+        W "I...can accept this..."
+        scene hez-28
+        with dissolve
+        E "..."
+        W "You are a good maid Emilia, and I'm glad you're here with us. You earned this..."
+        scene hez-29
+        with dissolve
+        E "..."
+        "She looks up to [W], showing gratitude for the kind words..."
+        scene hez-30
+        with fade
+        W "Now... are you ready to take care of your Master's needs...?"
+        scene hez-31
+        with dissolve
+        E "Yes... Mistress."
+        jump hez30
+
+
+    label hez30:
+        scene hez-35
+        with slowfade
+        Z "{i}*sucking*"
+        E "Nh..."
+        show hez-34-anim
+        with fade
+        E "Ah..."
+        Ww "That's right... I hope you're enjoying this, husband."
+        Ww "She can do this for however long you need her to..."
+        Ww "...so take your time, we are here for you."
+        Z "..."
+        if shani_zone == False:
+            show hez-42-anim
+            with dissolve
+            hide hez-34-anim
+            E "Nh... ha..."
+            scene hez-36
+            with dissolve
+            pause 1
+            scene hez-37
+            with dissolve
+            S "..."
+            scene hez-38
+            with dissolve
+            S "Hey sis, take a look."
+            S "I have never seen [persistent.dad] so happy."
+            S "He's really enjoying himself, right now."
+            scene hez-39
+            with dissolve
+            S "Our dear maid is really putting her back into it, isn't she?"
+            scene hez-40
+            with dissolve
+            A "Yes, she seems to enjoy it a lot, too."
+            scene hez-41
+            with dissolve
+            A "I can't blame her..."
+            show hez-32-anim #closeup
+            with dissolve
+            hide hez-42-anim
+        E "Nh..."
+        "Her pale skin feels soft. She is eagerly taking your dick inside her, and you easily slide in and out..."
+        if emilia_love >= emilia_sub:
+            Z "You feel amazing, Emilia."
+            E "Tha... nh..."
+            E "Thank you, Master..."
+        else:
+            W "Does it feel good, husband?"
+            Z "Yes... she is a great servant."
+            W "A willing slave like her... she surely is a treasure."
+            show hez-33-anim # side
+            with dissolve
+            hide hez-32-anim
+        Zt "She feels soft, but her grip is exquisite..."
+        show hez-34-anim
+        with dissolve
+        hide hez-33-anim
+        Zt "She's taking the initiative..."
+        Zt "It's almost like she's trying to massage my dick. Amazing."
+        show hez-32-anim
+        with dissolve
+        hide hez-34-anim
+        Z "Almost ready..."
+        menu:
+            "Cum inside her":
+                if emilia_love >= emilia_sub:
+                    Z "Keep going, Emilia..."
+                else:
+                    Z "Keep going, slave..."
+                Z "Fuck..."
+                with flash
+                E "Nh..."
+                E "Master... I am yours..."
+                with flash
+                E "I..."
+                scene hez-43
+                with flash
+                Z "Ah... fuck Merneith..."
+                E "{i}*pant*"
+                "You come deep inside her, and you feel Emilia's pussy flooding with your load, her legs shivering in response."
+                scene hez-44
+                with dissolve
+                "{i}*sucking*"
+                Zt "[W] knows how to get me..."
+                W "Did we take good care of you, husband?"
+                Z "{i}*sucking*{/i} ...you always do..."
+                scene hez-45
+                with dissolve
+                W "I am glad, then..."
+                W "Something tells me our maid is feeling right at home here, and willing to serve even more than she already was."
+                W "Isn't that right, Emilia...?"
+                scene hez-46
+                with dissolve
+                E "I... nh... am always yours, Master..."
+                jump harem_ending
+
+            "Cum outside":
+                if emilia_love >= emilia_sub:
+                    Z "Keep going, Emilia..."
+                else:
+                    Z "Keep going, slave..."
+                Z "Fuck..."
+                with flash
+                E "nhh..."
+                scene hez-52
+                with flash
+                pause 1
+                scene hez-53
+                with dissolve
+                Z "Damn..."
+                Z "[W]... your turn."
+                scene black pic
+                with fade
+                "You pull out of your slave, and without hesitation, your wife quickly laps onto you..."
+                scene hez-54
+                with fade
+                W "{i}*sucking*"
+                Z "That was not bad at all."
+                scene hez-55
+                with dissolve
+                Z "You two work really well, together."
+                scene hez-56
+                with dissolve
+                W "{i}*slurp*"
+                "She diligently cleans you up..."
+                scene hez-57
+                with dissolve
+                Z "Make sure to keep listening to your Mistress. She knows what's best."
+                Z "Understood?"
+                E "Of course, Master."
+                Z "Alright then. [W], that's enough."
+                jump harem_ending
+
+label emilia_fairy:
+    if fairy_healed == True: 
+        if introduction_kateryna == True:
+            scene hf-1
+        else:
+            scene hf-1x
+        with fade
+        Z "Hey, [F]. Join us."
+        if introduction_kateryna == True:
+            scene hf-2
+        else:
+            scene hf-2x
+        with dissolve
+        F "Yes, Master."
+        scene black pic
+        with fade
+        scene hef-3
+        F "I... took off my dress, Master."
+        Z "Good choice."
+        scene hef-4
+        with fade
+        "She touches your hand..."
+        scene hef-5
+        with dissolve
+        Zt "...delicious."
+        if shani_zone == True:
+            scene hef-6x
+        else:
+            scene hef-6
+        with dissolve
+        F "Master, how can I serve today?"
+        if shani_zone == True:
+            scene hef-7x
+        else:
+            scene hef-7
+        with dissolve
+        Z "How about you start undressing first..."
+        jump hef13
+
+    else:
+        scene hf-3
+        with fade
+        Z "[F], come here."
+        scene hf-4
+        with dissolve
+        F "Yes, Master."
+        scene black pic
+        with fade
+        scene hef-8
+        with fade
+        "She sits down, waiting for her next order..."
+        if introduction_kateryna == True:
+            scene hef-9
+        else:
+            scene hef-9x
+        with fade
+        Zt "The dress may protect her modesty, but her breasts barely fit in it."
+        F "Master..."
+        if introduction_kateryna == True:
+            scene hef-10
+        else:
+            scene hef-10x
+        with dissolve
+        F "How can I please Master. I will undress?"
+        if introduction_kateryna == True:
+            scene hef-11
+        else:
+            scene hef-11x
+        with dissolve
+        "She looks at you sultry, a slight smile arches her lips. She knows how to look alluring, or  maybe it's just a natural thing."
+        Z "Yes... undress, now. Emilia and I are waiting."
+        if introduction_kateryna == True:
+            scene hef-12
+        else:
+            scene hef-12x
+        with dissolve
+        "She looks over to Emilia..."
+        jump hef13
+    
+
+    label hef13:
+        scene hef-13
+        with fade
+        "You look at Emilia's perfectly shaped face. Her eyes are fixed on her new ward..."
+        scene hef-14
+        with dissolve
+        Z "Can't take your eyes off her, can you?"
+        scene hef-15
+        with dissolve
+        E "She ifh... phtunning, mash-er..."
+        Z "Hm..."
+        scene hef-16
+        with dissolve
+        Z "I see how it is."
+        Z "I expect you to give me a good time."
+        F "I am undressed, Master."
+        scene hef-17
+        with dissolve
+        F "Mh..."
+        scene hef-18
+        with fade
+        "She rubs her pussy against your leg..."
+        F "Sorry, Master... I can't resist..."
+        scene hef-19
+        with dissolve
+        F "Master... mh... said to give a good time."
+        E "Yes. I will undress and then..."
+        F "Wait..."
+        scene hef-20
+        with fade
+        F "We can also..."
+        scene hef-21
+        with dissolve
+        F "...do it now."
+        scene hef-22
+        with fade
+        Zt "This redhead..."
+        scene hef-23
+        with dissolve
+        F "Hah..."
+        scene hef-24
+        with dissolve
+        F "{i}*kissing*{/i}"
+        E "Nh..."
+        Zt "That's what I'm talking about..."
+        scene hef-25
+        with dissolve
+        F "Mh..."
+        scene hef-26
+        with dissolve
+        "Their tongues twirl and twist, sparring and swapping saliva. The good times you asked for seem to be enjoyed by everybody."
+        scene hef-27
+        with dissolve
+        E "{i}*kissing*{/i}"
+        Zt "Two girls, both slaves in my service; one an exotic redhead, the other an exotic blonde."
+        Zt "Life is good."
+        scene hef-26
+        with fade
+        pause 0.8
+        scene hef-25
+        with dissolve
+        pause 0.5
+        scene hef-23
+        with dissolve
+        E "Nha..."
+        Z "That's enough for now, girls."
+        scene hef-22
+        with dissolve
+        Z "Don't forget your master, women."
+        "The girls bring an end to their kisses and cuddling, staring longingly at each other and then at you."
+        scene black pic
+        with fade
+        "Emilia undresses, and both your slaves climb on top of you, sideways..."
+        scene hef-28
+        with w33slow
+        Z "Ah, fuck..."
+        F "{i}*slurp*{/i}"
+        scene hef-29
+        with dissolve
+        E "{i}*kissing*{/i}"
+        Z "I... didn't expect that..."
+        scene hef-30
+        with dissolve
+        "She straddles across your legs" 
+        F "{i}*kissing*{/i}"
+        E "Is that... mh... not what you had in mind, Master? {i}*kissing*{/i}"
+        scene hef-31-anim
+        with fade
+        E "Mh..."
+        F "Hah..."
+        Zt "This feels amazing..."
+        Zt "The warmth of their bodies... their tongues... and hands..."
+        Zt "I... whoa."
+        pause 3
+        "Your gaze moves from one woman to the next, as they concentrate on tender kisses and the gentle caressing of your skin."
+        "Now that the high of the first impact is behind you, you sense a new high, more regular, slowly rising as the intensity of your enjoyment increases with their ministrations."
+        "Your mind receives a boost of confidence, intimate satisfaction and enthusiasm as you ponder how your life has brought two exotic beauties to your service to do with as you please."
+        pause 2
+        Z "Girls, you're too good..."
+        menu:
+            "Turn to Emilia":
+                scene hef-32
+                with dissolve
+                Z "Emilia..."
+                E "Yes, Master?"
+                scene hef-33
+                with fade
+                Z "I'm at my limit. You know what I want."
+                scene hef-34
+                with dissolve
+                E "With pleasure, Master..."
+                scene hef-35
+                with dissolve
+                E "Mh..."
+                E "{i}*sucking*{/i}"
+                Z "Ah... damn..."
+                F "{i}*kissing*{/i}"
+                scene hef-36
+                with dissolve
+                "Emilia kisses and sucks the tip of your dick, whilst guiding [F]'s hand on your shaft, massaging it."
+                "The sensation of this combined effort is bringing you over the edge quickly."
+                scene hef-37
+                with dissolve
+                E "Mh..."
+                menu:
+                    "Cum inside her mouth":
+                        Z "You-... keep going..."
+                        with hpunch
+                        Z "Ngh-"
+                        scene hef-38
+                        with dissolve
+                        E "..."
+                        scene hef-39
+                        with hpunch
+                        Z "...!"
+                        Z "Fuck..."
+                        E "Mh..."
+                        scene hef-40
+                        with dissolve
+                        E "{i}*slurp*{/i}"
+                        Z "Mh..."
+                        "She takes in your glans, trying to gobble every drop that spouts from it..."
+                        jump hef35
+
+                    "Cum on her face":
+                        Z "Your... ngh... face..."
+                        scene hef-41
+                        with dissolve
+                        E "..."
+                        "She perfectly understands your command, and releases your tip from her mouth..."
+                        scene hef-42
+                        with dissolve
+                        E "Mh... Master..."
+                        E "Bathe me in it, Master..."
+                        scene hef-43
+                        with dissolve
+                        E "{i}*licking*{/i}"
+                        scene hef-44
+                        with dissolve
+                        Z "Mh..."
+                        scene hef-45
+                        with hpunch
+                        pause 0.5
+                        scene hef-46
+                        with dissolve
+                        E "Ah..."
+                        scene hef-47
+                        with dissolve
+                        pause 0.4
+                        scene hef-48
+                        with hpunch
+                        Z "Mgh..."
+                        scene hef-49
+                        with dissolve
+                        E "..."
+                        Zt "Such a pretty face..."
+                        jump hef35
+
+
+                label hef35:
+                    scene hef-35
+                    with fade
+                    F "{i}*kissing*{/i}"
+                    Z "Well done, you two."
+                    "You enjoy their attentions for a while longer, until time comes for each of you to interrupt this moment of rest..."
+                    jump harem_ending
+
+            "Turn to [F]":
+                scene hef-50
+                with dissolve
+                Z "[F]..."
+                scene hef-51
+                with dissolve
+                F "..."
+                Zt "This look... is she planning something?"
+                scene hef-52
+                with fade
+                "Knowing exactly what to do, she climbs atop you, while Emilia is continuing her duty..."
+                scene hef-53
+                with dissolve
+                "...and prepares herself to be entered."
+                Z "You're... one wildcat, girl."
+                scene hef-54
+                with dissolve
+                F "Master... will like this..."
+                F "...I hope?"
+                scene hef-55
+                with fade
+                "Her big tits are swinging before you..."
+                Z "I think... I will, yes."
+                scene hef-56
+                with dissolve
+                F "Master..."
+                scene hef-57
+                with dissolve
+                F "Where will you take me...?"
+                scene hef-58
+                with dissolve
+                menu:
+                    "Cum inside her pussy":
+                        if fairy_healed == True:
+                            Z "I want your pussy, [F]."
+                        else:
+                            Z "I want your pussy, slave."
+                        scene hef-59
+                        with fade
+                        F "My pussy is..."
+                        scene hef-60
+                        with dissolve
+                        F "...always ready for Master."
+                        "She brushes your dick against her ass crack. Was that intentional...?"
+                        scene hef-63
+                        with dissolve
+                        Z "Mh..."
+                        F "Please... Master..."
+                        with hpunch
+                        Z "Ngh-"
+                        "The feeling of entering her wet and sloppy pussy drives you over the edge..."
+                        with hpunch
+                        F "More... please..."
+                        with hpunch
+                        Z "...!"
+                        scene hef-64
+                        with dissolve
+                        F "Thank you, Master..."
+                        scene hef-65
+                        with dissolve
+                        "Cum leaks out of her pussy as she removes her hand..."
+                        jump hef54
+
+                    "Cum inside her ass":
+                        if fairy_healed == True:
+                            Z "Your rear, [F]."
+                        else:
+                            Z "Your ass, slave."
+                        scene hef-59
+                        with fade
+                        F "Always, Master."
+                        F "I like..."
+                        scene hef-60
+                        with dissolve
+                        F "...Master in there..."
+                        scene hef-61
+                        with dissolve
+                        F "Mh... a lot..."
+                        "She effortlessly plunges the end of your dick inside her puckered hole."
+                        with hpunch
+                        Z "...!"
+                        "The sensation of the fleshy rings of your slave's ass around your cock brings you over the edge..."
+                        with hpunch
+                        Z "Girl..."
+                        scene hef-62
+                        with dissolve
+                        Z "Wow..."
+                        jump hef54
+
+                label hef54:
+                    scene hef-54
+                    with fade
+                    F "So much... Master liked it..."
+                    Z "I... {i}*pant*{/i} I did..."
+                    E "{i}*sucking*{/i}"
+                    "You enjoy their attentions for a while longer, until time comes for each of you to interrupt this moment of rest..."
+                    jump harem_ending
+
+label ain_solo:
+    Z "Come to me."
+    scene ha-3
+    with dissolve
+    A "Yes [persistent.dad]!"
+    scene ha-6
+    with fade
+    A "You know what, [persistent.dad]?"
+    Z "What is it?"
+    scene ha-5
+    with dissolve
+    A "I want to show you something..."
+    A "...but I need your help."
+    scene ha-8x
+    with dissolve
+    Aw "I want to show [persistent.mom] that I can be like her too."
+    scene ha-8
+    with dissolve
+    Zw "Be like her?"
+    scene ha-8x-2
+    with dissolve
+    Aw "Yes... a responsible wife like her."
+    scene ha-9
+    with dissolve
+    Zw "Hm... you do have everything you need."
+    scene black pic
+    with fade
+    "She turns around and leans on you..."
+    A "Are you feeling comfortable, [persistent.dad]?"
+    scene ha-10
+    with fade
+    Z "Uhm... sure."
+    scene ha-11
+    with dissolve
+    A "Do you want me to call a servant for you?"
+    A "I'm sure they will serve you well."
+    W "Nice try, I guess."
+    scene ha-12
+    with dissolve
+    A "Huh?"
+    W "[A], you're sitting right behind me."
+    scene ha-13
+    with dissolve
+    W "I can hear you even when you're whispering."
+    W "Doing {i}my job{/i} is not just about enjoying the privileges."
+    scene ha-14
+    with dissolve
+    A "Ah, [persistent.dad]?"
+    W "A wife also has her duties."
+    W "...and your [persistent.dad] doesn't like to wait forever."
+    scene ha-15
+    with dissolve
+    Aw "Nh... sorry..."
+    menu:
+        "Let her try again":
+            Zw "Don't worry about it, try again."
+            A "Okay."
+            scene black pic
+            with fade
+            A "She sits up and makes an effort to change her expression, in preparation of a playful recitation..."
+            scene ha-16x
+            with fade
+            A "Hello husband..."
+            A "It has been a long day for you."
+            scene ha-16x
+            with dissolve
+            A "Do you need me to help you relax...?"
+            Z "Yes. Yes I think I do."
+            jump ain_solo2
+
+        "Command her around":
+            Z "Enough with the teasing."
+            scene ha-16
+            with dissolve
+            Z "If you want to play at being the wife, turn around."
+            scene ha-17
+            with dissolve
+            A "Okay."
+            jump ain_solo2
+
+label ain_solo2:
+    scene ha-22
+    with slowfade
+    "*sucking noises*"
+    A "Is this better, [persistent.dad]?"
+    Z "It is."
+    scene ha-19
+    with dissolve
+    Aw "Nh... you are very... vigorous..."
+    scene ha-20
+    with dissolve
+    Zt "She may not be ready to take on responsibilities like her [persistent.mom], but she was definitely blessed with other gifts."
+    scene ha-21
+    with dissolve
+    A "What about this... will this help...?"
+    Z "It does, but I have a better idea."
+    Z "Turn around again."
+    A "Oki."
+    scene ha-24
+    with slowfade
+    A "Ah, it went in all the way..."
+    scene ha-23
+    with dissolve
+    Zt "Her tiny frame is just perfect for this."
+    scene ha-25
+    with dissolve
+    A "Just... ha... one thing..."
+    A "I don't think servants would respect me more for doing this..."
+    scene ha-26
+    with dissolve
+    W "Oh honey, if you think the girls won't respect you because you let him take you in front of them..."
+    W "...then you have much to learn."
+    A "Okay..."
+    scene ha-27
+    with dissolve
+    A "Let me help you finish, [persistent.dad]."
+    scene ha-28
+    with dissolve
+    Zt "This perfect little thing..."
+    scene ha-29
+    with dissolve
+    Z "..."
+    scene ha-30
+    with flash
+    A "...!"
+    scene ha-31
+    with dissolve
+    Aw "So much..."
+    jump harem_ending
+
+label ain_shani:
+    Z "You know what I like."
+    scene ha-3
+    with dissolve
+    A "I do, yes."
+    scene has-1
+    with fade
+    A "..."
+    Z "What are you waiting for then?"
+    A "I'm just admiring it..."
+    scene has-2
+    with dissolve
+    A "..."
+    Zt "Damn it. She can be such a little tease."
+    S "Hey [persistent.dad]."
+    scene has-3
+    with fade
+    S "Having fun again, sister?"
+    A "Go away... I'm just taking my time."
+    scene has-4
+    with dissolve
+    S "I think I will sit down instead."
+    A "Really..."
+    scene has-5
+    with fade
+    S "She really is your favourite afternoon exercise, isn't she?"
+    A "Get off of me, [S]!"
+    scene has-6
+    with dissolve
+    S "Hey, less talking, more sucking..."
+    A "Hnnpf-"
+    scene has-7
+    with dissolve
+    S "That's good."
+    S "You're the best sister ever when you're not talking."
+    scene has-8
+    with dissolve
+    Z "That was a little harsh, [S]."
+    show has-8-anim
+    S "Maaaybe..."
+    A "{i}*muffled nagging*"
+    S "Come on sis, you can do better."
+    A "{i}*coughing*"
+    S "I bet it can't be that hard."
+    A "..."
+    scene has-11
+    with dissolve
+    W "..."
+    scene has-10
+    with fade
+    S "So..."
+    S "...any news on the next mission?"
+    W "Young woman!"
+    scene has-12
+    with dissolve
+    W "I see what you're doing."
+    W "Stop teasing your sister like that!"
+    W "I'm not asking twice..."
+    scene has-13
+    with dissolve
+    S "Um... sorry [persistent.mom]..."
+    S "I should... get off of her."
+    Z "That would be for the best, yes."
+    scene has-14
+    with fade
+    menu (screen = 'harem_choice'):
+        # "Call [W]" (blocked = True, img = 'gui/harem/zahra_side.png'):
+        #     jump ain_shani_zahra
+        # "Call Emilia" (blocked = True, img = 'gui/harem/emilia_side.png'):
+        #     jump ain_shani_emilia
+        "Focus on them" (img = 'gui/harem/continue_side.png'):
+            jump ain_shani2
+
+label ain_shani2:
+    S "So..."
+    scene has-15
+    with dissolve
+    S "Want to do a little exercise today?"
+    scene has-16
+    with dissolve
+    S "Or are you going to sit here and do nothing?"
+    Z "Are you implying I'm lazy...?"
+    scene has-17
+    with dissolve
+    S "Noo... I would never."
+    scene has-18
+    with dissolve
+    Z "What are you..."
+    Z "...?"
+    scene has-20
+    with dissolve
+    S "Psst..."
+    S "Stop being lazy."
+    scene has-19
+    with dissolve
+    Z "Really..."
+    S "Lazy [persistent.dad]!"
+    scene has-22
+    with dissolve
+    Z "The laziest master of tickles you ever knew."
+    S "{i}*chuckles* Nooo!"
+    scene has-21
+    with dissolve
+    S "That's not fair!"
+    Z "Is it not?"
+    scene has-23
+    with hpunch
+    S "Haaa!"
+    scene has-24
+    with fade
+    S "Really [persistent.dad]."
+    S "I give you a foot and you pull the whole leg."
+    S "*{i}giggles*"
+    Z "That's what you get."
+    A "{i}*sucking*"
+    scene has-25
+    with dissolve
+    "{i}You can feel her becoming more enthusiastic, almost as if she wanted to gain your attention..."
+    Z "Oh..."
+    scene has-26
+    with dissolve
+    Z "...you little minx."
+    scene has-27
+    with dissolve
+    Z "Hngh..."
+    scene has-27
+    with flash
+    A "{i}*gulps*"
+    scene has-28
+    with flash
+    A "..."
+    Z "You know how to take care of me."
+    scene has-29
+    with fade
+    S "Are you finished, [A]?"
+    scene has-30
+    with dissolve
+    A "{i}*gulps*"
+    scene has-31
+    with dissolve
+    A "He is... yes..."
+    S "{i}*sighs*"
+    jump harem_ending
+
+label ain_zahra:
+    Z "Come to me."
+    scene ha-3
+    with dissolve
+    A "Yes [persistent.dad]!"
+    scene ha-6
+    with fade
+    A "You know what, [persistent.dad]?"
+    Z "What is it?"
+    scene ha-5
+    with dissolve
+    A "I need your help."
+    scene ha-8x
+    with dissolve
+    Aw "I want to show [persistent.mom] that I can be like her too."
+    scene ha-8
+    with dissolve
+    Zw "Be like her?"
+    scene ha-8x-2
+    with dissolve
+    Aw "And maybe even better..."
+    scene ha-6
+    with fade
+    "She crawls over to you..."
+    scene ha-7
+    with dissolve
+    Z "Better, huh?"
+    scene hez-10
+    with fade
+    Z "Hey, [W]."
+    scene hez-11
+    with dissolve
+    W "Hmmm?"
+    Z "You hear that? It seems [A] wants to steal your spot in the master bedroom..."
+    scene hez-12
+    with dissolve
+    W "Is that so..."
+    scene ha-18
+    with fade
+    Z "And I must say, her...arguments are compelling."
+    scene ha-20
+    with dissolve
+    Z "{i}*sucking*"
+    A "You are... really hungry today, [persistent.dad]."
+    "You suck on her breasts..."
+    scene hez-12
+    with dissolve
+    W "Someone needs to be taught a lesson..."
+    scene hez-14
+    with fade
+    W "Make some room for me please."
+    scene black pic
+    with fade
+    "She removes her dress and joins you..."
+    scene haz-1
+    with fade
+    W "I can see you're enjoying yourself."
+    scene haz-2
+    with dissolve
+    A "That feels so good [persistent.dad]..."
+    scene haz-1
+    with dissolve
+    A "{i}*moans*{/i}"
+    W "She seems to really like the attention..."
+    scene haz-3
+    with fade
+    "A sharp breath escapes [A]'s lips..."
+    A "I bet -uhhn-, I bet you would also enjoy such attention, [persistent.mom]..."
+    scene haz-4
+    with dissolve
+    W "Time to change things up a bit..."
+    W "[persistent.player_name], lay her down, please..."
+    scene haz-5
+    with slowfade
+    W "Now, about that lesson I was talking about..."
+    scene haz-6
+    with dissolve
+    Z "What do you have in mind?"
+    scene haz-5
+    with dissolve
+    W "You'll see..."
+    scene haz-7
+    with fade
+    W "I can see why you're so fond of her..."
+    show haz-8-anim
+    with fade
+    pause 8
+    Zt "Now that's a sight."
+    Zt "She looks delicious."
+    show haz-9-anim
+    with fade
+    hide haz-8-anim
+    pause 10
+    A "..."
+    scene haz-11
+    with dissolve
+    A "[persistent.dad!c]?"
+    A "Is there anything I can do for you...?"
+    scene haz-12
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Z "Yeah. Be a good [persistent.da] and open your legs."
+    else:
+        Z "Yeah. open your legs."
+    scene haz-13
+    with dissolve
+    A "Anything for you [persistent.dad]..."
+    scene haz-14
+    with dissolve
+    "You pull her small body closer to you..."
+    scene haz-15
+    with fade
+    A "Please [persistent.dad], fuck me."
+    A "I am very wet..."
+    scene haz-16
+    with dissolve
+    Z "You're just goading me now, huh?"
+    scene haz-17
+    with dissolve
+    A "No, [persistent.dad]. I mean it..."
+    "You're more than happy to oblige..."
+    scene haz-18
+    with dissolve
+    A "...I really want you inside me."
+    A "...all the way. Don't hold back, please."
+    "Man... her body is so tiny. How does it even fit inside her..."
+    scene haz-19
+    with dissolve
+    "...and those tits...She surely is blessed."
+    A "[persistent.dad!c]... do you think I'll ever give milk?"
+    Z "Oh... I'm not sure..."
+    scene haz-21
+    with dissolve
+    A "Maybe if you get me pregnant...?"
+    scene haz-20
+    with dissolve
+    "She looks at you with doe eyes."
+    Z "Maybe... maybe you would."
+    Z "...and maybe I will."
+    scene haz-22
+    with hpunch
+    W "Enough talking, [A]. Let's put your bratty mouth to good use."
+    A "[persistent.mom!c]?!"
+    scene haz-23
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        W "What? Can't I enjoy my own [persistent.da] anymore?"
+    else:
+        W "What? My husband isn't the only one who can enjoy his time with you."
+    scene haz-24
+    with dissolve
+    "[W] kneels on top of [A]'s face as you prepare to enter her..."
+    scene haz-25
+    with dissolve
+    A "But [persistent.mom], I thought it was a lesson to...-"
+    scene haz-26
+    with vpunch
+    A "{i}Mphh-!{/i}"
+    W "Yeah, baby... I know. I changed my mind."
+    scene haz-27
+    with fade
+    W "Nh... use your tongue. Show me what you learned."
+    "She commands her [persistent.da] around, as her hips slowly start grinding her face."
+    "Even though you're focused on your [persistent.da]'s small body laying helplessly in front of you, you can't help but admire your wife's perfect figure."
+    scene haz-28
+    with fade
+    A "Npmh-"
+    Z "Ah... I'm inside. So tight..."
+    W "Mh... I think I felt that, too."
+    scene haz-29
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        W "Mh... I'm so proud of our [persistent.da]."
+    else:
+        W "Mh... It feels like yesterday when she joined our home, doesn't it?"
+        W "I'm so proud of her."
+    W "We... nh... raised her well, didn't we?"
+    show haz-30x-anim
+    with dissolve
+    Z "We sure did..."
+    W "Mh..."
+    "Seeing your wife passionately ride her own [persistent.da]'s face, it reminded you why you love her so much."
+    "Even if she is not the leader of the house, she still takes what belongs to her."
+    "And her [persistent.da] surely belongs to her. And she lets her know that today."
+    show haz-30x-2-anim
+    with dissolve
+    hide haz-30x-anim
+    "While she has her fun, you're enjoying her other end, entering [A]'s wet pussy, sliding in and out."
+    W "How does she... nh... feel, husband?"
+    Z "She's... sucking me in... it feels great."
+    Z "Whatever you're doing, it works."
+    show haz-30x-3-anim
+    with dissolve
+    hide haz-30x-2-anim
+    "[A]'s helpless body twitches under your influence. She is focused on what she does best, and does not object with her treatment..."
+    show haz-30x-4-anim
+    with dissolve
+    hide haz-30x-3-anim
+    A "{i}*slurp*"
+    W "Mh... keep going, baby."
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        "[A] licks the hole she once came from, and her big and juicy boobs shake under the influence of her [persistent.dad]'s thrusts..."
+    else:
+        "[A] licks [W]'s pussy as her big and juicy boobs shake under the influence of your thrusts..."
+    A "Nh... ha..."
+    show haz-30x-5-anim
+    with dissolve
+    hide haz-30x-4-anim
+    W "She's amazing... thanks for sharing, husband. I always love our playtime together."
+    Z "Mh... it's your [persistent.da] as well [W]. She belongs to us both."
+    W "I... think I'm... about to..."
+    Z "Yes. Me too..."
+    menu:
+        "Cum inside [A]":
+            show haz-30x-2-anim
+            with dissolve
+            hide haz-30x-5-anim
+            Z "You really bring me to my edge, kid."
+            Z "Damn-"
+            scene haz-30
+            with hpunch
+            Z "Fuck...-"
+            W "Ah...!"
+            scene haz-33
+            with dissolve
+            "You cum deep inside her tiny body..."
+            with hpunch
+            Z "Ngh-"
+            scene haz-34
+            with dissolve
+            A "{i}*muffled moaning*"
+            scene haz-31
+            with fade
+            "{i}*kissing*"
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                "The two parents enjoy a passionate makeout after climaxing on top and inside of their own [persistent.da]."
+            else:
+                "You both enjoy a passionate makeout after climaxing on top and inside of [A]..."
+            scene haz-32
+            with dissolve
+            W "{i}*kissing*"
+            Ww "Mh... I love you..."
+            Zw "I love you too, [W]."
+            scene haz-35
+            with fade
+            "You pull out of her, and admire all the cum leaking out of her pussy."
+            scene haz-36
+            with dissolve
+            "...[W] however enjoys her [persistent.da]'s attention a little more."
+            "...and [A] happily obliges."
+            jump harem_ending
+
+        "Cum outside":
+            show haz-30x-2-anim
+            with dissolve
+            hide haz-30x-5-anim
+            Z "You really bring me to my edge, kid."
+            Z "Damn-"
+            scene haz-37
+            with fade
+            "After a last, deep thrust you pull out of her..."
+            scene haz-38
+            with hpunch
+            Z "Ngh-"
+            "...and cum all the way up to her face..."
+            scene haz-39
+            with hpunch
+            "...and on her breasts."
+            scene haz-40
+            with dissolve
+            Z "Fuck. That was good."
+            scene haz-32
+            with dissolve
+            W "{i}*kissing*"
+            "You both start making out passionately..."
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                Ww "Our [persistent.da] looks really cute with your cum all over her..."
+            else:
+                Ww "[A] looks really cute with your cum all over her..."
+            Zw "She does..."
+            scene haz-40
+            with dissolve
+            "{i}*kissing*"
+            W "I love you, husband."
+            Z "I love you, too."
+            jump harem_ending
+
+label shani_solo: 
+    Z "Sure... why not..."
+    scene hs-10
+    with fade
+    Z "...hanging out it is."
+    scene hs-11
+    with dissolve
+    Z "Do you have anything in mind?"
+    scene hs-12
+    with dissolve
+    S "Me? Not really..."
+    scene hs-13
+    with dissolve
+    if introduction_emilia == True or introduction_fairy == True or introduction_kateryna == True:
+        S "...just wondering, how you are feeling, what you are thinking of, whether your girls are behaving..."
+    else:
+        S "...just wondering, how you are feeling, what you are thinking of, whether [A] is behaving..."
+    S "Things like that."
+    scene hs-14
+    with dissolve
+    Z "I... don't think that is what's really on your mind..."
+    scene hs-15
+    with dissolve
+    S "What makes you say that...?"
+    scene hs-16
+    with dissolve
+    "She slowly strokes your cock with her feet..."
+    Z "What are you trying?"
+    S "Nothing, really. What's the issue?"
+    scene hs-17
+    with dissolve
+    if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+        S "Can't a [persistent.da] not show a little affection to her father anymore?"
+    else:
+        S "Can't a girl not show a little affection anymore?"
+    scene hs-18
+    with dissolve
+    Zt "Fuck..."
+    S "Are you becoming a prude, with age?"
+    scene hs-19
+    with dissolve
+    if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+        S "That's a really long, erect shaft, [persistent.dad]..."
+    else:
+        S "That's a really long, erect shaft..."
+    scene hs-20
+    with dissolve
+    S "...maybe you should use one of your other women for release?"
+    scene hs-21
+    with dissolve
+    "She smirks visibly..."
+    Z "{i}*chuckles*{/i} Practicing your teasing skills on me, huh?"
+    scene hs-22
+    with hpunch
+    S "Oh..."
+    Z "Then you won't mind giving me some additional stimulation."
+    scene hs-23
+    with dissolve
+    "You feel her up roughly..."
+    if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+        Z "Gods, I have to thank your [persistent.mom] for those."
+        "You hear a faint chuckling from a short distance, just out of your field of vision..."
+        W "You're welcome, husband."
+    else:
+        Z "Damn, I have to thank the gods for those."
+    scene hs-25
+    with dissolve
+    Z "Come on, keep doing what you were doing..."
+    scene hs-24
+    with dissolve
+    S "Sure..."
+    scene hs-26
+    with dissolve
+    S "What was I... mmh..."
+    scene hs-27
+    with dissolve
+    S "Oh, right... that..."
+    S "...it's a little too big to ignore."
+    scene hs-28
+    with fade
+    Z "{i}*grunts*{/i}"
+    "She giggles provocativly..."
+    if introduction_kateryna == True:
+        scene hs-29
+        with fade
+        Ka "..."
+        Kaw "She try to play with him..."
+    if ain_basement == False:
+        scene hs-31
+        with dissolve
+        A "[S]... be careful. Whenever I do that, he..."
+        scene hs-32
+        with dissolve
+        S "Mmhh... what did you say, sis?"
+        scene hs-33
+        with fade
+        "You start zoning out..."
+        Z "Mgh... screw it."
+        if introduction_emilia == True and introduction_fairy == True:
+            scene hs-34
+        elif introduction_emilia == True and introduction_fairy == False:
+            scene hs-34x
+        else:
+            scene hs-34x-2
+        with hpunch
+        S "Haaaah!?"
+        scene hs-35
+        with dissolve
+        S "[persistent.dad!c]? What has gotten into you..."
+        scene hs-36
+        with hpunch
+        S "Ah...!"
+        Z "Stop the act. You almost sound like your slut of a sister."
+        A "Hey... mean...~"
+        scene hs-37 #TODO ain basement pics
+        with dissolve
+        S "I... knew you were a pervert..."
+        scene hs-38
+        with dissolve
+        Z "A pervert, hm?"
+        show hs-39-anim #TODO fix animation
+        with fade
+        S "Yeah... hah... nnh~"
+        Z "For what? Using my [persistent.da], after she stroked me with her feet for minutes on end?"
+        S "Ah... that's what I do...~"
+        show hs-40-anim
+        with dissolve
+        hide hs-39-anim
+        "You fuck your teasing [persistent.da] thoroughly, while groping her luscious tits..."
+        Z "Never thought you'd end up on my bed like this... nh..."
+        Z "...with everyone watching you getting fucked."
+        S "Mmh... do you wish me to become your plaything, [persistent.dad]?"
+        Z "Ngh..."
+        S "Keep dreaming, {i}*giggles*{/i}"
+        show hs-41-anim 
+        with dissolve
+        hide hs-40-anim
+        S "Ah... you're so deep..."
+        Z "So tight..."
+        S "What if... {i}*giggles*{/i}... I am the one playing with you?"
+        show hs-39-anim
+        with dissolve
+        hide hs-41-anim
+        Z "Hah... trying to stay on top... that's my girl... ngh..."
+        if introduction_emilia == False:
+            jump hs64
+        menu:
+            "Cum all over her":
+                label hs64:
+                    Z "You're... too much..."
+                scene hs-64
+                with hpunch
+                S "Ah..."
+                "You press your cock firmly against her thighs..."
+                Z "Fuck..."
+                scene hs-65
+                with hpunch
+                Z "Ahh...!"
+                scene hs-66
+                with hpunch
+                Z "{i}*grunts*{/i}"
+                scene hs-67
+                with dissolve
+                Z "{i}*heavy breathing*{/i}"
+                S "Wow..."
+                scene hs-68
+                with dissolve
+                S "It's all over me... {i}*giggles*{/i}"
+                scene hs-69 #TODO ain basement alternatives
+                with fade
+                if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                    S "But [persistent.dad]... that's usually what your other [persistent.da] is there for."
+                else:
+                    S "That's usually what your other [persistent.da] is there for."
+                scene hs-70
+                with dissolve
+                Z "{i}*chuckles*{/i} She has to clean up her mess, and you do yours."
+                jump harem_ending
+
+
+            "Call for Emilia" if introduction_emilia == True:
+                Z "You're driving me crazy. I'm getting close..."
+                scene hs-40
+                with dissolve
+                S "Ah..."
+                "You pull out of her wet cunt..."
+                scene hs-41
+                with fade
+                Z "Remind me, what was that about using my women?"
+                scene hs-42
+                with dissolve
+                S "Hah... yeah... why don't you do that?"
+                scene hs-43
+                with dissolve
+                Z "Your little head is full of good ideas, [S]."
+                scene hs-44
+                with fade
+                if emilia_love >= emilia_sub:
+                    Z "Emilia!"
+                else:
+                    Z "Maid!"
+                scene hs-45
+                with dissolve
+                E "Mh...?"
+                Z "Come over here, quickly."
+                scene hs-46
+                with fade
+                E "Yes, Master, immediately."
+                scene hs-47
+                with dissolve
+                S "Such an obedient one..."
+                scene hs-48
+                with fade
+                Z "Kneel down, over here, yes."
+                if introduction_kateryna == True:
+                    scene hs-49
+                else:
+                    scene hs-49x
+                with fade
+                E "You're in need of me, Master?"
+                if introduction_kateryna == True:
+                    scene hs-50
+                else:
+                    scene hs-50x
+                with dissolve
+                Z "Put your pretty lips on my cock. I want to cum in your mouth."
+                scene hs-52
+                with fade
+                E "Ahhs you wish, mahster..."
+                scene hs-51
+                with dissolve
+                S "..."
+                scene hs-53
+                with fade
+                E "{i}*slurp*{/i}"
+                Z "Mh... good girl."
+                "She obediently strokes your thick, loaded tip with her pink lips..."
+                scene hs-54
+                with dissolve
+                E "Mmmh..."
+                S "What a sight..."
+                scene hs-55
+                with dissolve
+                S "Now, what if I..."
+                if introduction_fairy == True and introduction_kateryna == True:
+                    scene hs-56
+                elif introduction_fairy == False and introduction_kateryna == True:
+                    scene hs-56x
+                elif introduction_fairy == True and introduction_kateryna == False:
+                    scene hs-56x-2
+                else:
+                    scene hs-56x-3
+                with fade
+                S "Help her out a little..."
+                if introduction_fairy == True and introduction_kateryna == True:
+                    scene hs-57
+                elif introduction_fairy == False and introduction_kateryna == True:
+                    scene hs-57x-2
+                elif introduction_fairy == True and introduction_kateryna == False:
+                    scene hs-57x
+                else:
+                    scene hs-57x-3
+                with dissolve
+                E "Mgh..."
+                scene hs-58
+                with dissolve
+                S "Just holding her down, so she keeps it all in..."
+                Zt "Fuck... I love her so much..."
+                scene hs-59
+                with dissolve
+                E "Mmh..."
+                "You can feel the pressure of [S]'s feet holding your slave down..."
+                Z "Ngh-"
+                with hpunch
+                Z "Fuck..."
+                scene hs-60
+                with hpunch
+                E "Mngh..."
+                S "Keep it all down, slave. Come on, swallow it all..."
+                with hpunch
+                E "{i}*gulp*{/i}"
+                S "Good slave..."
+                scene hs-61
+                with dissolve
+                "You almost fade out, as the two girls take care of your climax..."
+                Z "[S]... ngh..."
+                S "She's so dutiful... do you feel her tongue?"
+                scene hs-62
+                with dissolve
+                Z "I... do... thanks for the assist..."
+                scene hs-61
+                with dissolve
+                if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                    S "You're welcome, [persistent.dad]..."
+                else:
+                    S "You're welcome, [persistent.dad]..."
+                scene hs-62
+                with dissolve
+                jump harem_ending
+
+
+
+label shani_kateryna:
+    scene hs-6
+    with dissolve
+    pause 0.5
+    scene hs-4
+    with dissolve
+    Z "I always like to hang out with you, but I was about to call Kateryna. Do you mind if she joins us?"
+    scene hs-5
+    with dissolve
+    S "Of course not, why would I? Do you want me to leave you alone?"
+    "You make a dismissive hand gesture, signaling that she should stay."
+    scene hs-4
+    with dissolve
+    if introduction_fairy == False:
+        scene hk-1
+    else:
+        scene hk-1x
+    with fade
+    Z "Hey, Kateryna."
+    if introduction_fairy == False:
+        scene hk-2
+    else:
+        scene hk-2x
+    with dissolve
+    Ka "Yes, [persistent.player_name]?"
+    Z "You look amazing, come here please."
+    Ka "Yes!"
+    scene hsk-1
+    with fade
+    pause 1
+    scene hsk-2
+    with dissolve
+    S "..."
+    if introduction_fairy == False:
+        scene hsk-3
+    else:
+        scene hsk-3x
+    with dissolve
+    Ka "Hello, [S]!"
+    if introduction_fairy == False:
+        scene hsk-3x-2
+    else:
+        scene hsk-3x-3
+    with dissolve
+    S "Hey, Kat."
+    if shani_perspective == True:
+        scene hsk-4
+        with dissolve
+        St "No wonder [persistent.dad] likes to have her here. She seems so nice..."
+    scene hsk-5
+    with fade
+    Z "Hey, you almost threw yourself on me."
+    Ka "Sorry..."
+    scene hsk-6
+    with dissolve
+    Z "No need to be. You know I don't mind."
+    scene hsk-7
+    with dissolve
+    Z "Let's take this off as well. I like you better without it."
+    Ka "Okay."
+    scene hsk-8
+    with fade
+    Ka "This is better, yes?"
+    scene hsk-9
+    with dissolve
+    Z "For sure."
+    S "..."
+    scene hsk-10
+    with dissolve
+    "You gently feel her up, your fingers brushing against her incredibly soft skin..."
+    scene hsk-11
+    with dissolve
+    Z "Do you like it when I do this?"
+    Ka "Very much, [persistent.player_name]..."
+    scene hsk-12
+    with fade
+    Ka "Mh..."
+    Z "Alright, get up a little."
+    scene hsk-13
+    with dissolve
+    Z "I want to taste you."
+    scene hsk-14
+    with fade
+    Ka "Ah..."
+    scene hsk-15
+    with dissolve
+    if kateryna_pregnant == True:
+        Ka "I'm sorry, there is no milk yet..."
+    Ka "Mh... your hand, [persistent.player_name]..."
+    scene hsk-16
+    with dissolve
+    "You put a hand between her thighs..."
+    scene hsk-17
+    with dissolve
+    Z "{i}*sucking*{/i}"
+    if kateryna_pregnant == True:
+        Ka "Mh... Soon, I will have lot of milk."
+        Ka "My mother told me that she always had a lot for me, too..."
+    else:
+        Ka "Mh... you make them so tingly, [persistent.player_name]..."
+    scene hsk-18
+    with dissolve
+    if shani_perspective == True:
+        St "That's a big juicy ass..."
+    else:
+        S "..."
+    scene hsk-19
+    with fade
+    S "You don't mind if I cop a feel, right?"
+    S "I mean, you're {i}right here{/i}, Kat. It would be a crime not to."
+    scene hsk-20
+    with dissolve
+    Z "{i}*sucking*{/i}"
+    S "I guess this counts as hanging out as well..."
+    S "But really, [persistent.dad], I didn't know you were into big booties."
+    Z "I am into a lot of things. Are you?"
+    S "For sure..."
+    scene black pic
+    with fade
+    Z "Kateryna... turn around."
+    scene hsk-21
+    with hpunch
+    Ka "Huh?"
+    "You grab her legs, lift them up, as her back leans into your chest."
+    scene hsk-22
+    with dissolve
+    Ka "[persistent.player_name]..."
+    Z "Oh... {i}*sigh*{/i}"
+    scene hsk-23
+    with dissolve
+    Z "There is a problem... [S]?"
+    scene hsk-24
+    with fade
+    Z "Do you want to..."
+    scene hsk-25
+    with dissolve
+    Z "...help me take off her underwear? I forgot to do that."
+    scene hsk-26
+    with dissolve
+    S "Oh, if that is what you need me for..."
+    scene hsk-27
+    with dissolve
+    Z "Help your poor old [persistent.dad] out, will you?"
+    scene hsk-28
+    with fade
+    Ka "[S]..."
+    scene hsk-29
+    with dissolve
+    "[S] takes off her underwear, staring intensely at Kateryna."
+    Z "That's better."
+    scene hsk-30
+    with hpunch
+    Ka "Ah...!! [persistent.player_name]...!"
+    Z "That feels so nice..."
+    if introduction_fairy == True:
+        scene hsk-31
+    else:
+        scene hsk-31x
+    with dissolve
+    Z "Hey [S], are you looking at something interesting?"
+    S "Hm..."
+    scene hsk-32
+    with dissolve
+    S "Well, it is very hot."
+    scene hsk-33
+    with dissolve
+    Ka "Ah... is so... big..."
+    scene hsk-34
+    with dissolve
+    S "It seems Kateryna is enjoying it very much."
+    S "Maybe there is something I could do..."
+    scene hsk-35
+    with dissolve
+    Ka "Could do... something...?"
+    Ka "Mh..."
+    scene hsk-36
+    with dissolve
+    Z "Mh..."
+    Z "Your pussy has adjusted so well to this, Kateryna."
+    Ka "So... embarrassing... in front of everyone..."
+    Z "They're just admiring you, sweetie."
+    scene hsk-37
+    with fade
+    Ka "[S]... mh..."
+    "[S] leans on Kateryna's knees for a moment, looking at her..."
+    scene hsk-38
+    with fade
+    "...before leaning in..."
+    S "Tell me if you like this..."
+    scene hsk-39
+    with dissolve
+    S "I used to do this with some of my friends in school."
+    scene hsk-40
+    with dissolve
+    S "This should do..."
+    Z "Mh... [S]... what are you..."
+    scene hsk-41
+    with dissolve
+    "She gently strokes your shaft..."
+    S "[persistent.dad!c], can you pull out for a second...?"
+    Z "Yeah... sure..."
+    scene hsk-42
+    with dissolve
+    Ka "Ah..."
+    scene hsk-43
+    with dissolve
+    S "You like this, don't you, little slut?"
+    Ka "I..."
+    scene hsk-44
+    with dissolve
+    Ka "Ah... [S]... it feels..."
+    scene hsk-45-46-anim
+    with fade
+    Ka "...so nice... mhhh..."
+    "She gently fingers Kateryna's wet pussy, making her squeal in delight."
+    "Her legs are spread, and Kateryna has lost all sense of modesty or shame."
+    "Your [persistent.da] seems to really know what she's doing with her fingers, as she jabs at Kateryna's pussy..."
+    scene hsk-47
+    with dissolve
+    Ka "Haah... [S]... you make me..."
+    S "I know..."
+    S "You can let it out, now."
+    scene hsk-48
+    with hpunch
+    Ka "Hai..."
+    "Kateryna shivers as her orgasm envelops her..."
+    scene hsk-49
+    with vpunch
+    Ka "Hah... mhh..."
+    "A powerful jet of clear fluids erupts from Kateryna, inundating [S]'s hand and your dick..."
+    scene hsk-50
+    with dissolve
+    S "Thank you, [persistent.dad!c]. Let me help you get back in action."
+    scene hsk-51
+    with dissolve
+    Z "Did you just make her squirt?"
+    S "Just a thing I learned in school, {i}*giggles*{/i}"
+    Ka "Oh..."
+    scene hsk-52
+    with vpunch
+    Ka "Mghhh~"
+    "She cums again violently..."
+    scene hsk-53
+    with dissolve
+    S "Mh... perfect... But what about you...?"
+    Z "You're incredible, [S]..."
+    Z "Ngh-"
+    scene hsk-54
+    with vpunch
+    Z "Agh-"
+    "She gently massages your shaft, while you keep pumping Kateryna, who is lost in yet another orgasm, spasming on top of you."
+    with vpunch
+    Ka "Haa...mhi..."
+    scene hsk-55
+    with dissolve
+    pause 0.6
+    scene hsk-56
+    with dissolve
+    "Your cum is flowing out, as [S] removes her hand..."
+    scene hsk-57
+    with fade
+    S "{i}*licking*{/i}"
+    scene hsk-58
+    with dissolve
+    S "Mh..."
+    scene hsk-59
+    with dissolve
+    S "{i}*muffled*{/i} You have a sweet taste..."
+    scene hsk-47
+    with fade
+    Ka "Hah..."
+    S "Was that as fun for you as it was for me?"
+    Ka "Y-yes... thank you..."
+    scene hsk-39
+    with dissolve
+    if kat_babywish == False:
+        S "I don't know if this is a risky day for you."
+        S "But you might want to go ahead and clean yourself right now, if you want to reduce the chances of making a baby."
+        scene hsk-39x
+        with dissolve
+        Ka "O-okay... thank you, [S].. nh..."
+    else:
+        S "My [persistent.dad] seems to have pumped you full of spunk. Then again, [A] tells me that you want to have a baby?"
+        scene hsk-39x
+        with dissolve
+        Ka "I... yes I do."
+    jump harem_ending
+    
+label zahra_solo: # theme: in text.
+    W "Are you happy with what you have accomplished, husband?"
+    if introduction_emilia == True:
+        scene hz-7
+        with fade
+        W "Your new maid is obediently following all your commands..."
+    if shani_zone == False:
+        scene hz-8
+        with fade
+        W "Your [persistent.da]s are happy, and love you very much."
+    else:
+        scene hz-8x
+        with fade
+        W "[A] is happy and loves you dearly. And her bigger sister does so too, even if she's not here right now."
+    scene hz-3
+    with fade
+    W "...and I am rather fond of you myself."
+    scene hz-5
+    with fade
+    W "Mh..."
+    "{i}*kissing*"
+    scene hz-4
+    with dissolve
+    W "Get comfortable, husband... I intend to reward you for your accomplishments."
+    scene hz-23
+    with fade
+    "As you lay down, glancing past your erection, which your wife has been nursing for a while, you can't help but admire her naked form."
+    scene hz-22
+    with dissolve
+    W "You have made me a very happy woman, all these years, [persistent.player_name]."
+    scene hz-23
+    with dissolve
+    Z "I did, I can see that."
+    scene hz-24
+    with dissolve
+    Z "I know life hasn't always been easy, over the years, but you have stood by me, and waited for me when I was away."
+    Z "You're the beginning and the end, always."
+    scene black pic
+    with fade
+    "She bends over to you..."
+    scene hz-25
+    with fade
+    W "Tell me... husband..."
+    W "...do you say that to all the woman you want to suck your cock?"
+    W "Because that might just work..."    
+    scene hz-27
+    with dissolve
+    Z "Only you, I promise."
+    scene hz-28
+    with dissolve
+    Z "...But I {i}do{/i} want my cock sucked."
+    scene hz-29
+    with dissolve
+    W "Do you now...?"
+    scene hz-30
+    with dissolve
+    W "I almost couldn't tell."
+    "She massages your raging boner poking through her ample breasts, squeezing it in the folds of her cleavage..."
+    scene hz-31
+    with dissolve
+    "Before lowering her lips to the tip of your glans."
+    W "{i}*slurp*"
+    Zt "I will never get tired of this..."
+    scene hz-32
+    with fade
+    Z "That feels great, [W]."
+    Z "Come here, now. It's my turn."
+    scene black pic
+    with fade
+    "You get on your side, positioning her so as to be level with you, as you impale her from behind, lifting up her leg."
+    show hz-9-anim #sex
+    with fade
+    W "Oh... fuck..."
+    "You fuck your wife in front of everyone else who is present in the living room..."
+    "...and as they're enjoying their free time, they can hear the mistress of your House moan loudly..."
+    show hz-10-anim
+    with fade
+    hide hz-9-anim
+    "Soon she matches your beats, as she moves her hips just enough for you to bury yourself deep inside her."
+    "Your breath on her neck makes her shiver in excitement, as she abandons herself to your thrusts."
+    show hz-11-anim
+    with fade
+    hide hz-10-anim
+    "Even after all these years, you love hearing the whimpers your wife makes in the heat of the moment."
+    W "Harder, please... ngh... [persistent.player_name]."
+    "Your strokes become deep, urgent, and your wife clenches her pelvic muscles strangling your manhood and enhancing your pleasure."
+    Z "Take it, take all of me..."
+    show hz-12-anim
+    with fade
+    hide hz-11-anim
+    W "Heh..."
+    "You grind in unison and, as you bury your face in the back of her neck, you sense a hint of linseed oil."
+    "You realise that the smell is intimately familiar to you, since it's one of the many ways your wife has been keeping her appearance so youthful."
+    "You fill your mind with her scent, mixed with the sweat of both your bodies, and renew your efforts, thrusting forward with vigor."
+    show hz-13-anim
+    with fade
+    hide hz-12-anim
+    "A lesser woman would have been taken by surprise by your burst of energy, but [W] has been your partner in passion and debauchery for long enough."
+    "She knows you well, and can read your movements by instinct and responds matching your efforts."
+    W "Yes, like this!... Again!... Oh."
+    show hz-11-anim
+    with fade
+    hide hz-13-anim
+    "You both are filled with reckless abandon, ignoring anything around you and concentrating only on one another."
+    Z "I'm going to cum soon, [W]."
+    "You keep thrusting your hips into [W] for a while, until eventually you can't hold it anymore."
+    menu:
+        "Cum inside her":
+            scene hz-15
+            with dissolve
+            "You grab your wife's hair with your left hand..."
+            scene hz-16
+            with hpunch
+            "...as your right hand climbs to her throat."
+            scene hz-17
+            with dissolve
+            "You squeeze the breath out of her, as you start spurting your semen in her womb."
+            scene hz-18
+            with dissolve
+            "Her breathing becomes ragged, as she too is about to climax."
+            scene hz-19
+            with dissolve
+            "Loud but shallow wheezing accompany her orgasm, as her legs thrash in its spasms, fueled by the temporary lack of oxygen."
+            scene hz-20
+            with dissolve
+            "When both your juices combined flow out of her, along your shaft, you release your grip on her throat, and she takes a deep breath, turning to kiss you."
+            jump harem_ending
+
+        "Let her get you off":
+            scene black pic
+            with fade
+            "[W] escapes from your embrace, sliding down your body and pushing your back onto the bed."
+            scene hz-31
+            with fade
+            W "{i}*slurp*"
+            Zt "This woman knows me too well..."
+            scene hz-33
+            with dissolve
+            Z "Ngh...-"
+            scene hz-34
+            with hpunch
+            Z "Hah..."
+            with hpunch
+            W "..."
+            scene hz-35
+            with fade
+            W "Mgh..."
+            scene hz-36
+            with dissolve
+            W "..."
+            scene hz-37
+            with dissolve
+            W "{i}*gulp* {w=1} {nw}"
+            scene hz-38
+            with dissolve
+            W "Mh... that was a lot..."
+            if emilia_joined == True and introduction_emilia == True: #the command where shes presented...
+                scene black pic
+                W "Emilia!"
+                E "Yes, mistress!"
+                scene hz-41
+                with fade
+                E "I am here, mistress."
+                scene hz-42
+                with dissolve
+                E "What would you command me?"
+                scene hz-43
+                with dissolve
+                W "Help me out..."
+                scene hz-44
+                with fade
+                W "Mh, come here."
+                E "{i}*kissing*"
+                scene hz-45
+                with fade
+                W "{i}*kissing*"
+                scene hz-46
+                with dissolve
+                "The two are making out right in front of you, exchanging your cum between their lips..."
+                scene hz-47
+                with dissolve
+                W "Mh... lick up... {i}*kissing*{/i}... everything..."
+                scene hz-48
+                with dissolve
+                E "Yehs... mhistrehs..."
+                E "{i}*licking*"
+                Z "You girls almost make me want to start again..."
+                scene hz-49
+                with fade
+                W "Well, while you think it over, I will go take a bath. You're welcome to join me there, if you want seconds..."
+            jump harem_ending
+
+label kateryna_solo:
+    scene hk-4
+    with dissolve
+    Z "I can't get my eyes off your hips, Kateryna."
+    Ka "My... hips...?"
+    Z "Yes... they made me call you here, today."
+    scene hk-6
+    with dissolve
+    "She subtly touches your leg..."
+    scene hk-8
+    with dissolve
+    Ka "Do you want me to show more...?"
+    scene hk-7
+    with dissolve
+    Z "I would love that."
+    scene hk-3
+    with fade
+    Z "But first, just sit there. Let me take a longer look at you."
+    scene hk-10
+    with dissolve
+    "She kneels idly, awaiting your further instructions."
+    Zt "Gods... how much I love this waistline. And those thighs..."
+    if kateryna_pregnant == True:
+        "Remembering your previous moments together, you again get the urge to continue breeding those fertile hips..."
+    scene hk-3
+    with dissolve
+    Z "Now, stand up and turn around. And remove your robe, slowly."
+    scene black
+    with fade
+    "She gets up elegantly, knowing you like it this way..."
+    scene hk-11
+    with fade
+    Ka "Do you see me, [persistent.player_name]...?"
+    Z "I do... yes."
+    scene hk-12
+    with dissolve
+    "She removes her robe, slowly as you commanded."
+    Z "Bless the gods..."
+    scene hk-13
+    with dissolve
+    Zt "Look at that..."
+    Ka "I removed it, sir."
+    Z "You did..."
+    scene hk-14
+    with dissolve
+    "She stands, waiting for you to consume her with your eyes..."
+    Z "Now, kneel down again, but show your back to me."
+    Ka "Yes, [persistent.player_name]."
+    scene hk-15
+    with fade
+    "She kneels down and seductively grabs her panties..."
+    Ka "Do you want me to..."
+    Z "Yes. Take them off, too."
+    scene black pic
+    with fade
+    Ka "Mhm..."
+    scene hk-16
+    with fade
+    Ka "...no more panties."
+    "She says it in a more seductive voice than usual. Despite her eagerness, she seems to enjoy the moment of anticipation..."
+    scene hk-17
+    with fade
+    Z "You are fantastic, Kateryna."
+    Ka "Thank you, [persistent.player_name]..."
+    pause 0.5
+    Ka "I..."
+    "She pauses..."
+    Z "Yes?"
+    Ka "I am... becoming..."
+    pause 0.5
+    Ka "...excited."
+    Z "Bend over, then. Show me more."
+    scene hk-18
+    with fade
+    Ka "Mh... like this?"
+    Z "Like that."
+    scene hk-19
+    with dissolve
+    Z "You weren't lying. I can see you getting wet."
+    scene black
+    with fade
+    "Deciding to no longer wait, you get up and grab her hips firmly..."
+    scene hk-20
+    with fade
+    Ka "Ah..."
+    "She starts moaning, simply because you touched her..."
+    scene hk-21
+    with fade
+    Z "What a pretty sight..."
+    Ka "Mh..."
+    "Her pussy is soaked in anticipation."
+    scene hk-22
+    with fade
+    "Deciding to taste her sweet nectar, you get closer to its source..."
+    scene hk-23
+    with dissolve
+    Ka "Nhaah...!"
+    "...and start eating her out."
+    scene hk-24
+    with dissolve
+    Z "{i}*slurp*{/i}"
+    "The stimulation, as expected of Kateryna, brings her sensitive body quickly over the edge, and she twitches on your tongue repeatedly..."
+    Ka "Mhhh... [persistent.player_name]...!"
+    scene hk-25
+    with dissolve
+    Ka "You... nnhhh..."
+    Ka "Your tongue...!"
+    scene hk-26
+    with dissolve
+    Ka "Ahh... I keep..."
+    scene hk-27
+    with dissolve
+    Ka "...nh."
+    "Her juices taste sweet and delicious, as if they're made to be enjoyed."
+    scene hk-28
+    with dissolve
+    "Enjoying a few more of her orgasmic twitches, you give her pussy a few last licks and kisses..."
+    scene hk-29
+    with dissolve
+    Ka "...ah."
+    "...before pulling away, admiring your work."
+    scene hk-30
+    with dissolve
+    Ka "[persistent.player_name]... thank you... I..."
+    Z "I'm not done yet."
+    scene hk-31
+    with fade
+    "You take off your pants in a flash and place your fat cock between her wide ass cheeks."
+    Ka "Oh... is this..."
+    Ka "Please, yes... I want..."
+    scene hk-32
+    with fade
+    pause 0.4
+    scene hk-33
+    with dissolve
+    pause 0.3
+    scene hk-34
+    with dissolve
+    "Wasting no time, you get into position..."
+    scene hk-35
+    with vpunch
+    Ka "Aaahh!"
+    "...and plunge right into her moist hole."
+    # show hk-35x-anim #TODO anim
+    Z "Fuck... we both needed that one."
+    Ka "Hhnnngh..."
+    Zt "Such a soft ass and pussy. I love it everytime."
+    scene hk-38
+    with dissolve
+    "You fuck her strong and hard, making her climax throughout."
+    "Her eyes are shut, and you sense she is on the verge of losing consciousness from the pleasure."
+    # show hk-35x-anim
+    with fade
+    if kat_babywish == True:
+        Z "I can't thank your uncle enough. To give me his fertile niece for free..."
+    else:
+        Z "I can't your uncle Igor enough. To give me someone as gorgeous as you..."
+    Ka "Mh... hn..."
+    "She continues to moan and purr on your cock. The other's can't seem to overhear it either..."
+    Z "I'm not going to last long, today. Not after that show you gave me."
+    Ka "Mh... yes, please. I like..."
+    menu:
+        "Cum inside her":
+            if kat_babywish == True:
+                Z "I think it's time to continue breeding you, what do you say?"
+                Ka "Yes, I like...! Like mother... hah... always showed me..."
+            else:
+                Z "I will cum inside you, Kateryna..."
+                Ka "Yes! Hah... please... nh... I want to feel..."
+            "Hearing her seductive voice, and these encouraging words, you can't help it..."
+            scene hk-36
+            with vpunch
+            Ka "MMhhhhaa..."
+            with vpunch
+            Z "Ngh..."
+            with vpunch
+            Ka "So much..."
+            scene hk-36x
+            with dissolve
+            Z "Fuck..."
+            scene hk-36
+            with vpunch
+            Ka "Nh..."
+            scene hk-36x
+            with dissolve
+            Z "...making sure it stays deep inside there..."
+            scene hk-36
+            with vpunch
+            Ka "Y-yes... please..."
+            Ka "Mh..."
+            "You take a moment to enjoy the aftermath, and sway your cock slowly inside her wet walls..."
+            scene hk-38
+            with dissolve
+            Z "That was... just what I needed from you."
+            Ka "Nh..."
+            Z "Hey, are you about to doze off? {i}*chuckles*{/i}"
+
+        "Cum on her back":
+            Z "Such a perfect backside... I'm going to cum all over it."
+            Ka "Nh... on... my back?"
+            scene hk-38
+            with fade
+            Z "Ngh... yes."
+            scene hk-39
+            with dissolve
+            Ka "Ah..."
+            "You pull out, leaving her pussy twitching..."
+            scene hk-40
+            with vpunch
+            Z "Kgh-"
+            with vpunch
+            Z "Fuck..."
+            scene hk-43
+            with dissolve
+            Z "Damn... you made me came a lot."
+            scene hk-41
+            with dissolve
+            Ka "[persistent.player_name]..."
+            scene hk-42
+            with fade
+            Z "I can't get enough of your ass, Kateryna."
+            Ka "Mh... thank you..."
+            Ka "...if you want, you can..."
+            scene hk-44
+            with dissolve
+            scene hk-45
+            with dissolve
+            "She sways her hips, showing you what she meant..."
+            Z "Fuck..."
+            menu:
+                "Slide back into her pussy":
+                    scene hk-46 
+                    with dissolve
+                    Z "You seductive little minx..."
+                    scene hk-49 
+                    with vpunch
+                    Ka "Ah...!"
+                    "You plunge it in with utmost ease."
+                    Z "You wanted that cum inside you, didn't you?"
+                    scene hk-50
+                    with dissolve
+                    Ka "Mh... it feels... creamy."
+
+                "Stuff her ass":
+                    scene hk-46
+                    with dissolve
+                    Z "Let's try the other one..."
+                    scene hk-47
+                    with vpunch
+                    Ka "Ah...!"
+                    "You stuff her ass without trouble..."
+                    Z "Everything about you is made for sex, girl..."
+                    scene hk-48
+                    with dissolve
+                    Ka "Ngh..."
+                    "You bury your cock deep inside her rear, enjoying the moment..."
+
+            Zt "Give me one more minute, girl. Then you go back to reading..."
+            Ka "Yes..."
+            
+    jump harem_ending
+
+label fairy_solo:
+    if fairy_healed == True:
+        Z "Nothing for now. Stay like this for a bit."
+        scene hf-32
+        with dissolve
+        "You take your time admiring the girl's fiery red hair flowing down her neck, wondering what to do next."
+        scene hf-33
+        with dissolve
+        Zt "Those freckles... and then these thick lips... green eyes..."
+        Zt "I love looking at her pretty face."
+        Z "[F], come and sit on my lap."
+        scene hf-34
+        with fade
+        F "Like this...?"
+        Zt "She's perfect."
+        scene hf-35
+        with fade
+        "You stare at her meaty tits dangling in front of you..."
+        F "I'm glad you like them, Master."
+        # scene hf-35x #TODO render it
+        # with dissolve
+        Z "How can I not... come on. Kiss me for a while."
+        scene hf-36
+        with fade
+        F "Mh... {i}*kissing*{/i}"
+        scene hf-37
+        with dissolve
+        "She gives you a sensual, wet kiss, rewarding you for helping her out of the dark place she was in..."
+        scene hf-38
+        with dissolve
+        "You feel yourself getting turned on by her lips and soft touch..."
+        scene black pic
+        with fade
+        "...before flipping her over, and taking her silky lingerie off her."
+        scene hf-39
+        with fade
+        F "Mh... Master..."
+        scene hf-40
+        with dissolve
+        "You gently brush over her skin, caressing her abdomen..."
+        Zw "I'll have you for myself, today."
+        F "Thank you..."
+        scene hf-41
+        with dissolve
+        "Her words are genuine, and you sense that she must be soaking at this point."#weird @cynical
+        scene hf-42
+        with dissolve
+        F "Oh..."
+        Z "{i}*sucking*{/i}"
+        Zt "Such pink skin..."
+        F "Master... can you... nh..."
+        scene hf-44
+        with fade
+        "Knowing what she wants, you guide her head towards you, looking into her eyes..."
+        scene hf-43
+        with dissolve
+        "Laying beside her, you decide to tease her a bit, before doing the inevitable..."
+        Z "Tell me... do you want it?"
+        F "Yes, Master. Please..."
+        scene hf-47
+        with dissolve
+        F "Nh...!"
+        Z "...like that? Or more..."
+        F "More, please..."
+        scene hf-48
+        with dissolve
+        F "Mmmhhh..."
+        F "I... I love you, Master..."
+        F "{i}*kissing*{/i}"
+        scene hf-49
+        with dissolve
+        F "Mgh..."
+        "You make out with her, as you push yourself even deeper inside her, and all that's coming out are muffled moans."
+        # show hf-49x-anim #TODO anim
+        "The woman's meaty tits and thick hips are swinging to your gentle thrusts. You feel her twitching and cumming on your dick almost immediately."
+        Zt "Looks like she has been looking forward to this..."
+        Fw "Mh... {i}*muffled moans*{/i}"
+        Zw "You're such a perfect little bride, you know that?"
+        "You kiss her in between your words..."
+        Zw "You want me to tell you what to do? Keep cumming for me. That's my order."
+        F "Mhmm... {i}*moans*{/i}"
+        "You've got her in a perfect lock. Except this lock is driving her mad from sensation."
+        if fairy_pregnant == True:
+            Zt "I can't wait for these juicy tits to be full of milk..."
+        "Your bodies press together, and the heat accumulating between you two, plus her warm, inviting cunt, are driving you towards the edge quickly."
+        menu:
+            "Cum inside her":
+                Zw "[F]... I'm..."
+                Fw "Please... inside, Master..."
+                scene hf-49
+                with hpunch
+                Z "Ngh..."
+                with hpunch
+                F "Ah..."
+                with hpunch
+                "You unload many strokes of hot cum inside the redhead..."
+                scene hf-51
+                with dissolve
+                Z "Ah..."
+                F "T-thank you, Master... {i}*kissing*{/i}"
+
+            "Finish in her mouth":
+                Z "[F]... give me your mouth."
+                F "Yes...!"
+                scene black
+                with fade
+                "She turns around quickly..."
+                scene hf-52
+                with fade
+                F "Ah... Master's cock..."
+                Z "Open your mouth, darling."
+                scene hf-53
+                with hpunch
+                Z "Nhh...-"
+                F "Ah..."
+                scene hf-54
+                with dissolve
+                F "{i}*slurp*{/i}"
+                "She suddenly launches forward, engulfing you with her lips, but making a mess in the process..."
+                Z "Damn, girl..."
+                scene hf-55
+                with dissolve
+                F "Mh..."
+                with hpunch
+                Z "Fuck, you're milking me."
+                with hpunch
+                F "{i}*gulp*{/i}"
+                scene hf-56
+                with dissolve
+                "She opens her eyes..."
+                Z "You're amazing. Do it for a little longer."
+                F "Mhm..."
+                scene hf-55
+                with dissolve
+                F "{i}*sucking*{/i}"
+
+        jump harem_ending
+
+
+    else:
+        Z "Stay where you are."
+        scene black
+        with fade
+        "You get up..."
+        scene hf-8
+        with fade 
+        F "..."
+        Z "Stay just like that."
+        scene hf-9
+        with dissolve
+        "You look down at her kneeling like a slave should. It does satisfy you to see her obediently doing what you asked, no matter how sudden and unreasonable it is..."
+        Z "Now, stand up, and lay down on your back, facing me."
+        F "Yes, Master."
+        scene black
+        with fade
+        scene hf-10
+        with fade
+        Z "Good girl. Just how I want you."
+        F "Mh..."
+        scene hf-11
+        with dissolve
+        "Her position is quite humiliating, and highlights her soft but big breasts, which are slowly rising up and down from her soft breath."
+        scene hf-12
+        with fade
+        Z "Are you ready to please me, [F]?"
+        scene hf-12x
+        with dissolve
+        F "Yes, Master. Your slave is ready to fulfill your wish."
+        scene hf-12
+        with dissolve
+        Z "Good."
+        scene hf-13
+        with fade
+        "Tossing your pants aside, you let her gaze at your manhood, before kneeling down."
+        scene hf-15
+        with dissolve
+        Z "Hm..."
+        F "..."
+        scene hf-16
+        with dissolve
+        Zw "Such a pretty one..."
+        scene hf-17
+        with dissolve
+        Zw "I'm going to fuck your slave face, [F]. Let me see your mouth."
+        scene hf-18
+        with dissolve
+        F "Ahh..."
+        Zw "I love these lips. They're made to massage my cock."
+        Zw "If you were my wife, or [persistent.da], I would perhaps at least wait for your signal of approval."
+        Zw "But you're not. You're just a servant."
+        F "Yhas... Mhaster..."
+        scene hf-19
+        with fade
+        Z "Well then. Spread your fat lips."
+        scene hf-20
+        with dissolve
+        F "Nghh... {i}*cough*{/i}"
+        "She tries her best to take in your shaft, but has to get used to its length, first."
+        Z "[F], I know you can do better. Open up."
+        scene hf-21
+        with dissolve
+        F "{i}*slurp*{/i}"
+        Z "Up to the tip, [F]. I am not pulling out until we are there."
+        F "Nhh..."
+        scene hf-22
+        with dissolve
+        "You push in even further, now having your entire shaft buried inside [F]'s throat."
+        Z "Ahh... that's good."
+        # show hf-22x-anim #TODO anim
+        "You start rhythmically but fiercely fucking her face..."
+        Z "Fuck... I love fucking your silly face."
+        F "{i}*cough*{/i}"
+        Z "That's right, keep still. Show me what you learned back in Cairo."
+        F "{i}*gag*{/i}"
+        "Despite your degrading words, and lack of air, she remains disciplined"
+        Z "The years of conditioning must've done something, after all."
+        F "{i}*slurp*{/i}"
+        menu:
+            "Piss down her throat":
+                scene hf-24
+                with vpunch
+                F "Ngh-"
+                Z "Let's take a break, slave. I need to take a piss."
+                scene hf-26
+                with dissolve
+                Z "Come on, open up for your Master."
+                F "Ah..."
+                scene hf-27x
+                with dissolve
+                "You start releasing everything you have built up inside her mouth..."
+                Z "Mh... that's what I needed. Make sure you taste it, before gulping it down."
+                F "Yhes... {i}*gulp*{/i}... Mhster..."
+                Z "A little longer, now."
+                pause 0.6
+                scene hf-26
+                with dissolve
+                F "{i}*gulp*{/i}"
+                Z "That's it. Now back to what you were doing."
+                scene hf-25
+                with hpunch
+                F "{i}*cough*{/i}"
+                Z "Lick my shaft, come on."
+                "She tries to lick your shaft, even if the space in her throat won't allow for much..."
+                scene hf-24
+                with dissolve
+                Z "That's enough choking, for now."
+                scene hf-23
+                with dissolve
+                pause 0.7
+                # show hf-22x-anim #TODO: render anim
+                # with fade
+                F "{i}*slurp*{/i}"
+                Z "Gods, you're resisting even less, now. Guess that drink gave you back some energy, huh?"
+                F "{i}*sucking*{/i}"
+
+            "Cum down her throat":
+                scene hf-24
+                with vpunch
+                F "Ngh-"
+                scene hf-26
+                with dissolve
+                F "Hah..."
+                Z "That's it. Opening up like a cock-hungry slut. You know where you're at."
+                scene hf-27
+                with hpunch
+                Z "{i}*grunts*{/i}"
+                "You cum several thick, white ropes of cum down her throat..."
+                scene hf-28
+                with hpunch
+                Z "Ngh..."
+                F "{i}*gulp*{/i}"
+                Z "You're so beautiful... and filthy... {i}*heavy breathing*{/i}"
+                scene hf-29
+                with fade
+                "Stepping back, you admire your tamed, personal cocksleeve of a redhead idling."
+                Z "Stay where you are for a minute... I need to admire what I've done."
+                scene hf-30
+                with dissolve
+                F "Nhh..."
+                "You take your time, but it doesn't look like [F] is eagerly awaiting your dismissal..."
+                Z "I did fuck you silly, did I not? Oh well..."
+                Z "Darling?"
+                W "Yes, husband? Had a lot of fun with your toy?"
+                Z "I did... do me a favor and give her a nice bath. I think I broke her..."
+
+        jump harem_ending
+
+
+
+

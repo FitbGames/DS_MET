@@ -1,0 +1,276 @@
+transform cm():
+    on show:
+        xpos 1.1
+        easein 2.0 xpos 0.83
+    on hide:
+        easeout 2.0 xpos 1.1
+
+transform button_slide(y = 60):
+    on show:
+        ypos 40
+        parallel:
+            easein 0.6 ypos y
+        parallel:
+            easein 0.6 alpha 1.0
+    on hide:
+        parallel:
+            easeout 0.6 ypos 0
+        parallel:
+            easeout 0.6 alpha 0.0
+
+
+screen cutscene_marker():
+    key "mouseup_1" action NullAction()
+    add 'gui/notifications/cutscene_marker.png' xpos 0.01 yalign 0.99 at cm
+
+style mm_button_text is text:
+    size 18
+    color "#b8b8b8"
+    font 'gui/fonts/Cinzel-Regular.otf'
+    yalign 0.45
+    xalign 0.5
+
+screen mm_change():
+    zorder 10
+    button xsize 145 ysize 40 xalign 0.99 ypos 10 padding (0, 0, 0, 0):
+        background 'gui/main_menu/mm_bg_selector_idle.png'
+        hover_background 'gui/main_menu/mm_bg_selector_hover.png'
+        text _("[persistent.mm] Menu") style "mm_button_text"
+        action ToggleScreen('mm_list')
+
+screen mm_list():
+    default c = 0
+    zorder 9
+    for k in mm_list.keys():
+        if k != persistent.mm:
+            $ c += 1
+            vbox xalign 0.99 spacing 0 at button_slide(c * 43):
+                if isinstance(mm_list[k], dict) and sum([val for val in mm_list[k].values() if val is not None]) > 1:
+                    hbox:
+                        spacing 0
+                        xpos 5
+                        $ v0, v1 = mm_list[k].keys()
+                        button xpos 5 xsize 78 ysize 40 ypos 10 padding (0, 0, 0, 0):
+                            background 'gui/main_menu/mm_bg_selector_left_idle.png'
+                            hover_background 'gui/main_menu/mm_bg_selector_left_hover.png'
+                            text v0 style "mm_button_text"
+                            action [SetVariable('persistent.mm', v0), Hide('mm_list')]
+
+                        button xpos -5 xsize 78 ysize 40 ypos 10 padding (0, 0, 0, 0):
+                            background 'gui/main_menu/mm_bg_selector_right_idle.png'
+                            hover_background 'gui/main_menu/mm_bg_selector_right_hover.png'
+                            text v1 style "mm_button_text" xalign 0.6
+                            action [SetVariable('persistent.mm', v1), Hide('mm_list')]
+
+                else:
+                    button xsize 145 ysize 40 ypos 10 padding (0, 0, 0, 0):
+                        background 'gui/main_menu/mm_bg_selector_idle.png'
+                        hover_background 'gui/main_menu/mm_bg_selector_hover.png'
+                        text k style "mm_button_text"
+                        action [SetVariable('persistent.mm', k), Hide('mm_list')]
+
+
+screen language_confirm(lang, details = lang_details):
+    modal True
+    zorder 11
+    add "gui/overlay/confirm.png"
+    style_prefix 'confirm'
+    frame:
+        vbox xsize 500 spacing 40:
+            hbox:
+                xfill True
+                text "{a}".format(a = details[lang]) text_align 0.5 size 20
+            hbox:
+                xfill True
+                textbutton _("Cancel"):
+                    action [Return(), Hide('language_confirm'), Hide('language_list')]
+                textbutton _("Confirm") xalign 0.8:
+                    action [Language(lang), Hide('language_confirm'), Hide('language_list')]
+
+##### Edit Details Screen #####
+screen edit_details():
+    default field_focus = 0
+    tag menu
+    add 'gui/main_menu/game_menu_bg.png'
+    use game_menu(_("Edit Details"), scroll="viewport"):
+        vbox:
+            xsize 1250
+            xpos 150
+            spacing 10
+            ypos 30
+            text _("Edit Relationships") style "category_button_text" xalign 0.5 size 30
+            text "{image=gui/main_menu/menu_separator.png}" xalign 0.5 size 10
+            vbox:
+                spacing 50
+                label _("Names & Relationships") style 'options_tab_label'
+                vbox:
+                    spacing 20
+                    hbox ysize 40 spacing 10:
+                        text _("Your name is ") style "page_label_text" yalign 0.5 color "#ccc"
+                        if field_focus == 1:
+                            input value FieldInputValue(persistent,"player_name", returnable=True) length 20 style "page_label_text" yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_done_idle.png'
+                                hover 'gui/main_menu/btn_done_hover.png'
+                                action SetScreenVariable('field_focus', 0)
+                        else:
+                            text "[persistent.player_name]" style "page_label_text"
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_edit.png'
+                                action SetScreenVariable('field_focus', 1)
+                    hbox ysize 40 spacing 10:
+                        text _("Your wife's name is ") style "page_label_text" yalign 0.5 color "#ccc"
+                        if field_focus == 2:
+                            input value FieldInputValue(persistent,"W_name", returnable=True) length 20 style "page_label_text" yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_done_idle.png'
+                                hover 'gui/main_menu/btn_done_hover.png'
+                                action SetScreenVariable('field_focus', 0)
+                        else:
+                            text "[persistent.W_name]" style "page_label_text" yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_edit.png'
+                                action SetScreenVariable('field_focus', 2)
+                    hbox ysize 40 spacing 10:
+                        text _("The younger ") style "page_label_text" yalign 0.5 color "#ccc"
+                        if field_focus == 3:
+                            input value FieldInputValue(persistent,"da", returnable=True) length 20 style "page_label_text" yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_done_idle.png'
+                                hover 'gui/main_menu/btn_done_hover.png'
+                                action SetScreenVariable('field_focus', 0)
+                        else:
+                            text "[persistent.da]'s" style "page_label_text" yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_edit.png'
+                                action SetScreenVariable('field_focus', 3)
+                        text _(" name is ") style "page_label_text" yalign 0.5 color "#ccc"
+                        if field_focus == 4:
+                            input value FieldInputValue(persistent,"A_name", returnable=True) length 20 style "page_label_text"yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_done_idle.png'
+                                hover 'gui/main_menu/btn_done_hover.png'
+                                action SetScreenVariable('field_focus', 0)
+                        else:
+                            text "[persistent.A_name]" style "page_label_text" yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_edit.png'
+                                action SetScreenVariable('field_focus', 4)
+                    hbox ysize 40 spacing 10:
+                        text _("Her sister's name is") style "page_label_text" yalign 0.5 color "#ccc"
+                        if field_focus == 6:
+                            input value FieldInputValue(persistent,"S_name", returnable=True) length 20 style "page_label_text"yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_done_idle.png'
+                                hover 'gui/main_menu/btn_done_hover.png'
+                                action SetScreenVariable('field_focus', 0)
+                        else:
+                            text "[persistent.S_name]" style "page_label_text" yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_edit.png'
+                                action SetScreenVariable('field_focus', 6)
+                    hbox ysize 40 spacing 10:
+                        text _("[persistent.player_name] is their ") style "page_label_text" yalign 0.5 color "#ccc"
+                        if field_focus == 7:
+                            input value FieldInputValue(persistent,"dad", returnable=True) length 20 style "page_label_text" yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_done_idle.png'
+                                hover 'gui/main_menu/btn_done_hover.png'
+                                action SetScreenVariable('field_focus', 0)
+                        else:
+                            text "[persistent.dad]" style "page_label_text" yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_edit.png'
+                                action SetScreenVariable('field_focus', 7)
+                        text _(", [persistent.W_name] is their ") style "page_label_text" yalign 0.5 color "#ccc"
+                        if field_focus == 8:
+                            input value FieldInputValue(persistent,"mom", returnable=True) length 20 style "page_label_text"yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_done_idle.png'
+                                hover 'gui/main_menu/btn_done_hover.png'
+                                action SetScreenVariable('field_focus', 0)
+                        else:
+                            text "[persistent.mom]" style "page_label_text"yalign 0.5
+                            imagebutton xsize 40 ysize 40 yalign 0.5:
+                                focus_mask None
+                                idle 'gui/main_menu/btn_edit.png'
+                                action SetScreenVariable('field_focus', 8)
+                    if m_d12a == True:
+                        hbox ysize 40 spacing 10:
+                            text _("The redhead servant is called ") style "page_label_text" yalign 0.5 color "#ccc"
+                            if field_focus == 9:
+                                input value FieldInputValue(store,"fairy_name", returnable=True) length 20 style "page_label_text" yalign 0.5
+                                imagebutton xsize 40 ysize 40 yalign 0.5:
+                                    focus_mask None
+                                    idle 'gui/main_menu/btn_done_idle.png'
+                                    hover 'gui/main_menu/btn_done_hover.png'
+                                    action SetScreenVariable('field_focus', 0)
+                            else:
+                                text "[fairy_name]" style "page_label_text" yalign 0.5
+                                imagebutton xsize 40 ysize 40 yalign 0.5:
+                                    focus_mask None
+                                    idle 'gui/main_menu/btn_edit.png'
+                                    action SetScreenVariable('field_focus', 9)
+
+                    if rt_kitty_name == True:
+                        hbox ysize 40 spacing 10:
+                            text _("The General's sister is called ") style "page_label_text" yalign 0.5 color "#ccc"
+                            if field_focus == 10:
+                                input value FieldInputValue(store,"kitty_name", returnable=True) length 20 style "page_label_text" yalign 0.5
+                                imagebutton xsize 40 ysize 40 yalign 0.5:
+                                    focus_mask None
+                                    idle 'gui/main_menu/btn_done_idle.png'
+                                    hover 'gui/main_menu/btn_done_hover.png'
+                                    action SetScreenVariable('field_focus', 0)
+                            else:
+                                text "[kitty_name]" style "page_label_text" yalign 0.5
+                                imagebutton xsize 40 ysize 40 yalign 0.5:
+                                    focus_mask None
+                                    idle 'gui/main_menu/btn_edit.png'
+                                    action SetScreenVariable('field_focus', 10)
+
+                label _("Presentation options")  style 'options_tab_label'
+                vbox:
+                    hbox:
+                        spacing 20
+                        style_prefix "radio"
+                        text _("The namebox will refer to you as:") style "page_label_text" yalign 0.5 color "#ccc"
+                        textbutton _('"[persistent.player_name]"') action [SelectedIf(SetVariable('persistent.first_person', False)), SetVariable('persistent.first_person', False)] yalign 1.0 xminimum 150
+                        textbutton _('"You"') action [SelectedIf(SetVariable('persistent.first_person', True)), SetVariable('persistent.first_person', True)] yalign 1.0
+
+screen event_list():
+    if config.developer == True:
+        frame background None padding (0,0,0,0):
+            add "#1e1e1fee"
+            vpgrid xpos 10 xsize 1910:
+                xfill True
+                cols 3
+                spacing 1
+                draggable True
+                mousewheel True
+                transpose True
+
+                for e in event_pool:
+                    hbox:
+                        text e.name size 18
+                        if e.is_completed:
+                            text ' {color=#4dc01a}completed{/color}' size 18
+                        elif e.is_blocked:
+                            text ' {color=#c0351a}blocked{/color}' size 18
+                        elif e.is_available:
+                            text ' {color=#cc6600}available{/color}' size 18
+                        else:
+                            text ' {color=#1ac09f}unknown{/color}' size 18

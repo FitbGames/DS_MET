@@ -1,0 +1,1976 @@
+label kitchen_menu:
+    $ daily_kitchen = True
+    scene k-2
+    play music "audio/music/home/kitchen music.mp3" fadeout 1
+    with fade
+    pause 1
+    if m_d6a == True and kitchen_kateryna_introduction == False and (day - d6a_day) >= 1:
+        scene k-1x
+        with dissolve
+    if emilia_joined == True:
+        E "Master..."
+        scene k-3
+        with dissolve
+        E "Can I be of service?"
+        scene k-5
+        with fade
+        if m_d6a == True and kitchen_kateryna_introduction == False and (day - d6a_day) >= 1:
+            $ kitchen_dinner = True
+            Z "I'm waiting for dinner."
+            scene k-4
+            with dissolve
+            E "I will go check how the Mistress is doing."
+            jump k1
+
+        else:
+            menu:
+                "\"I'm waiting for dinner...\"":
+                    $ daily_kitchen = True
+                    $ kitchen_dinner = True
+                    Z "I'm waiting for dinner."
+                    scene k-4
+                    with dissolve
+                    E "I will go check how the Mistress is doing."
+                    jump k1
+
+                "\"Tell the girls we're eating together.\"":
+                    $ daily_kitchen = True
+                    $ kitchen_dinner = True
+                    Z "Tell the girls we're eating together today."
+                    scene k-4
+                    with dissolve
+                    E "As you wish. I will let them know."
+                    if shani_zone == True:
+                        scene k-13
+                        with fade
+                        "[W], [A] and you sit together..."
+                    else:
+                        scene k-13x
+                        with fade
+                        "[W], your [persistent.da]s and you eventually sit together..."               
+                    if kitchen_discussion_zone == False and shani_zone == True:
+                        jump kitchen_discussions
+                        
+                    else: #repeatable #TODO put this menu in a separate label as it's duplicated below
+                        menu:
+                            "Have [E] serve you" if introduction_emilia == True:
+                                jump kitchen_emilia
+                                
+                            "Enjoy [F]" if introduction_fairy == True and fairy_broken == False:
+                                jump kitchen_fairy
+
+                            "Call for Kateryna" if introduction_kateryna == True:
+                                jump kitchen_kateryna
+
+                            "Play with [A]":
+                                jump kitchen_ain
+
+                            "Get [W]'s attention":
+                                jump kitchen_zahra
+
+                            "Just eat":
+                                scene black
+                                with fade
+                                "You finish eating..."
+                                jump daily_home
+
+                "\"I'm good.\"":
+                    $ daily_kitchen = True
+                    $ kitchen_dinner = False
+                    Z "I'm fine, Emilia."
+                    scene k-4
+                    with dissolve
+                    E "I shall not bother you then, Master."
+                    jump k1
+
+    elif emilia_joined == False:
+        W "Hello husband..."
+        scene k-5x
+        with fade
+        W "Want something to eat?"
+        scene k-5x-2
+        with dissolve
+        if m_d6a == True and kitchen_kateryna_introduction == False and (day - d6a_day) >= 1:
+            $ kitchen_dinner = True
+            Z "Yes, I would like to eat something."
+            scene k-5x
+            with dissolve
+            W "Give me some time then."
+            jump k1
+            
+        else:
+            menu:
+                "\"Yes, I would like to eat something.\"":
+                    $ daily_kitchen = True
+                    $ kitchen_dinner = True
+                    Z "Yes, I would like to eat something."
+                    scene k-5x
+                    with dissolve
+                    W "Give me some time then."
+                    jump k1
+
+                "\"Let's eat together, call the girls.\"" if kitchen_discussion_zone == False: #TODO: remove check when content without emilia in the kitchen is in
+                    $ daily_kitchen = True
+                    $ kitchen_dinner = True
+                    Z "Let's eat together, call the girls."
+                    scene k-5x
+                    with dissolve
+                    W "That can be arranged. I will let them know."
+                    if shani_zone == True:
+                        scene k-13
+                        with fade
+                        "[W], [A] and you sit together..."
+                    else:
+                        scene k-13x
+                        with fade
+                        "[W], your [persistent.da]s and you eventually sit together..."
+                    if kitchen_discussion_zone == False and shani_zone == True:
+                        jump kitchen_discussions
+                    else:
+                        menu:
+                            "Enjoy [F]" if introduction_fairy == True and fairy_broken == False:
+                                jump kitchen_fairy
+
+                            "Call for Kateryna" if introduction_kateryna == True:
+                                jump kitchen_kateryna
+
+                            "Play with [A]":
+                                jump kitchen_ain
+                            
+                            "Get [W]'s attention":
+                                jump kitchen_zahra
+
+                            "Just eat":
+                                scene black
+                                with fade
+                                "You finish eating..."
+                                jump daily_home
+
+                "\"I'm good.\"":
+                    $ daily_kitchen = True
+                    $ kitchen_dinner = False
+                    Z "I'm fine, [W]."
+                    scene k-5x
+                    with dissolve
+                    W "Alright then."
+                    jump k1
+
+label k1:
+    scene k-1
+    with fade
+    if kitchen_dinner == False:
+        "She leaves..."
+        Z "{i}*yawns*"
+
+        if m_d6a == True and kitchen_kateryna_introduction == False and (day - d6a_day) >= 1:
+            "A few moments later..."
+            jump kitchen_kateryna_intro
+        else:
+            Zt "Alright, time to get going."
+            stop music fadeout 3
+            jump daily_home
+
+    if m_d6a == True and kitchen_kateryna_introduction == False and (day - d6a_day) >= 1:
+        jump kitchen_kateryna_intro
+
+    if kitchen_dinner == True:
+        if emilia_joined == True:
+            "A few moments later..."
+            "Master?"
+            scene k-6
+            with dissolve
+            E "The Mistress just finished cooking."
+            scene k-7
+            with fade
+            E "Enjoy your meal, Master."
+            if emilia_love >= emilia_sub:
+                Z "Thank you, Emilia."
+            scene k-8x
+            with dissolve
+            "She attends to you, as you eat..."
+            if d3d_emilia_sex == True:
+                scene k-9
+                with dissolve
+                E "..."
+                scene k-10
+                with dissolve
+                "You feel her up, toying with her as you eat..."
+                scene black pic
+                with fade
+                "When you are done, [E] cleans up after you..."
+                stop music fadeout 3
+                jump daily_home
+            else:
+                if emilia_love >= emilia_sub:
+                    Z "You can leave, Emilia. I don't need your services."
+                    scene k-8 #open mouth
+                    with dissolve
+                    E "Of course, Master."
+                    scene black pic
+                    with fade
+                    "When you are done, [E] cleans up after you..."
+                    stop music fadeout 3
+                    jump daily_home
+                else:
+                    Z "You can leave. I want some privacy."
+                    scene k-8
+                    with dissolve
+                    E "As you wish, Master."
+                    scene black pic
+                    with fade
+                    "When you are done, [E] cleans up after you..."
+                    stop music fadeout 3
+                    jump daily_home
+
+        elif emilia_joined == False:
+            scene black pic
+            with fade
+            "She eventually brings you the food. You feel better after eating a good meal."
+            stop music fadeout 3
+            jump daily_home
+
+label kitchen_emilia:
+    scene k-5
+    with fade
+    Z "I have something you can do, Emilia."
+    scene k-4
+    with dissolve
+    E "Yes, master?"
+    scene k-5
+    with dissolve
+    menu:
+        "\"Get on your knees.\"":
+            Z "Get on your knees while I'm eating, will you."
+            scene k-4
+            with dissolve
+            E "With pleasure, Master."
+            scene ke-7
+            with fade
+            E "{i}*sucking*{/i}"
+            Z "Good servant."
+            scene ke-1-anim
+            with fade
+            E "{i}*slurp*{/i}"
+            if emilia_love >= emilia_sub:
+                Zt "What an obedient servant. We are lucky to have her."
+            else:
+                Zt "This is what slaves exist for... what an obedient girl."
+            scene ke-3-anim
+            with fade
+            E "Mh..."
+            E "{i}*sucking*{/i}"
+            "She services you eagerly..."
+            if ain_basement == False:
+                scene ke-2
+                with dissolve
+                A "[persistent.dad!c]... your food is getting cold!"
+            else:
+                W "Husband... your food is getting cold. {i}*giggles*{/i}"
+            Z "Right..."
+            scene ke-8
+            with fade
+            Z "This looks delicious..."
+            if shani_zone == False:
+                S "Mh... it is as tasty as it looks."
+            if ain_basement == False:
+                A "It is!"
+            scene ke-9
+            with dissolve
+            Z "Keep going while I eat."
+            E "{i}*muffled*{/i} Yesh master..."
+            scene ke-4
+            with dissolve
+            E "Mh..."
+            scene ke-5
+            with vpunch
+            E "...!"
+            with vpunch
+            E "{i}*gulp*{/i}"
+            scene ke-6
+            with dissolve
+            E "Bha..."
+            if introduction_kateryna == False:
+                if emilia_love >= emilia_sub:
+                    Z "Thank you, Emilia. You may go."
+                else:
+                    Z "Good slave. You can go."
+                scene black pic
+                with fade
+                "You finish eating..."
+                jump daily_home
+                
+            else:
+                Z "Kateryna!"
+                Ka "Yes?"
+                scene kek-1
+                with fade
+                Ka "You called me?"
+                Z "This dish... is fantastic, as always."
+                scene kek-2
+                with fade
+                Z "You're a blessing to this house."
+                scene kek-3
+                with dissolve
+                Ka "I am happy you like it!"
+                scene kek-4
+                with dissolve
+                scene black pic
+                stop music fadeout 2
+                with fade
+                "You finish eating..."
+                jump daily_home
+
+        "\"Bend over.\"":
+            Z "Bend over. I'm taking you right here."
+            scene k-4
+            with dissolve
+            E "Of course, Master."
+            scene black
+            with fade
+            "She bends over without hesitation, and you lift her gown."
+            scene ke-10
+            with fade
+            if emilia_love >= emilia_sub:
+                W "Aw... look at you Emilia, so eager!"
+                E "Anytime, mistress."
+            else:
+                W "Enjoying your servant at the dinner table, husband?"
+                Z "That's one of the reasons she's here, isn't it?"
+            E "I am ready, Master."
+            scene ke-11
+            with fade
+            Z "I know you are."
+            "You enjoy the sight of her pale buttocks for a long moment, as the girls ramble on in the background..."
+            S "{i}*laughs*{/i} When did that happen?"
+            A "A week ago. It was so silly, they were having this meeting in public, and..."
+            scene ke-12
+            with fade
+            "She looks over her shoulder at you, a faint smile on her face as she know's what's coming."
+            W "She's ready, husband. And I am curious to watch."
+            A "Me too!"
+            scene ke-14
+            with fade
+            "You tap her bum with your manhood..."
+            Z "You seem awfully excited, [W]."
+            scene ke-15
+            with dissolve
+            "You lower yourself, pushing your tip against her moist pussy..."
+            E "Nh..."
+            Z "Almost as excited as you, [E]."
+            scene ke-16
+            with fade
+            W "What can I say... I love when things go as they are supposed..."
+            scene ke-17
+            with dissolve
+            E "Ah...!"
+            "Your cock slides inside the woman with ease."
+            W "...to. Oh, my."
+            A "Wow..."
+            scene ke-18
+            with dissolve
+            E "Mm..."
+            "You push in deeper, her muscles squeezing around you."
+            show ke-15x-anim
+            with fade
+            E "Ah... hah..."
+            "You pound her pussy hard, her body hitting the table with a rattling of plates and cutlery..."
+            if shani_zone == False:
+                S "Enjoying the maid, [persistent.dad]?"
+                Z "I am, yes."
+            E "Mhh..."
+            A "Emilia can be quite the slut..."
+            E "I am... nh... just serving the Master."
+            show ke-15x-3-anim
+            with fade
+            "As you forget for a moment that she is effectively your property, you take her, intimately as she bends over submissively, taking you inside her on command..."
+            "In this moment, you relish the power you hold over her."
+            E "Ah..."
+            "The power to take her freely, in private or like this, in front of your [persistent.da]s and wife..."
+            E "I am... nh... yours, Master..."
+            Z "Ngh..."
+            "As your relentless pounding continues, the girls go back to chatting about everyday things..."
+            scene ke-21
+            with hpunch
+            E "Ahh!"
+            "Your wife smirks as she hears the cry of her maid being impaled on your cock, before continuing her conversation..."
+            scene ke-22
+            with hpunch
+            if emilia_love >= emilia_sub:
+                Z "Fuck, take it, Emilia..."
+            else:
+                Z "Fuck, take it, slave."
+            E "Mh... always, Master."
+            scene ke-23
+            with hpunch
+            Z "Ngh-"
+            "You push yourself as deep as you can, your pelvis resting on her arse, and cum inside her willing cunt."
+            "She moans, having quietly reached her own orgasm, and rides it out leaning on the dining table."
+            Z "Mmgh..."
+            scene ke-24
+            with fade
+            "Cum dribbles out of her as you pull out..."
+            "You notice Ain looking at your cum."
+            scene ke-25
+            with dissolve
+            Z "Damn... I needed that."
+            Z "You can go now. I am satisfied."
+            E "I am happy to be of service, Master."
+            scene black
+            stop music fadeout 2
+            with fade
+            jump daily_home
+            
+label kitchen_fairy: 
+    Z "Please send [F] in."
+    scene black
+    with fade
+    scene kf-1
+    with fade
+    "[F] joins you, per your request."
+    scene kf-2
+    with fade
+    "You appreciate once again the choice your wife made when she gifted that outfit to the young redhead.."
+    scene kf-3
+    with fade
+    Z "Hello, [F]."
+    scene kf-4
+    with dissolve
+    F "Hello, Master. You called for me?"
+    scene kf-3
+    with dissolve
+    Z "Yes..."
+    Z "I'd like you to help me whilst I eat."
+    scene kf-5
+    with dissolve
+    "She looks away..."
+    "...a moment of shyness as she hides her instinctive excitement."
+    W "...next week, [A]. You need to be ready before dawn."
+    A "What? That's so early! What if..."
+    "Their chatter fades away."
+    scene kf-4
+    with dissolve
+    F "What would Master prefer today?"
+    scene kf-3
+    with dissolve
+    menu:
+        "\"Your hands will do just fine.\"":
+            Z "Your hands will do just fine."
+            scene black
+            with fade
+            "[F] wastes no time getting down on her knees..."
+            "Your wife smiles at [F]."
+            W "She's come on so well since we first brought her in."
+            scene kf-6
+            with dissolve
+            "She stares into your eyes as she fumbles to extricate your hard penis from your trousers."
+            scene kf-6x
+            with dissolve
+            "Her hand touches you for a brief moment..."
+            "...you can sense the anticipation."
+            scene kf-7
+            with fade
+            W "Look at you, [F]. Trying hard to please my husband?"
+            A "She's not just eager with [persistent.dad]... {i}*giggles*{/i}"
+            "Ignoring their words, her hand moves to your manhood."
+            scene kf-8
+            with fade
+            "[F] grips it firmly..."
+            scene kf-9
+            with dissolve
+            "She is transfixed on your cock, almost trembling from eagerness."
+            Z "You really know what you're doing."
+            A "I know, right?"
+            A "She loves to please."
+            W "And looking by the reactions she's getting, she has a talent."
+            A "She does!"
+            scene kf-10
+            with hpunch
+            Z "Fuck..."
+            scene kf-11
+            with dissolve
+            "You shoot thick ropes of cum onto her tits."
+            scene kf-11x
+            with dissolve
+            "Your cum runs down over her hand, dripping from her fingers as she still holds a firm grip on you."
+            scene kf-11x-2
+            with fade
+            "She stares at the cum expectantly..."
+            scene kf-11x-3
+            with dissolve
+            "...and looks up at you, waiting for permission..."
+            scene kf-11x-6
+            with dissolve
+            F "Master... Could I..."
+            scene kf-11x-3
+            with dissolve
+            Z "Clean it up."
+            scene kf-11x-4
+            with fade
+            "Without hesitation, he mouth is around your shaft."
+            "You feel her tongue working around the tip..."
+            F "Mmh..."
+            "...cleaning up the mess that she has caused."
+            scene kf-7
+            with fade
+            "She looks down at you..."
+            "You get the feeling she's disappointed there's nothing left to clean up..."
+            scene black
+            stop music fadeout 2
+            with fade
+            jump daily_home
+
+        "\"I want you to ride me.\"":
+            Z "I want you to ride me."
+            scene kf-13
+            with fade
+            "[F] stands before you, ready to fulfil your request."
+            scene kf-14
+            with dissolve
+            "She lowers her arms... her dress falling from her shoulders."
+            scene kf-14x
+            with dissolve
+            "... down to the floor." 
+            A "Wow! Look at her!"
+            W "She's adorable, isn't she?"
+            W "Are you happy, husband?"
+            Z "Very..."
+            scene kf-15
+            with fade
+            "[F] starts to remove her underwear."
+            "You look at her perfect body..."
+            scene kf-16
+            with dissolve
+            "As she moves towards you."
+            scene kf-17
+            with dissolve
+            "All yours to enjoy."
+            scene kf-18
+            with fade
+            "Following your wishes, she climbs on top of you..."
+            "Her legs clenching against your thighs as she steadies herself."
+            scene kf-19
+            with fade
+            "You feel how wet and ready she is as you are about to penetrate her."
+            scene kf-20
+            with fade
+            "The ginger beauty teases you for a moment... her pussy hovering just above your cock."
+            scene kf-21
+            with fade
+            "You slide inside with ease..."
+            F "Mmm..."
+            "You notice [W] watching you."
+            W "{i}*giggles*{/i} That's a sound I know well..."
+            scene kf-22
+            with fade
+            "Her pussy clenches as she takes you in."
+            show kf-20-anim
+            with fade
+            "With your hand on her buttock, you help her guide her movements"
+            show kf-20x-anim
+            with fade
+            hide kf-20-anim
+            "Your pelvic muscles accompany her movements creating a rhythm in which you both settle in."
+            "You can't help but grunting along with her movements as your manhood bottoms out in her most private place."
+            show kf-20x-2-anim
+            with fade
+            hide kf-20x-anim
+            "Suddenly she whimpers, signaling her own pleasure." 
+            "You experience her orgasm, as her fluids envelop your staff and glide towards your balls."
+            "This finally brings you to your own peak."
+            scene kf-23 #TODO re-render - DUF updated
+            with fade
+            "You feel her body twitch as you pump her full of your semen."
+            scene kf-24 #TODO re-render - DUF updated
+            with dissolve
+            "You feel the cum and her juices dripping down your cock..."
+            scene kf-21
+            with fade
+            "She waits, silent. Holding you inside her as your manhood slowly subsides."
+            "You wonder how long she has been waiting for this..."
+            Zt "It's been a long time... I guess I have neglected her for a while..."
+            scene black
+            stop music fadeout 2
+            with fade
+            jump daily_home
+
+            
+label kitchen_kateryna:
+    Z "Bring Kateryna to me, will you?"
+    if introduction_emilia == True: #TODO check this variable. First time play through showed the 'else' version, not the initial.
+        scene k-4
+        with dissolve
+        E "Of course, Master..."
+    else:
+        pass
+    scene black pic
+    with fade
+    if introduction_emilia == True:
+        "[E] disappears for a few moments and returns escorting Kateryna into the dining room."
+    else:
+        "Moments later..."
+    scene kk-72 
+    with fade
+    Ka "Is there problem, Zaton? The food is no good?"
+    "You hear the girls reacting in hushed voices."
+    scene kk-73
+    with dissolve
+    W "Hm... Is your food good, [A]?"
+    A "Yeah, amazing... is yours?"
+    W "Yes. I wonder what's wrong with your [persistent.dad]'s food..."
+    if kitchen_kateryna_first_time == True:
+        scene kk-73 
+        with dissolve
+        Z "No... no problem with the food at all. In fact, I wanted to thank you for preparing such a delicious meal."
+        "You hear the women around the table simmer down and pay attention."
+        Z "Did you cooked this yourself?"
+        scene kk-74 
+        with dissolve
+        Ka "Ah. Good. I am happy."
+        Ka "It was easy, [Z]. Simple recipe from simple ingredients."
+        Ka "They tell you like strong taste, not too sweet, not too many spice. I know right thing, I say!"
+        scene kk-73
+        with dissolve 
+        Z "You did well, Kateryna."
+        
+    else:
+        scene kk-73
+        with dissolve
+        Z "I wanted to thank you again for preparing such a delicious meal."
+        Z "Did you make this before?"
+        scene kk-74 
+        with dissolve
+        Ka "Ah. Good. I am happy."
+        Ka "Yes. You enjoy so much last time, I make again."
+        scene kk-73
+        with dissolve 
+        Z "Very good, Kateryna."
+    scene kk-74 
+    with dissolve
+    Ka "Thank you. I want to do good for you."
+    W "You've nothing to worry about, [Ka]."
+    scene kk-73
+    with dissolve
+    menu:
+        "Let her join you":
+            Z "Then join me."
+            scene kk-74 
+            with dissolve
+            Ka "Join?"
+            scene kk-73
+            with dissolve
+            Z "Yes, sit with me."
+            scene kk-75 
+            with dissolve
+            "Kateryna looks towards the table at an empty seat."
+            scene kk-76 
+            with dissolve
+            Z "No no, not there..."
+            Z "Come closer, Kateryna"
+            scene kk-77 
+            with fade
+            "Kateryna moves closer to you with careful, measured grace."
+            scene kk-78 
+            with fade
+            "You pull her onto your lap, her body tenses for a brief moment before you feel her relax into the curve of your arm."
+            Z "Is this alright?"
+            scene kk-79 
+            with dissolve
+            Ka "Yes. Very all right."
+            A "Best seat in the house..."
+            scene kk-78 
+            with dissolve
+            Z "Good."
+            scene kk-79 
+            with dissolve
+            Ka "I dreamed this..."
+            scene kk-78 
+            with dissolve
+            Z "What do you mean?"
+            scene kk-79 
+            with dissolve
+            Ka "That you look at me like this."
+            Ka "I don't feel like a slave..."
+            scene kk-78
+            with dissolve
+            Z "Kateryna, you are not a servant in this house. You are one my women."
+            scene kk-80
+            with dissolve
+            Ka "One of your women... yes..."
+            W "We are all lucky to have you, [persistent.player_name]."
+            scene kk-81 
+            with dissolve
+            "You kiss her, feeling her delicate lips pressed against your own."
+            scene kk-82 
+            with dissolve
+            "You feel her tremble as she pulls your head closer."
+            scene kk-83 
+            with dissolve
+            "She lets go of the kiss and looks at you."
+            scene kk-79
+            with fade 
+            Ka "Again?"
+            scene kk-78 
+            with dissolve
+            Z "Yes."
+            scene kk-81 
+            with dissolve
+            "This time she moves in a deliberate, decisive manner."
+            scene kk-82 
+            with dissolve
+            "She feels warm in your hands, soft."
+            scene kk-83 
+            with dissolve
+            "You pull apart once again, her hand caressing your face so gently."
+            scene kk-79
+            with dissolve 
+            Ka "Maybe we do more?"
+            W "Dutiful and eager..."
+            A "She will do well here, I think."
+            scene kk-78 
+            with dissolve
+            Z "Come here..."
+            scene black pic
+            with fade
+            scene kk-84 
+            with fade
+            "You both stand up, and Kateryna leans against the edge of the table."
+            scene kk-85 
+            with fade
+            Z "Is this what you want?"
+            Ka "Yes. I want you. I want this."
+            "Her breathing is faster now, excitement taking over any shyness that lingered."
+            Ka "You undress me?"
+            scene kk-86 
+            with dissolve
+            Z "Yes."
+            scene kk-87 
+            with dissolve
+            "Kateryna's skirt falls to the floor and she looks at you with eager eyes."
+            scene kk-88 
+            with fade
+            Ka "I am pretty to you?"
+            scene kk-89 
+            with fade
+            Z "Very." 
+            scene kk-90 
+            with fade
+            "You lift Kateryna onto the table with ease."
+            scene kk-91 
+            with dissolve
+            "Her petite, lithe frame is easy to manipulate under your strong grip."
+            scene kk-92 
+            with dissolve
+            Ka "Ah..."
+            scene kk-93 #TODO Re-Render - DUF is updated
+            with fade
+            "Kateryna wraps her legs around you. Her confidence growing with each moment of excitement."
+            scene kk-94 
+            with fade
+            "You look at her young and light skinned waist. A waist ready for your taking..."
+            scene kk-95 
+            with dissolve
+            "She looks at you, ready and waiting."
+            A "I think she's ready..."
+            scene kk-97 
+            with fade
+            "You rest against her and lower your pants, revealing your erection."
+            scene kk-98
+            with fade
+            Ka "Is this reward... [persistent.player_name]?"
+            Z "Yes."
+            W "And what a reward it will be, [Ka]."
+            scene kk-100
+            with dissolve
+            "You hold your manhood against her moist pussy..."
+            scene kk-101
+            with dissolve
+            Ka "Ah...!"
+            "...and press further inside, claiming her bit by bit."
+            scene kk-103
+            with dissolve
+            Ka "mh..."
+            Zt "I love this pussy..."
+            show kk-101-anim
+            with fade
+            "You start pistoning inside her as she trembles, excited..."
+            Ka "Ah... [persistent.player_name]!"
+            "As you take your pleasure as you have grown accustomed, the conversations in the background fade from your attention span.."
+            random: #TODO multiple random convos
+                A "...and then, she said: Stop him, he's a thief!"
+                S "So he ran off with her sword, in the middle of the day?!"
+                Ka "Ah...!"
+                A "Yeah, but he didn't get far and got stabbed by a guard."
+                W "Ew... I'm sorry you had to see that, honey."
+            
+                #variant 2:
+                A "It's so tasty... Kateryna is getting a well deserved reward!"
+                W "mmhm... isn't she, husband?"
+                Ka "Ah... I like... this..."
+                Z "{i}*chuckles*{/i} deserved, indeed."
+
+                #variant 3:
+                W "Is it time already for the music festival?"
+                A "I think so, in a week or two. Can we go, like last year?"
+                W "I don't know, [A], these are complicated times , and I am not even sure how many artists will be attending. Three? Four? Five like last year?"
+                A "Last year's winner disappeared from the city, I heard."
+             
+
+                if shani_zone == False:
+                    S "She's having a lot of run, [persistent.dad]. {i}*giggles*{/i}"
+                    W "Hmm... the sight of a young girl in heat during dinner. Lovely."
+                    Ka "Ah... s-sorry, I am loud...?"
+                    W "No, honey. Keep serving my husband."
+                    Ka "Mmhm... ah...!"
+
+            "You feel closer to the edge..."
+            menu:
+                "Cum inside her":
+                    if kat_babywish == True:
+                        Z "Shall we try to make some babies again?"
+                        Ka "Y-yes, please. ah..."
+                    else:
+                        Z "I'm going to cum inside you, you minx."
+                        Ka "O-okay, ah..."
+                    Z "nngh-"
+                    with vpunch
+                    Z "Agh-"
+                    scene kk-103
+                    with fade
+                    "You spend your seed inside her..."
+                    Ka "Ah... so much...!"
+                    scene kk-104
+                    with vpunch
+                    Z "mmgh..."
+                    "Her pussy grips you tight, welcoming every bit of your cum..."
+                    scene kk-105
+                    with dissolve
+                    Ka "mh... thank you..."
+                    scene kk-105x
+                    with fade
+                    "You admire your work, while your other women are chatting, distracted from the erotic scene unfolding next to them.." 
+                    Ka "It's coming out..."
+                    scene kk-105x-2
+                    with dissolve
+                    Z "Damn... You made me cum a lot."
+                    Ka "{i}*giggles*{/i}"
+                    scene kk-84 #TODO re-render - DUF is updated
+                    with fade
+                    Z "Now clean up the table, then we'll take a rest together. Deal?"
+                    scene kk-84x
+                    with dissolve
+                    Ka "Yes, [persistent.player_name]! Thank you!"
+                    scene kk-84x-2
+                    with dissolve
+                    scene black
+                    stop music fadeout 2
+                    with fade
+                    jump daily_home
+
+                    
+                "Cum on her":
+                    Z "Lean back, sweetheart. I will..."
+                    scene kk-106
+                    with fade
+                    with vpunch
+                    Z "Ah-"
+                    scene kk-108
+                    with dissolve
+                    Z "Damn..."
+                    "You spread your seed over her belly..."
+                    scene kk-109
+                    with vpunch
+                    Z "Ngh-"
+                    scene kk-110
+                    with dissolve
+                    Ka "Wow... so much...!"
+                    "She leans back and admires the cum glazing her skin, ignoring the voices of your household behind her..."
+                    scene kk-84 #TODO re-render - DUF is updated
+                    with fade
+                    Z "You did well, Kateryna. Clean yourself up."
+                    scene kk-84x
+                    with dissolve
+                    Ka "Yep! Thank you, [persistent.player_name]!"
+                    scene kk-84x-2
+                    with dissolve
+                    scene black
+                    stop music fadeout 2
+                    with fade
+                    jump daily_home
+
+        "Continue eating":
+            Z "That's all I wanted to say."
+            scene kk-72
+            with dissolve
+            Ka "Okay! Thank you, and enjoy the rest!"
+            jump daily_home
+
+label kitchen_ain:
+    if kitchen_ain_first_time == False:
+        $ kitchen_ain_first_time = True
+        scene ka-1
+        with fade
+        Z "How's your food [A]?"
+        scene ka-3
+        with dissolve
+        A "Good. How about yours, [persistent.dad]?"
+        scene ka-4
+        with fade
+        Z "Very good..."
+        W "Hmm... really tasty."
+        scene ka-5
+        with dissolve
+        A "Only very good? Mine is delicious!"
+        "The others nod in approval." #Will we need another variation if Shani is there or not?
+        scene ka-1
+        with dissolve
+        Z "I'm not complaining... just noticing something."
+        scene ka-2
+        with dissolve
+        A "What's that?"
+        scene ka-6
+        with fade
+        Z "Something's missing..."
+        scene ka-5
+        with dissolve
+        A "Salt?"
+        scene ka-6
+        with dissolve
+        Z "No."
+        scene ka-5
+        with dissolve
+        A "Wine?"
+        scene ka-6
+        with dissolve
+        Z "No, I have a drink already."
+        scene ka-7
+        with dissolve
+        A "What else can it be?"
+        "You can sense your wife's grin off to your side."
+        scene ka-7x
+        with dissolve
+        Z "Perhaps..."
+        scene ka-8
+        with fade
+        A "Let me come and taste it!"
+        scene black
+        with fade
+        "[A] takes a bite of your food."
+        scene ka-9x
+        with dissolve
+        A "Mm..."
+        scene ka-9x
+        with dissolve
+        W "Is it good, [A]?"
+        scene ka-9
+        with dissolve
+        A "I don't taste anything different..."
+        scene ka-9x
+        with dissolve
+        Z "No no... the food is excellent."
+        scene ka-9
+        with dissolve
+        A "Then... what do you need, [persistent.dad]?"
+        scene ka-9x
+        with dissolve
+        Z "I need..."
+        Z "A better view. Come here."
+        scene black
+        with fade
+        "[A] moves closer to your chair."
+        scene ka-12
+        with fade
+        A "Oh?"
+        scene ka-11
+        with dissolve
+        Z "The dress... you can take it off."
+        scene ka-13
+        with dissolve
+        "She stares intently into your eyes as she reaches for the top of her dress..."
+        scene ka-13x
+        with dissolve
+        A "Here?"
+        scene ka-14
+        with dissolve
+        Z "Yes."
+        scene ka-14x
+        with dissolve
+        A "Oh, well.. if you insist, [persistent.dad]..."
+        scene ka-15
+        with dissolve
+        "The dress slips lower, exposing her breast."
+        scene ka-14x
+        with dissolve
+        A "Better?"
+        scene ka-14
+        with dissolve
+        Z "Continue."
+        scene ka-16
+        with dissolve
+        "[A] pulls the dress down completely. It falls into a soft heap around her feet."
+        scene ka-17
+        with fade
+        "You look her over slowly, taking in the shape of her body she so dutifully exposes to your gaze."
+        W "You are beautiful, [A]."
+        scene ka-18x-3
+        with dissolve
+        A "Has that helped?"
+        scene ka-4
+        with fade
+        "You return to your meal, leaving [A] standing naked beside you on display."
+        scene ka-18
+        with dissolve
+        Z "Now it's better..."
+        W "I agree."
+        scene ka-18x-3
+        with dissolve
+        A "Is that all?"
+        scene ka-18
+        with fade
+        Z "For now. Stay, until I have finished eating."
+        scene ka-18x-2
+        with dissolve
+        A "Of course, [persistent.dad]."
+        scene ka-18x
+        with dissolve
+        "There is something satisfying about enjoying your meal in the company of a young woman, exposed for your personal gratification…"
+        "Bare, obedient… and trying not to look too pleased with herself."
+        scene ka-18
+        with fade
+        Z "Good girl. Much better."
+        W "A very good girl indeed."
+        scene ka-18x-2
+        with dissolve
+        A "Thank you, [persistent.dad]. I’m glad to help."
+        scene ka-18
+        with dissolve
+        Z "Come closer."
+        scene ka-19
+        with dissolve
+        "Her breast easily fills your hand, and then some, as you take hold firmly."
+        scene ka-20
+        with dissolve
+        Z "You will lead a very successful house one day."
+        scene ka-21
+        with fade
+        Z "why do you cover yourself?"
+        A "Um..."
+        scene ka-22
+        with dissolve
+        Z "Let me see all of you."
+        "[W] gives you a smile..."
+        scene ka-23
+        with dissolve
+        Z "There... much better."
+        scene ka-23x
+        with dissolve
+        Z "You may return to your meal."
+        scene ka-24
+        with dissolve
+        "You watch her take back her seat, noticing she did not reach for her clothes."
+        scene ka-25
+        with fade
+        "She faces you for a moment, her breasts on full display."
+        scene ka-26
+        with dissolve
+        Z "It seems you are starting to learn after all."
+        if shani_zone == False:
+            "Shani lets out a small laugh."
+        W "{i}*giggles*{/i}"
+        scene ka-27
+        with dissolve
+        A "Thanks, [persistent.dad]!"
+        scene black
+        stop music fadeout 2
+        with fade
+        jump daily_home
+    else:
+        scene ka-1
+        with fade
+        Z "How's your food [A]?"
+        scene ka-3
+        with dissolve
+        A "Good. How's yours, [persistent.dad]?" #TODO @cynical
+        scene ka-4
+        with fade
+        Z "It could be better..."
+        scene ka-8
+        with dissolve
+        A "Oh? Would you like me to undress again?"
+        scene ka-8x
+        with dissolve
+        Z "Yes."
+        scene ka-12
+        with fade
+        A "Anything for you, [persistent.dad]."
+        scene ka-11
+        with dissolve
+        "She stares intently into your eyes as she reaches for the top of her dress…"
+        scene ka-13
+        with dissolve
+        A "Like this?"
+        scene ka-14
+        with dissolve
+        Z "Much better."
+        scene ka-14x
+        with dissolve
+        A "I'm glad I can help."
+        scene ka-15
+        with dissolve
+        "The dress slips lower, exposing her breast."
+        scene ka-14x
+        with dissolve
+        A "And now?"
+        scene ka-14
+        with dissolve
+        Z "Continue."
+        scene ka-16
+        with dissolve
+        "[A] pulls the dress down completely. It falls into a soft heap around her feet."
+        scene ka-17
+        with fade
+        "You look her over slowly, taking in the shape of her body she so dutifully shows you."
+        scene ka-18
+        with fade
+        menu:
+            "Just finish your meal":
+                scene ka-4
+                with fade
+                "You return to your meal, leaving [A] naked beside you on display."
+                Z "You may stay there until I have finished."
+                scene ka-18x-2
+                with dissolve
+                A "Of course, [persistent.dad]."
+                scene ka-18x
+                with dissolve
+                "There is something satisfying about enjoying your meal whilst [A] stands on display..."
+                "Bare, obedient... and trying not to look too pleased with herself."
+
+            "Grope her":
+                scene ka-18
+                with dissolve
+                "Come closer."
+                scene ka-18x-2
+                with dissolve
+                A "Yes, [persistent.dad]."
+                scene ka-19
+                with dissolve
+                "Her breast easily fills your hand as you take hold, firm under your grasp."
+                scene ka-20
+                with dissolve
+                if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                    Z "You're lucky that my wife and I blessed you with these..."
+                    A "I know, [persistent.dad], thank you..."
+                else:
+                    Z "You're blessed to have these, [A]."
+                    A "Thank you, [persistent.dad]..."
+            
+
+            "Look at all of her":
+                scene ka-21
+                with dissolve
+                "You grab her arm..."
+                Z "Let me see all of you."
+                scene ka-22
+                with dissolve
+                if shani_zone == False:
+                    "Taking a pause from her conversation with [S], [W] smiles towards you..."
+                else:
+                    "[W] smiles towards you..."
+                scene ka-23
+                with dissolve
+                Z "There... much better."
+                scene ka-23x
+                with dissolve
+                Zt "This view never gets old..."
+                scene ka-18
+                with fade
+                Z "Good girl. Much better."
+                W "Very good indeed."
+
+        Z "You may return to your meal."
+        scene ka-24
+        with dissolve
+        "You watch her take her seat."
+        scene ka-25
+        with fade
+        "She faces you for a moment, her breasts still on full display."
+        scene ka-26
+        with dissolve
+        Z "It seems you are starting to learn after all."
+        "Shani lets out a small laugh."
+        scene ka-27
+        with dissolve
+        A "Thanks, [persistent.dad]!"
+        scene ka-26
+        with dissolve
+        scene black
+        stop music fadeout 2
+        with fade
+        jump daily_home
+
+label kitchen_zahra:
+    scene kz-1
+    with fade
+    "You look over to your wife..."
+    scene kz-2
+    with dissolve
+    W "Is anything the matter, my love?"
+    scene kz-1
+    with dissolve
+    Z "[W]... this is excellent. You've really outdone yourself this time."
+    A "Mmhm.. definitely! I agree!"
+    if shani_zone == False:
+            S "Me three!"
+    scene kz-2
+    with dissolve
+    W "I tried something new, I'm glad you like it."
+    scene kz-1
+    with dissolve
+    Z "I do. Very much."
+    Z "Come here..."
+    scene kz-3
+    with fade
+    "As your wife approaches you, you notice [A] eagerly diving into her meal."
+    scene kz-7x
+    with fade
+    W "As you wish, husband."
+    scene kz-7
+    with dissolve
+    menu:
+        "Appreciate her efforts":
+            Z "Truly, [W]..."
+            Z "I don't know what I'd do without you."
+            scene kz-7x
+            with dissolve
+            W "You're welcome, husband."
+            scene kz-7
+            with dissolve
+            Z "Come here."
+            scene kz-8
+            with dissolve
+            "She kisses you gently..."
+            scene kz-9
+            with dissolve
+            Z "How lovely."
+            A "Awww.. you guys are adorable."
+            if shani_zone == False:
+                S "So adorable!"
+            scene black
+            stop music fadeout 2
+            with fade
+            jump daily_home
+
+        "Look at her tits":
+            scene kz-5
+            with dissolve
+            "As [W] leans towards you, her breasts look ready to spill from her clothes."
+            scene kz-6
+            with dissolve
+            W "Do you like what you see?"
+            scene kz-4
+            with fade
+            Z "Indeed..."
+            Z "You do look after me well."
+            scene kz-4x
+            with dissolve
+            W "I do my best."
+            if shani_zone == False:
+                S "Yeah! We all look after you!"
+            A "{i}*giggles*{/i}"
+            scene kz-8
+            with dissolve
+            "[W] kisses you..."
+            scene kz-7x
+            with dissolve
+            W "Will that be all, my love?"
+            scene kz-7
+            with dissolve
+            Z "For now, yes. Until I need you for more, that is."
+            scene black
+            stop music fadeout 2
+            with fade
+            jump daily_home
+
+        "Make out with her":
+            Z "Let me taste you."
+            scene kz-8
+            with dissolve
+            W "Mh..."
+            "You hungrily kiss each other, and your left hand wanders to her cheek..."
+            scene kz-7
+            with dissolve
+            "Your lips part but the taste of the wine and your wife's lips linger in on your tongue."
+            Z "You taste better than anything I've ever had at this table."
+            scene kz-7x
+            with dissolve
+            W "I'll make sure not to tell the girls that."
+            scene kz-7
+            with dissolve
+            Z "Good choice."
+            random:
+                block:
+                    A "I heard that... {i}*she pouts*{/i}"
+                    scene kz-7x
+                    with dissolve
+                    W "Oh well, too late..."
+                    scene kz-7
+                    with dissolve
+
+                block:
+                    S "{i}*giggles*{/i} You guys are pretty corny."
+
+                block:
+                    pass
+
+            scene kz-8
+            with dissolve
+            "You kiss her again, refreshing the taste of her in your mouth."
+            scene kz-9
+            with dissolve
+            "You feel intoxicated by her scent."
+            Z "You always know how to please me."
+            scene kz-9x
+            with dissolve
+            W "And I always will, husband."
+            scene kz-9
+            with dissolve
+            scene black
+            stop music fadeout 2
+            with fade
+            jump daily_home #TODO end music + make common kitchen ending
+
+label kitchen_discussions:
+    $ kitchen_discussion_zone = True
+    A "..."
+    A "It's weird, you know?"
+    Z "What is, [A]?"
+    scene k-16x
+    with fade
+    A "Just the three of us, eating together."
+    scene k-15x
+    with dissolve
+    W "You miss your sister..."
+    scene k-15
+    with dissolve
+    A "Don't you?"
+    scene k-15x
+    with dissolve
+    W "We do too, [A]... Much like when [persistent.player_name] is missing, I worry."
+    scene k-16
+    with dissolve
+    Z "This is new for us all, [A]."
+    Z "I guess we just try not to think about it too much. [S] is a strong woman. I am sure she will be back soon."
+    scene k-16x
+    with dissolve
+    A "She always eats a lot. I don't know where she puts it."
+    scene k-15x
+    with dissolve
+    W "Well, she's always moving. Her training regime is... intense."
+    scene k-14
+    with dissolve
+    A "Did you give her enough rations?"
+    scene k-15x
+    with dissolve
+    W "You helped me load the truck, didn't you?"
+    scene k-15
+    with dissolve
+    A "I know... I just..."
+    scene k-16
+    with dissolve
+    Z "We know, sweetie. It's ok to worry. Have faith though."
+    Z "Honestly, I worry as much as you do. Even if I don't show it. A Zone is and remains an unknowable challenge..."
+    Z "Many things can go wrong but I believe... I just hope that I have prepared her to the best of my ability..."
+    scene k-16x-2
+    with dissolve
+    A "[persistent.dad!c], now you're scaring me."
+    scene k-16x-3
+    with dissolve
+    Z "Don't worry, she is strong, fast and knows what lies ahead of her. I know that you care about [S], we also do. But no need to be afraid."
+    scene k-16
+    with dissolve
+    Z "She will be fine. I know it."
+    scene k-16x
+    with dissolve
+    A "Do we know how long she will be away?"
+    scene k-16
+    with dissolve
+    Z "That's hard to say, really. There are a couple of specific things she is looking for, and finding them might be a challenge."
+    Z "The place is quite big, and she only has a map that guides her."
+    scene k-15x
+    with dissolve
+    W "She always knew her way around the market compared to you, so I am not too concerned about that."
+    scene k-15
+    with dissolve
+    A "But this is not exactly a welcoming environment."
+    A "Uff..."
+    scene k-13
+    with dissolve
+    Z "Anyway, enough about the Zone. [S] will tell us all about it when she comes back."
+    A "I'm still worried..."
+    A "..."
+    scene k-15x
+    with dissolve
+    W "Let's eat now, [A]. I need you to help me with something, after dinner."
+    scene k-15
+    with dissolve
+    A "Ok [persistent.mom]."
+    jump kitchen_discussions_ending
+
+label kitchen_discussions_ending:
+    "Eventually, the food is ready and served, and you enjoy the family dinner together, before getting up."
+    stop music fadeout 3
+    jump daily_home
+
+label kitchen_kateryna_intro:
+    $ kitchen_kateryna_introduction = True
+    $ daily_side_mission = True
+    play sound "audio/sounds/doors/door knocking.mp3" volume 0.4
+    "You hear someone knocking at the gate..."
+    if emilia_joined == True:
+        "Emilia shouts from the kitchen."
+        E "I heard that!"
+        scene k-11
+        with fade
+        E "I'll go see who's at the door, Master."
+        scene k-12
+        with dissolve
+        Zt "Watch it be another one of those guards..."
+        scene k-1
+        play sound "audio/sounds/doors/door closed.mp3"
+        with fade
+        Z "..."
+        "You hear muffled voices..."
+        E "Master? You have a guest."
+        scene black pic
+        with fade
+        play sound "audio/sounds/doors/door shut.mp3"
+        scene kk-1
+        with fade
+        E "I think she was here with Mister Igor last time, yes?"
+        scene kk-3
+        with dissolve
+        Z "Oh, Kateryna, hello!"
+    else:
+        Zt "Great..."
+        "You hear [W] shout"
+        W "[A] will take care of it!"
+        scene black pic
+        with fade
+        "A few moments later, you hear muffled voices..."
+        Zt "Watch it be yet another one of those guards..."
+        play sound "audio/sounds/doors/door shut.mp3"
+        scene kk-1x
+        with fade
+        Z "Oh, Kateryna, hello!"
+    scene kk-2
+    with dissolve
+    Ka "Hello [persistent.player_name]."
+    scene kk-3
+    with dissolve
+    if emilia_joined == True:
+        scene kk-4
+        with dissolve
+        E "Master, I asked the Mistress about dinner. It will be ready soon."
+        E "I will get back to my chores, Master."
+    scene kk-5
+    with slowfade
+    Z "Hello there,Kateryna... Had I known you were visiting, I'd have put a shirt on."
+    Z "Anyway, what brings you here?"
+    scene kk-9
+    with dissolve
+    Ka "{i}*chuckles*{/i} I not mind, [persistent.player_name]. I know I was not expected."
+    scene kk-8
+    with dissolve
+    Z "Make yourself at home. Are you feeling hungry?"
+    Z "If you heard Emilia, dinner should be ready soon."
+    scene kk-7
+    with dissolve
+    Ka "Is okay if I greet [W], yes?"
+    Ka "Maybe I can help with dinner a bit..."
+    scene kk-6
+    with dissolve
+    Z "Sure, she will be happy to see you."
+    scene black pic
+    with fade
+    "Kateryna heads towards the kitchen..."
+    scene k-1
+    with fade
+    Zt "She seems like a sweet girl."
+    Zt "Igor didn't tell me she was any good in the kitchen."
+    Zt "Maybe I should go take a look at how things are going in there. The wait is making me a little peckish..."
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    "You enter the kitchen..."
+    scene kk-15
+    play music "audio/music/home/katerynas theme.mp3" fadein 5
+    with slowfade
+    pause 1.5
+    scene kk-16
+    with dissolve
+    "The knives hitting a chopping board is the only sound that greets you as you walk in on the preparations of your meal..."
+    scene kk-17
+    with fade
+    W "..."
+    scene kk-18
+    with dissolve
+    Ka "In my country, we boil many things, but I have learned of spices, from uncle Igor. He says is important to put spice early, let oil soak in flavor at start of cooking."
+    Ka "After that, we add meat to sear it. Vegetables separate. This is how you do here too, yes?"
+    scene kk-19
+    with dissolve
+    W "It's not much different, yes."
+    scene kk-20
+    with dissolve
+    Ka "Is not, it takes longer. Now I add bread to thicken broth and add... body, is right word?"
+    scene kk-21
+    with fade
+    W "..."
+    scene kk-22
+    with dissolve
+    W "I see your hunger is getting the best of you..."
+    scene kk-23
+    with dissolve
+    menu:
+        "\"You're not wrong.\"":
+            Z "You're not wrong."
+            Z "Kateryna was interested in contributing. I got curious about how that would go."
+            scene kk-24
+            with fade
+            "You hug her from behind..."
+            Z "What are you preparing today, hm?"
+            W "I started making stew, nothing too special. But then she came in here, and is giving it a different twist..."
+            scene kk-25
+            with dissolve
+            "Kateryna ignores the two of you, completely focused on the pots and pans in front of her."
+            W "At first she suggested to mix up the recipe a little. I have let her take the initiative and now look at her, basically doing her own thing."
+            W "She really seems to know what she's doing though. You will have to let me know what you think of it. "
+            jump kk26
+
+        "\"I wanted to see you two working together.\"":
+            Z "I wanted to see you two working together."
+            Z "Kateryna's visit was not planned after all, and she should be sitting with us, rather than serving us in our own house..."
+            Z "But she sounded like she really wanted to help, so..."
+            scene kk-24
+            with fade
+            "You hug her from behind..."
+            Z "What do you think?"
+            W "I think it's nice that she visited us today."
+            scene kk-25
+            with dissolve
+            "Kateryna ignores the two of you, completely focused on the pots and pans in front of her."
+            W "After a first shy greeting, she asked if she could lend me a hand."
+            W "And now look at her, she has taken over the whole kitchen. I am impressed. Or maybe this is her trying to impress us."
+            jump kk26
+
+        "\"It's taking longer than usual, so I came to see if everything was alright.\"":
+            Z "It's taking longer than usual, so I came to see if everything was alright."
+            scene kk-24
+            with fade
+            "You hug her from behind..."
+            Z "So, how is she doing? What do you think?"
+            W "I can't complain, really."
+            scene kk-25
+            with dissolve
+            "Kateryna ignores the two of you, completely focused on the pots and pans in front of her."
+            W "It may take a little longer, husband. But I think you will be happy with the tradeoff."
+            W "She surely knows what she's doing in the kitchen, and it might be interesting to see if I can learn some foreign dishes from her."
+            jump kk26
+
+    label kk26:
+        scene kk-26
+        with dissolve
+        if kateryna_romance == None:
+            Ww "Be honest, [persistent.player_name]..."
+            Ww "That's not the only reason you came here, right?"
+            Ww "Surely you are interested in her not just for her cooking...?"
+            scene kk-25
+            with dissolve
+            menu:
+                "\"You could say that.\"":
+                    $ kateryna_romance = True
+                    Z "She intrigues me, you know this."
+                    Ww "See, I know my husband."
+
+                "\"Not really.\"":
+                    $ kateryna_romance = False
+                    Z "No. I really am just very hungry, today."
+                    Ww "Hmm, I see."
+        else:
+            W "If you ask me, I wouldn't mind another helping hand in the kitchen."
+            if emilia_joined == True:
+                W "Emilia is a good maid, but her cooking skills aren't very reliable. I've had to toss out the occasional dish..."
+        scene black pic
+        with fade
+        "You step towards Kateryna..."
+        scene kk-30
+        with fade
+        Z "How's it going here?"
+        Ka "Just fine, I think."
+        scene kk-28
+        with dissolve
+        Ka "I ask to help with meal a little."
+        Ka "I add some spices, let potatoes cook longer before adding meat. Where I come from, we add more water to process. Not so dry."
+        scene kk-27
+        with dissolve
+        Ka "It looks better now. You will taste difference!"
+        if kateryna_romance == True:
+            scene kk-29
+            with dissolve
+            Z "..."
+            Z "It does look great, indeed. Very good."
+        scene kk-32
+        with dissolve
+        Z "Maybe I should have a taste-"
+        show kk-33
+        with hpunch
+        Ka "No!"
+        Z "...?!"
+        scene kk-34
+        with dissolve
+        Ka "Sorry, [persistent.player_name], is not ready yet."
+        Ka "You must wait."
+        scene kk-35
+        with dissolve
+        Z "{i}*chuckles*{/i} If you say so."
+        Zt "I haven't seen her so assertive before. She seems to be in her element here."
+        scene kk-23
+        with fade
+        Z "I will leave you two to it."
+        scene black pic
+        with fade
+        "You head back to the dining room and wait."
+        "Eventually, [W] comes out, a bowl in her hand..."
+        scene k-7x
+        with fade
+        W "It's ready. Do you want to see what she prepared?"
+        scene k-6x
+        with fade
+        W "I've had a taste, but I will let you be the judge of it."
+        scene k-4x
+        with fade
+        W "[persistent.player_name], while you're eating, I have a request..."
+        scene k-5x-2
+        with dissolve
+        Z "What's on your mind?"
+        scene k-4x
+        with dissolve
+        W "I was thinking to have a private talk with our guest."
+        W "I want to learn more about her, and find out exactly why she decided to visit us today."
+        scene k-5x
+        with dissolve
+        W "Don't worry, I won't do anything bad to her."
+        W "{i}*giggles*{/i}"
+        if emilia_joined == True:
+            W "Just like with Emilia, I am curious about what she is looking for exactly."
+        else:
+            W "But as you know, I like to know the girls who visit your house."
+        scene k-4x
+        with dissolve
+        W "Would you mind if I keep her entertained whilst you eat?"
+        scene k-5x-2
+        with dissolve
+        Z "Why would I? Go. Get to know her better."
+        scene k-5x
+        with dissolve
+        W "Alright then. Love you, [persistent.player_name]."
+        W "And enjoy your meal. I'm sure you will like it."
+        jump kk_meal
+
+    label kk_meal:
+        scene black pic
+        with fade
+        "You start eating your long anticipated meal."
+        "[W] wasn't wrong when she said she expected you to enjoy it."
+        "The stew is surprisingly well seasoned, the meat melting on your tongue, and the temperature is perfect."
+        "The wait was truly worth it and Kateryna perfected [W]'s already good recipe."
+        Zt "Now, that's tasty!"
+        scene black pic
+        stop music fadeout 3
+        with slowfade
+        "Meanwhile, in another room..."
+        jump kk36
+
+    label kk36:
+        scene kk-36
+        play music "audio/music/zeta/city music.mp3" fadein 6
+        with slowfade
+        W "So tell me, Kateryna..."
+        scene kk-37
+        with dissolve
+        W "I know that you like my husband, but I wonder what draws a young woman like you to him."
+        W "Not that I mind, but I am curious..."
+        W "You couldn't keep your eyes off him since you met him..."
+        scene kk-38
+        with dissolve
+        W "Is it his age, his experience, his role in this House? Tell me..."
+        scene kk-39
+        with dissolve
+        Ka "I'm... not sure, I think."
+        Ka "Little bit of everything?"
+        scene kk-40
+        with dissolve
+        W "I know that you left your home with your uncle."
+        W "You have travelled a long way... was it only to see the world?"
+        W "Or is there more to it?"
+        scene kk-41
+        with dissolve
+        Ka "I... I was curious how other people live..."
+        Ka "To... see if there are safe places..."
+        scene kk-40
+        with dissolve
+        W "Safe places? Your old home was not safe?"
+        scene kk-42
+        with dissolve
+        Ka "Not always... we lived in village... bandits often come to steal or hurt us..."
+        Ka "They come every year. Sometimes more... the men always try to defend the village. Many of them die..."
+        Ka "The village try to prepare for next attack, but it gets harder every year."
+        scene kk-38
+        with dissolve
+        W "And how do they prepare? Do they try to repopulate...?"
+        scene kk-39x
+        with dissolve
+        Ka "Yes... they try to make more babies, so they help when they grow up."
+        scene kk-39x-2
+        with dissolve
+        Ka "But it becomes difficult... many young boys fight to defend now, too..."
+        scene kk-39x-3
+        with dissolve
+        W "And what do your people do for that...?"
+        if kateryna_romance == True:
+            scene kk-39x
+            with dissolve
+        else:
+            scene kk-39x-2
+            with dissolve
+        Ka "We have tradition in our village..."
+        Ka "When a woman is ready to make babies, men gather around to make her receive..."
+        if kateryna_romance == True:
+            scene kk-43
+            with dissolve
+        Ka "They take her all night, all man take turn... they make sure to breed her..."
+        Ka "...when night is over, the woman always is pregnant..."
+        if kateryna_romance == True:
+            scene kk-44
+            with dissolve
+        else:
+            scene kk-39x-3
+            with dissolve
+        W "What about you... you are a pretty girl..."
+        if kateryna_romance == True:
+            scene kk-45
+            with dissolve
+        W "Did they take you, too...?"
+        if kateryna_romance == True:
+            scene kk-46
+            with dissolve
+            Ka "..."
+        W "I'm sure they talked about you..."
+        W "A young and healthy girl like you, at the perfect age to bear children..."
+        if kateryna_romance == True:
+            scene kk-47
+            with dissolve
+        else:
+            scene kk-39x-2
+            with dissolve
+        Ka "They told my mother... that they wanted, soon..."
+        Ka "...mother told me, I go with uncle instead."
+        Ka "When he visited, she said I must go... see safer places..."
+        Ka "...I listened and left..."
+        if kateryna_romance == False:
+            scene kk-39x-3
+            with dissolve
+            W "I see, then..."
+            W "That was interesting."
+            W "But [persistent.player_name!c] is probably waiting for us. Want to head back?"
+            scene black pic
+            stop music fadeout 2
+            with slowfade
+            jump kk_end
+
+        elif kateryna_romance == True:
+            scene kk-48
+            with dissolve
+            W "[persistent.player_name] told me you showed interest in the temple and the priestesses?"
+            W "Is that why? Do they remind you of home?"
+            Kaw "Mhm... But also very different."
+            Ww "That is why you are curious about making babies, isn't it..."
+            Ww "You wonder if you are made for this, no...?"
+            Ka "..."
+            scene kk-49
+            with dissolve
+            Ww "Let me take a better look at you, then. Maybe I can give you some advice..."
+            if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                Ww "I do know a few things about making babies..."
+            scene kk-50
+            with dissolve
+            pause 1
+            scene kk-51
+            with Dissolve(1.0)
+            Ka "..."
+            Ww "Look at you..."
+            scene kk-52 #rework zahra mouth open
+            with dissolve
+            Ww "I'm sure they were furious when you left..."
+            scene kk-53
+            with dissolve
+            Kaw "Do you... think?"
+            Ww "I'm sure of that."
+            Kaw "[persistent.player_name] said same... to me..."
+            Kaw "You think he likes me...?"
+            scene kk-54
+            with dissolve
+            Ww "I think he does... he thinks you're cute."
+            scene kk-55
+            with dissolve
+            Ww "I'm sure he would like to see what I am seeing now..."
+            scene kk-56
+            with dissolve
+            Ww "But tell me again... what do you like about him?"
+            scene kk-57
+            with dissolve
+            Ww "And why not be open and direct about it?"
+            Ww "Why is that...?"
+            scene kk-59
+            with dissolve
+            Ka "I... am not sure if... I can stay here..."
+            Ka "...is safe here... but he is your man... you have family..."
+            Ka "This is not my place... I think."
+            scene kk-58
+            with dissolve
+            W "Hm..."
+            scene black pic
+            with fade
+            W "Follow me, will you..."
+            "She leads Kateryna to the bed, and gently pushes her back, on top of it..."
+            scene kk-60
+            with fade
+            Ka "Hnh...?"
+            scene kk-61
+            with dissolve
+            W "So you're not sure if you would fit in here, are you..."
+            scene kk-62
+            with dissolve
+            Ka "I... don't know..."
+            scene kk-63
+            with dissolve
+            "As Kateryna doesn't seem to know how to react, [W] takes a good look at the girl in front of her."
+            scene kk-64
+            with dissolve
+            W "What to do with a girl like you..."
+            scene kk-65
+            with slowfade
+            W "You are right when you say that he is my man, Kateryna."
+            W "Not every girl who comes here is aware of what that means, of how deep that goes..."
+            scene kk-66
+            with dissolve
+            W "But I know my husband better than you do."
+            Ww "And if he saw you like this..."
+            scene kk-68
+            with dissolve
+            Ww "I promise you he would have a hard time stopping himself from doing... many delicious things to you."
+            Ww "Tell me, before you fled the men of your village, did you have any experiences...?"
+            scene kk-67
+            with dissolve
+            Kaw "No... I never have..."
+            Kaw "My mother would try protect me..."
+            Ww "And what about a kiss? Did anyone truly kiss you, yet...?"
+            scene kk-69
+            with dissolve
+            Kaw "I..."
+            Kaw "...did not..."
+            scene kk-70
+            with dissolve
+            Ww "It's good that I asked, then. Because I was about to do exactly that..."
+            Ww "I know that things must be very confusing for you now."
+            Ww "You left your home, and now you wonder what you want to do, and where you belong..."
+            Ww "Take your time and think of what you really want."
+            Ww "You will always be welcome, whether you come for [persistent.player_name], to have a bit of time for yourself away from Igor, or to exchange recipes..."
+            Ww "...and if you ever decide to stay, this house is large enough..."
+            Ww "...and I'm sure that we will find something for you to do."
+            Ww "I promise that you would not feel alone here, ever..."
+            scene kk-71
+            with dissolve
+            Ka "..."
+            scene black pic
+            stop music fadeout 4
+            with slowfade
+            pause 1
+            jump kk_end
+
+    label kk_end:
+        scene k-1
+        play music "audio/music/home/kitchen music.mp3" fadein 8
+        with slowfade
+        Zt "That was delicious... I am full."
+        scene black pic
+        play sound "audio/sounds/doors/door closed.mp3"
+        with fade
+        "You hear the door opening."
+        "Kateryna rushes in, visibly excited..."
+        scene kk-9
+        with fade
+        Ka "[persistent.player_name], I am sorry, I am late. How did you like your meal?"
+        scene kk-8
+        with dissolve
+        Z "It was great."
+        Z "[W] can cook really well, but whatever you did with her dish gave it a new twist that I really liked."
+        Z "You really know what you're doing, in the kitchen."
+        scene kk-9
+        with dissolve
+        Ka "Oh..."
+        "She blushes..."
+        scene kk-10
+        with fade
+        "She comes closer..."
+        scene kk-13
+        with dissolve
+        "She kisses you on your cheek..."
+        scene kk-14x
+        with dissolve
+        Ka "Thank you for compliment, [persistent.player_name]."
+        Ka "I spoke to [W], it was really nice. I like her a lot!"
+        Ka "I hope I can come here again, maybe?" #@cynical this is purposefully written in bad grammar, remember she's ukrainian
+        scene kk-14
+        with dissolve
+        Z "Of course, you're always welcome here."
+        scene kk-14x
+        with dissolve
+        Ka "Thank you! And I will help out with cooking again, too! Make dish you have never tasted."
+        if kateryna_romance == True:
+            scene kk-13
+            with dissolve
+            Ka "{i}*kiss*"
+            scene kk-11
+            with dissolve
+            "She kisses you on the cheek again, lingering for a second..."
+            scene kk-12
+            with dissolve
+            "Her kiss feels lovely, and after your last close encounter, holding back does not come easy."
+            "But in the end her joyful excitement wins you over, and you decide to not spoil that for her by taking things further."
+            scene kk-14x
+            with fade
+            Ka "I will go home now. See you soon, [persistent.player_name]."
+            scene kk-14
+            with dissolve
+            Z "See you soon, Kateryna. Send your Uncle my regards."
+            scene kk-14x
+            with dissolve
+            Ka "I will. Bye!"
+            scene black pic
+            stop music fadeout 3
+            with slowfade
+            if sq_k_1.current_step == 3:
+                $ sq_k_1.advance()
+                $ sq_k_1.resolution = _("Kateryna decided to visit me spontaneously. It turns out she really knows her way around a kitchen. It was nice to learn of something she is passionate about.")
+            "She leaves..."
+            jump mission_end
+
+        else:
+            Ka "Bye!!"
+            scene black pic
+            with fade
+            if sq_k_1.current_step == 3:
+                $ sq_k_1.advance()
+                $ sq_k_1.resolution = _("Kateryna decided to visit me spontaneously. It turns out she really knows her way around a kitchen. It was nice to learn of something she is passionate about.")
+            "She leaves..."
+            jump mission_end

@@ -1,0 +1,153 @@
+###################################################################
+######################   Achievement Helpers ######################
+init python:
+    achievement_list = []
+
+    class SteamAchievement(object):
+        def __init__(self, name, title, description, condition):
+            self.name = name
+            self.title = title
+            self.description = description
+            self.condition = condition
+            achievement_list.append(self)
+
+        @property
+        def is_unlocked(self):
+            try:
+                return eval(str(self.condition))
+            except NameError:
+                raise
+            except:
+                raise SyntaxError(str(self.condition))
+
+
+    def register_achievements(list):
+        if list:
+            for a in list:
+                achievement.register(a.name)
+        return
+
+    def check_for_achievements(list = achievement_list):
+        if achievement.steam is not None:
+            for a in list:
+                if a.is_unlocked:
+                # if a.is_unlocked and not achievement.has(a.name):
+                    achievement.grant(a.name)
+        return
+
+###################################################################
+##################### Achievement Definitions #####################
+define sa_01 = SteamAchievement(
+    name = 'intro_complete',
+    title = 'First steps',
+    description = 'Completed the introduction',
+    condition = 'm_d2f == True'
+)
+define sa_02 = SteamAchievement(
+    name = 'damsels_in_distress',
+    title = 'Damsels in distress',
+    description = 'Saved both the mutant and the raider during the intro',
+    condition = 'm_d3c == True and kyra_rescued == True and ivy_alive == True'
+)
+define sa_03 = SteamAchievement(
+    name = 'not_my_problem',
+    title = 'Not my problem',
+    description = 'Saved neither the mutant nor the raider during the intro',
+    condition = 'm_d3c == True and kyra_rescued == False and ivy_alive == False'
+)
+define sa_04 = SteamAchievement(
+    name = 'rite_of_passage',
+    title = 'Rite of passage',
+    description = 'Completed the Zone while playing as Shani',
+    condition = 'shani_perspective == True and shani_zone_returned == True' 
+)
+define sa_05 = SteamAchievement(
+    name = 'remember_me',
+    title = 'Remember me, but let me go',
+    description = "Taken too much advantage of Julia's hospitality while playing as Shani",
+    condition = 'd11b_shani_died == True'
+)
+define sa_06 = SteamAchievement(
+    name = 'i_hate_it',
+    title = 'Thanks, I hate it',
+    description = 'You have escaped from the haunted apartment while playing as Shani',
+    condition = 'm_d13j == True'
+)
+define sa_07 = SteamAchievement(
+    name = 'hell_and_back',
+    title = 'To hell and back',
+    description = 'Fairy has joined your home and you helped her recover',
+    condition = 'fairy_healed == True'
+)
+define sa_08 = SteamAchievement(
+    name = 'ignorance',
+    title = 'Ignorance is bliss',
+    description = "Fairy has joined your home and you didn't help her recover",
+    condition = 'fairy_broken == True'
+)
+define sa_09 = SteamAchievement(
+    name = 'people_pleaser',
+    title = 'People pleaser',
+    description = "You have taken control of the overpass and improved their living conditions",
+    condition = 'm_d10b == True and settlement_outcomes_seen == True and settlement_alignment >= 0'
+)
+define sa_10 = SteamAchievement(
+    name = 'eat_cake',
+    title = 'Let them eat cake',
+    description = "You have taken control of the overpass and exploited the residents",
+    condition = 'm_d10b == True and settlement_outcomes_seen == True and settlement_alignment < 0'
+)
+define sa_11 = SteamAchievement(
+    name = 'past_present',
+    title = 'Past and present',
+    description = "Listened to Ivy's story of her tower",
+    condition = 'm_d15c == True'
+)
+define sa_12 = SteamAchievement(
+    name = 'no_ragrets',
+    title = 'No ragrets',
+    description = "You have accepted the Hive Queen's offer",
+    condition = 'd10a_hq_sex == True'
+)
+define sa_13 = SteamAchievement(
+    name = 'for_science',
+    title = 'For science!',
+    description = "You have accepted Pepper's offer",
+    condition = 'm_d8c == True and pepper_examination == True'
+)
+define sa_14 = SteamAchievement(
+    name = 'queen_clothes',
+    title = "The Emperor's new clothes",
+    description = "You have exposed the Queen (literally)",
+    condition = 'pb_queen_exposed == True'
+)
+define sa_15 = SteamAchievement(
+    name = 'getting_crowded',
+    title = "It's getting crowded",
+    description = "Emilia, Fairy and Kateryna have joined your household",
+    condition = 'introduction_emilia == True and (m_d5f == True and refused_fairy == False) and introduction_kateryna == True'
+)
+define sa_16 = SteamAchievement(
+    name = 'different_training',
+    title = "A different kind of training",
+    description = "You became more intimate with Shani",
+    condition = 'm_d8a == True and shani_romance == True'
+)
+define sa_17 = SteamAchievement(
+    name = 'sins_of_fathers',
+    title = "Sins of our fathers",
+    description = "You have discussed Shani's findings with Abrax",
+    condition = 'm_d14c == True'
+)
+
+# -------------------
+# Not the music band...
+# Meet Red, Hot, Chili & Pepper
+
+# "Wait... you're doing it wrong!" (Hidden)
+# Avoid all optional sexual encounters during a playthrough
+
+###################################################################
+#################### Achievement Registration #####################
+init 1 python:
+    register_achievements(achievement_list)

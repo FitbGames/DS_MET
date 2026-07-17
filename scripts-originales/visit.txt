@@ -1,0 +1,733 @@
+label visit_igor:
+    "Later that day..."
+    scene vi-1
+    with fade
+    Sav "Hey [W]!"
+    W "Welcome back in our house, you two!"
+    scene vi-2
+    with dissolve
+    W "Come right in! My husband will be here in a moment."
+    scene vi-3
+    with dissolve
+    scene black
+    with fade
+    "Some time of chatting latter..."
+    scene vi-5
+    with fade
+    "[A] and Kateryna rest happily in your arms, and everyone is enjoying themselves..."
+    scene vi-4
+    with fade
+    if igor_visit_initial_repeat == True:
+        $ igor_visit_initial_repeat = True
+        Zt "Looks like my wife and Savana get along well."
+    Zt "Maybe I could use some additional service right now..."
+    if persistent.sharing == True:
+        Zt "...Or show what a good host I can be..."
+    if persistent.sharing == False:
+        jump enjoy_service
+    menu:
+        "Enjoy a service":
+            menu enjoy_service:
+                "Use your [persistent.da]":
+                    jump visit_igor_ain_mc
+
+                "Call in Emilia" if introduction_emilia == True:
+                    jump visit_igor_emilia_mc
+
+                "Have fun with Kateryna":
+                    jump visit_igor_kateryna_mc
+
+        "Be a good host" if persistent.sharing == True:
+            menu:
+                "Give [A] to Igor":
+                    jump  visit_igor_ain_igor
+
+                "Give Emilia to Igor":
+                    jump visit_igor_emilia_igor
+
+                "Give Kateryna to Igor":
+                    $ d16b_sharing = True
+                    jump visit_igor_kateryna_igor
+
+                "Enjoy Kateryna with Igor":
+                    $ d16b_sharing = True
+                    jump visit_igor_kateryna_igor_mc
+
+label visit_igor_ain_mc:
+    scene d5e-16
+    with fade
+    pause 1.5
+    scene d5e-15
+    with dissolve
+    Z "[A]."
+    scene d5e-14
+    with dissolve
+    Z "Get on your knees for a bit. I need some pleasure."
+    scene d5e-13
+    with dissolve
+    A "Sure, [persistent.dad]."
+    scene vi-6
+    with fade
+    $ temp = renpy.random.random()
+    if temp < 0.33:
+        Sav "Looks like your pretty [persistent.da] is not just there for show?"
+        scene vi-7
+        with dissolve
+        Z "She never is."
+    elif temp < 0.66:
+        Sav "...pleasing the man of the house, [A]?"
+        scene vi-7
+        with dissolve
+        A "Mghn... {i}*gluck*{/i}"
+    else:
+        Sav "Mh... that looks fun."
+        scene vi-7
+        with dissolve
+        A "{i}*slurp*{/i}"
+    scene d5e-17
+    with fade
+    Zw "Good girl. Just what I need..."
+    scene d5e-18
+    with dissolve
+    Ka "..."
+    A "{i}*sucking*{/i}"
+    scene d5e-19
+    with dissolve
+    "[A] continues to dutifully suck on your shaft, while everyone else starts to pick up their conversation again."
+    "You notice that Kateryna can't stop staring at what's happening next to her."
+    scene d5e-20-anim
+    with fade
+    Ig "And then I was..."
+    A "{i}*slurp*{/i}"
+    W "[A]... be a little more behaved with your noises."
+    Sav "I don't mind..."
+    scene d5e-21-anim
+    with dissolve
+    Sav "You were saying, hubby?"
+    Ig "Oh... so when I was going out..."
+    A "{i}*sucking*{/i}"
+    Zw "Try a little deeper."
+    A "{i}*muffled*{/i} Yhesh, [persistent.dad]..."
+    scene vi-33
+    with vpunch
+    A "Mgh-"
+    scene vi-34
+    with vpunch
+    A "{i}*gulp*{/i}"
+    Zw "Mh... good [persistent.da]."
+    scene vi-35
+    with dissolve
+    A "Mh..."
+    scene vi-6
+    with dissolve
+    Sav "My... what a big load for such a small girl..."
+    scene vi-7
+    with dissolve
+    A "{i}*slurp*{/i}"
+    scene black pic
+    with fade
+    jump visit_igor_ending
+
+label visit_igor_emilia_mc:
+    Z "Emilia!"
+    scene vi-8
+    with fade
+    E "You called, Master?"
+    scene vi-9
+    with dissolve
+    Z "Undress and come to me."
+    scene vi-10
+    with fade
+    E "Mh... {i}*muffled*{/i} Lhike this.. mhaster...?"
+    E "{i}*sucking*{/i}"
+    scene vi-6
+    with dissolve
+    random:
+        Sa "That's one exotic servant you got yourself, [persistent.player_name]..."
+        Sa "I am quite jealous of her white skin..."
+        Sa "That's one dutiful slave..."
+    scene vi-7
+    with dissolve
+    if renpy.random.random() > 0.5:
+        Sav "Mh..."
+    scene vi-36
+    with fade
+    Ka "..."
+    if emilia_love > emilia_sub:
+        Zw "You're doing well, Emilia..."
+    else:
+        Zw "Good slave, keep going..."
+    scene vi-37
+    with dissolve
+    "The chatting in the background continues, and the others don't pay special attention to Emilia..."
+    E "{i}*slurp*{/i}"
+    scene d5e-36x
+    with dissolve
+    E "Mh..."
+    Zw "I'm almost there."
+    scene vi-38
+    with fade
+    "As you get close, you pull Kateryna's top aside, and fondle her breast..."
+    with vpunch
+    E "Mgh..."
+    scene vi-39
+    with dissolve
+    Ka "Mhh... [persistent.player_name]..."
+    "You pull on Kateryna's nipple, while cumming down Emilia's throat."
+    "Sensing that, she forces herself even deeper to make sure she doesn't waste a drop of her master..."
+    scene vi-6
+    with dissolve
+    Sav "Hey [persistent.player_name]... you still with us?"
+    Sav "Looks like his maid is treating him well."
+    scene vi-7
+    with dissolve
+    E "{i}*slurp*{/i}"
+    W "That's why she's living here..."
+    scene black pic
+    with fade
+    jump visit_igor_ending
+
+label visit_igor_kateryna_mc:
+    scene d16b-30
+    with fade
+    Zw "I can't get enough of you, Kateryna. Take care of me, will you?"
+    scene d16b-31
+    with dissolve
+    Ka "In... front of them?"
+    scene d16b-32
+    with dissolve
+    Ka "Okay... I always like!"
+    scene d16b-33
+    with dissolve
+    Z "I know you do. Look down..."
+    scene d16b-35
+    with fade
+    Ka "It's..."
+    scene d16b-36
+    with dissolve
+    Ka "It's ready for me..."
+    scene d16b-37
+    with dissolve
+    Ka "Nh..."
+    Z "What did you say, Savana?"
+    Sav "Oh, yeah... what I was saying..."
+    scene d16b-42
+    with fade
+    Ka "Is okay, if... they see?"
+    scene d16b-43
+    with dissolve
+    Z "My house, my rules, sweetie."
+    scene d16b-45
+    with dissolve
+    Sav "Oh my... can't wait until we're gone, can you, Kateryna?"
+    scene d16b-46
+    with dissolve
+    Ka "Nho... mh... sorry..."
+    Sav "{i}*laughs*{/i} Why would you apologize?"
+    scene vi-11
+    with dissolve
+    Ka "Ah..."
+    A "Wow... Kateryna really wants to do this..."
+    scene vi-12
+    with dissolve
+    Ka "Mhh..."
+    Z "She always does."
+    A "Y...yeah... her voice is so hot..."
+    scene vi-14-anim
+    with fade
+    "She starts eagerly fucking you in front of everyone..."
+    W "Kateryna has been a gift to our household, Igor."
+    Ig "I... I see she is enjoying, everytime I am here..."
+    scene vi-13-anim
+    with dissolve
+    Z "Ngh..."
+    W "Don't enjoy yourself too much, husband... I still want you to be able to perform tonight..."
+    Sav "To think she was once so innocent..."
+    Z "She... nh... still is..."
+    Sav "Innocent... maybe... shy? Not in front of us. {i}*giggles*{/i}"
+    Sav "Anyway, hubby, do you want to go out tomorrow? There is this..."
+    scene vi-15-anim
+    with dissolve
+    Zw "I'm close, sweetie."
+    if kateryna_pregnant == True:
+        Ka "Can you... cum inside, yes?"
+        Z "I always do, you deserve it."
+        Ka "Th...thank you..."
+        A "I wonder how she looks with a swollen belly... probably cute!"
+        scene vi-12
+        with dissolve
+        Ka "Nh... ah..."
+        Z "Mh..."
+        scene vi-16
+        with dissolve
+        Ka "So much... again..."
+
+    else:
+        Ka "I... I will... get up?"
+        Z "Let my [persistent.da] handle it. [A]..."
+        A "Hmm... my friend is in need of help, I guess?"
+    
+    scene black pic
+    with fade
+    jump visit_igor_ending
+
+label visit_igor_ain_igor:
+    scene d5e-15
+    with fade
+    Z "[A]."
+    scene d5e-14
+    with dissolve
+    Z "Give Igor a good time. You know he likes your lips."
+    scene vi-17
+    with dissolve
+    A "Okay, [persistent.dad]. If you want me to..."
+    scene vi-3
+    with dissolve
+    scene vi-18
+    with fade
+    A "[persistent.dad!c] said to please you today..."
+    A "{i}*sigh*{/i} Open your trousers."
+    scene vi-19
+    with dissolve
+    Ig "Oh... your [persistent.dad] is always such good host."
+    scene vi-20
+    with fade
+    Sav "My... my... you raised her well, [W]."
+    scene vi-21
+    with dissolve
+    W "Thank you. I always made sure she follows our demands."
+    scene vi-22
+    with dissolve
+    A "{i}*slurp*{/i}"
+    Ig "Oh..."
+    scene vi-23
+    with dissolve
+    Sav "I'm sure those demands can be... taxing for her."
+    W "She always knew what she was doing. I didn't initially tell her to wear those pigtails..."
+    scene d5e-41
+    with fade
+    A "{i}*gluck*{/i}"
+    Ig "Lady [A]... such a pretty princess."
+    $ temp = renpy.random.random()
+    if temp < 0.33:
+        Sav "{i}*sigh*{/i} to be this young again..."
+        W "Oh please, girl..."
+
+    if temp < 0.66:
+        Sav "Who is better, me or her?"
+        Ig "B...beautiful lady Savana. Do not ask this question to me."
+        Ig "You are beautiful over anyone to me."
+        Sav "Sorry, hub... {i}*giggles*{/i}"
+        A "{i}*sucking*{/i}"
+
+    else:
+        Sav "Pretty indeed... she would be the busiest of all maids in the tavern."
+        W "And that's why she is no maid in the tavern."
+        Sav "Mh... I figured..."
+
+    Ig "Lady [A]... I..."
+    scene d5e-42
+    with dissolve
+    Ig "Oh...!"
+    scene d5e-43
+    with vpunch
+    A "Nope! You still can't..."
+    scene d5e-44
+    with vpunch
+    Ig "Oh...!"
+    scene d5e-45
+    with dissolve
+    A "You try to cheat everytime..."
+    scene d5e-46
+    with dissolve
+    Ig "I... I would never..."
+    scene black pic
+    with fade
+    jump visit_igor_ending
+
+label visit_igor_emilia_igor:
+    Z "Emilia!"
+    scene vi-8
+    with fade
+    E "You called, Master?"
+    scene vi-9
+    with dissolve
+    Z "Undress and take care of Igor."
+    Z "Our male guest deserves some hospitality."
+    scene vi-8
+    with dissolve
+    E "Of course, Master, anything you request."
+    scene vi-9
+    with dissolve
+    scene black pic
+    with fade
+    E "Sir, do you mind if I undress as master has ordered me to?"
+    scene d5e-27x-5
+    with dissolve
+    Sav "Oh my... Darling, I don't think you need to ask him that..."
+    scene d5e-27x-6
+    with fade
+    Ig "...wow."
+    Sav "Never gets old, does it, hubby?"
+    W "At least he won't be jealous of you being in my arms..."
+    scene d5e-27x-7
+    with dissolve
+    E "I..."
+    Sav "Jealous, him? {i}*giggles*{/i}"
+    scene vi-24
+    with dissolve
+    E "..."
+    Ig "This body..."
+    Sav "I think he lost his words!" 
+    scene vi-25
+    with fade
+    E "Sir, would you mind if I took off your trousers?"
+    scene vi-26
+    with dissolve
+    Ig "No... not at all."
+    scene black pic
+    with fade
+    "She kneels down..."
+    scene vi-27
+    with fade
+    E "{i}*sucking*{/i}"
+    Ig "Oh... such pretty woman."
+    scene vi-28
+    with dissolve
+    Sav "My... having your personal servant must be nice."
+    scene vi-28x
+    with dissolve
+    E "{i}*slurp*{/i}"
+    Ka "Emilia is very kind maid..."
+    Z "She is, indeed."
+    scene vi-29
+    with dissolve
+    Sav "So anyways... where were you, [W]?"
+    scene vi-30
+    with dissolve
+    random:
+        W "Oh... right... when my husband and I arrived at the market..."
+        W "Oh... right... whenever my husband arrives home, he..."
+        W "Oh... thank you. What I was saying is..."
+    scene d5e-38
+    with dissolve
+    Ig "Ah... good... woman..."
+    E "{i}*slurp*{/i}"
+    scene d5e-39
+    with vpunch
+    Ig "Ngh-"
+    Ig "Tha... thank you, maid. Can you... clean me, too?"
+    scene d5e-40
+    with dissolve
+    E "Yhes..."
+    E "{i}*slurp*{/i}"
+    "Emilia cleans your guests' shaft for some time longer while everyone is chatting."
+    scene black pic
+    with fade
+    jump visit_igor_ending
+
+label visit_igor_kateryna_igor:
+    scene d5e-10
+    with fade
+    Zw "What do you think, want to give your uncle a good time again?"
+    scene d16b-31
+    with dissolve
+    Kaw "N...now?"
+    scene d16b-32
+    with dissolve
+    Kaw "Okay... I hope he will like!"
+    scene d16b-33
+    with dissolve
+    scene vi-31
+    with fade
+    Zw "Of course he will. He can never take his eyes off his niece."
+    Z "Hey, brother."
+    scene vi-32
+    with dissolve
+    Ig "Y...yes?"
+    scene d16b-79
+    with fade
+    Ka "Uncle... I... was sent by..."
+    scene d16b-80
+    with dissolve
+    Ig "Kateryna..."
+    W "Hmm... look who it is..."
+    scene d16b-108
+    with fade
+    Ka "Do you mind again... if I..."
+    "She takes off her top..."
+    scene d16b-111
+    with dissolve
+    Ka "Ah..."
+    Ig "Oh... my sweet thing..."
+    scene vi-20
+    with dissolve
+    Sav "They are so sweet together, aren't they..."
+    scene vi-21
+    with dissolve
+    W "Such a wholesome family..."
+    scene vi-22
+    with dissolve
+    scene d16b-113
+    with fade
+    Ka "Mh..."
+    scene d16b-114
+    with dissolve
+    pause 1.3
+    scene d16b-115
+    with dissolve
+    Ig "Oh... Sweet Maria...!"
+    Aw "[persistent.player_name]... I'm getting hot..."
+    scene d16b-119
+    with fade
+    Ka "Do you... enjoy me, uncle...?"
+    Ig "I love it, Kateryna."
+    scene d16b-122
+    with vpunch
+    Ig "Everytime..."
+    scene d16b-124
+    with vpunch
+    Ig "Mgh... {i}*sucking*{/i}"
+    Ka "Hah...!"
+    scene d16b-125
+    with dissolve
+    Ig "{i}*slurp*{/i}"
+    Sav "Oh my... my boyfriend is greedy today."
+    W "He always is when they are together."
+    scene d16b-126
+    with dissolve
+    Ig "Oh... I wish of milk..."
+    scene d16b-127
+    with dissolve
+    Sav "{i}*laughs*{/i} Oh hubby... so eager..."
+    W "He wants his niece's milk. How sweet."
+    scene d16b-128
+    with dissolve
+    Ig "{i}*sucking*{/i}"
+    if kateryna_pregnant == True:
+        Sav "That will take some time though... if your husband did his work correctly, that is."
+        Z "Oh, I did. Many times."
+    Ka "Ah..."
+    scene vi-40
+    with dissolve
+    Ig "Sweetie pie... I will cum. Get up quick...!"
+    scene vi-41
+    with dissolve
+    Ka "Mh... like this...?"
+    Ig "Yes... I... almost..."
+    scene vi-42
+    with dissolve
+    Ka "This will help, maybe...?"
+    Ig "Ohh... angel... I..."
+    scene vi-43
+    with vpunch
+    Ig "Ngh-"
+    scene vi-44
+    with vpunch
+    Ka "Mh..."
+    Ig "Kateryna..."
+    scene vi-45
+    with dissolve
+    Sav "Sweet pie... you made a mess."
+    Sav "This is embarrassing..."
+    Ig "{i}*pant*{/i} I am sorry..."
+    W "Don't worry about it, Savana."
+    if emilia_joined == True:
+        W "We have a maid for that. She will clean it up."
+    else:
+        W "I guess [A] has some extra cleaning to do today..."
+        A "[persistent.mom!c]...!"
+    scene black pic
+    with fade
+    jump visit_igor_ending
+
+label visit_igor_kateryna_igor_mc:
+    Z "Hey, girls. You mind to take a walk through the house?"
+    Z "I think Igor wouldn't mind if Kateryna gave us men a good time again."
+    Sav "Can't get enough of her, hm?"
+    Sav "I don't mind your wife showing me around, what do you say. Show me what's in the basement?"
+    W "Hm... not like we could stop them. Let's see what we ladies can do in the meantime."
+    W "[A], come with us. Let's look at the finer liquids we have stored."
+    A "Okay, [persistent.mom]."
+    scene black
+    with fade
+    "A short while later..."
+    scene d16b-137
+    with fade
+    Ka "Can I... nh... sit here, uncle...?"
+    Z "Ready for another round, girl?"
+    scene d16b-139
+    with dissolve
+    Ka "Ah... yes please..."
+    scene d16b-144
+    with dissolve
+    Ka "Nh..."
+    scene d16b-145
+    with dissolve
+    Ka "{i}*slurp*{/i}"
+    scene d16b-146
+    with dissolve
+    Ka "Mgh..."
+    show d16b-143-anim
+    with fade
+    "She begins to eagerly suck your dick with her uncle inside her..."
+    Ka "{i}*sucking*{/i}"
+    Z "I enjoy using your niece together, Igor. Reminds me of the old times."
+    show d16b-147-anim
+    with fade
+    Ig "Yes... friend. Like back in the day with mothers, from temple."
+    Z "Ah... I remember Nassor's mother. Her wide hips... she took all three of us."
+    Ig "Yes... felt like Kateryna. Soft... big hips, yes..."
+    scene d16b-148-anim
+    with fade
+    Z "Except that your niece here... gives much better head."
+    Ka "{i}*slurp{/i}"
+    Ig "Is... nature goddess. Like her mother."
+    scene d16b-149-anim
+    with dissolve
+    Ig "Smaller breasts... but still goddess."
+    Ka "{i}*sucking*{/i}"
+    Z "{i}*chuckles*{/i} I wonder what she looked like."
+    scene d16b-150-anim
+    with dissolve
+    Z "I think I'm ready to stretch her out again, what do you say?"
+    Ig "Yes... let us, brother."
+    Z "Come on, sweetie. Get up."
+    Ka "Mhm... {i}*sucking*{/i}"
+    scene black pic
+    with fade
+    "You both carry her over to the couch..." #HINT couch?
+    scene d16b-155
+    with vpunch
+    Ka "Ah... mh..."
+    scene d16b-156
+    with dissolve
+    Ig "Oh, sweet pie..."
+    scene d16b-159
+    with dissolve
+    Ka "Will you again... put it..."
+    Z "Of course. That's how your uncle and I share you."
+    Ka "Okay... I... like..."
+    scene d16b-158
+    with dissolve
+    Ka "Ohh..."
+    Ig "Good princess..."
+    scene d16b-162
+    with dissolve
+    Ka "It feels... good..."
+    scene d16b-163
+    with dissolve
+    Ka "Ah..."
+    "You both keep thrusting yourselves into Kateryna's insides..."
+    if kateryna_pregnant == True:
+        Z "I hope you'll still be up for this, when... nh..."
+        Z "When your niece has got a fat belly swinging in your face."
+        Ka "Ah... nh..."
+        Ig "Oh... I do not mind... she will have milk, then."
+    scene d16b-164
+    with dissolve
+    Z "I can't hold it..."
+    Ig "Ngh..."
+    scene d16b-165
+    with hpunch
+    Ka "Oh... [persistent.player_name]...!"
+    Z "Fuck..."
+    if kateryna_pregnant == True:
+        Ig "I... must not again..."
+    Ig "Kateryna, get up, please!"
+    scene black pic
+    with fade
+    "Igor pushes Kateryna up, and you both stand in front of her..."
+    scene d16b-173
+    Ka "{i}*soft breathing*{/i}"
+    Ig "That.. {i}*pant*{/i} was close again, friend."
+    Z "Hey, sweetie."
+    scene d16b-174
+    with dissolve
+    Ka "...mh?"
+    scene d16b-175
+    with fade
+    Z "You know the drill. Clean us up."
+    Ig "Yes... please, sweet pie."
+    scene d16b-177
+    with fade
+    Ka "{i}*slurp*{/i}"
+    Z "{i}*chuckles*{/i} So obedient, isn't she."
+    Ig "Yes..."
+    scene d16b-178
+    with dissolve
+    Ig "I am happy I gave you Kateryna. She is happy here."
+    if kateryna_pregnant == True:
+        Z "She is, and she will be even happier once the many children are coming."
+    scene d16b-179
+    with dissolve
+    Ka "{i}*sucking*{/i}"
+    Z "That's good enough, you minx."
+    scene d16b-180
+    with dissolve
+    Ka "Mh..."
+    scene d16b-181
+    with fade
+    Ka "You too, uncle..."
+    scene d16b-182
+    with fade
+    Ka "{i}*slurp*{/i}"
+    Ig "Oh... always such sensation..."
+    scene d16b-183
+    with dissolve
+    "She keeps sucking off Igor, who has not been able to reach climax yet..."
+    scene d16b-185
+    with dissolve
+    Ka "Mh... {i}*sucking*{/i}"
+    Ig "Kateryna... You..."
+    scene d16b-186
+    with dissolve
+    Ka "{i}*slurp*{/i}"
+    Ig "You are so perfect... I..."
+    scene vi-46
+    with hpunch
+    Ka "Ngh..."
+    Ig "I can not stop, again..."
+    scene vi-47
+    with hpunch
+    Ig "Oh..."
+    with hpunch
+    Ka "{i}*gulp*{/i}"
+    scene vi-48
+    with dissolve
+    Ka "{i}*slurp*{/i}"
+    Ig "Oh... such slutty princess..."
+    scene d16b-212
+    with fade
+    Z "Such a sweet girl, you made us both happy."
+    Z "Come on, show me the result. Open..."
+    scene d16b-214
+    with dissolve
+    Ka "Ahh..."
+    Z "So perfect, swallowed everything."
+    scene d16b-213
+    with dissolve
+    Z "What do you think, Igor, let's call our women back in?"
+    Ig "Yes... thank you, for sharing my sweet pie with me."
+    Z "You're always welcome."
+    scene black pic
+    with fade
+    jump visit_igor_ending
+
+label visit_igor_ending:
+    "After another hour of chatting, they eventually prepare to leave..."
+    scene vi-2
+    with fade
+    W "It was nice as always. Remember, you two are always welcome."
+    scene vi-3
+    with dissolve
+    Sav "Oh, we know. Thank you for your hospitality. You are always fun to hang out with."
+    scene d16b-9
+    with fade
+    Sav "Okay, big guy. Let's get going, shall we?"
+    scene d16b-10
+    with dissolve
+    scene black pic
+    with fade
+    "They leave..."
+    jump daily_home

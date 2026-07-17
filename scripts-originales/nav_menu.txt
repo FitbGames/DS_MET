@@ -1,0 +1,845 @@
+init python:
+    def get_btn_tooltip(e, default = None):
+        try:
+            if config.developer:
+                return e.name
+            else:
+                if e.tt is not None:
+                    return e.tt
+                elif default is not None:
+                    return default
+                else:
+                    return ''
+        except:
+            return ''
+
+    def get_btn_foreground(e):
+            if e.is_tracked:
+                return 'gui/nav_menu/nav_tracked_overlay.png'
+            elif e.important:
+                return 'gui/nav_menu/nav_exclamation_overlay.png'
+            else:
+                return None
+
+    def get_wm_foreground(e):
+            if e.is_tracked:
+                return 'gui/world_map/wm_tracked.png'
+            elif e.important:
+                return 'gui/world_map/wm_important.png'
+            else:
+                return None
+
+screen pov_overlay():
+    $ tooltip = GetTooltip()
+    vbox xcenter 1841 ycenter 0.45:
+        $ e = get_active_event(parent = 'zone')
+        imagebutton at nav_button_state:
+            auto 'gui/nav_menu/nav_shani_pov_%s.png'
+            tooltip get_btn_tooltip(e, default = _('Switch to [S]'))
+            foreground get_btn_foreground(e)
+            if ev_d10c.is_active:
+                action Call('pov_change', t = e.label)
+            else:
+                action Call('pov_change', t = 'bunker_overview')
+            
+    if tooltip:
+        frame style_prefix "notify" at tt_trans:
+            text [tooltip] xalign 0.5
+
+screen end_of_content():
+    imagebutton xcenter 1820 ycenter 0.07 at nav_button_state:
+        idle 'gui/eoc.png'
+        action Jump('update_end')
+
+transform tt_trans:
+    on show:
+        linear 2.0 alpha 1.0
+    on hide:
+        linear 2.0 alpha 0.0
+
+transform nav_button_state():
+    on idle:
+        linear 0.1 zoom 1.0
+    on hover, selected_hover, selected_idle:
+        linear 0.1 zoom 1.04
+    on insensitive, selected_insensitive:
+        matrixcolor SaturationMatrix(0)
+
+# --------------- Home Menu --------------- #
+screen nav_menu():
+    if end_of_content_check(event_pool):
+        use end_of_content
+    if shani_perspective == True:
+        if shani_zone == True:
+            use pov_overlay
+    tag nav_menu
+    default selected_btn = None
+    $ tooltip = GetTooltip()
+    ##### Change car picture #####
+    if m_d6b == True:
+        $ cv = 'car_new'
+    else:
+        $ cv = 'car'
+    ##############################
+    frame background 'gui/nav_menu/nav_bg_shadow.png' padding(0,0):
+        xfill True
+        ### Bedrooms ###
+        vbox:
+            $ e = get_active_event(parent = 'bedrooms')
+            imagebutton xcenter 80 ycenter 1000 at nav_button_state:
+                focus_mask True
+                tooltip _("Bedrooms")
+                auto 'gui/nav_menu/nav_bedrooms_%s.png' #TODO change to proper image
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Bedrooms"))
+                    foreground get_btn_foreground(e)
+                    selected selected_btn == 'bedrooms'
+                    action ToggleScreenVariable('selected_btn', 'bedrooms', None)
+                else:
+                    sensitive False
+                    action NullAction()
+
+        ### Master Bedroom ###
+        if selected_btn == 'bedrooms':
+            vbox:
+                $ e = get_active_event(location = 'master_bedroom')
+                imagebutton xcenter 143 ycenter 888 at nav_button_state:
+                    focus_mask True
+                    tooltip _("Master Bedroom")
+                    auto 'gui/nav_menu/nav_master_bedroom_%s.png'
+                    if e:
+                        tooltip get_btn_tooltip(e, default = _("Master Bedroom"))
+                        foreground get_btn_foreground(e)
+                        action Jump(e.label)
+                    else:
+                        sensitive False
+                        action NullAction()
+
+        ### Ain Bedroom ###
+        if selected_btn == 'bedrooms':
+            vbox:
+                $ e = get_active_event(location = 'ain_bedroom')
+                imagebutton xcenter 259 ycenter 888 at nav_button_state:
+                    focus_mask True
+                    tooltip _("[A]'s Bedroom")
+                    auto 'gui/nav_menu/nav_ain_bedroom_%s.png'
+                    if e:
+                        tooltip get_btn_tooltip(e, default = _("[A]'s Bedroom"))
+                        foreground get_btn_foreground(e)
+                        action Jump(e.label)
+                    else:
+                        sensitive False
+                        action NullAction()
+
+        ### Shani Bedroom ###
+        if selected_btn == 'bedrooms':
+            vbox:
+                $ e = get_active_event(location = 'shani_bedroom')
+                imagebutton xcenter 375 ycenter 888 at nav_button_state:
+                    focus_mask True
+                    if persistent.S_name is None:
+                        tooltip _("My elder [persistent.da]'s Bedroom")
+                    else:
+                        tooltip _("[S]'s Bedroom")
+                    auto 'gui/nav_menu/nav_shani_bedroom_%s.png'
+                    if e:
+                        tooltip get_btn_tooltip(e, default = _("[S]'s Bedroom"))
+                        foreground get_btn_foreground(e)
+                        action Jump(e.label)
+                    else:
+                        sensitive False
+                        action NullAction()
+
+        ### Common Rooms ###
+        vbox:
+            $ e = get_active_event(parent = 'common_rooms')
+            imagebutton xcenter 196 ycenter 1000 at nav_button_state:
+                focus_mask True
+                tooltip _("Common Rooms")
+                auto 'gui/nav_menu/nav_common_rooms_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Common Rooms"))
+                    foreground get_btn_foreground(e)
+                    action ToggleScreenVariable('selected_btn', 'common', None)
+                else:
+                    sensitive False
+                    action ToggleScreenVariable('selected_btn', 'common', None)
+
+        ### Harem ###
+        if selected_btn == 'common':
+            vbox:
+                $ e = get_active_event(location = 'harem')
+                imagebutton xcenter 143 ycenter 888 at nav_button_state:
+                    focus_mask True
+                    tooltip _("Living Room")
+                    auto 'gui/nav_menu/nav_living_room_%s.png'
+                    if e:
+                        tooltip get_btn_tooltip(e, default = _("Living Room"))
+                        foreground get_btn_foreground(e)
+                        action Jump(e.label)
+                    else:
+                        sensitive False
+                        action NullAction()
+
+        ### Dining Room ###
+        if selected_btn == 'common':
+            vbox:
+                $ e = get_active_event(location = 'dining_room')
+                imagebutton xcenter 259 ycenter 888  at nav_button_state:
+                    focus_mask True
+                    tooltip _("Dining Room")
+                    auto 'gui/nav_menu/nav_kitchen_%s.png'
+                    if e:
+                        tooltip get_btn_tooltip(e, default = _("Dining Room"))
+                        foreground get_btn_foreground(e)
+                        action Jump(e.label)
+                    else:
+                        sensitive False
+                        action NullAction()
+
+        ### Library ###
+        if selected_btn == 'common':
+            vbox:
+                $ e = get_active_event(location = 'library')
+                imagebutton xcenter 375 ycenter 888 at nav_button_state:
+                    focus_mask True
+                    tooltip _("Library")
+                    auto 'gui/nav_menu/nav_library_%s.png'
+                    if e:
+                        tooltip get_btn_tooltip(e, default = _("Library"))
+                        foreground get_btn_foreground(e)
+                        action Jump(e.label)
+                    else:
+                        sensitive False
+                        action NullAction()
+
+        ### Servant Quarters ###
+        vbox:
+            $ e = get_active_event(parent = 'servants')
+            imagebutton xcenter 312 ycenter 1000 at nav_button_state:
+                focus_mask True
+                tooltip _("Servant Quarters")
+                auto 'gui/nav_menu/nav_servants_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Servant Quarters"))
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    sensitive False
+                    action NullAction()
+
+        ### Basement ###
+        vbox:
+            $ e = get_active_event(location = 'basement')
+            imagebutton xcenter 438 ycenter 1000 at nav_button_state:
+                focus_mask True
+                tooltip _("Basement")
+                auto 'gui/nav_menu/nav_basement_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Basement"))
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    sensitive False
+                    action NullAction()
+
+
+        ### Car Inspect ###
+        vbox:
+            $ e = get_active_event(parent = 'car')
+            imagebutton xcenter 1679 ycenter 1000 at nav_button_state:
+                focus_mask True
+                tooltip _("Travel")
+                auto 'gui/nav_menu/nav_' + cv + '_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Travel"))
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    sensitive False
+                    action NullAction()
+
+        ### World Map ###
+        vbox:
+            $ e = get_active_event(parent = ['palace','mutants','raiders', 'decayed', 'rabiah_house', 'temple'])
+            imagebutton xcenter 1819 ycenter 979 at nav_button_state:
+                focus_mask True
+                tooltip _("World Map")
+                auto 'gui/nav_menu/nav_world_map_%s.png'
+                if home_intro_seen == False:
+                    sensitive False
+                    action NullAction()
+
+                elif e:
+                    tooltip get_btn_tooltip(e, default = _("World Map"))
+                    if e.is_tracked:
+                        foreground 'gui/nav_menu/nav_wm_tracked_overlay.png'
+                    elif e.important:
+                        foreground 'gui/nav_menu/nav_wm_exclamation_overlay.png'
+                    action Jump('worldmap')
+                else:
+                    action Jump('worldmap')
+                    # sensitive False
+                    # action NullAction()
+
+        ### Sleep ###
+        imagebutton xcenter 1839 ycenter 839 at nav_button_state:
+            focus_mask True
+            tooltip _("Go to sleep")
+            auto 'gui/nav_menu/nav_sleep_%s.png'
+            if home_intro_seen == False or (mq_z_1.active == False and not mq_z_1.completed):
+                sensitive False
+                action NullAction()
+            else:
+                action Jump('newday')
+
+        ### Sleep with Zahra ###
+        imagebutton xcenter 1864 ycenter 753 at nav_button_state:
+            focus_mask True
+            tooltip _("Sleep with [W]")
+            auto 'gui/nav_menu/nav_zahra_sleep_%s.png'
+            if home_intro_seen == False or (mq_z_1.active == False and not mq_z_1.completed):
+                sensitive False
+                action NullAction()
+            else:
+                action Jump('sleep_zahra')
+
+        ### Sleep with Ain ###
+        if home_intro_seen == True and m_d4b == True:
+            imagebutton xcenter 1864 ycenter 691 at nav_button_state:
+                focus_mask True
+                tooltip _("Sleep with [A]")
+                auto 'gui/nav_menu/nav_ain_sleep_%s.png'
+                if ain_basement == True:
+                    sensitive False
+                    action NullAction()
+                else:
+                    action Jump('sleep_ain')
+
+        ### Sleep with Shani ###
+        if m_d15b == True and shani_romance == True:
+            imagebutton xcenter 1864 ycenter 630 at nav_button_state:
+                focus_mask True
+                tooltip _("Sleep with [S]")
+                auto 'gui/nav_menu/nav_shani_sleep_%s.png'
+                action Jump('sleep_shani')
+
+    if tooltip:
+        frame style_prefix "notify" at tt_trans:
+            text [tooltip] xalign 0.5
+
+
+
+# --------------- Mutants Base --------------- #
+screen mutant_menu():
+    tag nav_menu
+    default selected_btn = None
+    $ tooltip = GetTooltip()
+    ##############################
+    frame background 'gui/nav_menu/nav_bg_shadow.png' padding(0,0):
+        xfill True
+        ### Mission table ###
+        vbox:
+            $ e = get_active_event(location = 'mutants_mission_table')
+            imagebutton xcenter 80 ycenter 1000 at nav_button_state:
+                focus_mask True
+                auto 'gui/nav_menu/nav_mutants_table_%s.png'
+                tooltip _("Mission table")
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Mission table"))
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    sensitive False
+                    action NullAction()
+
+        ### Lab ###
+        vbox:
+            $ e = get_active_event(location = 'mutants_lab')
+            imagebutton xcenter 196 ycenter 1000 at nav_button_state:
+                focus_mask True
+                tooltip _("Visit the lab")
+                auto 'gui/nav_menu/nav_mutants_lab_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Visit the lab"))
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    sensitive False
+                    action NullAction()
+
+        ## Ivy ###
+        if ev_d11a.is_active:
+            imagebutton xcenter 312 ycenter 1000 at nav_button_state:
+                focus_mask True
+                tooltip _("Talk to [I]")
+                auto 'gui/nav_menu/nav_mutants_ivy_%s.png'
+                if ev_d11a.is_tracked:
+                    foreground 'gui/nav_menu/nav_tracked_overlay.png'
+                else:
+                    foreground 'gui/nav_menu/nav_exclamation_overlay.png'
+                action Jump('d11a')
+
+        ### Hive ###
+        if m_d10a == True and d10a_hq_sex == True:
+            vbox:
+                $ e = get_active_event(location = 'hive')
+                imagebutton at nav_button_state:
+                    auto 'gui/nav_menu/nav_mutants_hive_%s.png'
+                    tooltip _("Visit the Hive")
+                    focus_mask True
+                    if m_d11a == False and m_d8d == True:
+                        xcenter 428 ycenter 1000
+                    else:
+                        xcenter 312 ycenter 1000
+                    if e:
+                        foreground get_btn_foreground(e)
+                        action Jump(e.label)
+                    else:
+                        sensitive False
+                        action NullAction() 
+
+        ### Gym ###
+        if m_d17a_part_2 == True:
+            vbox:
+                $ e = get_active_event(location = 'mutants_gym')
+                imagebutton at nav_button_state:
+                    if m_d11a == False and m_d8d == True:
+                        xcenter 544 ycenter 1000
+                    else:
+                        xcenter 428 ycenter 1000
+                    tooltip _("Visit the gym")
+                    auto 'gui/nav_menu/nav_mutants_gym_%s.png'
+                    focus_mask True
+                    if e:
+                        foreground get_btn_foreground(e)
+                        action Jump(e.label)  
+                    else:
+                        sensitive False
+                        action NullAction()              
+
+        ### World Map ###
+        imagebutton xcenter 1819 ycenter 979 at nav_button_state:
+            focus_mask True
+            tooltip _("World Map")
+            auto 'gui/nav_menu/nav_world_map_%s.png'
+            action Jump('worldmap')
+
+        ### Sleep ###
+        vbox:
+            $ e = get_active_event(location = 'mutants_sleep')
+            imagebutton xcenter 1839 ycenter 839 at nav_button_state:
+                focus_mask True
+                tooltip _("Go to sleep")
+                auto 'gui/nav_menu/nav_mutants_sleep_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Go to sleep"))
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    action Jump('mutants_sleep')
+
+    if tooltip:
+        frame style_prefix "notify" at tt_trans:
+            text [tooltip] xalign 0.5
+
+# --------------- Rabiah's House --------------- #
+screen rabiah_menu():
+    tag nav_menu
+    default selected_btn = None
+    $ tooltip = GetTooltip()
+    ##############################
+    frame background 'gui/nav_menu/nav_bg_shadow.png' padding(0,0):
+        xfill True
+        ### Nadia ###
+        vbox:
+            $ e = get_active_event(location = 'nadia_bedroom')
+            imagebutton xcenter 80 ycenter 1000 at nav_button_state:
+                focus_mask True
+                tooltip _("Visit Nadia")
+                auto 'gui/nav_menu/nav_nadia_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Visit Nadia"))
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    sensitive False
+                    action NullAction()
+
+        ### Rabiah ###
+        vbox:
+            $ e = get_active_event(location = 'rabiah_kitchen')
+            imagebutton xcenter 196 ycenter 1000 at nav_button_state:
+                focus_mask True
+                tooltip _("Visit Rabiah")
+                auto 'gui/nav_menu/nav_rabiah_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Visit Rabiah"))
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    sensitive False
+                    action NullAction()
+
+
+        ### Omar ###
+        vbox:
+            $ e = get_active_event(location = 'rabiah_living_room')
+            imagebutton xcenter 312 ycenter 1000 at nav_button_state:
+                focus_mask True
+                tooltip _("Stay with [W]")
+                auto 'gui/nav_menu/nav_omar_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Stay with [W]"))
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    sensitive False
+                    action NullAction()
+
+        ### World Map ###
+        imagebutton xcenter 1819 ycenter 979 at nav_button_state:
+            focus_mask True
+            tooltip _("Go back")
+            auto 'gui/nav_menu/nav_world_map_%s.png'
+            action Jump('vf_end')
+
+    if tooltip:
+        frame style_prefix "notify" at tt_trans:
+            text [tooltip] xalign 0.5
+
+transform wiggle():
+    on idle:
+        easein 0.5 yoffset -5
+        easeout 0.5 yoffset 5
+        repeat
+    on hover:
+        linear 0.2 yoffset 0
+
+
+# --------------- Settlement Pre-Takeover --------------- #
+screen settlement():
+    tag nav_menu
+    default selected_btn = None
+    $ tooltip = GetTooltip()
+    ##############################
+    frame background None padding(0,0):
+        if settlement_medic_intro == True and settlement_water_woman_visited == False:
+            imagebutton xpos 915 ypos 540 at wiggle:
+                focus_mask True
+                tooltip _("Approach the woman")
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump('settlement_water_woman')
+
+        if settlement_medic_intro == True and settlement_bathtub_worker_visited == False:
+            imagebutton xpos 1258 ypos 440 at wiggle:
+                focus_mask True
+                tooltip _("Talk to Wick")
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump('settlement_bathtub_worker')
+
+        if settlement_medic_intro == True and settlement_old_guy_visited == False:
+            imagebutton xpos 647 ypos 342 at wiggle:
+                focus_mask True
+                tooltip _("Investigate the shack")
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump('settlement_old_guy')
+
+        if settlement_medic_intro == True and settlement_camper_woman_visited == False:
+            imagebutton xpos 914 ypos 244 at wiggle:
+                focus_mask True
+                tooltip _("Revisit the bald woman")
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump('settlement_camper_woman')
+
+        if m_d10b == True and settlement_medic_intro == False:
+            imagebutton xpos 803 ypos 245 at wiggle:
+                focus_mask True
+                tooltip _("Talk to the medic")
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump('settlement_medic_introduction')
+
+        if settlement_medic_intro == True and settlement_water_woman_visited == True and settlement_bathtub_worker_visited == True and settlement_old_guy_visited == True and settlement_camper_woman_visited == True and settlement_simp_visited == True:
+            imagebutton xpos 803 ypos 245 at wiggle:
+                focus_mask True
+                tooltip _("Go back to the medic")
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump('settlement_medic_conclusion')
+
+        if settlement_medic_intro == True and settlement_simp_visited == False:
+            imagebutton xpos 965 ypos 360 at wiggle:
+                focus_mask True
+                tooltip _("Approach the man")
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump('settlement_simp')
+
+    if tooltip:
+        frame style_prefix "notify" at tt_trans:
+            text [tooltip] xalign 0.5
+
+# --------------- Settlement Post-Takeover --------------- #
+screen settlement_post():
+    tag nav_menu
+    default selected_btn = None
+    $ tooltip = GetTooltip()
+    ##############################
+    frame background None padding(0,0):
+        if ev_rsa_1.is_active:
+            imagebutton xpos 1258 ypos 440 at wiggle:
+                focus_mask True
+                tooltip get_btn_tooltip(ev_rsa_1)
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump(ev_rsa_1.label)
+
+        if ev_rsf_1.is_active:
+            imagebutton xpos 1100 ypos 300 at wiggle:
+                focus_mask True
+                tooltip get_btn_tooltip(ev_rsf_1)
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump(ev_rsf_1.label)
+
+        if ev_rsf_2.is_active:
+            imagebutton xpos 1100 ypos 300 at wiggle:
+                focus_mask True
+                tooltip get_btn_tooltip(ev_rsf_2)
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump(ev_rsf_2.label)
+
+        if ev_rsg_1.is_active:
+            imagebutton xpos 1530 ypos 640 at wiggle:
+                focus_mask True
+                tooltip get_btn_tooltip(ev_rsg_1)
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump(ev_rsg_1.label)
+
+        if ev_rss_1.is_active:
+            imagebutton xpos 647 ypos 342 at wiggle:
+                focus_mask True
+                tooltip get_btn_tooltip(ev_rss_1)
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump(ev_rss_1.label)
+
+        if ev_rst_1.is_active:
+            imagebutton xpos 914 ypos 244 at wiggle:
+                focus_mask True
+                tooltip get_btn_tooltip(ev_rst_1)
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump(ev_rst_1.label)
+
+        if ev_rsw_1.is_active:
+            imagebutton xpos 915 ypos 540 at wiggle:
+                focus_mask True
+                tooltip get_btn_tooltip(ev_rsw_1)
+                idle 'gui/nav_menu/btn_settlement_arrow.png'
+                action Jump(ev_rsw_1.label)
+
+        imagebutton xcenter 1800 ycenter 970 at nav_button_state:
+            focus_mask True
+            tooltip _("Get back in")
+            auto 'gui/nav_menu/nav_raiders_table_%s.png'
+            action Jump('raiders_command_center')
+
+    if tooltip:
+        frame style_prefix "notify" at tt_trans:
+            text [tooltip] xalign 0.5
+
+# --------------- Raiders Base --------------- #
+screen raiders_menu():
+    tag nav_menu
+    default selected_btn = None
+    $ tooltip = GetTooltip()
+    ##############################
+    frame background 'gui/nav_menu/nav_bg_shadow.png' padding(0,0):
+        xfill True
+        vbox:
+            $ e = get_active_event(location = 'raiders_mission_table')
+            imagebutton xcenter 80 ycenter 1000 at nav_button_state:
+                focus_mask True
+                tooltip _("Mission table")
+                auto 'gui/nav_menu/nav_raiders_table_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Mission table"))
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    sensitive False
+                    action NullAction()
+
+        ### Visit Settlement ###
+        vbox:
+            $ e = get_active_event(location = 'raiders_settlement')
+            imagebutton xcenter 196 ycenter 1000 at nav_button_state:
+                focus_mask True
+                auto 'gui/nav_menu/nav_raiders_settlement_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _('Walk around the settlement'))
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    sensitive False
+                    action NullAction()
+
+        ### Kitty ###
+        vbox:
+            $ e = get_active_event(location = 'raiders_throne')
+            imagebutton xcenter 312 ycenter 1000 at nav_button_state:
+                focus_mask True
+                auto 'gui/nav_menu/nav_raiders_throne_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e)
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    sensitive False
+                    action NullAction()
+
+        ### Sleep ###
+        vbox:
+            $ e = get_active_event(location = 'raiders_sleep')
+            imagebutton xcenter 1839 ycenter 839 at nav_button_state:
+                focus_mask True
+                tooltip _("Go to sleep")
+                auto 'gui/nav_menu/nav_raiders_sleep_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Go to sleep"))
+                    foreground get_btn_foreground(e)
+                    action Jump(e.label)
+                else:
+                    action Jump('raiders_sleep')
+
+        ### World Map ###
+        imagebutton xcenter 1819 ycenter 979 at nav_button_state:
+            focus_mask True
+            tooltip _("World Map")
+            auto 'gui/nav_menu/nav_world_map_%s.png'
+            action Jump('worldmap')
+
+    if tooltip:
+        frame style_prefix "notify" at tt_trans:
+            text [tooltip] xalign 0.5
+
+# --------------- Zone Overview --------------- #
+screen bunker_overview():
+    tag nav_menu
+    $ tooltip = GetTooltip()
+    ##############################
+    frame background None padding(0,0):
+        xfill True
+        imagebutton xcenter 708 ycenter 990 at nav_button_state:
+            focus_mask True
+            tooltip _("Explore the room")
+            auto 'gui/nav_menu/nav_zone_room_%s.png'
+            if bunker_crossbow == False or bunker_outside == False or bunker_note == False or (bunker_device == False and m_d11b == True):
+                action Jump('explore_bunker')
+            else:
+                sensitive False
+                action NullAction()
+
+        imagebutton xcenter 824 ycenter 990 at nav_button_state:
+            focus_mask True
+            tooltip _("Look at the Zone codex")
+            auto 'gui/nav_menu/nav_zone_codex_%s.png'
+            action Jump('zone_codex')
+
+        vbox:
+            $ e = get_active_event(location = 'zone')
+            imagebutton xcenter 960 ycenter 969 at nav_button_state:
+                focus_mask True
+                tooltip _("Leave the bunker")
+                auto 'gui/nav_menu/nav_zone_outside_%s.png'
+                if e:
+                    tooltip get_btn_tooltip(e, default = _("Leave the bunker"))
+                    foreground get_wm_foreground(e)
+                    action Jump(e.label)
+                else:
+                    sensitive False
+                    action NullAction()
+
+        imagebutton xcenter 1096 ycenter 990 at nav_button_state:
+            focus_mask True
+            tooltip _("Use the radio")
+            auto 'gui/nav_menu/nav_zone_radio_%s.png'
+            action Jump('radio')
+
+        imagebutton xcenter 1212 ycenter 990 at nav_button_state:
+            focus_mask True
+            tooltip _("Switch to [Z]")
+            auto 'gui/nav_menu/nav_mc_pov_%s.png'
+            action Call('pov_change', t = 'daily_home')
+
+    if tooltip:
+        frame style_prefix "notify" at tt_trans:
+            text [tooltip] xalign 0.5
+
+# --------------- World Map --------------- #
+screen world_map():
+    imagebutton xpos 620 ypos 540:
+        focus_mask True
+        auto 'gui/world_map/wm_home_%s.png'
+        action [Stop('music', fadeout=1), Jump("daily_home")]
+
+
+    ### Temple ###         
+    vbox:
+        $ e = get_active_event(parent = 'temple')
+        if e:
+            imagebutton xpos 350 ypos 940:
+                focus_mask True
+                auto 'gui/world_map/wm_temple_%s.png'
+                foreground get_wm_foreground(e)
+                action Jump(e.label)
+
+
+    ### Palace ###         
+    vbox:
+        $ e = get_active_event(parent = 'palace')
+        if e:
+            imagebutton xpos 205 ypos 845:
+                focus_mask True
+                auto 'gui/world_map/wm_palace_%s.png'
+                foreground get_wm_foreground(e)
+                action Jump(e.label)
+
+    ### Rabiah & Nadia ### 
+    vbox:
+        $ e = get_active_event(parent = 'rabiah_house')
+        if e:
+            imagebutton xpos 113 ypos 718:
+                focus_mask True
+                auto 'gui/world_map/wm_rabiah_%s.png'
+                foreground get_wm_foreground(e)
+                action Jump("visit_family")
+
+    ### Mutants Base ### 
+    vbox:
+        $ e = get_active_event(parent = 'mutants')
+        if e:
+            imagebutton xpos 1350 ypos 837:
+                focus_mask True
+                auto 'gui/world_map/wm_mutants_%s.png'
+                foreground get_wm_foreground(e)
+                if ev_d8b.is_active:
+                    action Jump("d8b")
+                else:
+                    action Jump("visit_mutants")
+
+
+    ### Raiders Settlement ###            
+    vbox:
+        $ e = get_active_event(parent = 'raiders')
+        if e:
+            imagebutton xpos 1040 ypos 76:
+                focus_mask True
+                auto 'gui/world_map/wm_raiders_%s.png'
+                foreground get_wm_foreground(e)
+                action Jump("visit_raiders")
+                
+    ### Decayed ### 
+    vbox:
+        $ e = get_active_event(parent = 'decayed')
+        if e:
+            imagebutton xpos 180 ypos 90:
+                focus_mask True
+                auto 'gui/world_map/wm_decayed_%s.png'
+                foreground get_wm_foreground(e)
+                action Jump(e.label)

@@ -1,0 +1,3456 @@
+label d14a_part_1:
+    $ m_d14a_part_1 = True
+    $ introduction_kateryna = True
+    $ kateryna_join_day = day
+    scene d14a-1
+    with slowfade
+    pause 2
+    scene d14a-2
+    with dissolve
+    "The gates to your house are open, and you're standing in the yard with your back to them, doing maintenance on your precious car."
+    "At first you don't hear the hesitant steps approaching..."
+    scene d14a-3
+    with fade
+    Ka "..."
+    scene d14a-4
+    with dissolve
+    pause 2
+    scene d14a-6
+    with fade
+    Ka "[persistent.player_name], I am here!"
+    scene d14a-5
+    with dissolve
+    Z "...?"
+    scene d14a-7
+    with fade
+    "You put the tools down, caught momentarily off guard by the unexpected presence..."
+    scene d14a-8
+    with dissolve
+    pause 1.5
+    scene d14a-9
+    with dissolve
+    Z "..."
+    scene d14a-10
+    with dissolve
+    Z "{i}*chuckles*{/i} Hey, I know you."
+    scene d14a-11
+    with fade
+    "You stand up, your body glistening in the blazing sun. Your tall frame gives Kateryna a second of pause, as she hesitates, considering what to say next..."
+    Z "Welcome, Kateryna."
+    scene d14a-12
+    with dissolve
+    Z "We're happy you decided to come join us."
+    scene d14a-13
+    with fade
+    "It takes only a few rushed steps for her to join you in the embrace your open arms invited."
+    Ka "I am glad too..."
+    scene d14a-14
+    with dissolve
+    Z "My wife has already prepared a room for you."
+    Z "She too will be happy to welcome you."
+    Z "Is that all you bring with you?" 
+    Ka "Yes... Is all. The things from uncle Igor are left. This are things from... old home."
+    scene d14a-15
+    with dissolve
+    "She seems a little lost for words..."
+    scene d14a-16
+    with dissolve
+    "Returning your embrace, she strokes your back, soft hands tracing the muscles of your shoulders."
+    scene d14a-19
+    with fade
+    Ka "I missed you, [persistent.player_name]."
+    Ka "Sorry I took long."
+    scene d14a-17
+    with dissolve
+    Z "Don't worry about it. You're here now."
+    Z "There's plenty of time for everything."
+    scene d14a-20
+    with fade
+    "She lets go of you..."
+    scene d14a-21
+    with dissolve
+    "...and her eyes follow your movements, as she stands with her hands in her lap."
+    Z "Hey... Kat?"
+    scene d14a-22
+    with dissolve
+    Z "Why don't you go inside? Look for [W] and get settled in."
+    Z "It's a hot day and you've walked a fair distance. Rest a little. I will join you when I am done here."
+    if introduction_emilia == True and introduction_fairy == False:
+        Z "Tell [W] that I suggested Emilia draw you a bath. She'll pamper you."
+    elif introduction_fairy == True and introduction_emilia == False:
+        Z "[W] will have [F] draw you a bath as well. She's a servant here, you will like her."
+    elif introduction_fairy == True and introduction_emilia == True:
+        Z "[W] will have our servants give you a bath."
+    scene d14a-23
+    with dissolve
+    Ka "Thank you. I will see you soon, yes?"
+    scene d14a-24
+    with dissolve
+    Z "Yes, in less than an hour, promise."
+    scene black pic
+    with slowfade
+    "After cleaning and servicing your vehicle, you pack up your tools and go back inside."
+    scene d14a-25
+    with fade
+    Z "{i}*humming*{/i}"
+    play sound "audio/sounds/doors/door closed.mp3"
+    pause 0.5
+    scene d14a-26
+    with fade
+    W "Hey hot guy."
+    Z "Hey wife."
+    scene d14a-27
+    with fade
+    W "I wanted to speak about our new house member, if you don't mind."
+    scene d14a-28
+    with dissolve
+    Z "How is she liking her bath?"
+    scene d14a-29
+    with fade
+    "She sits down..."
+    W "Mh... she's quite shy."
+    if introduction_emilia == True and introduction_fairy == False:
+        W "But Emilia is disciplined and caring. They will like each other."
+    elif introduction_fairy == True and introduction_emilia == False:
+        W "[fairy_name] on the other hand... let's just say I had to remind her that she's just supposed to give a bath."
+        W "She instantly took a liking for Kateryna."
+    elif introduction_fairy == True and introduction_emilia == True:
+        W "Emilia and [fairy_name] are taking good care of her. It's a good thing Emilia is there to limit [fairy_name]'s... exuberance."
+
+    scene d14a-32
+    with fade
+    W "I also let [S] and [A] know to join us in an hour."
+    scene d14a-33
+    with dissolve
+    Z "Yeah... let's bring them together so we can get the introduction done."
+    menu:
+        "Look at your wife":
+            scene d14a-31
+            with dissolve
+            W "Most of our girls already know Kateryna anyway."
+            scene d14a-30
+            with dissolve
+            W "And [S] won't mind..."
+            W "Hmm... husband...?"
+            Z "Have I told you already that you look lovely today..."
+            scene d14a-32
+            with dissolve
+            W "As much as I appreciate it... I think you have someone else you should focus on tonight."
+            W "...and I know for a fact she wants your focus on her even more."
+            scene d14a-34
+            play sound "audio/sounds/doors/door closed.mp3"
+            with dissolve
+            pause 0.5
+            jump d14a35
+
+        "Focus on the conversation":
+            W "Most of our girls already know Kateryna anyway. And [S] won't mind her one bit."
+            W "Especially not once she tries her cooking."
+            scene d14a-34
+            with dissolve
+            Z "Looks like your days of cooking are finally over after all."
+            play sound "audio/sounds/doors/door closed.mp3"
+            pause 0.5
+            jump d14a35
+
+label d14a35:
+    scene d14a-35
+    with fade
+    Ka "..."
+    scene d14a-36
+    with dissolve
+    Ka "Um... [W]... I can't find my skirt. Did you put it in the wash-...?"
+    scene d14a-37
+    with dissolve
+    Ka "Oh, hi [persistent.player_name]!"
+    scene d14a-38
+    with dissolve
+    W "Hey Kateryna, join us!"
+    scene black pic
+    with fade
+    "She approaches you both."
+    scene d14a-39
+    with fade
+    Ka "Hey..."
+    scene d14a-40
+    with dissolve
+    pause 1
+    scene d14a-41
+    with dissolve
+    W "I don't think she needs that skirt, after all."
+    scene d14a-42
+    with fade
+    "You take a look at the new member of your house..."
+    Z "I am sure you know best, [W]."
+    scene d14a-43
+    with dissolve
+    Z "Hey girl, you can sit down if you want."
+    scene d14a-44
+    with fade
+    "Encouraged by your friendliness, she sits down on your lap..."
+    if introduction_emilia == True and introduction_fairy == False:
+        Ka "Thank you for bath... Emilia is very kind."
+    elif introduction_fairy == True and introduction_emilia == False:
+        Ka "Thank you for bath. [F] is very kind, but she is bit handsy. {i}*giggles*{/i}"
+    elif introduction_fairy == True and introduction_emilia == True:
+        Ka "Thank you for bath. Emilia and [F] are very kind. {i}*giggles*{/i}"
+        Ka "I even fell asleep. Very relaxed. A bath... last time for bath like this was, back in old country. More water there."
+    scene d14a-46
+    with dissolve 
+    W "You will soon become a part of this household, Kateryna. We take care of each other here."
+    W "You too will have ways to bring joy and comfort to the family. We have tasted your cooking before..."
+    W "But first, we should introduce you properly to the others."
+    scene d14a-49
+    with fade
+    Ka "Introduce...?"
+    W "Oh yes! It's a custom in Zeta."
+    W "We don't stand too much on the many traditions, but some occasions deserve a little formality. Don't worry though..."
+    W "It will not take too long and we will walk you through it. If you're joining the house, it should be properly acknowledged by everybody, don't you think?"
+    scene d14a-48
+    with dissolve
+    Ka "Yes... it make sense."
+    Zt "Man. I should thank Igor again once this is all over."
+    Zt "He really brought me someone special."
+    scene d14a-47
+    with dissolve
+    Zt "Everyone in this house will love her. She's friendly, kind, humble..."
+    Zt "...and I will make sure she won't regret coming here."
+    scene black pic
+    with slowfade
+    "Later..."
+    if introduction_emilia == True:
+        scene d14a-51
+    else:
+        scene d14a-51x
+    with w33slow
+    Z "Everybody... You probably know why I've gathered you."
+    Z "It is time to introduce a new member of the house."
+    Z "Kateryna travelled a long way; all the way from the northern lands, across the mediterranean sea."
+    Z "She is my good friend Igor's niece, so in a way, by association, she was already a friend to this family."
+    if introduction_emilia == True:
+        if introduction_fairy == True:
+            scene d14a-57
+        else:
+            scene d14a-57x-2
+    else:
+        if introduction_fairy == True:
+            scene d14a-57x
+        else:
+            scene d14a-57x-3
+    with fade
+    Z "I know that I can trust you all to treat her with respect and that you will grow to love her with the same devotion you have towards one another."
+    Z "I know you well and expect nothing less than open arms and hearts towards this young woman who has freely chosen to join us."
+    if introduction_emilia == True:
+        if introduction_fairy == True:
+            scene d14a-56
+        else:
+            scene d14a-56x-2
+    else:
+        if introduction_fairy == True:
+            scene d14a-56x
+        else:
+            scene d14a-56x-3
+    with dissolve
+    Z "Kateryna is kind hearted, diligent, well spirited, and some of you already know that she's a very good cook."
+    Z "Every one of us serves the house. Just like you do, so will she, and in turn, you will serve her."
+    if introduction_emilia == True:
+        scene d14a-52
+    else:
+        scene d14a-52x
+    with dissolve
+    Z "[A]... You and Kateryna already are acquainted with each other. Don't think you can take advantage of her, though. I will be keeping an eye on you."
+    Z "Remember that Kateryna is your equal... Treat her like a sister."
+    if introduction_emilia == True:
+        scene d14a-53
+        with dissolve
+        Z "Emilia. Make sure you assist Kateryna in anything she needs."
+        Z "She will be a boon to this family, and be deserving of your service."
+        scene d14a-53x
+        with dissolve
+        E "Of course, Master. I shall be of service."
+        scene d14a-53
+        with dissolve
+    if introduction_fairy == True:
+        if introduction_emilia == True:
+            scene d14a-54
+        else:
+            scene d14a-54x
+        with dissolve
+        Z "[F]. Serve her like you would serve me or any of the women of this house."
+        Z "And... give Kateryna some assistance settling in."
+        if introduction_emilia == True:
+            scene d14a-54x-2
+        else:
+            scene d14a-54x-3
+        with dissolve
+        F "Yes, Master."
+    if introduction_emilia == True and introduction_fairy == True:
+        scene d14a-55
+        with dissolve
+        Z "You will not need to do everything on your own, Kateryna. My servants are there for you."
+        Z "It is their duty to serve the members of this house, and from this day onwards, that includes you."
+        Ka "Thank you..."
+    if introduction_emilia == True:
+        if introduction_fairy == True:
+            scene d14a-56
+        else:
+            scene d14a-58x-2
+    else:
+        if introduction_fairy == True:
+            scene d14a-58x
+        else:
+            scene d14a-58x-3
+    with fade
+    Z "This house is special, and not just in that it is special to me... we trust each other. You have seen the dangers of the wastelands and the hardships of the desert."
+    Z "This house stands on the edge, between civilisation and the hostile world. It is a bastion for those who call it home."
+    Z "But brick and mortar matter little, if the people who live in it are not bonded in spirit and body."
+    Z "We live and die by the strength of our commitment to one another."
+    if introduction_emilia == True:
+        if introduction_fairy == True:
+            scene d14a-59
+        else:
+            scene d14a-59x-2
+    else:
+        if introduction_fairy == True:
+            scene d14a-59x
+        else:
+            scene d14a-59x-3
+    with fade
+    Ka "I will learn, I promise!"
+    if introduction_emilia == True:
+        if introduction_fairy == True:
+            scene d14a-58
+        else:
+            scene d14a-58x-2
+    else:
+        if introduction_fairy == True:
+            scene d14a-58x
+        else:
+            scene d14a-58x-3
+    with dissolve
+    Z "Then it is so. Welcome to our home."
+    scene black pic 
+    with fade
+    pause 1
+    scene d14a-60
+    with hpunch
+    Z "...?"
+    Ka "{i}*kissing*{/i}"
+    W "Oh my... she slipped out of my hands..."
+    scene d14a-61
+    with dissolve
+    "You give in to her advances and kiss her, resting your hands on her lower back."
+    A "Hehe... she was moving her feet the entire time."
+    S "Yeah... I don't think we need to worry about her loyalty."
+    A "Can we not like... skip some parts of the ceremony next time?"
+    S "[A]... it's tradition."
+    A "You only like it because you see yourself speaking in the future!"
+    S "Eh... maybe."
+    scene d14a-62
+    with fade
+    "You stare into her eyes for a moment. You see her sincerity, her desire to prove to you that it was the right choice to take her in."
+    "While calling it a romance feels odd, when you have a lifetime of experience on her and you've only met her a handful of times, you can't deny that a part of you feels swept in the emotions you clearly see written all over Kateryna's face."
+    "She clearly is entirely enthralled by you and by this new experience that has her fascinated and almost overwhelmed."
+    "The stability she sees in you, the trust she puts in you... For the first time in a while, you truly listen to your better self and determine that you mustn't disappoint her."
+    if introduction_emilia == True:
+        if introduction_fairy == True:
+            scene d14a-63
+        else:
+            scene d14a-63x-2
+    else:
+        if introduction_fairy == True:
+            scene d14a-63x
+        else:
+            scene d14a-63x-3
+    with fade
+    W "So it is concluded."
+    W "Kateryna will come with me to my chambers. Visit me in the living room for more, husband."
+    if sq_k_1.current_step == 5:
+        $ sq_k_1.advance()
+    if introduction_emilia == True:
+        if introduction_fairy == True:
+            scene d14a-64
+        else:
+            scene d14a-64x-2
+    else:
+        if introduction_fairy == True:
+            scene d14a-64x
+        else:
+            scene d14a-64x-3
+    with dissolve
+    "The two look at you, with a resolve in their eyes that must be borne from an agreement reached in your absence."
+    scene black pic 
+    with slowfade
+    $ home_day_fade = True
+    jump daily_home
+
+label d14a_part_2:
+    $ m_d14a_part_2 = True
+    scene black pic
+    with fade
+    scene d14a-74
+    with w33slow
+    Z "..."
+    scene d14a-75
+    with dissolve
+    W "Welcome back."
+    scene d14a-76
+    with fade
+    W "It was a good idea to remind everyone that we need to trust each other here."
+    W "We sometimes take these things for granted, and when there are such changes as we have had recently, it's good to take a moment to center ourselves on what truly matters."
+    scene d14a-77
+    with dissolve
+    "She opens her hands, inviting you to come closer..."
+    scene d14a-78
+    with fade
+    Z "None of this would be possible without you, [W]."
+    Z "Your guidance and care is what keeps our [persistent.da]s and everyone else in this house safe and happy."
+    W "Mh..."
+    scene d14a-79
+    with dissolve
+    W "A watchful eye is nothing without a strong hand to enforce the rules, husband..."
+    W "Although..."
+    scene d14a-81
+    with fade
+    Ww "I am pretty sure that this will not be needed with Kateryna."
+    Ww "Turn around... take a look."
+    scene d14a-82
+    with dissolve
+    Z "..."
+    scene d14a-83
+    with fade
+    Ka "..."
+    "As you turn around, Kateryna stands in one of the hall's doorways."
+    scene d14a-84
+    with dissolve
+    "She is wearing something elegant. A silky garment and a zetan skirt. Her dress reminds you of the outfits of many priestesses in the temple."
+    "Her light skin tone matches the rose tint of the dress."
+    scene black pic 
+    with fade
+    "She slowly approaches you..."
+    label re_d14a85:
+        scene d14a-85
+        with fade
+        if _in_replay:
+            "Did [Ka] keep her interest in pregnancy?"
+            menu:
+                "Yes":
+                    $ kat_babywish = True
+                "No":
+                    $ kat_babywish = False    
+    W "There she is..."
+    scene d14a-86
+    with fade
+    W "What do you say, husband?"
+    scene d14a-87
+    with dissolve
+    W "Does she hold up to your expectations?"
+    scene d14a-88
+    with dissolve
+    Z "Yes... she's... beautiful."
+    scene d14a-89
+    with dissolve
+    W "...And she is here for you, tonight."
+    W "Go on, Kateryna."
+    scene d14a-90
+    with dissolve
+    Ka "..."
+    scene d14a-91
+    with dissolve
+    "A little nervously, she reaches to her shoulder..."
+    scene d14a-92
+    with dissolve
+    pause 0.8
+    scene d14a-93
+    with dissolve
+    "...and gently takes off the garment..."
+    scene d14a-94
+    with fade
+    "...letting it drop on the bed."
+    scene d14a-95
+    with dissolve
+    W "You're doing well, girl. Continue. "
+    "There's a mixture of tenderness and stern command in your wife's voice. This is her natural inclination at work establishing her role as the loving leader of the House."
+    scene d14a-96
+    with dissolve
+    "She turns to you..."
+    W "Husband..."
+    W "Do you want me to help {i}you{/i} get ready, too?" 
+    menu:
+        "Yes":
+            $ d14a_zahra_blowjob = True
+            Z "Do your thing, [W]."
+            scene d14a-97
+            with dissolve
+            W "As you wish..."
+            scene d14a-98
+            with fade
+            "She kneels down, unbuttoning your pants. Kateryna is watching for a moment, momentarily awash with embarrassment at this turn of events."
+            scene d14a-99
+            with fade
+            Ww "Mh... somebody is happy..."
+            scene d14a-100
+            with dissolve
+            "She admires your member, stroking it to full attention, with expert touch."
+            scene d14a-101
+            with dissolve
+            W "Girl... don't let me distract you. This is still your moment. Look at him..."
+            W "His eyes are on you... so keep going."
+            W "Mh.... {i}*sucking*{/i}"
+            scene d14a-102-anim
+            with fade
+            "She expertly starts sucking you off. Her throat is wet and welcoming, and the massage you get from her flawless deepthroat takes your breath away for a second."
+            "Even so, your wife is right, your eyes and your attention are on Kateryna, who continues in her somewhat inexperienced but enthusiastic movements."
+            "[Ka]'s sensual undressing paired with a flawless deepthroat from your wife makes you want to enjoy this moment forever."
+            jump d14a104
+
+        "Not necessary":
+            Z "That's not necessary this time, love."
+            Z "I will focus on her."
+            scene d14a-95
+            with dissolve
+            W "As you wish."
+            scene d14a-81
+            with fade
+            W "I shall leave you two to it then."
+            W "Be nice to her."
+            scene d14a-82
+            with dissolve
+            Z "You can be sure of that."
+            scene black pic
+            with fade
+            "She gives you a quick kiss and leaves the room..."
+            jump d14a104
+
+label d14a104:
+    scene d14a-104
+    with fade
+    pause 0.8
+    scene d14a-105
+    with dissolve
+    Ka "..."
+    scene black pic
+    with fade
+    "Her skirt falls down..."
+    if d14a_zahra_blowjob == True:
+        scene d14a-106
+        with fade
+        Z "..."
+        W "{i}*sucking*{/i}"
+        Z "You are..."
+        scene d14a-107
+        with dissolve
+        "Your words come out slowly. You are distracted by the rhythmic massage and swallowing noises..."
+        Z "You are so pretty."
+    else:
+        scene d14a-107
+        with fade
+        Z "Kateryna..."
+        Z "Your body..."
+    if d14a_zahra_blowjob == True:
+        scene d14a-108
+        with fade
+    else:
+        scene d14a-109
+        with fade
+    "She stands still, slowly swaying her hips to the right."
+    "They are wide, as are her thighs..."
+    if d14a_zahra_blowjob == True:
+        scene d14a-109
+        with dissolve
+    else:
+        pass
+    "Her light pink bra matches perfectly with her pale skin. Her tummy is soft but flat."
+    "Her body exudes youthful energy, and you are excited at the prospect of touching the young girl again."
+    scene d14a-110
+    with dissolve
+    Ka "..."
+    "As you raise your eyes to match, she looks at you."
+    "If you didn't know better, you would confuse this look for one of confidence. But it is not that."
+    "What you see is a look of pure desire. The girl has waited eagerly for this moment, and not just since your last meeting at her uncle's place, when the decision that would change her life was made."
+    scene d14a-111
+    with dissolve
+    "Without breaking eye contact, she slowly turns around..."
+    scene d14a-112
+    with fade
+    pause 1
+    scene d14a-113
+    with dissolve
+    "...and takes off the remaining upper cloth..."
+    scene d14a-114
+    with fade
+    if d14a_zahra_blowjob == True:
+        "You stare in silence as you feel [W] slowly toning down her deepthroat. She seems satisfied with your erection."
+        "You are hard and ready. And the sight of Kateryna's slim back, wide hips and plump ass does nothing to tone down your excitement."
+        scene d14a-115
+        with dissolve
+        Ww "Hn..."
+        scene d14a-116
+        with dissolve
+        "She smiles, looking up at her distracted husband..."
+        scene 
+    else:
+        "You stare in silence. Kateryna's slim back and wide hips would drive any man mad with desire."
+    scene d14a-117
+    with fade
+    "You look into her eyes as she turns around once more."
+    scene d14a-118
+    with dissolve
+    "She hides her breasts. Is she teasing you, or is she not as confident as she wants to appear?"
+    "She must know that, whilst other women in the house may have a larger bosom, hers are perfectly adequate and in fact entirely enviable..."
+    if d14a_zahra_blowjob == True:
+        scene d14a-119
+        with fade
+        "[W] gets up and moves next to her, a hand on her shoulder..."
+        W "It looks like you two are ready..."
+        scene d14a-124
+        with fade
+        W "...which means that it is time for me to leave, and finally leave you to her."
+        W "This night is for you two. Nobody will disturb you."
+        scene d14a-125
+        with dissolve
+        Ka "Mh..."
+        "Kateryna flinches. Did [W] do something?"
+        scene d14a-122
+        with fade
+        Z "Thank you [W]."
+        Z "I appreciate your consideration."
+        scene d14a-123
+        with dissolve
+        "From the corner of your eye you detect [W]'s hand going towards Kateryna's bum..."
+        scene d14a-121
+        with fade
+        W "..."
+        "Kateryna looks meekly to your wife. The tension is palpable, and you sense that [W] is probably enjoying prolonging this moment."
+        scene d14a-120
+        with dissolve
+        W "With my blessing, Kateryna; treat my husband well, and he will lead you to the ecstasy you long for."
+        scene black pic
+        with fade
+        "She lets go of Kateryna and walks towards you..."
+        scene d14a-126
+        with fade
+        if introduction_emilia == True and introduction_fairy == True:
+            Ww "Enjoy your time, husband. I will borrow your slaves for tonight, if you don't mind."
+        elif introduction_emilia == True:
+            Ww "Enjoy your time, husband. I will make good use of our maid tonight, to make sure she won't disturb you."
+        elif introduction_fairy == True:
+            Ww "Enjoy your time, husband. I will make sure to keep [fairy_name] busy for as long as you need her to not bother you."
+            Ww "You know that she appreciates it."
+        else:
+            Ww "Enjoy your time, husband. The girls will be cared for, while you have your moment with Kateryna."
+        scene d14a-127
+        with dissolve
+        Ww "Take the girl like you took me, my love."
+        Ww "Give her what she longs for."
+        scene d14a-128
+        stop music fadeout 3
+        with dissolve
+        scene black pic
+        with slowfade
+        "She leaves..."
+        scene d14a-129
+        play music "audio/music/exploration/main theme.mp3" fadein 2 volume 0.5
+        with fade
+        Ka "..."
+        Zw "We are alone now."
+
+    scene d14a-130
+    with dissolve
+    Kaw "[persistent.player_name]..."
+    scene d14a-131
+    with fade
+    "You grab her arms, moving close to her until your rigid member touches her soft belly..."
+    scene d14a-132
+    with dissolve
+    Zw "Are you ready to show me more...?"
+    scene d14a-133
+    with dissolve
+    pause 1.5
+    scene d14a-134
+    with dissolve
+    Ka "..."
+    scene d14a-135
+    with fade
+    "She looks at you, without breaking eye contact..."
+    scene d14a-136
+    with dissolve
+    pause 0.5
+    "...while slowly moving her hands away from her chest..."
+    scene d14a-137
+    with dissolve
+    "...now she is almost entirely revealed to you."
+    scene d14a-138
+    with dissolve
+    Ka "Nh..."
+    "She lowers her arms even further, coming into contact with something..."
+    scene d14a-140
+    with dissolve
+    Zw "Mh..."
+    "She aims your dick towards her pussy, slowly starting to stroke it..."
+    scene d14a-141
+    with dissolve
+    Kaw "It's so... hard..."
+    Kaw "...for... me...?"
+    scene d14a-139
+    with fade
+    Zw "Do you want to find out how it feels?"
+    scene d14a-142
+    with dissolve
+    Kaw "Yes..."
+    scene d14a-143
+    with dissolve
+    "She moves closer, aiming for your lips..."
+    scene d14a-144
+    with fade
+    Ka "{i}*kissing*{/i}"
+    "...and hungrily starts making out with you."
+    scene d14a-145
+    with dissolve
+    Ka "Ah... [persistent.player_name]h..."
+    scene d14a-146
+    with dissolve
+    Ka "{i}*kissing*{/i}"
+    "You gently squeeze her ass, massaging her cheeks, as she greedily strokes your dick."
+    scene d14a-147
+    with dissolve
+    "The feeling is sensational. She presses her chest against yours, giving in to her desires."
+    "Losing all inhibition, just like last time, she leans into you willingly."
+    scene d14a-148
+    with dissolve
+    "For several minutes you stand there, making out like youngsters, groping and tugging at each other."
+    scene d14a-149
+    with dissolve
+    Ka "{i}*kissing*{/i}"
+    Ka "Mh..."
+    scene black pic
+    with fade
+    if kat_babywish == True:
+        Ka "[persistent.player_name]..."
+        Ka "Can we make... babies?"
+    else:
+        Z "Are you sure you are ready?"
+        Z "...Lay down, girl."
+    play sound "audio/sounds/actions/drop 2.mp3"
+    "You gently push her onto the bed..."
+    scene d14a-150
+    with fade
+    Ka "..."
+    scene d14a-151
+    with dissolve
+    "She lies in front of you, her arms draping her chest, desire shining from her eyes."
+    scene d14a-152
+    with dissolve
+    "The young virgin is laying in front of you, her gaze focused on the thing that will make her a woman."
+    scene d14a-153
+    with dissolve
+    Z "I have anticipated this moment..."
+    scene d14a-154
+    with dissolve
+    Ka "...!"
+    "You pull her in..."
+    scene d14a-155
+    with dissolve
+    pause 0.8
+    scene d14a-156
+    with dissolve
+    "...and take off her panties."
+    scene d14a-157
+    with fade
+    "Neither of you feel any need to further express the feelings that arise from the moment, lost as you are in the mounting passion."
+    "You are ready, and so, you sense, is she."
+    scene d14a-158
+    with dissolve
+    pause 1
+    scene d14a-159
+    with dissolve
+    pause 1.2
+    scene d14a-160
+    with dissolve
+    pause 0.7
+    "...And she shows it."
+    menu:
+        "Eat her out":
+            scene black pic
+            with fade
+            Ka "[persistent.player_name]...?"
+            Ka "Ah...!"
+            scene d14a-161
+            with w33slow
+            Z "{i}*licking*{/i}"
+            Ka "Mh...!"
+            scene d14a-162
+            with dissolve
+            Ka "Nha... you... lick my..."
+            scene d14a-163
+            with dissolve
+            Ka "..."
+            scene d14a-166
+            with dissolve
+            "When she spreads her legs, the urge takes you and waiting is no longer an option, as you dive between them."
+            "The taste is sweet, and your tongue edges along her labia, reaching for her clit."
+            scene d14a-164
+            with dissolve
+            Z "{i}*slurp*{/i}"
+            scene d14a-165
+            with dissolve
+            Ka "Ah... this feels... good..."
+            scene d14a-167
+            with dissolve
+            "Her thick thighs are pressing against you, and her pussy is drenched with the fluids of her excitement. She clearly enjoys your ministrations."
+            scene d14a-168
+            with dissolve
+            Ka "Nh..."
+            scene d14a-169
+            with dissolve
+            "You knead her soft breasts thoroughly."
+            "Plump and fitting perfectly in your hands, as you squeeze her breasts a soft sigh escapes her lips.."
+            scene d14a-170
+            with dissolve
+            if kat_babywish == True:
+                "When you think about the many hints she has dropped towards her desire for birthing a child, your mind pictures those breasts swelling up with mother's milk."
+            "You keep fondling them for a while whilst eating her out."
+            scene d14a-171
+            with dissolve
+            "The young woman lays squirming before you, her juices flooding your tongue."
+            "Her mind in daze, she is at your mercy. She is willing to submit to you, and looking forward to what is coming next."
+            scene d14a-172
+            with dissolve
+            "After a short while, your tongue abandons her labia, and you look up towards her..."
+            Z "It's time, Kateryna..."
+            jump d14a173
+
+        "Take her immediately":
+            jump d14a173
+
+    
+label d14a173:
+    scene black pic
+    with fade
+    Ka "[persistent.player_name]...?"
+    Ka "Ah..."
+    scene d14a-173
+    with fade
+    "You raise her legs weak with excitement getting into position to mount her."
+    scene d14a-174
+    with dissolve
+    "You take her hand..."
+    Ka "[persistent.player_name]..."
+    scene d14a-175
+    with dissolve
+    pause 0.5
+    Z "I'm going to make you a woman, Kateryna."
+    Ka "Yes..."
+    scene d14a-176
+    with fade
+    "You look down at her..."
+    "The prospect of deflowering a young, foreign and exotic girl like her, makes you harder than usual."
+    "You don't usually consider your physical prowess and the banal details of girth and size, but the prospect of deflowering Kateryna forces the thought to your mind."
+    "Will she be able to take you entirely?"
+    scene d14a-177
+    with dissolve
+    Ka "..."
+    Z "Are you ready, girl?"
+    scene d14a-178
+    with dissolve
+    "She looks into your eyes, inhales and exhales deeply, before answering..."
+    Ka "Yes, [persistent.player_name]..."
+    if kat_babywish == True:
+        Ka "Please make me..."
+    else:
+        Ka "Please..."
+    "You raise your hips, your dick resting on her stomach..."
+    scene d14a-179
+    with dissolve
+    Ka "Ah..."
+    if kat_babywish == True:
+        Ka "...make me pregnant, please..."
+    else:
+        Ka "I am ready, [persistent.player_name]."
+    scene d14a-180-anim
+    with fade
+    pause 3
+    Ka "Nh... it's..."
+    Ka "It's pressing..."
+    menu:
+        "Enter her slowly":
+            scene d14a-181x-anim
+            with dissolve
+            pause 2.6
+            scene d14a-182-anim
+            with Dissolve(0.3)
+            Ka "...ah!"
+            scene d14a-183-anim
+            with dissolve
+            pause 1
+            jump d14a184
+
+        "Break her in":
+            $ d14a_kateryna_rough = True
+            Z "You are mine now, Kateryna."
+            Ka "Yes..."
+            scene d14a-181-anim
+            with Dissolve(0.3)
+            pause 1.5
+            scene d14a-182-anim
+            with Dissolve(0.3)
+            Ka "...ah! {w=1.2} {nw}"
+            scene d14a-183-anim
+            with Dissolve(0.1)
+            pause 1
+            "...and with that, you push deep into her pussy, right until your glans hits her cervix."
+            jump d14a184
+
+
+label d14a184:
+    scene d14a-184
+    with dissolve
+    scene d14a-185
+    with Dissolve(0.5)
+    Ka "Ngh...~"
+    "She suddenly gasps.."
+    scene d14a-186
+    with dissolve
+    Ka "Hah... hmm...~"
+    "...and climaxes violently..."
+    if persistent.gore == True:
+        if d14a_kateryna_rough == False:
+            scene d14a-187x-2-anim
+        else:
+            scene d14a-187x-3-anim
+    else:
+        if d14a_kateryna_rough == False:
+            scene d14a-187-anim
+        else:
+            scene d14a-187x-anim
+    with fade
+    Ka "Hah.... hah..."
+    "After her orgasm has subsided, you start pulling out and then back in, building up a rhythm."
+    "Her soft and quiet moaning and the sounds of your bodies meeting fill the otherwise silent room."
+    Zt "She came the second her hymen broke. That's... something!"
+    "She was made for this, for you, for this moment in time..."
+    if kat_babywish == True:
+        Zt "She wants to be bred. She has made that much clear."
+    "You fuck her with enthusiasm, shaking her broad hips."
+    "It is done. She seems momentarily taken aback."
+    "But judging by the energy she puts into moving her body to meet yours, you can tell she's not done, and that her desire for this was and remains intense."
+    scene d14a-188-anim
+    with dissolve
+    if kat_babywish == True:
+        "She knew you were destined to be her mate. She saw your [persistent.da]s, and how healthy they turned out to be, how loving your relationship is."
+        "She knew you would not hesitate to take her virginity, and give her the children she always wanted."
+        "Raised in a culture where her role was to provide offspring, she dreaded not being able to choose her partner, but with you she saw a future."
+        "Meeting you delivered her from the dilemma of choosing between a life devoid of agency and one where her deepest urges and the things she had been taught from childhood would find purpose."
+        Z "Ngh..."
+    scene d14a-190-anim
+    with dissolve
+    "You have had countless partners, fleeting or long lasting and have no illusions about your sexual prowess, so you recognise the sensation that is rising up. Despite the comfortable pace you have established, a climax is approaching."
+    "In a way, it is unexpected. You know it can happen, but you figured you were a little more detached, a little more in control, this time. But the body wants what it wants."
+    scene d14a-190
+    with dissolve
+    Ka "Ah... [persistent.player_name]..."
+    if persistent.gore == True:
+        if d14a_kateryna_rough == False:
+            scene d14a-189x-2-anim
+        else:
+            scene d14a-189x-3-anim
+    else:
+        if d14a_kateryna_rough == False:
+            scene d14a-189-anim
+        else:
+            scene d14a-189x-anim
+    with fade
+    "Despite being overwhelmed by her first experience, Kateryna, now past the glow of her first big orgasm with you, seems intuitively aware that you are getting closer and closer quickly."
+    if kat_babywish == True:
+        "Finally, you can't hold any longer."
+        "Her wide hips and wet slippery pussy are inviting you to unload inside them. You need to cum inside her, and give her the children she always wanted."
+    else:
+        "Be it how it may, you can't hold it any longer."
+        "Her wet pussy is too inviting, you feel like cumming all over her, urgently."
+    Z "Agh... girl... fuck..."
+    if kat_babywish == False:
+        jump d14a198
+    else:
+        menu:
+            "Impregnate her":
+                $ kateryna_pregnant = True
+                Z "Take my children, Kateryna."
+                scene d14a-192
+                with fade
+                Ka "Ah... yes!"
+                "You push your dick inside her in one last stroke, which brings you over the edge, almost making you light-headed."
+                with vpunch
+                Z "Ngh-"
+                scene d14a-193
+                with dissolve
+                Z "Ah... Fuck...!"
+                with vpunch
+                "You grunt unusually loud with an intense orgasm as you violently cum inside her."
+                with vpunch
+                "Your climax takes forever, and it feels like she's pressing her muscles around it, to squeeze everything you have."
+                Z "Fuck... you... {i}*pant*{/i}"
+                Z "You feel too good..."
+                scene d14a-194
+                with dissolve
+                "Your dick slowly loses its strength, and slips out of her wet and filled up pussy..."
+                scene d14a-195
+                with dissolve
+                "With one last movement, you try to pull out of her pussy, but it feels like it pulls you in, not letting you go..."
+                scene d14a-196
+                with dissolve
+                "Until eventually, her hips give up and touch the solid surface beneath her."
+                scene d14a-197
+                with dissolve
+                Ka "{i}*pant*{/i}"
+                Ka "You came inside me..."
+                Ka "I will... get pregnant now..."
+                scene d14a-198
+                with fade
+                "You step aside to look at your work. Her pussy is still stretched out, and cum leaks out of it."
+                Ka "Thank you... [persistent.player_name]..."
+                scene d14a-199
+                with dissolve
+                "You look down at your new concubine."
+                "Whilst her mind is still foggy, she looks content, happy."
+                "But what she doesn't know yet..."
+                jump d14a200
+
+
+            "Cum on her":
+                label d14a198:
+                    scene d14a-198x
+                    with fade
+                "You pull out, just short of blowing your load..."
+                Ka "[persistent.player_name]... you... cum soon?"
+                scene d14a-198x-2
+                with dissolve
+                Z "Oh fuck..."
+                "She puts her thighs around your dick..."
+                scene d14a-198x-3
+                with dissolve
+                "...giving it the last strokes you need."
+                scene d14a-198x-4
+                with vpunch
+                pause 0.8
+                scene d14a-198x-5
+                with dissolve
+                Ka "Ah..."
+                "You can see your load gleaming on her lips..."
+                scene d14a-198x-6
+                with vpunch
+                pause 0.7
+                scene d14a-198x-7
+                with dissolve
+                Ka "Oh... more..."
+                Z "{i}*pant*{/i}"
+                Z "Wow, girl... I made a mess."
+                Ka "It's... warm..."
+                scene d14a-198x-8
+                with dissolve
+                Z "You look so pretty."
+                Ka "..."
+                Z "But I will have to clean you..."
+                scene d14a-198x-9
+                with dissolve
+                "You take a long look at her, lying covered in your cum, breathing deeply in the afterglow, her mind relaxing, thinking the night to be winding down..."
+                scene black pic
+                with fade
+                "...ignorant to the fact, that..."
+                jump d14a200
+
+    label d14a200:
+        scene d14a-200
+        with dissolve
+    Ka "Mh..."
+    scene d14a-201
+    with dissolve
+    Ka "Nh...?"
+    "...you're not done with her just yet."
+    scene d14a-203
+    with fade
+    Ka "[persistent.player_name]... You are not..."
+    scene d14a-202
+    with dissolve
+    Z "Finished? {i}*chuckle*{/i}"
+    Z "No, kid. I am used to pleasing more than one woman during a given night."
+    scene d14a-204
+    with dissolve
+    Ka "Oh..."
+    Z "But tonight, you are getting all of my attention."
+    scene d14a-205
+    with fade
+    "You have pushed half of your tip inside her with ease. Her hips and pussy lips are relaxed, waiting to be penetrated once more."
+    scene d14a-206
+    with dissolve
+    Ka "Mh..."
+    scene d14a-207
+    with dissolve
+    "You effortlessly slide into her still wet pussy, and she does not break eye contact."
+    scene d14a-208-anim
+    with dissolve
+    "You start thrusting into her from a different angle."
+    "Her leg is resting against your shoulder, and you grasp her soft thigh while sliding in and out of her welcoming vagina."
+    "The feeling is intense, just as the previous time you entered her. It is almost as if her eagerness sucks your member in."
+    scene d14a-209-anim
+    with dissolve
+    "It feels harder to pull out than to thrust it back inside. You realise she must be clenching her muscles with all her strength."
+    "Her soft and quiet moans never stop. She takes in every thrust. Never expecting more, but always welcoming more."
+    "Her eye contact with you does not fade. She's in trance, doing what, you feel at that moment, she is born to do."
+    Ka "Hah... nh..."
+    "As you work up a rhythm, you sense once more a climax coming."
+    if kat_babywish == False:
+        jump d14a210
+    else:
+        menu:
+            "Cum inside her":
+                if kateryna_pregnant == True:
+                    "You want to cum inside her again. You are determined to make her pregnant."
+                else:
+                    $ kateryna_pregnant = True
+                    "Playtime is over, and you want to finally cum inside her. You are determined to make her pregnant."
+                scene d14a-210-anim
+                with dissolve
+                "Her soft skin and formidable breasts, her thick thighs... You realise somewhere in the back of your mind that this young woman bears all the hallmarks of the women who are selected by the Temple."
+                "You are convinced that children born from her will be healthy and strong."
+                Ka "Thank you... [persistent.player_name]..."
+                Ka "Mh..."
+                Ka "...for... breeding me..."
+                "You think back to all the other sex you had in your life. All those different ways you came to a climax."
+                "You wanted to come on their faces, on their breasts, spray your cum on their backs, inside their mouths..."
+                "But her desire is clear and manifest. Be it a fetish or a deeply rooted desire, be it a product of her upbringing or a personal wish..."
+                scene d14a-208-anim
+                with fade
+                "She wants to bear children, and what's more, she wants them to be yours."
+                "If you thought you were getting past the age to care about that other than your service at the Temple..."
+                "...You realise that Kateryna has reawakened that desire in your heart and your belly, as you thrust deep inside her."
+                "Thrust by thrust, she keeps moaning softly. You feel yourself getting over the edge again, until..."
+                with hpunch
+                Z "Ah-"
+                pause 0.8
+                with hpunch
+                Z "Mgh-"
+                scene d14a-213
+                with fade
+                Ka "So... much..."
+                Z "{i}*pant*{/i}"
+                scene d14a-215
+                with dissolve
+                "Your next load mixes with the previous one, overflowing her vagina with your dick still firmly planted to its root..."
+                scene d14a-216
+                with dissolve
+                Ka "It's... nh"
+                scene d14a-217
+                with dissolve
+                Ka "Nha..."
+                Ka "...leaking."
+                scene d14a-218
+                with dissolve
+                Z "Let's see what we can do about that..."
+                scene d14a-219
+                with dissolve
+                Ka "Mh..."
+                "You pull up her left leg, lifting her hips a bit..."
+                scene d14a-220
+                with fade
+                Z "It's leaking... I will put it back inside."
+                scene d14a-221
+                with dissolve
+                Ka "Oh..."
+                scene d14a-222
+                with dissolve
+                "She moans as you use your fingers to massage her insides."
+                Zt "This girl is incredible. It's her first time... and yet..."
+                scene d14a-223-anim
+                with dissolve
+                Ka "Nh..."
+                "You slowly and gently finger her, testing how her pussy reacts to your thrusts."
+                Zt "She really is special. I wonder if every girl in her tribe is like this."
+                Zt "Her pussy almost sucks my fingers in. It's no wonder I came so quickly, twice."
+                if persistent.sharing == True:
+                    Zt "[W] told me something about a whole tribe of her men taking a woman day in and night out, to get her pregnant."
+                    Zt "That she would have been next in line, had Igor not brought her here."
+                    Zt "The temple... and especially Jamila would welcome her instantly if they saw this. She is made for being bred."
+                scene d14a-224
+                with dissolve
+                Ka "Hn..."
+                scene d14a-225
+                with dissolve
+                Ka "Hah...!"
+                scene d14a-226
+                with dissolve
+                "Wet squelching noises escape her pussy as she cums once more."
+                scene d14a-227
+                with dissolve
+                Ka "Mhh..."
+                scene d14a-228
+                with dissolve
+                "She shivers while cumming..."
+                scene d14a-229
+                with dissolve
+                Zt "Wow... this girl."
+                "You are good with your fingers, but this was unusually quick."
+                Zt "She's very excited..."
+                jump d14a230anim
+
+            "Cum outside":
+                label d14a210:
+                    if kateryna_pregnant == True:
+                        "After putting a first load in her, you spread your seed all over her pale skin, glistening with sweat"
+
+                Z "I'm going to cum again, soon..."
+                scene d14a-210-anim
+                with dissolve
+                Ka "Ah... cum... on me?"
+                "The sound of flesh slapping against flesh increases in frequency as she keeps her legs spread to be fucked, it takes so very little effort now for both of you to lose yourself in yet another orgasm."
+                scene d14a-229x
+                with fade
+                Ka "Hn..."
+                scene d14a-229x-2
+                with hpunch
+                pause 0.8
+                scene d14a-229x-3
+                with dissolve
+                Ka "So much... again..."
+                if kat_babywish == True:
+                    Ka "Inside me, please..."
+                scene d14a-229x-4
+                with fade
+                "You take another good look at her, filling your eyes with the beautiful shape of Kateryna."
+                Z "You're so damn sexy, kid."
+                if kat_babywish == True and kateryna_pregnant == False:
+                    scene d14a-229x-5
+                    with dissolve
+                    Ka "Can I have... this inside me next?"
+                    scene d14a-229x-4
+                    with dissolve
+                    Z "There is more than enough where that came from, sweetheart."
+                jump d14a230anim
+
+    label d14a230anim:
+        scene black pic
+        with fade
+    Z "Alright girl. Lie on your stomach."
+    Z "I can do one more."
+    Ka "Yes... please..."
+    scene d14a-230-anim
+    with fade
+    Ka "{i}*muffled*{/i} Mh..."
+    Ka "Anh... Hn..."
+    "The girl is relentless. Her wet, slippery pussy an inviting spectacle. She is challenging your limits."
+    Ka "It... feels... good... mh..."
+    scene d14a-231-anim
+    with dissolve
+    "You came two times already, and despite that... every time you thrust inside her, you feel the need to give her more."
+    "You wonder whether your friend Igor ever thought of you railing his niece from behind."
+    "What would he think of her, if he saw her now?"
+    scene d14a-232-anim
+    with dissolve
+    if persistent.sharing == True:
+        "Would he be attracted to the sight of it?"
+        "You have a feeling he must have looked at her before."
+    Ka "Mh.... ngh... hah..."
+    "Nonetheless... she is yours now. And thrust after thrust, you reaffirm this."
+    scene d14a-234
+    with fade
+    if kat_babywish == True:
+        "The way she lays there, cute and willing... It does, once again, not take long until you resolve to mount her."
+    else:
+        "The way she lays there, cute and willing... It does, once again, not take long until you fantasize of spraying your seed all over her."
+    if kat_babywish == False:
+        jump d14a236
+    else:
+        menu:
+            "Fill her up":
+                if kateryna_pregnant == False:
+                    $ kateryna_pregnant = True
+                    Z "Get ready... kgh-"
+                else:
+                    Z "Get ready... again... kgh-"
+                "You feel yourself getting to your limit. Your muscles sore from the wild and powerful coupling..."
+                with hpunch
+                Ka "Mhh..."
+                Ka "I can..."
+                with hpunch
+                Ka "...feel..."
+                scene d14a-235
+                with dissolve
+                "Your thrusts are yet again intense, slower, this time, more deliberate."
+                scene d14a-236
+                with dissolve
+                Ka "Nha..."
+                Z "Kateryna... I... need a break..."
+                jump d14a237
+
+            "Cum on her back":
+                label d14a236:
+                    Z "Mh... your back..."
+                scene d14a-236x
+                with fade
+                "You pull out and place your cock between her plump cheeks..."
+                Z "Girl... those hips don't lie."
+                scene d14a-236x-2
+                with dissolve
+                pause 1
+                scene d14a-236x-3
+                with hpunch
+                pause 0.8
+                scene d14a-236x-4
+                with hpunch
+                pause 0.7
+                Ka "So much..."
+                scene d14a-236x-5
+                with fade
+                Z "Wow..."
+                "You are out of breath, but the artwork you created demands a long look nonetheless..."
+                Z "I think... I need a break now..."
+                jump d14a237
+
+    label d14a237:
+        scene black pic
+        with fade
+    "You throw yourself on the bed, closing your eyes, and letting time fly by for a moment."
+    pause 2
+    Ka "Mh... [persistent.player_name]...?"
+    pause 1.5
+    Ka "I..."
+    if kateryna_pregnant == False and kat_babywish == True:
+        Ka "...am not pregnant, still."
+    Ka "Maybe we..."
+    scene d14a-237
+    with fade
+    Z "..."
+    scene d14a-238
+    with dissolve
+    Ka "Maybe we... continue?"
+    scene d14a-239
+    with dissolve
+    Z "Kat... how did you..."
+    scene d14a-240
+    with dissolve
+    Zt "Did she climb on top of me...?"
+    scene d14a-241
+    with dissolve
+    Ka "Maybe... one more time, yes?"
+    Ka "I want to make sure... I am pregnant today..."
+    scene d14a-242
+    with dissolve
+    Z "Kid... you are special... truly."
+    scene d14a-243
+    with dissolve
+    "Her words cut like a knife through the butter that is your hormones. And after a short while of grinding her ass on you, you rapidly get hard again."
+    scene d14a-244
+    with dissolve
+    Ka "You are ready, yes?"
+    Z "I..."
+    if kateryna_pregnant == True:
+        scene d14a-245
+        with dissolve
+        "She raises her hips, only for cum to leak out..."
+    else:
+        scene d14a-245x
+        with dissolve
+        "She raises her hips..."
+    Ka "I will..."
+    if kateryna_pregnant == True:
+        scene d14a-246
+        with dissolve
+    else:
+        scene d14a-246x
+        with dissolve
+    Ka "...try..."
+    scene d14a-247
+    with dissolve
+    Ka "...myself... mh..."
+    scene d14a-248
+    with dissolve
+    pause 0.5
+    scene d14a-249
+    with dissolve
+    Ka "Mh..."
+    Z "Oh... fuck..."
+    Z "You're... so eager..."
+    scene d14a-250-anim
+    with fade
+    Ka "Hah... nh... Hnah... hm..."
+    "She bounces up and down, trying to make you cum once more, clearly enjoying the ride..."
+    scene d14a-251-anim
+    with Dissolve(0.5)
+    Z "{i}*chuckles*{/i} Alright, kid."
+    Zt "Fuck me... this girl is on a mission..."
+    scene d14a-251x-anim
+    with Dissolve(0.5)
+    Z "You want more of it? Then show me how to get it."
+    if kat_babywish == True and kateryna_pregnant == False:
+        Ka "Hah... yes... I want babies... please..."
+    else:
+        Ka "Hah... yes... I give... best..."
+    pause 1.5
+    Ka "You... like this...?"
+    scene d14a-251x-2-anim
+    with fade
+    "Her thick ass bounces up and down, ever so rhythmically. Kateryna and you are in trance at this point."
+    "The feeling of her pussy stroking your dick while her hips pressure your thighs is all you can focus on."
+    scene d14a-251-anim
+    with fade
+    Ka "Hah... I..."
+    Ka "Oh..."
+    scene d14a-254
+    with hpunch
+    if kat_babywish == True and kateryna_pregnant == False:
+        "You both reach your limit, and you cum deep inside her pussy one last time..."
+    elif kat_babywish == False:
+        "She reaches her limit, climaxing once again..."
+    else:
+        "You both reach your limit..."
+    Ka "Hah... I..."
+    Z "Ngh-"
+    scene black pic
+    stop music fadeout 3
+    with hpunch
+    if kat_babywish == False:
+        "...and then, collapses on top of you."
+    else:
+        "...and then, Kateryna collapses on top of you."
+    pause 0.5
+    Zt "What a night..."
+    if _in_replay and kat_babywish == False:
+        $ renpy.end_replay()
+    if kat_babywish == False:
+        jump d14a282
+    else:
+        scene d14a-255
+        queue music "audio/music/home/dream town.mp3" fadein 3
+        with slowfade
+        Zt "Is she..."
+        scene d14a-256
+        with dissolve
+        Zt "What is..."
+        Zt "...must've fallen asleep..."
+        scene d14a-257
+        with dissolve
+        Zt "I feel so tired..."
+        Zt "But... what..."
+        scene d14a-258
+        with dissolve
+        Ka "{i}*snoozing*{/i}"
+        Zt "Her belly..."
+        scene d14a-259
+        with dissolve
+        Zt "I can feel it..."
+        scene d14a-260
+        with dissolve
+        Ka "Mh..."
+        Zt "Her leg..."
+        scene d14a-261
+        with dissolve
+        Zt "I... I could..."
+        menu:
+            "Put it in":
+                Zw "Kateryna..."
+                scene d14a-262
+                with dissolve
+                Ka "Nh..."
+                scene d14a-263
+                with dissolve
+                Kaw "[persistent.player_name]..."
+                scene d14a-264
+                with dissolve
+                Ka "Mmm..."
+                scene d14a-265
+                with dissolve
+                Zt "Her breasts... they're so hard."
+                Zt "I can feel the milk inside..."
+                scene d14a-266
+                with hpunch
+                "{i}*squirt*{/i}"
+                scene d14a-267
+                with dissolve
+                Ka "Ah..."
+                Zt "So much..."
+                scene d14a-268
+                with dissolve
+                Zt "She will be a good mother..."
+                scene d14a-269
+                with dissolve
+                Zt "I can't... stop..."
+                scene d14a-270
+                with Dissolve(0.6)
+                Zt "Ngh-"
+                with hpunch
+                Zt "Mh..."
+                with hpunch
+                pause 0.8
+                scene d14a-271
+                with dissolve
+                Ka "..."
+                scene d14a-272
+                with dissolve
+                Zw "Kateryna..."
+                jump d14a273
+
+            "Something is wrong":
+                scene d14a-265
+                with dissolve
+                Zt "Something... is wrong..."
+                Zt "I need to..."
+                jump d14a282
+
+    label d14a273:   
+        Ka "Mh..."
+        Kaw "[persistent.player_name]..."
+        scene d14a-273
+        stop music fadeout 1
+        with Dissolve(0.5)
+        Ka "[persistent.player_name]?"
+        Z "...?"
+        Zt "I was dreaming..."
+        scene d14a-274
+        with dissolve
+        Ka "[persistent.player_name]... You were sleep..."
+        scene d14a-275
+        with dissolve
+        Ka "You keep... inside me... and grab..."
+        play music "audio/music/home/dream town.mp3" fadein 3
+        scene d14a-276
+        with dissolve
+        Ka "Mwho..."
+        "She lets out a cute, squeaky gasp as you cum once more..."
+        scene d14a-277
+        with dissolve
+        Z "Mgh..."
+        Ka "Ah..."
+        scene d14a-278
+        with dissolve
+        "{i}*squirt*{/i}"
+        Zw "Turn around, girl..."
+        scene black pic
+        with fade
+        Ka "Mh..."
+        Ka "{i}*kissing*{/i}"
+        scene d14a-279
+        with fade
+        "You grab her breast as you make out with her... kneading it gently."
+        "You don't know how long you fell asleep for, but you know that it is late at night, and that you spent the last few hours coupling."
+        scene d14a-280
+        with dissolve
+        "She enjoys your touch, keeps her legs spread for you, and her juices and your cum flow freely."
+        "You both are in need of sleep, but this is an important moment."
+        scene d14a-281
+        with dissolve
+        "You gladly take this moment of silence to appreciate the young woman you just bred, just as she appreciates her man."
+        "After sheepishly making out with each other for several minutes..."
+        jump d14a282
+
+    label d14a282:
+        scene black pic
+        with fade
+        if _in_replay:
+            $ renpy.end_replay()
+        "...everything fades to black."
+        pause 1
+        "Hours later..."
+    pause 1.5
+    Ka "I can still feel it..."
+    scene d14a-282
+    with slowfade
+    Z "..."
+    if sq_k_1.current_step == 6:
+        $ sq_k_1.advance()
+        $ sq_k_1.resolution = _("What a night... Kateryna and I have become so close so rapidly! I look forward to see her settle in, and to taste her wondrous cooking again. Igor too will want to know how she fares. I should give her some time.")
+    scene d14a-283
+    with dissolve
+    Ka "I feel so full... down there..."
+    Ka "But we can continue later, yes?"
+    scene d14a-284
+    play sound "audio/sounds/doors/door closed.mp3"
+    with dissolve
+    Ka "...?"
+    if introduction_emilia == True:
+        E "Master? Miss Kateryna?"
+        scene black pic
+        with fade
+        "Emilia enters the room..."
+        E "Good morning Master!"
+        scene d14a-285
+        with fade
+        E "Miss Kateryna, Master, I have prepared breakfast for you."
+        scene d14a-286
+        with dissolve
+        Ka "Breakfast...?"
+        scene d14a-288
+        with dissolve
+        E "Yes. You must be hungry, you did not eat much yesterday!"
+        E "I have prepared your clothes as well, and a bath is drawn."
+        scene d14a-287
+        with dissolve
+        Ka "Okay, thank you... Emilia, yes?"
+        scene d14a-289
+        with fade
+        Ka "You don't mind, yes? I am very hungry."
+        scene d14a-290
+        with dissolve
+        Z "You're sweet. Of course. Go ahead and enjoy."
+        Z "I will see you later, alright."
+        scene black pic
+        with fade
+    else:
+        A "Hey you two!"
+        "You hear [A] coming in..."
+        scene d14a-292
+        with fade
+        A "You guys really overslept, you know."
+        Ka "Overslept? how long?"
+        scene d14a-291
+        with dissolve
+        A "It's almost noon! You two must've had a long night."
+        Zt "Well...can you blame me?"
+        scene d14a-293
+        with fade
+        A "Oh, wow... Kateryna."
+        A "I don't really blame [persistent.dad]."
+        scene d14a-294
+        with dissolve
+        A "You really remind me that night back at your home, you know."
+        scene d14a-295
+        with dissolve
+        A "Hm..."
+        scene d14a-296
+        with dissolve
+        A "So, uhmm, do you want me to show you where the bathroom is?"
+        A "I mean, in case you forgot since yesterday, hehe."
+        scene d14a-297
+        with dissolve
+        Ka "..."
+        scene d14a-298
+        with fade
+        Ka "[persistent.player_name], can I go take bath? We can continue later, yes?"
+        scene d14a-299
+        with dissolve
+        Z "Sure. We've had a long night, Kateryna. I need some time to rest as well."
+        scene d14a-300
+        with dissolve
+        Z "You've been amazing, sexy little minx. Now let [A] take care of you."
+        scene d14a-301
+        with dissolve
+        "You pat her a little more..."
+        Ka "..."
+        Z "Welcome to my house, Kateryna. I'm glad to have you here."
+        scene black pic
+        with fade
+    jump mission_end
+
+label d14b:
+    $ m_d14b = True
+    stop music fadeout 3
+    Zt "I should visit Asani again. Let's see what that woman has been up to."
+    scene black pic
+    queue music "audio/music/exploration/spatium.mp3" fadein 3
+    with fade
+    "Later..."
+    scene d14b-1
+    with w33slow
+    pause 1.2
+    scene d14b-2
+    play sound "audio/sounds/vehicles/car door.mp3"
+    with dissolve
+    pause 0.5
+    scene d14b-3
+    with fade
+    Asa "..."
+    Z "Asani..."
+    scene d14b-4
+    with dissolve
+    pause 0.8
+    scene d14b-6
+    with fade
+    Asa "Hey [persistent.player_name]."
+    Z "What happened here?"
+    scene d14b-5
+    with dissolve
+    Asa "Scavenger... gave her shelter. Bitch tried to stab me in the back during the night."
+    Z "Hm..."
+    Z "She had nothing on her?"
+    Asa "I took her clothes. Can't let anything go to waste. You know how it is out here."
+    scene d14b-7
+    with dissolve
+    Asa "Not everyone is like you, [persistent.player_name]. People aren't trustworthy."
+    scene d14b-8
+    with dissolve
+    Z "Be careful who you let in, then... Next time it could cost you your head."
+    scene d14b-10
+    with dissolve
+    Asa "You might be right. At least it doesn't happen a lot."
+    scene d14b-11
+    with dissolve
+    Z "I see you're wearing a new outfit. Do traders come through these parts a lot?"
+    scene d14b-9
+    with dissolve
+    Asa "You could say that. More than I would've thought, actually."
+    scene d14b-6
+    with dissolve
+    Asa "Look, can I ask you for a favor? Now that you're here..."
+    Asa "I'd like you to bury her, so that the birds don't pick her apart."
+    Asa "Can you do that for me? I will get inside and clean myself up. I'll have a drink ready for you."
+    scene d14b-8
+    with fade
+    Z "Alright, give me that shovel."
+    scene d14b-9
+    with dissolve
+    Asa "Thanks [persistent.player_name]. I'll see you inside."
+    scene d14b-8
+    with dissolve
+    scene black pic
+    with fade
+    "One hour of hard toiling later..."
+    scene d14b-12
+    with fade
+    Zt "That should do."
+    Zt "Not what I was expecting when I made my way here... but it is what it is."
+    Zt "Time to head inside."
+    scene d14b-13
+    play sound "audio/sounds/doors/door closed.mp3"
+    with w33slow
+    Z "Say, do you ever get any rainfall in these areas?"
+    Asa "Rarely, why?"
+    Z "The ground is dry, if it wasn't also mixed with sand, digging would be..."
+    scene black pic
+    with fade
+    "You sit down..."
+    scene d14b-14
+    with fade
+    Z "So tell me... what's new in an ex-raiders life?"
+    Z "Still sure that this is where you want to live? There are better places, you know? Even outside of the city."
+    Asa "..."
+    scene black pic
+    play music "audio/music/zeta/sahara desert.mp3" fadeout 4
+    with fade
+    "She walks over..."
+    scene d14b-17
+    with fade
+    Z "..."
+    label re_d14b20: 
+        scene d14b-20
+        if _in_replay: 
+            with fade
+        else:
+            with dissolve
+    Asa "Let's skip to the fun part, shall we, [persistent.player_name]..."
+    scene d14b-19
+    with dissolve
+    pause 0.5
+    scene d14b-18
+    with dissolve    
+    menu:
+        "Do her":
+            jump d14b18
+        
+        "Deny her":
+            $ d14b_asani_denied = True
+            Z "..."
+            scene d14b-19
+            with dissolve
+            Z "I didn't spare your life to get sucked off, Asani."
+            scene d14b-20
+            with dissolve
+            Asa "Oh... is that so, [persistent.player_name]?"
+            Asa "From what I've learned, that doesn't exactly align with what I've learned about you."
+            scene d14b-19
+            with dissolve
+            scene black pic
+            with fade
+            "She sits on your lap..."
+            scene d14b-23
+            with fade
+            Asa "If you came here to make me feel important, then you have achieved that."
+            Z "Then that is what I was here for."
+            scene d14b-29
+            with fade
+            Z "I'm going to visit you again, soon."
+            Z "Maybe I'll change my mind then. That is, should I find out more about what is going on behind those blue eyes."
+            scene d14b-28
+            with dissolve
+            Asa "Maybe you will... maybe you won't."
+            Asa "Go on then, charmer. See you again, soon..."
+            scene d14b-29
+            with dissolve
+            if _in_replay:
+                scene black pic
+                with fade
+                $ renpy.end_replay()
+            scene black pic
+            with slowfade
+            "After denying Asani her fun, you head out. Maybe she will reveal more of herself next time?"
+            jump daily_home
+
+    label d14b18:
+        Z "You..."
+        Z "...know how to make our time interesting..."
+    scene d14b-21
+    with dissolve
+    Z "You don't like talking about yourself, do you."
+    Z "Changing the subject like that..."
+    scene d14b-22
+    with dissolve
+    Asa "The less you come here, the less time we have for this fluff."
+    Asa "You don't know how hard it is to find good sex from strangers out here."
+    Asa "So, come fuck me more often... then maybe we'll talk."
+    scene black pic
+    with fade
+    "She sits on your lap..."
+    scene d14b-23
+    with fade
+    Z "Well... you know how it is. I've got a wife and kids at home."
+    Z "And... other responsibilities."
+    scene d14b-24
+    with dissolve
+    Asa "Ah yes, the wife."
+    Asa "The wife that lets you come here, so that some random wastelander can fuck her man's brains out."
+    scene d14b-25
+    with dissolve
+    Asa "And what about those poor kids, I bet they're missing daddy's attention already, aren't they?"
+    Asa "I bet those slaves that you possess... or maybe pass around..."
+    Asa "Are you getting them knocked up to make you more servants...?"
+    "You can't help hearing her tone of contempt towards the lifestyle in the city of Zeta and understand more of her choice now."
+    scene d14b-26
+    with dissolve
+    Asa "The question is... what makes a satisfied man come to the barren lands around Adira to come see a woman like me?"
+    scene d14b-27
+    with dissolve
+    "She rests on your lap, and you feel her crotch grinding on your groin..."
+    Z "There are many things a woman like you offers."
+    Z "Just because you decide to hide, does not mean you are not interesting."
+    scene d14b-28
+    with fade
+    Asa "Is that so...? You are quite the charmer, [persistent.player_name]..."
+    Asa "Why don't you try... opening my heart. You may start with my top..."
+    scene d14b-29
+    with dissolve
+    Z "Don't mind if I do."
+    scene d14b-30
+    with dissolve
+    "Your eyes roam downwards, slowly, your movements deliberate..."
+    scene d14b-31
+    with dissolve
+    "Her cleavage in front of you, waiting to be unpacked."
+    scene d14b-32
+    with dissolve
+    pause 0.4
+    scene d14b-33
+    with dissolve
+    pause 0.6
+    scene d14b-34
+    with dissolve
+    "You pull down the top, revealing her large, dark nipples."
+    scene d14b-35
+    with dissolve
+    Asa "Let me help you out a little, sir..."
+    scene d14b-36
+    with dissolve
+    pause 0.6
+    scene d14b-37
+    with dissolve
+    Asa "..."
+    Z "Such beautiful skin..."
+    scene d14b-38
+    with dissolve
+    pause 0.6
+    scene d14b-39
+    with dissolve
+    "Her chest is free, and her nipples are hard and jutting out towards you, waiting to be sucked on..."
+    scene d14b-40
+    with dissolve
+    Asa "Nh..."
+    "You feel her meaty tits. They're round and soft, swaying a little from your slight pressure..."
+    Asa "Suck on them, [persistent.player_name]..."
+    scene d14b-41
+    with fade
+    Asa "Mh..."
+    Z "{i}*sucking*{/i}"
+    "You don't hesitate and start eagerly sucking and nibbling on them."
+    scene d14b-42
+    with dissolve
+    Asa "You're... mh... such a good man..."
+    "Your tongue is playing around, and the occasional suckle makes you regret that her breasts are not releasing any milk."
+    Asaw "Keep going... I like this."
+    scene d14b-44
+    with dissolve
+    "You're taking your time, praising her magnificent black breasts."
+    "As you lean in towards her, you smell her particular scent, one of the traits that make her so special."
+    "A woman like her, with a body combining athleticism and raw sexual energy, going to waste in the barren lands is almost a crime."
+    scene d14b-45
+    with dissolve
+    "It's a shame, and as self-serving as the thought might be, her words won't convince you otherwise."
+    "But at least you can still get the occasional fun with her, just like this moment."
+    scene black pic
+    with fade
+    "Suddenly, Asani stands up..."
+    scene d14b-46
+    with fade
+    Asa "Stay there..."
+    scene d14b-47
+    with dissolve
+    Asa "You've had your turn, now it's mine."
+    Asa "I'm going to try something new..."
+    scene d14b-48
+    with dissolve
+    Asa "...something I bet your wife hasn't tried, yet."
+    scene d14b-49
+    with dissolve
+    Asa "Sit still... let me admire you..."
+    scene d14b-50
+    with fade
+    Asa "You are very handsome, [persistent.player_name]."
+    Asa "But do any of your women ever make you work for them?"
+    scene d14b-51
+    with dissolve
+    "You're unsure of what she means with her words."
+    "But it doesn't matter. Her pose, statue, mature and alluring voice... it draws you in."
+    scene d14b-52
+    with dissolve
+    "You knew Asani can be a confident woman, but you didn't expect her to have this much grit."
+    menu:
+        "Take her foot in your hands":
+            scene d14b-53
+            with dissolve
+            Asa "There you go..."
+            Asa "Mind massaging it a little? No one else does that for me..."
+            scene d14b-54
+            with dissolve
+            "You gently massage the back of her feet, and then apply pressure to other areas..."
+            scene d14b-55
+            with fade
+            Asa "That feels nice, [persistent.player_name]."
+            scene d14b-56
+            with dissolve
+            "She looks at you, her eyes suggesting that she is testing how far you'll let her take this..."
+            scene d14b-57
+            with dissolve
+            pause 0.5
+            scene d14b-58
+            with dissolve
+            Z "..."
+            menu:
+                "Open your mouth":
+                    Z "..."
+                    scene d14b-59
+                    with dissolve
+                    Asa "Mh..."
+                    scene d14b-60
+                    with dissolve
+                    "You see a pleased, but curious and almost surprised smile, as you take her toes in your mouth."
+                    scene d14b-61
+                    with dissolve
+                    Asa "I didn't expect that from you, [persistent.player_name]..."
+                    Asa "Not after I saw how you handled that girl Asha and her boyfriend."
+                    scene d14b-62
+                    with dissolve
+                    Asa "Some people are full of secrets."
+                    scene d14b-63
+                    with dissolve
+                    Asa "...guess I am not the only one, then."
+                    "She starts rubbing her toes on your crotch..."
+                    scene d14b-64
+                    with dissolve
+                    Asa "Maybe you should bring your wife here, some day?"
+                    Asa "Who knows... what things you two are interested in, that you don't know of yet?"
+                    scene d14b-65
+                    with dissolve
+                    "You keep sucking on her toes for a while as her other foot massages your dick inside your pants."
+                    "She seems to enjoy it even more than you do."
+                    scene d14b-66
+                    with dissolve
+                    "You don't know a lot about this woman, and yet, she now knows one of your secrets."
+                    "But what does it matter, after all?"
+                    "Things that happen in the wasteland, stay in the wasteland."
+                    scene d14b-67
+                    with fade
+                    jump d14b68
+
+                "Lower her foot":
+                    scene d14b-55
+                    with dissolve
+                    jump d14b68
+
+        "Look back at her":
+            scene d14b-67
+            with dissolve
+            jump d14b68
+
+
+label d14b68:
+    Asa "[persistent.player_name]... lower your eyes."
+    scene d14b-68
+    with dissolve
+    Asa "Lower..."
+    scene d14b-69
+    with dissolve
+    Asa "Do you mind giving me a hand..."
+    scene d14b-70
+    with dissolve
+    Asa "...Or a tongue..."
+    scene d14b-71
+    with dissolve
+    Asa "...to get me ready as well?"
+    scene d14b-72
+    with dissolve
+    pause 0.3
+    scene d14b-73
+    with dissolve
+    Z "..."
+    scene d14b-74
+    with dissolve
+    "Her legs are spread in front of you. The woman is waiting for you."
+    "You gaze at her black, shiny skin. Her big breasts resting above her toned stomach..."
+    "...how could you refuse?"
+    scene black pic
+    with fade
+    Asa "Ah... mhh..."
+    scene d14b-75
+    with fade
+    Z "{i}*licking*{/i}"
+    Asa "That's the spot... keep... mh... going..."
+    scene d14b-76
+    with dissolve
+    "You bury your lips into her plump pussy, and you can feel her thighs relaxing and then twitching from the pleasure."
+    Asa "Nh... [persistent.player_name]..."
+    scene d14b-77
+    with dissolve
+    "You continue pleasing the wastelander, your tongue expertly finding its way around her labia and clit."
+    "The raider who once ganged up on you, is now getting pleasured by your tongue."
+    scene d14b-78
+    with dissolve
+    "Your excitement grows, as in the back of your mind you remember the circumstances of your first meeting. Something about the violence of it makes its way into your excitement."
+    scene d14b-79
+    with dissolve
+    Asa "Nh..."
+    "You slowly stop your advances..."
+    scene d14b-82
+    with dissolve
+    Asa "..."
+    scene d14b-83
+    with fade
+    Asa "Thank you, Stalker..."
+    Asa "That was very enjoyable."
+    scene d14b-84
+    with dissolve
+    Asa "Now... if you don't mind."
+    Asa "Do me a favor..."
+    scene d14b-85
+    with fade
+    pause 0.7
+    Asaw "...and fuck me."
+    scene d14b-86
+    with dissolve
+    pause 1
+    scene black pic
+    with fade
+    pause 0.8
+    scene d14b-87
+    with vpunch
+    Asa "Ah... {i}*chuckles*{/i}"
+    Asa "Easy, big guy..."
+    scene d14b-88
+    with dissolve
+    "You place the tip of your dick on her pussy, preparing to enter her with full force."
+    scene d14b-91x-3-anim
+    with fade
+    Asa "Fuck... I forgot... how big you really are."
+    Z "Keep your legs spread, woman."
+    Asa "Ngh... they're wide open... for you..."
+    "You keep fucking her hard and fast, but with fluid rhythm..."
+    pause 2
+    Asa "Mh... I really missed this dick, [persistent.player_name]..."
+    Z "You could get it more often."
+    Asa "Mh..."
+    pause 1.5
+    Asa "You're... reaching all the way..."
+    Asa "Don't... ah... stop..."
+    Z "You feel amazing, Asani."
+    pause 1
+    "You keep fucking her for a good while, until you slowly feel the urge to cum..."
+    scene d14b-90
+    with fade
+    Asa "Oh..."
+    scene d14b-89
+    with dissolve
+    Z "Now... I'll fill you up."
+    scene d14b-92
+    with fade
+    Z "Lay down... on your side."
+    Asa "As you wish, stud."
+    scene d14b-94
+    with vpunch
+    Asa "Oh..."
+    Asa "Just like last time, nh..."
+    menu:
+        "Take her pussy":
+            Asa "Ah... [persistent.player_name]..."
+            Asa "We should... nh..."
+            scene d14b-96
+            with dissolve
+            Asa "...be... nh..."
+            scene d14b-97
+            with dissolve
+            Asa "...careful..."
+            scene d14b-98
+            with dissolve
+            Asa "Mhhh....~"
+            with hpunch
+            Z "Ngh-"
+            "Your whole length is inside her pussy as you spray your load."
+            scene d14b-99
+            with hpunch
+            Z "Fuck..."
+            Asa "Nh..."
+            scene d14b-100
+            with hpunch
+            Z "Mgh-"
+            Asa "I guess... I can..."
+            scene d14b-101
+            with dissolve
+            "More cum squirts out of her filled hole..."
+            Asa "...make an exception today."
+            Z "Like you had a choice. I couldn't resist."
+            scene d14b-109
+            with fade
+            Asa "And neither can I, as long as it's safe."
+            Asa "The last thing I need is a child, [persistent.player_name]."
+            scene d14b-110
+            with dissolve
+            Z "I will keep that in mind next time I visit you."
+            jump d14b111
+            
+        "Take her ass":
+            Asa "Oh... you want... mgh..."
+            "You press your tip further and further inside..."
+            scene d14b-103
+            with dissolve
+            Asa "You want my..."
+            scene d14b-104
+            with dissolve
+            Asa "...my... ah... ass..."
+            scene d14b-105
+            with dissolve
+            pause 0.4
+            scene d14b-106
+            with dissolve
+            Asa "Ohh..."
+            "You pay little attention to her groans as you thrust inside her."
+            with hpunch
+            Z "Mgh.."
+            with hpunch
+            Asa "Mh... I can feel it..."
+            scene d14b-107
+            with dissolve
+            "Cum flows out of her ass as you climax violently..."
+            Z "Fuck..."
+            Z "Your ass is addicting."
+            scene d14b-109
+            with fade
+            Asa "Mh... and so are your visits, [persistent.player_name]..."
+            Asa "I shall look forward to our next time."
+            scene d14b-110
+            with dissolve
+            jump d14b111
+
+
+label d14b111:
+    scene black pic
+    with fade
+    if _in_replay:
+        $ renpy.end_replay()
+    "Afterwards, you spend some time cleaning up the mess you made, and exchanging flirty nothings."
+    "It's like Asani said... You came here so you could fuck each others' brains out, and spending many words on the deed or on your different lifestyles is pointless, once you are satisfied."
+    "Both of you having got what you came for, you resolve to leave, but still can't leave things unsaid."
+    scene d14b-111
+    with fade
+    Z "If you ever leave this place, let me know before you do, ok?"
+    scene d14b-112x
+    with dissolve
+    Asa "Oh, don't concern yourself about that, babe. Not that I intend to move anytime soon."
+    scene d14b-112
+    with dissolve
+    scene d14b-113
+    with dissolve
+    Z "Remember, Asani. The offer still stands. I can help you get out of here."
+    Z "Just give me the word."
+    scene d14b-114x
+    with dissolve
+    Asa "Don't you worry about me, [persistent.player_name]."
+    Asa "I'm not a small girl, I can take care of myself. You will see, next time you visit me."
+    scene d14b-114
+    with dissolve
+    Z "Alright then..."
+    Z "Until next time, Asani. And be careful... of who you let inside."
+    scene d14b-115
+    with dissolve
+    Asa "..."
+    scene black pic
+    with slowfade
+    "You drive home..."
+    jump mission_end
+
+label d14c:
+    $ daily_main_mission = True
+    $ m_d14c = True
+    Z "I am ready to return to Abrax. I need answers."
+    Z "And I will get them."
+    Z "About the glowing object... about the Scorched Earth project. About what my old master is planning."
+    scene black pic
+    stop music fadeout 2
+    with fade
+    "Later, somewhere in Old Cairo..."
+    play music_1 "audio/sounds/environment/train station.mp3" fadein 2 volume 0.2
+    play music "audio/music/decayed/dead city.mp3" fadein 1 volume 0.6
+    scene d14c-1-anim
+    with w33slow
+    pause 2
+    scene d14c-2-anim
+    with Dissolve(0.5)
+    pause 3.6
+    scene d14c-3
+    with w33slow
+    stop music_1 fadeout 10
+    Dec "Lord Abrax? He is not here."
+    Z "I need to speak to him. I am...-"
+    Dec "I know who you are. He is waiting for you."
+    Dec "But as I said, he is not around."
+    Dec "Follow the road back outside. Head to the west. Drive past the red crater, you will see a living area."
+    Dec "The Lord spends his time there, contemplating."
+    Z "..."
+    scene black pic
+    with fade
+    play music "audio/music/decayed/scorched earth.mp3" fadeout 4
+    "You follow his directions. You drive past a red crater you heard stories about, until you see what remains of an apartment complex."
+    "A long while later, you reach your destination, and finally see figures on the rooftops. Shadows engulfed into an ever darkening red sky."
+    scene d14c-6
+    with w33slow
+    "The sea of smog that plagues these lands is deadly. Here however, at the summit of the building, after having climbed many stairs, you find that the cloud lingers beneath you, intangible."
+    "At least, you think, you are prepared. You brought a mask to protect yourself from the smog."
+    "But will it protect you from what you are about to learn?"
+    scene d14c-7
+    with fade
+    Z "{i}*heavy breathing*{/i}"
+    scene d14c-8
+    with fade
+    "As you turn to your left, familiar shapes are standing on the rooftop before you."
+    "Decayed, wrapped in loose cloth, wearing a defect hazard mask. You would feel intimidated, had you not seen much, much worse over the years."
+    Dec "We have been hearing of your arrival, Stalker."
+    Dec "Lord Abrax is expecting you."
+    scene black pic
+    with fade
+    "You climb further, stepping up to them."
+    scene d14c-9
+    with fade
+    Dec "Hand us your weapons and go meet him. Don't let the Lord wait."
+    Dec "We are watching you, Stalker [persistent.player_name]. No wrong moves."
+    scene d14c-10-anim
+    with fade
+    pause 5
+    LA "[persistent.player_name]. My old friend."
+    LA "Join us."
+    scene d14c-11
+    $ renpy.music.set_volume(0.5, delay = 3.0, channel="music")
+    with fade
+    Z "You have a lot to explain."
+    LA "I shall..."
+    LA "...but it means that your protege was successful, wasn't she?"
+    menu:
+        "\"A cylinder made of metal and glass, glowing with ominous light.\"":
+            Z "She did find something, yes."
+            Z "A cylinder made of metal and glass, glowing with ominous light."
+            LA "Then she has succeeded in her task. It was not a simple one, either."
+            LA "She takes after her [persistent.dad]'s success, then."
+            pause 0.8
+            Z "I need to know more about this object."
+
+        "\"She found a fair number of things.\"":
+            Z "She found a fair number of things."
+            Z "What {i}are{/i} you hoping she found? And what is it worth to you?"
+            LA "You've learned well to speak with caution, but there is no need to be cagey with me."
+            Z "I want to know more about what it is that you were after."
+
+        "\"(Lie) She was not.\"":
+            $ d14c_abrax_lie = True
+            Z "I am afraid she was not."
+            LA "..."
+            LA "Is that so? Maybe I overestimated her abilities..."
+            LA "Nevertheless, there are different paths that lead us to the goal we want to achieve."
+            pause 0.8
+            LA "There is always a different way... and everything, and everyone, can be replaced."
+
+    scene d14c-13
+    with dissolve
+    LA "The object that your pupil was tasked to find is centuries old, [persistent.player_name]."
+    pause 1.5
+    LA "As for its purpose...You will understand it in due time."
+    scene d14c-19
+    with fade
+    LA "The first journey through an emission intensive Zone can be life changing, and life ending."
+    LA "I congratulate your [persistent.da] on her success. She takes after you, so it seems."
+    scene d14c-21
+    with dissolve
+    LA "Anyway, you came seeking answers, and I did promise I will provide them..."
+    LA "But first...."
+    scene d14c-20
+    with dissolve
+    pause 1
+    scene d14c-22
+    with fade
+    LA "Take a good look at the city, [persistent.player_name]."
+    LA "What do you see?"
+    scene d14c-23
+    with dissolve
+    menu:
+        "\"The remains of a dead civlization.\"":
+            Z "The remains of a dead civilization long gone."
+            Z "All its advances, innovation and progress, lost with it."
+            pause 0.8
+            LA "As seen through the lens of whom?"
+            LA "A citizen of the great desert city of Zeta, who's only contact with the outside world are caravans and the occasional emissions coming from these very ruins?"
+            LA "Or seen through the lens of a man who travelled the lands, who has seen the impact and magnitude of what was lost?"
+            LA "A civilization gone for centuries... yes."
+            pause 0.5
+            LA "Gone forever... no."
+            pause 1
+            jump d14c24
+
+        "\"Cairo's mist is spreading unusually far outside the city.\"":
+            Z "Cairo's mist is spreading unusually far outside the city."
+            Z "And those emissions... they're rolling further out."
+            pause 1
+            LA "They are indeed."
+            jump d14c24
+    
+        "\"Possibilities, secrets and hidden treasures.\"":
+            Z "Possibilites, secrets and hidden treasures."
+            Z "But the remains of this city are too dangerous in some parts for even the most prepared adventurers."
+            LA "And secrets of value beyond anything that we could understand."
+            LA "I taught you to be curious of the unknown."
+            LA "And... you listened."
+            jump d14c24
+
+    label d14c24:
+        scene d14c-13
+        with fade
+        LA "Ruins like these are a curse to the living, [persistent.player_name]."
+        LA "For hundreds of years, we are told, the mist has been spreading from cities like this one."
+        scene d14c-14
+        with dissolve
+        LA "But the poisonous dust and smog... it never reaches far outside of them."
+        LA "Living beings that make it inside the city are doomed to vanish, or... in the case of the decayed, change forever."
+        scene d14c-15
+        with dissolve
+        Z "And they cease to be human."
+        Z "Cannibals, men and women who lose their morals, their ability to procreate, and who hunt people for food."
+        Z "And now, my old Master Zosar has become their leader."
+        Z "Help me make sense of it. I am not one of your students anymore. Who have you become to betray your own ways?"
+        LA "..."
+        scene d14c-17
+        with fade
+        LA "Wife... leave us."
+        scene d14c-18
+        with dissolve
+        Abrw "..."
+        scene d14c-16
+        with dissolve
+        Abrw "Yes, my Lord."
+        scene black pic
+        with fade
+        "She walks away, her head low..."
+        scene d14c-21
+        with fade
+        LA "I betrayed no one's ways or morals, [persistent.player_name]. Certainly not the ones I taught you all those years ago."
+        LA "The path of a Desert Stalker is to be open to the unknown. The Long Walk I took served this exact purpose."
+        scene d14c-20
+        with dissolve
+        pause 0.8
+        scene d14c-19
+        with dissolve
+        LA "No... what I have discovered, is a truth broader than what the explorers and founders of Zeta laid down for us in their codexes and laws."
+        LA "You judge and denounce the ways in which the people of Old Cairo provide for themselves, even as you know that its soil is barren, dead."
+        scene d14c-20
+        with dissolve
+        Z "People of Cairo? Everything about the decayed, your people, is unsustainable."
+        Z "Have you looked at yourself, Master...? You have become a living corpse, a shadow of what you once were."
+        scene d14c-21
+        with dissolve
+        LA "And you are right, in a way."
+        scene d14c-24
+        with fade
+        LA "We are the undead people in a dead world. We are not creating a new civilization, but rediscovering the dead and forgotten one, the one our forefathers have turned their backs on."
+        LA "And that, [persistent.player_name], was my Long Walk. To go where no living man ever went before. To find the reason why things are the way they are."
+        LA "But I presume you did not come here to argue about our ways."
+        LA "Let me ask you something [persistent.player_name]..."
+        LA "Have you ever wondered why the mist largely remains in close proximity of the city? Surely you have been close to the outskirts often enough to observe that the mist is continuously building up."
+        scene d14c-20
+        with fade
+        Z "I have noticed that, yes, but it's one of those things that just are... I guess that the Holy Storms happen often enough to prevent the mist from expanding too much."
+        scene d14c-21
+        with dissolve
+        LA "Yes, but why is that?"
+        scene d14c-20
+        with dissolve
+        Z "It just is. Why does the Sun burn our skin and heat the sand of the desert? Why do birds fly?"
+        scene d14c-21
+        with dissolve
+        LA "Precisely. Natural phenomena tend to be accepted and discarded. A storm is coming, because it is coming."
+        LA "The area around Cairo is uninhabitable, because it has always been like that. The red mist is what it is, and we are lucky that the storms slow it down."
+        scene d14c-25
+        with fade
+        LA "In fact, that's why we started calling them Holy Storms in the first place."
+        LA "Such is the human condition. When something becomes a daily occurrence, we blame the gods, find shelter, make do and move on."
+        pause 0.5
+        LA "For decades, centuries, we have been told the lie that we should accept things as they are because we cannot pierce the veil of what is unknown."
+        LA "A lie concocted because our ancestors who caused the End of Days couldn't own up to their mistakes."
+        LA "So we rebuilt a dream, the vision of a few broken minds who salvaged what they could and tried to build a world according to what they thought of as a happier, and simpler, time."
+        LA "Most importantly, we were told that it is what it is and we cannot, {i}should not{/i} change anything."
+        LA "Technology, knowledge, the old ways were vilified. We are told to not repeat the mistakes of the past again."
+        LA "But I have discovered the reason why things are the way they are... and finding out demanded an enormous sacrifice."
+        scene d14c-19
+        with dissolve
+        LA "A sacrifice greater than my own self."
+        LA "But now I understand more..."
+        scene d14c-21
+        with dissolve
+        LA "...about the scorched earth we are standing on."
+        play sound "audio/sounds/environment/thunder 2.mp3" volume 0.7
+        $ renpy.music.set_volume(1, delay = 5.0, channel="music")
+        play music_1 "audio/music/background/thunder ambience.mp3" fadein 3 loop
+        scene d14c-20
+        with dissolve
+        pause 2
+        scene d14c-25x
+        with Dissolve(1.0)
+        LA "Look up, old friend. It is starting..."
+        scene d14c-24
+        with dissolve
+        scene d14c-24x
+        with Dissolve(2.0)
+        scene d14c-24x-2
+        with Dissolve(2.0)
+        LA "What we are witnessing right now, [persistent.player_name]... is not nature following the rules of a post-apocalyptic world."
+        scene d14c-26
+        with fade
+        scene d14c-27
+        with Dissolve(1)
+        Z "A Holy Storm... the mist is fading away."
+        scene d14c-28
+        with dissolve
+        LA "It did not fade away. It was repressed."
+        scene d14c-27
+        with dissolve
+        pause 0.5
+        scene d14c-29
+        with fade
+        LA "Nothing you are seeing is natural. Neither the storm itself, nor the red mist."
+        LA "Those so-called Holy Storms of yours, are neither holy, nor divine, no matter what the Temple teaches and would like for your people to believe otherwise."
+        LA "No, they are the product of a relic... of times long past, from before the End of Days, named after an Egyptian god of the sun and sky."
+        Zt "The Horus system..."
+        Z "How can something like this... last for centuries."
+        LA "There are many relics of the old world out there, you should know that better than most."
+        LA "Relics they may be, but they can still have an influence over our world, they {i}do{/i} still influence our world."
+        if d14c_abrax_lie == False:
+            LA "You have seen the artifact. You have held it in your hands. You have felt the undying energy it radiates."
+        else:
+            LA "It's unfortunate that your pupil never found the object. If she had, you would have touched it with your hand, experience for yourself the energy it radiates."
+        Z "..."
+        Z "A power source..."
+        "You stay silent. The notion of a system to control the storms perturbs you..."
+        pause 0.8
+        LA "When the right time comes, we may once again gain control over those relics our ancestors left behind."
+        LA "We will put an end to what denies us access to our lost civilization... to the unnecessary wars we fight, and to the scarcity that rules over this world."
+        Z "..."
+        pause 0.8
+        LA "[persistent.player_name], you are standing at a crossroads."
+        pause 2
+        LA "I invite you to visit me again soon."
+        pause 1
+        menu:
+            "\"Why would I...\"":
+                Z "Why would I..."
+                LA "To learn. To observe, and not merely judge from a safe distance."
+                Z "Your ways make it difficult, old Master."
+                LA "Judgement. Disgust, even. Yet you are not above taking advantage of my people's labour and goods for years."
+                LA "Be that as it may, I believe that you will keep an open mind."
+                Z "..."
+            
+            "\"I could tell the Palace about this.\"":
+                Z "I could tell the Palace about this."
+                LA "You are welcome to do so."
+                LA "Maybe the Queen believes you."
+                LA "Or maybe years of indoctrination will make her dismiss your claims as fairytales."
+                if d14c_abrax_lie == False:
+                    LA "What will you confront her with? Will you show her a device whose purpose and physical destination are unknown to you? An item she is most likely going to confiscate?"
+                    LA "And should your Elders find out you possess ancient technology... people have been branded as traitors for less."
+                else:
+                    LA "And what will you confront her with? The unconfirmed rumor about an object that you don't possess, that is somehow tied to a machine from the past that you don't know where to find?"
+                Z "..."
+        stop music fadeout 10
+        LA "The knowledge I imparted on you is not something that can be shared with just anyone lightly."
+        LA "You can walk away if you want. But doing so will preclude you any further understanding of what you have learned today."
+        LA "You will not help the cause of the decayed by seeing their way, nor will you help your Queen's cause by being ignorant of it, either."
+        pause 1.5
+        LA "I have said enough, [persistent.player_name]. I will await your return."
+        pause 1
+        "As you stand there, together on the edge of a crumbling building, you consider your options and what to make of the revelations of this day."
+        if mq_d_1.current_step == 6:
+            $ mq_d_1.complete()
+            $ mq_d_1.resolution = _("It seems the red mist of Cairo and the holy storms we witness every now and then both share a man-made origin. But to what end?\nI wanted answers, and I got at least some of them, but at the same time more questions arise. The artifact seems to be an important part of this, though I don't yet know exactly how.\nAbrax was quick to share what he knows and invited me to see him again. But for what purpose? Only time will tell.")
+        "What do they mean for Zeta? And what do you make of your former master's intentions? How much of what he told you is truth, and how much of his true intentions has he yet to reveal?"
+        "His silence confirms to you that this audience has come to an end. You almost smile, as your mind goes to countless lessons of the past that would end just as abruptly and unceremoniously."
+        "You take a few steps back, without saying a word to Lord Abrax, who seems lost in thought, before turning around towards the stairs, ready to leave this place."
+        $ check_for_achievements()
+        stop sound fadeout 3
+        stop music fadeout 3
+        stop music_1 fadeout 3
+        scene black pic
+        with slowfade
+        jump daily_home
+
+label d14d:
+    $ m_d14d = True
+    play music "audio/music/zeta/zetan suspense.mp3" fadeout 1
+    $ renpy.music.set_volume(0.6, delay = 4.0, channel="music")
+    show d13i-13-anim
+    with w33slow
+    pause 2.5
+    scene d14d-1
+    with w33slow
+    G "My Queen... Stalker [persistent.player_name] enters the temple."
+    Q "Let him through."
+    scene d14d-2
+    with fade
+    Q "Hello again, [persistent.player_name]. Give me one second."
+    scene d14d-3
+    with dissolve
+    Q "You two can leave." 
+    scene d14d-4
+    with fade
+    Q "I'm glad you considered my proposal, there is work waiting for us."
+    if d13l_thermae_fun == False:
+        jump palace_throne_menu
+    else:
+        scene d14d-5
+        with dissolve
+    Q "Although..."
+    scene d14d-6
+    with dissolve
+    Q "I know a place that is better suited for more... strategic discussions."
+    Q "It's best we speak somewhere more private."
+    scene d14d-8
+    with fade
+    Z "Alright then... lead the way."
+    scene d14d-9
+    with dissolve
+    Q "Follow me."
+    scene d14d-10
+    with dissolve
+    scene d14d-11
+    with w33slow
+    Q "Listen, [persistent.player_name]..."
+    Q "Before you start, I have to make something clear."
+    scene d14d-12
+    with w33slow
+    Q "What happened last time, cannot be repeated."
+    scene d14d-13
+    with dissolve
+    Z "I didn't expect such a change of tone."
+    scene d14d-16
+    with fade
+    Q "What happened between your [persistent.da], you and me was an exception."
+    Q "You lured me into a behaviour I can under no circumstances display to any of my temple staff, let alone the public."
+    scene d14d-15
+    with dissolve
+    Z "But... you enjoyed it, right?"
+    Z "It's not like I forced you to participate."
+    scene d14d-14
+    with dissolve
+    Q "You did not... and I never... claimed otherwise..."
+    Q "That is not the point in the first place..."
+    scene d14d-15
+    with dissolve
+    Z "I understand very well what you want to tell me. This is about control."
+    scene d14d-17
+    with dissolve
+    Z "You are the Queen, after all. The Elders, and yourself, have created an image of a pure, uncorrupted, and yet fierce Queen."
+    Z "You cannot be seen having a moment of weakness, not being in control in any circumstance, however intimate." 
+    scene d14d-18
+    with fade
+    Z "Your secrets are safe with me, always."
+    scene d14d-19
+    with dissolve
+    Q "It is still important to me to hear that we understand each other, [persistent.player_name]."
+    Q "...important to hear it from your voice, that you would not put yourself and me by extention, in danger."
+    scene d14d-21
+    with dissolve
+    Z "And so you did. As for these matters, your secret is safe with my indifference."
+    Z "I do not care to let the world know the shape of the Queen's quiver in her lip."
+    Z "And if I did, I stand to lose so much more than just my life for doing so. You can trust my survival instincts."
+    scene d14d-22
+    with dissolve
+    Q "I guess that is true..."
+    scene d14d-14
+    with dissolve
+    Q "But be warned, Stalker. You are not irreplaceable... Do not presume too much."
+    scene d14d-16
+    with dissolve
+    Q "It would be a pity to have to... demote you and your family."
+    scene d14d-15
+    with dissolve
+    if queen_dominant == True:
+        Zt "She seems to be surprised at what she just said. It was less of a threat, and more of a warning."
+        Zt "She must be concerned about her image. Giving me such a stark warning was something she did not want to do."
+    else:
+        Zt "A sweet attempt to regain control. Her expression shows that she did not mean anything of what she just said."
+        Zt "However, she is concerned about her image, which I understand."
+    scene d14d-23
+    with dissolve
+    Sh "My Queen? I have been given notice of the Stalker's visit. Is he with you?"
+    scene d14d-24
+    with dissolve
+    Q "One moment, Sharifa..."
+    Q "I am on my way."
+    if queen_dominant == True: #dominant queen
+        scene d14d-26
+        with dissolve
+        "She walks towards the door, flashing a brief smile..."
+        scene d14d-29
+        with fade
+        Q "..."
+        scene d14d-29x
+        with dissolve
+        "She smiles, reassured..."
+        scene d14d-37
+        with dissolve
+        "...and places her hand on your chest..."
+        scene d14d-38
+        with dissolve
+        Z "..."
+        scene d14d-39
+        with dissolve
+        pause 1.5
+        scene d14d-40
+        with dissolve
+        Q "..."
+        Sh "My Queen?"
+        scene d14d-41
+        with dissolve
+        jump d14d42
+
+    else:
+        scene d14d-25
+        with dissolve
+        "She walks towards the door, looking at you, something of a sour expression on her face..."
+        menu:
+            "Check her out":
+                scene d14d-27
+                with dissolve
+                "A private audience without taking a better look at the Queen?"
+                scene d14d-29
+                with dissolve
+                pause 1
+                scene d14d-28
+                with dissolve
+                Q "..."
+                "That stare, it has become familiar to you..."
+                scene d14d-30
+                with dissolve
+                pause 0.6
+                scene d14d-31
+                with dissolve
+                Q "...!"
+                scene d14d-32
+                with dissolve
+                "She looks at you, only marginally surprised..."
+                scene d14d-33
+                with dissolve
+                Qw "[persistent.player_name]..."
+                scene d14d-34
+                with dissolve
+                Q "..."
+                scene d14d-35
+                with dissolve
+                pause 0.8
+                scene d14d-36
+                with dissolve
+                Qw "Stop it..."
+                "That was not a convincing retort..."
+                jump d14d42
+
+            "Don't":
+                jump d14d42
+
+label d14d42:
+    scene d14d-42
+    play sound "audio/sounds/doors/door closed.mp3"
+    with slowfade
+    Sh "My Queen, I am here for you."
+    Sh "It is inappropriate for a mere soldier to enter your private chambers without a chaperone..."
+    scene d14d-43
+    with dissolve
+    Q "{i}*sigh*{/i} Sharifa..."
+    scene d14d-44
+    with dissolve
+    Q "Stalker [persistent.player_name] has almost sacrificed his [persistent.da]'s life for me, don't you think he deserves a little trust?"
+    Q "Or do you think you are the only one who deserves a private audience... Sharifa?"
+    Q "Do I need to remind you of the privileges you enjoy, compared to other guards?"
+    scene d14d-45
+    with dissolve
+    Sh "No... my Queen. I apologize. I just think that..-"
+    scene d14d-46
+    with dissolve
+    Q "[persistent.player_name], follow me into the throne room. We will further discuss the tasks I told you about."
+    scene black pic
+    stop music fadeout 3
+    with fade
+    "Interrupting her personal guard's subdued manifestation of jealousy, you follow the Queen into her throne room."
+    jump palace_throne_menu
+
+
+label d14e:
+    $ m_d14e = True
+    $ d14e_day = day
+    if settlement_alignment > 0:
+        scene d14e-1
+        with slowfade
+    elif settlement_alignment <= 0:
+        scene d14e-1x
+        with slowfade
+    Ky "Look who's here."
+    if settlement_alignment > 0:
+        scene d14e-2
+        with dissolve
+    else:
+        scene d14e-2x
+        with dissolve
+    Ky "Hey [persistent.player_name], I've seen you driving by."
+    Ky "Before you sit down, I've got a favor to ask you."
+    if settlement_alignment > 0:
+        scene d14e-3
+        with dissolve
+    else:
+        scene d14e-3x
+        with dissolve
+    Z "What could that be..."
+    if settlement_alignment > 0:
+        scene d14e-4
+        with dissolve
+    else:
+        scene d14e-4x
+        with dissolve
+    As "Hey boss."
+    if settlement_alignment > 0:
+        scene d14e-5
+        with dissolve
+    else:
+        scene d14e-5x
+        with dissolve
+    Z "What's up, kid."
+    if settlement_alignment > 0:
+        scene d14e-6
+        with fade
+    else:
+        scene d14e-6x
+        with fade
+    Ky "We've been busy shaping up this place. The guys from the towers have given us some souveniers... you get the idea."
+    Ky "These quarters at least feel a bit closer to home, now."
+    if settlement_alignment > 0:
+        Ky "We're not giving free handouts to the motherfuckers who work here, but we're not squeezing their last drops either."
+        Ky "The workers started noticing it, and they've been reaching out with ways to improve our mutual situation."
+        Ky "There's even some trading going on..."
+        Ky "{i}*sigh*{/i} I thought I'd complain... but the food... it's good grub."
+        Ky "I never thought I had talent for more than tearing people's insides up and feeding them to them."
+    else:
+        if settlement_bathtub_worker_helped == False:
+            Ky "You know how to squeeze any last drop out of these people, I've got to give you that. Last thing that's missing is a shock collar policy, {i}*laughs*{/i}."
+            Ky "Which brings me to our new stuff. People need to know their place, so they won't act up."
+        else:
+            Ky "Quite the settlement we've got now, don't we? Desperate wastelanders doing our bidding, just so we don't turn them out to starve in the dunes."
+            Ky "I mean, somebody has to be at the bottom of the foodchain and it sure as fuck isn't going to be me. But hey, at least they've got some new rights they didn't have before."
+            Ky "Still... people need to know their place, so they won't act up."
+
+        Ky "I feel like the new decor will help making them think twice before acting up when they enter this room."
+        Ky "Other than that... my guys started forming small raiding parties again."
+        Ky "Not going to lie, I don't mind not being on the frontline for once. This place ain't so bad. I could get used to this."
+    if settlement_alignment > 0:
+        scene d14e-7
+        with fade
+    else:
+        scene d14e-7x
+        with fade
+    Ky "Also, you've got to change your outfit. That fine city shit won't get you any respect on this bridge."
+    if settlement_alignment > 0:
+        scene d14e-3
+        with dissolve
+    else:
+        scene d14e-3x
+        with dissolve
+    Z "{i}*laughs*{/i} Alright. Show me what you got."
+    if settlement_alignment > 0:
+        scene d14e-8
+        with dissolve
+    else:
+        scene d14e-8x
+        with dissolve
+    "She looks down, pointing you towards the bed next to you..."
+    scene d14e-9
+    with fade
+    "A crate lies under it, full of clothes, you imagine."
+    Ky "Try... I want to see you wearing it."
+    scene black pic
+    with fade
+    "Some minutes later..."
+    scene d14e-10
+    with w33slow
+    Z "No shirt, huh. You guys like to fight naked?"
+    Ky "Don't worry about that, sweetie... I've got some armor prepared for us."
+    scene d14e-11
+    with dissolve
+    Zt "Blades, bones and tribe insignia... not bad."
+    Ky "{i}*giggles*{/i}"
+    scene d14e-12
+    with dissolve
+    Ky "Lower your hands, show me everything..."
+    Ky "Yeah... that's how I imagined it."
+    scene d14e-13
+    with dissolve
+    pause 0.5
+    scene d14e-14
+    with dissolve
+    As "What's happening, you imagined what..-"
+    scene d14e-15
+    with dissolve
+    As "Whoa... Boss..."
+    scene d14e-16
+    with fade
+    Ky "Raider [persistent.player_name]..."
+    Ky "Not bad at all... anyways... that's all I needed from you."
+    Ky "Welcome back to the overpass. Asha and I are glad to have you back."
+    if d10b_asha_kyra_sex == True:
+        scene d14e-17
+        with dissolve
+        Ky "Also... let me know when you want to have some fun again."
+        Ky "I've grown to like your ways, old man..."
+    scene d14e-18
+    if mq_r_2.current_step == 3:
+        $ mq_r_2.advance()
+    with dissolve
+    scene black pic
+    with w33slow
+    jump raiders_command_center
+
+label d14f_part_1:
+    $ m_d14f_part_1 = True
+    scene d14f-1x
+    play music "audio/music/raiders/mechanical dusk.mp3" fadeout 2 volume 0.8
+    with slowfade
+    Rai "I SAID DROP YOUR WEAPON, FREAK!"
+    C2 "Haheh, hahaheh. Me? Nooo!!"
+    scene d14f-3
+    with fade
+    C2 "I will not be the one who does so, no. No, no, no..."
+    scene d14f-4
+    with dissolve
+    C2 "YOUU will be the one dropping it, yes yes!"
+    scene d14f-5
+    with dissolve
+    C "..."
+    C2 "She is one of yours, yes? So I will set an example."
+    scene d14f-6
+    with dissolve
+    C2 "Yes... I am the example. I am the ambassador."
+    scene d14f-7
+    with dissolve
+    C2 "I am here to bring a message..."
+    scene d14f-8
+    with hpunch
+    C2 "THE LEGION IS COMING!!!"
+    scene d14f-8x
+    with dissolve
+    Rai "We're going to put you down, freak! Last warning!"
+    scene d14f-8
+    with hpunch
+    C2 "THEN SHOW ME WHAT YOU GOT, WASTELANDER!!"
+    scene d14f-9
+    with Dissolve(0.3)
+    C2 "SOON, THE LEGION WILL DEVOUR YOU ALL!!"
+    C2 "SEKHMET LIVES!!"
+    scene d14f-10
+    with Dissolve(0.5)
+    C2 "WE ARE SEKHMET'S LEGION!!!"
+    C2 "LET CHAOS REIGN!!"
+    play sound "audio/sounds/objects/sword slash big.mp3"
+    if persistent.gore == True:
+        scene d14f-11-anim
+    else:
+        scene black pic
+    with hpunch
+    C2 "...!"
+    scene d14f-13
+    with Dissolve(0.3)
+    Rai "I've got him. Open the gate!"
+    scene d14f-14
+    with dissolve
+    C2 "Nghn..."
+    if mq_r_2.current_step == 4:
+        $ mq_r_2.advance()
+    stop music fadeout 3
+    scene black pic
+    with slowfade
+    jump raiders_command_center
+
+    label d14f_part_2:
+        $ m_d14f_part_2 = True
+        if settlement_alignment > 0:
+            scene vr-11
+        else:
+            scene vr-11x
+        with fade
+        Z "I heard something happened at the gate."
+        Z "Care to bring me up to speed?"
+        if settlement_alignment > 0:
+            scene vr-12
+        else:
+            scene vr-12x
+        with dissolve
+        Ky "Yes. One of our patrols got attacked. Only Nia surived, just about."
+        if settlement_alignment > 0:
+            scene vr-13
+        else:
+            scene vr-13x
+        with dissolve
+        Ky "The medic is seeing her now."
+        Ky "These legion assholes..."
+        if settlement_alignment > 0:
+            scene vr-14
+        else:
+            scene vr-14x
+        with dissolve
+        Z "Legion? What legion?"
+        if settlement_alignment > 0:
+            scene vr-15
+        else:
+            scene vr-15x
+        with dissolve
+        Z "I've heard of tribes around these regions. But legions?!"
+        if settlement_alignment > 0:
+            scene vr-16
+        else:
+            scene vr-16x
+        with dissolve
+        Ky "That's what they go by. I didn't give 'em that name."
+        Ky "And no, they can't even be considered a tribe. A bunch of creepy fanatics, degenerates, if anything."
+        if settlement_alignment > 0:
+            scene vr-13
+        else:
+            scene vr-13x
+        with dissolve
+        Ky "...Could be they moved, or their numbers have grown. I can't really explain this incursion in any other way."
+        if settlement_alignment > 0:
+            scene vr-14
+        else:
+            scene vr-14x
+        with dissolve
+        scene vr-18
+        play sound "audio/sounds/doors/door slam.mp3"
+        with hpunch
+        pause 0.5
+        Zi "Alright. "
+        extend "What. "
+        extend "The fuck. "
+        extend "Happened out there?!"
+        scene d14f-15
+        with fade
+        Zi "What did they do to Nia?!?"
+        Ky "Sekhmet's legion, Zion. They raided one of our patrols."
+        scene d14f-16
+        with dissolve
+        Zi "Ngghrr..."
+        with hpunch
+        Zi "FUCK!"
+        if settlement_alignment > 0:
+            scene d14f-17
+        else:
+            scene d14f-17x
+        with dissolve
+        Zi "How is she? Tell me she survived!"
+        Zi "And where is the fucker who attacked her!?"
+        if settlement_alignment > 0:
+            scene d14f-18
+        else:
+            scene d14f-18x
+        with dissolve
+        Ky "She's being treated, but she took a beating."
+        Ky "The fucker who did it is dead and burning. He actually marched her to the gate."
+        Ky "Said he wanted to make a statement, or some shit."
+        scene d14f-19
+        with fade
+        Zi "This doc better take good fucking care of her!"
+        Zi "If it really was these fuckers, they must've moved. No way those guys are expanding."
+        Zi "I will go find them."
+        scene d14f-20
+        with fade
+        Ky "Zion... you can't just go out there. What if you get caugh-"
+        scene d14f-21
+        with hpunch
+        Zi "THEN SEND SOMEONE ELSE, OKAY?! WHATEVER YOU DO, I WANT TO... WE HAVE TO KNOW WHERE THEY ARE."
+        Zi "And don't send Asha! She will only get herself caught again!"
+        play sound "audio/sounds/doors/door slam.mp3"
+        with hpunch
+        Ky "..."
+        if settlement_alignment > 0:
+            scene vr-13
+        else:
+            scene vr-13x
+        with fade
+        Ky "Well, shit."
+        if settlement_alignment > 0:
+            scene vr-14
+        else:
+            scene vr-14x
+        with dissolve
+        menu:
+            "I like when they show spirit":
+                Z "What got her so upset?"
+                Z "I like when they show some character."
+                if settlement_alignment > 0:
+                    scene vr-10
+                else:
+                    scene vr-10x
+                with dissolve
+                Ky "I know right? The bitch could run a car on her anger alone." 
+                Ky "She wasn't always like that."
+
+            "What an insufferable bitch":
+                Z "What an insufferably loud bitch."
+                Z "Then again, she seemed to care about your companion. That's a first... what happened?"
+                if settlement_alignment > 0:
+                    scene vr-12
+                else:
+                    scene vr-12x
+                with dissolve
+                Ky "Well, let's say she has gone through some shit."
+                if settlement_alignment > 0:
+                    scene vr-10
+                else:
+                    scene vr-10x
+                with dissolve
+                Ky "I mean, she does fit in with the rest of us. We're not exactly the quiet types."
+                
+        if settlement_alignment > 0:
+            scene vr-12
+        else:
+            scene vr-12x
+        with dissolve
+        Ky "Anyways, if you want to know why she acts like that, you should ask her."
+        Ky "I don't want to tell her story for her and get on her bad side."
+        if settlement_alignment > 0:
+            scene vr-10
+        else:
+            scene vr-10x
+        with dissolve
+        Ky "She lives next door, if you're wondering."
+        if settlement_alignment > 0:
+            scene vr-13
+        else:
+            scene vr-13x
+        with dissolve
+        Ky "I imagine she'll be tearing Casanova's ass apart."
+        if settlement_alignment > 0:
+            scene vr-14
+        else:
+            scene vr-14x
+        with dissolve
+        Zt "Let's see what happens..."
+        scene black pic
+        stop music fadeout 3
+        with fade
+        "You leave the shack, take a turn and march towards where you expect to find Zion..."
+        scene d14f-22
+        with w33slow
+        Zi "Talk to me, you disgusting creature!"
+        play sound "audio/sounds/objects/sword pull clash.mp3"
+        pause 0.5
+        scene d14f-23
+        play music "audio/music/raiders/atilla.mp3"
+        with hpunch
+        Zi "I SAID TALK TO ME!"
+        Ca "I don't... girlfriend, no!"
+        scene d14f-24
+        with dissolve
+        Zi "Where could they be now?! You must know something!"
+        scene d14f-25
+        with dissolve
+        Zi "There are still some bodyparts you could lose, boyfriend..."
+        scene d14f-26
+        with dissolve
+        Ca "How pretty she is, my princess of rust and ruin, playing merry games with the blades!!!"
+        Ca "What will she take this time, my Goddess of Pain?"
+        Ca "Look how she teases me with the sword...!"
+        scene d14f-27
+        with dissolve
+        Ca "A throne of sand and bone, for my beloved..."
+        scene d14f-28
+        with dissolve
+        Zi "You're fucking useless, you know that?!"
+        scene d14f-29
+        with dissolve
+        Zi "I should cut off your nose, too. Maybe that will bring some sense in you."
+        scene d14f-30
+        play sound "audio/sounds/doors/door closed.mp3"
+        with dissolve
+        $ renpy.music.set_volume(0.1, delay = 3.0 , channel="music")
+        Z "Anyone here?"
+        scene d14f-31
+        with fade
+        Zi "The fuck do you want here?!"
+        Z "I have questions."
+        Zi "And why should I care, city fuck?! Go back to being Kyra's toy."
+        Z "Fuck off, Zion. Get your knickers out of your snatch and cool the attitude."
+        Z "This is about as much my place as it is yours, and I am looking out for everybody here."
+        Z "One of the patrols just got done in, and I want some answers!"
+        Ca "HOW RUDE IS THE VOICE OF THE INTRUDER!? IT GRATES US AND ANGERS THE BROKEN QUEEN OF-...!"
+        Zi "Shut the fuck up, Casanova..."
+        scene d14f-32
+        with fade
+        Zi "{i}*sigh*{/i}"
+        scene d14f-33
+        with fade
+        "She throws herself on the couch, and you give her a moment to collect herself, until she continues..."
+        scene d14f-36
+        with fade
+        Zi "Listen, I am still trying to find out what to do about it, alright?"
+        scene d14f-35
+        with dissolve
+        Zi "This shitstain on the wall... Sekhmet's Legion was his family, once."
+        Zi "Fuck the Legion. Raiders, that's what they are really, just like us, except a whole lot more crazy."
+        scene d14f-37
+        stop music fadeout 4
+        with dissolve
+        Zi "{i}*sigh*{/i}"
+        Zi "You know what? Screw it..."
+        scene d14f-38
+        with dissolve
+        Zi "Hey, boyfriend..."
+        Ca "She... acknowledges me! Speak, my love, how can I serve?"
+        Zi "Why don't you tell him your story?"
+        $ renpy.music.set_volume(1, channel="music")
+        Ca "T-the whole story?! O-of course, love!! I will!!"
+        show screen cutscene_marker
+        hide screen toggle_ql
+        $ persistent.quick_menu = False
+        if persistent.gore == True:
+            show d14f-39-95-anim
+        else:
+            show d14f-39-95x-anim
+        with fade #1.0
+        pause 0.3
+        Mov "I will tell him the tale...{w=3}{nw}" #4.3
+        pause 1.8 #6.1
+        Mov "...A TALE...OF PAAAIN!!!{w=2.0}{nw}" #8.1
+        pause 2 #10.1 
+        Mov "Turn did the wheels, on our way to our prize.{w=3}{nw}" #13.1
+        pause 2.5 #15.6
+        Mov "Two-Scythes and Skull Plate on a run for supplies!{w=3}{nw}" #18.6
+        pause 2.5 #21.1
+        Mov "They were aiming to fleece, but I have made my peace...{w=3}{nw}" #24.1
+        pause 3.3 #27.4
+        Mov "I was there for my love, for my sweet little dove!{w=3}{nw}" #30.4
+        pause 19.1 #49.5
+        Mov "Away we would go, leaving all things behind!{w=2.5}{nw}" #52
+        pause 1 #53
+        Mov "We drove to my father, with joy in our mind!{w=2.5}{nw}" #55.5
+        pause 12.6 #68.1
+        Mov "The head of the Legion, my father he was.{w=2.0}{nw}" #70.1
+        pause 0.5 #70.6
+        Mov "He welcomed my girl with a round of applause!{w=3.0}{nw}" #73.6
+        pause 2 #75.6
+        Mov "He listened and listened and seemed to care.{w=3}{nw}" #78.6
+        pause 1.5 #80.1
+        Mov "BUT HE HAD OTHER PLAAANS!! AND I FAILED TO BEWARE!!!{w=3}{nw}" #83.1
+        pause 13.1 #96.2
+        Mov "HE WANTED TO MAKE HER A WEAPON IN PAIN...{w=2.5}{nw}"  #98.7
+        pause 1.5 #99.7
+        Mov "MY PLEADING UNHEADED, WHISPERED IN VAIN!!{w=2.5}{nw}"  #102.2
+        pause 29.5 #132.2
+        Mov "A COWARD, A WORM, A CREATURE OF SHAME...{w=2.5}{nw}" # 135.7
+        pause 0.5 #136.2
+        Mov "FOR THE LOSS OF A LIMB ONLY I AM TO BLAME!!{w=3}{nw}" # 139.2
+        pause 3.5
+        hide screen cutscene_marker
+        show screen toggle_ql
+        $ persistent.quick_menu = True
+        pause 0.5
+        scene d14f-39x
+        with slowfade
+        Zi "Such an emotional storyteller..."
+        scene d14f-34
+        play music "audio/music/raiders/dominance.mp3" fadein 3 volume 0.3
+        with fade
+        Zi "...makes me want to rip out your vocal chords."
+        scene d14f-35
+        with fade
+        Zi "Now you know everything. Happy?!"
+        menu:
+            "\"I'm sorry that happened to you.\"":
+                Z "I'm sorry that happened to you."
+                scene d14f-38
+                with dissolve
+                Zi "Oh no, a guy I barely know is sorry for me!"
+                scene d14f-36
+                with dissolve
+                Zi "Fat lot of good that does to me!"
+
+            "\"You didn't see any of this coming?!\"":
+                Z "And you didn't see any of this coming?"
+                Z "Blindly following this guy and his psychopathic friends?!"
+                scene d14f-36
+                with dissolve
+                Zi "Why don't you tell that to the other girls in the village who all died, huh?!"
+                scene d14f-38
+                with dissolve
+                Zi "Nah... lessons learned, right Casanova?!"
+                Ca "Yes, my Princess of Pain. Yes! Lessons learned!"
+
+            "\"At least you still have one arm, and your tits...\"":
+                Z "Well, at least you kept your other arm... and your legs."
+                Z "...and your nice tits."
+                scene d14f-36
+                with dissolve
+                Zi "Yeah, fuck you too dipshit. Want to get closer?! Sucks too bad, you never will!"
+            
+        scene d14f-37
+        with dissolve
+        Zi "Now if you'll excuse me, I need to think about what to do about these amputated rats."
+        pause 0.5
+        scene d14f-36
+        with dissolve
+        Zi "Fuck off, will you?!"
+        if mq_r_2.current_step == 5:
+            $ mq_r_2.advance()
+            $ mq_r_2.resolution = _("Casanova may be unhinged, but he is not a bad storyteller.\nI now know about his and Zion's backstory, and how a tribe that names itself \"Sekhmet's Legion\" is connected to them.\nZion said that she will contemplate about what to do with the new threat.")
+        Z "What a fierce one."
+        scene black pic
+        with fade
+        "You return to Kyra's shack..."
+        jump raiders_command_center
+
+        
+label d14g:
+    $ m_d14g = True
+    $ introduction_fairy = True
+    if fairy_healed == True:
+        if introduction_kateryna == True or introduction_emilia == True:
+            if introduction_kateryna == True and introduction_emilia == False:
+                scene d14g-8x-2
+            elif introduction_kateryna == False and introduction_emilia == True:
+                scene d14g-8x-3
+            elif introduction_kateryna == True and introduction_emilia == True:
+                scene d14g-8
+            with slowfade
+            Z "Can I have everybody's attention? It is time for us to introduce a new member to this House. One you have all, recently, gotten to know somewhat."
+            Z "I will try to make it quick this time, but there are some things you need to know about her."
+        else:
+            scene d14g-8x
+            with slowfade
+            Z "Girls, we have come together to introduce a new member to this household."
+            Z "You have already met her, although under different circumstances."
+            Z "I will try to make this quick, but there are some things you need to know about her."
+        Z "[F], come to me."
+        if introduction_kateryna == True or introduction_emilia == True:
+            if introduction_kateryna == True and introduction_emilia == False:
+                scene d14g-9x-2
+            elif introduction_kateryna == False and introduction_emilia == True:
+                scene d14g-9x-3
+            elif introduction_kateryna == True and introduction_emilia == True:
+                scene d14g-9
+            with dissolve
+            
+        else:
+            scene d14g-9x
+            with dissolve
+        scene d14g-17
+        with fade
+        "She hurries into your arms..."
+        Z "First of all, [F] has changed since from when you first saw her."
+        if introduction_kateryna == True:
+            scene d14g-21
+        else:
+            scene d14g-21x
+        with dissolve
+        Z "When she first came to us she was a feral creature, and we had to keep her locked up for her own safety, and ours."
+        Z "[F] has gone through a lot. I rescued her from the heart of the Decayed's settlement."
+        Z "She suffered tremendous abuse there, which is why she acted the way she did and was reduced to almost not speaking."
+        scene d14g-18
+        with dissolve
+        Z "Years of enslavement and abuse have made it challenging for [F] to be independent."
+        Z "So, she herself has told me that she would like to remain a servant in this house."
+        Z "[F] is a kind soul, who is committed to do her best to serve our House and harbours no ill intent."
+        if introduction_kateryna == True:
+            scene d14g-5
+        else:
+            scene d14g-5x
+        with fade
+        Z "[F] will be a servant to the House, with the duties, responsibilities and rights that this position entails."
+        Z "Consider this, however: the [F] you have observed and toyed with in the basement is no longer. [F] has emerged from the basement, and joins us of her own free will."
+        Z "She is not the broken creature that first came here, and I will not have you treat her as anything less than what she is."
+        Z "Make her life in this household worth living; let her be a servant, but let's also give her the chance to fully heal."
+        if introduction_emilia == True:
+            scene d14g-3
+            with dissolve
+            Z "[E], as you are the maid, she will be under your responsibility and tutelage."
+            Z "Teach her all that she needs to learn."
+            scene d14g-4
+            with dissolve
+            E "Yes, of course, Master. I will take good care of her."
+            scene d14g-3
+            with dissolve
+            Z "Very well, I trust that you will."
+        scene d14g-18
+        with fade
+        Z "Now that this is done,..."
+        Z "[A] will show you to your quarters. Are you ready for a new beginning, [F]?"
+        scene d14g-19
+        with dissolve
+        F "Yes, Master. Thank you."
+        scene d14g-20
+        with dissolve
+        scene black pic
+        with slowfade
+        jump daily_home
+
+    else:
+        if introduction_kateryna == True or introduction_emilia == True:
+            if introduction_kateryna == True and introduction_emilia == False:
+                scene d14g-1x-2
+            elif introduction_kateryna == False and introduction_emilia == True:
+                scene d14g-1x-3
+            elif introduction_kateryna == True and introduction_emilia == True:
+                scene d14g-1
+            with slowfade
+            Z "Girls, we have come together to introduce a new member to the household."
+        else:
+            scene d14g-1x
+            with slowfade
+            Z "Everyone, we have come together to introduce a new member to this household."
+            Z "I will try to make it quick this time, but there are some things you need to know about her."
+        Z "You have already met her, although under different circumstances."
+        Z "I will try to make this quick, but there are some things that need to be said."
+        menu:
+            "Commend her":
+                Z "[F], come to me."
+                if introduction_kateryna == True:
+                    scene d14g-10
+                else:
+                    scene d14g-10x
+                with fade
+                Z "Girls, you know that when I took [F] in from the Decayed, she was broken, reduced to a feral creature acting purely out of a constant fear of death."
+                Z "In time however, it was revealed that her condition was a refuge, a temporary state from which she was able to recover."
+                Z "Thanks to [W]'s ministrations and dedication, you are back on your feet now, [F], and we are happy to see how you have turned a new page."
+                if introduction_kateryna == True:
+                    scene d14g-11
+                else:
+                    scene d14g-11x
+                with dissolve
+                F "..."
+                if introduction_kateryna == True:
+                    scene d14g-5
+                else:
+                    scene d14g-5x
+                with dissolve
+                Z "[F] will be our new servant. She has been the slave of the Decayed for years on end, spent primarily in sexual servitude."
+                Z "[F] will remain a slave, but she has many things to learn still about what the duties and tasks of a slave are in more civilised circumstances."
+                Z "She will learn what services each of you can and will request off her, and I am sure you will all give her the time to adapt to this new life."
+                Z "Let us show her a household where a slave is not a creature without her own dignity."
+                if introduction_emilia == True:
+                    scene d14g-3
+                    with fade
+                    Z "Emilia. Your responsibility will be to train [F] and discipline her when appropriate."
+                    Z "However I expect that [F] will be a kind and eager servant. You will like her."
+                    scene d14g-4
+                    with dissolve
+                    E "Yes, Master. I will make sure you will be pleased with her service."
+                    scene d14g-3
+                    with dissolve
+                if introduction_kateryna == True:
+                    scene d14g-11
+                else:
+                    scene d14g-11x
+                with fade
+                Z "That should be everything for now. [A], you will show her to her quarters."
+                A "Yup! Will do!"
+                scene black pic
+                with slowfade
+                jump daily_home
+
+            "Degrade her":
+                Z "[F], come to me."
+                scene d14g-12
+                with fade
+                "You wrap your arms around her neck and pull her in, as she faces the household..."
+                Z "Everyone here knows our new slave already. [F] has been in the basement for long enough that you have all had a chance to see her for what she is."
+                Z "Before she arrived, she behaved recklessly, a ravenous creature led only by fear and her basest instincts. Since then, much has changed."
+                if introduction_emilia == True:
+                    scene d14g-13
+                else:
+                    scene d14g-13x
+                with fade
+                Z "Thanks to the strict discipline instilled by [W] and me, she has left that version of herself in the past and is now ready to become my new slave."
+                if introduction_emilia == True:
+                    Z "She may not be as disciplined and focused as Emilia, but, well.. that was never going to be the case."
+                Z "[S], you haven't had a great deal of direct experience of her... skills, but I am sure that in time this will change. You will see, she will make a good little servant"
+                S "I can imagine."
+                scene d14g-14
+                with fade
+                Z "Now, I won't lie to you. [F] is not here because of her character, or her intelligence."
+                Z "I am not sure whether she truly processes anything of what we are talking about."
+                Z "The one redeeming quality she possesses is an insatiable appetite and talent for sex."
+                Z "Isn't that right, [F]?"
+                scene d14g-15
+                with dissolve
+                F "Yes, Master."
+                scene d14g-16
+                with dissolve
+                A "{i}*giggles*{/i}"
+                if introduction_emilia == True:
+                    scene d14g-3
+                    with fade
+                    Z "Emilia. In my absence, it is your responsibility to be to train [F] into at least some basic skills and discipline her when she doesn't learn."
+                    Z "Now that you know what drives her the most, I am sure you will find ways to stimulate her into learning."
+                    scene d14g-4
+                    with dissolve
+                    E "Yes, Master. I will make sure you are pleased with her service."
+                    scene d14g-3
+                    with dissolve
+                if introduction_kateryna == True:
+                    scene d14g-5
+                else:
+                    scene d14g-5x
+                with dissolve
+                Z "As our slave, [F] will do everything you ask off her, that much we have been able to teach her; but then, it was easy. I suspect she always was a little perverted to begin with."
+                Z "Anyway, you may have your ways with her. I am sure she will not object."
+                if introduction_kateryna == True:
+                    scene d14g-6
+                else:
+                    scene d14g-6x
+                with dissolve
+                Z "[A], I know that look. You may take [F] to the quarters next."
+                if introduction_kateryna == True:
+                    scene d14g-7
+                else:
+                    scene d14g-7x
+                with dissolve
+                A "..."
+                "She smiles mischievously..."
+                Z "That will be all."
+                scene black pic
+                with slowfade
+                jump daily_home
+
+
+
+
+
+                
+

@@ -1,0 +1,2779 @@
+label d15a:
+    $ m_d15a = True
+    scene d15a-1
+    with slowfade
+    Z "I don't know yet when I will be called upon by the Queen, [A]."
+    scene d15a-2
+    with dissolve
+    A "Do you have any other missions planned?"
+    scene d15a-3
+    with dissolve
+    Z "Nothing specific that you need to worr-."
+    scene d15a-4
+    play sound "audio/sounds/doors/door closed.mp3"
+    with dissolve
+    "The door opens..."
+    C3 "Helllooooo?"
+    scene d15a-5
+    with dissolve
+    A "Who...?!"
+    scene d15a-6
+    with fade
+    Na "Ohhh...!"
+    scene d15a-7
+    with vpunch
+    Na "[A]?! Is that you?!"
+    scene d15a-8
+    with dissolve
+    Na "No way!"
+    scene d15a-9
+    with dissolve
+    A "Uh... wait... is that... Na-"
+    scene d15a-11
+    with hpunch
+    A "Wahhh!"
+    Na "Cousinnn!!!"
+    scene d15a-12
+    with dissolve
+    Na "[A]! It's been so long!"
+    A "Is that... really you, Nadia?"
+    scene d15a-13
+    with dissolve
+    Na "Of course it's me! Or do we have other cousins I don't know about?"
+    A "Wow, you're so..."
+    scene d15a-14
+    with fade
+    Na "Hey uncle, what's up..."
+    scene d15a-15
+    with dissolve
+    scene d15a-16
+    with dissolve
+    scene d15a-17
+    with hpunch
+    Na "Mom and I decided to visit. Well I decided, and she told me I couldn't come alone..."
+    Z "Your mother is here?"
+    Na "Wild, right? Stuffy Rabiah has left the safety of the city walls!"
+    scene d15a-18
+    with dissolve
+    Na "Wow, [A]. I can't believe how long it has been."
+    scene d15a-19
+    with dissolve
+    A "Yeah... I'm... also surprised."
+    scene d15a-20
+    with dissolve
+    "[A] looks at her cousin, somewhat taken aback, before continuing..."
+    scene d15a-21
+    with dissolve
+    A "You are so different from when we were younger."
+    scene d15a-22
+    with dissolve
+    Na "Yeah, I guess I have changed. I suppose uncle must have told you already that we moved back to the city not long ago."
+    Na "It's been so exciting ever since we got here!"
+    if nadia_sex == True or nadia_flirt == True:
+        scene d15a-23
+        with dissolve
+    Na "I'm so glad I convinced mother to come here tonight."
+    if nadia_sex == True or nadia_flirt == True:
+        "As [A] takes in the slender figure of your niece, she casually touches your crotch, pretending to lean sideways..."
+    Na "I swear, if it wasn't for my stepdad keeping me almost a prisoner in the house, I would've come here sooner!"
+    if nadia_sex == True or nadia_flirt == True:
+        scene d15a-24
+        with fade
+    A "I'm happy you did, though! [persistent.mom!c] and [persistent.dad!c] have been visiting you so much, I was really feeling left out!"
+    Na "I know right! Uncle and I caught up a lot since. We actually get along great!"
+    if nadia_sex == True or nadia_flirt == True: 
+        Na "I always looked up to him even when we were younger, but he's actually really fun too..."
+    scene d15a-27
+    with dissolve
+    Na "But, wow. I have to say, [A]. You really have grown too since we met."
+    A "Oh, um... do you think? You're still taller, just like in the past."
+    scene d15a-28
+    with dissolve
+    Na "Yeah, I do! I mean let's be real, those boobs of yours grew so much..."
+    A "I... guess they did."
+    scene d15a-29
+    with dissolve
+    Na "I remember that before I left to stay in the village, you were already starting to show, and I was still as flat as a pancake. But now..?!"
+    Na "The boys must've been all over you, in school! I'm jealous!"
+    menu:
+        "Let her go on":
+            scene d15a-30
+            with dissolve
+            Na "They look amazing. I just have to see more."
+            Na "Do you mind if I..."
+            scene d15a-31
+            with dissolve
+            A "..."
+            scene d15a-32
+            Na "Wow... that just slid right off! You sure are confident wearing this, or is it how your [persistent.dad] wants you to dress?"
+            scene d15a-33
+            with dissolve
+            A "It's... usually him, yeah. But I like it... and [persistent.mom], too."
+            Na "Whoa, [A]...!"
+            scene d15a-34
+            with dissolve
+            Na "I'm such a brat. I haven't seen my cousin in years, and here I am, groping her tits..."
+            Na "But how can I not? I mean, look at them! You just want to stuff your face in there."
+            scene d15a-35
+            with dissolve
+            Na "Wowww... they're so soft! But firm at the same time!"
+            scene d15a-36
+            with dissolve
+            A "Nh..."
+            Na "I bet they're sensitive too. If not for the inevitable back pain I would be so jealous!"
+            scene d15a-37
+            with dissolve
+            "She continues to grope [A] in an odd mixture of confidence and awkwardness..."
+            Na "Uncle, um... look away for a moment, okay? It's just a girl thing, I can't resist. {i}*giggles*{/i}"
+            scene d15a-38
+            with dissolve
+            Na "So... yeah... I..."
+            scene d15a-39
+            with dissolve
+            Na "...I will stop now. Sorry..."
+            scene d15a-40
+            with dissolve
+            scene d15a-41
+            with fade
+            Na "So, mom and auntie are waiting for us outside. What do you think? Shall we join them?"
+            if introduction_emilia == True or introduction_fairy == True or introduction_kateryna == True:
+                Na "I've already met [S] briefly, but she said she was going to change. I have even seen one of your other girls!"
+            else:
+                Na "I've already met [S] briefly, but she said she had to get changed."
+            scene d15a-42
+            with dissolve
+            Z "Sure, let's go outside. Let's not keep them waiting."
+            jump d15a43
+
+        "Stop her":
+            Z "Alright, Nadia. That's enough, give poor [A] a break."
+            scene d15a-41
+            with fade
+            Na "Why's that, uncle? Are the awesome breasts of your [persistent.da] too much to bear?"
+            scene d15a-42
+            with dissolve
+            Z "Nice try, Nadia. But I decide who gets to touch my [persistent.da], and who doesn't."
+            scene d15a-22
+            with fade
+            Z "So, what do you think, [A]. Shall we go meet your aunt?"
+            scene d15a-21
+            with dissolve
+            A "Um... yeah, sure!"
+            scene d15a-22
+            with dissolve
+            scene d15a-42
+            with fade
+            Z "Alright. Let's join the ladies, they must be waiting for us."
+            jump d15a43
+            
+
+label d15a43:
+    play music "audio/music/zeta/city music 2.mp3" fadeout 3
+    scene black pic
+    with fade
+    "You head to the balcony, where the others have gathered..."
+    scene d15a-43
+    with w33slow
+    pause 1.5
+    scene d15a-45 
+    with fade
+    Na "Hey guys! I'm back!"
+    scene d15a-44
+    with dissolve
+    S "And you brought the others."
+    Na "I did."
+    scene d15a-51
+    with dissolve
+    "Upon approaching the balcony, you spot Rabiah eyeing you for once not frowning, which softens her somewhat sharp features."
+    S "So what do you think Nadia, who has changed the most, you or [A]?"
+    Na "Gooood question!"
+    scene d15a-52
+    with fade
+    Ra "Hello, brother-in-law."
+    scene d15a-53
+    with dissolve
+    Z "Look at you, leaving the house for something other than chores. Why Rabiah I am shocked! Is that a smile I saw, just now?"
+    scene d15a-54
+    with fade
+    "You start hugging her..."
+    Ra "You're not as funny as you think, you know?"
+    menu:
+        "Touch her":
+            scene d15a-55
+            with dissolve
+            "You place your hand on her buttock, giving it a firm squeeze."
+            scene d15a-56
+            with dissolve
+            Ra "{i}*sigh*{/i} [persistent.player_name], I guess you will never change."
+            Ra "What do you think Omar would say if he saw this?"
+            scene d15a-57
+            with dissolve
+            Z "I don't know, you tell me. Did he suggest you coming here?"
+            Ra "No, not exactly. I guess I have to admit that your words gave me something to think about."
+            jump d15a60
+
+
+
+        "Don't":
+            scene d15a-58
+            with fade
+            Z "So, how are things in Rabiah's household?"
+            Ra "Rabiah's household, hm? That's a joke! Last I knew, my husband owns everything inside it."
+            Z "You have to admit that it has a ring to it."
+            Ra "You're not wrong, [persistent.player_name]."
+            scene d15a-59
+            with dissolve
+            jump d15a60
+        
+    label d15a60:    
+        Ra "Anyway, after your last visit, I have decided to change a few things in our lives."
+        Ra "And that included letting my daughter out of her cage."
+        scene d15a-60
+        with fade
+        Z "Well then, I am glad that your changes haven't gone so far as to let her come all this way on her own."
+        scene d15a-62
+        with dissolve
+        Ra "Oh, I am not here just to chaperone her."
+        Ra "I wanted to see your [persistent.da]s again, after all these years."
+        scene d15a-63
+        with dissolve
+        Zt "Sure you did..."
+        scene d15a-64
+        with dissolve
+        Ra "But don't be disheartened. I have accepted that it would be foolish to stop my daughter from having her own adventures."
+        scene d15a-65
+        with dissolve
+        "She gives you a look that you don't quite know how to interpret..."
+        scene d15a-48
+        with dissolve
+        S "I can't get over your hair, Nadia. I somehow remember it being darker than it actually is, and you were keeping it so short that all these curls didn't show at all."
+        scene black pic
+        with fade
+        "You move between them..."
+        scene d15a-66
+        with fade
+        S "And not just that. You look so much happier and grown up than back then!"
+        S "I am really happy for you."
+        scene d15a-68
+        with fade
+        Na "That's... very nice, thank you."
+        Na "Yeah... I was a child when we left the city, and you were already starting your training. I guess you never really saw me."
+        Na "Not that I blame you. I know I have done some growing up, in the last few years."
+        scene d15a-67
+        with dissolve
+        S "I've heard about it..."
+        scene d15a-69
+        with dissolve
+        "As the family reunion proceeds, you notice open admiration in [A]'s expression towards her cousin."
+        "You wonder if [A] might be comparing herself to her cousin, who seems to carry herself in a much more confident and mature way, despite being pretty much of the same age."
+        "You make a mental note to keep an eye on [A] in the coming days."
+        if nadia_sex == False and nadia_flirt == False:
+            scene black pic
+            with fade
+            "You all enjoy a few drinks and some banter together, reminishing about years past, as the evening approaches and old familial bonds are renewed."
+            "Eventually, Rabiah announces that it is time for them to return to the city."
+            jump d15a231
+        else:
+            label re_d15a73:
+                scene d15a-73
+                with fade
+        Na "So uhm... I need to visit the bathroom."
+        Na "Can anyone show me the way?"
+        scene d15a-74
+        with dissolve
+        "She looks at you, expecting a response..."
+        menu:
+            "Show her the way":
+                Z "Alright, niece. Follow me."
+                scene d15a-74x
+                with dissolve
+                Na "Yup!"
+                scene d15a-77x
+                with w33slow
+                Z "Alright, this way, then to the right and..."
+                Na "Hm..."
+                Z "..."
+                scene d15a-77x-3
+                with dissolve
+                Na "Hey..."
+                Z "What..."
+                scene d15a-77x-2
+                with dissolve
+                Na "Nothing..."
+                scene d15a-77x-4
+                with dissolve
+                Z "..."
+                Na "I have a question..."
+                Na "Theoretically speaking..."
+                scene d15a-77x-6
+                with dissolve
+                Na "Do you think they would hear us here... if we...?"
+                scene d15a-77x-7
+                with dissolve
+                Na "What do you think the others would think if they heard us?"
+                Na "Just, you know... I'm curious."
+                scene d15a-77x-8
+                with dissolve
+                Na "I bet you and auntie have done it pretty much everywhere in this house?"
+                Na "What about [S] though, she looks amazing, no?"
+                scene d15a-77x-9
+                with dissolve
+                Na "And don't get me started on [A]..."
+                Na "I don't know... seeing them... and you... in this house... so much beauty!"
+                scene d15a-77x-10
+                with dissolve
+                Na "It excites me. {i}*giggles*{/i}"
+                scene d15a-77x-11
+                with fade
+                "You step closer to her..."
+                Na "What about you, though?"
+                scene d15a-77x-12
+                with dissolve
+                Na "Do the women in your house not excite you just by walking around for your eyes to feast on?"
+                Na "And [A]... do you ever watch her play with herself? Will she be one of your women soon?"
+                scene d15a-77x-13
+                with dissolve
+                Naw "And what about me...? Do you think I would fit in your harem?"
+                Naw "I can be obedient, if I want to..."
+                scene d15a-77x-14
+                with dissolve
+                Naw "Mh...?"
+                scene d15a-77x-16
+                with dissolve
+                Na "Uncle... your pants are so loose..."
+                scene d15a-77x-17
+                with dissolve
+                Na "Wow... it's so big..."
+                Na "Is that because you think of your [persistent.da]s? Or is this for me...?"
+                scene d15a-77x-18
+                with dissolve
+                Na "I miss having this inside me."
+                scene d15a-77x-19
+                with dissolve
+                Na "Do you think the others would mind if I sucked you off right here?"
+                Na "Did I ever even do that with you?.."
+                scene d15a-77x-21
+                with fade
+                Z "You little cocktease. You talk a lot..."
+                scene d15a-77x-20
+                with dissolve
+                Na "Aww... that's no way to speak to your innocent niece..."
+                scene d15a-77x-22
+                play sound "audio/sounds/doors/door closed.mp3"
+                with dissolve
+                A "[persistent.dad!c]...? Nadia?"
+                scene d15a-77x-23
+                with dissolve
+                A "What are you two doing?"
+                A "Is there something going on between you two, [persistent.dad]?"
+                scene d15a-77x-24
+                with dissolve
+                Z "I wonder the same, [A]."
+                scene d15a-77x-25
+                with dissolve
+                Na "Did you hear us outside?"
+                A "No, but I came to check because you two took so long."
+                scene d15a-77x-26
+                with dissolve
+                Z "Your cousin is trying to take my pants off, and now that you're here... she's not sure what to do."
+                scene d15a-77x-27
+                with dissolve
+                Z "[A], be a good [persistent.da] and button it up for me, will you."
+                A "..."
+                pause 1
+                scene d15a-77x-28
+                with Dissolve(0.3)
+                A "Sure! Why not!"
+                scene d15a-77x-29
+                with fade
+                "She comes closer, doing what you ordered her to do, as if it was the most normal thing in the world."
+                Na "Uhm... [A]..."
+                scene d15a-77x-30
+                with dissolve
+                A "Let me just.. mh... it's difficult..."
+                scene d15a-77x-31
+                with dissolve
+                A "It's very hard, [persistent.dad]. I'm trying to put it inside..."
+                Na "You're... touching him...!"
+                scene d15a-77x-32
+                with dissolve
+                A "Mh... that doesn't work."
+                A "Aw... damn..."
+                scene d15a-77x-33
+                with dissolve
+                A "[persistent.dad!c], do you want me to suck it, so that it can get smaller?"
+                scene d15a-77x-34
+                with dissolve
+                Na "[A]!"
+                Z "I will pass this time, [A]."
+                scene d15a-77x-14
+                with fade
+                Z "Your cousin is the one who is responsible for this."
+                menu:
+                    "Take her somewhere":
+                        $ d15a_nadia_ain_sex = True
+                        Z "So she will have to bear the consequences."
+                        scene d15a-77x-35
+                        with dissolve
+                        Na "Eh... what?"
+                        scene black pic
+                        with fade
+                        pause 1
+                        scene d15a-102
+                        with vpunch
+                        Na "Whaah!!!"
+                        Na "Oh Gods! Haha, uncle please!"
+                        scene d15a-103
+                        with dissolve
+                        Na "What about, um... the others? They're waiting!"
+                        Z "Shut up, Nadia. You're coming with me."
+                        scene d15a-104
+                        with dissolve
+                        Z "[A], you're coming too."
+                        A "..."
+                        jump d15a105
+                    
+                    "Brush her off":
+                        Z "But I will let it slide for today."
+                        scene d15a-77x-12
+                        with dissolve
+                        Na "I see. For today, huh...?"
+                        scene d15a-77x-15
+                        with dissolve
+                        Z "Just for today. Now, if you don't want to end up chained in my basement for the remainder of your visit, you better behave and come back outside."
+                        scene d15a-77x-14
+                        with dissolve
+                        Z "Is that clear, Nadia?"
+                        scene d15a-77x-13
+                        with dissolve
+                        Na "Fine. But it's pretty hot the way you say that..."
+                        scene d15a-77x-15
+                        with dissolve
+                        if _in_replay:
+                            scene black pic
+                            with fade
+                            $ renpy.end_replay()
+                        jump d15a219
+
+            "Let [A] guide her":
+                Z "[A] can show you the way."
+                scene d15a-75
+                with dissolve
+                Na "Alright... lead the way then?"
+                scene d15a-76
+                with dissolve
+                A "Sure!"
+                scene black pic
+                with fade
+                "They leave, disappearing inside the house..."
+                scene d15a-70
+                with fade
+                if introduction_emilia == True or introduction_fairy == True:
+                    Ra "By the way, when we got here, we were greeted by a slave of yours."
+                    Ra "She looked nice, and made us feel right at home. We should have a servant or a slave to help us out too... Gods know Omar can afford it!"
+                    Ra "Anyway, my point is that she seemed like a nice person."
+                else:
+                    Ra "You know, this place is only going to get bigger and harder to look after, the older you get. I wonder why you two decided against owning servants?"
+                    Ra "You should consider hiring a help, eventually. I am thinking of it myself."
+                scene d15a-71
+                with dissolve
+                if introduction_emilia == True or introduction_fairy == True:
+                    Z "She is, and [W] and I enjoy her services a lot."
+                else:
+                    Z "I guess you have a point, yes. For now we don't need any servants, but eventually, who knows..."
+                scene black pic
+                with fade
+                "You listen for a while as the two sisters chatter amongst themselves, but eventually you start wondering why Nadia and [A] have not returned yet."
+                "Deciding to investigate, you excuse yourself and head inside..."
+                scene d15a-77
+                with w33slow
+                Aw "Mh... I don't know... if we..."
+                Naw "...but it does feel nice, admit it."
+                scene d15a-78
+                with fade
+                A "Nh... {i}*kissing*{/i}"
+                Zt "*sigh* Of course..."
+                scene d15a-80
+                with dissolve
+                Aw "But..."
+                Naw "Look what I learned since we last time saw each other..."
+                scene d15a-81
+                with dissolve
+                Aw "Oh..."
+                scene d15a-82
+                with dissolve
+                Aw "Mh... Your fingers... inside me!"
+                scene d15a-83
+                with dissolve
+                Na "And now... feel this..."
+                scene d15a-84
+                with dissolve
+                "{i}*squelch*{/i}"
+                A "O-oh... I..."
+                Z "{i}*sigh*{/i}"
+                scene d15a-85
+                with dissolve
+                Na "...?"
+                scene d15a-86
+                with fade
+                Na "Oh... hi uncle... um..."
+                Na "[A] and I were just... hanging out a bit?"
+                scene black pic
+                with fade
+                "You lean against the furniture..."
+                scene d15a-87
+                with fade
+                Z "Nadia..."
+                Z "It's been less than an hour, and you're already having your hands on my [persistent.da], again..."
+                Z "What should I make of this?"
+                scene d15a-90
+                with dissolve
+                Na "But uncle... we weren't doing anything bad. I just want to get to know her better."
+                Na "That's what girls our age do, is it not?"
+                scene d15a-91
+                with dissolve
+                Z "And that includes touching my [persistent.da] in inappropriate places?"
+                "You tease her a little, echoing the tone and the words of Omar, which you see make her tense up for a second."
+                scene d15a-92
+                with dissolve
+                A "But [persistent.dad]... you always say that it's okay for [persistent.mom] and me to do these things even without you?"
+                scene d15a-88
+                with dissolve
+                A "Is that not the same...?"
+                scene d15a-93
+                with dissolve
+                Na "You and auntie... do things together?"
+                if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                    Na "But she's your mother?"
+                scene d15a-94
+                with dissolve
+                A "Oh, of course. All the time!"
+                A "Why, do you find that weird?"
+                A "Did you not notice that I am not a virgin?"
+                scene d15a-95
+                with dissolve
+                Na "Hm..."
+                scene d15a-96
+                with dissolve
+                Na "Then it makes sense..."
+                scene d15a-97
+                with fade
+                Na "Is that why your [persistent.dad] wants you to dress up like that?"
+                scene d15a-100
+                with dissolve
+                Na "I bet he enjoys looking at his [persistent.da] too, like I catch Omar peeking in my room?"
+                scene d15a-97
+                with fade
+                Na "What do you think, maybe he even wanted to join us just now, but is too afraid to?"
+                scene d15a-98
+                with dissolve
+                menu:
+                    "Take her somewhere":
+                        $ d15a_nadia_ain_sex = True
+                        Z "Alright then..."
+                        "You have to make an effort not to laugh in your niece's face. For all her bravado and youthful enthusiasm, it seems there are some things about Zeta that she still has to learn."
+                        scene black pic
+                        with fade
+                        pause 1
+                        scene d15a-102
+                        with vpunch
+                        Na "Whaah!!!"
+                        Na "Oh Gods! Haha, uncle please!"
+                        scene d15a-103
+                        with dissolve
+                        Na "What about, um... the others? They're waiting!"
+                        Z "Shut up, Nadia. You're coming with me."
+                        scene d15a-104
+                        with dissolve
+                        Z "[A], you're coming too."
+                        A "..."
+                        jump d15a105
+                    
+                    "Brush her off":
+                        "You laugh confidently..."
+                        Z "I guess you will not find out today, girl."
+                        scene d15a-101
+                        with dissolve
+                        Na "That's too bad..."
+                        scene d15a-101x
+                        with dissolve
+                        Z "A real tragedy. Now, if you don't want to end up chained in my basement for the remainder of your visit, you better behave and come back outside."
+                        Z "Is that clear, Nadia?"
+                        scene d15a-101
+                        with dissolve
+                        Na "That's... interesting."
+                        scene d15a-98
+                        with dissolve
+                        Z "Yes, well, remind me next time, then. Now, off you go. Your mothers are waiting for you."
+                        if _in_replay:
+                            scene black pic
+                            with fade
+                            $ renpy.end_replay()
+                        jump d15a219
+
+
+    label d15a105:
+        scene d15a-105
+        with fade
+        Na "Hey, now! Can you put me down? I'm getting dizzy!"
+        scene d15a-106
+        with dissolve
+        Na "Hey, where's your hand goi-"
+        scene d15a-107
+        with dissolve
+        Na "Ah, oh fuck. What are you..."
+        scene d15a-108
+        with dissolve
+        Na "Nh... come on uncle... that's not fair!"
+        play sound "audio/sounds/actions/drop.mp3"
+        scene black pic
+        with hpunch
+        Na "Wahh!"
+        scene d15a-109
+        with fade
+        Na "Hey... you're being too rough..."
+        Z "You think you can play around like that? In my house?"
+        scene d15a-110
+        with fade
+        Na "I'm not playing around, why would I...?"
+        scene d15a-111
+        with dissolve
+        Na "It's not like [A] wasn't enjoying it."
+        scene d15a-112
+        with dissolve
+        Na "Are you... are you getting hard from this, uncle?"
+        Na "I think I can feel something growing..."
+        scene d15a-113
+        with hpunch
+        Z "Cocky little slut. I am going to make you squeal until everybody in the house hears you. That's what you want, is it not?"
+        "You pull off her boots..."
+        scene d15a-114
+        with fade
+        Na "What are you saying, uncle. You sound so perverted..."
+        scene d15a-115
+        with dissolve
+        Na "Why are you touching my legs like this? [A], do you see this...?"
+        scene d15a-116
+        with dissolve
+        Na "Oh... what is that?"
+        scene d15a-117
+        with dissolve
+        Na "Uncle, you're really getting hard for me...~"
+        scene d15a-118
+        with dissolve
+        "Acting innocent and naive, Nadia's feet play with your dick, sending wild sensations up your spine..."
+        scene d15a-119
+        with fade
+        Na "I can't believe you'd do this! What if my mother walks in?"
+        scene d15a-120
+        with dissolve
+        Z "Just be glad that we keep the paddle in the basement."
+        Na "A paddle? What kind of per-"
+        scene d15a-122
+        with hpunch
+        Na "{i}*gasps*{/i}"
+        Na "O-oh..."
+        scene d15a-123
+        with dissolve
+        Na "I... I guess I forgot to wear panties today..."
+        Na "...you're not going to take advantage of me, right uncle?"
+        scene d15a-124
+        with dissolve
+        Na "Hey, what are you..."
+        scene d15a-125
+        with dissolve
+        scene black pic
+        with hpunch
+        Na "Oh..."
+        scene d15a-126
+        with fade
+        Na "At least... don't tear my skirt, please... ngh..."
+        A "..."
+        scene d15a-127
+        with dissolve
+        Na "I'm... innocent, uncle... please don't use me..."
+        scene d15a-128
+        with dissolve
+        Na "...too much."
+        "Her legs hooking together around your hips reveal the true feelings of your niece."
+        scene d15a-129
+        with fade
+        Na "Uncle [persistent.player_name]... are you..."
+        scene d15a-130
+        with dissolve
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            Na "Are you going to take me in front of your [persistent.da]...?"
+        else:
+            Na "Are you going to take me in front of [A]...?"
+        Z "Yes, I will."
+        scene d15a-130x
+        with dissolve
+        Na "Ahh... ~"
+        scene d15a-131-anim
+        with fade
+        "You enter her fully in one quick thrust."
+        Z "There's no point in holding back, is there, you litte brat?"
+        Na "Oh... my..."
+        scene d15a-132-anim #TODO:ANIMATION anim after beta
+        with dissolve
+        Z "What's wrong? You're so quiet all of a sudden?!"
+        Na "Mh... so... big..."
+        Z "I know how to make you behave."
+        scene d15a-133
+        with hpunch
+        Na "Ngh... mh...~"
+        "You mercilessly penetrate her, making her moan in lust, before grabbing her shirt..."
+        scene d15a-134
+        with vpunch
+        "...and pulling her up by it."
+        Na "Wha..."
+        scene d15a-135
+        with dissolve
+        Na "You're... inside me... it's so wrong..."
+        scene d15a-136
+        with dissolve
+        Z "Are you going to keep up this act for long, [Na]?"
+        Z "Because I will only pound you harder the more you do."
+        scene d15a-137
+        with dissolve
+        Na "{i}*groan*{/i}"
+        Na "Ah... I can feel it."
+        Na "Whatever, uncle...? Just... put me down and fuck me?"
+        scene d15a-138
+        with hpunch
+        "For once, [A] seems cowed, stunned into silence."
+        A "...!"
+        Na "{i}*gag*{/i}"
+        Z "Are you quite done trying to tell me what to do? Who do you think is in charge here?"
+        scene d15a-139
+        with fade
+        Z "Why don't I put your teasing mouth to better use, and in return, I will give you what you crave for?"
+        scene d15a-140
+        with dissolve
+        Na "{i}*cough*{/i}"
+        Z "How does that sound?"
+        scene d15a-141
+        with dissolve
+        "As you rummage with your fingers in her mouth, Nadia struggles to reply."
+        Na "{i}*muffled*{/i} Ghit hounds... hice..."
+        scene d15a-142
+        with dissolve
+        "Nadia's tongue envelops your fingers, saliva drooling down her lips."
+        Z "We will have to give that tongue of yours something to do, huh..."
+        scene d15a-143
+        with dissolve
+        Na "Nha..."
+        Z "Back then, you barely reached my waist."
+        Z "...and now, look at you, what a teasing slut you've grown into."
+        Z "Ready to get fucked?"
+        scene d15a-144
+        with vpunch
+        Na "Ah...!"
+        #scene d15a-144-anim #TODO:ANIMATION
+        #with Dissolve(0.1)
+        "You resume thrusting into her young pussy."
+        Na "Ngh..."
+        pause 1.5
+        Zt "This girl loves everything about this."
+        Zt "What a fun wildcat."
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            "You keep pounding her, on and on, while your [persistent.da] is standing next to you..."
+        else:
+            "You keep pounding her, on and on, while [A] is standing next to you..."
+        "She doesn't make a noise, but watches eagerly."
+        scene d15a-145 #TODO:ANIMATION
+        with dissolve
+        pause 1.5
+        Z "You can be pretty sweet, you know that?"
+        Na "Ah..."
+        Z "Especially when you're moaning with my dick inside you."
+        pause 1.5
+        Z "How much I would like to fill you up..."
+        Na "Oh... so... wrong..."
+        scene d15a-146
+        with dissolve
+        Na "It's..."
+        Na "Mh... so... good..."
+        Na "I'm getting butterflies..."
+        scene d15a-147
+        with dissolve
+        Z "[A]... I can feel your eyes on me. What is it, girl? Don't you see I am busy?"
+        scene d15a-148
+        with fade
+        "As you keep pounding Nadia, you sigh, your thoughts diverted towards [A]."
+        Z "Tell me what's wrong."
+        scene d15a-149
+        with dissolve
+        A "Nothing, [persistent.dad]... I..."
+        scene d15a-150
+        with dissolve
+        A "...I'm just watching, and..."
+        scene d15a-151
+        with dissolve
+        "She stands with her legs pressed together, clearly aroused at the show you put on..."
+        Z "{i}*sigh*{/i}"
+        Z "What did I tell you about trying to distract me when I am enjoying another woman?"
+        A "I know, but this is so..."
+        scene d15a-152
+        with fade
+        Z "You shouldn't try to butt in every time, you know? It's not like you don't get your fair share of attention, or fun."
+        scene d15a-153
+        with dissolve
+        Z "{i}*sigh*{/i}"
+        scene d15a-154
+        with dissolve
+        Z "Alright..."
+        "With those words, you pull out from Nadia's squelching pussy, who responds with a moan of protest, her eyes suddenly wide open."
+        scene d15a-155
+        with dissolve
+        Z "Lean back against the bed."
+        "You tell [A] as you guide her to take place between her cousin's shaking legs."
+        A "Yes, [persistent.dad]."
+        Z "Present your tits to me... like that."
+        scene d15a-156
+        with fade
+        Z "There you go. "
+        scene d15a-157
+        with dissolve
+        A "..."
+        Z "You know what comes next"
+        scene d15a-158
+        with dissolve
+        Na "Wait... what are you two..."
+        scene d15a-159
+        with dissolve
+        Na "[A]? What are you doing? I didn't know you'd..."
+        scene d15a-160
+        with dissolve
+        Z "What? Are you surprised?"
+        scene d15a-161
+        with fade
+        Z "Ah... that feels great."
+        Z "Show them to me."
+        scene d15a-162
+        with dissolve
+        pause 1
+        scene d15a-163
+        with dissolve
+        "As she presses her breasts around your shaft, you can sense excitement mixed with relief, in [A]'s voice. Maybe involving her isn't just an answer to your mounting lust, but also a good thing for her confidence."
+        A "Like this, [persistent.dad]...?"
+        Z "You know how it works."
+        Na "You two... are so hot..."
+        scene d15a-164
+        with dissolve
+        Z "Good girl. Keep looking at me."
+        Zt "Just like I trained her."
+        scene d15a-165
+        with dissolve
+        Na "Wow... I can't believe this..."
+        scene d15a-166
+        with fade
+        Na "I figured that you were a bit submissive, [A]."
+        Na "But that you'd surrender to your [persistent.dad] like that..."
+        scene d15a-167
+        with fade
+        Z "Get over yourself, Nadia. This isn't your doing. [A] learned how to please me long before you returned to the city."
+        Z "And you will learn as well. Trust me. Now hold her still."
+        scene d15a-168
+        with dissolve
+        Z "Let me look at those pretty eyes. How do you like your cousin holding you, [A]?"
+        Na "I think she loves it. She's in a daze..."
+        scene d15a-169
+        with dissolve
+        Na "There's one more thing I want to see, though."
+        Na "What if I lower your head like that..."
+        scene d15a-170
+        with dissolve
+        Na "Yeah, like that."
+        A "..."
+        Na "Open your mouth, please..."
+        scene d15a-171
+        with dissolve
+        A "Ahh..."
+        Na "Did you ever take your [persistent.dad]'s load like this, I wonder...?"
+        scene d15a-172
+        with dissolve
+        Z "{i}*chuckles*{/i}"
+        Z "Once she came of age, that's how she decided to celebrate.."
+        scene d15a-173
+        with Dissolve(0.5)
+        A "Ngh-"
+        Z "Hold your tongue out..."
+        with hpunch
+        Z "Ngh-"
+        scene d15a-174
+        with hpunch
+        "She pulls back a little, her mouth wide open so you can shoot your reams of cum inside her..."
+        Na "That's so hot..."
+        scene d15a-175
+        with hpunch
+        Z "Fuck..."
+        A "Hahh... {i}*gulp*{/i}"
+        scene d15a-176
+        with dissolve
+        A "Mh... {i}*sucking*{/i}"
+        Na "Wow..."
+        scene d15a-177
+        with dissolve
+        Na "Did she... drink it?"
+        Z "Only some..."
+        scene d15a-178
+        with vpunch
+        A "Ah..."
+        "You pull her up in one swift movement, your cock pressing against her crack..."
+        scene d15a-179
+        with dissolve
+        A "But [persistent.dad]... are you still cumming...?!"
+        Z "I am not done yet [A], so... quickly...."
+        scene d15a-180
+        with dissolve
+        Z "Where do you want it?"
+        A "My... pussy please, [persistent.dad]..."
+        scene d15a-181
+        with dissolve
+        Z "There you go, then."
+        Na "Whoa..."
+        "You quickly ram your shaft in your [persistent.da]'s sopping wet pussy, finally letting go of the stream of cum you have been trying to hold back."
+        A "Oh... [persistent.dad]..."
+        Na "You're really putting it inside her..."
+        scene d15a-182
+        with dissolve
+        Z "Mh..."
+        Z "{i}*sucking*{/i}"
+        A "Oww... you're so rough, today..."
+        A "I like this... mh..."
+        scene d15a-184
+        with fade
+        "You hold her tight ass up, ready to plunge inside her..." 
+        scene d15a-184-anim
+        with Dissolve(0.1)
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            A "Ah... [persistent.dad]..."
+        else:
+            A "Ah..."
+        "Excited, and with cum leaking out, you start fucking her moist pussy..."
+        A "[persistent.dad!c]... nhh..."
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            Zt "Fuck... no one feels as good as my [persistent.da]."
+        else:
+            Zt "Fuck... there's no girl who feels as good as [A]."
+        Zt "She's so wet..."
+        scene d15a-185
+        with fade
+        "Suddenly, Nadia drops on her knees behind [A], her pointy tongue reaching towards your balls."
+        scene d15a-186
+        with dissolve
+        Na "Mh... {i}*licking*{/i}"
+        Z "Damn..."
+        Zt "That's unexpected but... ah!"
+        scene d15a-187
+        with dissolve
+        Na "{i}*licking*{/i}"
+        scene d15a-188
+        with dissolve
+        "Her tongue flicks all over your balls, as you pump the whole length of your cock inside [A]'s pussy."
+        scene d15a-189
+        with dissolve
+        A "Ah... hah..."
+        Z "Ngh... You girls are making my legs go weak."
+        scene d15a-190
+        with fade
+        A "[persistent.dad!c]... you're so... forceful today..."
+        scene d15a-191
+        with vpunch
+        A "Ah..."
+        "You thrust deep into her, still in the throes of your climax..."
+        menu:
+            "Cum inside her":
+                Z "Mgh-"
+                scene d15a-192
+                with dissolve
+                A "Hah..."
+                scene d15a-193
+                with dissolve
+                Z "Look up, Nadia, you little slut."
+                Na "Yes, Uncle..."
+                with vpunch
+                Z "...!"
+                with vpunch
+                Z "Fuck... [A]..."
+                A "Oh..."
+                "As you still pump your manhood inside [A]'s pussy, both your juices mingle and coat your dick in thick ropes."
+                scene d15a-194
+                with dissolve
+                Na "{i}*gasps*{/i}"
+                scene d15a-195
+                with dissolve
+                Na "Whoa..."
+                scene d15a-196
+                with dissolve
+                Z "How does it look down there?"
+                Na "Just... wow."
+                Z "Thank me for showing you this. Properly."
+                scene d15a-197
+                with dissolve
+                Na "Mh... {i}*slurp*{/i}"
+                "She leans in, sucking your testicles in her mouth, wordlessly."
+                Zt "So she can learn. This little sexpot will give me plenty of satisfaction, going forward."
+                "With one hand you clutch the base of your penis, as [A] drops away from your embrace."
+                scene black pic
+                with fade
+                jump d15a198
+
+            "Toss her away":
+                scene black pic
+                with fade
+                jump d15a198
+
+    label d15a198:
+        Z "Watch your cousin, [A], what a dirty whore she can be."
+        scene d15a-198
+        with vpunch
+        "With maybe an inkling into what is to come, [A] lands on the bed and sits up straight, unwilling to miss a second of the action."
+        A "Oh-"
+        scene d15a-199
+        with dissolve
+        Z "I am not finished with you yet, Nadia."
+        scene d15a-200
+        with dissolve
+        Na "Mh... uncle..."
+        scene d15a-201
+        with dissolve
+        Z "Don't move."
+        Na "Okay..."
+        scene d15a-202
+        with dissolve
+        "You grab your still erect penis and shove it in your niece's face, your juices still dripping all over the place, as you clench it hard, to stop the last of your load from escaping."
+        Z "Can you smell it? Can you smell your cousin's pussy on me?"
+        scene d15a-203
+        with dissolve
+        Na "I... can.... mmgh-"
+        "Nadia actually inhales, sniffing at the shaft you have pressed up against her face."
+        Z "Good. Remember that smell. This won't be the last time you experience it."
+        scene d15a-204
+        with dissolve
+        Na "Yes, sir..."
+        scene d15a-205
+        with fade
+        Z "Now, open your mouth, slut!"
+        scene d15a-206
+        with dissolve
+        "The last remainder of your massive load shoots to the back of her open mouth"
+        Na "Ah..."
+        Z "Ngh-"
+        scene d15a-207
+        with vpunch
+        Z "...!"
+        Na "Nh...~"
+        scene d15a-208
+        with vpunch
+        Z "Agh-... yes, open up-"
+        Zt "Never thought I'd treat my niece like a street slave..."
+        scene d15a-209
+        with dissolve
+        Na "Haah..."
+        "She looks up towards you..."
+        Z "There's more coming, girl."
+        scene d15a-210
+        with vpunch
+        pause 0.7
+        scene d15a-211
+        with dissolve
+        Z "Mgh..."
+        scene d15a-212
+        with dissolve
+        Na "Mh."
+        scene d15a-213
+        with vpunch
+        pause 0.7
+        scene d15a-214
+        with dissolve
+        Z "Ah... right on your pretty face."
+        scene d15a-215
+        with dissolve
+        Z "You look perfect. Your face is made to be covered in cum, you know that..."
+        Z "Open your mouth. Show me."
+        scene d15a-216
+        with dissolve
+        Z "Good girl. See, you don't have to be the spoiled little brat your mother thinks you are. All you need is a guiding hand to teach you a lesson."
+        scene d15a-217
+        with dissolve
+        Na "I like your lessons, sir..."
+        scene d15a-218
+        with dissolve
+        Z "I know you do. That's why you convinced your mother to come here, isn't it?"
+        Z "Now, [A], help her clean herself up. She shouldn't return to her mother in this state, today."
+        "With an amused chuckle, your [persistent.da] gets off the bed, leaning forward to lick some of your cum from her still shocked cousin's face, before moving towards a dresser to grab a towel."
+        A "Yes [persistent.dad]."
+        jump d15a219
+
+    label d15a219:
+        scene black pic
+        with fade
+        if _in_replay:
+            $ renpy.end_replay()
+        "A while later..."
+        scene d15a-223
+        with fade
+        Ra "It was so nice to see how much you have grown, [S]."
+        Ra "And I don't just mean physically, I mean as a woman, too. I always liked you a lot, you know."
+        scene d15a-219
+        with fade
+        Ra "It's good to see that after all these years, you haven't become a copy of your mother, but became your own person with your own ambitions."
+        Ra "I guess your [persistent.dad] is a good teacher, after all."
+        scene d15a-220
+        with dissolve
+        S "Thank you very much, aunt Rabiah! I have missed you, you know? You were always nice to us children."
+        scene d15a-221
+        with dissolve
+        S "We should meet again soon. There are still stories that I want you to tell us."
+        scene d15a-222
+        with dissolve
+        Ra "Well, I am sure that that can be arranged. I am feeling more outgoing lately."
+        scene d15a-224
+        with fade
+        Ra "Alright then, where is {i}my{/i} daughter, though?"
+        Ra "{i}*sigh*{/i} She always does keep me waiting for her."
+        scene d15a-225
+        with dissolve
+        W "..."
+        scene d15a-226
+        with fade
+        if d15a_nadia_ain_sex == True:
+            Z "Ladies, I have found our two missing girls."
+        else:
+            Z "I guess we have to wait a little longer."
+        scene d15a-227
+        with fade
+        if d15a_nadia_ain_sex == True:
+            Ww "How did it go, husband?"
+            Zw "Pretty much as you might expect."
+            scene d15a-228
+            with dissolve
+            Zw "Although... I've had to keep them both in line at the same time."
+            scene d15a-229
+            with dissolve
+            Ww "Let me guess, [A] just couldn't stand by while you two were at it?"
+            scene d15a-230
+            with dissolve
+            Zw "It's so easy for her to feel left out. She can be jealous too, to my surprise."
+            jump d15a231
+            
+        else:
+            Zw "So, what do you think, should we do this again some time?"
+            Ww "I don't see why not. My sister seems a lot happier when she is not with her husband."
+            scene d15a-229
+            with dissolve
+            Ww "Unlike me, of course. Especially when you hold me like that."
+            scene d15a-230
+            with dissolve
+            Zw "How could I ever not?"
+            jump d15a231
+
+    label d15a231:
+        scene d15a-231
+        with dissolve
+        if d15a_nadia_ain_sex == True:
+            Na "Hey guys, uhm... we are here now!"
+            scene d15a-232
+            with dissolve
+            Na "I... I was getting lost in those rooms. It's actually quite a big place."
+            scene d15a-233
+            with dissolve
+            Na "Are we going already? Okay... goodbye auntie!"
+            A "..."
+        else:
+            Na "Sorry! We were chatting and lost track of time!"
+        if shani_romance == True:
+            scene d15a-234
+            with fade
+            W "I hope you enjoyed your stay as much as we did."
+            Na "Oh, of course. {i}*giggle*{/i}"
+        if d15a_nadia_ain_sex == True:
+            W "Do you feel well? You look like you've been running in the sun for hours!"
+            W "You might want to drink another glass of water..."
+            scene d15a-236
+            with dissolve
+            S "Whatever you did to her, [persistent.dad], I know that she will be coming to visit again soon."
+            scene d15a-237
+            with dissolve
+            Z "I see that you've learned to pay attention to the details, [S]. I'm proud of you."
+            S "You're still a pig, [persistent.dad]!"
+            "You slap her butt, stifling a laugh."
+        else:
+            W "Look at you, such a grown woman. And so confident..."
+            scene d15a-236
+            with dissolve
+            S "She really has grown up since we last saw her, hasn't she?"
+            scene d15a-237
+            with dissolve
+            Z "Absolutely. She's open for everything. I like that in her."
+        scene d15a-238
+        with fade
+        Ra "[A], my little mouse. You have seemingly grown in everything but your height."
+        Ra "We haven't had an opportunity to chat, but we will make up for that soon, will we?"
+        scene d15a-238x
+        with dissolve
+        A "Sure, aunt Rabiah!"
+        scene d15a-238
+        with dissolve
+        if d15a_nadia_ain_sex == False:
+            jump d15a241
+        else:
+            scene d15a-239
+            with fade
+            Ra "Make sure to listen to your [persistent.dad] and eat your vitamins, alright? You look quite weak right now."
+            Ra "Actually... maybe that is exactly {i}because{/i} you listen to your [persistent.dad]..."
+            scene d15a-240
+            with dissolve
+            Ra "And also... your dress is quite disheveled..."
+            Ra "It only takes a few seconds, to look well put together, [A]."
+            Ra "Oh, forget it! I am trying to change, am I not?"
+            jump d15a241
+    
+    label d15a241:
+        scene d15a-241
+        with fade
+        Na "Thank you for the drinks, aunt [W]."
+        if d15a_nadia_ain_sex == True:
+            Na "I really enjoyed our time here. Can I have a quick goodbye kiss?"
+            scene d15a-242
+            with dissolve
+            scene d15a-244
+            with fade
+            W "Oh, sure, why not?"
+            scene d15a-243
+            with dissolve
+            scene d15a-245
+            with fade
+            Na "{i}*kissing*{/i}"
+            scene d15a-246
+            with dissolve
+            "You watch as Nadia takes her time to give your wife a good and long kiss on the lips..."
+            scene d15a-247
+            with dissolve
+            W "Nadia...? You're so eager today..."
+            scene d15a-248
+            with dissolve
+            W "...?"
+            scene d15a-249
+            with fade
+            Na "..."
+            W "Ngh..."
+            scene d15a-250
+            with dissolve
+            Na "Nlhh..."
+            scene d15a-251
+            with dissolve
+            Zt "Is that... what I think it is...?"
+            scene d15a-252
+            with fade
+            Na "Thank you again, auntie. I hope you will visit us again soon!"
+            Na "Uncle [persistent.player_name] also enjoyed today a lot..."
+            scene d15a-253
+            with fade
+            Na "Bye bye, guys! Mom, let's go?"
+            scene d15a-254
+            with dissolve
+            W "{i}*gulp*{/i}"
+        else:
+            Na "I hope you will come to visit us again, soon?"
+            scene d15a-242
+            with dissolve
+            scene d15a-244
+            with fade
+            W "I am pretty sure your uncle won't have anything against it."
+            W "Until then, don't get into too much trouble out there, alright?"
+            scene d15a-243
+            with dissolve
+            Na "Me? Of course not..."
+            Na "Bye bye, auntie!"
+        if sq_rn_1.current_step == 4:
+            $ sq_rn_1.advance()
+            $ sq_rn_1.resolution = _("The surprising visit of Nadia and Rabiah was quite pleasant, especially because it was the first time I have seen them without Omar at their side.\nIt turns out that Rabiah did come out of her shell a bit.\nShe seems more content and less frustrated, even in my presence.")
+        scene black pic
+        with fade
+        jump mission_end
+
+
+label d15b:
+    $ m_d15b = True
+    $ d15b_day = day
+    scene d15b-1
+    play music_1 "audio/music/background/different dimensions.mp3" fadein 3 volume 0.3
+    play music "audio/sounds/environment/desert wind.mp3" fadeout 3 volume 0.7
+    with slowfade
+    pause 1.6
+    scene d15b-3
+    play sound "audio/sounds/doors/door closed.mp3"
+    with fade
+    S "Hey..."
+    scene d15b-2
+    with dissolve
+    Z "Hey, [S]."
+    scene d15b-4
+    with fade
+    S "Enjoying the sunset?"
+    scene d15b-9
+    with dissolve
+    Z "I am. Trying to relax a bit, after all that's happened recently."
+    Z "What about you? Have you slept well since then?"
+    scene d15b-8
+    with dissolve
+    S "It could be worse. I'm home and safe. I have had a few scares in the first nights, but that's mostly gone now."
+    scene d15b-9
+    with dissolve
+    Z "That's good to hear."
+    Z "You look amazing in this dress."
+    scene d15b-8x
+    with dissolve 
+    S "Thanks, I am glad you like it."
+    if shani_romance == False:
+        scene d15b-8x-3
+        with dissolve
+        S "I have been thinking about the future."
+        scene d15b-8x-7
+        with dissolve
+        Z "Do you want to discuss about it?"
+        scene d15b-8x-5
+        with dissolve
+        S "Well, I am a Stalker now, I figure I should find a way to put my name out there, for people to know me, and find some commissions, make some contacts."
+        scene d15b-8x-6
+        with dissolve
+        Z "You know that you won't lack for opportunities, right? You already have a foot in the door at the palace. That's more than the average Stalker can count on."
+        scene d15b-8x-4
+        with dissolve
+        S "That's true, but I figured that that was mostly your thing. The Queen relies on you."
+        scene d15b-8x-6
+        with dissolve
+        Z "And on you by proxy. She showed interest in your expedition and gave you a task, not me."
+        scene d15b-8x-5
+        with dissolve
+        S "Mmh, I agree. But I do want to also find my own way, not just rely on you for everything."
+        scene d15b-7
+        with dissolve
+        Z "That goes to your credit. There's no shame in using the tools you're given though. I am sure Igor won't deny you a few good leads, if he should stumble on them."
+        Z "He dotes on you as much as he is a friend of mine."
+        scene d15b-8
+        with dissolve
+        S "Maybe I'll have a talk with him. See if he can also point me to a few new suppliers."
+        scene d15b-9
+        with dissolve
+        scene black pic
+        with slowfade
+        if mq_z_1.current_step == 10 and mq_z_1.active == True:
+            $ mq_z_1.advance()
+        "You talk shop with [S], relaxing on the balcony, and sketching out a few potential expeditions that you might undertake in the future."
+        "Eventually, you both decide to call it a night."
+        jump newday
+    else:
+        scene d15b-8x-3
+        with dissolve
+        S "So... um..."
+        S "I have been thinking about our time at the oasis..."
+        scene d15b-8x-2
+        with dissolve
+        S "It was something I thought about for a long time but...where do we go from there?"
+        scene d15b-8x-3
+        with dissolve
+        S "You know...since we've done it, what now?"
+        scene d15b-8x-4
+        with dissolve
+        S "I have been to the Zone; I have survived the challenge. You said I am a Stalker now."
+        scene d15b-8x-6
+        with dissolve
+        Z "It is true that the years that led up to this are now over. You are not a trainee anymore."
+        scene d15b-8x-2
+        with dissolve
+        S "So... there is no longer a reason to be reserved, is there?"
+        scene d15b-8x-3
+        with dissolve
+        S "But I still...wonder if this causes you to think of me more like [A]?"
+        scene d15b-11
+        with dissolve
+        Z "You and your sister were always different, and what we did will not change that."
+        scene d15b-8x-7
+        with dissolve
+        Z "You know where your passions lie. Us enjoying each other should have no impact on it."
+        scene d15b-8x-5
+        with dissolve
+        S "Thank you [persistent.dad]. That's good to hear and yes, I want to see what else is out there, see what life has to offer."
+        S "Put my skills to good use, you know?"
+        scene d15b-8x-6
+        with dissolve
+        Z "And I will be there to assist if you want me to."
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            Z "You will always be my [persistent.da], no matter how old you grow."
+        scene d15b-8x-3
+        with dissolve
+        S "But...exploring tombs and going on missions is not all I want to do together with you."
+        scene d15b-8x-5
+        with dissolve
+        S "Other than messing around a bit with [A], I have mostly put that part of me in a corner while I was focusing on my training."
+        scene d15b-8
+        with dissolve
+        S "Since I have put this behind me now...I think I deserve to have a little fun, so...will you teach me?"
+        scene d15b-7
+        with dissolve
+        Z "If you want me to, I think I can find a thing or two to teach you still."
+        jump d15b13
+
+
+    label d15b13:    
+        scene d15b-8x
+        with dissolve
+        S "A thing or two you say? I wonder what do you have in mind..."
+        label re_d15b12:
+            scene d15b-12
+            if _in_replay:
+                with fade
+            else:
+                with dissolve
+        Z "I can show you. Come."
+        scene d15b-13
+        stop music_1 fadeout 5
+        with dissolve
+    S "..."
+    scene d15b-14
+    with dissolve
+    pause 1
+    scene d15b-16
+    with fade
+    Z "You look great, tonight."
+    scene d15b-17
+    with dissolve
+    S "Thanks, [persistent.dad]...."
+    scene d15b-18
+    with dissolve
+    "She hesitantly touches your chest..."
+    scene d15b-19
+    with dissolve
+    S "{i}*giggles*{/i} What will you do...?"
+    scene d15b-20
+    with dissolve
+    "You stroke [S]'s thigh, gently caressing her skin."
+    scene d15b-21
+    with dissolve
+    Z "Wait and see..."
+    scene d15b-22
+    with dissolve
+    "A quiet moan escapes [S]'s lips..."
+    scene d15b-23
+    with dissolve
+    Z "You have grown up so well..."
+    scene d15b-24
+    with dissolve
+    pause 0.8
+    scene d15b-25
+    with dissolve
+    S "Nh..."
+    scene d15b-26
+    with dissolve
+    Z "Such a sexy woman."
+    scene d15b-27
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        S "You're just saying that because I am your [persistent.da]..."
+    else:
+        S "You're just saying that..."
+    scene d15b-28
+    with dissolve
+    Z "You think so? Hm."
+    scene black pic
+    with fade
+    pause 0.5
+    scene d15b-29
+    with vpunch
+    S "Ah! Careful! {i}*giggles*{/i}"
+    scene d15b-30
+    with dissolve
+    S "..."
+    "She looks at you while you carry her..."
+    scene d15b-31
+    with fade
+    S "How romantic..."
+    scene d15b-32
+    with dissolve
+    S "Are you going to drop me?"
+    scene d15b-33
+    with dissolve
+    Z "That would be pretty dumb."
+    scene d15b-34
+    with fade
+    Z "Well, to your question... I do have an idea or two about where to go from here."
+    scene d15b-35
+    with dissolve
+    S "I bet you do."
+    scene d15b-36
+    with dissolve
+    S "Mh..."
+    scene d15b-37
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        S "I'm lucky... that my [persistent.dad] is so good looking."
+    else:
+        S "You're... very handsome..."
+    scene d15b-40
+    with dissolve
+    Z "Kiss me, [S]."
+    scene d15b-41
+    with dissolve
+    S "{i}*kissing*{/i}"
+    scene d15b-42
+    with dissolve
+    "The two of you make out for a while, before turning her around..."
+    scene d15b-43
+    with fade
+    "You stand behind [S], her bum pressing against your crotch."
+    scene d15b-44
+    with dissolve
+    S "I liked it too, you know? Your hands caressing me..."
+    scene d15b-45
+    with dissolve
+    S "You made that night special."
+    scene d15b-46
+    with dissolve
+    "As your fingers browse the body of your [persistent.da], you sense a shiver coursing through her spine."
+    Z "I can make you feel that way again. Let us go inside."
+    scene d15b-47
+    with fade
+    "[S] pushes the door open, following your direction."
+    scene d15b-48
+    with dissolve
+    S "I..."
+    scene d15b-49
+    with dissolve
+    S "I will let [persistent.mom] know that you will spend the night in my room."
+    scene d15b-50
+    with dissolve
+    Z "I can also do that for you."
+    scene d15b-51
+    with dissolve
+    S "No, it's okay. See you in a few!"
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    pause 0.7
+    "A few minutes later..."
+    scene d15b-52
+    play music "audio/music/playlists/classic 1.mp3" fadein 10 volume 0.4
+    with slowfade3
+    pause 1
+    scene d15b-53
+    with dissolve
+    S "..."
+    scene d15b-54
+    with dissolve
+    pause 1.5
+    scene d15b-55
+    play sound "audio/sounds/doors/door closed.mp3"
+    with dissolve
+    Z "I'm here."
+    scene d15b-56
+    with fade
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        S "You are late, [persistent.dad]."
+    else:
+        S "You are late."
+    scene d15b-57
+    with dissolve
+    Z "Am I?"
+    scene d15b-58
+    with fade
+    S "I hope you came prepared, because I'm armed."
+    scene d15b-59
+    with dissolve
+    "You step closer..."
+    scene d15b-60
+    with dissolve
+    S "Hey, I'm serious!"
+    scene d15b-61
+    play sound "audio/sounds/objects/sword drop.mp3" volume 0.5
+    with hpunch
+    S "...!"
+    scene d15b-62
+    with dissolve
+    S "{i}*kissing*{/i}"
+    Z "Let's take this off."
+    scene d15b-63
+    with dissolve
+    S "Mh..."
+    scene d15b-64
+    with dissolve
+    S "{i}*kissing*{/i}"
+    "You passionately make out. One of your hands wrapped around her neck, you can feel her breathing, as her nimble fingers caress your arms..."
+    scene d15b-65
+    with dissolve
+    "Her breasts press against you, as you are lost in the moment."
+    "Many things have happened in the short days since the oasis, but the passion that you had back in that moment is still truly alive.."
+    "However, the more comfortable domestic setting and the absence of an impending peril give your experience a different flavour, a more intimate, tender feeling."
+    scene d15b-66
+    with fade
+    S "..."
+    scene d15b-67
+    with dissolve
+    "You end the kiss and lean back to admire her for a moment..."
+    scene d15b-68
+    with dissolve
+    Z "You used to give me a real challenge, [S]. Are you slacking off?"
+    scene d15b-69
+    with dissolve
+    S "Maybe I wanted you to defeat me..."
+    Z "Is that so?"
+    scene d15b-67
+    with dissolve
+    Z "I know that look..."
+    scene d15b-70
+    with dissolve
+    S "You weren't the only one teaching me..."
+    scene black pic
+    with fade
+    pause 0.5
+    scene d15b-72
+    play sound "audio/sounds/objects/machete.mp3" volume 0.5
+    with vpunch
+    Z "...!"
+    S "Hold still."
+    scene d15b-73
+    with dissolve
+    S "Who's slacking off now?"
+    scene d15b-74
+    with dissolve
+    S "Get on the bed!"
+    scene black pic
+    with fade
+    pause 0.5
+    play sound "audio/sounds/actions/drop 2.mp3"
+    scene d15b-75
+    with vpunch
+    S "Yes, that will do."
+    scene d15b-76
+    with fade
+    S "Stay put, [persistent.dad] dearest."
+    scene d15b-77
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        S "Do I need to remind you further that I am not like your other [persistent.da]?"
+    else:
+        S "Do I need to remind you further that I am not like [A]?"
+    scene d15b-78
+    with dissolve
+    Z "Nope. Point taken and understood."
+    scene d15b-79
+    with dissolve
+    Z "You don't dislike this, do you?"
+    S "Maybe not..."
+    scene d15b-80
+    with dissolve
+    S "Ah well, I guess since you're subdued..."
+    scene d15b-81
+    with dissolve
+    stop music fadeout 2.5
+    pause 0.6
+    scene black pic
+    play sound "audio/sounds/objects/sword drop.mp3" volume 0.5
+    with fade
+    "She leaps on the bed..."
+    scene d15b-82
+    play music "audio/music/exploration/hashish.mp3" fadein 20 volume 0.7
+    with slowfade
+    S "{i}*giggles*{/i}"
+    scene d15b-83
+    with dissolve
+    S "So..."
+    scene d15b-84
+    with dissolve
+    S "...How was that? Was I convincing?"
+    scene d15b-85
+    with dissolve
+    Z "Convincingly hot. You can always practice on me."
+    scene d15b-86
+    with dissolve
+    S "Can I? That opens up so many possibilities..."
+    scene d15b-87
+    with dissolve
+    Z "I could teach you some more things, I guess."
+    scene d15b-88
+    with dissolve
+    "You wait in anticipation as she slowly undoes her top..."
+    scene d15b-89
+    with fade
+    S "There...happy?"
+    Z "Very, but...what about the rest?"
+    scene d15b-90
+    with dissolve
+    S "You are so impatient, [persistent.dad]."
+    scene d15b-91
+    with dissolve
+    Z "How could I not be?"
+    scene d15b-92
+    with dissolve
+    "She slowly takes off her panties."
+    scene d15b-93
+    with fade
+    Z "Wow..."
+    Z "This is pretty hot."
+    scene d15b-94
+    with fade
+    pause 1.5
+    "You admire the slender figure in front of you, taking a long time to absorb every detail of her."
+    "The flawless skin, her full breasts, her toned abs..."
+    scene d15b-95
+    with dissolve
+    Z "You're gorgeous, [S]."
+    "[S]'s eyes drift to the side, in a moment of embarrassment."
+    scene d15b-96
+    with dissolve
+    Zt "She was never shy about her looks, but this is still new, a different side of her."
+    scene black pic
+    with fade
+    Z "[S]..."
+    scene d15b-97
+    with vpunch
+    S "Oh...?"
+    Z "{i}*sucking*{/i}"
+    scene d15b-98
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        S "Ah...[persistent.dad]... your tongue..."
+    else:
+        S "Ah...your tongue..."
+    S "You're so forceful..."
+    scene d15b-99
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        "You can't help but leap at her, suckling on your [persistent.da]'s nipples with joy and excitement."
+    else:
+        "You can't help but leap at her, suckling on her nipples with joy and excitement."
+    S "I... ngh... may have thought about this too, lately..."
+    scene d15b-100
+    with dissolve
+    pause 0.6
+    scene d15b-101
+    with dissolve
+    "You squeeze the plump breasts. They're firm yet soft, a size perfectly suited for her figure, and for your groping hands."
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        "Something she has in common with her mother."
+    else:
+        "Something she has in common with your wife."
+    scene d15b-101x
+    with dissolve
+    "You take a second, leaning back to enjoy the sight of the perky nipples poking towards you."
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        "If [A]'s drive and enthusiasm match that of her [persistent.mom], [S]'s figure is undeniably closer to that of [W]."
+    else:
+        "If [A]'s drive and enthusiasm match that of [W], [S]'s figure is undeniably closer to that of your wife."
+    scene d15b-102
+    with dissolve
+    Z "{i}*sucking*{/i}"
+    S "You're... You really like my... breasts, don't you?"
+    Z "Mhm..."
+    scene d15b-103
+    with fade
+    Z "..."
+    scene d15b-104
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        S "[persistent.dad!c]..."
+    else:
+        S "I...uhh..."
+    scene d15b-106 
+    with dissolve
+    S "I think..."
+    scene d15b-107
+    with dissolve
+    S "I'm ready for you..."
+    scene black pic
+    with fade
+    Z "If that's the case..."
+    scene ss-1
+    with hpunch
+    S "Whoa, {i}*giggles*{/i}"
+    S "...that's hot."
+    scene ss-3
+    with fade
+    S "I think we've both been waiting for this."
+    Z "Yeah..."
+    scene ss-4
+    with dissolve
+    S "Whoa, [persistent.dad]..."
+    scene ss-5x
+    with dissolve
+    S "You're... you're bigger than last time...?!"
+    scene ss-6
+    with dissolve
+    Z "If that's true, the merit is all yours."
+    scene ss-7
+    with dissolve
+    Z "Maybe it's to do with the fact that we're excited but not afraid."
+    scene ss-8
+    with dissolve
+    S "There is no more pressure."
+    scene ss-9
+    with dissolve
+    Z "Not here, at home, where we are safe."
+    scene ss-10
+    with dissolve
+    S "Mh... it's..."
+    Z "What do you think?"
+    scene ss-11
+    with dissolve
+    S "We can try..."
+    scene ss-12
+    with dissolve
+    Z "Alright..."
+    scene ss-13
+    with dissolve
+    S "Nh..."
+    Z "How does that feel?"
+    scene ss-14
+    with dissolve
+    S "I like it... but it's so big..."
+    Z "I can't help it. You're too sexy."
+    S "Mh..."
+    scene ss-15
+    with fade
+    Z "I'm going to put it in."
+    S "Yes... [persistent.dad]..."
+    scene ss-16-anim
+    with dissolve
+    S "Ah...!"
+    Z "Mgh..."
+    scene ss-18
+    with fade
+    "A guttural moan escapes her lips as you push your manhood halfway inside her. The grip of her tight pussy feels amazing."
+    "Despite how wet she is, you take a slow pace, gradually pushing back against her tightness."
+    "The notion of stretching out your [persistent.da]'s pussy fills your thoughts for a second, as you press on."
+    S "This feeling... mh..."
+    scene ss-19
+    with dissolve
+    S "You're making me feel so... ngh-... [persistent.dad]..."
+    Z "You're so perfect, [S]."
+    scene ss-20
+    with dissolve
+    Z "Shall I go deeper?"
+    scene ss-21
+    with dissolve
+    pause 0.5
+    scene ss-22
+    with dissolve
+    pause 0.7
+    scene ss-23-anim
+    with fade
+    pause 3
+    S "Ah..."
+    Zt "So tight..."
+    scene ss-24
+    with dissolve
+    Z "I... I'm all the way in."
+    scene ss-25-anim
+    with fade
+    "You start fucking her passionately..."
+    S "Nh... you're... filling me up..."
+    S "Wow..."
+    pause 1.5
+    Z "Ngh..."
+    S "It feels so good..."
+    Z "It does. You feel amazing."
+    scene ss-25x-anim
+    with fade
+    pause 1.5
+    S "You..."
+    extend " you're really... big."
+    S "...but it's so nice... nh..."
+    scene ss-25x-2-anim
+    with fade
+    pause 1.5
+    "Her pussy feels welcoming, and moist..."
+    "All you can hear is the sound of your bodies making contact with each other, and her short, bated moans."
+    pause 1.5
+    Z "I'm... getting close already."
+    S "{i}*giggles*{/i} Do I.. ah..."
+    S "...do I excite you that much? Nh..."
+    scene ss-13
+    with fade
+    S "[persistent.dad!c]... I'm feeling something..."
+    scene ss-23
+    with fade
+    S "Can you... push it in fast, now...!"
+    Z "Like this...?"
+    scene ss-23x
+    with vpunch
+    S "Ah...!!"
+    S "Ngh...-"
+    with vpunch
+    S "I..."
+    scene ss-23
+    with dissolve
+    Z "Cum for me, [S]."
+    scene ss-23x
+    with vpunch
+    S "Nhaaa~"
+    S "Ah... oh..."
+    with vpunch
+    "You feel her twitching on your dick. She cums intensely..."
+    scene ss-25-anim
+    with Dissolve(0.1)
+    "You keep going..."
+    S "[persistent.dad!c]... my gods..."
+    S "That... ah..."
+    scene ss-25x-2-anim
+    with fade
+    S "Damn... {i}*giggles*{/i}"
+    S "I'm so... sensitive right now."
+    S "I came so much..."
+    "Her voice is smooth as silk, and her orgasming while you're inside her brings you even quicker over the edge now."
+    Z "I'm going to... cum as well..."
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        S "But... [persistent.dad].. nh..."
+    else:
+        S "But...nh...."
+    S "What if you release inside me... ah..."
+    S "I shouldn't... get pregnant."
+    S "Not...now..."
+    Z "You're right, but it's about to..."
+    S "I also want to feel it, but... we can't risk it..."
+    S "You...can you cum on me?"
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        "The image of cumming deep inside your [persistent.da]'s womb makes you so intensely excited, that climax is approaching fast."
+    else:
+        "The image of cumming deep inside her womb makes you so intensely excited, that climax is approaching fast."
+    scene ss-26
+    with fade
+    "And just in time, you manage to pull out as she grabs your pulsating dick."
+    S "Mh..."
+    Z "[S]... ngh-"
+    scene ss-27
+    with vpunch
+    pause 0.6
+    scene ss-28
+    with dissolve
+    Z "Agh-"
+    scene ss-29
+    with vpunch
+    pause 0.6
+    scene ss-30
+    with dissolve
+    S "So much..."
+    Z "Fuck..."
+    scene ss-31
+    with vpunch
+    pause 0.6
+    scene ss-32
+    with dissolve
+    S "Wow..."
+    scene ss-33
+    with dissolve
+    Z "{i}*heavy breathing*{/i}"
+    Zt "All this... would've been inside her..."
+    Zt "I almost impregnated my [persistent.da]."
+    scene ss-34
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        S "That was a lot, even for you, [persistent.dad]."
+    else:
+        S "That was a lot, even for you..."
+    scene ss-35
+    with dissolve
+    Z "And I could even keep going, you know?"
+    scene black pic
+    with fade
+    "You lay down on your back, [S] cuddling beside you..."
+    scene ss-36
+    with fade
+    S "You really could?"
+    Z "For you, yes."
+    Z "You turn me on that much."
+    S "{i}*giggles*{/i} I guess getting to watch you with [persistent.mom] and the other women together has given me a few ideas."
+    scene ss-37
+    with fade
+    S "So, since you are still hard..."
+    S "And don't judge me, please..."
+    scene ss-39
+    with dissolve
+    Z "Why would I judge you?"
+    scene ss-40
+    with dissolve
+    S "It's just... I've seen this done a million times by so many girls..."
+    S "But unlike them, I've never really done anything..."
+    scene ss-38
+    with dissolve
+    S "Do you think I could... practice a little?"
+    scene ss-39
+    with dissolve
+    if persistent.sharing == True:
+        menu:
+            "I would like that.":
+                label ss41:
+                    Z "Of course you can."
+                    scene ss-41
+                    with dissolve
+                    Z "In fact, I would like that a lot."
+                    scene ss-42
+                    with dissolve
+                    S "Alright then..."
+                    jump ss43
+            
+            "You've never done anything with boys?":
+                Z "You've never done anything with boys? Not even when you were attending lessons and taking classes?"
+                scene ss-42
+                with dissolve
+                S "[persistent.dad!c], you already know I'm not that kind of girl."
+                scene ss-40
+                with dissolve
+                S "I wasn't unpopular, but I've only messed around a bit with girls."
+                scene ss-42
+                with dissolve
+                S "And besides... many of my friends who did let the boys ride them in between classes, became mothers very soon."
+                scene ss-41
+                with dissolve
+                Z "Once again I am proud. It's better to practice at home, anyway."
+                Z "Alright then, go ahead."
+                jump ss43
+    
+    else:
+        jump ss41
+
+
+    label ss43:
+        scene ss-43
+        with fade
+        "She slides down..."
+        scene ss-45
+        with dissolve
+        S "Whoa... this is just stupid big!"
+        scene ss-46
+        with fade
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            S "How do [persistent.mom] and [A] even take the whole thing?"
+        else:
+            S "How do the others even take the whole thing?"
+        scene ss-47
+        with dissolve
+        S "My girlfriends from school would be shocked to see me now..."
+        scene ss-46
+        with dissolve
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            S "...Lying naked with my [persistent.dad]'s massive thing pointed at my face."
+        else:
+            S "...Lying naked with this massive thing pointed at my face."
+        scene ss-48
+        with dissolve
+        Z "You know you're only making me more excited, don't you?"
+        scene ss-49
+        with dissolve
+        S "{i}*lick*{/i}"
+        scene ss-47
+        with dissolve
+        Sw "That was my first time tasting a dick."
+        scene ss-48
+        with dissolve
+        Z "Better late than never..."
+        "...you say with a groan."
+        scene ss-49
+        with dissolve
+        S "Nh..."
+        scene ss-50
+        with dissolve
+        "She tentatively licks your entire glans, taking it slow..."
+        scene ss-52
+        with dissolve
+        S "..."
+        scene ss-52-anim
+        with Dissolve(0.1)
+        "She starts to passionately suck you off..."
+        S "Mh..."
+        S "{i}*sucking*{/i}"
+        Z "Whoa... [S]..."
+        pause 1.5
+        "She keeps stroking you while focusing her efforts on your tip."
+        Zt "She is... so good for her first time."
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            Zt "A natural talent... like her mother."
+        else:
+            Zt "A natural talent... like [W]."
+        S "{i}*slurp*{/i}"
+        pause 1.5
+        Z "You're... wow."
+        Z "A multitasking talent."
+        S "Mhm... {i}*muffled giggling*{/i}"
+        pause 1.5
+        "She keeps her focus up, trying her best to go as deep as she can."
+        Z "You're making me pass out, [S]."
+        S "{i}*sucking*{/i}"
+        pause 1.5
+        Z "A little bit more..."
+        pause 1.5
+        Z "[S]... careful. I'm..."
+        Z "Ah... this is too much..-"
+        scene ss-56
+        with fade
+        pause 0.5
+        scene ss-57
+        with hpunch
+        Z "Ngh-"
+        scene ss-58
+        with dissolve
+        pause 0.8
+        scene ss-59
+        with dissolve
+        Z "[S], wait... what are you-"
+        scene ss-60
+        with dissolve
+        pause 0.4
+        scene ss-61
+        with hpunch
+        Z "Agh-"
+        scene ss-60
+        with dissolve
+        S "..."
+        scene ss-61
+        with hpunch
+        pause 0.6
+        scene ss-62
+        with dissolve
+        Z "I... {i}*pant*{/i}"
+        Z "Did you just..."
+        scene ss-62x
+        with dissolve
+        S "I wanthed to... thaste it."
+        scene ss-62x-2
+        with dissolve
+        S "{i}*gulp*{/i}"
+        scene ss-62x-3
+        with dissolve
+        S "A girl has to try new things... {i}*giggles*{/i}"
+        scene ss-62x-4
+        with dissolve
+        Z "She has to, indeed."
+        scene black pic
+        stop music fadeout 5
+        queue music "audio/music/home/dream town.mp3" fadein 3
+        with slowfade
+        "She cleans herself and climbs back alongside you..."
+        scene ss-36
+        with fade
+        S "That was nice, wasn't it?"
+        Z "Absolutely."
+        scene ss-42
+        with dissolve
+        S "So... I guess we're doing these things more often from now on?"
+        scene ss-41
+        with dissolve
+        Z "I could stand to do this more often, yes."
+        scene ss-40
+        with dissolve
+        S "And that means... we could sleep together in the evening sometimes, as well."
+        scene ss-39
+        with dissolve
+        Z "Do you want me to stay, tonight? We've already told your [persistent.mom]."
+        scene ss-63
+        with dissolve
+        S "I would like that."
+        scene ss-64
+        with dissolve
+        if _in_replay:
+            scene black pic
+            with fade
+            $ renpy.end_replay()
+        scene ss-66x
+        with slowfade
+        "You cuddle in the warm candlelight, quickly getting sleepy after such an intense evening."
+        "You feel that the relationship with your [persistent.da] has reached another level tonight."
+        "While you are still feeling things out, you are both more open about each other's sexual desires."
+        if mq_z_1.current_step == 10 and mq_z_1.active == True:
+            $ mq_z_1.advance()
+        "Your future adventures together will surely be exciting..."
+        scene black pic
+        with slowfade
+        jump mission_end
+
+label d15c:
+    $ daiymainmission = True
+    $ m_d15c = True
+    play sound "audio/sounds/vehicles/engine start.mp3"
+    scene black pic
+    stop music fadeout 3
+    with fade
+    pause 0.5
+    "You head directly towards [I]'s hideout."
+    "Hours later..."
+    scene d15c-1
+    play music "audio/sounds/environment/desert wind.mp3" fadein 5
+    with slowfade
+    pause 2
+    scene d15c-2
+    with slowfade
+    pause 2
+    scene d15c-3
+    with slowfade
+    Z "[I]?"
+    scene d15c-4
+    with dissolve
+    Z "I'm back."
+    scene d15c-5
+    with dissolve
+    "She turns around facing you as you stand in front of her..."
+    scene d15c-6
+    with dissolve
+    Z "I hope this isn't the wrong time, and that your friend has returned."
+    Z "I'm not quite sure how I can help, but... well, I'm here."
+    scene black pic
+    with fade
+    "She stands up..."
+    scene d15c-7
+    with fade
+    I "Thank you for coming back."
+    I "She was here yesterday."
+    scene d15c-8
+    with dissolve
+    I "Unfortunately... she didn't stay very long."
+    I "I wish she would stay here, where it's safe, but I can't force her."
+    scene d15c-9
+    with dissolve
+    I "But... if you stay around for a while, she might come back."
+    scene d15c-10
+    with dissolve
+    Z "Sure, I can use a short rest, before I drive back again."
+    scene d15c-11
+    with dissolve
+    "She smiles..."
+    Z "So... what is it exactly you do around here? I understand the luxury of having all this water, but I'm sure you don't spend all day bathing, right?"
+    scene d15c-12
+    with dissolve
+    I "There is always something to do here. Let me show you."
+    scene d15c-13
+    with dissolve
+    Z "Lead the way."
+    scene black pic
+    with fade
+    "She jumps off the platform she was standing on, walking past you..."
+    scene d15c-14
+    with fade
+    I "I have something in mind that you will find interesting."
+    scene black pic
+    stop music fadeout 3
+    queue music "audio/music/exploration/meditation.mp3" fadein 20 volume 0.6
+    with slowfade
+    "She leads you to a different section of the enclosure..."
+    scene d15c-15
+    with w33slow
+    pause 2
+    scene d15c-16
+    with fade
+    I "..."
+    Z "This... this is new."
+    scene d15c-17
+    with fade
+    "As you stand at the entrance of a sparsely illuminated cave, you observe that a fine blue mist rises from the ground concealing something."
+    "When your eyes adjust, you notice a thick carpet of the same blue-ish grass that you have seen in [I]'s cave before."
+    "As the blue mist shifts and weaves in the soft wind that flows from the entrance of the cave, you notice strands of blue, turquoise and green petals, sprouting from long reeds that emerge bobbing in the mist."
+    "Using what little light you get from a spotlight at the back of this cave, you look at the flowers without recognising them."
+    scene d15c-18
+    with slowfade
+    "You follow [I] as she kneels down in the mist..."
+    scene d15c-19
+    with dissolve
+    Z "These look very pretty. I have never seen anything quite like it. Are they this colour because of the mist, or are the plants what gives colour to the mist?"
+    scene d15c-20
+    with dissolve
+    I "I am not certain how that particular cycle started. They were growing here before Sonmi and I even discovered this place."
+    I "We discovered that their flowers can be consumed. And so, we grew and carefully cultivated them over the years."
+    scene d15c-21
+    with dissolve
+    I "Do you want to come closer?"
+    scene d15c-22
+    with fade
+    Z "I think I have seen something similar in the past, but only in the Zone, and never this bright and colourful."
+    Z "I assume they only grow here?"
+    scene d15c-24
+    with dissolve
+    I "Most likely, I haven't seen them anywhere else. I think that the combination of humidity, shadow and airflow is just the right habitat for these beauties."
+    I "They grow quickly, and they are more nutritious than any other fruit."
+    scene d15c-23
+    with dissolve
+    I "Over time, I have come to the conclusion that the flowers somehow seem to participate in the production of this mist, much like other plants help create the air we breathe."
+    scene d15c-24
+    with dissolve
+    I "From what Sonmi tells me there's a high concentration of oxygen, and possibly some other chemicals we can't quite identify."
+    scene d15c-22
+    with dissolve
+    "You consider yourself a learned man, but your experience with plants and biology in general is broadly limited to what [W] prepares for you. You keep listening, captivated."
+    scene d15c-24
+    with dissolve
+    I "You can try them, if you want?"
+    scene d15c-25
+    with dissolve
+    Z "Hm. Sure, I could use a bite."
+    scene d15c-26
+    with dissolve
+    Z "Let's see.. this one looks good. They feel quite firm."
+    scene d15c-27
+    with fade
+    Z "{i}*bites*{/i} Hm..."
+    scene d15c-28
+    with dissolve
+    Z "{i}*chews*{/i}"
+    I "..."
+    extend " ...."
+    extend " ....."
+    scene d15c-29
+    with vpunch
+    Z "{i}*cough*{/i} Fuck..."
+    "You spit out a mouthful..."
+    Z "That... oh gods..."
+    I "Mhhh..."
+    scene d15c-30
+    with dissolve
+    I "{i}*giggles* Oh no..."
+    scene d15c-31
+    with dissolve
+    I "I didn't mean you should eat it raw. You ate the whole thing, just like that! {i}*laughing*{/i}"
+    scene d15c-32
+    with dissolve
+    Z "Very funny! I have to admit, I didn't think this through."
+    scene d15c-33
+    with fade
+    Z "So, what do you want me to do? Collect the most colourful flowers?"
+    I "Yes, if you would. We can take these two bags and each take a side of the cave."
+    Z "I see."
+    scene d15c-34
+    with fade
+    Z "You... really have everything you need right here, don't you?"
+    Z "A hidden place with shelter, food and drinkable water in abundance..."
+    scene d15c-35
+    with dissolve
+    I "Yes, but we have to be careful. It took a lot of work to raise this many plants, and it's a delicate balance."
+    scene d15c-36
+    with dissolve
+    Z "I suppose that you couldn't depend only on these plants, if that's the case."
+    Z "Alright then, let me earn my keep."
+    scene d15c-37
+    with dissolve
+    scene black pic
+    with fade
+    "You collect flowers for some time, taking care not to damage the plants in the process. It's a new experience for you, somehow relaxing..."
+    scene d15c-38
+    with fade
+    Zt "There.. that should be the last one."
+    Zt "This mist is getting so thick..."
+    scene d15c-39
+    with dissolve
+    Z "..."
+    Z "Oxygen, she said..."
+    scene d15c-40
+    with dissolve
+    "You inhale deeply, catching the full strength of the scent of these flowers, something similar to lavender but at the same time alien and new..."
+    scene d15c-41
+    with Dissolve(1.0)
+    Z "...!"
+    Z "Wow... this is intense... I'm almost getting light-headed."
+    scene d15c-42
+    with dissolve
+    "For a second you have the oddest of sensations, as if you were choking on too much air, and you cough, caught unaware."
+    "The calming effect that gathering the sturdy petals had on you, accompanied by this sudden intake of new, fresh air, put you at ease."
+    "You breathe in again, bending your mind to enjoy the moment of rare, complete peace." 
+    scene d15c-43
+    with dissolve
+    "As you get up to join [I] once more, the moment passes, and a gust of hot desert wind fills your lungs again."
+    I "Are you finished?"
+    scene d15c-44
+    with dissolve
+    Z "I... think so, yeah."
+    I "You can put the bag next to the other one, I will take care of it later!"
+    scene d15c-45
+    with dissolve
+    Z "What do you want to do now?"
+    scene d15c-46
+    with dissolve
+    I "I was thinking we could take a break up there."
+    scene d15c-47
+    with fade
+    Z "Up there? Where does that lead?"
+    scene d15c-48
+    with dissolve
+    Z "Oh... right."
+    scene d15c-49
+    with fade
+    I "There is a spot up there that is ideal to take a rest."
+    scene d15c-50
+    with dissolve
+    Z "I see you like climbing!"
+    scene d15c-51
+    with dissolve
+    Z "Alright. Lead the way."
+    scene d15c-52
+    with fade
+    "You climb up the broken pillars of the ancient ruin. As the sun starts to set, the sky starts to darken."
+    scene d15c-53
+    with fade
+    pause 1.5
+    scene d15c-54
+    with dissolve
+    Z "..."
+    scene d15c-55
+    with dissolve
+    Z "Do you need help with something?"
+    scene d15c-56
+    with dissolve
+    I "Thank you, but I am fine."
+    scene d15c-57
+    with dissolve
+    pause 0.7
+    scene d15c-58
+    with fade
+    "You look around you, as the sun sets. You've experienced similar moments, sitting atop the ruins of places you have explored or conquered."
+    "Every one of those experiences was unique, but this one does seem to stand out."
+    "Maybe it's the effect of the gasses in the cave, maybe it's the unique natural environment, but something of this place feels almost otherworldly."
+    "Much like a Zone, but still steeped in the real world as the rusty coloured sky demonstrates."
+    scene d15c-59
+    with fade
+    "You scan the place for [I], and spot her removing her leathers."
+    scene d15c-60
+    with fade
+    I "..."
+    scene d15c-61
+    with dissolve
+    I "Oh, um... I didn't think about you being here. I wanted to be a bit more comfortable."
+    scene d15c-62
+    with dissolve
+    I "If that's okay with you..."
+    scene d15c-63
+    with dissolve
+    Z "Of course it is. Just pretend I am not here."
+    scene d15c-64
+    with fade
+    Z "..."
+    I "I... usually don't let people get close. Not very social, let's say."
+    I "I don't really... we don't get visitors."
+    scene d15c-65
+    with dissolve
+    Z "There are worse things than revealing yourself to a friend, and you're still fully dressed." 
+    scene d15c-66
+    with dissolve
+    I "Yes, you're right."
+    scene d15c-67
+    with dissolve
+    I "And it's not like you haven't seen a lot more than this..."
+    scene d15c-68
+    with dissolve
+    Z "True."
+    scene d15c-69
+    with dissolve
+    "Your mind goes back to your last visit and you smile at the memory."
+    Z "..."
+    pause 2
+    Z "Do you...-"
+    stop music fadeout 3
+    queue music "audio/sounds/environment/desert wind.mp3" fadein 10
+    with hpunch
+    C "Yuna?!"
+    Z "...?"
+    scene d15c-70
+    with dissolve
+    C "..."
+    scene d15c-71
+    with dissolve
+    C "What is... {i}he{/i} doing here...?"
+    scene d15c-72
+    with dissolve
+    I "Sonmi... there you are..."
+    scene d15c-73
+    with dissolve
+    So "Why... Yuna?"
+    scene d15c-74
+    with dissolve
+    So "What possessed you to bring someone here? Are you out of your mind?"
+    So "You know how dangerous it is to let our guard down! Why not just hand them your weapons too?"
+    I "He... can help us."
+    scene d15c-75
+    with dissolve
+    So "When has anyone ever helped us? We are still prey to them."
+    So "You should know that by now."
+    scene d15c-76 
+    with dissolve
+    I "Sonmi..."
+    I "He can help us get back home!"
+    scene d15c-77
+    with dissolve
+    So "..."
+    scene d15c-78
+    with dissolve
+    So "How... how would you know you can trust him."
+    scene d15c-79
+    with dissolve
+    I "I just know. I promise. You know I can always tell!"
+    scene d15c-80
+    with fade
+    So "What if you're wrong? What am I going to do then?"
+    So "Why do you care to go back?"
+    scene d15c-81
+    with dissolve
+    I "Not for me, Sonmi. I want you to see it too."
+    scene d15c-82
+    with dissolve
+    So "You almost died out there, Yuna. Again!"
+    So "For what?!"
+    scene d15c-83
+    with dissolve
+    So "I am going back to the Wyrd."
+    scene d15c-84
+    with dissolve
+    So "I need to think about this."
+    pause 1.5
+    So "Yuna..."
+    scene d15c-85
+    with dissolve
+    So "I did not want to... shout."
+    scene d15c-86
+    with fade
+    So "But you keep doing this... first you open the bunker and give it away, and now this... why?"
+    scene d15c-88
+    with dissolve
+    pause 2
+    scene d15c-87
+    with dissolve
+    So "Why is it we don't talk anymore?"
+    scene d15c-88
+    with dissolve
+    I "..."
+    scene d15c-89
+    with fade
+    "She turns to face you..."
+    So "..."
+    scene d15c-90
+    with dissolve
+    So "I will go back out again." 
+    scene d15c-91
+    with dissolve
+    scene d15c-92
+    play sound "audio/sounds/actions/sneaking steps.mp3"
+    with fade
+    I "Be saf-..."
+    scene d15c-93
+    with dissolve
+    I "..."
+    scene d15c-94
+    with fade
+    Z "..."
+    Z "So this is Sonmi."
+    scene d15c-95
+    with dissolve
+    Z "Should I have said something?"
+    scene d15c-97
+    with dissolve
+    I "It's okay. It's not the first time we've argued. I'm happy, actually. She rarely speaks at all since, well... years, really."
+    scene d15c-98
+    with fade
+    Z "Would you tell me more about her?"
+    scene d15c-99
+    with fade
+    Z "What did you mean when you said I can help you get home?"
+    scene d15c-99x
+    with dissolve
+    I "Home is where we once used to live."
+    scene d15c-100
+    with dissolve
+    I "I could try to explain more..."
+    scene d15c-102
+    with dissolve
+    I "..."
+    "She reaches out towards you, her meaning unclear..."
+    scene d15c-101
+    with dissolve
+    I "Can I..."
+    I "It's this thing..."
+    scene d15c-103
+    with dissolve
+    Z "What do you mean?"
+    scene d15c-104
+    with dissolve
+    I "Back when we were young, my people, my family..."
+    I "When we would tell each other important things, or stories, we would touch hands."
+    I "[So] used to say she could feel my heartbeat, and tell if I was lying. I am not sure if she was making that up though."
+    scene d15c-105
+    with dissolve
+    I "Do you mind... doing the same?"
+    scene d15c-106
+    with dissolve
+    Z "I remember this. You reached out for me in the barracks as well."
+    scene d15c-107
+    with dissolve
+    I "..."
+    scene d15c-108
+    with dissolve
+    I "I want to tell you more about our past, and I am more comfortable this way."
+    scene d15c-109
+    with fade
+    I "I think it's more intimate."
+    scene d15c-110
+    with dissolve
+    I "Through subtle pressures of our fingers, we learned to also convey emotions."
+    scene d15c-111
+    with fade
+    I "Now..."
+    scene d15c-112
+    stop music fadeout 3
+    with dissolve
+    I "Close your eyes, please."
+    scene black pic
+    with slowfade
+    pause 1.5
+    play music "audio/music/exploration/past and present.mp3" fadein 2
+    scene d15c-135x
+    I "Picture a field."
+    scene d15c-137x-3
+    I "Now, a tower, standing tall at its center, surrounded by city ruins, untouched by the passing of time. Similar to the one you know."
+    I "We used to live there, for many decades, observing the changes from a distance."
+    scene d15c-123x-4
+    I "Tribes were settling, building their homes..."
+    scene d15c-124
+    with Dissolve(0.8)
+    I "...but they weren't meant to last forever."
+    scene d15c-125
+    with Dissolve(0.8)
+    I "So we watched them vanish."
+    scene d15c-126x-4
+    I "When more showed up after some time, a different culture, habits, new people trying to survive..."
+    scene d15c-127
+    with Dissolve(0.8)
+    I "...we watched them too get lost to the desert..."
+    scene d15c-128
+    with Dissolve(0.8)
+    I "...leaving behind nothing but rubble and ruins, again."
+    scene d15c-129x-4
+    I "Decades after decades passed, and we saw so many different people come and go..."
+    scene d15c-130
+    with Dissolve(0.8)
+    I "...as those of us your people like to call elves, outlived all of them."
+    scene d15c-131
+    with Dissolve(0.8)
+    I "In time, our only certainty, our only immutable condition was life in the tower."
+    scene d15c-132x-8
+    I "Imagine seeing children and youngsters your age, sometimes even meeting them and becoming friends..."
+    scene d15c-133
+    with Dissolve(1.2)
+    I "...and they all age before you, whereas you don't change."
+    I "You see them live their lives, struggle, fight and suffer, but you can't allow yourself to be too close, because your lifespan is counted in centuries."
+    scene d15c-134
+    with Dissolve(1.2)
+    I "So you isolate yourself, you try to detach from the goings on, and you stay away from your window more and more, until, eventually, you stop looking."
+    scene d15c-139
+    with Dissolve(1.5)
+    I "Some of us always said that time is what stops history happening at once...That time is the speed at which the past disappears."
+    I "And ultimately, time is all that we had. Time to ourselves, time to read the few books we had for the eleventh time."
+    I "Time to unlearn how to be in the world."
+    scene d15c-122
+    with Dissolve(1)
+    I "Throughout all this, Sonmi lived knowing only one ever-constant ineffable, which was that lone tower in the city of the dead that we called home."
+    scene d15c-138x
+    I "Until one day, all of it ended. The once secure walls were no more."
+    I "Imagine everything you hold dear, your friends and family, disappearing like the people outside."
+    I "We tried to build a feeling of safety and stability out here in the ruins."
+    I "But the life that has been lost will not come back. And a part of Sonmi is still in the tower, stuck in a need for isolation and safety."
+    scene d15c-117
+    stop music fadeout 5
+    queue music "audio/sounds/environment/desert wind.mp3" fadein 5
+    with slowfade3
+    $ check_for_achievements()
+    pause 0.5
+    scene d15c-118
+    with dissolve
+    I "...I have been trying to find a way to help her out for a long time."
+    scene d15c-104
+    with dissolve
+    I "...and... I imagined that she would want to make peace with her memories."
+    I "It is not the only thing that burdens her... but it could be a start."
+    I "I figured that if I found a trinket from there, our old home, something tangible for her to remember..."
+    scene d15c-118
+    with dissolve
+    I "Maybe that would help her put the past behind her and look at the present."
+    I "That is why I tried to go back to the tower, by myself, even though I knew the risk was high. That's how I was captured."
+    scene d15c-119
+    with dissolve
+    I "..."
+    scene d15c-116
+    with fade
+    pause 0.7
+    scene d15c-115
+    with dissolve
+    I "..."
+    "You realize you locked hands. Her soft fingers feel warm and her touch gentle."
+    scene d15c-120
+    with dissolve
+    "You let go of each other..."
+    scene d15c-105
+    with fade
+    I "Thank you for saving my life, [persistent.player_name]."
+    scene d15c-103
+    with dissolve
+    pause 1
+    scene d15c-104x-5
+    with dissolve
+    pause 1.2
+    Z "[I]..."
+    scene d15c-106
+    with dissolve
+    Z "...does she know you were going there for her sake?"
+    scene d15c-104
+    with dissolve
+    I "...No, I don't want her to feel responsible, or guilty."
+    scene d15c-107
+    with dissolve
+    Z "..."
+    Zt "So that is why she was so strongly against my presence here."
+    scene d15c-107
+    with dissolve
+    Z "Thank you for telling me your story."
+    scene d15c-104x-5
+    with dissolve
+    I "..."
+    scene d15c-104x-2
+    with dissolve
+    pause 2.2
+    scene d15c-106
+    with dissolve
+    Z "It has been a long day..."
+    scene d15c-104
+    with dissolve
+    I "It has."
+    scene d15c-105
+    with dissolve
+    I "If you don't want to ride back in the dark, you can sleep in my bed, like last time."
+    scene d15c-104x-3
+    with dissolve
+    Z "Won't that make your friend even more angry?"
+    scene d15c-105
+    with dissolve
+    I "I doubt she will be back before a day, or maybe two."
+    scene d15c-106
+    with dissolve
+    Z "I see. Where will you sleep? Or won't you?"
+    scene d15c-104
+    with dissolve
+    I "I will... outside. Like last time."
+    I "I like to be in the water... it makes me feel weightless. I like that a lot."
+    scene d15c-107
+    with dissolve
+    Z "Alright. I will spend the night then, and leave first thing in the morning."
+    Z "I will try not to disturb you, when I leave. Also..."
+    scene d15c-106
+    with dissolve
+    Z "I will get you both back there, somehow. Back to your tower."
+    if sq_i_1.current_step == 2:
+        $ sq_i_1.advance()
+        $ sq_i_1.resolution = _("It was the first time I have seen {I}'s friend; her name is Sonmi. White hair, pointy elven ears and a young face.\nThe history these two share is slowly being revealed to me, and apparently, I will play a part in rediscovering it.\nThere is an old Tower, similar to those of the mutants lead by Fangs.\nI could bring them there, when the time is right.").format(I=ivy_name)
+    scene d15c-104x-3
+    with dissolve
+    I "..."
+    scene d15c-104x-4
+    with dissolve
+    pause 1.6
+    scene d15c-104x-2
+    with dissolve
+    pause 1.7
+    scene black pic
+    with slowfade
+    "After spending the night in her bed, you make your way back home early in the morning..."
+    jump daily_wakeup
+

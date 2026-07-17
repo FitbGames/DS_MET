@@ -1,0 +1,2621 @@
+label visit_mutants:
+    scene vm-1
+    with fade
+    pause 1.5
+    scene d8b-2
+    with w33slow
+    jump mutants_command_center
+
+label mutants_command_center:
+    if m_d8b_part_2 == False: # -> or if any other mission is completed. She will only stay for the 1st mission.
+        scene vm-2
+    elif ev_d20d.is_active:
+        if mantis_left_behind == False:
+            scene d20d-1
+        else:
+            scene d20d-1x
+    elif m_d8b_part_2 == True and m_d10a == False:
+        scene vm-2x
+    elif m_d10a == True and mantis_left_behind == False:
+        scene vm-4
+    elif m_d10a == True and mantis_left_behind == True:
+        scene vm-5
+    else:
+        scene vm-2
+    play music "audio/music/mutants/command center.mp3" fadeout 2
+    with fade
+    if faction_introduction == False:
+        "{color=#eaf50e}You are in this faction's planning room."
+        "{color=#eaf50e}From here, you can choose the order of your missions and visit faction members to interact with."
+        "{color=#eaf50e}Some interactions may progress throughout the faction story."
+        "{color=#eaf50e}You can leave and enter this room through the world map at any time.{/color}"
+        $ faction_introduction = True
+    call screen mutant_menu
+
+label mutants_mission_table:
+    if ev_d20d.is_active:
+        jump d20d
+    if ev_d17a_part_1.is_active:
+        scene vm-3x-3
+        with fade
+    else:
+        scene vm-3
+        with fade
+    if faction_mission_introduction == False:
+        "{color=#eaf50e}Here you can choose a selection of missions."
+        "{color=#eaf50e}Your decisions during these missions could influence your faction and its role in the main storyline."
+        $ faction_mission_introduction = True
+    menu:
+        "Pepper's village" (important = True) if ev_d17a_part_2.is_active:
+            scene d10a-2
+            with fade
+            Z "Hey. I talked to Pepper and got to know Chili in the process."
+            Z "She said to tell you she's ready." 
+            scene d10a-3
+            with dissolve
+            Fa "Good to know. Things are getting ready on my end, too."
+            Fa "We can head out whenever we're ready. Wouldn't start this whole thing without you."
+            Fa "I will fill you in before we start driving."
+            scene d10a-2
+            with dissolve
+            jump d17a_part_2
+        "Look for Fangs" (important = True) if ev_d17a_part_1.is_active:
+            jump d17a_part_1
+        "The Hive (Part 1)" (important = True) if m_d8b_part_2 == False and daily_main_mission == False:
+            jump d8b76
+        "The Hive (Part 2)" (important = True) if m_d8b_part_2 == True and m_d10a == False and daily_main_mission == False and (day - d8b_day_part_2 > 1):
+            jump d10a
+        "Go back":
+            jump mutants_command_center
+
+label mutants_sleep:
+    scene vm-6
+    with fade
+    pause 1
+    scene vm-7
+    with fade
+    call daily_reset from _call_daily_reset_2
+    jump mutants_command_center
+
+label lab_repeat:
+    $ daily_lab = True
+    play music "audio/sounds/environment/soft ventilation.mp3" fadeout 2
+    scene d5b-41
+    with fade
+    "You enter the lab..."
+    scene d5b-42x-2
+    with fade
+    Pe "Hello again, [persistent.player_name]. I will be with you in a moment."
+    scene d5b-42x
+    with dissolve
+    scene black pic
+    with fade
+    "She takes off her coat and comes over..."
+    scene ml-78
+    with fade
+    Pe "So... how do we start this time?"
+    scene ml-2
+    with dissolve
+    menu:
+        "Request hand massage" (important = (pepper_exam_stage == 1), repeatable = (pepper_exam_stage > 1)):
+            if pepper_exam_stage == 1:
+                $ pepper_exam_stage = 2
+            jump pepper_repeatable_handjob
+
+        "Ask her to undress" (important = True) if pepper_exam_stage == 2: 
+            if pepper_exam_stage == 2:
+                $ pepper_exam_stage = 3
+            jump pepper_undress
+
+        "Ask her to undress again" (important = True) if pepper_exam_stage in [3, 5]:
+            jump pepper_undress_repeat 
+
+            menu pepper_undress_menu:
+                "Ask for deepthroat" (important = True) if pepper_exam_stage == 3:
+                    if pepper_exam_stage == 3:
+                        $ pepper_exam_stage = 4
+                    jump pepper_deepthroat
+
+                "Ask for sex" (important = True) if pepper_exam_stage == 5:
+                    if pepper_exam_stage == 5:
+                        $ pepper_exam_stage = 6
+                    jump pepper_ask_sex
+
+        "Ask for blowjob" (repeatable = True) if pepper_exam_stage == 3:
+            jump pepper_repeatable_bj
+
+        "Ask for deepthroat" (repeatable = True) if pepper_exam_stage >= 4:
+            jump pepper_deepthroat_repeat
+
+        "Ask her to wear a dress" (important = True) if pepper_exam_stage == 4: #Chilli comes in 
+            if pepper_exam_stage == 4:
+                $ pepper_exam_stage = 5
+            jump pepper_wear_dress
+
+        "Ask her to lay down" (repeatable = True) if pepper_exam_stage == 5:
+            jump pepper_lay_down_repeat
+
+        "Ask for sex" (repeatable = True) if pepper_exam_stage >= 6: #repeatable
+            jump pepper_ask_sex_repeat
+
+        "Go back":
+            Z "Not today, I was just checking up on you."
+            scene ml-78
+            with dissolve
+            Pe "You just realized this after undressing and laying down?"
+            scene ml-2
+            with dissolve
+            jump mutants_command_center
+
+
+label pepper_repeatable_handjob: #if pepper_exam_stage >= 1
+    Z "I prefer your hand game, today."
+    scene ml-78
+    with dissolve
+    Pe "Simple and efficient."
+    scene ml-2
+    with dissolve
+    scene d8c-32-anim
+    with fade
+    "She starts stroking your shaft..."
+    Pe "Is this stimulating enough?"
+    Z "Yes... I just need more of it."
+    Pe "I know. I was just asking."
+    scene d8c-40-anim
+    with dissolve
+    "She diligently focuses on her task. You believe you see a hint of fascination in her eyes..."
+    Z "You're as good as always..."
+    Pe "Mhm."
+    scene d8c-41
+    with fade
+    Z "..."
+    scene d8c-42
+    with dissolve
+    Z "In the meantime... I know you won't mind."
+    scene d8c-43
+    with dissolve
+    "You touch her thighs..."
+    Pe "{i}*sighs*"
+    scene d8c-44
+    with dissolve
+    pause 1.5
+    scene d8c-45
+    with dissolve
+    "She ignores you and keeps up her focus..."
+    scene d8c-46
+    with dissolve
+    "You grope her ass firmly..."
+    scene d8c-47
+    with dissolve
+    Z "Almost there... keep doing what you're doing..."
+    show d8c-32-anim
+    with dissolve
+    Pe "..."
+    Z "Hngh..."
+    scene d8c-48
+    with flash
+    Pe "There you are...{p=1.5} {nw}"
+    scene d8c-49
+    with dissolve
+    Pe "Excellent."
+    Pe "Stay put for a moment, [persistent.player_name]."
+    scene black
+    with fade
+    scene d8c-50
+    with fade
+    Pe "That should be enough for today."
+    scene d8c-51
+    with dissolve
+    Pe "Thank you for your contribution. Feel free to stop by again, when you can."
+    Pe "See you next time, [persistent.player_name]."
+    scene d8c-52
+    with dissolve
+    Z "See you around, Pepper."
+    scene black pic
+    with fade
+    "You leave the laboratory..."
+    jump mutants_command_center        
+    
+label pepper_repeatable_bj:
+    Z "It will be quick if you use your lips again."
+    scene ml-78
+    with dissolve
+    Pe "Fine."
+    scene ml-2
+    with dissolve
+    scene ml-3
+    with fade
+    Pe "I have a busy schedule, don't forget that."
+    scene black
+    with fade
+    "She undresses and approaches you..."
+    scene ml-32
+    with fade
+    Pe "Which means I don't want to waste a lot of time today."
+    Pe "So, if you have any suggestions on how to get this over with quickly, come out with it."
+    scene ml-39-anim
+    with fade
+    Pe "{i}*licking*{/i}"
+    Zt "Damn... her lips feel nice, but I could request more..."
+    jump pepper_cum_from_bj
+
+label pepper_cum_from_bj: #if pepper_exam_stage >= 3
+    Zt "Ah... whatever. Not today..."
+    Z "Just keep going... this is nice."
+    scene ml-40-anim
+    with dissolve
+    Pe "Very well."
+    Pe "{i}*sucking*{/i}"
+    "She polishes your tip methodically, occasionally looking into your eyes..."
+    scene ml-40-anim
+    with dissolve
+    Z "You really are... doing your best..."
+    Pe "{i}*sucking*{/i} Jhust... get it over whith..."
+    Z "I will... as soon as possible..."
+    scene ml-41-anim
+    with dissolve
+    Z "You look so good doing this. Ngh..."
+    Pe "{i}*slurp*{/i}"
+    Zt "Such a gentle tongue, when she's not lashing out at people..."
+    scene ml-41x
+    with dissolve
+    Z "Mh..."
+    scene ml-41x-2
+    with dissolve
+    pause 1.3
+    Pe "Mh...!"
+    Pe "[persistent.player_name]..."
+    Z "Just a moment..."
+    scene ml-41x-4
+    with dissolve
+    "You pinch her hard reddish nipples. She does not object..."
+    Z "I'm... cumming, Pepper."
+    scene ml-42
+    with dissolve
+    Pe "Mh..."
+    scene ml-43
+    with vpunch
+    Z "Ngh-"
+    scene ml-44
+    with dissolve
+    pause 1.2
+    scene ml-45
+    with dissolve
+    with vpunch
+    Z "Oh... fuck-"
+    scene ml-46
+    with dissolve
+    Pe "..."
+    scene ml-47
+    with vpunch
+    Z "Mh-"
+    "You cum deep, long strokes..."
+    scene ml-48
+    with dissolve
+    Pe "..."
+    "With puffy cheeks, she holds it all in her mouth..."
+    scene black
+    with fade
+    "...and gets up."
+    scene ml-49
+    with fade
+    Pe "..."
+    scene ml-50
+    with dissolve
+    Pe "Nha..."
+    "Your cum flows out of her mouth, directly into a small glass..."
+    scene ml-51
+    with fade
+    Pe "Well done. This is a fresh batch of samples."
+    Z "It was... a great experience as usual."
+    scene ml-75
+    with fade
+    Pe "Your contribution is received for today. Thank you, [persistent.player_name]."
+    Pe "You may leave now. See you next time."
+    scene ml-77
+    with dissolve
+    Z "Until next time, Pepper."
+    scene black pic
+    with fade
+    jump mutants_command_center
+
+label pepper_undress: #if pepper_exam_stage == 2
+    Z "Pepper... you should take off your dress entirely."
+    scene ml-2x
+    with dissolve
+    Pe "Excuse me, [persistent.player_name]?!"
+    scene ml-2x-2
+    with dissolve
+    Z "You heard me. Just like you, I like to speak directly."
+    Z "Your hands are stimulating me, and your appearance is attractive."
+    Z "But since you like to be efficient, I should tell you that you would gain a result more quickly if you exposed yourself more."
+    scene ml-78
+    with dissolve
+    Pe "[persistent.player_name], we are not a couple, nor do I want to mate with you."
+    scene ml-2
+    with dissolve
+    Z "But you do want me to cum for your research, don't you?"
+    scene ml-78
+    with dissolve
+    Pe "I do require your... semen for my research, yes. But I would prefer if you used less crude language."
+    scene ml-2
+    with dissolve
+    Z "Right... I may have been too direct. But why make a big deal out of showing your body?"
+    Z "It's just your body. We are mature people. Let's do away with pointless embarrassment."
+    scene ml-1
+    with dissolve
+    Pe "{i}*sigh*{/i}... I guess I should not be surprised.."
+    scene ml-3
+    with fade
+    Pe "First Fangs, now you. Apparently I can't avoid dealing with the sexualisation of my procedures."
+    scene ml-4
+    with dissolve
+    Z "I am only human, and the things you need are about as intimate as they could be."
+    scene ml-5
+    with fade
+    Pe "{i}*sigh*{/i} Whatever, [persistent.player_name]. I suppose maximum efficiency would require a slow pace as I disrobe?"
+    scene ml-6
+    with dissolve
+    pause 1.2
+    Z "Yes."
+    scene ml-7
+    with fade
+    Pe "It's a delicate balance, finding the line between stripping slowly enough to cause arousal but not so slow that a simple handjob would be a quicker option."
+    "Her distant and impersonal way of addressing you underscore her point as your mind is full of the sight unfolding before your eyes."
+    "Instead of having to imagine her silhouette, her slim, exotic body is finally revealing itself to you in all its candour."
+    Pe "Do you even understand what I am talking about?"
+    scene ml-8
+    with fade
+    Pe "I suppose you didn't even hear my question."
+    scene ml-9
+    with dissolve
+    Pe "It does seem to have the desired effect, at least."
+    scene ml-10
+    with dissolve
+    Z "Yeah... can you also..."
+    scene ml-11
+    with dissolve
+    Pe "..."
+    Z "Tha..."
+    scene ml-12
+    with dissolve
+    Z "...thanks..."
+    scene ml-13
+    with dissolve
+    Pe "Are you satisfied?"
+    menu:
+        "Stare at her":
+            Z "I..."
+            "You stare at her tight ass, your blood entirely leaving your brain..."
+            Pe "[persistent.player_name]?"
+            Pe "I certainly did not expect such a strong effect."
+
+        "\"I want to fuck that ass.\"":
+            Z "Blessed be Merneith... I want to fuck that ass."
+            Pe "[persistent.player_name]... If you really must, use your inner voice!"
+            
+    scene ml-14
+    with dissolve
+    Z "Turn around, for me..."
+    scene ml-15
+    with dissolve
+    Pe "{i}*sigh*{/i} Fine."
+    scene ml-16
+    with fade
+    "She turns around and stands still..."
+    Z "Wow..."
+    Pe "I will give you ten seconds."
+    scene ml-17
+    with dissolve
+    "There she stands. The focused, stoic scientist is standing in front of you with her back towards you..."
+    "Her naked body in heels, those long legs, the tall frame and tight ass... Her body, rare and exotic, you fill your eyes with her, in those ten seconds."
+    scene ml-18
+    with dissolve
+    Pe "That's enough. We should be able to get results, finally."
+    scene ml-19
+    with fade
+    Pe "Are you ready to continue?"
+    Z "..."
+    scene ml-20
+    with dissolve
+    Pe "Earth to [persistent.player_name]. Get over it, please."
+    Z "I..."
+    scene ml-21
+    with dissolve
+    Z "Give me one moment..."
+    "You focus on her cleanly shaved pussy, and wonder if she did this of her own initiative, or was told to do so..."
+    scene ml-22
+    with dissolve
+    Pe "Why do I have the feeling that you are not just here to help me out."
+    Z "I couldn't tell you..."
+    scene ml-23
+    with dissolve
+    "Looking at her smaller breasts, you notice her nipples pointing straight ahead..."
+    Z "Your nipples are hard, Pepper."
+    Pe "I easily get cold in here."
+    Pe "Time to resume where we left off, or this will have been an exercise in futility and nothing more."
+    scene black pic
+    with fade
+    "She comes over..."
+    scene ml-24
+    with fade
+    Pe "Well... At least my disrobement bears fruit."
+    scene ml-25
+    with dissolve
+    Z "You could say that..."
+    scene ml-26
+    with dissolve
+    "She grabs your dick, lost in momentary contemplation."
+    scene ml-27
+    with dissolve
+    Zt "Is she hesitating?"
+    scene ml-28
+    with fade
+    Z "Before we continue... I have a suggestion."
+    "She looks at you, waiting for you to continue..."
+    Z "My excitement has increased significantly, but massaging it with your hands would likely take some time."
+    scene ml-29
+    with dissolve
+    Pe "What are you implying now?"
+    scene ml-30
+    with dissolve
+    Z "You could grab my dick with your hands, stroke it a bit as usual, and put your mouth on if for a moment."
+    Z "This way, I will be able to donate almost immediately. You will see."
+    scene ml-29
+    with dissolve
+    Pe "And how will this exactly make a difference? I am not here to degrade myself for your pleasure."
+    scene ml-30
+    with dissolve
+    Z "This has nothing to do with degradation..."
+    Z "Uh... your lips create a softer feeling resembling actual intercourse."
+    Z "Believe me, I know what works best for me, and what will make this go easier and with minimal effort."
+    scene ml-29
+    with dissolve
+    Pe "I have no doubts you do..."
+    scene ml-31
+    with fade
+    Pe "Fine. But this is the last concession I grant you..."
+    scene ml-32
+    with dissolve
+    Pe "You better be right about the effectiveness of it. I am not doing this for fun."
+    scene ml-32x
+    with dissolve
+    Z "Of course. Surely you must know that variation, novelty, keeps the senses engaged and the experience fresh, leading to better and quicker results."
+    Z "And there is no harm in making it also a pleasurable experience, rather than such a clinical chore."
+    scene ml-33
+    with dissolve
+    Pe "..."
+    Z "Come on, Pepper. This has nothing to do with you degrading yourself."
+    Z "I would expect you to be rational about all this. And I may say so myself, but I know that many women do derive pleasure from the act as they perform it."
+    scene ml-34
+    with dissolve
+    Pe "{i}*sigh*{/i} You are so tasteless. The implications are... well, let's get this over with."
+    scene ml-35
+    with fade
+    Pe "{i}*licking*{/i}"
+    Zt "Fuck... I never thought this would actually happen."
+    Zt "Her attitude was so unapproachable. Yet here we are..."
+    scene ml-36
+    with dissolve
+    "She silently does what you agreed on, simultaneously giving you a curious, but also expectant look..."
+    scene ml-37
+    with dissolve
+    Pe "{i}*licking*{/i}"
+    Z "Fuck..."
+    scene ml-38
+    with fade
+    Pe "Is this what you were talking about...?"
+    Z "Very good. Keep stroking it gently, and try to wrap your lips around it a little more..."
+    scene ml-39-anim
+    with Dissolve(0.2)
+    Z "Oh... yes..."
+    Pe "{i}*licking*{/i}"
+    "She sucks the tip of your dick while stroking the shaft as you instructed her to do."
+    scene ml-40-anim
+    with dissolve
+    Z "You really are... doing your best..."
+    Pe "{i}*sucking*{/i} Jhust... get it over whith..."
+    Z "I will... as soon as possible..."
+    Z "...I have... other plans... anyway."
+    Z "Damn... Pepper..."
+    menu:
+        "\"Thank you.\"":
+            Z "I have to thank you for your commitment."
+            scene ml-41-anim
+            with dissolve
+            Z "I know it must be easier to extract the seed from other patients of yours, but..."
+            Pe "Lhuckily... yhou are the ohnly one I have tho dho this with..."
+            Pe "{i}*slurp*{/i}"
+
+        "\"I didn't think you'd slurp on my cock like this.\"":
+            Z "I'm going to be honest. I didn't expect you'd be slurping on my cock like this."
+            scene ml-41-anim
+            with dissolve
+            Z "You look good doing it, though. Ngh..."
+            Pe "{i}*slurp*{/i}"
+            Z "Such a gentle tongue, when you're not lashing out at people..."
+    
+    Pe "Shtop talking now and fochus, [persistent.player_name]..."
+    Pe "{i}*licking*{/i}"
+    Z "Fine..."
+    scene ml-41x
+    with dissolve
+    Z "Mh..."
+    scene ml-41x-2
+    with dissolve
+    pause 1.3
+    Pe "Mh...!"
+    Pe "Thish is inhapprophriate..."
+    scene ml-41x-4
+    with dissolve
+    "You pinch her hard reddish nipples. She does not object..."
+    Z "I'm... cumming, Pepper."
+    scene ml-42
+    with dissolve
+    Pe "Mh..."
+    scene ml-43
+    with vpunch
+    Z "Ngh-"
+    scene ml-44
+    with dissolve
+    Z "Wow... sorry... that landed on the floor..."
+    scene ml-45
+    with dissolve
+    with vpunch
+    Z "Oh... fuck-"
+    scene ml-46
+    with dissolve
+    Pe "..."
+    scene ml-47
+    with vpunch
+    Z "Mh-"
+    "You cum deep, long strokes..."
+    scene ml-48
+    with dissolve
+    Pe "..."
+    Z "I... I didn't expect you to..."
+    scene black
+    with fade
+    "She gets up, keeping her mouth closed..."
+    scene ml-49
+    with fade
+    Pe "..."
+    scene ml-50
+    with dissolve
+    Pe "Nha..."
+    "Cum flows out of her mouth, directly into a small glass. You can't believe your eyes..."
+    scene ml-51
+    with fade
+    Pe "That took longer than you suggested it would."
+    Z "You took it in your mouth..."
+    Pe "Of course I did, it was the only way to catch your contribution before falling to the floor after you just spurted it out."
+    scene ml-75
+    with fade
+    Pe "You shouldn't be concerned. It's just harmless bodily fluid."
+    Pe "Your contribution is complete for today. Please leave, as there is more work to be done."
+    scene ml-77
+    with dissolve
+    Z "Sure... that is... excellent reasoning."
+    Z "I will see myself out, then."
+    jump mutants_command_center
+
+label pepper_undress_repeat: #if pepper_exam_stage >= 3
+    Z "Let's start by undressing again."
+    scene ml-78
+    with dissolve
+    Pe "Fine."
+    scene ml-2
+    with dissolve
+    scene ml-3
+    with fade
+    Pe "I have a busy schedule, don't forget that."
+    scene black
+    with fade
+    "She undresses and approaches you..."
+    scene ml-32
+    with fade
+    Pe "Which means I don't want to waste a lot of time today."
+    Pe "So, if you have any suggestions on how to get this over with quickly, come out with it."
+    scene ml-39-anim
+    with fade
+    Pe "{i}*licking*{/i}"
+    Zt "Damn... her lips feel nice, but I could request more..."
+    jump pepper_undress_menu
+
+label pepper_deepthroat:  #if pepper_exam_stage >= 3
+    Z "You said I could request a more efficient method..."
+    Pe "Mhm... {i}*licking*{/i}"
+    Z "I have something in mind. Let me get up."
+    scene black
+    with fade
+    "A minute later..."
+    scene ml-52
+    with fade
+    Pe "This is ridiculous."
+    Z "It's not, I promise."
+    scene ml-53
+    with dissolve
+    Pe "If you want to degrade me with this position, you should have just said so. Then I would have never agreed."
+    Pe "Besides, if you think this is physically even remotely going to work, then you are mistaken."
+    scene ml-54
+    with dissolve
+    Z "Many girls can open their mouth much wider than they previously thought. I have experienced it first hand."
+    scene ml-55
+    with dissolve
+    Pe "There is no objective reason why we could not have tried this with you laying on the table."
+    Z "There is... this position has its advantages."
+    scene ml-56
+    with fade
+    Z "I promise this will be much quicker."
+    scene ml-56x
+    with dissolve
+    Pe "{i}*sigh*{/i} Your lecherous attitude is transparent."
+    scene ml-56
+    with dissolve
+    menu:
+        "Guide her slowly":
+            Z "I will guide you now, excuse my hand for a bit."
+            scene ml-57
+            with dissolve
+            Z "There. To make sure it properly fits, I will guide you in slowly, okay?"
+            # scene ml-58x-anim-half #TODO anim
+            # with Dissolve(0.1)
+            Z "Theeere.... slowly..."
+            Pe "Mgh..."
+            Pe "{i}*cough*{/i}"
+            Z "Now... you're half way there. It looks like you are quite flexible. Not every girl can do this."
+            Z "I promise, once you're taking it all the way and I start thrusting, the stimulation will be so intense that I can't avoid climaxing quickly."
+            Pe "{i}*cough*{/i}"
+            Z "Oh... right... sorry. I don't want you to pass out. Let me finish this."
+            # scene ml-58x-2-anim-REST #TODO anim
+            # with dissolve
+            Pe "{i}*cough*{/i}"
+            Z "Perfect. You're doing well."
+            Z "Now, I will start thrusting. This is necessary for maximum stimulation."
+            scene ml-58-anim
+            with Dissolve(0.1)
+        
+            Pe "{i}*slurp{/i}"
+            Z "Ah... Very good. You are naturally relaxed and disciplined."
+            Z "Keep it going now."
+            # scene ml-59-anim #TODO anim
+            # with dissolve
+            Z "Damn..."
+            Z "If I'm being honest, I knew you were focused on efficiency, but this..."
+            Pe "Hn... {i}*suck*{/i}"
+            Z "You know, despite everything, I do like your voice. But when you moan..."
+            Z "...that's something else."
+            scene ml-60-anim
+            with dissolve
+            Z "Maybe I will be more direct with you from now on."
+            Z "There are still a lot of different ways to make the contribution process more efficient. What do you think?"
+            Pe "{i}*suck*{/i}"
+            Z "I take that as a yes."
+            scene ml-61-anim
+            with dissolve
+            "You focus on the sounds coming from her mouth and enjoy the stimulation for quite some time."
+            Z "You really have a tight throat, Pepper."
+            Pe "{i}*slurp*{/i}"
+            Z "But it looks like it's loosening up more and more."
+            scene ml-62-anim
+            with dissolve
+            Z "Anyway... I'm about to cum. I promised you it'll go fast this time."
+            Pe "{i}*suck*{/i} mghm..."
+            Z "I don't want you to pass out."
+            Z "Fangs would surely be... disappointed."
+
+        "Be degrading":
+            $ ml_deepthroat_degraded = True
+            Z "Now, if you don't mind, you said you had not much time left."
+            scene ml-57
+            with vpunch
+            Pe "Ngh-"
+            Z "I will now start the stimulating myself again again."
+            Pe "Mgh..."
+            Z "{i}*chuckles*{/i} I knew you had a different side."
+            Z "But letting me throatfuck you, just to get some samples..."
+            scene ml-58-anim
+            with Dissolve(0.1)
+            Pe "{i}*chokes*{/i} Ngh..."
+            Z "Ah... relax your throat. Focus on breathing through your nose, and dont bite!"
+            "You plunge your cock deep inside her snug fitting throat, and then out again..."
+            Z "Fuck..."
+            # scene ml-59-anim #TODO
+            # with dissolve
+            Z "I'm going to be honest..."
+            Pe "{i}*slurp*{/i}"
+            Z "I do love degrading you, and I love seeing you in this position. It gets me incredibly hard."
+            Pe "Ngh... {i}*cough*{/i}"
+            Z "I also really enjoy stuffing your resting bitch face."
+            scene ml-60-anim
+            with dissolve
+            Z "I don't have to hear this impatient attitude any longer. All that comes out of your mouth hole is the sound of my thrusts."
+            Pe "Mgh-"
+            Z "Don't get me wrong though. Me telling you this is simply an example of being direct."
+            scene ml-61-anim
+            with dissolve
+            Z "But then... I'm not sure whats more humiliating for you."
+            Z "Kneeling down in front of me like a cock hungry slut..."
+            Pe "{i}Ngh... {i}*slurp*{/i}"
+            Z "...Or me telling you how I really feel about my dick in your throat."
+            scene ml-62-anim
+            with dissolve
+            Z "Anyway... I'm about to cum. I told you it would be faster this way."
+            Pe "{i}*cough*{/i}"
+            Z "I hope you're not suffocating just yet..."
+            Z "...It would be a shame to lose such a tight little slut."
+
+    menu:
+        "Cum inside her mouth":
+            Z "Okay... I'm ready..."
+            scene ml-64
+            with fade
+            Z "Open your mouth, yes..."
+            Z "Ngh..."
+            scene ml-65
+            with hpunch
+            Z "Agh-"
+            scene ml-66
+            with hpunch
+            Z "Fuck...!"
+            scene ml-67
+            with dissolve
+            Pe "Ngh..."
+            Z "Still not..."
+            scene ml-65
+            with hpunch
+            Z "...done-"
+            Pe "..."
+            scene ml-68
+            with dissolve
+            Z "Wow..."
+            Z "I gave you everything I have..."
+            scene ml-69
+            with dissolve
+            Pe "Nh..."
+            Zt "Fuck... this girl is... not wasting a drop."
+            Zt "Truly... efficient."
+            scene ml-70
+            with dissolve
+            Z "Did you save everything?"
+            Pe "Ochf courhse..."
+            scene black
+            with fade
+            "She gets up..."
+            scene ml-51
+            with fade
+            Pe "{i}*sigh*{/i}"
+            Pe "Another day, another sample..."
+            if ml_deepthroat_degraded == False:
+                Pe "You kept your word, [persistent.player_name]. It was indeed a very short and efficient way."
+            else:
+                Pe "I will ignore your crude remarks. I do expect a little more courtesy next time, however."
+            scene ml-75
+            with fade
+            Pe "While short and efficient, I do not plan on putting my throat through this every time, to get your sample."
+            scene ml-76
+            with dissolve
+            Pe "This means, we might have to find a different method altogether, eventually."
+            scene ml-77
+            with dissolve
+            Z "I have some ideas. Until next time, Pepper."
+
+        "Stuff her throat and cum":
+            Z "Keep going..."
+            scene ml-58-anim
+            with fade
+            Pe "{i}*sucking*{/i}"
+            Z "Fuck... this is such a beautiful sight."
+            Z "I don't think I can... pull out..."
+            Z "I'm..."
+            scene ml-71
+            with vpunch
+            Z "Ngh...-"
+            Z "Hold on..."
+            with vpunch
+            Pe "Ngh...!"
+            with vpunch
+            Z "Fuck..."
+            scene ml-72
+            with dissolve
+            Z "That feels so... good..."
+            with hpunch
+            Pe "{i}*cough*{/i}"
+            scene ml-73
+            with dissolve
+            Pe "{i}*gulp*{/i}"
+            "You cum deep inside her throat, and she is forced to gulp it down..."
+            Z "I couldn't resist..."
+            scene ml-74
+            with dissolve
+            Pe "{i}*licking*{/i}"
+            Z "Oh damn... what are you..."
+            with hpunch
+            Pe "{i}*gulp*{/i}"
+            Z "Is she... doing this on purpose?"
+            with hpunch
+            Pe "{i}*gulp*{/i}"
+            scene ml-64x-3
+            with fade
+            Z "Ngh... I had to... fuck..."
+            Z "I came so much..."
+            Pe "Evidently..."
+            scene black
+            with fade
+            "She gets up..."
+            scene ml-75
+            with fade
+            Pe "I am disappointed, [persistent.player_name]. I don't know how you expect me to get the samples when you force me to swallow them."
+            if ml_deepthroat_degraded == False:
+                Pe "We must find a more suitable way, if you can't control your instincts."
+                scene ml-77
+                with dissolve
+                Z "I will... think about it... yes."
+            else:
+                Pe "And don't get me started on your... remarks during this session."
+                Pe "I expect you to be more dignified in the future. Is that clear?"
+                scene ml-77
+                with dissolve
+                Z "Maybe. I guess I need more practice in that regard."
+            Z "Until next time, Pepper."
+    jump mutants_command_center
+
+label pepper_deepthroat_repeat:
+    Z "Let me get up. It's best if you undress and kneel on the floor again."
+    scene black
+    with fade
+    "A minute later..."
+    scene ml-52
+    with fade
+    Pe "{i}*sigh*{/i} Here we go again."
+    scene ml-53
+    with dissolve
+    Pe "Let's get it over with, shall we."
+    scene ml-54
+    with dissolve
+    Z "Of course."
+    scene ml-55
+    with dissolve
+    "You admire the lithe woman kneeling in front of you for a moment more, before continuing..."
+    scene ml-56
+    with fade
+    Z "Okay. I'll try to not stretch you out too much."
+    scene ml-57
+    with dissolve
+    Pe "..."
+    # scene ml-58x-anim HALF #TODO anim
+    # with Dissolve(0.1)
+    Pe "Mgh..."
+    Z "Halfway there..."
+    # scene ml-58x-anim REST
+    # with Dissolve(0.1)
+    Pe "{i}*slurp*{/i}"
+    Z "{i}*chuckles*{/i}"
+    Z "Ah... Very good."
+    Z "Keep doing... just that, yes. This feels as good as last time."
+    # scene ml-59-anim #TODO
+    # with dissolve
+    Z "Damn..."
+    if ml_deepthroat_degraded == False:
+        Z "I really respect how you're going through this just in the name of your research."
+        Pe "Hn... {i}*suck*{/i}"
+        Z "This... level of dedication..."
+        Z "...admirable, really."
+    else:
+        Z "I always love taking you in this position."
+        Z "Such a standoffish woman, reduced to acting like a plaything. Stuffed with a fat cock to make you shut up."
+        Pe "Ngh... {i}*cough*{/i}"
+        Z "Keep going, cutie."
+    scene ml-60-anim
+    with dissolve
+    Pe "{i}*suck*{/i}"
+    "You thoroughly enjoy her throat, plunging in and out..."
+    Z "Mh... a little longer."
+    scene ml-61-anim
+    with dissolve
+    Pe "{i}Ngh... {i}*slurp*{/i}"
+    Z "Your throat really is loosening slowly, each time we try this, Pepper."
+    Pe "{i}*slurp*{/i}"
+    scene ml-62-anim
+    with dissolve
+    "On the surface it might look like subservient obedience, but you are under no illusion that she sees this as a necessary chore and little more."
+    "But ultimately, that doesn't bother you in the slightest."
+    Z "I'll be reaching my limit soon. Keep going."
+    Pe "{i}*suck*{/i} mghm..."
+    menu pepper_deepthroat_repeat_choice:
+        "Cum inside her mouth":
+            Z "Okay... I'm ready..."
+            scene ml-64
+            with fade
+            Z "Open your mouth, yes..."
+            Z "Ngh..."
+            scene ml-65
+            with hpunch
+            Z "Agh-"
+            scene ml-66
+            with hpunch
+            Z "Fuck...!"
+            scene ml-67
+            with dissolve
+            Pe "Ngh..."
+            Z "Still not..."
+            scene ml-65
+            with hpunch
+            Z "...done-"
+            Pe "..."
+            scene ml-68
+            with dissolve
+            Z "Wow..."
+            Z "I gave you everything again..."
+            scene ml-69
+            with dissolve
+            Pe "Nh..."
+            Zt "Not wasting a drop as always..."
+            scene ml-70
+            with dissolve
+            Z "Did you save everything?"
+            Pe "Ochf courhse..."
+            scene black
+            with fade
+            "She gets up..."
+            scene ml-51
+            with fade
+            Pe "{i}*sigh*{/i}"
+            Pe "Another day, another sample..."
+            scene ml-75
+            with fade
+            Pe "Now, if you'll excuse me, I will have to drink a warm glass of water because of you."
+            scene ml-77
+            with dissolve
+            Z "You do that. See you soon, Pepper."
+
+        "Stuff her throat and cum":
+            Z "Keep going..."
+            scene ml-58-anim
+            with fade
+            Pe "{i}*sucking*{/i}"
+            Z "Fuck... this is such a beautiful sight."
+            Z "I don't think I can... pull out..."
+            Z "I'm..."
+            scene ml-71
+            with vpunch
+            Z "Ngh...-"
+            Z "Hold on..."
+            with vpunch
+            Pe "Ngh...!"
+            with vpunch
+            Z "Fuck..."
+            scene ml-72
+            with dissolve
+            Z "That feels so... good..."
+            with hpunch
+            Pe "{i}*cough*{/i}"
+            scene ml-73
+            with dissolve
+            Pe "{i}*gulp*{/i}"
+            "You cum deep inside her throat, and she is forced to gulp it down..."
+            Z "I couldn't resist..."
+            scene ml-74
+            with dissolve
+            Pe "{i}*licking*{/i}"
+            with dissolve
+            Pe "{i}*slurp*{/i}"
+            scene ml-64x-3
+            with fade
+            Z "I came so much again..."
+            Pe "Evidently..."
+            scene black
+            with fade
+            "She gets up..."
+            scene ml-75
+            with fade
+            Pe "I'm disappointed, [persistent.player_name]. I had to swallow everything."
+            Pe "I guess it can't be helped. Maybe you will control your urges next time."
+            scene ml-77
+            with dissolve
+            Z "Maybe I will..."
+            Z "Until next time, Pepper."
+
+        "Relieve yourself first":
+            Z "{i}*sigh*{/i} That's annoying..."
+            scene ml-54
+            with fade
+            if ml_ws_first_time == False:
+                $ ml_ws_first_time = True
+                Z "I can't come before I go and take a piss..."
+                scene ml-53
+                with dissolve
+                Pe "{i}*sigh*{/i} I can't wait it out, I have work to do."
+                Pe "Think of a more efficient way."
+                Pe "Just don't get the floor wet. It's unhygienic."
+                scene ml-54
+                with dissolve
+                scene ml-55
+                with dissolve
+                "This girl... did she just..."
+                Pe "..."
+                scene ml-64x-3
+                with dissolve
+                Z "Alright. I'll do it as quickly as possible, then."
+                scene ml-64
+                with dissolve
+                "She opens her mouth, frowning a little..."
+                scene ml-64x
+                with dissolve
+                "You start pissing in her mouth, and she does not flinch..."
+                Z "Wow... you really value your time..."
+                scene ml-64x-2
+                with dissolve
+                Pe "{i}*gulp*{/i}"
+                scene ml-64x
+                with dissolve
+                Z "A little more..."
+                Pe "..."
+                scene ml-64x-3
+                with dissolve
+                Z "Now I'm empty. Let's try again."
+                scene ml-62-anim
+                with fade
+                "You resume fucking her skull..."
+                Pe "{i}*sucking*{/i}"
+                "Emptying yourself into her has turned you on to the point where not much more stimulation is needed..."
+                jump pepper_deepthroat_repeat_choice
+                
+            else:
+                Z "I can't come before I go and take a piss..."
+                scene ml-53
+                with dissolve
+                Pe "{i}*sigh*{/i} I can't wait it out, I have work to do."
+                Pe "Do what you have to do."
+                scene ml-54
+                with dissolve
+                scene ml-55
+                with dissolve
+                "This girl..."
+                Pe "..."
+                scene ml-64x-3
+                with dissolve
+                Z "Alright. Open up..."
+                scene ml-64
+                with dissolve
+                "She opens her mouth, frowning a little..."
+                scene ml-64x
+                with dissolve
+                "You start pissing in her mouth, and she does not flinch..."
+                scene ml-64x-2
+                with dissolve
+                Pe "{i}*gulp*{/i}"
+                scene ml-64x
+                with dissolve
+                Z "A little more..."
+                Pe "..."
+                scene ml-64x-3
+                with dissolve
+                Z "Now I'm empty. Let's try again."
+                scene ml-62-anim
+                with fade
+                "You resume fucking her skull..."
+                Pe "{i}*sucking*{/i}"
+                jump pepper_deepthroat_repeat_choice
+
+    jump mutants_command_center
+
+label pepper_wear_dress: #if pepper_exam_stage == 5
+    Z "About that thing you wore... remember?"
+    scene ml-78
+    with dissolve
+    Pe "The bodysuit I wore as I was doing maintenance?"
+    scene ml-2
+    with dissolve
+    Z "Precisely. I'd like you to wear it again."
+    scene ml-78
+    with dissolve
+    Pe "{i}*sigh*{/i} Fine. If that makes it easier for you..."
+    scene ml-79
+    with dissolve
+    Pe "You'll have to give me a few minutes to change."
+    Pe "Do whatever you want in the meantime."
+    scene ml-80
+    play sound "audio/sounds/doors/door closed.mp3"
+    with fade
+    Z "Sure..."
+    Z "There is so much to do anyway..."
+    Z "..."
+    play sound "audio/sounds/doors/door closed.mp3"
+    Chi "Hello, hello, hello sister!"
+    scene ml-81
+    with dissolve
+    Chi "Wait... sis? Where are you?"
+    scene ml-82
+    with dissolve
+    Chi "Oh, hi [persistent.player_name]! I didn't even see you!"
+    scene ml-83
+    with dissolve
+    Z "Hey Chili... um..."
+    scene ml-84
+    with dissolve
+    Chi "{i}*gasp*{/i}! You are naked!"
+    Z "I am, yes..."
+    scene ml-85
+    with dissolve
+    Chi "Caught you at the wrong time, heh?"
+    scene ml-86
+    with dissolve
+    Chi "That's okay, I've seen almost everyone on this table at some point!"
+    Chi "Mind if I wait for my sister until she comes back?"
+    scene ml-87
+    with dissolve
+    Z "Sure... be my guest."
+    scene ml-89
+    with fade
+    Chi "Okay..."
+    menu:
+        "Look closer":
+            scene ml-88
+            with dissolve
+            Zt "That's one big, juicy ass. I noticed it before, but..."
+            Zt "For someone so short... she is pretty stacked."
+            Zt "Not even [A] developed like that, and I figure they are roughly the same age."
+        
+        "Look up":
+            pass
+            
+    scene ml-90
+    with dissolve
+    Chi "Hmm... hmm..."
+    play sound "audio/sounds/doors/door closed.mp3"
+    scene ml-91
+    with dissolve
+    Chi "Hey! There you are! I've been waiting!"
+    scene ml-92
+    with dissolve
+    Pe "{i}*sigh*{/i} Sister. You've seen my patient laying behind you. Right?"
+    scene ml-93
+    with fade
+    Chi "Come on. Of course I noticed [persistent.player_name]. He was fine with me waiting here."
+    Chi "Buuut... what's up with that outfit?!"
+    scene ml-94
+    with dissolve
+    Pe "That's none of your concern. It's best if you go and let me work."
+    scene ml-93
+    with dissolve
+    Chi "Fine..."
+    scene black
+    with fade
+    "She walks away..."
+    extend "...Or does she?"
+    Chi "Wait, whoa! What happened?!"
+    scene ml-95
+    with fade
+    Chi "No way, did that happen after Pepper entered, or me?!"
+    Pe "..."
+    scene ml-96
+    with dissolve
+    Z "Uhm... that occasionally happens."
+    scene ml-97
+    with fade
+    Chi "Woooo... that's huge. Are you sure that's normal?"
+    scene ml-98
+    with dissolve
+    Z "Don't worry. Pepper did not yet experiment on it."
+    scene ml-97
+    with dissolve
+    Chi "Are you sure... do you mind if I touch it?"
+    Chi "I'm curious."
+    scene ml-100
+    with dissolve
+    menu:
+        "Sure...":
+            Z "Sure... if you really wa-"
+            scene ml-99
+            with dissolve
+            Chi "Pok...!"
+            scene ml-100
+            with dissolve
+            Chi "Pok... oh, wow!"
+            Z "Uhm..."
+            scene ml-101
+            with dissolve
+            Chi "Well, that's my first time touching one of those!"
+            scene ml-102
+            with dissolve
+            Pe "That's enough experimenting, Mina."
+            scene ml-103
+            with vpunch
+            Chi "Fine, sorry for disturbing! See you later [persistent.player_name]!"
+            scene ml-104
+            with dissolve
+            Z "Yep... see you later, Chili."
+
+        "\"Not today.\"":
+            Z "Not today, girl."
+            scene ml-97
+            with dissolve
+            Chi "I see..."
+            scene ml-103
+            with vpunch
+            Chi "Well, anyway. See you later, [persistent.player_name]!"
+            scene ml-104
+            with dissolve
+            Z "Yeah... bye Chili."
+
+    scene black
+    with fade
+    play sound "audio/sounds/doors/door closed.mp3"
+    "She hurries out..."
+    scene ml-105
+    with fade
+    Pe "Well... my apologies for that. Shall we continue?"
+    scene ml-106
+    with dissolve
+    Z "I guess... what do you have in mind?"
+    scene ml-105
+    with dissolve
+    Pe "I figured you would have a plan, since you made me change into this... thing."
+    scene ml-106
+    with dissolve
+    Z "Hm..."
+    Z "Let me get up."
+    scene black
+    with fade
+    "You stand up, she leans against the table."
+    scene ml-107
+    with fade
+    Pe "I assume you want to take a closer look?"
+    scene ml-108
+    with dissolve
+    Z "It looks like you figured me out. Just let me do my thing, and we will be done in no time."
+    scene ml-109
+    with dissolve
+    Z "Hm..."
+    "You take in the sight of her silky, white bodysuit, barely covering her hips..."
+    scene ml-110
+    with dissolve
+    Pe "Looks like it's working, at least."
+    Z "The sight of you always works."
+    scene ml-111
+    with dissolve
+    Z "So tell me. You don't really like seeing your sister, do you?"
+    Z "Despite doing all this for her."
+    Pe "{i}*sigh*{/i} I don't, no..."
+    Pe "Her chaotic energy... always distracts me from whatever I am doing."
+    scene ml-113
+    with dissolve
+    Pe "The girl just hit adulthood, and yet she behaves this erratically."
+    Pe "I sometimes doubt she inherited any of her traits from our parents."
+    scene ml-114
+    with dissolve
+    Z "You and her are quite different indeed."
+    scene ml-112
+    with dissolve
+    Pe "[persistent.player_name], are you getting even more excited because we are talking about her?"
+    menu:
+        "\"It's you, too.\"":
+            Z "There might be some truth to that. She's a cute girl with a nice bottom, and she reminds me of my [persistent.da]."
+            scene ml-111
+            with dissolve
+            Z "But it's you, too. I can't get enough of your slim figure, and I particularly enjoy the touch of your perky breast."
+
+        "\"She is attractive, indeed.\"":
+            Z "I can acknowledge that she is attractive."
+            scene ml-111
+            with dissolve
+            Pe "Anyway, [persistent.player_name], you're going to be disappointed with her. She is driven by curiosity, not interest."
+            Z "I didn't say I was after her."
+
+        "\"It's only you\"":
+            Z "It's only you I have eyes for."
+            Z "Your slim figure, those long legs... you're a real looker."
+        
+
+    scene ml-114x
+    with fade
+    "You take a moment to look at her small, but full and red lips..."
+    scene ml-114x-2
+    with dissolve
+    Pe "[persistent.player_name]... what are you looking at?"
+    scene ml-114x
+    with dissolve
+    "You ignore her words, visualising what to do next. Should you just kiss these lips, or would this cross a boundary with her?"
+    menu:
+        "Just do it":
+            $ pepper_kissed = True
+            Zt "Whatever..."
+            scene ml-114x-3
+            with dissolve
+            "You grab her by the neck..."
+            Pe "[persistent.player_name], what are you doing?"
+            scene ml-114x-4
+            with hpunch
+            Pe "Nh-"
+            Pe "What is..."
+            Z "I am going to kiss you."
+            scene ml-114x-5
+            with dissolve
+            Pe "Ngh-"
+            Z "{i}*kissing*{/i}"
+            scene ml-114x-6
+            with dissolve
+            Pe "Nh..."
+            "Caught by surprise, Pepper reacts instinctively, responding to your kiss." 
+            Zt "I guess she's fine with it."
+            scene ml-114x-7
+            with dissolve
+            Pe "{i}*kissing*{/i}"
+            "You remove her top and start squeezing her small tit whilst making out. She does not seem to mind..."
+            "After several moments of interlocking lips tasting each other, you let go."
+            scene ml-114x-8
+            with dissolve
+            Pe "Nh..."
+            Z "You taste good."
+            scene ml-114x-9
+            with dissolve
+            Pe "That was... entirely unnecessary."
+            scene ml-114x-10
+            with dissolve
+            Pe "We are not a couple, [persistent.player_name]."
+            scene ml-114x-11
+            with dissolve
+            Z "You agreed to let me do my thing. This is me doing my thing."
+            Z "You want to keep me motivated, don't you?"
+
+        "Move on":
+            Zt "I'm here to get off and contribute the samples you need, nothing more."
+
+    Z "Now... let's take this dress off. I want you to lay down."
+    scene black pic
+    with fade
+    "With a sigh, she does as you tell her..."
+    scene ml-115
+    with fade
+    Pe "I can't believe this..."
+    Z "Never been the one laid on here, for others to poke and prod?"
+    Pe "No. Usually that is my job. It still is!"
+    Z "Well..."
+    scene ml-116
+    with dissolve
+    Z "Not today, I suppose."
+    Zt "Where should I start..."
+    menu:
+        "Use her thighs":
+            label ml117:
+                scene ml-117
+                with dissolve
+                Zt "Look at those stunning legs..."
+                Zt "If I can't fuck her... I might as well get close."
+                Z "I'm going to do something very pragmatic now."
+                scene ml-119
+                with fade
+                Pe "Nh... [persistent.player_name], what are you doing?"
+                Z "Efficient stimulation, just how you like it."
+                scene ml-120
+                with dissolve
+                Z "This will be fast. Don't worry about it."
+                Pe "Ngh..."
+                scene ml-121
+                with dissolve
+                Pe "This is... degrading."
+                Z "We already talked about this, didn't we?"
+                Z "I'm going to start moving until I cum. Give me a few minutes."
+                scene ml-122-anim
+                with Dissolve(0.1)
+                "You start thoroughly dry-humping her thighs, and her slender body starts responding to your rhythm."
+                Pe "Nh... I... don't see the logic in doing this..."
+                Pe "It's just... skin, just as if I used my hands."
+                Z "No, professor... It's quite different."
+                scene ml-123-anim
+                with dissolve
+                Pe "Well then... maybe you can explain how."
+                menu:
+                    "\"Praise her\"":
+                        Z "Oh that's easy. But where do I start..."
+                        scene ml-124-anim
+                        with dissolve
+                        Z "First, I have in front of me one of the prettiest, most exotic women I know. That counts for something."
+                        Pe "Nh... are you trying to charm me?"
+                        Z "Never. It's an objective observation."
+                        Pe "Whatever... mh..."
+                        scene ml-125-anim
+                        with dissolve
+                        Z "Your skin is very soft... those thighs feel amazing. And from this vantage point, I can see all of you, displayed before me."
+                        Z "I assure you, most men would come easily, in this situation."
+                        Z "And so will I..."
+                        
+                    "\"Degrade her\"":
+                        Z "I am going to speak in simple terms. When you jerk someone off, you are still technically in control of the situation."
+                        Z "However... {i}*chuckles*{/i}"
+                        scene ml-124-anim
+                        with dissolve
+                        Z "Having you lay in front of me, your arms helplessly grasping at thin air..."
+                        Z "...you are giving yourself to me. And I am in full control."
+                        Pe "Ridiculous..."
+                        Z "I could grab your perky tits, plunge into your tight pussy and tear you up, or capture your legs and lick your feet."
+                        Pe "Nh... what are you even talking about?"
+                        scene ml-125-anim
+                        with dissolve
+                        Z "You know I am right. You are my fucktoy in this moment, and you can do nothing about it."
+                        Pe "Mgh-"
+                        Z "My idea worked, by the way. I am going to give you a good load you can collect for your research."
+                        Z "You don't mind if I spray it all over you, right?"
+
+                scene ml-126
+                with dissolve
+                Z "Mh..."
+                scene ml-127
+                with hpunch
+                Z "---!"
+                scene ml-128
+                with dissolve
+                Pe "Nh..."
+                scene ml-129
+                with dissolve
+                Pe "[persistent.player_name]... you hit my glasses..."
+                Z "My... apologies..."
+                scene ml-130
+                with dissolve
+                Z "Damn... You are so..."
+                scene ml-131
+                with vpunch
+                Z "...fucking..."
+                scene ml-132
+                with vpunch
+                Z "...irresistible..."
+                scene ml-131
+                with vpunch
+                Z "Mh..."
+                scene ml-133
+                with dissolve
+                Pe "Ah..."
+                Z "..."
+                scene ml-134
+                with dissolve
+                Z "Wow... look at you..."
+                Pe "{i}*pant*{/i}"
+                scene ml-135
+                with dissolve
+                Z "Are you... {i}*pant*{/i} still convinced there is no difference?"
+                Pe "I... suppose there is..."
+                scene black pic
+                with fade
+                "Later..."
+                scene ml-136
+                with fade
+                Pe "I have to say... I am impressed."
+                Pe "It took some time to clean, but the result is quantitatively impressive. I doubt we will find a more efficient method than this."
+                scene ml-137
+                with dissolve
+                Z "I might take this as a challenge."
+                Z "Also... you still have something left on your face."
+                scene black pic
+                with fade
+                jump mutants_command_center
+
+        "Look at her feet":
+            scene ml-118
+            with dissolve
+            "You glance at her flawless feet. Maybe you will have a little fun with those, eventually."
+            jump ml117
+
+label pepper_lay_down_repeat:
+    Z "Can you undress and lay down? I have some ideas."
+    scene ml-78
+    with dissolve
+    Pe "If it helps..."
+    scene ml-2
+    with dissolve
+    scene black pic
+    with fade
+    "She does as suggested..."
+    scene ml-115
+    with fade
+    Pe "...Will you just stare again?"
+    Z "Maybe..."
+    scene ml-116
+    with dissolve
+    menu:
+        "Use her thighs":
+            label ml117_repeat:
+                scene ml-117
+                with dissolve
+                Zt "I can't get enough of these legs."
+                Zt "Slim, toned.. elegant..."
+                scene ml-119
+                with fade
+                Pe "{i}*sigh*{/i}... of course you would."
+                Z "You know how I operate by now."
+                scene ml-120
+                with dissolve
+                Z "Give me a few minutes."
+                Pe "Ngh..."
+                scene ml-121
+                with dissolve
+                Pe "You take pride in this work, don't you?"
+                Z "Yes, especially when working with pretty girls like you."
+                scene ml-122-anim
+                with Dissolve(0.1)
+                "You start thoroughly dry-humping her thighs, and her slender body starts responding to your rhythm."
+                Pe "Nh... I... still don't see the logic in doing this..."
+                Z "You don't need to. You only need to lay there."
+                scene ml-123-anim
+                with dissolve
+                Pe "{i}*sigh*{/i}"
+                "You can feel her pussy getting wet. So much for not seeing the logic..."
+                scene ml-124-anim
+                with dissolve
+                Z "I know you enjoy this as much as I do."
+                Pe "What does that mean... you're ridiculous."
+                Pe "Nh... of course it evokes a physical reaction. That is just basic biology."
+                scene ml-125-anim
+                with dissolve
+                Z "Whatever you say, Pepper..."
+                "You don't listen to her smart-assed remarks, and instead focus on the degrading position she finds herself in."
+                "...which stimulates the darker parts of your brain."
+                Z "This is it... I'm already..."
+                scene ml-126
+                with dissolve
+                Z "Mh..."
+                scene ml-127
+                with hpunch
+                Z "---!"
+                scene ml-128
+                with dissolve
+                Pe "Nh..."
+                scene ml-129
+                with dissolve
+                Pe "[persistent.player_name]... you hit my glasses again..."
+                Z "My... apologies..."
+                scene ml-130
+                with dissolve
+                Z "Damn... You are always so..."
+                scene ml-131
+                with vpunch
+                Z "...fucking..."
+                scene ml-132
+                with vpunch
+                Z "...irresistible..."
+                scene ml-131
+                with vpunch
+                Z "Mh..."
+                scene ml-133
+                with dissolve
+                Pe "Ah..."
+                Pe "{i}*pant*{/i}"
+                scene ml-134
+                with dissolve
+                Z "Wow... look at you..."
+                Z "...you really got everything out of me."
+                scene ml-135
+                with dissolve
+                Z "You can collect your samples now."
+                Pe "{i}*sigh*{/i}"
+                scene black pic
+                with fade
+                "Later..."
+                scene ml-136
+                with fade
+                Pe "Well, I can't complain about the amount of your contribution, that's for sure."
+                scene ml-137
+                with dissolve
+                Z "You can't, no. Especially because there is still some left on your cheek."
+                scene black pic
+                with fade
+                jump mutants_command_center
+
+        "Look at her feet":
+            scene ml-118
+            with dissolve
+            "You glance at her flawless feet. Maybe you will have a little fun with those, eventually."
+            jump ml117_repeat
+
+
+label pepper_ask_sex: #if pepper_exam_stage == 7
+    scene ml-28
+    with fade
+    Z "Pepper..."
+    scene ml-29
+    with dissolve
+    Pe "What now? The methods we tried so far aren't sufficient?"
+    scene ml-30
+    with dissolve
+    Z "There is one method that beats all the others."
+    scene ml-28
+    with dissolve
+    Pe "...?"
+    Z "That's right. If we keep it professional, you might even enjoy it."
+    scene ml-29
+    with dissolve
+    Pe "[persistent.player_name], how often must I repeat myself?"
+    Pe "Enjoyment is irrelevant."
+    scene ml-30
+    with dissolve
+    scene black
+    with fade
+    "She walks towards the machine..."
+    scene ml-138
+    with fade
+    Pe "...but regardless of your method, I will keep working on my tasks."
+    Pe "As long as you don't need my active participation, you surely won't mind."
+    Z "Uhm... any reason why you have to work right now?"
+    scene ml-139
+    with dissolve
+    Pe "Because you keep coming up with new things for your own gratification, and that disrupts my... routine."
+    Pe "So, I am telling you, do whatever you need to give me your samples. Figure it out. I don't care."
+    Pe "In the meantime, I will sort the already present samples in the machine. Something I should already have done."
+    scene ml-140
+    with dissolve
+    Pe "..."
+    Z "Sure... that's... one way we can do it..."
+    scene black pic
+    with fade
+    "You get up..."
+    scene ml-141
+    with fade
+    "You step behind her, as Pepper starts typing on her machine..."
+    Z "So... the... \"method\" is all about..."
+    scene ml-142
+    with dissolve
+    Pe "[persistent.player_name], remember what I just said? I am working."
+    Pe "You do your thing. Now please don't distract me whilst I am trying to focus."
+    scene ml-143
+    with dissolve
+    Z "Sure..."
+    Zt "Fuck Merneith... this woman is driving me crazy. How can someone be this cold and hot at the same time?"
+    scene ml-144
+    with hpunch
+    Z "Alright... then I will just do my thing."
+    Pe "{i}*sigh*{/i}"
+    scene ml-145
+    with dissolve
+    Z "Sigh all you want, but I know you're not indifferent about this."
+    Pe "..."
+    scene ml-146
+    with dissolve
+    Z "One last request, professor. I need you to part your legs."
+    pause 1.2
+    scene ml-147
+    with dissolve
+    Pe "..."
+    Z "That's... acceptable."
+    scene ml-148
+    with fade
+    Z "Now... you can keep working. I don't need anything else from you."
+    Z "I assume that unlike your sister, you have done this before in some way or form..."
+    Pe "..."
+    scene ml-149
+    with dissolve
+    Z "Well then... let's get to it."
+    scene ml-150
+    with dissolve
+    Pe "..."
+    "You enter her slowly..."
+    Z "Wow..."
+    Zt "This feeling... I'm entering Pepper's pussy..."
+    Z "You are... wet..."
+    Pe "It's a... biological reaction. That's all."
+    Z "Mhm..."
+    scene ml-151-anim
+    with Dissolve(0.1)
+    "You start moving your hips, slowly penetrating her wet walls..."
+    Zt "This is amazing... she is just... working..."
+    Zt "...even if she is trying her best to stay focused, there is no way she can ignore this."
+    "The sloshing noise of your coupling resonates across the laboratory. And yet, Pepper stays quiet and focused..."
+    "It's almost off-putting, but you're still too horny to care."
+    "In a way, it's a different type of pleasure, to use her body as nothing more than a hole at your disposal, whilst she keeps going about her day."
+    scene ml-152-anim
+    with dissolve
+    Z "This... won't take long, Pepper."
+    Pe "Hm..."
+    Zt "I wish I could see her face right now... there is no way she's completely unaffected by this."
+    Zt "I can feel her pelvic wall stretching, and her spasming in response..."
+    with hpunch
+    Pe "Nh..."
+    Pe "Ex...excuse me."
+    Zt "Did she... yes, she just came."
+    Pe "In case you are... wondering..."
+    Z "A natural reaction, nothing more."
+    Pe "...pre... cisely."
+    scene ml-153-anim
+    with dissolve
+    Z "It feels great to finally taste your pussy, Pepper."
+    Pe "{i}*sigh*{/i} You can be glad that I need your samples."
+    Pe "I would have never... suggested any of this if it weren't the case."
+    Z "Is that what you tell Fangs, too?"
+    Pe "Fangs... nh... leads this place... and decides on the rules."
+    Z "Sure..."
+    pause 1.8
+    Z "I'm getting close..."
+    Pe "Don't... forget that I need those samples..."
+    Pe "Mh..."
+    menu:
+        "Cum inside her":
+            $ pepper_came_inside = True
+            Zt "I won't hold back. Her pussy is too inviting..."
+            scene ml-154
+            with fade
+            Z "Fuck..."
+            with hpunch
+            Z "Ngh..-"
+            Pe "..."
+            with vpunch
+            "You release everything you have inside her..."
+            scene ml-155
+            with dissolve
+            Pe "Nh..."
+            Z "Bless this pussy..."
+            scene ml-156
+            with hpunch
+            Z "Mh...!"
+            with hpunch
+            pause 1.4
+            scene ml-157
+            with dissolve
+            Z "Damn... I came so much..."
+            Pe "..."
+            scene black
+            with fade
+            "Later..."
+            Pe "{i}*sigh*{/i}"
+            scene ml-75
+            with fade
+            Pe "I should have expected nothing less. At least some of your samples leaked out, which made it easier to collect."
+            Pe "Next time, don't come inside me. I can separate your semen from my own fluids, but it is laborious and pointless."
+            scene ml-76
+            with dissolve
+            Pe "Also... in case you did this to get me pregnant, there are means to avoid that outcome, and I am not about to waste months of my time away from my research."
+            scene ml-77
+            with dissolve
+            Z "I am sure you wouldn't. Let's try this again some other time. I will see you around, Pepper."
+            scene black pic
+            with fade
+            jump mutants_command_center
+
+        "Donate samples":
+            Z "Okay... you want your samples..."
+            scene ml-158
+            with fade
+            Z "...then I shall give them to you."
+            scene ml-159
+            with vpunch
+            Z "Ngh-"
+            scene ml-158
+            with dissolve
+            pause 0.5
+            scene ml-160
+            with vpunch
+            Z "Kgh..!"
+            scene ml-161
+            with dissolve
+            Pe "..."
+            Z "{i}*pant*{/i}"
+            Z "Right on that beautiful back..."
+            Pe "Yes. I have noticed."
+            scene black
+            with fade
+            "Later..."
+            scene ml-75
+            with fade
+            Pe "You impressed me again, even if your methods are... self-serving."
+            scene ml-76
+            Pe "Regardless, the amount of semen will be very helpful."
+            Pe "Stop by whenever you are ready for another contribution."
+            scene ml-77
+            with dissolve
+            Z "I will stop by again soon. Until then, Pepper."#
+            scene black pic
+            with fade
+            jump mutants_command_center
+
+label pepper_ask_sex_repeat: #if pepper_exam_stage >= 8
+    Z "You should keep doing your thing while I help myself. Undressed, of course."
+    scene ml-78
+    with dissolve
+    Pe "Fine. I do have something to do on the machine anyway."
+    scene ml-2
+    with dissolve
+    scene black
+    with fade
+    "She strips and walks towards the machine..."
+    scene ml-138
+    with fade
+    Pe "I will start working, now."
+    scene ml-139
+    with dissolve
+    Pe "My body is available for your sexual pleasure. You may start anytime."
+    scene ml-140
+    with dissolve
+    "She resumes work..."
+    scene black pic
+    with fade
+    "You get up..."
+    scene ml-141
+    with fade
+    Z "You're focused as ever."
+    scene ml-142
+    with dissolve
+    Pe "Remember. No talking."
+    scene ml-143
+    with dissolve
+    Z "Sure..."
+    scene ml-144
+    with hpunch
+    "You grab her..."
+    scene ml-145
+    with fade
+    "...and move your dick close to her ass..."
+    scene ml-146
+    with dissolve
+    Z "Pepper..."
+    Pe "Right... apologies."
+    scene ml-147
+    with dissolve
+    "She spreads her legs..."
+    scene ml-148
+    with dissolve
+    "You slowly move forward. She does not seem to pay attention..."
+    scene ml-149
+    with fade
+    pause 1.5
+    scene ml-150
+    with dissolve
+    "You enter her slowly..."
+    Pe "..."
+    "She is wet once again, despite her shown disinterest..."
+    scene ml-151-anim
+    with Dissolve(0.1)
+    "You start moving your hips, penetrating her repeatedly..."
+    Zt "She just keeps working, as usual..."
+    "The sloshing noise of your coupling resonates across the laboratory. And yet, Pepper stays quiet and focused..."
+    scene ml-152-anim
+    with dissolve
+    Z "This... won't take long again, Pepper."
+    Pe "Hm..."
+    Zt "I wish I could see her face right now... she must cum any moment."
+    with hpunch
+    Pe "Nh..."
+    Pe "Ex...excuse me."
+    Z "Another natural reaction."
+    Pe "Y-yes."
+    scene ml-153-anim
+    with dissolve
+    "You fuck her for some time, quietly."
+    "The only thing you can hear is the annoying noises of the machines and the slurping sounds her pussy makes."
+    pause 1.8
+    Z "I'm getting close..."
+    Pe "Don't... forget that I need those samples..."
+    Pe "Mh..."
+    menu:
+        "Cum inside her":
+            $ pepper_came_inside = True
+            Zt "Fuck the samples. I need to cum inside her..."
+            scene ml-154
+            with fade
+            Z "Fuck..."
+            with hpunch
+            Z "Ngh..-"
+            Pe "..."
+            with vpunch
+            "You release everything you have inside her..."
+            scene ml-155
+            with dissolve
+            Pe "Nh..."
+            Z "Bless this pussy..."
+            scene ml-156
+            with hpunch
+            Z "Mh...!"
+            with hpunch
+            pause 1.4
+            scene ml-157
+            with dissolve
+            Z "Damn... I came so much..."
+            Pe "..."
+            scene black
+            with fade
+            "Later..."
+            Pe "{i}*sigh*{/i}... [persistent.player_name]."
+            scene ml-75
+            with fade
+            Pe "I assume it's difficult to control yourself with this method. At least I could collect the samples leaking out."
+            scene ml-76
+            with dissolve
+            Pe "I don't need to remind you that fertilization does not mean that a full pregnancy will happen, as I have my methods."
+            scene ml-77
+            with dissolve
+            Z "Instincts can be quite powerful. Anyway... see you next time, Pepper."
+            scene black pic
+            with fade
+            jump mutants_command_center
+
+        "Donate samples":
+            Z "Okay... you want your samples..."
+            scene ml-158
+            with fade
+            Z "...here they come."
+            scene ml-159
+            with vpunch
+            Z "Ngh-"
+            scene ml-158
+            with dissolve
+            pause 0.5
+            scene ml-160
+            with vpunch
+            Z "Kgh..!"
+            scene ml-161
+            with dissolve
+            Pe "..."
+            Z "{i}*pant*{/i}"
+            Z "Right on that beautiful back..."
+            Pe "Yes. I appreciate it."
+            scene black
+            with fade
+            "Later..."
+            scene ml-75
+            with fade
+            Pe "That's an impressive amount, even if scraping them off my back is difficult."
+            scene ml-76
+            Pe "Stop by whenever you are ready for another donation."
+            scene ml-77
+            with dissolve
+            Z "I will stop by again soon. Until then, Pepper."
+            scene black pic
+            with fade
+            jump mutants_command_center
+
+
+################# MUTANTS GYM #################
+
+label mutants_gym:
+    $ daily_gym = True
+    # beginning is set whether krait or not is there
+    $ mutants_gym_krait = is_here_randomly(0.6)
+    $ mutants_gym_red = is_here_randomly(0.6)
+    $ mutants_gym_chili = is_here_randomly(0.6)
+    if mutants_gym_krait == True:
+        scene mg-1
+    else:
+        scene mg-1x
+    with fade
+    if mutants_gym_visited_first_time == False:
+        "You decide to visit the \"gymnasium\", a place where the bunker's inhabitants use a variety of machines to train their muscles and work out."
+    else:
+        "Deciding to visit the gymnasium again, you look around to see who is working out today..."
+    if mutants_gym_red == True:
+        if mantis_left_behind == False:
+            scene mg-2
+            with fade
+            Re "That's right. Getting better every day, Mantis!"
+            scene mg-3
+            with dissolve
+            scene mg-4
+            with dissolve
+            Mant "..."
+        else:
+            scene mg-2x
+            with fade
+            Re "Mgh..."
+
+    if mutants_gym_chili == True:
+        scene mg-60
+        with fade
+        Chi "Oh, hey [persistent.player_name]! How are you?"
+        scene mg-61
+        with dissolve
+        Z "Hey Chili, I'm good."
+
+    scene mg-5
+    with fade
+    if mutants_gym_visited_first_time == False:
+        "You are not familiar with most of the equipment before you, but you do recognize simple weights."
+        Zt "I can handle that..."
+    else:
+        pause 1.5
+    scene mg-6
+    with fade
+    $ mutants_gym_visited_first_time = True
+    if mutants_gym_red == False and mutants_gym_krait == False and mutants_gym_chili == False:
+        jump mutants_gym_empty
+    menu:
+        "Look at Krait" if mutants_gym_krait == True:
+            scene mg-30
+            with fade
+            "You look at the girl with the raven coloured hair..."
+            scene mg-31
+            with dissolve
+            if mutants_gym_visited_krait_first_time == False:
+                Zt "She seems to be meditating..."
+            if mutants_gym_red == True and mantis_left_behind == False:
+                scene mg-32
+            elif mutants_gym_red == False:                
+                scene mg-32x
+            else:
+                scene mg-32x-2
+            with fade
+            Kr "..."
+            scene mg-33
+            with dissolve
+            Kr "Hm..."
+            scene mg-34
+            with dissolve
+            Kr "..."
+            if mutants_gym_red == True and mantis_left_behind == False:
+                scene mg-35
+            elif mutants_gym_red == False:                
+                scene mg-35x
+            else:
+                scene mg-35x-2
+            with fade
+            "She stands up..."
+            if mutants_gym_red == True and mantis_left_behind == False:
+                scene mg-36
+            else:
+                scene mg-36x
+            with dissolve
+            Kr "Mhh..."
+            "She stretches..."
+            if mutants_gym_chili == True:
+                scene mg-37
+            else:
+                scene mg-37x
+            with dissolve
+            "She takes her time, almost seductively stretching her body, in something akin to a slow dance..."
+            scene black pic
+            with fade
+            "She turns around..."
+            scene mg-38
+            with fade
+            Z "Ngh..."
+            Kr "..."
+            if mutants_gym_red == True and mantis_left_behind == False:
+                scene mg-39
+            else:
+                scene mg-39x
+            with dissolve
+            pause 2
+            if mutants_gym_red == True and mantis_left_behind == False:
+                scene mg-40
+            else:
+                scene mg-40x
+            with dissolve
+            scene mg-41
+            with dissolve
+            "She comes before you while you lower the weights, inspecting you..."
+            if mutants_gym_red == True and mantis_left_behind == False:
+                scene mg-42
+            else:
+                scene mg-42x
+            with dissolve
+            Kr "..."
+            if mutants_gym_red == True and mantis_left_behind == False:
+                scene mg-43
+            else:
+                scene mg-43x
+            with dissolve
+            Kr "What does your sweat taste like?"
+            scene mg-44
+            with dissolve
+            "She touches your chest..."
+            scene mg-45
+            with fade
+            "She puts a finger in her mouth, licking its tip slowly..."
+            scene mg-46
+            with dissolve
+            Kr "Mh..."
+            scene mg-47
+            with dissolve
+            pause 1.5
+            Krw "...salty."
+            if mutants_gym_red == True and mantis_left_behind == False:
+                scene mg-48
+            else:
+                scene mg-48x
+            with fade
+            "She stares at you... into you... while keeping her mouth close to her fingers."
+            if mutants_gym_visited_krait_first_time == False:
+                "She knows what you're doing. But do you know what she is doing?"
+            else:
+                "She does this again... on purpose. And you can't help yourself but stare back."
+            if mutants_gym_red == True and mantis_left_behind == False:
+                scene mg-49
+            else:
+                scene mg-49x
+            with dissolve
+            Kr "..." #TODO make variation option for just stare or provoke her to come and take out d
+            scene mg-50
+            with dissolve
+            "She looks down at your pants, where she spots a predictable, massive hard on."
+            scene mg-51
+            with dissolve
+            pause 1.5
+            scene mg-52
+            with dissolve
+            Kr "..."
+            scene mg-53
+            with dissolve
+            if mutants_gym_visited_krait_first_time == False:
+                "You stand there, the weights in your hand, while this black-haired, young woman inspects your member..."
+            scene mg-54
+            with dissolve
+            if mutants_gym_visited_krait_first_time == False:
+                "...but stops before taking a grasp."
+            else:
+                "...but stops again before taking a grasp."
+            scene mg-54
+            with dissolve
+            pause 1.5
+            scene mg-56
+            with dissolve
+            pause 1.5
+            if mutants_gym_red == True and mantis_left_behind == False:
+                scene mg-48
+            else:
+                scene mg-48x
+            Kr "Hm..."
+            pause 1.5
+            if mutants_gym_red == True and mantis_left_behind == False:
+                scene mg-57
+            else:
+                scene mg-57x
+            Kr "..."
+            scene mg-58
+            with fade
+            if mutants_gym_visited_krait_first_time == False:
+                "And with that, she walks away..."
+                scene mg-59
+                with vpunch
+                Z "..."
+            else:
+                "And with that, she once again walks away..."
+            $ mutants_gym_visited_krait_first_time = True
+            scene black pic
+            with fade
+            jump mutants_command_center
+
+        "Look at Red" if mutants_gym_red == True:
+            if mantis_left_behind == False:
+                scene mg-7
+                with fade
+                "You take a long look at the women in front of you..."
+                scene mg-8
+                with dissolve
+                Zt "Always interesting to see... the difference in shapes."
+                scene mg-9
+                with dissolve
+                Re "Keep it up, Mantis. I will do some stretches myself before we continue."
+                scene mg-10
+                with dissolve
+                scene black pic
+                with fade
+                "She turns around..."
+                scene mg-11
+                with fade
+                Re "Oh, hey [persistent.player_name]. Maintaining those muscles, are we?"
+                scene mg-12
+                with dissolve
+                Z "Yep... those swords don't swing themselves."
+                scene mg-13
+                with fade
+                "She gets ready..."
+                Re "Alright... time for a stretch."
+                scene mg-14
+                with dissolve
+                "Red stretches her leg out, extending her tendons."
+                if mutants_gym_visited_first_time == False:
+                    "You noticed it before, but seeing Red's voluptuous ass in her workout pants is an amazing sight."
+                scene mg-15
+                with dissolve
+                pause 1.5
+                Re "Mh..."
+                "She moans slightly, as she prolongs her tiring pose."
+                "You don't miss a chance to stare at her thick thighs during your lifts, amazed by the size of her lower body."
+                
+            else:
+                scene mg-7x
+                with fade
+                "You take your time staring at her figure..."
+                Zt "Those thighs could kill a man... literally..."
+
+            scene mg-16
+            with dissolve
+            Re "{i}*exhales*{/i}"
+            "She pays no attention to anything but her movement, not aware of your shameless stares on her."
+            scene mg-17
+            with dissolve
+            Zt "Holy Merneith..."
+            "You feel your strength fading as your blood flows away from your arms..."
+            scene mg-18
+            with dissolve
+            Re "Mhh..."
+            "She lets out a sensual moan as she goes into a particular position..."
+            if mantis_left_behind == False:
+                scene mg-19
+                with dissolve
+            else:
+                scene mg-19x
+                with dissolve
+            if mutants_gym_visited_red_first_time == False:
+                "Risking getting caught as she faces your direction, you forget yourself staring at her enormous thighs and tight upper body..."
+                Zt "I wonder what's her mutation. As much as I want to believe it's her enormous thighs... you wouldn't feel the need to hide those from the world."
+                Zt "...Or would you?"
+            else:
+                "Risking getting caught as she faces your direction, you again forget yourself staring at her enormous thighs and tight upper body..."
+            scene mg-20
+            with dissolve
+            "Her heart shaped, full and enormous ass stretches upward, giving you all kinds of imaginations."
+            "While the position she is in is useful, it is also extremely provocative. Not that she would mind..."
+            if mantis_left_behind == False:
+                Mant "Red? Can you help... me... for a moment?"
+                scene mg-23
+                with fade
+                Mant "{i}*pant*{/i} Can you show me the last move again? So I know better..."
+                scene mg-24
+                with dissolve
+                Re "Sure. You know I'm your girl."
+                scene mg-25
+                with dissolve
+            else:
+                scene black pic
+                with fade
+                "She gets up..."
+                scene mg-26
+                with fade
+                Re "{i}*slow breathing*{/i}"
+                scene mg-27
+                with dissolve
+                Re "Mh..."
+                scene mg-28
+                with dissolve
+                Re "{i}*exhales*{/i}"
+                Re "That was good enough."
+                scene black pic
+                with fade
+                "She stands up and heads towards the door..."
+                scene mg-29
+                with fade
+                Re "See you later, guys. I'm out for now!"
+            scene black pic
+            with fade
+            $ mutants_gym_visited_krait_first_time = True
+            "Having lost all concentration on your workout, you put away the weights and head out..."
+            jump mutants_command_center
+
+        "Look at Chili" if mutants_gym_chili == True:
+            if mutants_gym_red == True:
+                if mantis_left_behind == False:
+                    scene mg-62
+                else:
+                    scene mg-64
+                with fade
+                pause 0.6
+                if mantis_left_behind == False:
+                    scene mg-63
+                else:
+                    scene mg-64x
+                with dissolve
+            else:
+                scene mg-63x
+                with fade
+                pause 0.6
+                scene mg-64x-2
+                with dissolve
+            Chi "Mmhh..."
+            scene mg-65
+            with dissolve
+            "She closes her eyes and stretches, giving you a chance to check her out..."
+            Zt "That's one fit and agile body she's carrying."
+            scene mg-66
+            with dissolve
+            Zt "Despite her short and petite frame, she's blessed with wide hips her sister could only dream of."
+            scene mg-67
+            with fade
+            "Chili turns around while humming, and continues her leg routine..."
+            scene mg-68
+            with dissolve
+            Chi "{i}*humming*{/i}"
+            scene mg-69
+            with fade
+            "Getting an even better view on her thick backside, you feel your excitement growing."
+            scene mg-70
+            with dissolve
+            Zt "She reminds me of [A], except what [A] has up top, she's got down below..."
+            if mutants_gym_krait == True:
+                scene mg-71
+            else:
+                scene mg-71x
+            with dissolve
+            "She endures in her position for a good minute..."
+            Zt "Impressive. I guess the abs and thighs have to come from something."
+            scene black
+            with fade
+            "...and then quickly switches to another position..."
+            scene mg-72
+            with fade
+            Zt "...Merneith be blessed."
+            "Her next position catches you like a flash, and you can't take your eyes off her squeezing, for her frame impressively sized buttocks..."
+            scene mg-73
+            with dissolve
+            "She stretches elegantly, which simultaneously highlights her curves and small frame."
+            "Stunned by such a perfect frame, you forget to lift your weights for a second, standing in the room with your blood leaving your arms quickly."
+            if pepper_examination == True:
+                Zt "I... think I need to see you for some donations again, Pepper. Your sister is making it easy, today."
+            if mutants_gym_krait == True:
+                scene mg-74
+            else:
+                scene mg-74x
+            with dissolve
+            Chi "Mh..."
+            "Focusing on her position for a few more seconds, She lets out one last, cute moan of exhaustion..."
+            scene black
+            with fade
+            "...before rolling around on her back."
+            if mutants_gym_red == True:
+                if mantis_left_behind == False:
+                    scene mg-75
+                else:
+                    scene mg-75x
+                with fade
+            else:
+                scene mg-75x-2
+                with fade
+            Chi "Last one..."
+            scene mg-76
+            with fade
+            "She holds her small feet in the air, giving her legs one last challenge..."
+            scene mg-77
+            with dissolve
+            pause 1
+            scene mg-78
+            with dissolve
+            Chi "Mh..."
+            scene black
+            with vpunch
+            Chi "Haaah...!"
+            scene mg-79
+            with fade
+            Chi "Phew...!"
+            random:
+                Chi "Heh... made it thirty seconds...  longer this time!"
+                Chi "Unlucky... five seconds short today. Gotta get better...!"
+                Chi "Yes! Twenty seconds lon... hah... longer! Yay!"
+            Zt "She's adorable in her own way."
+            scene mg-80
+            with dissolve
+            "She lays on her back for a few more seconds, catching her breath..."
+            Chi "...that's... enough for today."
+            scene mg-81
+            with fade
+            Chi "Are you getting inspirations from my positions, [persistent.player_name]?"
+            Chi "Maybe you want to try them as well? They're really helping!"
+            scene mg-82
+            with dissolve
+            Z "Me, doing those stretches? {i}*chuckles*{/i}"
+            Z "Thanks for the offer, but I'll pass."
+            "Sweet Chili, you think. You were inspired, but for other reasons than her workout technique."
+            scene black
+            with fade
+            "After a few more seconds of idling, she picks herself up, waves a cheerful goodbye, and leaves the gym."
+            jump mutants_command_center
+
+        "Workout and leave":
+            if mutants_gym_red == False and mutants_gym_krait == False and mutants_gym_chili == False:
+                label mutants_gym_empty:
+                    Z "Looks like I have this place for myself today."
+
+            Z "I best get the workout done. No time to waste."
+            scene black pic
+            with fade
+            jump mutants_command_center
+
+################# HIVE REPEATABLES #################
+
+label hive_repeatable:
+    $ daily_hive = True
+    if visited_hive_queen_repeatable_first_time == False:
+        $ visited_hive_queen_repeatable_first_time = True
+        $ visited_hq_day = day
+        if hq_sex_day == 0:
+            $ hq_sex_day = day
+    scene d10a-79
+    with fade
+    "A while later...{w=1.0}{nw}"
+    play music "audio/music/mutants/mutant hive disturbed.mp3" fadeout 2
+    if day - hq_sex_day < 5:
+        scene d10a-238
+        with fade
+        HG "You have come to see us. But we are still breeding new children."
+        scene d10a-239
+        with dissolve
+        Z "..."
+        scene d10a-240
+        with dissolve
+        HG "They grow so fast, my little children. Days only. But still, you can not be here now."
+        $ days_left = 5 - (day - hq_sex_day)
+        HG "Come back in [days_left] days or so."
+        scene d10a-241
+        with fade
+        "You get a little closer to inspect her body."
+        scene d10a-242
+        with dissolve 
+        "She's resting, almost peacefully. In a deep slumber, she waits for her children to come."
+        scene d10a-243
+        with dissolve
+        "Her body is stained with blood. You have an inkling about what sustains the Hive, but how does the Queen feed herself?"
+        scene d10a-244
+        with dissolve
+        "Her unnaturally long fingers rest on her stretching belly. Just how many of these children is she breeding?"
+        scene d10a-246
+        with dissolve
+        HG "You may come back to visit us again, [persistent.player_name], once we are ready."
+        HG "The hive can never have enough children."
+        scene d10a-245
+        with dissolve
+        Z "I will keep this in mind."
+        scene black pic
+        stop music fadeout 3
+        with fade
+        "You make your way back to the headquarters."
+    elif day - hq_sex_day == 5:
+        "Do not disturb her, she breeds."
+        scene black pic
+        stop music fadeout 3
+        with fade
+        "You make your way back to the headquarters."
+    else:
+        $ hq_sex_day = day
+        scene d10a-197
+        with slowfade
+        HQ "We are ready for you."
+        HG "..."
+        Zt "I can see no hint of her former self in her actions. Is this really the same girl I've met at the mutant's bunker?"
+        Zt "She seems so... confident now."
+        scene d10a-198
+        with slowfade
+        HQ "Come closer..."
+        scene d10a-199
+        with dissolve
+        HQ "Closer still..."
+        scene d10a-200
+        with dissolve
+        HQ "Yesss, we smell your desire, your vigour will be tested again..."
+        "Once again, her fingers crawl across your bald dome..."
+        scene d10a-201
+        with dissolve
+        "Her eyes are mesmerizing, as you stare into them. The irises seem to almost shift in the little light that is allowed in this place."
+        "The alien nature of this woman is encapsulated in those big eyes that examine you, as if looking through you."
+        scene d10a-202
+        with dissolve
+        Z "One day you are going to show me your face."
+        scene d10a-203
+        with dissolve
+        HQ "Not today, little man. Today you give me your seed."
+        "She pushes you back, much like she has done before, guiding you to a bench where you lean on, as she towers over you."
+        scene d10a-204
+        with dissolve
+        "This is not your first time here, and not the first time she pushes you around a little; still, you find the experience vaguely unsettling."
+        "Even so, your body reacts with excitement."
+        Z "That is what I am here for..."
+        scene d10a-205
+        with hpunch
+        "As you grab two handfulls of ass, you pull the woman towards you."
+        scene d10a-207
+        with dissolve
+        HQ "We sense you are ready, but I will not deprive my daughter of a little fun for her as well..."
+        scene d10a-208
+        with dissolve
+        HQ "Daughter...!"
+        scene d10a-209
+        with slowfade
+        pause 2
+        scene d10a-210
+        with dissolve
+        HG "We meet again..."
+        "You follow her gaze firmly pointed at your crotch."
+        Zt "Is she talking to me or to my...?"
+        scene d10a-211
+        with dissolve
+        HG "..."
+        scene d10a-212
+        with slowfade
+        HG "{i}*sucking*"
+        "She begins to methodically stroke your member with her mouth, her lips clenching the shaft..."
+        scene d10a-213
+        with dissolve
+        "She seems to have gained confidence, since the last time you were here. Her ministrations to your manhood seem to come easier to her."
+        scene d10a-214
+        with dissolve
+        Z "Nghr... you're doing well... slow down a little."
+        "She takes her cue from your indications, but even in doing that, there seems to be a calculated precision to every twist of the tongue, every gentle suckling."
+        scene d10a-215
+        with dissolve
+        Z "This is enough, girl... Stop now, before I explode down your throat."
+        scene d10a-216
+        with dissolve
+        "The looming presence of the Hive Queen becomes even more present as she touches her daughter on the shoulder, beckoning her to step aside."
+        HQ "He is mine now."
+        scene d10a-217
+        with dissolve
+        "As you return to visit this place, you are starting to learn how to interpret the Queen's brusque manners and expressions. The glint in her eyes speaks volumes."
+        "At the same time however, you recognise an animalistic form of communicating achieved through her body posture, and you know that she issued the subtle but undeniable command to back off."
+        scene d10a-218
+        with dissolve
+        HQ "We still cannot afford to trust you completely, so you will face the threat of the knife again."
+        scene black pic
+        with fade
+        "The Hive Queen turns her back on you again, like she did in your first coupling."
+        scene d10a-219
+        with fade
+        Zt "It's a good thing you are not a skittish man, for the traces of grime and congealed blood on the woman's back might scare away a lesser man."
+        scene d10a-220
+        with dissolve
+        "She lines up her wet and glistening hole with your shaft, before impaling herself."
+        Zt "Here we go again..."
+        show d10a-220-anim
+        with fade
+        HQ "Mhhh..."
+        "The strange syncopated rhythm of this woman riding your cock is so unusual that it gives you a unique experience, which makes you more excited than you would otherwise feel in this place."
+        HQ "So... strong."
+        show d10a-220x-2-anim
+        with fade
+        hide d10a-220-anim
+        "You move your head just enough to see the daughter coming up behind you, as she has done before..."
+        scene d10a-222
+        with fade
+        HG "I am here."
+        Z "I know."
+        scene d10a-223
+        with dissolve
+        "Once again, the edge of the blade grazes your skin and screams at every warrior instinct you have to jump into action, but you choose to ignore the implicit menace."
+        Z "One day you will have to learn to trust that I mean you no harm."
+        scene d10a-224
+        with dissolve
+        HG "We trust... but nonetheless, we cannot take the risk. Our trust might be misplaced."
+        HG "Do not move, [persistent.player_name]."
+        scene d10a-225
+        with dissolve
+        "You forget the blade, concentrating on fucking the Queen instead."
+        scene d10a-226
+        with dissolve
+        HQ "..."
+        show d10a-220x-anim
+        with dissolve
+        "The tall woman has found her stride and starts riding you in earnest."
+        HQ "We are close now..."
+        "She grinds down on your pelvis, as you both reach a strong orgasm."
+        with flash
+        Z "Ngh..."
+        scene d10a-227
+        with vpunch
+        Z "Ah.. fuckk-"
+        with flash
+        HQ "Yes... Yess..."
+        with flash
+        "Pinned under the large woman, you can't help but wait, as your orgasm subsides...."
+        scene d10a-228
+        with dissolve
+        "She takes a few steps forward, without looking back at you. Is this what it's like to feel used? you can't help but wonder."
+        scene d10a-229
+        with dissolve
+        HQ "It is done..."
+        scene d10a-230
+        with dissolve
+        HQ "We will meet again..."
+        scene d10a-231
+        with fade
+        "In the dim light, you see her walk away from you, discarded."
+        if _in_replay:
+            scene black
+            with fade
+            $ renpy.end_replay()
+        Zt "She should learn a thing or two about bedside manners.. pillow talk... common courtesy."
+        scene d10a-232
+        with dissolve
+        HG "We are pleased. New children will join us."
+        HG "We will wait for you to come visit us again."
+        scene d10a-233
+        with dissolve
+        Z "And there goes the other one."
+        HG "...?"
+        Z "Nothing. Don't worry. I will see you again."
+    jump mutants_command_center
+
+        
+
+        

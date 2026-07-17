@@ -1,0 +1,3225 @@
+label visit_raiders:
+    play music "audio/music/raiders/dominance.mp3" fadeout 1
+    $ renpy.music.set_volume(0.6, delay = 4.0, channel="music")
+    scene vr-1
+    with w33slow
+    pause 1.5
+    if m_d11c == True and m_d14e == False:
+        jump d14e
+    if ev_d14f_part_1.is_active:
+        jump d14f_part_1
+    jump raiders_command_center
+
+label raiders_mission_table:
+    Z "Hey, Kyra."
+    scene vr-7x-2
+    with fade
+    Ky "Sup, [persistent.player_name]."
+    scene vr-7x
+    with dissolve
+    menu:
+        "Sekhmet's Legion (Part 1)" (important = True) if m_d14f_part_2 == False:
+            scene black pic
+            with fade
+            "You get up, and walk over to her..."
+            jump d14f_part_2
+
+        "Call Kyra over" (repeatable = True) if ev_kyra_repeat.is_active:
+            jump raiders_kyra
+        
+        "Reward the raiders" (important = not raiders_raid_first_time, repeatable = raiders_raid_first_time) if ev_raiders_raid.is_active or ev_raiders_raid_repeat.is_active:
+            $ daily_raiders_reward = True
+            if raiders_raid_first_time == False:
+                Z "How are your men doing out there since we took over?"
+                scene vr-7x-3
+                with dissolve
+                Ky "They're bringing home the meat, if that's what you're asking."
+                scene vr-7x-2
+                with dissolve
+                Ky "But their morale could be better. I guess most of the pretty girls are now in here, out of their reach." 
+            else:
+                Z "Your men have been out there again, haven't they?"
+                scene vr-7x-2
+                with dissolve
+                Ky "They have, and they made some good catches."
+            scene vr-7x
+            with dissolve
+            Z "Call them here, then. Let's give them a reward for their hard work."
+            scene vr-7x-2
+            with dissolve
+            Ky "Sure... they could use some motivation."
+            scene vr-7x-4
+            with dissolve
+            scene black pic
+            with fade
+            "Later..."
+            jump raiders_raid
+            
+        "Go back":
+            Z "Nothing, nevermind."
+            jump raiders_command_center
+
+
+
+label raiders_command_center:
+    if faction_introduction == False:
+            scene vr-3
+            with fade
+            "{color=#eaf50e}You are in this faction's planning room."
+            "{color=#eaf50e}From here, you can choose the order of your missions and interact with faction members and places."
+            "{color=#eaf50e}Some interactions may progress throughout the faction story."
+            "{color=#eaf50e}You can leave and enter this room through the world map at any time.{/color}"
+            $ faction_introduction = True
+
+    elif ev_d19g.is_active:
+        jump d19g
+
+    elif ev_raiders_raid_asha_return.is_active:
+        jump rr_retrieve_asha
+
+    elif m_d14e == True:
+        if settlement_alignment > 0:
+            scene vr-4
+        else:
+            scene vr-4x
+    else:
+        scene vr-3
+    if renpy.music.get_playing(channel='music') != "audio/music/raiders/dominance.mp3":
+        play music "audio/music/raiders/dominance.mp3" fadeout 1
+    with fade
+    call screen raiders_menu
+
+label settlement_overview_post_takeover:
+    if all([m_rsa_1, m_rsg_1, m_rss_1, m_rst_1, m_rsw_1]) and ((m_rsf_2 == True and settlement_simp_helped == True) or (m_rsf_1 == True and settlement_simp_helped == False)):
+        $ settlement_outcomes_seen = True
+    scene vr-2
+    if settlement_water_woman_helped == True:
+        show vr-2x
+    if settlement_old_guy_helped == True:
+        show vr-2x-2
+    if settlement_bathtub_worker_helped == True:
+        show vr-2x-3
+    play music "audio/music/raiders/settlement.mp3" fadeout 2
+    with w33slow
+    call screen settlement_post
+
+label raiders_throne_menu:
+    $ raiders_leaves_throne = True
+    if settlement_asha_kneel == True:
+        scene vr-8
+        with fade
+    else:
+        scene vr-9
+        with fade
+    menu:
+        "Tell [As] to sit up" if settlement_asha_kneel == True and daily_raiders_throne == False:
+            $ settlement_asha_kneel = False
+            scene rt-1-anim
+            with fade
+            Z "Enough, kid. Get back up."
+            As "{i}*slurp*{/i} yhes bosh..."
+            jump raiders_throne_menu
+
+        "Have [As] kneel" if settlement_asha_kneel == False and daily_raiders_throne == False:
+            $ settlement_asha_kneel = True
+            scene rt-4
+            with dissolve
+            Z "[As], get down here."
+            scene rt-6
+            with dissolve
+            As "Okay boss..."
+            scene black pic
+            with fade
+            "She kneels before you..."
+            jump raiders_throne_menu
+
+        "Focus on [As]" if settlement_asha_kneel == True and daily_raiders_throne == False:
+            $ daily_raiders_throne = True
+            Z "You know what to do..."
+            As "Yes, boss..."
+            scene rt-1-anim
+            with fade
+            As "Mgh... {i}*sucking*{/i}"
+            Z "Keep going."
+            As "Mh..."
+            if renpy.random.random() <= 0.7:
+                scene rt-14
+                with fade
+                $ rnd = renpy.random.random()
+                if rnd <= 0.33:
+                    As "Boss... you're making me do this when..."
+                    As "I should be out there fighting instead."
+                elif rnd <= 0.66:
+                    As "No, boss..."
+                else:
+                    As "Do I really have to..."
+                scene rt-14x
+                with dissolve
+                menu:
+                    "Pat her":
+                        scene rt-15
+                        with dissolve
+                        pause 0.7
+                        scene rt-15x
+                        with dissolve
+                        $ rnd = renpy.random.random()
+                        if rnd <= 0.25:
+                            Z "You're right where I need you to be."
+                            Z "A girl like you wants to be used, admit it."
+                            scene rt-15x-3
+                            with dissolve
+                            As "Maybe..."
+                        elif rnd <= 0.5:
+                            Z "You've got such a pretty face, you know that?"
+                            scene rt-15x-3
+                            with dissolve
+                            As "...thank you, boss..."
+                        elif rnd <= 0.75:
+                            Z "Remember how I set you straight, back in the desert?"
+                            scene rt-15x-3
+                            with dissolve
+                            As "Yeah boss... it was..."
+                        else:
+                            Z "I know that look, Asha."
+                            Z "We both know you're enjoying it."
+                            scene rt-15x-3
+                            with dissolve
+                            As "I... but still..."
+                        scene rt-15x-2
+                        with dissolve
+                        pause 0.6
+                        scene rt-15x-4
+                        with dissolve
+                        pause 1.3
+                        scene rt-15x-5
+                        with dissolve
+                        As "..."
+                        "You give her a soft pat on the head..."
+                        scene rt-15x-4
+                        with dissolve
+                        $ rnd = renpy.random.random()
+                        if rnd <= 0.33:
+                            Z "Now, be a good girl and suck me off."
+                        elif rnd <= 0.66:
+                            Z "A smile, perfect. Now, go back down like a good pet."
+                        else:
+                            Z "That's better. Now get back to work."
+                        jump rt1_cum
+
+                    "Slap her":
+                        $ asha_slaps = 0
+                        scene rt-16
+                        with hpunch
+                        Z "{i}*sigh*{/i}"
+                        Z "Are you acting up again?"
+                        $ asha_slaps += 1
+                        scene rt-18
+                        with dissolve
+                        Z "Such attitude for such a pretty face."
+                        scene rt-19
+                        with dissolve
+                        Z "Guess you need reminding."
+                        scene rt-20
+                        play sound "audio/sounds/actions/slap.mp3"
+                        with hpunch
+                        As "Agh-"
+                        scene rt-21
+                        with dissolve
+                        As "..."
+                        label rt26:
+                            menu:
+                                "Push her down":
+                                    Z "That should be enough for a reminder."
+                                    scene rt-26
+                                    with dissolve
+                                    As "Mgh..."
+                                    scene 
+                                    jump raiders_throne_menu
+
+                                "Slap her again":
+                                    $ asha_slaps += 1
+                                    if asha_slaps == 2:
+                                        scene rt-22
+                                        with dissolve
+                                        As "..."
+                                        scene rt-20
+                                        play sound "audio/sounds/actions/slap.mp3"
+                                        with hpunch
+                                        As "Ah-"
+                                        scene rt-21
+                                        with dissolve
+                                        jump rt26
+
+                                    if asha_slaps == 3:
+                                        scene rt-22
+                                        with dissolve
+                                        pause 0.6
+                                        scene rt-20
+                                        play sound "audio/sounds/actions/smack.mp3"
+                                        with hpunch
+                                        scene rt-21
+                                        with dissolve
+                                        As "Mh..."
+                                        Z "Know your place, kid."
+                                        jump rt26
+
+                                    if asha_slaps == 4:
+                                        scene rt-23
+                                        with dissolve
+                                        pause 0.6
+                                        scene rt-20
+                                        play sound "audio/sounds/actions/smack.mp3"
+                                        with hpunch
+                                        scene rt-21
+                                        with dissolve
+                                        As "Mh..."
+                                        jump rt26
+
+                                    if asha_slaps == 5:
+                                        scene rt-24
+                                        with dissolve
+                                        pause 0.6
+                                        scene rt-20x
+                                        play sound "audio/sounds/actions/smack.mp3"
+                                        with hpunch
+                                        As "Ah..."
+                                        Zt "There it is; she's starting to enjoy it..."
+                                        scene rt-21x
+                                        with dissolve
+                                        As "Boss..."
+                                        jump rt26
+                                    
+                                    if asha_slaps == 6:
+                                        scene rt-24
+                                        with dissolve
+                                        pause 0.6
+                                        scene rt-20x
+                                        play sound "audio/sounds/actions/smack.mp3"
+                                        with hpunch
+                                        scene rt-21x
+                                        with dissolve
+                                        pause 0.8
+                                        scene rt-25
+                                        with dissolve
+                                        Z "I think you have enough, don't you."
+                                        As "Yeah... boss..."
+                                        Z "Now, take it like I told you to."
+                                        scene rt-26
+                                        with vpunch
+                                        As "Mgh..."
+                                        As "{i}*sucking*{/i}"
+                                        $ rnd = renpy.random.random()
+                                        if rnd <= 0.33:
+                                            Z "Look at you, sucking ever more enthusiastically."
+                                        elif rnd <= 0.66:
+                                            Z "That's what you wanted all along, isn't it?"
+                                        else:
+                                            Z "Masochistic slut. You just love to be degraded..."
+                                        with hpunch
+                                        Z "Take it all."
+                                        with hpunch
+                                        As "{i}*slurp*{/i}"
+                                        scene rt-27
+                                        with dissolve
+                                        As "{i}*gulp*{/i}"
+                                        Z "There you go."
+                                        jump raiders_throne_menu
+
+            else:
+                label rt1_cum:
+                    scene rt-1-anim
+                    with fade
+                    As "{i}*slurp*{/i}"
+                    Z "Keep it down, kid."
+                    menu:
+                        "Cum":
+                            $ rnd = renpy.random.random()
+                            if rnd <= 0.33:
+                                Z "Alright, you know what to do. Swallow everything."
+                            elif rnd <= 0.66:
+                                Z "I'm cumming, kid. Open your throat."
+                            else:
+                                Z "Keep going. Take it all in..."
+                            label rt1x:
+                                scene rt-1x
+                                with fade
+                            if renpy.random.random() <= 0.5:
+                                Z "Mgh..."
+                            else:
+                                As "Mh..."
+                            with vpunch
+                            As "{i}*slurp*{/i}"
+                            with vpunch
+                            As "{i}*gulp*{/i}"
+                            scene rt-1x-2
+                            with vpunch
+                            As "Mgh..."
+                            "Cum flows out of her throat, onto your shaft..."
+                            if renpy.random.random() <= 0.5:
+                                Z "I told you to swallow, girl."
+                                scene rt-1x-3
+                                with dissolve
+                                As "{i}*slurp*{/i}"
+                            else:
+                                scene rt-1x-3
+                                with dissolve
+                                As "{i}*slurp*{/i}"
+                                "She goes deeper down your dick and swallows what flew out..."
+                            Z "Good girl..."
+                            scene rt-1-anim
+                            with fade
+                            "She continues to suck you off, cleaning your dick entirely."
+                            if renpy.random.random() <= 0.5:
+                                Zt "That was nice. Time to go back to work."
+                                Z "Enough, kid. Get back up."
+                                As "{i}*slurp*{/i} yhes bosh..."
+                                jump raiders_throne_menu
+                            else:
+                                Zt "I guess I don't mind her going on for now..."
+                                jump raiders_throne_menu
+                            
+                        "Enjoy her some more":
+                            As "{i}*sucking*{/i}"
+                            if renpy.random.random() <= 0.4:
+                                Z "Keep going, girl."
+                            if renpy.random.random() <= 0.4:
+                                "She eagerly pushes her head down your cock, giving you a pleasant deepthroat..."
+                            if renpy.random.random() <= 0.4:
+                                pause 1.5
+                            if renpy.random.random() <= 0.4:
+                                Zt "I should give her more credit. A girl like her is hard to come by."
+                                Zt "Masochistic, submissive in the right hands. But unpredictable and deadly for the others."
+                            if renpy.random.random() <= 0.4:
+                                Z "You're one of the main reasons I come back into this shithole of a place, you know that?"
+                                As "Mh... {i}*slurp*{/i}"
+                                Zt "She liked to hear that..."
+                            if renpy.random.random() <= 0.4:
+                                As "{i}*sucking*{/i}"
+                            if renpy.random.random() <= 0.4:
+                                pause 1.5
+                                Zt "I love this slut."
+                            if renpy.random.random() <= 0.4:
+                                Zt "If she was my [persistent.da], she'd be the most bratty one."
+                                Zt "But at least she knows when to be quiet."
+                            if renpy.random.random() <= 0.4:
+                                Zt "I wonder if [S] and her would get along?"
+                                Zt "I can't imagine [S] tolerating her attitude, though."
+                            if renpy.random.random() <= 0.4:
+                                As "{i}*sucking*{/i}"
+                            jump rt1x
+
+        "Have [Kit] join [As] at your feet" if settlement_asha_kneel == True and daily_raiders_throne == False:
+            $ daily_raiders_throne = True
+            scene rt-2
+            with dissolve
+            Z "[Kit]."
+            scene rt-3
+            with dissolve
+            Z "Come here."
+            scene rt-8
+            with fade
+            Z "Help Asha."
+            scene rt-7
+            with dissolve
+            pause 0.6
+            scene rt-9
+            with dissolve
+            As "{i}*suck*"
+            Z "You can start licking, now."
+            scene rt-10
+            with dissolve
+            Kit "..."
+            Z "Good girls."
+            scene rt-11
+            with dissolve
+            Z "Keep still, kid. Relax, swallow..."
+            with hpunch
+            Z "...!"
+            scene rt-12
+            with hpunch
+            As "Mbh..."
+            Z "Argh... [Kit]..."
+            Z "Lick it up, I don't want a mess."
+            scene rt-13
+            with dissolve
+            Kit "..."
+            "She obediently starts licking off your cum..."
+            Z "Get up, [Kit]. You've done good."
+            scene black pic
+            with fade
+            jump raiders_throne_menu
+
+        "Have fun with [Kit]" if daily_raiders_throne == False:
+            $ daily_raiders_throne = True
+            if settlement_asha_kneel == True:
+                scene rt-2
+            else:
+                scene rt-2x
+            with dissolve
+            Z "[Kit]..."
+            if settlement_asha_kneel == True:
+                scene rt-3
+            else:
+                scene rt-3x
+            with dissolve
+            menu:
+                "Tell [Kit] to kneel in front of you.":
+                    Z "Come here."
+                    if settlement_asha_kneel == True:
+                        scene rt-1-anim
+                        with fade
+                        Z "Enough, kid. It's [Kit]'s turn now."
+                        A "*slurp* Yhes bosh..."
+                    scene rt-32x
+                    with fade
+                    label rt33:
+                        menu:
+                            "Remove [Kit]'s blindfold." if rt_kitty_blindfold == True: #Blindfold Removed Images
+                                $ rt_kitty_blindfold = False
+                                scene black pic
+                                with fade
+                                "You reveal her eyes..."
+                                scene rt-33
+                                with fade
+                                "You look at her face, searching for any hint of emotion."
+                                Z "Nothing..."
+                                As "She's definitely not playing with a full deck of cards."
+                                "She awaits your instruction..."
+                                jump rt33
+
+                            "Put her blindfold back on." if rt_kitty_blindfold == False:
+                                $ rt_kitty_blindfold = True
+                                scene black pic
+                                with fade
+                                "You put her blindfold back on..."
+                                scene rt-32x
+                                with fade
+                                jump rt33
+
+                            "Have her give you a blowjob." if d11c_kitty_rough == True:
+                                Z "You can start sucking now."
+                                if rt_kitty_blindfold == True:
+                                    scene rt-42x
+                                else:
+                                    scene rt-42
+                                with dissolve
+                                "Her eyes rest on your cock..."
+                                "She understands what you want her to do."
+                                if rt_kitty_blindfold == True:
+                                    scene rt-43 ##43
+                                    with fade
+                                    "She stares at you blankly..."
+                                else:
+                                    scene rt-43x
+                                    with fade
+                                As "Do you think she knows what to do?"
+                                scene rt-44 
+                                with dissolve
+                                "Finally her lips envelope the tip of your cock."
+                                Z "Yes... She knows what to do."
+                                Kit "{i}*slurp*{/i}"
+                                scene rt-45
+                                with dissolve
+                                #TODO Kitty Blowjob animation
+                                As "Well... look at that!"
+                                As "She certainly knows how to  work it."
+                                Z "Yes... she really does."
+                                As "Not as good as me though, right boss?"
+                                menu:
+                                    "Cum in her mouth":
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-46x-2
+                                        else:
+                                            scene rt-46
+                                        with fade
+                                        Z "Fuck... take it all."
+                                        
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-46x-4
+                                        else:
+                                            scene rt-46x
+                                        with vpunch
+                                        Z "Ngh-"
+                                        Kit "{i}*slurp*{/i}"
+                                        "Cum spills from her mouth."
+                                        "She lets out a small gag."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-48x
+                                        else:
+                                            scene rt-48 
+                                        with fade
+                                        "[Kit] looks up at you, cum overflowing from her mouth."
+                                        Z "You're a good girl."
+                                        As "Looks like there's too much for her to handle, boss."
+                                        scene black pic
+                                        with fade
+                                        "Now that you're finished with her, you put her back where she belongs."
+                                        jump raiders_throne_menu
+
+                                    "Finish on her face":
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-46x-2
+                                        else:
+                                            scene rt-46
+                                        with fade
+                                        Z "Look at me."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-46x-5
+                                        else:
+                                            scene rt-46x-3
+                                        with dissolve
+                                        "{i}*slurp*{/i}"
+                                        
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-49x-3
+                                        else:
+                                            scene rt-49x
+                                        with dissolve
+                                        "The pressure mounts and then..."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-49x-2
+                                        else:
+                                            scene rt-49
+                                        with vpunch
+                                        Z "Fuck..."
+                                        "You spray cum all over her."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-50x
+                                        else:
+                                            scene rt-50 
+                                        with dissolve
+                                        "Painting her pretty face with your cum."
+                                        As "Oh wow... good aim, boss."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-51x
+                                        else:
+                                            scene rt-51
+                                        with hpunch
+                                        "Another rope of cum shoots out..."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-52x
+                                        else:
+                                            scene rt-52
+                                        with dissolve
+                                        "...and lands on her face, slowly dripping off her chin."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-53x
+                                        else:
+                                            scene rt-53
+                                        with dissolve
+                                        Z "That's good, [Kit]."
+                                        scene black pic
+                                        with fade
+                                        Z "You can go back to your place, now."
+                                        jump raiders_throne_menu
+                    
+                # "Ravage Kitty on the table.": #This is a unique scene that already exists. Cynical was going to re-write to get it into the repeatable. #TODO
+                #     pass
+
+                            "Tell [Kit] to sit with you":
+                                Z "Come sit here with me."
+                                scene black pic
+                                with fade
+                                "[Kit] gets off the floor and sits on your lap."
+                                if rt_kitty_blindfold == True:
+                                    scene rt-29x
+                                    with fade
+                                    "She rests on your lap. Her youthful body looks inviting... she's yours to play with."
+                                else:
+                                    scene rt-29
+                                    with fade
+                                    "You look into her beautiful eyes. Her youthful body looks inviting... she's yours to play with."
+                                menu:
+                                    "Make out with her":
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-30x
+                                        else:
+                                            scene rt-30
+                                        with fade
+                                        "Her cheek is soft and delicate as your hand brushes it."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-31x-2
+                                        else:
+                                            scene rt-31
+                                        with dissolve
+                                        Z "Such a beautiful thing..."
+                                        Z "I wonder what's going on inside your head."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-31x-3
+                                        else:
+                                            scene rt-31x
+                                        with dissolve
+                                        As "I don't think there's anything going on inside there, boss."
+                                        As "A real fuck toy, that one."
+                                        Z "Shut up, kid."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-54x-2
+                                        else:
+                                            scene rt-54
+                                        with dissolve
+                                        "Her lips meet yours, soft and moist."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-54x-3
+                                        else:
+                                            scene rt-54x
+                                        with dissolve
+                                        "Cool breath fills your nostrils as you kiss."
+                                        "Her sweet scent keep you lingering a little longer."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-31x-3
+                                        else:
+                                            scene rt-31x
+                                        with dissolve
+                                        "You pull apart..."
+                                        As "I think she enjoyed that, boss..."
+                                        scene black pic
+                                        with fade
+                                        jump raiders_throne_menu
+
+                                    "Feel her up":
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-30x
+                                        else:
+                                            scene rt-30
+                                        with dissolve
+                                        "Such a sweet little thing."
+                                        "And now she's yours."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-31x-2
+                                        else:
+                                            scene rt-31
+                                        with dissolve
+                                        Zt "How lucky I am to have you at my disposal..."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-55x
+                                        else:
+                                            scene rt-55
+                                        with dissolve
+                                        "Your hand moves along the curves of her body..."
+                                        scene rt-56 
+                                        with dissolve
+                                        "Moving aside her dress, her breast barely fills your hand."
+                                        "You close your fingers on the nipple poking through."
+                                        As "Can't say I blame her..." 
+                                        scene rt-57
+                                        with dissolve
+                                        "You hand moves..."
+                                        scene rt-58
+                                        with dissolve
+                                        "and your grab the other."
+                                        Z "Such perfect little tits you have, [Kit]."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-59x
+                                        else:
+                                            scene rt-59
+                                        with fade
+                                        "[Kit] shows nothing that implies she isn't enjoying this."
+                                        Zt "I wonder if there is something going on in there..."
+                                        scene rt-60 
+                                        with fade
+                                        Z "How about we try something else..."
+                                        scene rt-61
+                                        with dissolve
+                                        "Her legs spread easily under your touch."
+                                        scene rt-62
+                                        with dissolve
+                                        As "Maybe she only reacts when you're fucking her..."
+                                        As "What the hell did that General do to her?"
+                                        scene rt-64
+                                        with dissolve
+                                        "Your finger pushes against her pussy..."
+                                        scene rt-65
+                                        with dissolve
+                                        "It's already wet..."
+                                        scene rt-66
+                                        with dissolve
+                                        "And your fingers slide in with ease."
+                                        scene rt-67
+                                        with dissolve
+                                        "Deeper..."
+                                        Kit "..."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-68x
+                                        else:
+                                            scene rt-68
+                                        with dissolve
+                                        Z "Let's see if she likes this..."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-69x
+                                        else:
+                                            scene rt-69
+                                        with dissolve
+                                        "Your fingers are soaked wet with [Kit]'s pussy juices."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-70x
+                                        else:
+                                            scene rt-70
+                                        with dissolve
+                                        "She turns her head..."
+                                        Zt "Does she..."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-71x
+                                        else:
+                                            scene rt-71
+                                        with dissolve
+                                        Z "Open your mouth, [Kit]."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-72x
+                                        else:
+                                            scene rt-72
+                                        with dissolve
+                                        Z "Suck it."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-73x
+                                        else:
+                                            scene rt-73
+                                        with dissolve
+                                        Zt "I wonder if those words were even needed..."
+                                        "She opens her mouth, taking your fingers inside."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-74x
+                                        else:
+                                            scene rt-74
+                                        with dissolve
+                                        Z "Do you like how you taste?"
+                                        "As expected, she does not respond..."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-75x
+                                        else:
+                                            scene rt-75
+                                        with dissolve
+                                        Z "You were very wet..."
+                                        Zt "Does she even feel it?"
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-72x
+                                        else:
+                                            scene rt-72
+                                        with dissolve
+                                        "She looks at you, her tongue circling around the pussy juices that coat your fingers."
+                                        if rt_kitty_blindfold == True:
+                                            scene rt-76x
+                                        else:
+                                            scene rt-76
+                                        with dissolve
+                                        "Her face remains unchanged as you take your fingers out her mouth."
+                                        if rt_kitty_blindfold == True:
+                                            Zt "Her face gives nothing away."
+                                        else:
+                                            Zt "Those wide eyes don't give anything away."
+                                        scene black pic
+                                        with fade
+                                        Z "Alright... you can go back to your place."
+                                        jump raiders_throne_menu
+
+
+                            "Bend her over the throne" if d11c_kitty_rough == True:
+                                Z "Come up here, [Kit]. Bend over."
+                                scene black pic
+                                with fade
+                                "[Kit] bends over the throne."
+                                if rt_kitty_blindfold == True:
+                                    scene rt-77x
+                                else:
+                                    scene rt-77
+                                with fade
+                                As "What are you going to do now?"
+                                Z "You'll see..."
+                                scene rt-78 
+                                with fade
+                                "Standing behind her, you admire her perfect ass..."
+                                scene rt-79
+                                with dissolve
+                                Z "First... I think we should get you out of these clothes."
+                                scene black
+                                with fade
+                                "You remove her clothes..."
+                                "Her skin is soft against your hand as you hold her ass."
+                                scene rt-80
+                                with dissolve
+                                As "If you're going to do what I think... I'm not sure she can take all of you..."
+                                scene rt-81
+                                with dissolve
+                                Z "Let's find out, shall we?"
+                                scene rt-82
+                                with dissolve
+                                "You push your thumb against her tight arsehole."
+                                As "It looks tight..."
+                                Z "It is."
+                                Z "I'm not sure it can even take my thumb."
+                                scene rt-83
+                                with dissolve
+                                "You push deeper, feeling [Kit] clench as your thumb slips inside."
+                                "With how tight she is, no one has done this to her before."
+                                Z "What a waste..."
+                                Kit "..."
+                                scene rt-84
+                                with dissolve
+                                As "I don't think she used to having anything up there..."
+                                Z "Unlike you, huh?"
+                                Z "So long as she's ready to go again when I say so."
+                                if rt_kitty_blindfold == True:
+                                    scene rt-85x
+                                else:
+                                    scene rt-85
+                                with dissolve
+                                Kit "..."
+                                if rt_kitty_blindfold == True:
+                                    scene rt-86x
+                                else:
+                                    scene rt-86
+                                with dissolve
+                                "[Kit] waits patiently for what she knows will come."
+                                scene rt-87 
+                                with dissolve
+                                "Your tip pushes against her tight arsehole."
+                                scene rt-88
+                                with dissolve
+                                "It pushes past the tightness..."
+                                scene rt-89
+                                with hpunch
+                                "...and takes you inside her."
+                                As "Holy fuck! She took it!"
+                                Z "Fuck... this is tight."
+                                #TODO Anal animation here
+                                "Her arsehole clenches around your cock as you thrust deep inside her."
+                                "You've never known anything so tight..."
+                                "The pressure mounts inside of you quicker than you anticipated..."
+                                scene rt-89
+                                with hpunch
+                                Z "Fuck..."
+                                "You cum inside her ass..."
+                                scene rt-90
+                                with dissolve
+                                "Cum pours from her."
+                                scene rt-91
+                                with dissolve
+                                As "There's so much cum!" 
+                                scene rt-90
+                                with dissolve
+                                #TODO Add a menu choice
+                                Zt "I've got an idea..."
+                                scene rt-97
+                                with fade
+                                Z "[As]."
+                                scene rt-98
+                                with fade
+                                Z "Get here, now."
+                                Z "On your knees."
+                                scene rt-92
+                                with fade
+                                As "Um... what now?"
+                                Z "I want you to clean it up."
+                                scene black
+                                with fade
+                                "[As] gets up from the chair."
+                                scene rt-94
+                                with fade
+                                Z "Clean up my cum, [As]."
+                                Z "I want her ass to be clean."
+                                scene rt-95
+                                with hpunch
+                                Z "Do it."
+                                "You push [As]'s head into [Kit]'s ass."
+                                Z "Clean it up."
+                                scene rt-96
+                                with fade
+                                As "Mmmpf."
+                                Z "Good. Now I know what to do to shut you up."
+                                scene black pic
+                                with fade
+                                "Having had your fun, you tell the girls to return to their places."
+                                jump raiders_throne_menu
+
+                "Change your mind":
+                    Z "Nevermind."
+                    jump raiders_throne_menu
+
+        "Talk to [Kit]" if daily_raiders_throne == False and not all([rt_kitty_feel, rt_kitty_name, rt_kitty_hair, rt_kitty_brother, rt_kitty_leave, rt_kitty_stroke_cheek]):
+            if settlement_asha_kneel == True:
+                scene rt-2
+                with dissolve
+            else:
+                scene rt-2x
+                with dissolve
+            Z "Hey, [Kit]."
+            if settlement_asha_kneel == True:
+                scene rt-3
+                with dissolve
+            else:
+                scene rt-3x
+                with dissolve
+            Z "Come before me. I will take off your mask."
+            if settlement_asha_kneel == True:
+                scene rt-1-anim
+                with dissolve
+                Z "[As], get up, make some room for [Kit]."
+                Z "I need to speak to her for a minute."
+                scene black pic
+                with fade
+                "The girls follow your directions..."
+            else:
+                scene black pic
+                with fade
+                "She does as you say..."
+            scene rt-32
+            with fade
+            "She sits before you, looking at you without any clear expression..."
+            label kitty_menu:
+                if all([rt_kitty_feel, rt_kitty_name, rt_kitty_hair, rt_kitty_brother, rt_kitty_leave, rt_kitty_stroke_cheek]):
+                    jump rt_send_kitty_back
+                else:
+                    menu:
+                        "\"How are you feeling?\"" if rt_kitty_feel == False:
+                            $ rt_kitty_feel = True
+                            Z "How are you feeling?"
+                            pause 0.5
+                            scene expression renpy.random.choice(['rt-32','rt-33','rt-34','rt-35','rt-36'])
+                            with dissolve
+                            Kit "..."
+                            pause 1
+                            Z "..."
+                            jump kitty_menu
+
+                        "\"What is your real name?\"" if rt_kitty_name == False:
+                            $ rt_kitty_name = True
+                            Z "Tell me, what is your real name?"
+                            Z "Were you called [Kit] your whole life, or did the General give you this petname?"
+                            Z "Did your fans call you that?"
+                            scene expression renpy.random.choice(['rt-32','rt-33','rt-34','rt-35','rt-36'])
+                            with dissolve
+                            "As expected, she does not give you an answer to your question..."
+                            menu:
+                                "Give her a new name":
+                                    $ kitty_name = renpy.input(_("I will give you a better name. You will be called "), default=_('Kitty'), length=16, screen='say_with_input', show_who = Z, show_post = ' ...').strip()
+                                    if kitty_name == renpy.translate_string("Kitty", language = _preferences.language):
+                                        jump kitty_not_renamed
+                                    Z "This is a chance to restart. Your brother has no influence on you anymore."
+                                    scene expression renpy.random.choice(['rt-32','rt-33','rt-34','rt-35','rt-36'])
+                                    with dissolve
+                                    jump kitty_menu
+
+                                "Keep calling her [Kit]":
+                                    label kitty_not_renamed:
+                                        Z "Whatever it may be. You will keep your name."
+                                    scene expression renpy.random.choice(['rt-32','rt-33','rt-34','rt-35','rt-36']) 
+                                    with dissolve
+                                    jump kitty_menu
+
+                        "\"Your hair and eyes, are they naturally pink?\"" if rt_kitty_hair == False:
+                            $ rt_kitty_hair = True
+                            Z "Your hair and eyes... are they naturally pink?"
+                            pause 0.5
+                            scene expression renpy.random.choice(['rt-32','rt-33','rt-34','rt-35','rt-36'])
+                            with dissolve
+                            Zt "I have seen similar mutations in people over the years. But her hair color... it reminds me of those ancient pop culture books I have come across."
+                            Zt "Is it really a mutation, or did the General possess something to dye her hair?"
+                            jump kitty_menu                  
+
+                        "\"Do you miss your brother?\"" if rt_kitty_brother == False:
+                            $ rt_kitty_brother = True
+                            Z "Do you miss your brother?"
+                            pause 0.4
+                            scene expression renpy.random.choice(['rt-32','rt-33','rt-34','rt-35','rt-36'])
+                            with dissolve
+                            Kit "..."
+                            "Her wide eyes continue to stare at you..."
+                            jump kitty_menu
+
+                        "\"Do you want to leave this settlement?\"" if rt_kitty_leave == False:
+                            $ rt_kitty_leave = True
+                            Z "Do you want to leave this settlement?"
+                            pause 0.7
+                            scene expression renpy.random.choice(['rt-32','rt-33','rt-34','rt-35','rt-36'])
+                            with dissolve
+                            Kit "..."
+                            pause 0.8
+                            "Her facial expression changes minimally. You wonder if it has any meaning..."
+                            Zt "I don't know how to interpret this, or if I should."
+                            Z "I will ask again. Do you want to be free?"
+                            pause 0.9
+                            scene expression renpy.random.choice(['rt-32','rt-33','rt-34','rt-35','rt-36']) 
+                            with dissolve
+                            Kit "..."
+                            Z "..."
+                            Z "{i}*sigh*{/i}"
+                            jump kitty_menu
+
+                        "Stroke her cheek" if rt_kitty_stroke_cheek == False:
+                            $ rt_kitty_stroke_cheek = True
+                            scene rt-38
+                            with dissolve
+                            Z "So pretty, but so mysterious."
+                            scene rt-39
+                            with dissolve
+                            Z "I wonder what's really going on behind those pretty eyes."
+                            Kit "..."
+                            Zt "She really shows no reaction..."
+                            menu:
+                                "What are you thinking right now?":
+                                    Z "What are you thinking right now?"
+                                    Kit "..."
+                                    scene rt-39
+                                    with dissolve
+                                    Z "..."
+                                    scene rt-32
+                                    with dissolve
+                                    jump kitty_menu
+
+                                "Tell her to smile":
+                                    Z "Smile, [Kit]."
+                                    scene rt-40
+                                    with dissolve
+                                    Kit "..."
+                                    Z "A smile on command..."
+                                    scene rt-32
+                                    with dissolve
+                                    jump kitty_menu
+
+                                "Go back":
+                                    scene rt-39
+                                    with dissolve
+                                    pause 0.5
+                                    scene rt-32
+                                    with dissolve
+                                    jump kitty_menu
+
+                        "Send her back to her place":
+                            label rt_send_kitty_back:
+                                Zt "I simply can't read her at all. She is responsive to commands, but only that."
+                                Zt "There seems to be nothing else inside her. Or is there? Maybe I have barely scratched the surface."
+                                pause 0.8
+                                Z "Alright, [Kit]. You can go back to your place."
+                                scene expression renpy.random.choice(['rt-32','rt-33','rt-34','rt-35','rt-36'])
+                                with dissolve
+                                Z "I will put your mask back on for now."
+                                scene rt-37
+                                with dissolve
+                                Kit "..."
+                                if settlement_asha_kneel == True:
+                                    scene black pic
+                                    with fade
+                                    "She gets up back to her place, as Asha kneels down again before you, resuming her work..."
+                                    scene rt-2
+                                    with fade
+                                else:
+                                    scene black pic
+                                    with fade
+                                    "She gets up back to her place. You notice Asha glaring at her for a moment..."
+                                    scene rt-2x
+                                    with fade
+                                Zt "What could be the reason she is the way she is? Trauma? Some sort of mutation? Or was it really just the way she was raised by her brother?"
+                                Zt "Maybe if I ask around the people I know, I will find out more about her."
+                                Zt "I'm not even sure if the blindfold she's wearing serves any other purpose, so for now, I won't change anything."
+                                Zt "I should have asked her brother more questions before giving him into Zion's hands..."
+                                jump raiders_command_center
+
+        "Go back":
+            jump raiders_command_center
+            
+label rsa_1:
+    $ m_rsa_1 = True
+    if settlement_bathtub_worker_helped == True:
+        scene rsa-1x
+        with fade
+        Z "How is it going around here?"
+        scene rsa-1
+        with dissolve
+        Wic "Hey... ha, look who's left the general's hut! Our saviour!"
+        scene rsa-2
+        with dissolve
+        Wic "How's that pink chick treating you, huh? I heard stories, of how you left her alive."
+        Wic "...right after you got rid of her bastard of a brother, of course."
+        scene rsa-3
+        with dissolve
+        Wic "Things have been looking better since your gang decided to decorate the bridge with the General's head."
+        Wic "We're really doing better, especially me, of course! So I've got to thank you."
+        scene rsa-4
+        with dissolve
+        Wic "...I said better though, not good. Life is still a bitch around here."
+        Wic "The workload is still shit, we can barely feed our families out here, and we need more fabric, to make better cloth-"
+        scene rsa-5
+        with dissolve
+        SW "[Wic]... give it a rest already."
+        scene rsa-6
+        with dissolve
+        SW "All you do is complain. You know full well that there are a lot of people who would give their leg to work here."
+        SW "If you keep complaining... well, if the General can be replaced, so can you. and you know it."
+        scene rsa-7
+        with dissolve
+        Wic "I... that's not the point..."
+        scene rsa-8
+        with fade
+        SW "Don't mind his attitude, Boss. There's more than enough of us who appreciate the better work conditions."
+        SW "There's always things that can be improved. But at least we're not getting most of our shit stolen by those thugs. Thanks again."
+        scene rsa-9
+        with dissolve
+        scene black pic
+        with fade
+        jump settlement_overview_post_takeover
+
+    else:
+        scene rsa-10
+        with fade
+        Wic "I swear to everything, if you won't set me free, people will lay down their fucking pickaxes!"
+        Zi "{i}*Sigh...*{/i}"
+        Zi "I should just cut these chains loose..."
+        Z "Zion."
+        scene rsa-11
+        with dissolve
+        Zi "[persistent.player_name]... remind me again: why we didn't hang him next to the General?"
+        Z "Let's see about that.."
+        scene rsa-12
+        with dissolve
+        Z "For now, you've got to endure it. People need to move on from him."
+        Zi "Those assholes should be happy to get work at all, and what do they produce instead? Cunts like this fuck." 
+        scene rsa-13
+        with dissolve
+        Wic "You two... screw yourselves! We deserve more than this!"
+        Zi "The only thing you deserve is a tour through my Adira, you little shit! Would teach you what you're really worth."
+        scene rsa-14
+        with fade
+        Zi "{i}*sigh*{/i}"
+        Zi "You should really consider getting rid of him soon, [persistent.player_name]. I can always find a use for another skull..."
+        scene black pic
+        with fade
+        jump settlement_overview_post_takeover
+
+label rsf_1:
+    $ m_rsf_1 = True
+    $ settlement_simp_first_visit_day = day
+    if settlement_simp_helped == False:
+        scene vr-7
+        play sound "audio/sounds/doors/door closed.mp3"
+        with fade
+        Ky "Hey, [persistent.player_name], look what the cat dragged in..."
+        scene vr-5
+        with dissolve
+        SW "I... I don't want to disturb for long, Miss..."
+        scene rsf-1
+        with fade
+        Z "I remember you."
+        SW "I am... merely here to see her... to see Kitty, I mean!"
+        if kitty_name != renpy.translate_string("Kitty", language = _preferences.language):
+            Z "She no longer goes by the name Kitty. That was the name the General used, and he was an idiot."
+            Z "Her name is now [Kit]. You will address her by that name, and that name only."
+            SW "Oh... this is... is that so? Then I am happy to finally address her correctly."
+            SW "[Kit]... I always felt like that was wrong. Thank you for giving [Kit] her identity back!"
+        else:
+            Z "[Kit] is doing better, now that she is free from the General."
+            Z "We take good care of her."
+            SW "That is... so good to hear! I am happy for her, really!"
+        if settlement_alignment > 0:
+            scene rsf-2
+            with dissolve
+        else:
+            scene rsf-2x
+            with dissolve       
+        SW "I have brought coal, m...much more than last time."
+        SW "I wanted to see how she fares after... the Generals..."
+        if settlement_alignment > 0:
+            scene rsf-2
+            with dissolve
+        else:
+            scene rsf-2x
+            with dissolve
+        Z "Yeah, we have discussed this."
+        Z "[Kit], it looks like he brought enough tribute. Get up now, and walk to him."
+        scene black pic
+        with fade
+        "She follows your directions almost mechanically, reacting immediately to your orders..."
+        scene rsf-4
+        with fade
+        SW "Oh [Kit]... I am... beyond glad that nothing happened to you."
+        SW "In fact... you are... as beautiful as ever!"
+        SW "I, uhm, hope my appearance does not annoy you, princess..."
+        Z "That was such a nice compliment. [Kit], Give him a smile."
+        scene rsf-5
+        with dissolve
+        Kit "...{w=1}{nw}"
+        scene rsf-4
+        with dissolve
+        SW "[Kit]..."
+        scene rsf-6
+        with dissolve
+        SW "To put into words how much this meant to me..."
+        SW "I can't... hold it any longer."
+        scene rsf-7
+        with vpunch
+        SW "[Kit]..."
+        Kyw "Holy shit, man..."
+        scene rsf-7
+        with dissolve
+        SW "I know that you may not understand, as we see each other only once a week."
+        SW "But know that I am working hard every week to be able to see you."
+        SW "Whatever it takes, you can be sure to rely on me, even in hard times."
+        scene rsf-8
+        with dissolve
+        SW "To have someone so perfect, so flawless, pure and... otherworldly..."
+        SW "...stand before a flawed, miserable worker like me..."
+        scene rsf-9
+        with dissolve
+        SW "...it is the only reason I keep going. You are the highlight of my existence..."
+        scene rsf-10
+        with dissolve
+        SW "And should I never reach your heart enough to love me back..."
+        SW "...it is at least a dream... one that makes me escape the reality of this place. Of my struggles."
+        if persistent.sharing == True:
+            scene rsf-11
+            with dissolve
+            SW "If I only could... have a little more of you..."
+            menu:
+                "See where this is going":
+                    SW "[Kit]..."
+                    scene rsf-12
+                    with dissolve
+                    SW "You are so..."
+                    scene rsf-13
+                    with dissolve
+                    SW "Mmph..."
+                    SW "{i}*sucking*{/i}"
+                    SW "{i}*muffled*{/i} [Kit]..."
+                    scene rsf-14
+                    with dissolve
+                    Kit "..."
+                    "His dirty hands caress her flawless skin while he greedily sucks her breast..."
+                    SW "Mh... a... dream..."
+                    scene rsf-15
+                    with dissolve
+                    Kyw "{i}*sigh*{/i} Fuck me... this guy is desperate."
+                    Ky "Hey cockface, that's enough. You'll rip her tit off if you continue like that."
+                    scene rsf-10
+                    with fade
+                    SW "I'm... I'm sorry, I don't know what..."
+                    Z "You had your fun. Now scram!"
+                    Z "Don't think that what you just did isn't going to cost you, next time."
+                    SW "Yes... of course. Thank you..."
+                    SW "I would have never... It is worth it, it is!"
+                    scene black pic
+                    with fade
+                    jump settlement_overview_post_takeover
+                
+                "Stop him":
+                    Z "That's enough. Take your hands off her."
+                    SW "I... yes... I apologize."
+                    jump rsf4
+        else:
+            label rsf4:
+                scene rsf-4
+                with fade
+                SW "Thank you again, [Kit]. I look forward to seeing you next week."
+                SW "Until then, goodbye."
+                scene black pic
+                with fade
+                jump settlement_overview_post_takeover
+
+    else:
+        scene rsf-16
+        with w33slow
+        pause 1.5
+        scene rsf-17
+        with fade
+        Z "Hello, someone in there?"
+        scene rsf-18
+        with dissolve
+        SW "You... oh, hello!"
+        SW "I didn't think... you'd want to talk to me, now that you freed [Kit] from the General."
+        scene rsf-19
+        with dissolve
+        Z "I wanted to see how you're doing, and if everything went as planned."
+        Z "I promised you a slave, didn't I?"
+        scene rsf-20
+        with dissolve
+        SW "..."
+        "He smiles..."
+        scene rsf-21
+        with fade
+        SW "You really kept your word! Come here, I'll show you."
+        scene rsf-22
+        with dissolve
+        SW "They gave me this one, for contributing so much to the settlement."
+        scene rsf-23
+        with fade
+        Sl "..."
+        SW "Isn't she pretty?!"
+        SW "I will work even harder now, because I have this girl waiting for me when I come home!"
+        Z "And what about [Kit]?"
+        scene rsf-24
+        with dissolve
+        SW "[Kit], ah... forget her! I finally have my own girl."
+        scene rsf-26
+        with fade
+        SW "She's shy, and has not let me touch her yet... but we will get there, right?"
+        SW "She is my slave after all, if you know what I'm saying."
+        scene rsf-25
+        with dissolve
+        Z "she is... well then. I will come back in a few days to see how things are going for you."
+        Z "Take care."
+        scene black pic
+        with fade
+        jump settlement_overview_post_takeover
+
+label rsf_2:
+    $ m_rsf_2 = True
+    scene rsf-16
+    with w33slow
+    Z "Let's see how this guy is treating his new slave."
+    Z "He was so confident, last time. A newborn man."
+    scene rsf-27
+    with fade
+    Z "Hello, it's me again. How are you doing, man?"
+    "You hear mumbling coming from the other side..."
+    Z "Hey, you hear me?"
+    scene rsf-27x
+    with dissolve
+    Z "What on earth..."
+    scene rsf-28
+    with dissolve
+    SW "I'm so sorry, I didn't..."
+    C2 "A shift of fourteen hours is all you did? Is this how you thank me?"
+    SW "Nooo... please. I tried..."
+    scene rsf-29
+    with fade
+    Sl "Such a pathetic excuse. After all the attention I gave you last night..."
+    Sl "I should start looking for another man after all..."
+    C2 "No... please... anything but that."
+    scene rsf-30
+    with dissolve
+    Sl "You said yourself I was too good for this place, and now you refuse to improve my wellbeing."
+    Sl "I wonder if I can really trust you..."
+    C2 "You can, I... I promise... I will make your life better, much better..."
+    scene rsf-31
+    with dissolve
+    Sl "You better start delivering on your promises soon."
+    Sl "...I won't remain in this shithole of a place for long."
+    scene rsf-32
+    with dissolve
+    scene black pic
+    with fade
+    jump settlement_overview_post_takeover
+
+label rsg_1:
+    $ m_rsg_1 = True
+    if settlement_alignment > 0:
+        scene rsg-1
+        with w33slow
+        Z "Hey, you. I am here to check how everything is going."
+        scene rsg-2
+        with dissolve
+        SG "Hey Boss, everything's fine."
+        SG "The gate is busy recently, got lots of people wanting to come in... travellers, recruits, traders..."
+        scene rsg-4
+        with dissolve
+        SG "The word is going around! This settlement is going places."
+        SG "Oh, and... can you ask Kyra what we are supposed to do about the caravans?"
+        SG "I don't want to make her mad at me for doing the wrong thing."
+        scene rsg-3
+        with fade
+        Z "Yeah, let's see, I'm busy right now. Should ask her yourself later."
+        scene black pic
+        with fade
+        jump settlement_overview_post_takeover
+    else:
+        scene rsg-5
+        with w33slow
+        Z "Hey, you. How are things at the gate?"
+        scene rsg-6
+        with dissolve
+        SG "...?"
+        scene rsg-7
+        with fade
+        SG "Boss, it's you."
+        SG "Just had another raiding party come back. Things aren't bad. Even brought in some new workers."
+        scene rsg-9
+        with dissolve
+        SG "Word is going around not to mess with this place since we arrived. Other gangs stay away from our territory."
+        SG "I've got the occasional lost soul coming here, desperate enough, I guess."
+        menu:
+            "\"Alright, keep it up.\"":
+                Z "Alright man, keep it up. Else I'll send Zion."
+                scene rsg-8
+                with dissolve
+                SG "Hah, that woman's no joke, boss. You should hear the stories the guys are telling about her."
+                SG "Anyways, see you around."
+
+            "\"Nice decoration. Didn't know you have an artistic side.\"":
+                Z "Nice decoration. Didn't know you have an artistic side."
+                scene rsg-8
+                with dissolve
+                SG "Ever carved your own skull trophy, boss?"
+                SG "Thing is, this shit works, people piss their pants at the gate."
+                SG "Anyways, see you around."
+        scene black pic
+        with fade
+        jump settlement_overview_post_takeover
+
+label rss_1:
+    $ m_rss_1 = True
+    if settlement_old_guy_helped == True:
+        scene rss-1
+        with w33slow
+        SW "Hey Boss! Glad to see you back!"
+        SW "What do you think of my new home?"
+        scene rss-2
+        with dissolve
+        "The man stands proudly in the doorway of his repaired shack..."
+        Z "Not bad. It looks like a better place to come home to after work, for sure."
+        scene rss-3
+        with dissolve
+        SW "You have not seen the inside yet! You will not believe what I've got!"
+        scene rss-4
+        with fade
+        Z "Alright, I'll bite... what have you got?"
+        "As you step closer, you take a peek inside and see..."
+        scene rss-5
+        with dissolve
+        "...nothing. A bed and... empty space."
+        SW "Isn't it great? It's a high quality floor, made just for me!"
+        Z "Yeah... um... you're right."
+        Zt "I don't know if I feel happy or sad for him. I guess that when you have nothing, even as simple as a decent floor is a start."
+        scene rss-6
+        with fade
+        Z "Well, I'm glad for you, buddy. Hope your lucky streak stays strong."
+        scene black pic
+        with fade
+        jump settlement_overview_post_takeover
+    else:
+        scene rss-7
+        with w33slow
+        Z "How's it going around here?"
+        scene rss-8
+        with dissolve
+        SW "Huh? Oh... hi boss."
+        SW "I... well, my son just joined a mining crew."
+        scene rss-9
+        with dissolve
+        SW "He's still young, but he will do great!"
+        SW "We should be able to afford more things, soon even with the raiders in command!"
+        scene rss-10
+        with dissolve
+        pause 0.5
+        scene rss-11
+        with dissolve
+        SW "...?"
+        SW "Heh... I... uh... can fix that."
+        SW "Don't worry about me, boss. I'm sure running a settlement is not easy, either!"
+        scene rss-13
+        with dissolve
+        scene black pic
+        with fade
+        jump settlement_overview_post_takeover
+
+label rst_1:
+    $ m_rst_1 = True
+    if settlement_camper_woman_helped == True:
+        scene rst-1
+        with w33slow
+        "You hear mumbling from inside as you approach the trailer..."
+        scene rst-2
+        with fade
+        pause 1
+        scene rst-3
+        with fade
+        Rue "I know it's difficult for you, but you have to stay strong. Your wife surely misses you."
+        scene rst-4
+        with dissolve
+        Rue "Oh, hey boss, how can I help?"
+        scene rst-5
+        with dissolve
+        Z "I am just checking in to see how things are going."
+        scene rst-6
+        with dissolve
+        Rue "Gyasi, can we continue this later? Maybe after your shift?"
+        scene rst-7
+        with dissolve
+        SW "Okay, let us do that."
+        SW "Thank you, [Rue]."
+        scene rst-8
+        with dissolve
+        Rue "Remember, we all carry our burdens and insecurities. But we do not let them tear us down, agreed?"
+        scene rst-9
+        with dissolve
+        SW "I... you're right. I will come back later... there is something else I want to say."
+        scene black pic
+        with fade
+        "The man leaves, and you take his place..."
+        scene rst-10
+        with fade
+        Z "People seem to put their trust in you."
+        scene rst-11
+        with dissolve
+        Rue "I guess I've got a thing for talking to people."
+        Rue "And that's thanks to you, in a way. You made things happen here, and now I am not just the village whore anymore. People actually value my brains, for a change." 
+        Rue "If I can help some of these poor folks get their head straight and help out my son before my sickness gets me, then that's a good thing." 
+        label re_rst1a:
+            scene rst-13
+            if not _in_replay:
+                with dissolve
+            else:
+                with fade
+        Rue "Hm..."
+        scene rst-12
+        with dissolve
+        Rue "I don't know about you, but I very strongly remember the first time we met, and the offer I made back then..."
+        Rue "Talking to people is nice, but I do sometimes miss using my mouth for something else..."
+        Rue "If you want, I wouldn't mind giving my hero some gratitude..."
+        scene rst-13
+        with dissolve
+        menu:
+            "\"Don't let me stop you\"":
+                scene rst-10
+                with dissolve
+                Z "Don't let me stop you. Let me see how."
+                scene rst-11
+                with dissolve
+                Rue "Oh, darling... I may not have the looks, but I do know what guys like."
+                scene rst-13
+                with dissolve
+                scene rst-14
+                with fade
+                "She crawls towards you as you unbutton your pants..."
+                Rue "Oh my... what do we have here..."
+                scene rst-15
+                with dissolve
+                Rue "Your wife is a lucky woman..."
+                scene rst-16
+                with dissolve
+                Rue "It's been a long time since I've handled something so... healthy..."
+                scene rst-16x
+                with dissolve
+                Rue "I guess the others will have to wait a bit longer for my attention..."
+                scene rst-17
+                with dissolve
+                Rue "Nha..."
+                scene rst-18
+                with dissolve
+                Rue "{i}*suck*{/i}"
+                scene rst-19
+                with fade
+                "She starts trying to suck you off, trying her best to open up her jaw to your big dick."
+                "Her technique is decent, and her tongue is doing work, but she can't seem to get much more than your tip into her mouth."
+                scene rst-25
+                with dissolve
+                "You put your hand on top of her head, pushing her down just a little bit..."
+                Rue "{i}*cough*{/i}"
+                Zt "I shouldn't take my wife's ability to take all of me for granted."
+                Zt "But then, the comparison is unfair... and even so, many people in this settlement would gladly be in my place right now."
+                scene rst-26
+                with dissolve
+                Rue "Mh..."
+                Zt "She keeps moaning... her deep husky voice breaking in the occasional girlish squeal. She clearly enjoys the task."
+                SW "Ahem... hello?"
+                scene rst-21x
+                with fade
+                "You turn around and see a male figure, standing near the trailer window..."
+                scene rst-21x-2
+                with dissolve
+                menu:
+                    "\"What are you looking at?\"":
+                        Z "What are you looking at?"
+                        scene rst-21x-3
+                        with dissolve
+                        SW "Uhm... sir, I was hoping I could talk to counselor [Rue]."
+                        scene rst-21x-4
+                        with dissolve
+                        menu:
+                            "\"[Rue] and I are having a special meeting.\"":
+                                Z "[Rue] and I are having a special meeting."
+                                scene rst-21x-5
+                                with fade
+                                Z "She's very busy right now, you know."
+                                jump rst25
+
+                            "\"Can't you see she is sucking me off?\"":
+                                Z "Can't you see she's sucking me off?"
+                                scene rst-21x-5
+                                with fade
+                                Z "And before you ask, no, you can't join in."
+                                jump rst25
+
+                    "\"[Rue] is busy paying off her debt, shoo.\"":
+                        Z "[Rue] is busy paying off her debt."
+                        Z "Now, leave us alone and shoo off. Will you?"
+                        Rue "{i}*sucking*{/i}"
+                        scene rst-21x-3
+                        with dissolve
+                        SW "Alright... I will come back later then."
+                        scene rst-21x-4
+                        with dissolve
+                        scene rst-21x-5
+                        with fade
+                        jump rst25
+                                
+                                
+                        label rst25:
+                            Rue "{i}*slurp*{/i}"
+                            "[Rue] does not look up and instead focuses on pleasuring you. There is no way the worker does not notice..."
+                            Z "You can come and see your therapist when she's done. Now if you'll excuse me..."
+                            scene rst-25
+                            with fade
+                            Z "We're having a moment, here."
+                            Rue "{i}*sucking*{/i}"
+                            Z "I'm getting there. Keep going..."
+                            Z "..."
+                            Z "Alright..."
+                            scene rst-26
+                            with dissolve
+                            Rue "Mgh-"
+                            Z "Hold still-"
+                            Z "Ngh...-"
+                            with hpunch
+                            Z "Ah..."
+                            with hpunch
+                            Rue "{i}*cough*{/i}"
+                            scene rst-26
+                            with dissolve
+                            Rue "Mgh..."
+                            Z "Ah... fuck."
+                            scene rst-27
+                            with dissolve
+                            Z "That was nice. Be a good girl now, and swallow."
+                            Rue "{i}*gulp*{/i}"
+                            scene rst-28
+                            with dissolve
+                            "You lean back and enjoy the afterglow of your climax."
+                            "[Rue] seems to struggle much less with swallowing your semen than with taking you in her mouth."
+                            scene rst-29
+                            with dissolve
+                            Z "You kept your word, woman. You do know what guys want."
+                            scene rst-30
+                            with dissolve
+                            "You loosen your grip on her..."
+                            scene rst-31
+                            with dissolve
+                            Rue "{i}*slurp*{/i}"
+                            Z "{i}*chuckle*{/i}"
+                            Zt "Guess it was a little too much for her."
+                            scene black pic
+                            with fade
+                            "She gets up..."
+                            scene rst-12
+                            with fade
+                            Rue "What a treat that was..."
+                            scene rst-11
+                            with dissolve
+                            Rue "Let me know when you're in town, handsome."
+                            Rue "I'm sure running the place must be very stressful..."
+                            Rue "And I don't mind having a little fun during my breaks."
+                            scene rst-10
+                            with dissolve
+                            Z "After that service... I'll gladly take you up on that offer."
+                            Z "Until then... take care of yourself, [Rue]."
+                            scene black pic
+                            with fade
+                            if _in_replay:
+                                $ renpy.end_replay()
+                            jump settlement_overview_post_takeover
+
+            "\"I don't need your head. I want the real deal.\"":
+                Z "I don't want your head for now. I want the real deal."
+                scene rst-12
+                with dissolve
+                Rue "Is that so..."
+                scene rst-13
+                with dissolve
+                scene rst-14
+                with dissolve
+                "She crawls over to you as you unbutton your pants..."
+                scene rst-32
+                with fade
+                Rue "I didn't expect this would happen when you rode in with the Raiders..."
+                scene rst-33
+                with fade
+                Rue "Surely you must have... other options."
+                scene rst-34
+                with dissolve
+                Rue "Not that I'm complaining..."
+                scene rst-34
+                with dissolve
+                Rue "Mhhh..."
+                scene rst-35-anim
+                with Dissolve(0.3)
+                Rue "Oh... mhhh..."
+                Z "Damn girl..."
+                "To your surprise, she easily slides your shaft in and out of her pussy with ease."
+                Zt "The girl's got experience."
+                "Despite her frail body, her mature hips ride you very pleasantly, her ass swaying with her movement..."
+                Rue "Mh... I've missed this..."
+                Rue "Do you enjoy my moves, [persistent.player_name]?"
+                Z "You're good."
+                Rue "{i}*chuckles*{/i} Well thank you... ah..."
+                Rue "...and I thank you for giving me something good to play with."
+                pause 1.5
+                Rue "Oh... seems like some have noticed what we're doing in here..."
+                Rue "They must think I am paying my rent again..."
+                Z "But you're the settlement psychiatrist now."
+                Rue "Mh... that means there are no benefits, after all?"
+                Z "Maybe there are..."
+                "Her massage is rhythmic and without interruptions... you feel closer to cumming."
+                menu:
+                    "Cum inside her":
+                        Z "I want to cum inside you, [Rue]."
+                        Rue "Mh... A big, healthy man like you is asking to cum inside me, huh..."
+                        Rue "How... ah... can I say no to that...?"
+                        scene rst-37x
+                        with vpunch
+                        Rue "Mh~"
+                        "She slams her ass on your lap, taking your whole shaft inside her."
+                        Z "I can... feel your cervix..."
+                        with vpunch
+                        Z "...!"
+                        with vpunch
+                        Rue "Mh... Fill me up, [persistent.player_name]..."
+                        with vpunch
+                        pause 0.5
+                        scene rst-37x-2
+                        with dissolve
+                        Rue "So much..."
+                        scene rst-37x
+                        with dissolve
+                        Rue "I will try to keep everything in, [persistent.player_name]..."
+                        Z "Mgh... you damn slut."
+                        scene rst-37x-3
+                        with dissolve
+                        Rue "{i}*chuckles*{/i} It comes with the service..."
+                        scene black pic
+                        with fade
+                        "She gets up, and puts her clothes back on..."
+
+                    "Cum outside":
+                        Z "I'm will cum soon, [Rue]. I don't want to knock you up."
+                        Rue "Mh... alright..."
+                        Z "Pull out, [Rue]. Now."
+                        scene rst-37x-4
+                        with fade
+                        Z "..."
+                        scene rst-37x-5
+                        with vpunch
+                        Z "Ngh-"
+                        scene rst-37x-6
+                        with dissolve
+                        Rue "Oh... I think I can feel your cum..."
+                        Rue "It's touching me."
+                        Rue "Mh..."
+                        scene rst-37x-7
+                        with dissolve
+                        Rue "Ah..."
+                        Z "[Rue]..."
+                        scene rst-37x-8
+                        with dissolve
+                        Rue "Mh... So wet..."
+                        Z "[Rue], what are you doing?"
+                        Rue "{i}*chuckles*{/i} Don't worry, [persistent.player_name]. In my condition, there is no chance I will get pregnant."
+                        scene rst-37x-7
+                        with dissolve
+                        "Having creamed her pussy from the inside, she slides back out..."
+                        scene black pic
+                        with fade
+                        "...and leaves your lap, before putting her clothes back on..."
+
+                scene rst-12
+                with fade
+                Rue "I'm glad I could show my appreciation after all."
+                scene rst-11
+                with dissolve
+                Rue "Let me know when you're around in the future, handsome."
+                Rue "I don't mind having more fun like this during my breaks."
+                scene rst-10
+                with dissolve
+                Z "After that service... I'll gladly take you up on that offer."
+                Z "Until then... take care of yourself, [Rue]."
+                scene black pic
+                with fade
+                if _in_replay:
+                    $ renpy.end_replay()
+                jump settlement_overview_post_takeover
+
+            "\"I am needed in other places.\"":
+                Z "I appreciate the offer, and I shall certainly keep it in mind."
+                Z "But for now, I will leave you to it."
+                scene rst-12
+                with dissolve
+                Rue "Oh well... come back whenever you change your mind. Or if you just need someone to talk to."
+                Rue "...thank you again, handsome."
+                scene rst-13
+                with dissolve
+                scene black pic
+                with fade
+                if _in_replay:
+                    $ renpy.end_replay()
+                jump settlement_overview_post_takeover
+
+    else:
+        label re_rst1b:
+            if persistent.sharing == True:
+                scene rst-39
+                with w33slow
+                Zt "It looks like that woman is busy with someone."
+                Zt "I could come back in a few minutes... or just..."
+                menu:
+                    "Peek inside":
+                        scene rst-40
+                        with dissolve
+                        "You approach the trailer and head inside..."
+                        scene rst-41
+                        with fade
+                        SW "Mgh... fucking slut, don't pass out on me."
+                        Rue "Mh..."
+                        SW "Whatever, your tits will do for now."
+                        scene rst-42
+                        with dissolve
+                        "The man, frustrated, roughly shoves his dick between her tits, trying to get off..."
+                        SW "Getting close..."
+                        scene rst-43
+                        with dissolve
+                        SW "Get ready, whore... ngh..."
+                        scene rst-44
+                        with hpunch
+                        SW "Ngh-"
+                        scene rst-45
+                        with dissolve
+                        SW "..."
+                        scene rst-46
+                        with hpunch
+                        SW "Oh... yes..."
+                        scene rst-47
+                        with dissolve
+                        SW "{i}*pant*{/i}"
+                        SW "The highlight of my day... hah..."
+                        scene rst-48
+                        with dissolve
+                        scene rst-49
+                        play sound "audio/sounds/actions/slap.mp3"
+                        with hpunch
+                        scene rst-50
+                        with dissolve
+                        SW "Worth every piece of coal..."
+                        scene rst-51
+                        with fade
+                        Z "What's going on here?"
+                        with dissolve
+                        SW "Boss... I... I didn't expect you to be here."
+                        scene rst-54
+                        with dissolve
+                        SW "Thank you for giving her to us, boss. We appreciate the reward."
+                        scene rst-52
+                        with dissolve
+                        SW "I will clean her up, if you want to use her too."
+                        scene rst-53
+                        with dissolve
+                        Z "I'm waiting."
+                        scene rst-55
+                        with dissolve
+                        "The man takes a look at the barely conscious woman, and reaches for her sleeping blanket to take care of the mess he's made..."
+                        scene black pic
+                        with fade
+                        jump rst56
+
+                    "Wait until he's gone":
+                        Z "I'll wait."
+                        scene black pic
+                        with fade
+                        "After a few minutes, he comes out, and you walk inside."
+                        jump rst56
+
+                    "Just leave":
+                        Zt "Fuck it. This whore is up for no good."
+                        scene black pic
+                        with fade
+                        jump settlement_overview_post_takeover
+
+            else:
+                scene rst-38
+                with w33slow
+                "You approach the trailer. It seems like the girl you spoke in your prior visit is having a break..."
+                jump rst56
+
+
+        label rst56:
+            scene rst-56
+            with fade
+            "The woman lies on the edge of the bed in an uncomfortable position, seemingly exhausted, trying to catch a little sleep..."
+            scene rst-57
+            with dissolve
+            Rue "{i}*soft breathing*{/i}"
+            "Her skin shines in the golden sunlight. Her body laying bare, her lips are full, relaxed, and open..."
+            scene rst-58
+            with dissolve
+            "Her dark brown body is mature, but skinny, verging on malnourished."
+            "You remember her words about trying to provide for her son, deep in the desert."
+            "That same woman is now lying in her bed, the profession you gave her as a public servant, a fucktoy of the settlement, some fuckable meat, leaving her exhausted and restless."
+            menu:
+                "Try out her throat":
+                    scene black pic
+                    with fade
+                    "You undress..."
+                    scene rst-59
+                    with fade
+                    Zt "*sigh* I might accidentally rip out her windpipe."
+                    scene rst-60
+                    with fade
+                    Rue "Mh... Who is..."
+                    Z "Remember me?"
+                    scene rst-61
+                    with dissolve
+                    Rue "Ngh... just get it... over with-hngrph-"
+                    Z "Yeah... Quiet now."
+                    scene rst-64x-anim
+                    with Dissolve(0.3)
+                    Rue "{i}*sucking*{/i}"
+                    Rue "{i}*cough*{/i}"
+                    "You start mercilessly fucking her skull, thrusting in and out of her weak body."
+                    scene rst-62-anim
+                    with fade
+                    Zt "Not bad... nowhere near as good as [W]'s, but decent."
+                    Zt "It's a good thing these guys keep her busy. She'd never take it so deep if she wasn't too weak to struggle."
+                    "Her throat bulges... as you keep using her like nothing more than a toy for your pleasure."
+                    scene rst-63-anim
+                    with dissolve
+                    Rue "{i}*sucking*{/i}"
+                    Z "Ngh..."
+                    Z "These guys must be so happy. Having a dedicated village whore..."
+                    scene rst-64-anim
+                    with dissolve
+                    Z "Mgh... fuck, I love this."
+                    Zt "These miners must be taking turns sticking it to her, when their shift is done."
+                    Zt "They could do worse."
+                    scene rst-62-anim
+                    with fade
+                    Z "Alright. I'm getting close. Get ready, slut."
+                    Rue "{i}*gluck*{/i}"
+                    menu:
+                        "Cum down her throat":
+                            Z "Say Aaa..."
+                            scene rst-65x
+                            with vpunch
+                            Z "Ngh-"
+                            Rue "{i}*cough*{/i}"
+                            scene rst-65x-2
+                            with dissolve
+                            Rue "{i}*slurp*{/i}"
+                            Z "Not done yet..."
+                            scene rst-65x-3
+                            with vpunch
+                            "Your cum keep spurting down her throat..."
+                            Rue "{i}*gulp*{/i}"
+                            Z "Excellent..."
+                            scene rst-65x-4
+                            with dissolve
+                            Rue "..."
+                            Z "Clean me up, [Rue]. Don't pretend you're asleep."
+                            scene rst-65x-5
+                            with dissolve
+                            Rue "{i}*lick*{/i}"
+                            Z "Good whore."
+                            scene rst-65x-6
+                            with dissolve
+                            Z "Ah... keep going."
+                            scene black pic
+                            with fade
+                            "You wait for her to clean your semi stiff dick off your spunk, pull out and leave."
+                            if _in_replay:
+                                $ renpy.end_replay()
+                            jump settlement_overview_post_takeover
+
+                        "Cum all over her":
+                            scene rst-65
+                            with fade
+                            pause 0.8
+                            scene rst-66
+                            with vpunch
+                            pause 0.4
+                            scene rst-67
+                            with dissolve
+                            Z "Mgh..."
+                            scene rst-68
+                            with dissolve
+                            Z "{i}*pant*{/i}"
+                            Zt "I needed that."
+                            scene rst-69
+                            with dissolve
+                            "You take a look at the whore's new body paint..."
+                            scene rst-70
+                            with dissolve
+                            Zt "Who knew you'd find such beauty in the wasteland."
+                            Z "You're doing a good job, woman. Your son would be proud of you if he saw how hard you work."
+                            Z "Try to be a little more active next time. We don't want these hard working people to become bored with you."
+                            scene black pic
+                            with fade
+                            if _in_replay:
+                                $ renpy.end_replay()
+                            jump settlement_overview_post_takeover
+
+                "Try out her pussy":
+                    scene black pic
+                    with fade
+                    "You pick her up and turn her over..."
+                    scene rst-71
+                    with fade
+                    "Slapping noises fill the room as you pound the barely conscious woman from behind..."
+                    Rue "Uh... mh..."
+                    scene rst-72
+                    with dissolve
+                    Z "You don't mind me, do you?"
+                    Rue "Mh..."
+                    Z "I need to see how much your pussy is really worth."
+                    scene rst-73
+                    with dissolve
+                    Rue "...mh... just..."
+                    Rue "...do your thing..."
+                    Z "I will, don't worry about that."
+                    scene rst-75
+                    with dissolve
+                    "As you plow her pussy, you hear someone enter the trailer from your right..."
+                    scene rst-76
+                    with dissolve
+                    SW "..."
+                    Z "What do you want?"
+                    scene rst-77
+                    with dissolve
+                    SW "Hey... uh... are you not in charge of this place?"
+                    SW "Mind if I have a go at her, too?"
+                    scene rst-78
+                    with dissolve
+                    menu:
+                        "Let him join":
+                            Z "Whatever, you can use her other end."
+                            scene black pic
+                            with fade
+                            "The man undresses, and gets on the bed..."
+                            scene rst-79
+                            with fade
+                            SW "Mh... Ngh..."
+                            "Heavy grunting fills the room, the recipient taking the spit-roasting obediently."
+                            scene rst-80
+                            with fade
+                            SW "Come on, girl... put your back into it."
+                            scene rst-81
+                            with dissolve
+                            SW "Hmgh-"
+                            SW "Yes, there."
+                            scene rst-82
+                            with dissolve
+                            "You keep thrusting hard into her, not paying much attention to the guy's struggle to keep her head in place..."
+                            Rue "{i}*sucking*{/i}"
+                            scene rst-83
+                            with dissolve
+                            SW "Hey man... how come you're fucking her, by the way?"
+                            SW "Why bother with this slut?"
+                            SW "I've seen the women you were with. Those chicks with the ponytail?"
+                            SW "Aren't they miles better than this chick?"
+                            menu:
+                                "\"Be careful what you say\"":
+                                    Z "Be careful what you say. If they heard you talking like that, they'd cut your spine out."
+                                    Z "With their fingernails."
+                                    scene rst-84x
+                                    with dissolve
+                                    Rue "Mgh..- {i}*sucking*{/i}"
+                                    SW "Fuck, sorry man. Didn't mean no disrespect. I was just saying... I've seen that younger one cling to you."
+
+                                "\"They're great, but I've got a job to do.\"":
+                                    Z "They're great, but I've got a job to do."
+                                    Z "See, I am verifying if the services of this whore are worth the coal you pay her with. It's a service I provide, you see?"
+                                    scene rst-84x
+                                    with dissolve
+                                    Rue "Mgh..- {i}*sucking*{/i}"
+                                    SW "Man... I'd give anything for a ride with that pink chick. "
+                                    SW "She's a wildcat... those eyes are crazy. And those tits..."
+                                    SW "Ehm... please don't tell her that."
+
+                                "\"I'm just testing her to see if she's worth her coal\"":
+                                    Z "I'm just here to test if she's worth the coal you guys spend on her."
+                                    scene rst-84x
+                                    with dissolve
+                                    Rue "Mgh..- {i}*sucking*{/i}"
+                                    SW "Thanks, man. I think you're a good boss. The General's men were keeping this slut to themselves."
+                                    SW "Recently though, she's been overworked. Not that I care. A hole is a hole."
+
+                            SW "Anyways..."
+                            scene rst-84x-2
+                            with fade
+                            "The spit-roasting continues for a while; You plow inside the whore on the one end, the worker using her head on the other."
+                            "It's your actions that caused this woman to become a public fuckdoll for workers all over the settlement, and maybe visitors as well. Visible for everyone."
+                            "...and you're just fine with that."
+                            "So fine in fact, that you're about to unload yourself into her womb."
+                            scene rst-85
+                            with fade
+                            SW "Use your tongue baby, I know you're good at it..."
+                            scene rst-86
+                            with dissolve
+                            Rue "Mh..."
+                            Rue "{i}*slurp*{/i}"
+                            SW "Ah... like that, yes."
+                            SW "Mh...-"
+                            with hpunch
+                            SW "Oh..."
+                            scene rst-87
+                            with hpunch
+                            SW "Ohh..."
+                            SW "Fantastic..."
+                            scene rst-88
+                            with dissolve
+                            Z "Mgh..."
+                            "You spurt your cum deep inside her pussy at the same time..."
+                            SW "Thanks for letting me join, boss. Time for me to go."
+                            Z "I've got to go as well."
+                            scene rst-79
+                            with dissolve
+                            Z "She's not too bad. Let's let her rest a bit. She'll have other guests soon."
+                            scene black pic
+                            with fade
+                            if _in_replay:
+                                $ renpy.end_replay()
+                            jump settlement_overview_post_takeover
+
+                        "Send him out":
+                            Z "I'm testing out how useful she is."
+                            Z "You need to wait outside."
+                            scene rst-77
+                            with dissolve
+                            SW "Understood. Can I ask you to clean her up when you're done? Some guys never do that..."
+                            scene rst-71
+                            with fade
+                            "He leaves, and you continue to thrust into her..."
+                            with hpunch
+                            Z "Ngh-"
+                            scene rst-74
+                            with dissolve
+                            "All you can hear from her is a faint moaning..."
+                            Z "It seems the others have wore you down, but I can't blame them."
+                            Z "I guess you need more practice, more stamina. I will let them know so they double their efforts."
+                            scene rst-88
+                            with fade
+                            "After a short time of fucking, you cum inside her, wrapping up the inspection of your new settlement whore..."
+                            Z "I expect a more lively response next time I visit, whore..."
+                            scene rst-71
+                            with dissolve
+                            Z "I will let the others clean you up. Can't be arsed to pull cum out of your pussy."
+                            Z "You're a good fuck, nonetheless. See you around."
+                            scene black pic
+                            with fade
+                            if _in_replay:
+                                $ renpy.end_replay()
+                            jump settlement_overview_post_takeover
+
+                "Just leave":
+                    Zt "Looks like the outpost whore is seeing good use since I gave her a new role..."
+                    Zt "...but I'm not touching that."
+                    scene black pic
+                    with fade
+                    jump settlement_overview_post_takeover
+
+label rsw_1:
+    $ m_rsw_1 = True
+    if settlement_water_woman_helped == False:
+        scene rsw-1
+        with w33slow
+        Z "How's it looking in the water department?"
+        SW "Hey... well, I guess... alright. We do have enough water, for now."
+        scene rsw-3
+        with fade
+        SW "People are paying their share for it, and those who can't... well, the desert awaits."
+        scene rsw-4
+        with dissolve
+        SW "Denying someone water isn't what I had in mind when I took the job, but..."
+        scene rsw-5
+        with dissolve
+        SW "It's not like I can afford to be in Kyra's bad books, if you know what I mean."
+        scene rsw-3
+        with dissolve
+        SW "At least the few water tanks we have aren't going empty. And if they do, we will increase the price."
+        scene rsw-2
+        with dissolve
+        Z "That's all I needed to know, thanks."
+        scene black pic
+        with fade
+        jump settlement_overview_post_takeover
+
+    else:
+        scene rsw-7
+        with w33slow
+        RF "That wouldn't make the people happy, indeed."
+        SW "I know, that's why stricter rationing will be needed, even for your guys."
+        scene rsw-11
+        with fade
+        Z "Hey, what's this about?"
+        scene rsw-9
+        with dissolve
+        SW "We were talking about that we can't have some of her people come here and take the water like they're showering in it."
+        scene rsw-10
+        with dissolve
+        RF "My people are not known to be considerate, and they're taking too much water, even with the new water filtration system..."
+        RF "I will talk to them, and enforce the rationing... see that they stick to it."
+        scene rsw-12
+        with dissolve
+        SW "Thanks again for the improvements you made, but sometimes I think we could use the entire bridge as a water reserve and it still wouldn't be enough for these people..."
+        SW "At this rate, I couldn't imagine how much worse things would be without these extra filters."
+        scene rsw-11
+        with dissolve
+        Z "Thank you for your efforts. We will see if we can install a few more of those devices."
+        scene black pic
+        with fade
+        jump settlement_overview_post_takeover
+
+label raiders_sleep:
+    scene vr-19
+    with fade
+    pause 1
+    call daily_reset from _call_daily_reset_3
+    jump raiders_command_center
+            
+label raiders_raid:
+    if raiders_raid_first_time == False:
+        $ raiders_raid_first_time = True
+    if settlement_alignment >= 0:
+        scene rr-3
+    else:
+        scene rr-3x
+    play sound "audio/sounds/doors/door slam.mp3"
+    with vpunch
+    "The Raiders barge in, and the biggest one starts speaking in a rough and brutish voice..."
+    
+    if renpy.random.random() >= 0.5:
+        Rai "The caravans are safe. I hope you guys like success, because we've made a fuck ton of gold tonight."
+        Rai "We heard you're handing out rewards again. Here we are."
+    else:
+        Rai "The raid couldn't have been better. Got you guys a lot of gold from these scrubs."
+        Rai "Now, we're here for that reward you promised us!"
+    
+    
+    if settlement_alignment >= 0:
+        scene rr-1
+        with fade
+        Rai "Hey Kyra. Looking good as usual, Queen of the wastes."
+        scene rr-2
+        with dissolve
+        Ky "Hey boys..."
+        scene vr-7x-5
+        with dissolve
+        Ky "...heard you were looking for a reward for your hard work?"
+        scene vr-7x-6
+        with dissolve
+        Rai "Damn right we are."
+    
+    else:
+        scene rr-1x
+        with fade
+        Rai "Hey Kyra. Looking good as usual, Queen of the wastes."
+        scene rr-2x
+        with dissolve
+        Ky "Hey boys..."
+        scene vr-7x-5
+        with dissolve
+        Ky "How was the raid? I hope you're ready for your reward..."
+        scene vr-7x-6
+        with dissolve
+        Rai "We're ready for our treat. Life's been fortunate for us out there."
+
+
+    if settlement_alignment >= 0:
+        scene rr-4
+    else:
+        scene rr-4x
+    with dissolve
+    if settlement_asha_kneel == True:
+        Rai "I'll be damned..."
+        RT "...that's fucking hot."
+        if settlement_alignment >= 0:
+            scene rr-5
+        else:
+            scene rr-5x
+        with dissolve
+        As "{i}*slurp*{/i}"
+        if settlement_alignment >= 0:
+            scene rr-6
+        else:
+            scene rr-6x
+        with dissolve
+        Rai "You're one lucky motherfucker, boss."
+        RT "Yeah... Asha on her knees... what I'd give for that."
+        if raiders_raid_first_time == True:
+            RS "What do you have for us, man? Or are we just gonna look?"
+            Ky "Remember what I told you, boys. Be nice to your new boss, or else."
+            RS "Y-yeah. Fine."
+        else:
+            RS "So, what's on the menu for us, chief?"
+    else:
+        if raiders_raid_first_time == True:
+            Rai "Hey, man. What's in for us?"
+            RS "Why the fuck does he get to decide that anyway, Kyra?"
+            Ky "Boys... what did I say? Be nice to your new boss, or you'll see the bridge from below."
+            RS "C-calm down, Kyra. Didn't mean it like that..."
+        else:
+            Rai "Hey chief. What do you have for us?"
+    
+    menu:
+        "Give them Asha":
+            $ raiders_reward_asha = True
+            if settlement_asha_kneel == True:
+                scene rr-7
+                with fade
+                As "Ah... what?"
+                scene rr-8
+                with dissolve
+            else:
+                scene rr-9
+                with fade
+                As "B-boss...?"
+                scene rr-9x
+                with dissolve
+
+            random:
+                Z "You're going to boost your men's morale tonight."
+                Z "You are their reward. They will get whatever they want, understood?"
+
+            random:
+                Z "Get over there and give them your holes. I will come get you up later."
+                Z "Go on... Do it for me."
+            if settlement_asha_kneel == True:
+                scene rr-7
+                with dissolve
+            else:
+                scene rr-10
+                with dissolve
+            if raiders_raid_first_time == True:
+                As "But these guys, they..."
+            else:
+                random:
+                    As "These guys again..."
+                    As "But... I just did it the other day..."
+            
+
+            As "I mean... yes, boss..."
+            if settlement_asha_kneel == True:
+                scene rr-8
+            else:
+                scene rr-11
+            with dissolve
+            scene black
+            with fade
+            "She gets up..."
+            if settlement_alignment >= 0:
+                scene rr-12
+            else:
+                scene rr-12x
+            with vpunch
+            As "Nh..."
+            Rai "Hell yes, brother."
+            
+            if renpy.random.random() < 0.5:
+                scene rr-13
+                with dissolve
+                if renpy.random.random() < 0.5:
+                    RT "Fuck yeah, I love these perky tits, Asha."
+                else:
+                    RT "Those are some nice tits..."
+            if renpy.random.random() < 0.5:
+                if settlement_alignment >= 0:
+                    scene rr-14
+                else:
+                    scene rr-14x
+                with dissolve
+                Rai "Thanks boss, Asha is our favourite!"
+                Z "You have her for the night. Do anything you want."
+                Z "But remember, if I catch any of you taking her pussy, you'll hang next to the old general."
+                RS "Understood, boss."
+                
+            else:
+                if settlement_alignment >= 0:
+                    scene rr-15
+                else:
+                    scene rr-15x
+                with dissolve
+                Rai "You're a good guy, boss, thanks."
+                Z "Do whatever you want with her, but leave her pussy clean. Got it?"
+                RT "No cumming inside Asha. Understood!"
+
+            if renpy.random.random() < 0.5:
+                if settlement_alignment >= 0:
+                    scene rr-16
+                else:
+                    scene rr-16x
+                with dissolve
+                As "Don't... strangle me... asshole!"
+                if settlement_alignment >= 0:
+                    scene rr-17
+                else:
+                    scene rr-17x
+                with dissolve
+                Rai "Oh I'm going to do much worse, little girl."
+                scene 
+            
+            else:
+                scene rr-18
+                with dissolve
+                RT "Damn... can't wait to rip of that stupid bra..."
+                As "Ngh... fuck you..."
+                RT "Let's see how much you're going to squirt on my cock, you slut."
+
+            scene black pic
+            with fade
+            "They drag her out quickly, and you hear them cheering each other on as they approach one of the other shacks..."
+            pause 0.5
+            "Not much later..."
+            scene rr-19
+            with fade
+            As "Ngh... {i}*suck*{/i}"
+            RT "Fuck dude... can't get enough of her."
+            Rai "She still breathing? Can someone check?"
+            if renpy.random.random() < 0.5:
+                scene rr-20
+                with dissolve
+                RS "I just felt her twitch on my cock again. We're good..."
+                RT "Fuck... I felt that too. She was tight for a moment."
+            else:
+                scene rr-21
+                with dissolve
+                RT "Remember our old friend Toaster? {i}*laugh*{/i}"
+                RS "Yeah. He tried the same back then and got mauled by her claws."
+                RT "The new boss is a good one. Passing around Kyra's sister like that..."
+            
+            "The men plow her from all sides and directions, and only her faint muffled breath and slurping can be heard..."
+            scene rr-22
+            with dissolve
+            As "{i}*slurp*{/i}"
+            if renpy.random.random() >= 0.5:
+                RS "Her throat isn't tight at all! Someone pinch her tit or something..."
+                RT "You want her to throw up again?"
+                Rai "That's when she excels, bro. She loves to suffocate on her own filth."
+            else:
+                RS "Man, I love fucking that pretty face."
+                RT "...and I love to fuck her pretty ass while you fuck her face."
+                Rai "The fuck is that supposed to mean, man? You want to fuck me, next?"
+            
+            if renpy.random.random() >= 0.33:
+                scene rr-23
+                with dissolve
+                RS "Fuck, dude. I came three times in that mouth, and she drank it all!"
+                RS "Here... take another one, girl..."
+                As "Mhhgh... {i}*gulp*{/i}"
+                RS "Just kidding, that's my piss."
+            elif renpy.random.random() >= 0.66:
+                scene rr-24
+                with dissolve
+                Rai "Oh... so good. Fucking her small tits..."
+                RT "{i}*laughs*{/i} imagine knocking her up, or something."
+                Rai "I'd love to squeeze out that milk..."
+            else:
+                scene rr-25
+                with dissolve
+                As "Mhh... {i}*slurp*{/i}"
+                Rai "I love those legs. God, I could fuck them all night."
+                RS "Don't pull it too much, you're going to break her leg."
+                Rai "So what?"
+                RS "You want us to get killed, dude? The fuck do you mean so what?! Have you forgotten her sister?"
+
+            scene rr-26
+            with dissolve
+            RS "I'm getting close, girl... ngh..."
+            scene rr-27
+            with dissolve
+            RT "Fuck... that ass is so perfectly tight..."
+            if renpy.random.random() <= 0.4:
+                RS "You think Boss had a run in that?"
+                RT "For sure, dude."
+            
+            if renpy.random.random() < 0.5:
+                scene rr-28
+                with dissolve
+                if settlement_camper_woman_helped == True:
+                    RT "{i}*laughs*{/i} Look at her. She's better than Rue!"
+                    RS "Much better. Rue is overused."
+                    Rai "Can't slap Rue as well as Asha, either."
+                else:
+                    RT "{i}*laughs*{/i} Look at her. She's better than Rue ever was!"
+                    RS "Rue's better at listening to my feelings, though."
+                    Rai "You're right man... Rue made me cry last time."
+
+            else:
+                scene rr-29
+                with dissolve
+                As "Ngh... {i}*muffled moans*{/i}"
+                RT "She enjoyed that one, dude."
+                Rai "You've got to give it to her fast and deep. Make it painful."
+                RS "She deserves nothing less."
+
+            scene rr-30
+            with dissolve
+            RT "Guys... I'm going to cum soon."
+            Rai "Me too, bro. She's too good..."
+            RS "She came again... hard to imagine this whore killed so many of us..."
+            As "{i}*slurp*{/i}"
+            Rai "Let's finish up this feisty slut. The others are waiting outside."
+            scene rr-31
+            with dissolve
+            RT "Mh... you've been good, Asha."
+            scene rr-32
+            with hpunch
+            RT "Ngh-"
+            scene rr-33
+            with dissolve
+            As "{i}*slurp*{/i}"
+            scene rr-34
+            with dissolve
+            pause 1
+            scene rr-35
+            with hpunch
+            Rai "Mh..."
+            scene rr-36
+            with dissolve
+            Rai "...so good."
+            scene rr-37
+            with dissolve
+            RT "Here's another load, girl..."
+            scene rr-38
+            with vpunch
+            RT "Fuck yeah, I love your ass."
+            scene rr-39
+            with dissolve
+            if renpy.random.random() <= 0.33:
+                RS "Come on, squeeze me a little more before I empty my balls..."
+                As "Mh... {i}*suck*{/i}"
+            else:
+                RS "Fuck... I'd fuck your throat all day, girl..."
+                RS "Come on, I'm getting close..."
+            scene rr-40
+            with hpunch
+            RS "Agh..."
+            As "{i}*slurp*{/i}"
+            scene rr-41
+            with dissolve
+            Rai "That was awesome..."
+            RT "Indeed. The other's are going to love her."
+            RS "She's still sucking me off..."
+            Rai "Yeah, fuck it... I'm taking my sweet ass time. The others can wait."
+            scene black
+            with slowfade
+            jump raiders_command_center
+
+        "Give them extra rations":
+            Z "You've been doing good runs for me and the girls. Have a feast on my behalf, today. Extra rations for everyone."
+            Rai "Nice, boss. I've been starving like mad. Awesome!"
+            Z "I will tell the guards to not be too strict with the rations. Now go and have some fun."
+            RS "I'm going to feast like a motherfucker. Thanks again, boss!"
+            scene black
+            with fade
+            "They leave, excited to stuff their bellies..."
+            jump raiders_command_center
+
+    label rr_retrieve_asha:
+        $ raiders_reward_asha = False
+        scene rr-58
+        with fade
+        Ky "Hey, handsome. This is a reminder that my poor innocent sister has been violated and used for a straight day now..."
+        random:
+            Ky "What do you say.. You want to go and rescue her? After all, all she has been drinking for the was the cum of my boys."
+            Ky "Care to go get her? I am sure she would like you to escort her..."
+        scene rr-59
+        with dissolve
+        Zt "It looks like I forgot about her. Though, it's good to see her sister still cares for her."
+        menu:
+            "Pick her up yourself":
+                Z "I think she does deserve a little pick up."
+                Ky "Mhm... she does indeed..."
+                scene rr-60
+                with fade
+                Ky "Mnh..."
+                "She leans in, and seductively makes out with you..."
+                scene rr-61
+                with dissolve
+                Ky "Nha..."
+                random:
+                    Kyw "You sweet piece of shit..."
+                    Kyw "You're so hot, sitting there, while my sister is suffering..."
+                scene rr-58
+                with fade
+                Ky "...now, ready to claim her back, big guy? I think she's waiting for her daddy."
+                scene rr-59
+                with dissolve
+                scene black
+                with fade
+                "You make your way to the shack, where Asha spent the last day..."
+                scene rr-42
+                with fade
+                Z "There you are. {i}*sigh*{/i}"
+                Zt "They couldn't even clean her up, could they..."
+                As "..."
+                scene rr-43
+                with dissolve
+                "She lies in front of you, legs spread, cum dripping out of her ass. She doesn't move, and you only hear exhausted breathing..."
+                scene rr-44
+                with dissolve
+                Z "They did quite a number on you... That's one gaping asshole."
+                scene rr-45
+                with dissolve
+                Zt "All this cum... Countless of guys must've had their way. Her skin glistens from the juices."
+                Zt "Judging by her swollen labia and the fresh cum on her tits, her last \"guests\" didn't leave too long ago."
+                scene rr-46
+                with fade
+                Z "Time to get you back home, girl."
+                As "Y-yhes... bhoss..."
+                menu:
+                    "Use her first":
+                        Z "But first..."
+                        scene rr-47
+                        with fade
+                        Z "I'm going to use the only hole in your body that's not full of cum."
+                        Z "At least they kept their word about that..."
+                        scene rr-48
+                        with fade
+                        Zt "She's incredibly wet. I wonder if they used her pussy at all during these hours."
+                        show rr-49-anim
+                        pause 1.5
+                        show rr-50-anim
+                        "You start fucking her, like all those guys before you..."
+                        hide rr-49-anim
+                        As "Nh... boss..."
+                        Z "Guess you remember that dick even after all the other ones, huh..."
+                        As "Y-yes... mh..."
+                        Z "You're the best fucktoy there is, Asha. Raising the morale of your gang..."
+                        Z "...such a team player."
+                        As "Mh..."
+                        "She squirts under your strokes, gripping your dick even tighter."
+                        show rr-51-anim
+                        with fade
+                        As "Nhah... ngh... nh..."
+                        hide rr-50-anim
+                        "With every stroke, you make her eyes open for a little bit, just so she can't pass out..."
+                        Z "I bet the boys did some good bonding while they were having fun with you here."
+                        Z "Who doesn't like a free to use slut in their camp, after a hard day of labor."
+                        pause 0.5
+                        "You quickly reach your climax, as you fuck the halfway passed out girl..."
+                        Z "Here's one last load for you..."
+                        scene rr-52
+                        with vpunch
+                        As "Nh..."
+                        Z "Mgh..."
+                        with vpunch
+                        Z "Ah... deep inside..."
+                        with vpunch
+                        Z "...that young cunt."
+                        scene rr-54
+                        with vpunch
+                        Z "Still cumming..."
+                        pause 0.5
+                        scene rr-55
+                        with dissolve
+                        Z "Mh..."
+                        Z "That's all of your holes filled up. How do you feel?"
+                        scene rr-54
+                        with vpunch
+                        "Instead of a response, you see drool coming from her mouth as you stuff it deep inside her once more..."
+                        scene rr-53
+                        with fade
+                        Z "Did I break you this time?"
+                        As "..."
+                        Z "I guess you're done for today. Time to get you back where you belong."
+                        Z "Any last words before I pick you up?"
+                        scene rr-56
+                        with dissolve
+                        As "T-thankhs... bohss..."
+                        scene black pic
+                        with fade
+                        "You carry her back to the other side of the bridge."
+                        if settlement_asha_kneel == True:
+                            "You decide to give your broken toy time to recover for some well deserved rest. After about an hour, she rejoins, nestling between your legs." 
+                        else:
+                            "You decide to give your broken toy time to recover for some well deserved rest. After about an hour, she rejoins you." #using it on purpose here.
+                        jump raiders_command_center
+
+                    "Carry her back":
+                        scene black
+                        with fade
+                        "You lift her over your shoulder and bring her back to your room..."
+                        jump raiders_command_center
+
+            "Send someone else":
+                Z "I think this time, someone else can go and get her. I'm sure you can find a volunteer for that."
+                Ky "Poor Asha... doesn't even deserve an escort, after all this hard work."
+                Ky "But hey, at least my boys are happy. And happy boys means more gold for us."
+                scene black pic
+                with fade
+                if settlement_asha_kneel == True:
+                    "After a few minutes, Asha rejoins you two. Exhausted but obedient, she resumes her place between your legs."
+                else:
+                    "After a few minutes, Asha, exhausted but obedient, joins you..."
+                jump raiders_command_center
+
+label raiders_kyra:
+    $ daily_kyra_sex = True
+    $ daily_throne_kyra_cum_inside = False
+    $ daily_throne_kyra_cum_outside = False
+    $ daily_throne_asha_pussy = False
+    $ daily_throne_asha_ass = False
+    Z "Why don't you take a break, let's have some fun."
+    scene vr-7x-2
+    with dissolve
+    Ky "You want {i}fun{/i}, huh... is that so?"
+    scene vr-7x-4
+    with dissolve
+    scene black pic
+    with fade
+    "She walks up to you..."
+    scene d10b-195
+    with fade
+    if settlement_asha_kneel == True:
+        $ _var = renpy.random.randint(1, 5)
+    else:
+        $ _var = renpy.random.randint(1, 3)
+
+    if _var == 1:
+        Ky "I'm not your whore, [persistent.player_name]. But I'll hear you out."
+        scene d10b-194
+        with dissolve
+        scene d10b-196
+        with dissolve
+        Z "Yeah, so the thing is..."
+        scene d10b-197
+        with dissolve
+        Z "I was thinking you deserve a good fuck after your work."
+        Ky "Maybe I do. What's on your mind?"
+
+    elif _var == 2:
+        Ky "Look who it is, my personal fucktoy..."
+        scene d10b-194
+        with dissolve
+        Z "Fucktoy, huh..."
+        scene d10b-197
+        with dissolve
+        Z "I bet you started leaking the moment I called for you."
+        Ky "Leading a shithole in the desert makes you thirsty..."
+
+    elif _var == 3:
+        Ky "You're lucky, I was just thinking the same."
+        Ky "What now, sweetheart?"
+        scene d10b-194
+        with dissolve
+        Z "I have something in mind..."
+
+    elif _var == 4:
+        Ky "I'm not your slut, sugar. Unlike my sister, I won't be kneeling."
+        Z "And yet you came over..."
+        scene d10b-196
+        with dissolve
+        Ky "That's rich. First, he cracks a joke, and now he's checking out my tits..."
+        scene d10b-197
+        with dissolve
+        Z "Hm... I have an idea. Why don't you shut up and remove these..."
+        Ky "Sure, {i}daddy{/i}. And then...?"
+
+    elif _var == 5:
+        Ky "Asking me out, while my sister is slurping on your cock, huh?"
+        Z "You know how it is..."
+        scene d10b-197
+        with dissolve
+        Ky "Well then... what do we do? Fortunately I am horny enough."
+    
+    scene black
+    with fade
+    "Moments later..."
+    scene d10b-198
+    with vpunch
+    Ky "Hah-"
+    scene d10b-199
+    with dissolve
+    random:
+        block:
+            Ky "Let's give them a show, shall we?"
+            scene d10b-200
+            with dissolve
+            Z "Come all, come see..."
+        block:
+            Ky "A little break won't hurt..."
+            scene d10b-200
+            with dissolve
+            Z "It surely won't."
+        block:
+            Ky "So impatient..."
+            scene d10b-200
+            with dissolve
+            Zt "She's so fucking sexy."
+        
+    scene d10b-201
+    with dissolve
+    if raiders_reward_asha == False:
+        As "Sis... boss... can I join..."
+        random:
+            Ky "Not now, Asha. Stay where you are, and watch us."
+            Ky "Maybe later, you slut. For now, he's mine..."
+    else:
+        Z "Too bad your sister is... preoccupied. I bet she would love to join us..."
+
+    random:
+        block:
+            scene d10b-202
+            with dissolve
+            Ky "mmh... Keep looking, and I might just find another cock..."
+            scene d10b-204
+            with fade
+            Z "{i}*chuckles*{/i} Try finding a better one."
+            Ky "Fuck... yeah... forget it..."
+
+        block:
+            scene d10b-202
+            with dissolve
+            Ky "You're gonna fuck me with your eyes today? Interesting..."
+            scene d10b-204
+            with fade
+            Z "Nah... I need more than that."
+        
+        block:
+            scene d10b-203
+            with fade
+            Ky "Fuck... take it out already and fuck me."
+            scene d10b-204
+            with fade
+            Z "No need to say that twice. Greedy slut."
+            Ky "Mmh... there it is."
+
+    show d10b-206-anim
+    window hide
+    pause 4.75
+    scene d10b-207
+    with Dissolve(0.1)
+    Ky "...ah."
+    Ky "...fuck... yes..."
+    show d10b-208-anim
+    Ky "{i}*moaning*"
+    Z "Ngh..."
+    "You fuck her good and hard, just like you did the previous time..."
+    if renpy.random.random() >= 0.5:
+        Ky "Fuck... your cock is better than any drug... ah..."
+        Ky "...and I've tried a few."
+    else:
+        Z "You're one fucking used slut, Kyra."
+        Ky "mmhh... and you love it, don't you..."
+    scene d10b-210
+    with hpunch
+    Z "I love these fat tits."
+    Ky "Ngh..."
+    show d10b-211-anim
+    with dissolve
+    Ky "Ah... keep going..."
+    Ky "I'm gonna... mhh...!"
+    with vpunch
+    Ky "Aaaah...!!"
+    Z "Yeah, let those workers hear it!"
+    with vpunch
+    Ky "Fuuck...!!"
+    show d10b-208-anim
+    with fade
+    hide d10b-211-anim
+    "You take her legs back in your hands..."
+    Ky "Fuck... I keep cumming..."
+    Ky "Fill me up, asshole... nh... I want to feel it!"
+    Z "...ngh-"
+    menu raiders_throne_kyra_menu:
+        "Cum inside" if daily_throne_kyra_cum_inside == False and daily_throne_kyra_cum_outside == False and daily_throne_asha_pussy == False and daily_throne_asha_ass == False:
+            $ daily_throne_kyra_cum_inside = True
+            Z "Your pussy's too good..."
+            scene d10b-207
+            with vpunch
+            Z "Nghr-"
+            scene d10b-207
+            with vpunch
+            Z "Agh-"
+            Ky "Oh... fuck..."
+            show d10b-212-anim
+            with vpunch
+            Z "Ngh...-"
+            "You keep fucking her, spilling your seed inside her..."
+            Z "Fuck that feels nice."
+            Ky "That's... a big load..."
+            jump raiders_throne_kyra_menu
+
+        "Cum outside" if daily_throne_kyra_cum_inside == False and daily_throne_kyra_cum_outside == False and daily_throne_asha_pussy == False and daily_throne_asha_ass == False:
+            $ daily_throne_kyra_cum_outside = True
+            Z "Your body's so fucking hot... damn..."
+            scene d10b-213
+            with vpunch
+            Z "Nghr-"
+            scene d10b-215
+            with dissolve
+            Z "Hah..."
+            Z "That felt great..."
+            scene d10b-214
+            with dissolve
+            Ky "..."
+            Z "Look at that... perfect shot."
+            Z "Wanted it inside, huh? Tough luck. You look gorgeous that way."
+            jump raiders_throne_kyra_menu
+
+        "Fuck Asha next" if daily_throne_asha_pussy == False and daily_throne_asha_ass == False and raiders_reward_asha == False and daily_throne_kyra_cum_inside == False and daily_throne_kyra_cum_outside == False:
+            Z "Hey Asha... You can join us after all."
+            As "R-really?"
+            Z "Yeah, come here..."
+            scene black pic
+            with fade
+            "The girl approaches you, and you quickly take off her top and toss her over to her sister..."
+            scene d10b-250
+            with hpunch
+            As "Ah... h-hey, sis..."
+            scene d10b-249
+            with dissolve
+            random:
+                Ky "Ready to please your boss, sis?"
+                Ky "Looks like your new sugar daddy wants to make use of you, hm?"
+                Ky "Aw... your poor holes are going to get stretched out again, sis..."
+            scene d10b-248
+            with dissolve
+            As "Mhm...."
+            scene d10b-251
+            with fade
+            "You approach the two, fixated on Asha's petite frame..."
+            scene d10b-252
+            with dissolve
+            Zt "This cute little ass..."
+            scene black pic
+            with fade
+            "...and pull down her pants."
+            scene d10b-253
+            with fade
+            As "Hey boss... I..."
+            Z "Shh..."
+            menu:
+                "Take her pussy":
+                    $ daily_throne_asha_pussy = True
+                    scene d10b-254
+                    with dissolve
+                    As "Ah..."
+                    Z "Let's see what you got, kid."
+                    scene d10b-255
+                    with hpunch
+                    As "Nhaa..."
+                    "You thrust into her wet pussy..."
+                    scene d10b-256
+                    with fade
+                    As "Nh..."
+                    Z "Come up, girl."
+                    scene d10b-259
+                    with dissolve
+                    Ky "See, sis... I told you it's not easy. I care for you, you know..."
+                    As "Oww..."
+                    "Your dick stretches out her pussy as you rigorously ram in and out of her..."
+                    scene d10b-260
+                    with dissolve
+                    Zt "Such a cute little body."
+                    Z "Not bad, kid... not bad."
+
+                "Fuck her ass":
+                    $ daily_throne_asha_ass = True
+                    scene d10b-254
+                    with dissolve
+                    Z "I've had enough pussy today. Why don't we try something else...?"
+                    Ky "Ohh, poor little sis'..."
+                    As "Mh... but..."
+                    scene d10b-255
+                    with dissolve
+                    As "Ah... hnn..."
+                    "You thrust into her tight ass..."
+                    scene d10b-256
+                    with hpunch
+                    As "Ah~!"
+                    Z "Ngh... you're still so fucking tight."
+                    scene d10b-258
+                    with dissolve
+                    "She seems to be in pain, and yet just lets it happen."
+                    Ky "You're breaking my little sister again..."
+                    scene d10b-259
+                    with dissolve
+                    As "Agh... hah..."
+                    Z "And you love watching it happen, as always."
+                    scene d10b-260
+                    with vpunch
+                    As "Ah...!"
+                    Z "Ngh... Such a young, masochistic fucking slut."
+
+            Ky "Mh... nothing better than watching your sister get fucked like that..."
+            scene d10b-269
+            with fade
+            "She gets up, stroking her sister's cheek..."
+            As "Ngh... {i}*heavy breathing*"
+            Ky "Hey... How are you feeling?"
+            scene d10b-270
+            with dissolve
+            As "He's so big... but it feels soooo good..."
+            scene d10b-271
+            with hpunch
+            As "Mgh-"
+            "You keep going..."
+            Ky "Aw, there he goes again."
+            scene d10b-272
+            with dissolve
+            Ky "Guess he's not satisfied yet."
+            Ky "Take it as a compliment..."
+            show d10b-273-anim
+            with fade
+            "You keep ramming your cock in her. Every time you do, her entire body lurches forward with your thrusts."
+            Z "Such a good little thing."
+            Z "Takes it all in... without complaint."
+            As "Ah... hah..."
+            Ky "Hear that? He likes your body, sis..."
+            As "Y-yes... ah..."
+            show d10b-273x-anim
+            with fade
+            hide d10b-273-anim
+            As "T-thank you, boss."
+            Ky "So sweet. Thanking you for using her like a piece of meat."
+            Z "Ngh..."
+            "You fuck her good and hard, and it doesn't take long for you to reach your limit again..."
+            Z "I'm... getting close, you sluts..."
+            if daily_throne_asha_pussy == True:
+                Z "Hnghr-"
+                scene d10b-274
+                with hpunch
+                As "Ahh... so good...!"
+                Z "Fuck-"
+                scene d10b-275x
+                with hpunch
+                As "Ngha... oh..."
+                "She presses her hips against yours as you fill her pussy up..."
+                scene d10b-275x-2
+                with hpunch
+                As "So much..."
+                Ky "Aww... look at you. Did he pump you full of cum?"
+                Ky "Right into my sister's slutty womb, hm..."
+                jump raiders_throne_kyra_menu
+
+            else:
+                Z "Hnghr-"
+                scene d10b-275x
+                with hpunch
+                As "Ahh...!"
+                Z "Fuck-"
+                scene d10b-275
+                with hpunch
+                As "Ngha... oh..."
+                "As if by reflex, she squeezes your dick as you cum inside her..."
+                with hpunch
+                Z "Ah... you're... fuck."
+                scene d10b-269
+                with dissolve
+                Ky "Aww... look at you. Did he fill up your ass?"
+                Ky "You should take a little break before we get up..."
+                jump raiders_throne_kyra_menu
+
+        "Have Asha clean you up" if (daily_throne_kyra_cum_inside == True or daily_throne_kyra_cum_outside == True or daily_throne_asha_pussy == True or daily_throne_asha_ass == True) and raiders_reward_asha == False:
+            Z "Kneel down, Asha. Now."
+            scene d10b-227
+            with fade
+            "She kneels next to you in an instant..."
+            As "I am here, boss."
+            if daily_throne_asha_pussy == True or daily_throne_asha_ass == True:
+                Z "Good... stay there."
+            else:
+                scene d10b-228
+                with dissolve
+                Z "Good... stay there."
+                "You pull out of Kyra..."
+            scene d10b-231
+            with fade
+            Z "You know what to do, kid."
+            if daily_throne_asha_pussy == True:
+                Z "My cum mixed with your juices, just how you like it."
+            elif daily_throne_asha_ass == True:
+                Z "Taste your own ass, you slut."
+            else:
+                Z "Clean this mess up."
+            scene d10b-232
+            with dissolve
+            As "..."
+            scene d10b-233
+            with dissolve
+            As "{i}*slurps*"
+            scene d10b-234
+            with dissolve
+            As "Mmn..."
+            Z "Suck the whole tip..."
+            scene d10b-235
+            with dissolve
+            Z "Here... like that. Use your tongue."
+            As "..."
+            scene d10b-236
+            with dissolve
+            "She slowly and carefully licks all over your tip..."
+            Z "Good slut."
+            Ky "Such a good sister. I don't deserve her..."
+            scene d10b-237
+            with fade
+            Ky "Fuck, that was great. I needed that."
+            Z "A well deserved break."
+            menu:
+                "Hydrate her":
+                    if daily_throne_asha_pussy == True:
+                        Z "Tell me, how did your pussy taste?"
+
+                    elif daily_throne_asha_ass == True:
+                        Z "Enjoyed the taste of your own ass, kid?"
+                    else:
+                        Z "Before we go back... Asha, how did your sister taste?"
+                    scene d10b-239
+                    with fade
+                    if daily_throne_asha_pussy == True:
+                        As "I like it, boss. But your cum is better."
+                    elif daily_throne_asha_ass == True:
+                        As "I don't mind it, boss..."
+                    else:
+                        As "She tastes good, boss..."
+                    scene d10b-240
+                    with dissolve
+                    Z "Good. I haven't taken a piss in a while. Open your mouth."
+                    scene d10b-241
+                    with dissolve
+                    As "Ah..."
+                    Ky "Aww... look at her. So romantic..."
+                    scene d10b-242
+                    with dissolve
+                    Z "There you go..."
+                    As "..."
+                    scene d10b-243
+                    with dissolve
+                    As "{i}*gulp*"
+                    scene d10b-244
+                    with dissolve
+                    As "..."
+                    "She subtly licks the bottom of your tip as you keep releasing in her mouth..."
+                    scene d10b-245
+                    with dissolve
+                    Ky "Mmmh... keep doing that, and I'm ready for round two."
+                    scene d10b-245x
+                    with dissolve
+                    As "Aaah... nnh..."
+                    scene d10b-242
+                    with dissolve
+                    pause 1.5
+                    scene d10b-241
+                    with dissolve
+                    As "{i}*gulp*{/i}"
+                    Ky "Good girl!"
+                    Z "That's it. Alright, back to work or what, Kyra?"
+                    Ky "Back to work it is. This fucking settlement..."
+                    scene black
+                    with fade
+                    "You head back to your chair..."
+                    jump raiders_command_center
+                    
+                "Go back to your throne":
+                    Z "Let's go back to work, then?"
+                    As "{i}*slurp*{/i}"
+                    Ky "Back to work it is. This fucking settlement..."
+                    scene black
+                    with fade
+                    "You head back to your throne..."
+                    jump raiders_command_center
+
+        "Go back to the throne" if daily_throne_kyra_cum_inside == True or daily_throne_kyra_cum_outside == True or daily_throne_asha_pussy == True or daily_throne_asha_ass == True:
+            Z "A well deserved break."
+            if daily_throne_kyra_cum_outside == True:
+                Z "Let's go back to work, then?"
+                Ky "mhm..."
+            else:
+                Z "You should.. ngh... get back to work..."
+                Ky "Yeah... ah... just... a few more minutes..."
+            scene black
+            with fade
+            "You head back to your throne..."
+            jump raiders_command_center

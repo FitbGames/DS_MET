@@ -1,0 +1,582 @@
+init python:
+    def time_format(t):
+        if t is not None:
+            m = str(int(t // 60))
+            s = str(int((t % 60))).zfill(2)
+            return ':'.join([m, s])
+        else:
+            return '0:00'
+
+    class MusicTrack(object):
+        def __init__(self, title, path, artist = None, category = [], environment = None, action = None, locked = False):
+            self.title = title
+            self.path = path
+            self.artist = artist
+            self.category = category
+            self.environment = environment
+            self.locked = locked
+            music_room.add(self.path, always_unlocked=False)
+            music_list.append(self)
+
+        def __eq__(self, other):
+            if isinstance(other, MusicTrack):
+                return self.path == other.path
+
+
+    class CustomMusicRoom(MusicRoom):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+
+        def is_unlocked(self, filename):
+            for t in music_list:
+                if t.path == filename:
+                    return not t.locked
+            return None
+
+        def CycleLoop(self):
+            if not self.loop:
+                return [SelectedIf(False), self.SetLoop(True)]
+            elif not self.single_track:
+                return [SelectedIf(True), self.SetSingleTrack(True)]
+            else:
+                return [SelectedIf(True), self.SetSingleTrack(False),self.SetLoop(False)]
+
+    music_room = CustomMusicRoom(fadein=2.0)
+
+    class UpdatePlaying(Action):
+        def __init__(self):
+            self.playing = renpy.music.get_playing()
+
+        def __call__(self):
+            playing = renpy.music.get_playing()
+            if self.playing != playing:
+                self.playing = playing
+            change_mr_bg(playing)
+
+
+define music_list = []
+
+#Chili's Playlist
+define mt1 = MusicTrack(title = 'Ancient Synthwave', path = 'audio/music/playlists/synthwave.mp3', category = ['mutants', "chili's playlist"], environment = 'chili')
+define mt2 = MusicTrack(title = 'Cryptic Chillwave', path = 'audio/music/playlists/chillwave.mp3', category = ['mutants', "chili's playlist"], environment = 'chili')
+define mt3 = MusicTrack(title = "Chili", path = 'audio/music/mutants/chilis theme.mp3', category = ['mutants', "chili's playlist"], environment = 'chili')
+define mt4 = MusicTrack(title = 'Retro Flares', path = 'audio/music/playlists/retrowave.mp3', category = ['mutants', "chili's playlist"], environment = 'chili')
+define mt5 = MusicTrack(title = 'Dark Electronic', path = 'audio/music/playlists/dark electronic.mp3', category = ['mutants', "chili's playlist"], environment = 'chili')
+define mt6 = MusicTrack(title = 'Colliding Spirals', path = 'audio/music/mutants/colliding spirals.mp3', category = ['mutants'], environment = 'chili')
+define mt7 = MusicTrack(title = 'The System Has Failed', artist = 'Karl Casey @ White Bat Audio', path = 'audio/music/mutants/system has failed.mp3', category = ['mutants', "chili's playlist"], environment = 'chili')
+define mt64 = MusicTrack(title = 'The Eighth Element', path = 'audio/music/playlists/the eighth element.mp3', category = ['mutants'], environment = 'chili')
+define mt65 = MusicTrack(title = 'Digital Decay', path = 'audio/music/mutants/digital decay long.mp3', category = ['mutants', "chili's playlist"], environment = 'chili')
+
+
+# define mt8 = MusicTrack(title = 'The Stalker', path = 'audio/music/mutants/the stalker.mp3', category = ['mutants'], environment = 'chili')
+
+#Raiders
+define mt9 = MusicTrack(title = 'Broken',  artist = 'Karl Casey @ White Bat Audio',path = 'audio/music/raiders/broken.mp3', category = ['raiders'], environment = 'raiders')
+define mt10 = MusicTrack(title = 'Adira', path = 'audio/music/raiders/scary rock full.mp3', category = ['raiders'], environment = 'raiders')
+define mt11 = MusicTrack(title = 'Mechanical Dusk', artist = 'TechnoAXE', path = 'audio/music/raiders/mechanical dusk.mp3', category = ['raiders'], environment = 'raiders')
+define mt12 = MusicTrack(title = 'Dominance', path = 'audio/music/raiders/dominance.mp3', category = ['raiders'], environment = 'raiders')
+define mt13 = MusicTrack(title = 'Settlement', path = 'audio/music/raiders/settlement.mp3', category = ['raiders'], environment = 'raiders')
+define mt14 = MusicTrack(title = 'Metal', path = 'audio/music/raiders/metal.mp3', category = ['raiders'], environment = 'raiders')
+define mt15 = MusicTrack(title = "Zion", path = 'audio/music/raiders/zions theme full.mp3', category = ['raiders'], environment = 'raiders')
+define mt66 = MusicTrack(title = "Bandit Metal", path = 'audio/music/raiders/bandit metal.mp3', category = ['raiders'], environment = 'raiders')
+
+#Home
+define mt16 = MusicTrack(title = 'Expedition', path = 'audio/music/exploration/main theme.mp3', category = ['zeta'], environment = 'home')
+define mt17 = MusicTrack(title = 'Hashish', path = 'audio/music/exploration/hashish.mp3', category = ['zeta'], environment = 'home')
+
+#Zeta
+define mt18 = MusicTrack(title = 'Osiris', path = 'audio/music/zeta/osiris.mp3', category = ['zeta'], environment = 'palace')
+define mt19 = MusicTrack(title = 'Khopesh', path = 'audio/music/zeta/Khopesh.mp3', category = ['zeta'], environment = 'palace')
+define mt20 = MusicTrack(title = 'Authority', path = 'audio/music/zeta/authority.mp3', category = ['zeta'], environment = 'palace')
+define mt21 = MusicTrack(title = 'Palace', path = 'audio/music/zeta/palace.mp3', category = ['zeta'], environment = 'palace')
+define mt22 = MusicTrack(title = 'Desert Drums', path = 'audio/music/zeta/desert drums.mp3', category = ['zeta'], environment = 'palace')
+define mt23 = MusicTrack(title = 'Royal Order', path = 'audio/music/zeta/zetan suspense.mp3', category = ['zeta'], environment = 'palace')
+define mt24 = MusicTrack(title = 'Sphinx', path = 'audio/music/zeta/sphinx.mp3', category = ['zeta, ambience'], environment = 'palace')
+define mt25 = MusicTrack(title = 'Delta', path = 'audio/music/zeta/delta.mp3', category = ['zeta'], environment = 'palace')
+define mt26 = MusicTrack(title = 'Establishment', path = 'audio/music/zeta/establishment.mp3', category = ['zeta, ambience'], environment = 'palace')
+define mt99 = MusicTrack(title = 'Oriental Abstract', path = 'audio/music/zeta/oriental abstract.mp3', category = ['zeta'], environment = 'palace')
+define mt27 = MusicTrack(title = 'Deserts Of Arabia', path = 'audio/music/zeta/deserts of arabia.mp3', category = ['zeta'], environment = 'palace')
+define mt100 = MusicTrack(title = 'Oud And Percussion', path = 'audio/music/zeta/oriental oud.mp3', category = ['zeta'], environment = 'palace')
+define mt101 = MusicTrack(title = 'Scorching Sands', path = 'audio/music/zeta/scorching sands.mp3', category = ['zeta'], environment = 'palace')
+define mt102 = MusicTrack(title = 'Romulus Et Remus', path = 'audio/music/zeta/romulus et remus.mp3', category = ['zeta'], environment = 'palace')
+
+#Arena
+define mt28 = MusicTrack(title = 'Arena', path = 'audio/music/zeta/war music continued loud.mp3', category = ['zeta'], environment = 'arena')
+
+#Hive
+define mt29 = MusicTrack(title = 'Mantis', path = 'audio/music/mutants/mutant hive.mp3', category = ['mutants'], environment = 'hive')
+define mt30 = MusicTrack(title = 'Hive Queen', path = 'audio/music/mutants/mutant hive disturbed.mp3', category = ['mutants'], environment = 'hive')
+
+#Ivy
+define mt31 = MusicTrack(title = "Yuna", path = 'audio/music/mutants/ivys theme.mp3', category = ['mutants'], environment = 'ivy')
+define mt32 = MusicTrack(title = 'Past & Present', path = 'audio/music/exploration/past and present.mp3', category = ['mutants'], environment = 'ivy')
+define mt33 = MusicTrack(title = 'Meditation', path = 'audio/music/exploration/meditation.mp3', category = ['mutants', 'ambience'], environment = 'ivy')
+define mt34 = MusicTrack(title = "Lunai", path = 'audio/music/mutants/sonmis theme.mp3', category = ['mutants', 'ambience'], environment = 'ivy')
+define mt344 = MusicTrack(title = "Echoes Of The Past", path = 'audio/music/mutants/echoes of the past.mp3', category = ['mutants'], environment = 'ivy')
+define mt345 = MusicTrack(title = "Rain All Around", path = 'audio/music/exploration/rain all around.mp3', category = ['mutants'], environment = 'ivy')
+define mt346 = MusicTrack(title = "Sentimental", path = 'audio/music/mutants/sentimental.mp3', category = ['mutants'], environment = 'ivy') #TODO credits add
+define mt347 = MusicTrack(title = "Floating", path = 'audio/music/mutants/floating.mp3', category = ['mutants'], environment = 'ivy') #TODO credits add
+define mt348 = MusicTrack(title = "Midnight Paradise", path = 'audio/music/mutants/midnight paradise.mp3', category = ['mutants'], environment = 'ivy') #TODO credits add
+define mt349 = MusicTrack(title = "Neon Dreams", path = 'audio/music/exploration/neon dreams.mp3', category = ['mutants', 'ambience'], environment = 'ivy')
+
+#Sapa night
+define mt35 = MusicTrack(title = 'Monastery', path = 'audio/music/mutants/monastery.mp3', category = ['mutants', 'ambience'], environment = 'sapa_night')
+
+#Sapa day
+define mt36 = MusicTrack(title = 'Infatuation', path = 'audio/music/mutants/infatuation.mp3', category = ['mutants'], environment = 'sapa_day')
+define mt37 = MusicTrack(title = 'Sapa', path = 'audio/music/mutants/sapa ambience.mp3', category = ['mutants', 'ambience'], environment = 'sapa_day')
+
+#Zone calm
+define mt38 = MusicTrack(title = 'Jupiter', path = 'audio/music/zone/jupiter.mp3', category = ['zone', 'ambience'], environment = 'zone_calm')
+define mt39 = MusicTrack(title = 'Suspense', path = 'audio/music/background/suspense.mp3', category = ['zone'], environment = 'zone_calm')
+define mt40 = MusicTrack(title = 'There & Back Again', path = 'audio/music/zone/there and back again.mp3', category = ['zone', 'ambience'], environment = 'zone_calm')
+define mt41 = MusicTrack(title = 'Looming Zone', path = 'audio/music/zone/zone looming.mp3', category = ['zone'], environment = 'zone_calm')
+define mt61 = MusicTrack(title = 'Focused Ambience', path = 'audio/music/background/focused ambience.mp3', category = ['zone'], environment = 'zone_calm')
+
+#Zone emission
+define mt42 = MusicTrack(title = 'Emission', path = 'audio/music/zone/zone theme.mp3', category = ['zone'], environment = 'zone_emission')
+define mt43 = MusicTrack(title = 'Chase', path = 'audio/music/zone/zone chase.mp3', category = ['zone'], environment = 'zone_emission')
+define mt44 = MusicTrack(title = 'In The Forest', path = 'audio/music/zone/in the forest.mp3', category = ['zone'], environment = 'zone_emission')
+define mt62 = MusicTrack(title = 'Exosphere', path = 'audio/music/exploration/exosphere.mp3', category = ['zone', 'ambience'], environment = 'zone_emission')
+define mt63 = MusicTrack(title = 'Biohazard', path = 'audio/music/exploration/biohazard.mp3', category = ['zone'], environment = 'zone_emission')
+
+#Apartment
+define mt45 = MusicTrack(title = 'Apartment', path = 'audio/music/background/apartment.mp3', category = ['zone', 'ambience'], environment = 'apartment')
+define mt46 = MusicTrack(title = 'Underwater', path = 'audio/music/background/underwater.mp3', category = ['zone', 'ambience'], environment = 'apartment')
+
+#Julia
+define mt47 = MusicTrack(title = 'Silent Field', path = 'audio/music/zone/silent fields.mp3', category = ['zone', 'ambience'], environment = 'julia')
+
+#Desert day
+define mt48 = MusicTrack(title = 'Dream Town', path = 'audio/music/home/dream town.mp3', category = ['zeta', 'ambience'], environment = 'desert_day')
+define mt49 = MusicTrack(title = 'Spatium', path = 'audio/music/exploration/spatium.mp3', category = ['zeta', 'ambience'], environment = 'desert_day')
+define mt50 = MusicTrack(title = 'Khamsin', path = 'audio/music/zeta/arabic winds.mp3', category = ['zeta', 'ambience'], environment = 'desert_day')
+
+#Desert night
+define mt51 = MusicTrack(title = 'Arabian Nights', artist = 'The Sound Club', path = 'audio/music/exploration/arabian nights.mp3', category = ['zeta'], environment = 'desert_night')
+define mt52 = MusicTrack(title = 'Music Box', artist = 'TechnoAXE', path = 'audio/music/home/music box september.mp3', category = ['zeta'], environment = 'desert_night')
+
+#Cairo
+define mt53 = MusicTrack(title = 'Dead City', path = 'audio/music/decayed/dead city.mp3', category = ['decayed', 'ambience'], environment = 'abrax')
+define mt54 = MusicTrack(title = 'Old Cairo', path = 'audio/music/decayed/old cairo.mp3', category = ['decayed', 'ambience'], environment = 'abrax')
+define mt55 = MusicTrack(title = 'Scorched Earth', path = 'audio/music/decayed/scorched earth.mp3', category = ['decayed', 'ambience'], environment = 'abrax')
+define mt555 = MusicTrack(title = 'Two Towers', path = 'audio/music/decayed/two towers.mp3', category = ['decayed'], environment = 'abrax')
+
+#Bunker
+define mt56 = MusicTrack(title = 'Bunker Blues', path = 'audio/music/playlists/bunker blues original.mp3', category = ['radio'], environment = 'bunker')
+define mt57 = MusicTrack(title = 'Resurrection', artist = 'Buran', path = 'audio/music/playlists/resurrection short.mp3', category = ['radio'], environment = 'bunker')
+define mt58 = MusicTrack(title = 'Ave Maria', path = 'audio/music/playlists/ave maria guitar.mp3', category = ['radio'], environment = 'bunker')
+define mt59 = MusicTrack(title = 'Air', path = 'audio/music/playlists/air.mp3', category = ['radio'], environment = 'bunker')
+define mt60 = MusicTrack(title = 'Gymnopedie', path = 'audio/music/background/gymnopedie.mp3', category = 'radio', environment = 'bunker')
+
+define music_room_envs = {
+    'chili' : {
+        # 'intro': "Extras/Chili's Audio Playlist/ap-start.webm",
+        'intro': "Extras/Chili's Audio Playlist/ap-1.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-1x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 1.mp3', 'audio/sounds/playlist/playlist switch 3.mp3', 'audio/sounds/playlist/playlist switch 4.mp3']
+    },
+    'julia' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-2.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-2x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 2.mp3']
+    },
+    'abrax' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-3.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-3x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 5.mp3', 'audio/sounds/playlist/playlist switch 8.mp3']
+    },
+    'arena' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-4.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-4x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 5.mp3', 'audio/sounds/playlist/playlist switch 8.mp3']
+    },
+    'hive' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-5.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-5x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 9.mp3', 'audio/sounds/playlist/playlist switch 13.mp3']
+    },
+    'home' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-6.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-6x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 4.mp3','audio/sounds/playlist/playlist switch 5.mp3', 'audio/sounds/playlist/playlist switch 7.mp3', 'audio/sounds/playlist/playlist switch 8.mp3']
+    },
+    'raiders' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-7.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-7x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 6.mp3', 'audio/sounds/playlist/playlist switch 10.mp3', 'audio/sounds/playlist/playlist switch 10.mp3']
+    },
+    'zone_calm' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-8.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-8x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 5.mp3', 'audio/sounds/playlist/playlist switch 7.mp3', 'audio/sounds/playlist/playlist switch 8.mp3']
+    },
+    'palace' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-9.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-9x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 5.mp3', 'audio/sounds/playlist/playlist switch 7.mp3', 'audio/sounds/playlist/playlist switch 8.mp3']
+    },
+    'sapa_day' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-10.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-10x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 4.mp3','audio/sounds/playlist/playlist switch 5.mp3', 'audio/sounds/playlist/playlist switch 7.mp3', 'audio/sounds/playlist/playlist switch 8.mp3']
+    },
+    'ivy' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-11.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-11x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 4.mp3', 'audio/sounds/playlist/playlist switch 5.mp3', 'audio/sounds/playlist/playlist switch 7.mp3', 'audio/sounds/playlist/playlist switch 8.mp3']
+    },
+    'desert_day' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-12.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-12x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 2.mp3', 'audio/sounds/playlist/playlist switch 5.mp3', 'audio/sounds/playlist/playlist switch 7.mp3', 'audio/sounds/playlist/playlist switch 8.mp3']
+    },
+    'zone_emission' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-13.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-13x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 5.mp3', 'audio/sounds/playlist/playlist switch 7.mp3', 'audio/sounds/playlist/playlist switch 8.mp3']
+    },
+    'sapa_night' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-14.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-14x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 4.mp3','audio/sounds/playlist/playlist switch 5.mp3', 'audio/sounds/playlist/playlist switch 7.mp3', 'audio/sounds/playlist/playlist switch 8.mp3']
+    },
+    'bunker' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-15.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-15x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 5.mp3', 'audio/sounds/playlist/playlist switch 7.mp3', 'audio/sounds/playlist/playlist switch 8.mp3']
+    },
+    'apartment' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-16.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-16x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 11.mp3','audio/sounds/playlist/playlist switch 12.mp3']
+    },
+    'desert_night' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-17.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-17x.webm",
+        'sound': ['audio/sounds/playlist/playlist switch 4.mp3','audio/sounds/playlist/playlist switch 5.mp3', 'audio/sounds/playlist/playlist switch 7.mp3', 'audio/sounds/playlist/playlist switch 8.mp3']
+    },
+    'stop' : {
+        'intro': "Extras/Chili's Audio Playlist/ap-stop.webm",
+        'loop': "Extras/Chili's Audio Playlist/ap-stopx.webm",
+        'sound': ['audio/sounds/playlist/playlist stop.mp3']
+    }
+}
+
+init python:
+    def get_environment(track, l = music_list):
+        if not renpy.music.is_playing():
+            return 'stop'
+        else:
+            for t in l:
+                if t.path == track:
+                    return t.environment
+        return None
+
+    def get_artist(track, l = music_list):
+        if not renpy.music.is_playing():
+            return None
+        else:
+            for t in l:
+                if t.path == track:
+                    return t.artist
+        return None
+
+    def filter_playlist(playlist, filter):
+        if not filter:
+            return playlist
+        else:
+            return [track for track in playlist if all(f in track.category for f in filter)]
+
+    def update_playlist_status(playlist, music_list = None):
+        for track in music_list:
+            if track in playlist:
+                track.locked = False
+            else:
+                track.locked = True
+        return [track for track in music_list if not track.locked]
+
+
+
+    def change_mr_bg(track, env_list = music_room_envs):
+        env = get_environment(track)
+        if renpy.store.previous_env == env or env is None:
+            pass
+        else:
+            renpy.store.previous_env = env
+            mr_bg_intro = env_list.get(env, None).get('intro', None)
+            mr_bg_loop = env_list.get(env, None).get('loop', None)
+            mr_bg_sound = renpy.random.choice(env_list.get(env, None).get('sound', None))
+            
+            renpy.music.play(mr_bg_sound ,channel='sfx_1', loop = False)
+            renpy.music.play(mr_bg_intro, channel='movie', loop = False)
+            renpy.music.queue(mr_bg_loop, channel='movie', loop = True)
+            renpy.restart_interaction()
+
+default previous_env = None
+default persistent.mr_favourites = []
+
+label music_room:
+    $ _game_menu_screen = None
+    $ _autosave = False
+    # $ preferences.set_mixer('sfx', 0.75)
+    scene black pic
+    call screen music_room
+    $ _autosave = True
+    return
+
+screen music_room():
+    add Movie(size=(1920, 1080))
+    add 'gui/music_room/toolbar_bg.png'
+    default current_pos = '0:00'
+    default total_duration = '0:00'
+    default categories = []
+    default favourites_active = False
+    default artist = None
+    
+    if favourites_active and persistent.mr_favourites:
+        $ plist = [t for t in music_list if t.path in persistent.mr_favourites]
+    else:
+        $ plist = music_list
+    $ filtered_playlist = update_playlist_status(filter_playlist(plist, categories), music_list = music_list)
+
+    if filtered_playlist:
+        on "show" action [
+            music_room.Play(filtered_playlist[0].path)
+        ]
+
+
+    timer 0.1:
+        action [
+            SetScreenVariable('current_pos',time_format(renpy.music.get_pos())), 
+            SetScreenVariable('total_duration',time_format(renpy.music.get_duration())),
+            SetScreenVariable('artist', get_artist(renpy.music.get_playing())),
+            UpdatePlaying()
+        ]
+        repeat True
+
+    frame background None padding (0, 0, 0, 0):
+        frame background 'gui/music_room/playlist_bg.png' padding (0, 0, 0, 0) xpos 1307:
+            vbox xysize (55, 55) xpos 214 ypos 50:
+                imagebutton at music_controls_state:
+                    idle 'gui/music_room/categories_idle.png'
+                    hover 'gui/music_room/categories_hover.png'
+                    selected_idle 'gui/music_room/categories_selected.png'
+                    selected GetFocusRect('category_list')
+                    action ToggleFocus("category_list")
+
+            vbox ypos 110 xpos 220:
+                viewport:
+                    mousewheel True 
+                    draggable True
+                    ysize 900
+                    has vbox
+                    style_prefix 'mr_track_list'
+                    for idx, track in enumerate(filtered_playlist, 1):
+                        hbox ysize 40:
+                            hbox ysize 40 xsize 30:
+                                imagebutton xalign 0.3 yalign 0.5 at favourite_state:
+                                    idle 'gui/music_room/favorite_add_idle.png'
+                                    hover 'gui/music_room/favorite_add_hover.png'
+                                    selected_idle 'gui/music_room/favorite_add_selected.png'
+                                    selected track.path in persistent.mr_favourites
+                                    action  ToggleSetMembership(persistent.mr_favourites, track.path)
+
+                            hbox ysize 40:
+                                textbutton f'{track.title}' yalign 0.5:
+                                    selected renpy.music.get_playing() == track.path
+                                    if renpy.music.get_playing() == track.path:
+                                        action NullAction()
+                                    else:
+                                        action [music_room.Play(track.path), Function(change_mr_bg, track.path), SetScreenVariable('artist', track.artist)]
+
+        if artist is not None:
+            text _("Artist: [artist]") style 'mr_track_list_button_text' xalign 0.35 ypos 1012 size 22 outlines [ (1, "#f3d6f322", 0, 0), (1, "#f3d6f322", 0, 0),  (1, "#f3d6f322", 0, 0) ] color "#f8f0f8"
+        
+        hbox xpos 0 ypos 1035:
+            hbox xsize 1790 ysize 40 yalign 0.5:
+                bar value AudioPositionValue() style 'mr_bar'
+            hbox xsize 200 ysize 40 yalign 0.5 xalign 1.0:
+                text f'{current_pos} / {total_duration}' style 'mr_time_info'
+
+        hbox:
+            xpos 1165
+            ypos 984
+            ysize 64
+            spacing 10 
+            hbox:
+                vbox xsize 71 * 0.65 ysize 64:
+                    imagebutton xalign 0.5 yalign 0.5 at music_controls_state:
+                        idle 'gui/music_room/previous_idle.png' 
+                        hover 'gui/music_room/previous_hover.png' 
+                        selected_idle 'gui/music_room/previous_selected.png' 
+                        action music_room.Previous()
+
+                vbox xsize 63 * 0.65 ysize 64:
+                    imagebutton xalign 0.5 yalign 0.5 at music_controls_state:
+                        if renpy.music.is_playing():
+                            idle 'gui/music_room/pause_idle.png' 
+                            hover 'gui/music_room/pause_hover.png' 
+                            selected_idle 'gui/music_room/play_selected.png' 
+                            selected_hover 'gui/music_room/play_hover.png' 
+                            action [
+                                music_room.TogglePause(),
+                                Play('sfx_1', renpy.random.choice(['audio/sounds/playlist/playlist pause.mp3'])),
+                                PauseAudio('movie', 'toggle')
+                            ]
+                        elif renpy.music.get_pause(channel = 'music'):
+                            idle 'gui/music_room/play_idle.png' 
+                            hover 'gui/music_room/play_hover.png' 
+                            selected_idle 'gui/music_room/play_selected.png' 
+                            action [
+                                music_room.TogglePause(), 
+                                Play('sfx_1', 'audio/sounds/playlist/playlist pause.mp3'),
+                                PauseAudio('movie', 'toggle')
+                            ]
+                        else:
+                            idle 'gui/music_room/play_idle.png' 
+                            hover 'gui/music_room/play_hover.png' 
+                            selected_idle 'gui/music_room/play_selected.png' 
+                            action music_room.Play()
+                        
+                vbox xsize 69 * 0.65 ysize 64:
+                    imagebutton xalign 0.5 yalign 0.5 at music_controls_state:
+                        idle 'gui/music_room/stop_idle.png' 
+                        hover 'gui/music_room/stop_hover.png' 
+                        selected_idle 'gui/music_room/stop_selected.png' 
+                        if renpy.music.is_playing():
+                            action [music_room.Stop(), Play('sfx_1', 'audio/sounds/playlist/playlist stop.mp3')]
+                        else:
+                            action NullAction()
+
+                vbox xsize 61 * 0.65 ysize 64:
+                    imagebutton xalign 0.5 yalign 0.5 at music_controls_state:
+                        idle 'gui/music_room/next_idle.png' 
+                        hover 'gui/music_room/next_hover.png' 
+                        selected_idle 'gui/music_room/next_selected.png' 
+                        action music_room.Next()
+
+            hbox:
+                vbox xsize 81 * 0.65 ysize 64:
+                    imagebutton xalign 0.5 yalign 0.5 at music_controls_state:
+                        if music_room.single_track and music_room.loop:
+                            idle 'gui/music_room/repeat_one_idle.png' 
+                            hover 'gui/music_room/repeat_one_hover.png' 
+                            selected_idle 'gui/music_room/repeat_one_selected.png' 
+                        else:
+                            idle 'gui/music_room/repeat_all_idle.png' 
+                            hover 'gui/music_room/repeat_all_hover.png' 
+                            selected_idle 'gui/music_room/repeat_all_selected.png' 
+                        action music_room.CycleLoop()
+
+                vbox xsize 75 * 0.65 ysize 64:
+                    imagebutton xalign 0.5 yalign 0.5 at music_controls_state:
+                        idle 'gui/music_room/shuffle_idle.png' 
+                        hover 'gui/music_room/shuffle_hover.png' 
+                        selected_idle 'gui/music_room/shuffle_selected.png' 
+                        selected music_room.shuffle
+                        action music_room.ToggleShuffle()
+
+                vbox xsize 75 * 0.65 ysize 64:
+                    imagebutton xalign 0.5 yalign 0.5 at music_controls_state:
+                        if _preferences.get_volume('music') == 0:
+                            idle 'gui/music_room/volume_off_idle.png' 
+                            hover 'gui/music_room/volume_off_hover.png' 
+                            selected_idle 'gui/music_room/volume_off_selected.png' 
+                        elif _preferences.get_volume('music') > 0.5:
+                            idle 'gui/music_room/volume_high_idle.png' 
+                            hover 'gui/music_room/volume_high_hover.png' 
+                            selected_idle 'gui/music_room/volume_high_selected.png' 
+                        else:
+                            idle 'gui/music_room/volume_low_idle.png' 
+                            hover 'gui/music_room/volume_low_hover.png' 
+                            selected_idle 'gui/music_room/volume_low_selected.png' 
+                        selected GetFocusRect('volume_slider')
+                        action ToggleFocus("volume_slider")
+
+
+        if GetFocusRect("volume_slider"):
+            nearrect xpos -20:
+                focus "volume_slider" prefer_top True
+                vbox xysize (68, 141) at volume_out:
+                    yalign 0.5
+                    vbar value MixerValue('music') xysize (68, 141) style 'mr_vbar'
+
+
+        if GetFocusRect("category_list"):
+            nearrect ypos -12 xpos -12:
+                focus "category_list" preferred_side 'left'
+                vbox xsize 150 spacing 0:
+                    for idx, c in enumerate(['favourites', 'ambience', 'zeta', 'mutants', 'raiders', 'decayed', 'zone', 'radio', "chili's playlist"]):
+                        button ysize 25 xsize 150 padding (0, 0, 0, 0) at slide_out(idx):
+                            text "[c!c]" size 18 xalign 0.5 style 'mr_track_list_button_text'
+                            if c == 'favourites':
+                                    if not persistent.mr_favourites:
+                                        sensitive False
+                                        action NullAction()
+                                    else:
+                                        action ToggleScreenVariable('favourites_active', True, False)
+                            else:
+                                action ToggleSetMembership(categories, c)
+
+        textbutton _("Return") ypos 1004 xalign 0.005 action Return() text_style 'mr_track_list_button_text'
+
+
+style mr_track_list_vbox is vbox:
+    xalign 0.95 
+    ypos 0.1
+
+style mr_track_list_button is button:
+    ysize 35
+
+style mr_track_list_button_text is text:
+    size 25
+    idle_color "#f8f0f8"
+    hover_color "#f8f0f8"
+    selected_color "#f8f0f8"
+    font 'gui/fonts/Jaypong Techno.ttf'
+    antialias True
+    outlines [ (1, "#f3d6f322", 0, 0), (1, "#f3d6f322", 0, 0),  (1, "#f3d6f322", 0, 0) ]
+    selected_outlines [ (2, "#ff64b252", 0, 0), (1, "#ff64b252", 0, 0),  (1, "#ff64b252", 0, 0) ]
+    hover_outlines [ (2, "#71d0e152", 0, 0), (1, "#71d0e152", 0, 0),  (1, "#71d0e152", 0, 0) ]
+
+style mr_bar is bar:
+    right_bar "gui/music_room/empty_bar.png"
+    left_bar "gui/music_room/full_bar.png"
+
+style mr_vbar is bar:
+    bar_vertical True
+    right_bar "gui/music_room/full_vbar.png"
+    left_bar "gui/music_room/empty_vbar.png"
+
+style mr_time_info is text:
+    font 'gui/fonts/UnivaNova-Medium.ttf'
+    color "#ddd"
+    size 18 
+    yalign 0.5
+
+transform volume_out():
+    subpixel True
+    alpha 0.0
+    easeout 0.5 alpha 1.0
+
+transform slide_out(i=1):
+    subpixel True
+    alpha 0.0
+    easeout (i * 0.15) alpha 1.0
+
+transform favourite_state():
+    subpixel True
+    zoom 1.0
+    on idle:
+        linear 0.1 zoom 1.0
+    on hover, selected_hover, selected_idle:
+        linear 0.1 zoom 1.05
+
+transform music_controls_state():
+    subpixel True
+    zoom 0.5
+    on idle:
+        linear 0.1 zoom 0.5
+    on hover, selected_hover, selected_idle:
+        linear 0.1 zoom 0.55

@@ -1,0 +1,3841 @@
+label d17a_part_1:
+    $ m_d17a_part_1 = True
+    Zt "It looks like Fangs is busy somewhere else..."
+    if mantis_left_behind == False:
+        scene d17a-1
+        with fade
+    else:
+        scene d17a-1x
+        with fade
+    Z "Hey, guys. Has anyone seen Fangs?"
+    if mantis_left_behind == False:
+        scene d17a-2
+        with fade
+    else:
+        scene d17a-3
+        with fade
+    Mu "Hm..."
+    if mantis_left_behind == False:
+        scene d17a-2x
+        with dissolve
+    else:
+        scene d17a-3x
+        with dissolve
+    Mu "Oh yeah, I saw her leaving."
+    if mantis_left_behind == False:
+        scene d17a-4
+        with fade
+    else:
+        scene d17a-5
+        with fade
+    Mu "No idea where she went, though. Why do you need her?"
+    if mantis_left_behind == False:
+        scene d17a-4x
+        with dissolve
+    else:
+        scene d17a-5
+        with dissolve
+    Z "To ask her what else she is planning."
+    if mantis_left_behind == False:
+        scene d17a-4x-2
+        with dissolve
+        Mant "You could try the gymnasium. She spends her breaks there sometimes."
+        scene d17a-4x-3
+        with dissolve
+        Z "Thank you, Mantis. I will try my luck there."
+    else:
+        Mu "Yeah, she did mention something, but I don't recall the details."
+        scene d17a-5x-3
+        with dissolve
+        Mu "Just try the gym, that's where she takes her breaks."
+        scene d17a-5x-4
+        with dissolve
+        Z "Alright, I will take a look."
+    scene black pic
+    with fade
+    "You move towards the gymnasium..."
+    scene d17a-6
+    with fade
+    Mu "..."
+    scene d17a-7
+    with dissolve
+    pause 1
+    play sound "audio/sounds/doors/door closed.mp3"
+    pause 0.5
+    scene d17a-8
+    with dissolve
+    Mu "..."
+    scene d17a-9
+    with fade
+    pause 0.5
+    Z "{i}*sigh*{/i}"
+    Zt "No Fangs here either."
+    scene d17a-10
+    with dissolve
+    Zt "Might as well ask her..."
+    scene d17a-11
+    with fade
+    $ persistent.met_krait = True
+    "As you step closer, you can see the girl's dark eyes staring into yours..."
+    Z "Hey you, have you any idea where I can find Fangs?"
+    pause 0.7
+    scene d17a-12
+    with dissolve
+    pause 1.4
+    scene d17a-13
+    with dissolve
+    Mu "..."
+    scene d17a-14
+    with fade
+    "You hear footsteps approaching from outside..."
+    scene d17a-15
+    with dissolve
+    pause 0.5
+    play sound "audio/sounds/doors/door closed.mp3"
+    scene d17a-16
+    with dissolve
+    Fa "The shower's free if you want, Krait."
+    scene d17a-17
+    with fade
+    Fa "Oh, hey [persistent.player_name]. What do you need?"
+    scene d17a-18
+    with dissolve
+    Z "I wanted to check if you made some progress in your searches."
+    scene d17a-19
+    with dissolve
+    Fa "Well, I didn't..."
+    scene d17a-20
+    with dissolve
+    Fa "But she did."
+    scene d17a-21
+    with dissolve
+    Fa "Krait and I wanted to go over the things she found, but we aren't done yet."
+    scene d17a-22
+    with fade
+    Fa "I'll let you know when I've hammered out the details. Meanwhile, you could go see Pepper."
+    scene d17a-23
+    with dissolve
+    Kr "Yeah... we were sidetracked..."
+    scene d17a-24
+    with dissolve
+    scene d17a-25
+    with fade
+    Z "Do you want to fill me in on the basics, then?"
+    scene d17a-26
+    with dissolve
+    Fa "It's best you talk to Pepper herself for that. It concerns her directly after all."
+    Fa "She should be in her lab as usual."
+    scene d17a-27
+    with dissolve
+    Z "Pepper has an issue?"
+    scene d17a-28
+    with dissolve
+    Fa "Yes. Sort of. The village she hails from seems to be having problems."
+    scene d17a-29
+    with dissolve
+    Fa "Anyway, I forgot to bring your report, Krait. Be right back."
+    scene d17a-30
+    with dissolve
+    Fa "Let's continue the discussion then."
+    scene d17a-31
+    with dissolve
+    Kr "Right... continue the discussion..."
+    scene d17a-32
+    with dissolve
+    pause 0.5
+    play sound "audio/sounds/doors/door closed.mp3"
+    pause 0.5
+    Z "I hadn't seen you here yet."
+    scene d17a-33
+    with dissolve
+    pause 1.2
+    scene d17a-34
+    with dissolve
+    "You notice her pose, relaxed, as she's casually draped over the chair, her curvy figure a contrast to the somewhat more butch looks of many of the mutants in this place."
+    "Her speech is slow but deliberate and measured, her voice enticing and sensual. She stares at you, but you realize you know nothing about her yet."
+    Z "\"Krait\", hm? Did Fangs give you that name?"
+    scene d17a-35
+    with dissolve
+    Kr "She did..."
+    scene d17a-34
+    with dissolve
+    Z "And why is that?"
+    scene d17a-37
+    with dissolve
+    Kr "I don't know... ask Fangs."
+    scene d17a-38
+    with dissolve
+    Kr "...might have to do with our {i}discussions{/i}..."
+    scene d17a-39-41x-anim
+    with Dissolve(0.1)
+    pause 11
+    scene d17a-42
+    with fade
+    Kr "..."
+    Zt "Blessed be..."
+    scene d17a-43
+    with dissolve
+    Kr "I heard Pepper needs you in her laboratory, doesn't she?"
+    scene d17a-44
+    with dissolve
+    Z "..."
+    Z "She does, yes."
+    scene d17a-45
+    with dissolve
+    "You stand and stare for a moment longer, replaying her provocation in your mind..."
+    scene d17a-46
+    with dissolve
+    Z "I will see you around."
+    Kr "..."
+    scene black pic
+    with slowfade
+    scene d17a-47
+    with slowfade
+    Pe "{i}*mumbling*{/i}"
+    Pe "This goes in there..."
+    scene d17a-48
+    with dissolve
+    Pe "You better not fail on me. I only have the two of you..."
+    scene d17a-49
+    with dissolve
+    pause 0.7
+    play sound "audio/sounds/doors/door closed.mp3"
+    scene d17a-50
+    with dissolve
+    Pe "..."
+    Z "Pepper, Fang's told me tha...-"
+    scene d17a-52
+    with fade
+    Z "..."
+    Z "Hey..."
+    scene d17a-51
+    with dissolve
+    Pe "Yes, [persistent.player_name]? The laboratory is shut down today."
+    if pepper_examination == True:
+        Pe "You may donate your samples another time."
+    scene d17a-52
+    with dissolve
+    menu:
+        "Get to the point" :
+            Z "I am not here for that. Fangs sent me to you for some information about whatever her scout discovered."
+            jump d17a58
+
+        "Look at her":
+            $ d17a_stared_at_pepper = True
+            scene d17a-52x-3
+            with dissolve
+            "You take your time admiring her, for once not wearing her usual labcoat."
+            scene d17a-52x-2
+            with dissolve
+            "Her long legs and feet attract your gaze first, the remainder of her body barely covered by a revealing bodysuit..."
+            Pe "[persistent.player_name]...?"
+            scene d17a-52x
+            with dissolve
+            Z "What happened to the lab coat?"
+            Pe "Oh... of course..."
+            scene d17a-53
+            with dissolve
+            Pe "{i}*sigh*{/i} I should have known."
+            scene d17a-54
+            with dissolve
+            Pe "The coat is being washed, [persistent.player_name]."
+            Pe "And since I am just inspecting the machines today, I am just dressed for comfort. My comfort."
+            scene d17a-55
+            with dissolve
+            Z "Yeah... I can see that."
+            scene d17a-56
+            with dissolve
+            Pe "Now, if you're done staring, can we go back to the reason for your presence?"
+            scene d17a-57
+            with dissolve
+            Z "Fine. Fangs tells me you have information about her scout's latest finds..."
+            jump d17a58
+
+    label d17a58:
+        Z "Krait, I believe? Something about your village."
+        scene d17a-59
+        with dissolve
+        Pe "Village, huh..."
+        scene d17a-56
+        with dissolve
+        Pe "...if you can even call it that. They call themselves a tribe..."
+        scene d17a-58
+        with dissolve
+        Pe "And yes, they try to keep to themselves.."
+        Pe "Krait had been keeping an eye on them, because of some movements in the region. I don't really have many details other than this."
+        scene d17a-56
+        with dissolve
+        Pe "Not sure what Fangs wants me to tell you, other than Krait suspecting an attack against the village has happened. We intend to intervene."
+        scene d17a-60
+        with dissolve
+        menu d17a_pepper_questions:
+            "\"I didn't know the bunker has other outside connections.\"" (question = True) if d17a_pepper_q1 == False:
+                $ d17a_pepper_q1 = True
+                Z "I didn't know the bunker has other outside connections."
+                scene d17a-56
+                with dissolve
+                Pe "That's because... we don't. But we do all come from somewhere else. Either way, we are simply looking out for them. It's a long story."
+                scene d17a-60
+                with dissolve
+                jump d17a_pepper_questions
+    
+            "\"You are too educated to come from some tribe.\"" (question = True) if d17a_pepper_q2 == False:
+                $ d17a_pepper_q2 = True
+                Z "You are far too educated to have grown up in some random wasteland tribe."
+                scene d17a-56
+                with dissolve
+                Pe "While I appreciate the compliment, you should know that tribe is just the name they have chosen for themselves."
+                Pe "It doesn't imply an inferior level of education just because other tribes don't value education the same way."
+                scene d17a-58
+                with dissolve
+                Pe "Just as you are more educated than many of your people in Zeta, some tribes are less ignorant than others."
+                if d17a_stared_at_pepper == True:
+                    scene d17a-59
+                    with dissolve
+                    Pe "Although, I have my doubts now, about you. If all it takes is showing a little skin to short circuit you..."
+                    scene d17a-57
+                    with dissolve
+                    Z "Very funny. But I assume you don't read old scriptures about machines just for fun, do you?"
+                    scene d17a-59
+                    with dissolve
+                    Pe "We do not, indeed. There is a reason for everything."
+                    scene d17a-58
+                    with dissolve
+                    Pe "But that's for another time. We both have better things to do now."
+                    scene d17a-57
+                    with dissolve
+                else:
+                    scene d17a-57
+                    with dissolve
+                    Z "So... I assume your people don't read old scriptures about machines just for fun, do they?"
+                    scene d17a-59
+                    with dissolve
+                    Pe "We do not, indeed. There is a reason for everything."
+                    scene d17a-58
+                    with dissolve
+                    Pe "But that's for another time. We both have better things to do now."
+                    scene d17a-57
+                    with dissolve
+                jump d17a_pepper_questions
+
+            "\"So what do you need me for?\"":
+                jump d17a_pepper_questions_end
+                
+
+    label d17a_pepper_questions_end:
+        Z "So what do you need me for?"
+        scene d17a-58
+        with dissolve
+        Pe "I appreciate you going straight to the point."
+        scene d17a-56
+        with dissolve
+        Pe "Look, I know you have questions, but this is neither the place nor time for my personal story."
+        scene d17a-58
+        with dissolve
+        Pe "And as you may have noticed, I am in the middle of something, here."
+        scene d17a-56
+        with dissolve
+        Pe "So please, do me a great favor and go to the lower maintenance section."
+        Pe "My sister is there, ask whether she has completed the gear checkup, and her... personal project."
+        scene d17a-57
+        with dissolve
+        Z "You never mentioned you had a sister."
+        scene d17a-58
+        with dissolve
+        Pe "You don't know the first thing about me, [persistent.player_name]. We hardly talk. Why would I mention her to you?"
+        scene d17a-56
+        with dissolve
+        Pe "But yes, I try to avoid letting her inside the laboratory or involving her in missions."
+        Pe "She is extremely naive, and her unfocused nature makes it impossible for me to work with her."
+        scene d17a-59
+        with dissolve
+        Pe "But... it seems that I cannot convince Fangs to leave her behind this time around, so she will unfortunately accompany us."
+        scene d17a-61
+        with dissolve
+        Pe " As I said, the maintenance rooms. She's short, a couple years younger than me. You'll recognise her, I'm sure."
+        Pe "I apologize for the noise in advance. Unlike me, she does not like to work in silence."
+        scene d17a-62
+        with dissolve
+        Z "Okay... although I am getting tired of being shuffled around, all over this place."
+        scene black pic
+        stop music fadeout 3
+        with slowfade
+        "Some time later..."
+        scene d17a-63
+        queue music "audio/music/playlists/chillwave radio.mp3" fadein 5
+        queue music "audio/music/playlists/chilis theme radio.mp3"    
+        with slowfade
+        pause 2.5
+        scene d17a-64
+        with dissolve
+        pause 1.5
+        scene d17a-65
+        with dissolve
+        pause 1.5
+        show d17a-66-anim
+        with fade
+        C "Hm, hm, hm...!"
+        C "Doo doo..."
+        C "Screw in this, screw in that...!"
+        Z "Hello!"
+        C "Tat tat tat... Hm hmm..."
+        Z "Can you hear me?!"
+        scene d17a-67
+        with dissolve
+        C "{i}*humming*{/i}"
+        Z "{i}*sigh*{/i}"
+        with hpunch
+        Z "HEY! I'M BEHIND YOU!"
+        scene d17a-68
+        with dissolve
+        C "Huh..."
+        scene d17a-69
+        with dissolve
+        C "Oh..."
+        scene d17a-70
+        with vpunch
+        C "Hi!! Haven't seen you before! But I think I know who you are!"
+        scene d17a-71
+        with dissolve
+        menu:
+            "\"You like it loud!\"":
+                Z "You like it loud!"
+                scene d17a-73
+                with dissolve
+                C "Totally! What's the point if you can ignore it?!"
+
+            "\"What is this noise?!\"":
+                Z "What is this noise?!"
+                scene d17a-73
+                with dissolve
+                C "Oh, you don't like it? Did you know they used to dance to this?"
+
+    label d17a72:
+        scene d17a-72
+        with dissolve
+        Z "Yeah... so... your sister sent me? You {i}are{/i} Pepper's sister, right?!"
+        scene d17a-74
+        with dissolve
+        Chi "Yep! That's me! I'm Chili! Nice to meet you!"
+        Chi "You must be the new guy?"
+        scene d17a-75
+        with dissolve
+        Z "New, I guess you could say that. Anyways, she wanted me to check how the preparations are going. And mentioned something about your personal project."
+        scene d17a-73
+        with dissolve
+        Chi "Personal project..."
+        scene d17a-76
+        with hpunch
+        Chi "Oh, of course!"
+        scene d17a-77
+        with dissolve
+        Chi "Let's see, where did I put them...!"
+        scene d17a-78
+        with vpunch
+        Chi "Ah, hmm...! Must be here."
+        Chi "...I even sorted them! Or did I?!"
+        scene d17a-79
+        with dissolve
+        Chi "So, has Pepper told you anything about it?"
+        Z "She didnt mention any specifics. Just said it was a personal thing."
+        scene d17a-80
+        with dissolve
+        Chi "Aw... Anyway... where's my... hm..."
+        scene d17a-81
+        with dissolve
+        Chi "Eh, whatever. Let's take this one!"
+        scene d17a-82
+        with dissolve
+        pause 0.5
+        scene d17a-83
+        with dissolve
+        Chi "So, as you may have heard, my family has kind of disappeared from their settlement! We need to find out what happened!" #HINT Cynical: Keep the excited, fluffy and exclamation mark heavy zoomer gen z tiktok chat style for her
+        scene d17a-84
+        with hpunch
+        Chi "And since we are approaching at night, I was thinking this could be {i}*the*{/i} opportunity to try these out!"
+        scene d17a-85
+        with vpunch
+        Chi "Qara! This thing will light the night!"
+        scene d17a-86
+        with dissolve
+        Z "What is this?"
+        scene d17a-87
+        with dissolve
+        Chi "I have been working on it for weeks! It's what they called a flare gun!"
+        Chi "Unfortunately the powder inside the ammunition for this thing has gone quite weak, but I was able to replace it and then some!"
+        Chi "The only problem is that..."
+        scene d17a-88
+        with fade
+        Chi "...I have not been able to test it yet."
+        scene d17a-89
+        with dissolve
+        Chi "Hm!"
+        menu:
+            "\"I don't get it\"":
+                Z "I don't get it. Start again. What does it do?"
+                scene d17a-90
+                with dissolve
+                Chi "Sorry! Let me explain!"
+
+            "\"They stored bows in here, and now hand cannons?\"":
+                Z "They stored bows, crossbows and armor in here. And now hand cannons?"
+                scene d17a-90
+                with dissolve
+                Chi "Well... it would be great if it were an actual cannon! Let me show you!"
+
+    label d17a91:
+        scene black pic
+        with fade
+        "She steps closer..."
+        scene d17a-91
+        with fade
+        Chi "Wow, okay, heh. You are tall. Just like Fangs!"
+        Chi "You guys are lucky, I was born a midget. {i}*Sigh*{/i}" 
+        Chi "Sadly, not the only thing that's short about me. Anyway..." 
+        scene d17a-92
+        with dissolve
+        Chi "It's best for me to show you how it is used, and then you can see for yourself what it does!"
+        scene d17a-93
+        with dissolve
+        Chi "That is... later, whenever we need some light out there. In here, it would cause quite the mayhem..."
+        scene d17a-94
+        with Dissolve(0.3)
+        Chi "Okay, so the reason why you can't compare it to classic guns, or \"handcannons\", as you would like to say, is that you can only shoot once before having to replace the cartridge!"
+        Chi "So, after flipping it open..."
+        scene d17a-95
+        with Dissolve(0.3)
+        Chi "You take this! That's the ammunition, just like they used to make them!"
+        scene d17a-96
+        with dissolve
+        Chi "These are filled with powder. Treat them like gasoline tanks."
+        Z "Got it."
+        scene d17a-97
+        with Dissolve(0.3)
+        Chi "Now, in with that..."
+        scene d17a-98
+        with Dissolve(0.3)
+        Chi "Bleb!"
+        scene d17a-99
+        with vpunch
+        Chi "Ping! Shut close! And now...!"
+        scene d17a-100x
+        with hpunch
+        Chi "Aim at the enemy, and... du!!"
+        scene d17a-100x-2
+        with hpunch
+        Chi "Du!"
+        scene d17a-100
+        with hpunch
+        Chi "Bam!"
+        scene d17a-101
+        with dissolve
+        Chi "..."
+        Z "..."
+        scene d17a-102
+        with dissolve
+        Chi "..."
+        scene d17a-103
+        with hpunch
+        Chi "As I said! Can't shoot here! But if everything goes right, we will have no issue with the light!"
+        Chi "Oh, and always point these things not at the enemy, but the sky!"
+        scene d17a-103x
+        with dissolve
+        Chi "Again, NOT at the enemy! You might blind the poor guy, and then he won't even see when you hit him!"
+        scene d17a-104
+        with dissolve
+        Z "Alright. So how many do you have, do we shoot one at a time or..."
+        scene d17a-103
+        with dissolve
+        Chi "Nope! Everyone gets one! One won't be strong enough!"
+        scene d17a-103x
+        with dissolve
+        Chi "That reminds me, I did make an experimental one with a stronger effect..."
+        scene d17a-103
+        with dissolve
+        Chi "Buuut I may have overdone it with the charge. It could go bad, and you'd lose your hand, so I'll keep it for emergencies!"
+        scene d17a-104
+        with dissolve
+        Z "So... you're saying I should tell Pepper that you're ready?"
+        scene d17a-92
+        with dissolve
+        Chi "Eh, I'd say you tell Fangs. She's the boss after all."
+        scene d17a-92x
+        with dissolve
+        Z "I see. Well.. See you around then."
+        scene d17a-92x-2
+        with dissolve
+        Chi "Cool! I will see you when we hit the road!"
+        scene d17a-92x-3
+        with dissolve
+        Chi "Oh, I never asked. What's your name?"
+        scene d17a-92x-4
+        with dissolve
+        Z "Call me [persistent.player_name]."
+        scene d17a-92x-2
+        with dissolve
+        Chi "Alright, [persistent.player_name]! Bye for now!"
+        scene d17a-92x-5
+        with dissolve
+        scene black pic
+        stop music fadeout 3
+        with slowfade
+        "You leave the short woman, lost in her tinkering, the walls to her room trembling at the beat of loud music."
+        pause 0.5
+        Zt "Pepper and Chili... Fangs please."
+        jump mutants_command_center
+
+label d17a_part_2:
+    $ m_d17a_part_2 = True
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    "Later..."
+    scene d17a-105
+    play music "audio/music/background/suspense.mp3" volume 0.5
+    with slowfade
+    Mu "How's everything, Red?"
+    Re "As far as I can tell, we are ready to go!"
+    scene d17a-106
+    with dissolve
+    Mu "What about rations? Do we have enough?"
+    scene d17a-106x
+    with dissolve
+    Re "Enough for two nights."
+    scene d17a-107
+    with dissolve
+    Mu "That's...a lot, but I guess it's good to be overprepared? You never know."
+    Mu "What about Ivy and the others?" #HINT can you give this a totally different conversation? it's lame
+    scene d17a-108
+    with dissolve
+    Re "Scarp, girl, you know where I've been in the last few hours... why are you asking me?"
+    scene d17a-108x
+    with dissolve
+    Sc "All right, all right, was just a question."
+    if mantis_left_behind == False:
+        scene d17a-109
+        with dissolve
+        Mant "Ivy is getting ready. We saw her earlier."
+        scene d17a-110
+        with dissolve
+        Mant "I... saw her earlier. She was taking a bath."
+
+    scene d17a-111
+    with fade
+    Pe "So if you follow the path I laid out, we should approach the area from the side."
+    Pe "There is a small  complex of ruins nearby, we will set up camp there. If we approach carefully, they won't notice us."
+    
+    scene d17a-112
+    with dissolve
+    Pe "The important part is that you let me know as soon as you can."
+    Pe "There will be quite the distance between you and the rest of the group."
+    scene d17a-113
+    with dissolve
+    Pe "We still don't know what to expect in detail, so I suggest not to spread ourselves too far apart."
+    scene d17a-113x
+    with dissolve
+    Fa "Don't worry, Pepper, we know what we're doing."
+    scene d17a-113x-2
+    with dissolve
+    Chi "Are we all set?"
+    scene d17a-114
+    with dissolve
+    Chi "I could stand to see some natural daylight."
+    scene d17a-114x
+    with dissolve
+    Pe "I just have a few last things to check off my list, sister."
+    scene d17a-115
+    with fade
+    Z "This feels... pretty sturdy, I'll admit. Still, I think I prefer to be able to move more freely."
+    scene d17a-116
+    with dissolve
+    Pe "We have extra body armour. It would be dumb to not use it, when it is available."
+    scene d17a-117
+    with dissolve
+    Z "I've gotten by just fine for a long time, Pepper."
+    scene d17a-118
+    with dissolve
+    Pe "Good for you. Now you will be even better protected."
+    scene d17a-118x
+    with dissolve
+    Chi "Don't protest! She wants to keep you safe. It's cute!"
+    scene d17a-119
+    with dissolve
+    Chi "Why don't I get body armor? Don't I deserve to be protected?"
+    scene d17a-119x
+    with dissolve
+    Pe "If it was up to me, you wouldn't even be joining this...excursion."
+    scene d17a-120
+    with fade
+    Pe "...and we both know what happened to your last piece of body armour."
+    Chi "You're no fun, {i}\"Pepper\"{/i}..."
+    scene d17a-121
+    with dissolve
+    Fa "Have you looked at the map? Do you know the area?"
+    Z "Yes and yes, which is why I am surprised that I haven't encountered..."
+    scene d17a-122
+    with dissolve
+    Kr "Guys... are we moving out or what? I am tired of waiting."
+    scene d17a-123
+    with dissolve
+    Fa "Not quite yet..."
+    scene d17a-124
+    with fade
+    Fa "Ivy's not here yet, and I want her with us on this one. Anyway, you lot, leave us alone for a second."
+    Fa "I need to exchange some words with [persistent.player_name]."
+    scene d17a-124x
+    with dissolve
+    scene black pic
+    with fade
+    "The other women leave you and Fangs alone, giving you some privacy in this otherwise crowded vehicle bay."
+    scene d17a-125
+    with fade
+    Fa "{i}*sigh*{/i} This whole ordeal is nothing new for us. Essentially we're going to lean on some Raiders, and try to put them in their place."
+    Fa "But after the last situation I don't want to run into any surprises, and there are additional considerations, this time... "
+    scene d17a-126x
+    with dissolve
+    Fa "Anyway, you've talked to the girls... I figure you have questions."
+    Fa "So, shoot."
+    scene d17a-126
+    with dissolve
+    menu d17a_fangs_questions:
+        "\"Let's start at the beginning. Tell me about Pepper.\"" (question = True) if d17a_fangs_q1 == False:
+            $ d17a_fangs_q1 = True
+            Z "Let's start at the beginning. Tell me about Pepper, and her tribe."
+            Z "What is the deal exactly?"
+            scene d17a-131
+            with fade
+            Fa "There's not much to say, really."
+            Fa "We were a smaller group, back then. Still trying to grow our numbers, when we came across this... complex of ruins in the middle of nowhere."
+            Fa "Tall skeletons of buildings, and then this metal looking wheel at the center."
+            scene d17a-134
+            with dissolve
+            Fa "They were peaceful. Not at all phased, even when they saw Krait's eyes and noticed my... well, fangs. Simple, welcoming folk."
+            Fa "There was one woman, had this frustrated, stoic look on her face, who was especially interested in us."
+            scene d17a-133
+            with dissolve
+            Z "That sounds like Pepper."
+            scene d17a-129
+            with dissolve
+            Fa "That wasn't her name back then, but yes."
+            scene d17a-130
+            with dissolve
+            Z "So why did she join you?"
+            scene d17a-129
+            with dissolve
+            Fa "Well, put simply, we let our guard down and told her a few things about the bunker. When she found out that there was a lot of equipment that we didn't know the purpose or the workings of, she was adamant.."
+            Fa "She would not be dissuaded from coming along and promised to help us shed some light on the many things we did not know about the bunker."
+            scene d17a-131
+            with dissolve
+            Fa "From what I gather, the tribe possessed several texts that mentioned some of the machines in the lab, and other pieces of equipment."
+            Fa "They were pretty knowledgeable about them, but only on paper, in theory. They had learned by heart the old texts, but had never actually seen examples of what those texts were about."
+            Fa "Even so, especially the two girls, two sisters, their breadth of knowledge, however limited by the lack of exposure, was too important to not try to learn from it."
+            Fa "So we struck a deal. They would get the opportunity to test their knowledge and theories, and we would reap the benefit of their experience."
+            Fa "Chili turned out to be a talented mechanic, Pepper has an almost instinctive understanding of complex equipment."
+            Fa "They were definitely the two brightest jewels in that tribe, and their presence has helped us immensely."
+            scene d17a-132
+            with dissolve
+            Z "A tribe that possesses and hoards ancient knowledge. What else do you know about them?"
+            scene d17a-133
+            with dissolve
+            Z "I don't understand... Why bother with memorising knowledge that they can't do anything with?"
+            scene d17a-131
+            with dissolve
+            Fa "When I asked that, Pepper just said something about the necessity of knowledge, the value of it for its own sake. I don't get it either, but then..."
+            Fa "Time proved them right, as we have been able to put that knowledge to the test and to good use."
+            scene d17a-134
+            with dissolve
+            Fa "Anyway, to join us, Pepper struck a bargain. We would not ask about the village and, when needed, we would protect it."
+            scene d17a-133
+            with dissolve
+            Z "..."
+            Z "So... you know nothing about her. Neither her tribe, nor why she is fascinated by the technology."
+            Fa "She is a mystery, in many ways, but I have learned to use her talents and her inclinations.."
+            scene d17a-129
+            with dissolve
+            Fa "At least there is some common ground. I assume you have seen her at work today...?"
+            scene d17a-129x
+            with dissolve
+            Fa "In some things, she is far more predictable than you might think..."
+            scene d17a-130
+            with dissolve
+            jump d17a_fangs_questions
+
+        "\"Tell me about Chili.\"" (question = True)  if d17a_fangs_q2 == False:
+            $ d17a_fangs_q2 = True
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                Z "Tell me about Chili. She reminds me a little of my [persistent.da]."
+            else:
+                Z "Tell me about Chili."
+            scene d17a-129
+            with dissolve
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                Fa "If your [persistent.da] is all over the place like her, then I'm truly sorry."
+            Fa "She's a bright young woman, truly dedicated to repairing things. She will dismantle and reassemble anything she can get her hands on."
+            Fa "Which makes her an invaluable asset."
+            scene d17a-130
+            with dissolve
+            Z "You didn't take her to the hive last time around."
+            scene d17a-131
+            with dissolve
+            Fa "Both her and Pepper are irreplaceable. I never allow both of them out the bunker at the same time."
+            scene d17a-133
+            with dissolve
+            pause 0.6
+            scene d17a-134
+            with dissolve
+            Fa "After what happened to Keen... I don't regret that decision."
+            scene d17a-131
+            with dissolve
+            Fa "This being about their family however, I am forced to make an exception."
+            scene d17a-132
+            with dissolve
+            jump d17a_fangs_questions
+
+        "\"What about Krait?\"" (question = True)  if d17a_fangs_q3 == False:
+            $ d17a_fangs_q3 = True
+            Z "What about Krait? What's her deal?"
+            scene d17a-129
+            with dissolve
+            Fa "She and I go a long way back."
+            scene d17a-129x-3
+            with dissolve
+            Fa "Over the years, I have brought in a bunch of people."
+            Fa "Each with their own story and characters."
+            scene d17a-129
+            with dissolve
+            Fa "Occasionally it has taken a while, but eventually they all learned who was calling the shots around here."
+            scene d17a-129x
+            with dissolve
+            Fa "But Krait... she's a fighter. Spent a lot of time in the wasteland."
+            Fa "Getting her to do as she's told is a challenge at the best of times. She follows her own desires."
+            scene d17a-129
+            with dissolve
+            Fa "Fortunately, her heart is mostly in the right place, and so most of the damage she does is... well, a few broken hearts, a few overinflated egos and some fond memories."
+            scene d17a-129
+            with dissolve
+            Fa "You've seen her though, haven't you? There's something about her that just entices and attracts... anybody, really."
+            Fa "If given a chance, she will spin the head of even the most hostile men... and women."
+            scene d17a-130
+            with dissolve
+            menu: 
+                "\"She definitely looks enticing.\"":
+                    Z "She definitely looks enticing."
+                    scene d17a-129
+                    with dissolve
+                    Fa "Stick around for long enough.. you'll see there is more to it than that..."
+                    scene d17a-129x-2
+                    with dissolve
+                    Fa "Anyway, I wasn't expecting you just yet."
+                    Fa "I'm glad I didn't take too long of a... private time."
+                    scene d17a-129x-4
+                    with dissolve
+                    jump d17a_fangs_questions
+
+                "\"You're more my type.\"":
+                    Z "You're more my type."
+                    scene d17a-129x
+                    with dissolve
+                    Fa "Am I...? And how is that?"
+                    scene d17a-130
+                    with dissolve
+                    menu:
+                        "\"You're strong.\"":
+                            Z "You are a strong woman, with the body of an athlete."
+                            scene d17a-129
+                            with dissolve
+                            Fa "Maybe we should train together one of these days."
+                            scene d17a-130
+                            with dissolve
+                            Z "...and see how that goes."
+                            jump d17a_fangs_questions
+
+                        "\"Your looks.\"":
+                            Z "Dark skin, clear eyes... blond hair and, well, even your... special features."
+                            Z "It's a unique look, for sure."
+                            scene d17a-129x
+                            with dissolve
+                            Fa "So you're saying I am exotic and rare..."
+                            Fa "Is that what you say to all the women you chase?"
+                            scene d17a-129x-4
+                            with dissolve
+                            jump d17a_fangs_questions
+                            
+                        "\"Your attitude.\"":
+                            Z "Your attitude. That's it."
+                            scene d17a-129
+                            with dissolve
+                            Fa "I've been told I have an attitude, yes."
+                            scene d17a-129x
+                            with dissolve
+                            Fa "But what do {i}you{/i} mean by it, exactly?"
+                            scene d17a-130
+                            with dissolve
+                            menu:
+                                "\"Because you are a challenge to defeat.\"":
+                                    Z "Because you are a challenge to defeat."
+                                    scene d17a-129x
+                                    with dissolve
+                                    Fa "Mh... that's how you see me? Something to conquer, to prove yourself against...?"
+                                    Fa "Is everything a contest, a battle, to you?"
+                                    scene d17a-130
+                                    with dissolve
+                                    jump d17a_fangs_questions
+                                
+                                "\"Because you stand up to me.\"":
+                                    Z "Because you stand up to me."
+                                    Z "I've had my share of slaves and servile women. You however don't back down easily. That's a lot less common.."
+                                    scene d17a-129x
+                                    with dissolve
+                                    Fa "All I want is for you to remember that this is not your domain. Regular humans have no place here, not really."
+                                    Fa "As long as you do, we will get along just fine."
+                                    scene d17a-130
+                                    with dissolve
+                                    jump d17a_fangs_questions
+
+                "\"I might pass.\"":
+                    Z "I might pass."
+                    scene d17a-129
+                    with dissolve
+                    Fa "It amuses me, that you think that you can control that, or her..."
+                    scene d17a-130
+                    with dissolve
+                    jump d17a_fangs_questions
+                
+        "\"Want to let off some steam?\"" if d17a_fangs_q4 == False and fangs_romance == True:
+            $ d17a_fangs_q4 = True
+            Z "Want to let off some steam?"
+            scene d17a-128
+            with dissolve
+            Fa "..."
+            scene d17a-129
+            with dissolve
+            Fa "Maybe, but not now. We have a mission coming up, and I want to stay focused."
+            Fa "Screwing this one up is not an option."
+            jump d17a_fangs_questions
+
+        "\"No more questions. I'm ready to go.\"":
+            Z "No more questions. I'm ready to go."
+            scene d17a-129
+            stop music fadeout 2
+            with dissolve
+            Fa "I will get the girls moving."
+            scene d17a-130
+            with dissolve
+            play music "audio/music/mutants/chilis theme.mp3" fadein 3
+            scene black pic
+            with slowfade
+            jump d17a136
+
+label d17a136:
+    pause 6.1
+    scene d17a-136
+    pause 0.5
+    Chi "FULL THROTTLE!"
+    Chi "WE..."
+    Chi "ARE..."
+    Chi "ALMOST THERE!"
+    Pe "{i}*sigh*{/i} And they wonder why I don't want to work with you. Will you pipe down?"
+    Kr "How mean..."
+    Pe "I heard that."
+    scene d17a-137
+    with dissolve
+    pause 1
+    scene d17a-138
+    with dissolve
+    I "..."
+    scene d17a-139
+    with dissolve
+    Fa "It has been a long time since we took this route."
+    Chi "I bet. There's not much of any value around here."
+    Z "It's this barren even around the village?"
+    Chi "Yep!"
+    scene d17a-140
+    with dissolve
+    Fa "Are we still on the right track, Pepper?"
+    Pe "Yes. I'm sure of it."
+    scene d17a-141
+    with dissolve
+    Pe "Once we reach those rocks ahead, turn forty degrees to the left."
+    Fa "You do miss your people, don't you?"
+    Pe "What do you mean?"
+    scene d17a-143
+    with dissolve
+    Fa "Don't pretend, Pepper. You're fidgeting. You never fidget."
+    Pe "..."
+    scene d17a-139
+    with dissolve
+    Chi "So... what's your story, [persistent.player_name]? Fangs only said that you're helping us, but not why."
+    Chi "Oh, and that you're from the big city, right?"
+    Z "Correct."
+    Chi "Okay, uhm... so? Tell me about the city."
+    Chi "Like, I know about it, but not much. How are the people?"
+    Chi "Are they kind? Stubborn? Are they... good people?"
+    menu:
+        "\"They are normal people, mostly.\"":
+            Z "They are pretty normal people. They work, they care about their friends and families. They can be harsh, unforgiving even, but they don't always have to."
+            Chi "Oh... that sounds... normal indeed."
+
+        "\"They are open minded in many ways.\"":
+            Z "They are open minded, in many ways."
+            Z "With enough money or power, anything is possible."
+            Chi "Sounds fun! If you are on top of course!"
+            Z "Unless you like to serve others, you are right."
+
+        "\"They are dutiful and tradionalist\"":
+            Z "They are dutiful and traditionalist. Even when several of them are aware of the fact that outside of the city there is a world with tools and technology beyond their means, they accept living without them."
+            Z "And the city government makes sure that they won't get their hands on it, which makes the indoctrination that much easier."
+            Chi "How sad. They're missing out!"
+
+    scene d17a-144
+    with dissolve
+    Chi "But what about the beeping noises? Do they start panicking if they hear a machine?"
+    Z "I don't know. I guess the zealots would. You could see for yourself, try it."
+    Chi "Me?"
+    Z "Why not? We would have to adjust your wardrobe, and that's it. You would blend in."
+    Chi "Only if Krait and Fangs can come, too. And don't forget Ivy!"
+    Z "That would be difficult..."
+    Chi "For now. If Fangs gets her way, they will open the doors for us sooner or later."
+    Chi "Sooner is better than later for me at least!"
+    Fa "What do you mean by that?"
+    Pe "Chili, that's enough, what are you rambling about..."
+    Chi "Sorry..."
+    scene d17a-146
+    with fade
+    Chi "Whoaaa... I need a haircut... it keeps smacking me in the face..."
+    scene d17a-145
+    with dissolve
+    Chi "Hm..."
+    scene d17a-147
+    with dissolve
+    Z "How long has it been since you left the village?"
+    scene d17a-150
+    with dissolve
+    Chi "I don't know. A year? I haven't really kept track of time much. In the bunker days tend to blend together."
+    Pe "Now... you see this canyon?"
+    Fa "I do."
+    scene d17a-142
+    with dissolve
+    Pe "Go around it."
+    Fa "As you wish."
+    scene d17a-151
+    with dissolve
+    Chi "By the way, Krait? Did you forget your swords?"
+    Chi "Or are they..."
+    scene d17a-153
+    with fade
+    pause 1.2
+    scene d17a-154
+    with dissolve
+    pause 0.5
+    Kr "..."
+    Chi "Krait?"
+    pause 0.6
+    scene d17a-155
+    with dissolve
+    Chi "Your... swords...?"
+    scene d17a-156
+    with dissolve
+    pause 0.6
+    scene d17a-157
+    with dissolve
+    Kr "Chili... they are in the other rover."
+    scene d17a-158
+    with dissolve
+    Chi "Oh, okay... Sorry!"
+    scene d17a-159
+    with dissolve
+    Fa "There we go, that looks familiar!"
+    scene d17a-160
+    with dissolve
+    Chi "Wait, what?!"
+    scene d17a-161
+    with hpunch
+    Chi "Let me see!"
+    scene d17a-162
+    with vpunch
+    Chi "Where is it?"
+    scene d17a-163
+    with dissolve
+    Chi "Whoa!"
+    scene d17a-164
+    with dissolve
+    Chi "Almost there now!"
+    scene d17a-165
+    with hpunch
+    pause 0.3
+    scene d17a-166
+    with dissolve
+    Chi "Wha-!"
+    scene d17a-167
+    with dissolve
+    pause 0.3
+    scene d17a-168
+    with hpunch
+    Kr "..."
+    Chi "Krait! Oh... Phew..."
+    scene d17a-169
+    with dissolve
+    Z "Close one."
+    scene d17a-170
+    with dissolve
+    Chi "I... uh... didn't think...."
+    scene d17a-171
+    with dissolve
+    Chi "Sorry again..."
+    scene d17a-172
+    with dissolve
+    scene d17a-173
+    with dissolve
+    Chi "..."
+    scene d17a-174
+    with dissolve
+    Chi "I missed you, guys...!"
+    scene d17a-175
+    with dissolve
+    Chi "Whatever happened..."
+    scene d17a-177
+    with dissolve
+    Chi "...we're coming to help you!"
+    scene d17a-178
+    with dissolve
+    Fa "That building on the left... that's the one, right?"
+    Pe "Yes."
+    scene d17a-179
+    with dissolve
+    Pe "We are still far, but let's hurry and take cover, before they see us approaching."
+    scene d17a-180
+    with dissolve
+    Fa "Alright... everyone, follow me."
+    scene d17a-181
+    with dissolve
+    Sc "What do you say, Fangs? Perfect opportunity for everyone to press the horns?"
+    Sc "Let whoever is in there know we're coming!"
+    if mantis_left_behind == True:
+        Re "How about we take her back to the hive? She would fit right right in with our new friends!"
+        Sc "Fuck you, Red."
+        Re "Aww... no need to get all romantic."
+    if mantis_left_behind == False:
+        Re "What if we send Scarp in by herself? She could try negotiating?"
+        Sc "The only negotiating these guys will get is my fist up their asses."
+        Re "Just what I thought."
+    Fa "Cut the crap, guys. We're almost there."
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    scene d17a-182
+    play music "audio/music/zeta/sahara desert.mp3" fadein 3
+    with slowfade
+    Pe "And now... we wait."
+    Pe "We're about 3 hours away from sunset."
+    Fa "There is still enough light to find our way."
+    scene d17a-183
+    with fade
+    Z "Let's go over the plan, again."
+    Fa "Right..."
+    scene d17a-184
+    with dissolve
+    Fa "At night, a small group will walk over to the left side of the settlement."
+    Fa "There seems to be no activity whatsoever in that place, so we should not have any trouble getting closer."
+    scene d17a-185
+    with dissolve
+    Fa "Krait will sneak around the back and see if she can find anything looking into the building, and you, me, and the rest of the squad will stay put until we know what's going on."
+    Fa "Pepper will stay here and communicate with us through the radio, waiting for our signal."
+    scene d17a-187
+    with dissolve
+    Pe "I have lowered the output volume. Don't forget, the vehicles need about three minutes to cover the distance."
+    scene d17a-189
+    with dissolve
+    Fa "If things go wrong, that's a three minutes window in which we will have to tough it out."
+    scene d17a-190
+    with dissolve
+    Fa "[persistent.player_name], your number one task is to stay with Chili."
+    Fa "Whatever happens in there, don't let her out of your sight and listen to the signal, in case we need to light the place up."
+    scene d17a-191
+    with dissolve
+    Z "Your sister is in good hands, Pepper."
+    scene d17a-190
+    with dissolve
+    Fa "Alright. I need Pepper for a few minutes, and Krait. Everybody else can take a breather."
+    Fa "Send them to me."
+    scene d17a-191
+    with dissolve
+    scene black pic
+    with fade
+    Z "I have some time to kill..."
+    label d17a_preparation_overview:
+        if all([d17a_camp_checkup_1, d17a_camp_checkup_2, d17a_camp_checkup_3, d17a_camp_checkup_4]):
+            stop music fadeout 3
+            jump d17a236
+        scene d17a-182
+        with fade
+        menu:
+            "Check on [I]" if d17a_camp_checkup_1 == False:
+                $ d17a_camp_checkup_1 = True
+                scene d17a-192
+                with fade
+                Zt "Always looking for the high ground..."
+                scene d17a-193
+                with dissolve
+                I "..."
+                scene d17a-194
+                with dissolve
+                pause 1
+                Z "Hey..."
+                scene d17a-195
+                with dissolve
+                pause 0.8
+                scene d17a-196
+                with fade
+                "You lean on the rusted rail next to her..."
+                scene d17a-197-anim
+                with fade
+                pause 0.5
+                Z "It's hard to imagine this being more than yet another ruin."
+                Z "Have you been here before?"
+                pause 1.5
+                I "This is my first time, too."
+                scene d17a-198
+                with dissolve
+                I "But there is more than meets the eye. The signs are there..."
+                I "There are no bodies, no real signs of anything other than the passage of time."
+                I "These structures seem solid enough that over the decades someone would have taken an interest, but there's nothing."
+                scene d17a-199
+                with dissolve
+                I "Whoever is residing here, must be hiding inside those ruins, out of sight."
+                scene d17a-200
+                with dissolve
+                Z "Do you see anything that stands out?"
+                scene d17a-198
+                with dissolve
+                I "Yes, actually. Just one thing... a structure... no... symbol. Right at the center."
+                scene d17a-201
+                with dissolve
+                I "I can't shake the feeling that there is more. I mean, we know it rationally, because Pepper led us here, but something..."
+                "Her voice trails off."
+                scene d17a-202
+                with dissolve
+                scene d17a-196
+                with fade
+                Z "I will keep that in mind. Stay safe out here, [I]."
+
+                scene black pic
+                with slowfade
+                jump d17a_preparation_overview
+
+            "Visit Red & Chili" if d17a_camp_checkup_2 == False:
+                $ d17a_camp_checkup_2 = True
+                Re "You see this? We have a lot of replacement parts for this one."
+                Chi "We do, I saw..."
+                Re "But this one... is rare. It isn't a simple material either. It just never seems to deteriorate..."
+                scene d17a-205
+                with dissolve
+                Chi "Will you be coming with us? Tonight, I mean..."
+                Z "{i}*clears throat*{/i}"
+                scene d17a-206
+                with dissolve
+                scene d17a-208
+                with fade
+                Chi "Oh, hey [persistent.player_name]. Anything you need?"
+                scene d17a-209
+                with dissolve
+                Z "No, but Fangs asked for you."
+                Z "She wants to go over some things."
+                scene d17a-210
+                with dissolve
+                Chi "Ah, Fangs and her plans. Okay, I will go right away."
+                scene d17a-211
+                with dissolve
+                scene black pic
+                with fade
+                "She walks off..."
+                scene d17a-208x
+                with fade
+                Re "So... I know we don't know each other, but... be honest."
+                Re "Why are you helping us? One Zetan patrol catching you... and you're done, aren't you?"
+                scene d17a-208x-2
+                with dissolve
+                Z "Not really. I have enough pull to probably be able to explain things away, but it would be problematic, that much is true."
+                scene d17a-208x
+                with dissolve
+                Re "Still... you don't just help out Fangs because she asked you to. Everyone knows she's not the likeable sort."
+                Re "So, what gives?"
+                scene d17a-208x-2
+                with dissolve
+                menu:
+                    "\"I do like her. That's the reason.\"":
+                        Z "I do quite like her, in fact. And that's as good a reason as any."
+                        scene d17a-208x-3
+                        with dissolve
+                        Re "Oh my... Don't let her hear that."
+                        Re "I doubt she realises the situation, and if she did..."
+                        scene d17a-208x
+                        with dissolve
+                        Re "She just doesn't do emotions very well."
+
+                    "\"Ivy led me to you.\"":
+                        Z "Ivy led me to you guys. I guess it's because of her."
+                        scene d17a-208x-5
+                        with dissolve
+                        Re "Ah, sweet Ivy."
+                        Re "I heard she just... popped into Fangs' life one day, and gave Fangs heaven on earth."
+                        scene d17a-208x-6
+                        with dissolve
+                        Re "I can't imagine a life without the bunker anymore. Clean, if rationed, water... no more wandering through the desert..."
+                        scene d17a-208x-5
+                        with dissolve
+                        Re "So I guess we all have to thank her... and if she likes you too, then that's even better."
+                        scene d17a-208x-3
+                        with dissolve
+                        Re "I can't figure her out, really... and not just because she doesn't talk."
+
+                    "\"Pepper needs my samples.\"":
+                        Z "Pepper needs my samples. I have been visiting her lab more frequently."
+                        scene d17a-208x-7
+                        with dissolve
+                        Re "Um... I have been visiting her as well. But are syringes the reason why you are sticking with us?"
+                    
+                    "\"I believe in your mission\"":
+                        Z "I believe in your mission. My city would be better off if they could benefit from tech and knowledge the way you do."
+                        scene d17a-208x-5
+                        with dissolve
+                        Re "A noble goal, trying to change the minds of a whole culture."
+                        scene d17a-208x-6
+                        with dissolve
+                        Re "Let's see how this will all turn out... I don't have high hopes."
+                    
+                    "\"I like the adventure, and the gold...\"":
+                        Z "I like the adventure. And as long as I can take something home to feed my family, you can count me in."
+                        scene d17a-208x-6
+                        with dissolve
+                        Re "Everyone has to survive... Having the luxury of the bunker's resources does not mean it's not true for us also."
+                        Re "All this ancient, or rather advanced, technology needs a purpose."
+                        scene d17a-208x-5
+                        with dissolve
+                        Re "And when you give it one, but don't really have an instruction manual, occasionally you break things."
+                        scene d17a-208x-7
+                        with dissolve
+                        Re "Making things to last forever only works if you use them properly, after all."
+
+
+                scene d17a-208x-5
+                with dissolve
+                Re "Anyway... I've got things to do. See you later, alright?"
+                scene d17a-208x-4
+                with dissolve
+                Z "Will you be coming with us tonight?"
+                scene d17a-208x-5
+                with dissolve
+                Re "Nope, I'm not a fighter. I take care of the vehicles, and that's about it!"
+                scene d17a-208x-4
+                with dissolve
+                scene black pic
+                with fade
+                jump d17a_preparation_overview
+
+
+            "Visit Krait" if d17a_camp_checkup_3 == False:
+                $ d17a_camp_checkup_3 = True
+                scene d17a-212
+                with fade
+                Kr "..."
+                Z "Krait..."
+                scene d17a-213
+                with dissolve
+                Z "Fangs wants to speak to you."
+                pause 0.7
+                scene d17a-214
+                with fade
+                Kr "..."
+                scene d17a-215
+                with dissolve
+                pause 1.5
+                scene d17a-216
+                with dissolve
+                Kr "..."
+                scene d17a-217
+                with fade
+                pause 1
+                scene d17a-218
+                with dissolve
+                Kr "I'll be going, then..."
+                scene d17a-219
+                with dissolve
+                scene d17a-220
+                with fade
+                pause 1.2
+                scene d17a-221
+                with dissolve
+                Kr "I am curious to see you fight."
+                scene d17a-222
+                with dissolve
+                scene black pic
+                with fade
+                jump d17a_preparation_overview
+
+            "Visit Scarp" if d17a_camp_checkup_4 == False:
+                $ d17a_camp_checkup_4 = True
+                scene d17a-223
+                with fade
+                Sc "If it isn't the new guy."
+                scene d17a-224
+                with dissolve
+                Z "I fought with Fangs in the hive, remember?"
+                scene d17a-226
+                with dissolve
+                Sc "You fought one battle with us, so?"
+                scene d17a-227
+                with dissolve
+                menu:
+                    "\"One battle with you, a thousand more without you.\"":
+                        Z "One battle with you, a thousand more without you."
+                        Z "Maybe you should've been there with us last time."
+                        scene d17a-228
+                        with fade
+                        Sc "I. Had. Other. Obligations!"
+                        scene d17a-229
+                        with dissolve
+                        Sc "Don't think I would not have been there. These scars? I wasn't born with them."
+                        Sc "You may have gotten Fangs all mushy, but not me."
+                        
+
+                    "\"So I don't care for your tone.\"":
+                        Z "So I don't care for your tone."
+                        Z "You don't get to my age in my line of work without proving yourself repeatedly."
+                        Z "So you can drop the attitude."
+                        scene d17a-228
+                        with fade
+                        Sc "You piece of..."
+                        Sc "You think I am a rookie?!"
+                        scene d17a-229
+                        with dissolve
+                        Sc "Thank you for the compliment, asshole, but if you couldn't tell, I am not the youngest one either."
+                        if fangs_romance == True:
+                            Sc "You and Fangs may be fucking, but that doesn't mean I need to bend over and accept you as one of our own when you clearly aren't."
+                        else:
+                            Sc "Fangs may have her reasons for you to stay, but that doesn't mean I need to bend over and accept you as one of our own when you clearly aren't. "
+                        scene d17a-231
+                        with dissolve
+                        Sc "We'll see tonight if there's more to you than big words."
+
+                scene d17a-230
+                with dissolve
+                menu:
+                    "\"Good. I like a challenge.\"":
+                        Z "Good. I like a challenge."
+                        pause 0.5
+                        Sc "Hm."
+                        scene d17a-231
+                        with dissolve
+                        Sc "Fine then."
+
+                    "\"Words are not the only big things about me...\"":
+                        Z "Words are not the only big things about me, but I don't know if I like you enough for you to find out."
+                        scene d17a-231
+                        with dissolve
+                        Sc "Really? Childish humour?"
+                        scene d17a-230
+                        with dissolve
+                        Z "Well, stop being a brat then, if that's not what you're into."
+                        Z "You will see, in time. I am not that bad to have around."
+
+                    "\"I have better things to do.\"":
+                        Z "I have better things to do than to try and impress you, but sure, stay back and watch."
+                        Z "Maybe you'll learn something."
+                        scene d17a-232
+                        with dissolve
+                        Sc "I like people who let their actions speak for them."
+                        
+                scene d17a-232
+                with dissolve
+                Sc "You won't mind if I keep an eye on the only man in this squad today, will you?"
+                scene d17a-233
+                with dissolve
+                Sc "Hm?"
+                scene d17a-234
+                with vpunch
+                scene d17a-235
+                with dissolve
+                Sc "I mean to keep my girls safe."
+                scene black pic
+                with fade
+                jump d17a_preparation_overview
+
+
+label d17a236:
+    pause 3
+    play music_1 "audio/sounds/environment/desert wind.mp3" fadein 3 volume 0.5
+    scene d17a-236
+    with slowfade
+    play music "audio/music/mutants/monastery.mp3" fadein 5
+    pause 1.5
+    scene d17a-237
+    with Dissolve(2)
+    pause 1.5
+    scene d17a-238
+    with Dissolve(2)
+    pause 0.5
+    Chi "Man..."
+    pause 0.7
+    Chi "I never before realised how lonely it all looks from here..."
+    scene d17a-239
+    with fade
+    Chi "...what have they done to my lights?"
+    Z "It was never this silent, was it?"
+    scene d17a-240
+    with dissolve
+    Chi "Never, no... But that is not the worst part."
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    scene d17a-241
+    with dissolve
+    Pe "Fangs, do you see or hear anything from your viewpoint?"
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Fa "Nothing but dead air, and darkness."
+    Fa "If there's anyone sneaking around, we wouldn't notice from here."
+    scene d17a-243
+    with dissolve
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Pe "Let me know when you approach the buildings, then."
+    scene d17a-244
+    with dissolve
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Fa "Let's take our time. The sun is barely under."
+    scene d17a-245
+    with fade
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Pe "You're the boss... we are ready, and waiting."
+    scene d17a-246
+    with dissolve
+    Pe "We should not overuse our communication devices. They only last so long before needing to recharge."
+    with dissolve
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Fa "Understood."
+    scene d17a-248
+    with fade
+    Fa "Probably best if you stop messing around with them then."
+    scene d17a-249
+    with fade
+    pause 2.5
+    Kr "{i}*sigh*{/i}"
+    scene d17a-250
+    with dissolve
+    Kr "What a beautiful moment..."
+    scene d17a-251
+    with dissolve
+    Kr "Staring at silent ruins, drowned in depressing darkness, the cold wind blowing in your face..."
+    Kr "...all the while, laying on cold steel, waiting for a signal from your boss."
+    Kr "The tension before imminent, or at least possible battle... do you sense it too?"
+    Kr "Does it bring back older memories for you as well?"
+    Kr "The caves you were hiding in... the murders you had to commit to survive... the misery of a life on the run."
+    scene d17a-252
+    with dissolve
+    "The warmth emanating from the woman's reveries, however bleak and reminiscent of a dark past, somehow feels like a cozy blanket, until the words sink in and you shake your head."
+    "What is it, with this woman?"
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Fa "Pepper...? I think it's time."
+    scene d17a-253
+    with fade
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Pe "Off you go then. Let's find out what happened."
+    Fa "Everyone, get up."
+    scene d17a-254
+    with dissolve
+    Mu "Understood."
+    scene d17a-253
+    with dissolve
+    scene d17a-255
+    with slowfade
+    "Your group silently approaches the ruins. You try to listen to any suspicious noises coming from where you're told the settlement is, but you hear nothing."
+    scene d17a-256
+    with fade
+    Faw "Those stairs over there..."
+    scene d17a-257
+    with dissolve
+    Faw "Ivy, do you see them?"
+    scene d17a-258
+    with dissolve
+    Faw "Can you get there, quietly?"
+    scene d17a-259
+    with dissolve
+    Faw "Keep a lookout while we approach. Check the windows for hostiles."
+    scene d17a-260
+    with dissolve
+    scene d17a-259
+    with dissolve
+    scene d17a-261
+    with fade
+    "You silently split up in smaller groups, approaching from different angles."
+    "As you stick with Chili, leading the way, Krait has already vanished into the darkness."
+    scene d17a-262
+    with fade
+    Chiw "Hey, [persistent.player_name]. Can you cover me?"
+    scene d17a-263
+    with dissolve
+    Chiw "I never liked this room..."
+    scene d17a-264
+    with dissolve
+    Zw "I got you."
+    scene d17a-265
+    with dissolve
+    Zw "I see something..."
+    Chiw "Yes, follow the light."
+    scene d17a-266
+    with fade
+    Chiw "There is... no movement..."
+    scene d17a-267
+    with dissolve
+    Zw "No one's there?"
+    scene d17a-268
+    with dissolve
+    Chiw "Yes..."
+    scene d17a-269
+    with dissolve
+    Chiw "What do we do now..."
+    Zw "We wait for Fangs."
+    scene d17a-270
+    with fade
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "Is everyone in position? Report, if you're not!"
+    pause 2
+    Faw "Good."
+    scene d17a-271
+    with dissolve
+    Faw "[persistent.player_name], look up to your right."
+    scene d17a-272
+    with dissolve
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Zw "What should I see?"
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "Higher up."
+    scene d17a-273
+    with dissolve
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Zw "Got it."
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "She will watch over us."
+    scene d17a-274
+    with dissolve
+    Faw "Ivy, hold back. But should we get spotted, fire at will."
+    scene d17a-274x
+    with fade
+    Faw "Now... Krait? Do you hear me?"
+    pause 2
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "Krait, where are you right now?"
+    scene d17a-274x-2
+    with dissolve
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Krw "Dancing with the rodents. What do you think...?"
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "{i}*sigh*{/i} Krait..."
+    scene d17a-274x-3
+    with dissolve
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Kr "I am in position..."
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "Good."
+    scene d17a-274x-4
+    with dissolve
+    Faw "Remember, if you get rushed, double back to us. We are near the entrance, to the right, behind the containers."
+    scene d17a-274x-6
+    with dissolve
+    Faw "Now do your thing; but do it silently and carefully."
+    scene d17a-274x-7
+    with dissolve
+    "The chatter falls silent, and the group starts to take in the surroundings."
+    "You look to your left and see a ramshackle building, most likely put together from parts over many years."
+    "Containers, scrap and junk lay between the rubble. Everything looks neglected."
+    scene d17a-277
+    with dissolve
+    "On top and beside the tall concrete walls, from which the jagged steel beams emerge, you see makeshift housing."
+    "People live here in the open, like in so many other settlements around the region. But you spot no movement, and no sound."
+    scene d17a-278
+    with dissolve
+    "Around the shacks ahead, you spot vegetation. Outside a Zone, there are precious few places where vegetation occurs naturally. Is this cultivated ground?"
+    scene d17a-279
+    with dissolve
+    "Wherever you look, you can't help but think that this place looks too rough to be inhabited."
+    Zw "You told us this is where you used to live, Chili. But it looks rundown and abandoned."
+    Chiw "It didn't look like this last time I was here... something must have changed."
+    Chiw "Some of us always took their work very lightly... but what you see is only the surface."
+    scene d17a-280
+    with dissolve
+    Chiw "Once, my people used to roam around, but that was a long time ago." #HINT we can discuss the amount of exposition, and the amount of things she can say without spoiling it, and how much a blabbering zoomer is willing to say
+    Chiw "The last few generations, we spent our time learning, growing... things, caring for this place, in our own way."
+    Z "You were nomads?"
+    Chiw "Pepper doesn't like me to talk about these things, but yes..."
+    Chiw "The region of Egypt was but a stop on our quest. Our \"Sapa\", as we call it."
+    Zw "What quest is that?"
+    Chiw "Well, I..."    
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "Everyone... we have movement. Look out!"
+    scene d17a-281
+    with fade
+    C "Nh..."
+    scene d17a-282
+    with dissolve
+    "A lone woman hurries outside, stumbling, clearly agitated..."
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "Chili... do you know her?"
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Chiw "Yes... it's my cousin!"
+    scene d17a-283
+    with dissolve
+    C "Just..."
+    C "...for once..."
+    scene d17a-284
+    play sound "audio/sounds/actions/drop 2.mp3"
+    with fade
+    "She falls down on her knees in front of the big steely wheel..."
+    C "I shouldn't..."
+    scene d17a-285
+    with dissolve
+    C "...I shouldn't be alone tonight..."
+    scene d17a-286
+    play sound "audio/sounds/doors/door closed.mp3"
+    with dissolve
+    C2 "Trying to run away, I see?"
+    scene d17a-287
+    with dissolve
+    C2 "...and running out into the cold nevertheless."
+    C2 "You are out of your mind."
+    scene d17a-288
+    with fade
+    C2 "Your fears are delusional, woman."
+    scene d17a-289
+    with dissolve
+    Tre "...as for your life, it is not in danger."
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Pew "Guys... what's happening? I see three figures."
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Chiw "Tribals, sister. They're surrounding Dinara!"
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Pew "These must be the occupiers. Assume they are hostile."
+    scene d17a-290
+    with dissolve
+    Tre "Come back, and resume your role. For the sake of your future."
+    scene d17a-291
+    with dissolve
+    Di "I... can't."
+    scene d17a-292
+    with fade
+    Di "I... told you before... there is no future for me."
+    scene d17a-293
+    with dissolve
+    Tre "Your future is to hold true to our agreement! The confusion that is stopping you is all in your mind."
+    scene d17a-294
+    with dissolve
+    Tre "You agreed to become my woman, for the sake of your people. And yet, you disrespect me after your pledge."
+    scene d17a-295
+    with dissolve
+    Di "I..."
+    scene d17a-296
+    with dissolve
+    Di "I gave you my life, but I cannot give you another."
+    scene d17a-297
+    with dissolve
+    Di "I told you so, and you wouldn't listen."
+    scene d17a-298
+    with dissolve
+    Tre "Your fixation on your religion has driven you mad, woman!"
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "Did she just..."
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Chiw "Dinara is... carrying?!"
+    scene d17a-299
+    with fade
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "People are coming out of the shacks."
+    scene d17a-300
+    with dissolve
+    Faw "It looks like they were here all along, hiding."
+    scene d17a-301
+    with dissolve
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Zw "Everyone is looking..."
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "Don't let them see you yet."
+    pause 0.5
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Krw "Hostile spotted..."
+    scene d17a-301x
+    with fade
+    Trw "What is happening... Is father scolding them again?"
+    scene d17a-301x-2
+    with dissolve
+    Krw "..."
+    scene d17a-301x-3
+    with dissolve
+    Trw "{i}*sigh*{/i}... always the same. Paranoid folk..."
+    scene d17a-301x-4
+    with dissolve
+    Tre "Come inside by yourself. Don't make me drag you."
+    Di "I... don't want to..."
+    scene d17a-301x-5
+    with dissolve
+    Di "...please, leave me be for a moment."
+    scene d17a-301x-6
+    with dissolve
+    Tre "I cannot allow it. You are risking the child's health!"
+    Trw "..."
+    scene d17a-301x-7
+    with vpunch
+    Trw "Aghh...!"
+    scene d17a-301x-8
+    with vpunch
+    Trw "Kgh-"
+    scene d17a-301x-9
+    with dissolve
+    Trw "{i}*muffled moaning*{/i}"
+    scene d17a-301x-10
+    with dissolve
+    Trw "{i}*cough*{/i}"
+    scene d17a-301x-11
+    with dissolve
+    Kr "..."
+    scene d17a-301x-12
+    with dissolve
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "Krait... did something happen?"
+    scene d17a-301x-25
+    with dissolve
+    Trw "Ngh-..."
+    Krw "Rest now... you are dying..."
+    scene d17a-301x-26
+    with dissolve
+    Trw "{i}*muffled coughing*{/i}"
+    Krw "Dying only once... but for such... a long... time."
+    scene d17a-301x-27
+    with dissolve
+    Trw "Mgh..."
+    scene d17a-301x-17
+    with dissolve
+    Kr "Mh..."
+    Trw "...ngh..."
+    scene d17a-301x-18
+    with dissolve
+    Kr "..."
+    scene d17a-301x-28
+    with dissolve
+    pause 0.5
+    Tre "You have mentioned this day since I chose you. And yet, you are still here."
+    Tre "Forfeit your belief in this... unholy religion. Don't make me send my son."
+    scene d17a-302
+    with fade
+    Di "It is no religion... I'm sure that... tonight is the night."
+    scene d17a-303
+    with dissolve
+    Di "I wish things were different... but they are not."
+    scene d17a-304
+    with dissolve
+    Di "My... poor... poor child..."
+    scene d17a-305
+    with dissolve
+    Tre "Son... she has gone mad. Take her in."
+    scene d17a-306
+    with dissolve
+    pause 0.5
+    scene d17a-307
+    with dissolve
+    Tr "..."
+    scene d17a-308
+    with fade
+    Tr "Father has spoken. You come now. Don't make me hurt a mother."
+    scene d17a-309
+    with fade
+    Tre "Daughter... guide me inside. I want to bed you tonight."
+    scene d17a-310
+    with dissolve
+    Tr "Woman. Now."
+    scene d17a-311
+    with dissolve
+    Di "Please... it doesn't have to be like this..."
+    scene d17a-312
+    with dissolve
+    
+    Di "All I want is..."
+    Tr "..."
+    scene d17a-313
+    with dissolve
+    
+    Tr "F-father... You need to... look!"
+    scene d17a-314
+    stop music fadeout 3
+    with dissolve
+    Di "Wh... what?"
+    scene d17a-315
+    with dissolve
+    Di "No..."
+    C2 "Dinara!!"
+    scene d17a-316
+    with dissolve
+    Di "..."
+    scene d17a-317
+    with dissolve
+    C2 "Dinara... Baqyt Sapa."
+    C2 "We love you, and always will."
+    scene d17a-318
+    with dissolve
+    Di "Ngh... no..."
+    Di "It's happening..."
+    scene d17a-319
+    with dissolve
+    Di "It's happening to me..."
+    scene d17a-320
+    with dissolve
+    Di "I was right..."
+    scene d17a-321
+    with dissolve
+    Di "I was..."
+    scene d17a-322
+    with dissolve
+    Di "...right."
+    scene d17a-323
+    with hpunch
+    Di "...!"
+    pause 0.5
+    scene d17a-324
+    with dissolve
+    pause 1.2
+    play sound "audio/sounds/actions/drop.mp3"
+    scene d17a-325
+    play music "audio/music/mutants/sapa.mp3"
+    with vpunch
+    Di "..."
+    Kr "By the scorched sands..."
+    Trw "{i}*muffled coughing*{/i}"
+    Faw "Wh... what just happened?"
+    scene d17a-326
+    with dissolve
+    Chiw "Cousin... why now...?"
+    scene d17a-327
+    with dissolve
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "Pepper... we just had an incident."
+    scene d17a-327x-2
+    with dissolve
+    Faw "This tribesman is just standing there, yet she collapsed and isn't moving."
+    scene d17a-327x-3
+    with dissolve
+    Tr "Ngh..."
+    Faw "Everyone. Prepare to save her from these savages."
+    scene d17a-327x-4
+    with dissolve
+    Pew "Don't blow your cover yet. It's pointless."
+    scene d17a-328
+    with fade
+    Pe "..."
+    scene d17a-329
+    with dissolve
+    Pe "These people have nothing to do with it."
+    Pe "She is dead."
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "Wh... what do you mean?!"
+    scene d17a-330
+    with fade
+    Tre "What did you do, son?"
+    Tre "I told you to bring her home, not beat her to death!"
+    scene d17a-331
+    with dissolve
+    Tr "Father... I did not touch her."
+    Tr "She just... fell."
+    scene d17a-332
+    with dissolve
+    Tre "Hm..."
+    Tre "Then I suppose she spoke truth."
+    scene d17a-332x
+    with dissolve
+    Tre "A tragedy... she seemed healthy."
+    Tre "But in the end... mother earth sorted her out." 
+    scene d17a-333
+    with dissolve
+    Tre "Maybe she can find peace in the hell she spawned from."
+    Tre "Daughter... help me walk. We will search for another one tomorrow."
+    scene d17a-334
+    play sound "audio/sounds/actions/drop 3.mp3"
+    with fade
+    Stw "I will bury her..."
+    Tr "What are you..."
+    scene d17a-335
+    with hpunch
+    Tr "Stop! You will not touch father's woman."
+    Stw "I..."
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Faw "Ivy, stay alert!"
+    scene d17a-336
+    with dissolve
+    Tr "Step. Back." 
+    scene d17a-337
+    with dissolve
+    C3 "Brother... let me take her."
+    scene d17a-339
+    with fade
+    Tr "Wait... what was..."
+    scene d17a-340
+    with dissolve
+    Tr "You.... I don't know..."
+    scene d17a-341
+    with dissolve
+    Tr "{i}*gasp*{/i}"
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Chiw "Ivy...!"
+    scene d17a-342
+    with dissolve
+    Tr "BROTHER! WE HAV-"
+    play sound "audio/sounds/objects/arrow 1.mp3"
+    pause 0.4
+    scene d17a-343
+    stop music
+    with hpunch
+    Tr "Agh-"
+    scene d17a-344
+    with dissolve
+    Tr "Nch..?!"
+    scene d17a-345
+    with dissolve
+    Tr "..."
+    scene d17a-346
+    with dissolve
+    Tr "Nkh... no..."
+    play sound "audio/sounds/objects/arrow 2.mp3"
+    pause 0.8
+    scene d17a-347
+    with vpunch
+    Tr "-!"
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    scene d17a-348
+    with dissolve
+    Chiw "Good shot Iv..."
+    scene d17a-349
+    with dissolve
+    pause 0.6
+    scene d17a-350
+    play sound "audio/sounds/objects/large gong.mp3"
+    with vpunch
+    scene d17a-351
+    with dissolve
+    Chiw "...!"
+    scene d17a-352
+    with dissolve
+    Chiw "...Shit!"
+    scene d17a-353
+    with dissolve
+    play music "audio/music/mutants/synth preparation.mp3"
+    pause 1.2
+    scene d17a-354
+    with dissolve
+    Tre "What was that?"
+    scene d17a-355
+    play sound "audio/sounds/doors/door slammed.mp3"
+    with hpunch
+    Tr "Sister!? Did you hear that?!"
+    scene d17a-356
+    with dissolve
+    Tr "By the holy sands..."
+    scene d17a-357
+    with dissolve
+    Tr "Intruder!!"
+    scene d17a-358
+    with dissolve
+    Tr "What... happened here?!"
+    scene d17a-359
+    with dissolve
+    Tr "YOU DID THIS!!"
+    play sound "audio/sounds/actions/running.mp3"
+    scene d17a-360
+    with Dissolve(0.2)
+    pause 0.8
+    scene d17a-361
+    with Dissolve(0.3)
+    Kr "Oh..."
+    scene d17a-362
+    with dissolve
+    pause 0.4
+    scene d17a-363
+    with Dissolve(0.1)
+    Tr "GET HER, BROTHERS!!"
+    scene d17a-364
+    with Dissolve(0.2)
+    pause 0.5
+    play sound "audio/sounds/environment/woosh 1.mp3"
+    pause 0.7
+    show screen cutscene_marker
+    stop music fadeout 3
+    play sound "audio/sounds/environment/slow synth drop.mp3"
+    scene d17a-365-366-anim
+    with Dissolve(0.1)
+    pause 6
+    scene black pic
+    play sound "audio/sounds/actions/drop.mp3"
+    with vpunch
+    pause 0.8
+    scene d17a-367
+    with fade
+    Kr "Mh... {w=1.3} {nw}"
+    scene d17a-368
+    play music "audio/music/mutants/sapa fight 1.mp3"
+    play sound "audio/sounds/doors/door slammed.mp3"
+    with hpunch
+    Tr "{i}*sniff*{/i} I heard something! {w=1.1} {nw}"
+    scene d17a-369
+    with dissolve
+    pause 0.5
+    scene d17a-370
+    with dissolve
+    Tr "Something... loud... {w=1} {nw}"
+    scene d17a-371
+    with vpunch
+    Tr "Ha!! Sniffed you out! {w=0.9} {nw}"
+    scene d17a-372
+    with Dissolve(0.2)
+    pause 0.5
+    Chi "HEY! YOU THERE!! {w=1.3} {nw}"
+    scene d17a-373
+    with Dissolve(0.1)
+    Tr "Huh... {w=0.8} {nw}"
+    scene d17a-374
+    with fade
+    Chi "Want to see something new?! {w=1.5} {nw}"
+    scene d17a-376
+    with Dissolve(0.25)
+    Chi "Let's light this place up, guys!? {w=1.7} {nw}"
+    scene d17a-378
+    with Dissolve(0.25)
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Fa "You heard her... {w=1.1} {nw}"
+    $ renpy.music.set_volume(0.4, delay = 4, channel="music")
+    scene d17a-379
+    with Dissolve(0.2)
+    Fa "...aim up!! {w=1.1} {nw}"
+    scene d17a-380-381-anim
+    with quickfade
+    pause 4
+    $ renpy.music.set_volume(1, delay = 2.0, channel="music")
+    pause 1
+    hide screen cutscene_marker
+    scene d17a-385
+    with Dissolve(0.1)
+    Tre "By the gods. The hellspawn have returned...!"
+    scene d17a-382
+    with Dissolve(0.1)
+    Chi "Whooaaaa...."
+    scene d17a-383
+    with hpunch
+    Chi "YES! It worked!"
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Pe "Impressive, Chili!"
+    scene d17a-384
+    with dissolve
+    Fa "Now, move!"
+    play sound "audio/sounds/environment/zoom.mp3"
+    scene d17a-384x-anim
+    with Dissolve(0.1)
+    pause 1.2
+    Fa "Scarp, cover me."
+    scene d17a-384x-2
+    with dissolve
+    Fa "The old bastard is mine!"
+    play sound "audio/sounds/environment/zoom.mp3"
+    scene d17a-384x-3-anim
+    with Dissolve(0.1)
+    pause 1.3
+    Fa "Pepper, we're live!"
+    scene d17a-384x-4
+    with dissolve
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Pe "Vehicles are in motion."
+    Chi "Oh my...! Guys?"
+    play sound "audio/sounds/environment/zoom.mp3"
+    scene d17a-384x-5-anim
+    with Dissolve(0.1)
+    pause 1.2
+    Chi "H...hello..."
+    Tr "Hghnn..."
+    scene d17a-387
+    with dissolve
+    Tr "Father will like you."
+    scene d17a-388
+    with dissolve
+    Chi "Wah...!"
+    scene d17a-389
+    with dissolve
+    Tr "Come with me, or your face meets steel."
+    scene d17a-390
+    with dissolve
+    Tr "You are pretty... maybe I will ta-"
+    scene d17a-391
+    play sound "audio/sounds/gore/gore3.mp3"
+    with vpunch
+    Tr "..."
+    Z "Ngh-"
+    scene d17a-392
+    play sound "audio/sounds/gore/gore2.mp3"
+    with vpunch
+    Z "Hraaagh!"
+    Z "Tribesman scum."
+    scene d17a-393
+    with dissolve
+    scene d17a-394
+    play sound "audio/sounds/actions/drop 2.mp3"
+    with fade
+    Z "Are you okay?"
+    Chi "{i}*pant*{/i} Yes, thank you..."
+    Chi "I will be... fine."
+    scene d17a-395
+    with dissolve
+    Chi "But... Krait, she's all alone!"
+    Chi "Don't worry about me, can you help her instead?"
+    play sound "audio/sounds/environment/zoom.mp3"
+    scene d17a-396-anim
+    with Dissolve(0.1)
+    pause 5.5
+    scene d17a-397
+    with dissolve
+    Kr "Look alive, assholes."
+    scene d17a-398
+    with dissolve
+    Tr "Hehehe... Nice blades, hellfire witch..."
+    Tr "...I hope they're sharp enough for the others, too!"
+    scene d17a-399
+    with dissolve
+    Kr "..."
+    scene d17a-400
+    with dissolve
+    Trw "That's her?"
+    Tr "Yes! She killed her!"
+    scene d17a-401
+    with dissolve
+    Tr "This witch brings death!"
+    scene d17a-402
+    with dissolve
+    Tr "Get her, brothers! Cleanse the earth of her!"
+    scene d17a-403
+    with dissolve
+    Kr "..."
+    play sound "audio/sounds/environment/zoom.mp3"
+    scene d17a-404-anim
+    with Dissolve(0.1)
+    pause 1.2
+    Mu "Fuck... fuck!!"
+    scene d17a-405
+    play sound "audio/sounds/objects/sword slash 2.mp3"
+    with hpunch
+    Trw "Hrrr!!"
+    Mu "Fuck...!"
+    scene d17a-406
+    with dissolve
+    Mu "Hey!! Peach!! You okay?!"
+    Mu "{i}Aahh!!{/i}"
+    scene d17a-406x
+    with dissolve
+    Mu "Those... marks!"
+    scene d17a-407
+    play sound "audio/sounds/objects/sword in ground.mp3"
+    with vpunch
+    Mu "Agh-! S-so strong...!"
+    Tr "Hrr..."
+    play sound "audio/sounds/environment/zoom.mp3"
+    scene d17a-408-anim
+    with Dissolve(0.1)
+    pause 0.9
+    I "..."
+    Mu "Someone... help...!"
+    scene d17a-409
+    with dissolve
+    pause 0.8
+    play sound "audio/sounds/environment/zoom.mp3"
+    scene d17a-410-anim
+    with Dissolve(0.1)
+    pause 0.2
+    play sound "audio/sounds/objects/arrow flying.mp3"
+    pause 2
+    play sound "audio/sounds/objects/arrow 3.mp3"
+    with hpunch
+    Tr "Agh-..."
+    play sound "audio/sounds/environment/zoom.mp3"
+    scene d17a-412-anim
+    with Dissolve(0.1)
+    pause 2
+    Mu "I..."
+    scene d17a-413
+    with dissolve
+    Mu "I can't believe you just did that!"
+    scene d17a-414
+    play sound "audio/sounds/gore/gore3.mp3"
+    with vpunch
+    Mu "AAAHH!"
+    play sound "audio/sounds/environment/zoom.mp3"
+    scene d17a-415-416-anim
+    with Dissolve(0.1)
+    pause 1.6
+    play sound "audio/sounds/actions/punch 1.mp3"
+    pause 1.3
+    Tr "Hhhgh-"
+    scene d17a-417
+    with dissolve
+    Sc "...and stay down!"
+    Tr "{i}*cough*{/i}"
+    Sc "Piece of shit."
+    scene d17a-418
+    with dissolve
+    Sc "GODSPEED FANGS!"
+    scene d17a-419
+    with dissolve
+    Sc "...show them."
+    play sound "audio/sounds/environment/zoom.mp3"
+    scene d17a-420-421-anim
+    with Dissolve(0.1)
+    pause 1.5
+    play sound "audio/sounds/doors/door slam.mp3"
+    pause 0.5
+    Fa "There you are..."
+    scene d17a-421x
+    with dissolve
+    Fa "What on earth..."
+    scene d17a-421x-2
+    with dissolve
+    Stw "..."
+    scene d17a-422
+    with dissolve
+    Tr "You brought hellfire upon us once more."
+    Tr "Now, my sons and daughters will have to purge you, witch."
+    scene d17a-424
+    with dissolve
+    Fa "Oh... believe me, I want them to try."
+    play sound "audio/sounds/environment/zoom.mp3"
+    show screen cutscene_marker 
+    scene d17a-425-426-anim
+    with Dissolve(0.1)
+    pause 1
+    play music "audio/music/mutants/sapa fight 2.mp3" fadeout 0.2
+    pause 1
+    Tr "MURDERER! {w=1.2} {nw}"
+    scene d17a-428
+    play sound "audio/sounds/actions/punch 1.mp3"
+    with hpunch
+    I "...! {w=0.6} {nw}"
+    Tr "SUFFER LIKE HE DID!! {w=1.2} {nw}"
+    scene d17a-427
+    play sound "audio/sounds/actions/punch 2.mp3"
+    with hpunch
+    I "Kgh-{w=0.5} {nw}"
+    scene d17a-429
+    with Dissolve(0.2)
+    Tr "It's a shame... such a pretty face.{w=1.2} {nw}"
+    scene d17a-430
+    play sound "audio/sounds/actions/punch 3.mp3"
+    with hpunch
+    scene d17a-431
+    with Dissolve(0.2)
+    Tr "On the body of a witch!{w=1.1} {nw}"
+    scene d17a-430
+    play sound "audio/sounds/actions/punch 2.mp3"
+    with hpunch
+    pause 0.3
+    scene d17a-432
+    with Dissolve(0.2)
+    Tr "Huuaaahhh...!{w=1} {nw}"
+    Tr "Look what you did to my brother...{w=1.2} {nw}"
+    scene d17a-433
+    play sound "audio/sounds/actions/punch 3.mp3"
+    with hpunch
+    pause 0.7
+    scene d17a-435
+    play sound "audio/sounds/actions/punch 2.mp3"
+    with hpunch
+    pause 0.6
+    scene d17a-436
+    with Dissolve(0.2)
+    pause 0.8
+    scene d17a-437
+    with Dissolve(0.2)
+    Tr "What?! Had enough? {w=1.2} {nw}"
+    scene d17a-438
+    with Dissolve(0.2)
+    Tr "Or do you want me to start somewhere else...{w=1.4} {nw}"
+    scene d17a-439-anim
+    with Dissolve(0.1)
+    pause 0.7
+    scene d17a-441
+    play sound "audio/sounds/actions/drop 3.mp3"
+    with vpunch
+    pause 0.7
+    scene d17a-442-443-anim
+    pause 4.5
+    scene d17a-444
+    play sound "audio/sounds/actions/drop 4.mp3"
+    with vpunch
+    hide screen cutscene_marker 
+    Tr "Hugh-"
+    I "...!"
+    scene d17a-445
+    play sound "audio/sounds/gore/bone crack.mp3"
+    with hpunch
+    Tr "Hgh-! N-"
+    scene d17a-446
+    with dissolve
+    Tr "Not there!!"
+    scene d17a-447
+    with dissolve
+    Tr "Ogh-"
+    scene d17a-448
+    with dissolve
+    Tr "AAAAAAAAAHHH!!!"
+    Tr "NOO!! AGH-!"
+    scene black pic
+    play sound "audio/sounds/gore/flesh ripped.mp3"
+    with vpunch
+    pause 0.2
+    scene d17a-449
+    with dissolve
+    Tr "..."
+    scene d17a-450
+    with dissolve
+    Mu "{i}*pant*{/i} Ivy..."
+    if mantis_left_behind == False:
+        Mu "Hn...?"
+        C "I am here!"
+        scene d17a-452
+        with dissolve
+        Mant "Do not move... we will treat you."
+        scene d17a-453-anim
+        with Dissolve(0.1)
+    else:
+        scene d17a-454-anim
+        with Dissolve(0.1)
+    play sound "audio/sounds/environment/zoom.mp3"
+    pause 0.4
+    Z "KRAIT! WATCH OUT!! {w=2} {nw}"
+    play sound "audio/sounds/gore/gore3.mp3"
+    with hpunch
+    Tr "...!"
+    scene d17a-455
+    with dissolve
+    Tr "Nnnngghhh..."
+    scene d17a-456
+    with fade
+    pause 0.5
+    scene d17a-457
+    with dissolve
+    Z "I was told..."
+    scene d17a-458
+    play sound "audio/sounds/gore/flesh ripped.mp3"
+    with dissolve
+    Z "...you need some assistance?"
+    scene d17a-459
+    with Dissolve(0.3)
+    play sound "audio/sounds/actions/drop.mp3"
+    Kr "They weren't wrong..."
+    scene d17a-460
+    with dissolve
+    Kr "..."
+    scene d17a-461
+    play sound "audio/sounds/gore/nasty knife stab 2.mp3"
+    with hpunch
+    Trw "Haaghhhh-"
+    scene d17a-462
+    with dissolve
+    Kr "But this one is mine."
+    scene d17a-463
+    with dissolve
+    Kr "Don't worry, the pain doesn't last."
+    scene d17a-464-492-anim
+    play sound "audio/sounds/gore/gut rip.mp3"
+    with vpunch
+    pause 1.6
+    play sound "audio/sounds/environment/zoom.mp3"
+    pause 1.1
+    Fa "Rrraagh-!"
+    with hpunch
+    Trw "Agh! {i}*cough*{/i}"
+    scene d17a-493
+    play sound "audio/sounds/actions/drop 4.mp3"
+    with vpunch
+    Trw "Ngh-..."
+    Fa "{i}*pant*{/i}"
+    scene d17a-494
+    with dissolve
+    Trw "Your... teeth... what are you?!"
+    scene d17a-495
+    with dissolve
+    Trw "Kgh--"
+    Trw "Father.... she's a beast...!"
+    scene d17a-496
+    with dissolve
+    Fa "Kgh-"
+    scene d17a-497
+    with vpunch
+    Fa "Agh...!"
+    Fa "You want a beast?! I will... show you what that is..."
+    scene d17a-498
+    with dissolve
+    Trw "W...wait... what do you..."
+    scene d17a-499
+    with dissolve
+    Fa "Hhhrr..."
+    scene d17a-500
+    with dissolve
+    Fa "HRAAA!"
+    scene d17a-501
+    play sound "audio/sounds/gore/gore4.mp3"
+    with vpunch
+    Trw "AAAAAAAAAAAAAAHHHHHHHHHHHHH!!!"
+    Trw "AAHAHHHGHAAA!!"
+    scene d17a-502
+    with dissolve
+    play sound "audio/sounds/gore/eating flesh short.mp3"
+    Trw "MY FACE!!! FATHEGHRHAAA!!"
+    scene d17a-503
+    with dissolve
+    Trw "SHE IS EATING MY FAAAAAAACE!!!"
+    scene d17a-504
+    with dissolve
+    Trw "{i}*painful whimpering*{/i}"
+    scene d17a-505
+    with dissolve
+    Tre "Hellspawn..."
+    scene d17a-506-487-anim
+    with Dissolve(0.1)
+    play music_1 "audio/sounds/vehicles/car drive and break.mp3" noloop
+    play sound "audio/sounds/environment/zoom.mp3"
+    pause 3.5
+    Pe "Let none of them escape."
+    play sound "audio/sounds/objects/arrow 3.mp3"
+    scene d17a-488
+    with vpunch
+    Tr "Khgh-!"
+    scene d17a-489
+    with dissolve
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Mu "Pepper, this is Pika, we see them fleeing towards the gate!"
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Pe "Perfect. Get them dead or alive."
+    scene d17a-490
+    with dissolve
+    Mu "Wait... what is Krait doing over there?!"
+    play sound "audio/sounds/objects/mobile radio quiet.mp3"
+    Z "I have a feeling she's enjoying herself."
+    scene d17a-491-507-anim
+    play sound "audio/sounds/environment/zoom.mp3"
+    pause 2
+    Tr "You freak...!"
+    scene d17a-508
+    with dissolve
+    Tr "Drop... your swords..."
+    scene d17a-509
+    with dissolve
+    Kr "Sure..."
+    scene d17a-510
+    with dissolve
+    pause 0.4
+    scene d17a-511
+    with hpunch
+    pause 0.5
+    scene d17a-512
+    play sound "audio/sounds/objects/sword drop.mp3"
+    with Dissolve(0.2)
+    Tr "You... {i}*heavy breathing*{/i}"
+    Kr "Hm..."
+    scene d17a-513
+    with hpunch
+    Tr "Soul-hookin... mind luring... witch..."
+    scene d17a-514
+    with dissolve
+    Tr "{i}*cough*{/i}"
+    scene d17a-515
+    with dissolve
+    Tr "Ngh... Father will..."
+    scene d17a-516
+    with Dissolve(0.2)
+    Tr "Nghhh... {i}*cough*{/i}"
+    play sound "audio/sounds/actions/drop.mp3"
+    scene d17a-517
+    with vpunch
+    Tr "Hah..."
+    scene d17a-518
+    with dissolve
+    Kr "Aw..."
+    scene d17a-519
+    with dissolve
+    Kr "I like when they know their place..."
+    scene d17a-520
+    with dissolve
+    Kr "Just my type..."
+    show screen cutscene_marker 
+    scene d17a-521-465-anim
+    play music "audio/music/mutants/sapa fight 3.mp3" fadeout 1.6 noloop
+    play sound "audio/sounds/environment/zoom.mp3"
+    with Dissolve(0.2)
+    pause 2.5
+    Chi "Hhaa... not again...! {w=1.6} {nw}"
+    scene d17a-467
+    with Dissolve(0.2)
+    Trw "Hghrr... {w=0.7} {nw}"
+    scene d17a-468
+    with Dissolve(0.2)
+    Trw "Young Witch... {w=0.7} {nw}"
+    scene d17a-469
+    with Dissolve(0.2)
+    Trw "You must DIE! {w=0.9} {nw}"
+    scene d17a-470
+    play sound "audio/sounds/objects/machete.mp3"
+    with vpunch
+    Trw "HGRRH... {w=0.6} {nw}"
+    scene d17a-471
+    with Dissolve(0.2)
+    Chiw "Shit... {w=0.8} {nw}"
+    scene d17a-472
+    with Dissolve(0.4)
+    pause 0.3
+    scene d17a-473
+    with Dissolve(0.4)
+    Chi "What to do... what to do...! {w=1.2} {nw}"
+    scene d17a-474
+    with Dissolve(0.2)
+    Chi "{i}*gasp*{/i} {w=0.4} {nw}"
+    scene d17a-475
+    with Dissolve(0.2)
+    Chi "Oh no...! {w=0.8} {nw}"
+    scene d17a-476
+    with Dissolve(0.2)
+    Chi "I really don't want to find this out!! {w=1.3} {nw}"
+    scene d17a-477
+    with Dissolve(0.2)
+    scene d17a-478
+    play sound "audio/sounds/actions/running.mp3"
+    with hpunch
+    Tr "AAAAAAAAAAAAAAAAGHHH! {w=0.9} {nw}"
+    scene d17a-479
+    with Dissolve(0.2)
+    pause 0.5
+    scene d17a-480
+    with Dissolve(0.2)
+    Chi "Here goes nothing...! {w=1.2} {nw}"
+    scene d17a-481-485-anim
+    with Dissolve(0.1)
+    pause 12.7
+    Chi "WOOHOOOO! HAHAHAHA!!!!! I'M A GENIUUUUUUUUUSS!!!!{w=3} {nw}"
+    hide screen cutscene_marker 
+    scene black pic
+    stop music fadeout 3
+    with slowfade3
+    jump d17a522
+
+label d17a522:
+    scene d17a-523
+    play music "audio/music/background/horror ambience.mp3" fadein 5 volume 0.3
+    with slowfade
+    pause 0.4
+    scene d17a-522
+    with dissolve
+    Fa "I will ask you only once. Are there more of your tribe out there?"
+    scene d17a-523
+    with dissolve
+    Tre "{i}*slow laughing*{/i}"
+    Tre "Ah... children..."
+    scene d17a-524
+    with dissolve
+    Tre "Look at yourselves... standing there, wrapped in the garments of the old gods of ruin..."
+    scene d17a-525
+    with dissolve
+    Tre "You have invaded my settlement and disfigured, maimed and murdered my children."
+    Tre "No... of course there is no one else. You took everything."
+    scene d17a-526
+    with dissolve
+    Tre "...and now here you stand, humiliating me in my ruin."
+    Tre "You stand before me like a remnant of the worst of times, bringing over us the fire that ended the world before."
+    scene d17a-528
+    with dissolve
+    Tre "I do not need the evidence of your blighted eyes, to see you for what you really are."
+    scene d17a-530
+    with dissolve
+    Tre "Monstrosities... unnatural leftovers of the hellish times when the ancestors burned the sky with bright lights, and emptied the souls of the living." 
+    scene d17a-531
+    with dissolve
+    Tre "I despise the sand you stand on, the breath you take I curse, may your kind finally be blighted into the final death."
+    scene d17a-532
+    with dissolve
+    Tre "Look what you did to my beautiful daughter."
+    Tre "You mauled her face... with your jaws."
+    scene d17a-533
+    with dissolve
+    Tre "Why bring this terror upon her? Are you a beast, a creature of the devils? Monster!"
+    scene d17a-534
+    with dissolve
+    Tre "Your tribe must be terrified of you..."
+    Tre "...but are they brave enough to tell you?"
+    scene d17a-535
+    with dissolve
+    Fa "..."
+    scene d17a-536
+    play sound "audio/sounds/doors/door slammed.mp3"
+    stop music fadeout 1
+    with dissolve
+    pause 0.8
+    Z "I have heard enough."
+    scene d17a-537
+    play music "audio/music/zone/in the forest.mp3" volume 1
+    with fade
+    Sc "..."
+    scene d17a-538
+    with dissolve
+    Tre "And who are you?"
+    scene d17a-539
+    with dissolve
+    Tre "You... you are not like them."
+    scene d17a-540
+    with fade
+    Fa "..."
+    menu:
+        "Caress her":
+            scene d17a-543
+            with dissolve
+            Fa "...!"
+            pause 0.5
+            Z "Leave this one to me."
+
+        "Touch her shoulder":
+            scene d17a-541
+            with dissolve
+            Z "..."
+            scene d17a-542
+            with dissolve
+            Z "Leave this one to me."
+
+        "Move on":
+            pass
+
+    scene d17a-544
+    with fade
+    Tre "By all that's scorched..."
+    Tre "You... are helping these monsters?"
+    scene d17a-545
+    with dissolve
+    Z "I am. And I have slaughtered many of your children."
+    scene d17a-546
+    with dissolve
+    Z "All of you, if you do not want to see what is coming, leave."
+    scene d17a-547
+    with dissolve
+    Stw "Y-yes..."
+    scene d17a-548
+    with dissolve
+    scene d17a-549
+    with fade
+    Z "You know what's coming now, old man."
+    Tre "..."
+    pause 1.5
+    scene d17a-550
+    play sound "audio/sounds/gore/flesh pull.mp3"
+    with vpunch
+    Tre "{i}*cough*{/i}"
+    Tre "Nkh..."
+    scene d17a-551
+    play sound "audio/sounds/gore/flesh ripped.mp3"
+    with hpunch
+    Tre "AAAGHH- {i}*cough*{/i} AAAAAAHGGHHH....!!!!"
+    Chi "..."
+    scene d17a-552
+    with dissolve
+    Tre "{i}*whimpering*{/i} No... don't..."
+    scene d17a-553
+    with dissolve
+    Tre "AAKHHH khh... hhhhaaaahh!!!"
+    scene d17a-554
+    play sound "audio/sounds/gore/flesh ripped 2.mp3"
+    with hpunch
+    Tre "Agh-"
+    Tre "{i}*heavy breathing*{/i}"
+    scene d17a-555
+    with dissolve
+    play sound "audio/sounds/gore/blood breath 2.mp3"
+    Tre "{i}*weak gargling*{/i} Ple...plea..."
+    Tre "{i}*cough*{/i}"
+    scene d17a-556
+    with dissolve
+    Tre "Haah..."
+    "You step around him..."
+    scene d17a-557
+    with fade
+    Fa "..."
+    Kr "..."
+    Z "Let this be a reminder..."
+    Tre "Ngh..."
+    scene d17a-558
+    with fade
+    pause 1.5
+    Z "Dont let a blind and wild man speak for you."
+    pause 0.8
+    play sound "audio/sounds/gore/bone crack.mp3"
+    pause 0.1
+    scene d17a-559
+    with hpunch
+    stop music fadeout 2
+    Tre "...!"
+    scene d17a-560
+    with dissolve
+    pause 0.6
+    scene d17a-561
+    with Dissolve(0.2)
+    pause 0.1
+    scene d17a-560
+    with Dissolve(0.2)
+    pause 2
+    scene d17a-562
+    with slowfade
+    pause 1
+    Z "This battle is over."
+    scene d17a-563
+    with fade
+    Chi "..."
+    scene d17a-564
+    with dissolve
+    Chi "I..."
+    Chi "I am not cleaning that up, guys..."
+    scene d17a-565
+    with dissolve
+    pause 1.3
+    scene d17a-566
+    with dissolve
+    Chi "Hm?"
+    scene d17a-567
+    with dissolve
+    Chi "What?"
+    scene d17a-568
+    with dissolve
+    scene black pic
+    with slowfade3
+    
+label d17a569:
+    show screen cutscene_marker 
+    scene d17a-569
+    play music "audio/music/mutants/infatuation.mp3"
+    with slowfade6
+    pause 2
+    scene d17a-570-572-anim
+    with fade
+    pause 9
+    hide screen cutscene_marker 
+    scene d17a-573
+    $ renpy.music.set_volume(0.4, delay = 4, channel="music")
+    with fade
+    Z "So... tell me. What's the deal with this wheel?"
+    Chi "It's a shame they turned it off..."
+    scene d17a-574
+    with dissolve
+    Chi "And it's not a wheel. This is our time-piece."
+    Chi "It helps us keep track of when our time has come."
+    scene d17a-575
+    with dissolve
+    Z "It's mechanical? How does it work? And what do you mean by that?"
+    scene d17a-576
+    with fade
+    Chi "See these pointy bits? They have different purposes."
+    Chi "The two pointy ones are showing the seconds and minutes, whereas the wider two are showing hours and days."
+    scene d17a-577
+    with dissolve
+    Z "I... don't understand. What happened to your cousin... she appeared to fully expect something to happen to her and she just... died?"
+    Chi "My people, my kind, we all have a knowledge. Everything that lives owes a death, and we know when ours is to come."
+    Chi "Our tribe was founded on this, in fact. Each of us are aware of the length of time we have to live."
+    scene d17a-576x
+    with dissolve
+    Chi "With this knowledge bestowed upon us, we created the time-piece and carried it through our journey, never to forget."
+    menu d17a_time_piece_questions:
+        "Why do you keep track of it?" (question = True) if d17a_time_piece_q1 == False:
+            $ d17a_time_piece_q1 = True
+            Z "Why do you keep track of this time? I don't know when I will die, and I think I would never want to know in advance."
+            Chi "Well... your death is not predetermined, is it? You can die in a fight, or in an accident, and if you don't you might get lucky and grow old."
+            Chi "This goes for us too, except that we don't really grow old at all. Some of us may live for thirty, some of us for fifty years."
+            Chi "And, barring incidents or murder, we know in advance when each of us will  pass."
+            Chi "This knowledge is certain, inescapable and absolute."
+            Chi "To remind us of this limit we carry within ourselves, our forefathers decided to create this time-piece."
+            Z "So the time-piece serves as a reminder how much time you have left?"
+            Chi "Yes... but, as I said, it's a practical thing, not a philosophical abstraction. Our knowledge is certain. We write down the time, and with this device, we can pin point it to hours, minutes and even seconds."
+            Chi "And when the time has come, we gather together... and send the person on their eternal journey. When it is common knowledge and you are about to face the end, it is better not to be alone."
+            scene d17a-576x
+            with fade
+            jump d17a_time_piece_questions
+
+        "You mentioned a journey. What's that about?" (question = True) if d17a_time_piece_q2 == False:
+            $ d17a_time_piece_q2 = True
+            Z "You mentioned a journey. What's that about?"
+            scene d17a-577
+            with dissolve
+            Chi "We call our tribe the Sapa... I'm... sure it had a different pronounciation, back in the lands where it all started."
+            Chi "Anyway... Sapa is the concept of our journey. The journey for time."
+            Chi "When our people first discovered that their unique condition was measurable, and that our death was predetermined, we banded together."
+            Chi "Over the decades and centuries, we travelled the lands looking for answers, a solution, an escape from the wheel of time... eventually, the journey stopped in this place."
+            Chi "Maybe one day we will move again. Until then... we learned to make the most of the time we have."
+            Z "And were you...?"
+            Chi "Finding answers? No... not yet. And we probably won't be in my lifetime."
+            Chi "But to remind us of our journey, we have the time-piece. You see why it would be important to us?"
+            scene d17a-576x
+            with fade
+            jump d17a_time_piece_questions
+        
+        "What's the short pointer on the bottom right for?" (question = True) if d17a_time_piece_q3 == False:
+            $ d17a_time_piece_q3 = True
+            Z "What's the short pointer on the bottom right for?"
+            scene d17a-578
+            with dissolve
+            Chi "Oh, that split one?"
+            Chi "That's the one counting the years!"
+            Z "Why does it look like an axe?"
+            Chi "That one was not always like this..."
+            Chi "I was told that the reason why it is pointing sideways is that no matter how many years you were given at birth, we are all supposed to be equal."
+            Chi "Some of us live longer, and some don't. That's life!"
+            scene d17a-576x
+            with fade
+            jump d17a_time_piece_questions
+
+        "How does your condition work?":
+            Z "How does it work, your condition, I mean?"
+            Z "Is it a disease? Do you always inherit it?"
+            Chi "You should ask my sister about this! Something about a... dominant disorder?"
+            Chi "No matter what we do, with whom we couple, or under what circumstances... everyone in our bloodline is born with a unique heartbeat pattern."
+            Chi "Count thirty heartbeats without a pause, and that's your lifespan! Everyone of us has their own number."
+            Z "This... sounds like an unbelievable curse."
+            Chi "Cars are unbelievable for some! Everything is unbelievable, until you see the patterns, the gears!"
+            jump d17a579
+
+label d17a579:
+    scene d17a-579
+    with fade
+    Fa "Hold on a minute... Chili, if everyone of you has a number, then you two have one as well?"
+    Fa "Why didn't you say anything?"
+    scene d17a-580
+    with dissolve
+    Chi "Sorry... we don't tell outsiders. My sister insisted."
+    scene d17a-581
+    with dissolve
+    Chi "And yes, sure we do. I have one, so does she. Mine's lower though."
+    Chi "Why?"
+    scene d17a-582
+    with dissolve
+    Fa "What do you mean by lower..."
+    scene d17a-583
+    with dissolve
+    Fa "Chili... what is your number then?"
+    scene d17a-584
+    with dissolve
+    scene d17a-588
+    with fade
+    Chi "Mine? Oh! That's two, and..."
+    scene d17a-589
+    with hpunch
+    Chi "...Five!"
+    scene d17a-590
+    with dissolve
+    Fa "...!"
+    Fa "Twenty five..."
+    scene d17a-591
+    with dissolve
+    Fa "You only have twenty five years?"
+    scene d17a-592
+    with dissolve
+    Fa "I..."
+    Chi "Fangs...? What's wrong?"
+    scene d17a-593
+    with dissolve
+    Pe "I'm sorry, Fangs..."
+    scene d17a-594
+    with fade
+    Fa "{i}*gasp*{/i}"
+    Pe "There were... multiple reasons for not telling you about this."
+    Pe "I didn't want you to think I only wanted the laboratory to look for a solution for all this..."
+    Pe "...and I did not want you to treat her differently."
+    scene d17a-595
+    with dissolve
+    Fa "I don't blame you, Pepper. You told me not to ask."
+    Fa "But... I still should have, and that's on me."
+    scene d17a-596
+    with dissolve
+    Chi "Fangs...!"
+    scene d17a-597
+    with dissolve
+    Chi "You don't need to be sad for me. That's how life is. I have always known this, remember?"
+    Chi "We learn to make our peace with it."
+    scene d17a-598
+    with dissolve
+    Fa "I... I'm sorry, Chili. I need time to process this."
+    scene d17a-599
+    with fade
+    Fa "[persistent.player_name]... do you mind if we take a breather?"
+    scene d17a-601
+    with dissolve
+    Fa "We... will have a gathering in two hours. We will decide what happens next with the settlement."
+    scene d17a-599
+    with dissolve
+    Fa "I want everyone to give their vote, this time. Will I see you there?"
+    scene d17a-600
+    with dissolve
+    Z "You will. Let us take a rest, and then decide. See you later."
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    pause 2
+    scene d17a-602
+    play music "audio/music/mutants/sapa ambience.mp3"
+    with slowfade
+    Zt "I might use the time to learn more about this place, before I cast my vote..."
+    label d17a_aftermath_overview:
+        scene d17a-602
+        with slowfade
+    menu:
+        "Enter the building" if d17a_hothouse_visited == False:
+            $ d17a_hothouse_visited = True
+            scene d17a-603
+            with fade
+            pause 1
+            Z "It looks desolate, but still..."
+            scene d17a-604
+            with dissolve
+            pause 1.5
+            scene d17a-605
+            with fade
+            "You enter a room that vastly differs from the rest of the basement."
+            "Purple light, plants and generator noises surround you. It's like you are back in the bunker, once more."
+            scene d17a-608
+            with fade
+            Stw "Hey there, my name is Ira. Thank you for liberating us last night. We have been under their occupation for many months now."
+            Ira "Can I do something for you?"
+            scene d17a-609
+            with dissolve
+            Z "I came to learn more about the way you live."
+            scene d17a-611
+            with dissolve
+            Ira "Sure, anything specific? Ask away."
+            scene d17a-609
+            with dissolve
+            label d17a_hothouse_questions:
+                if d17a_hothouse_q1 == True and d17a_hothouse_q2 == True and d17a_hothouse_q3 == True:
+                    jump d17a611
+                else:
+                    menu:
+                        "\"Do you grow your food in here?\"" (question = True) if d17a_hothouse_q1 == False:
+                            $ d17a_hothouse_q1 = True
+                            Z "Do you grow your food in here?"
+                            scene d17a-608
+                            with dissolve
+                            Ira "Yes, we do indeed. This facility has several purposes."
+                            scene d17a-606
+                            with dissolve
+                            Ira "Mainly, we have worked out how to grow fast yielding crops of a number of vegetables."
+                            Ira "We are experimenting special strands that we hope will be resistant to the desert climate and still grow."
+                            Ira "It's slow going, but we are getting some results."
+                            Ira "You must have seen some of them already."
+                            Z "Have you built this place yourself?"
+                            Ira "Oh.. no, not exactly."
+                            scene d17a-607
+                            with dissolve
+                            Ira "Our forefathers have roamed the lands and collected invaluable components. We simply... try to maintain what they did."
+                            Z "It is certainly impressive... some of those materials are in pretty good condition and seem to resist decay."
+                            Ira "It's a particular source of frustration for myself, that one. I don't quite know what happened, a few generations ago, but we have lost the ability to find, or create those materials."
+                            Ira "We've learned our lesson though. We are now recording everything in multiple different ways, and committing much to memory."
+                            Z "How come the people who managed to capture you did not destroy this place?"
+                            Ira "Food is somewhat scarce in the wasteland. They were a little mad, but not suicidal. Why throw away a reliable source of food?"
+                            scene d17a-609
+                            with fade
+                            jump d17a_hothouse_questions
+
+                        "\"How did your people survive over the years?\"" (question = True)  if d17a_hothouse_q2 == False:
+                            $  d17a_hothouse_q2 = True
+                            Z "How did your people survive over the years?"
+                            scene d17a-610
+                            with dissolve
+                            "She smiles, slightly..."
+                            scene d17a-611
+                            with dissolve
+                            Ira "Many of us may not live long lives, but they still live a life, and they fall in love..."
+                            Ira "We are open to outsiders, even if we keep our condition a secret."
+                            scene d17a-608
+                            with dissolve
+                            Ira "Mind you, that is before long lasting consequences happen. Those who merged with our tribe and became family knew that their children would carry the condition. And yet..."
+                            scene d17a-611
+                            with dissolve
+                            Ira "Life always finds a way, as they say."
+                            scene d17a-610
+                            with dissolve
+                            jump d17a_hothouse_questions
+
+
+                        "\"How come no one joined Pepper?\"" (question = True) if d17a_hothouse_q3 == False:
+                            $ d17a_hothouse_q3 = True
+                            Z "How come no one joined Pepper?"
+                            scene d17a-608
+                            with dissolve
+                            Ira "Pardon me? Pepper...? I don't..."
+                            scene d17a-611
+                            with dissolve
+                            Ira "Oh, right. You are talking about Elvira."
+                            scene d17a-610
+                            with dissolve
+                            Z "How come no one joined Elvira into the bunker?"
+                            scene d17a-608
+                            with dissolve
+                            Ira "Elvira left because she wanted to properly research the source of the tribe's condition."
+                            Ira "While I am grateful for her commitment, Mina was the only one following her on this path. Perhaps because she always somehow looked up to her sister."
+                            scene d17a-609
+                            with dissolve
+                            Z "And why is that?"
+                            scene d17a-608
+                            with dissolve
+                            Ira "While Elvira's decision to leave us for your bunker to research a way to prolong Mina's short life expectancy is noble..."
+                            Ira "...we wondered, what does this mean for our journey? Our culture?"
+                            scene d17a-609
+                            with dissolve
+                            Z "You feared that it would change your people?"
+                            scene d17a-608
+                            with dissolve
+                            Ira "I suppose. The Sapa teaches us patience, connection, and acceptance in regards to our condition, and life as a whole..."
+                            Ira "Many of us hold the firm belief that our lives, however long they might be, should be enjoyed and celebrated within our community."
+                            scene d17a-611
+                            with dissolve
+                            Ira "From what I have seen today, I presume you can see that our values are fundamentally different from what the bunker and their people stand for."
+                            scene d17a-610
+                            with dissolve
+                            Z "So, what happens now? Where would your path lead next, if it was up to you?"
+                            scene d17a-611
+                            with dissolve
+                            Ira "There is no denying that thanks to your people, we have been given a new chance to continue our journey, or at least prepare for it."
+                            Ira "Planning the next step, however, will take some time. We should also not lose sight of what we already have."
+                            scene d17a-608
+                            with dissolve
+                            Ira "Before we were attacked, we had made this place our home, and it used to be functional, nice and... well..."
+                            Ira "...a real home."
+                            scene d17a-611
+                            with dissolve
+                            Ira "If we decide to rebuild, then I have ideas for how to make it more habitable again."
+                            scene d17a-608
+                            with dissolve
+                            Ira "But in truth, it is our custom to not linger too many years in the same place. It might be time to depart again."
+                            scene d17a-609
+                            with dissolve
+                            Z "Thank you for sharing your thoughts."
+                            scene d17a-610
+                            with dissolve
+                            jump d17a_hothouse_questions
+
+                        "Move on" if d17a_hothouse_q1 == True or d17a_hothouse_q2 == True or d17a_hothouse_q3 == True:
+                            label d17a611:
+                                Z "Alright. I think I will move on now."
+                            scene d17a-611
+                            with dissolve
+                            Ira "Thank you again. You are always welcome to visit, and always will have our gratitude for what you did today."
+                            scene d17a-610
+                            with dissolve
+                            scene black pic
+                            with slowfade
+                            jump d17a_aftermath_overview
+
+        "See a tribesman" if d17a_tribesman_visited == False:
+            $ d17a_tribesman_visited = True
+            scene d17a-613
+            with fade
+            "You walk through the concrete rubble, and approach a settler..."
+            scene d17a-614
+            with fade
+            Stm "Good morning... Ah, it's been a while since I could honestly say this."
+            scene d17a-615
+            with dissolve
+            Z "Good morning, indeed."
+            label d17a_tribesman_questions:
+                if d17a_tribesman_q1 == True and d17a_tribesman_q2 == True:
+                    jump d17a_tribesman_move_on
+                else:
+                    menu:
+                        "\"How did you manage to survive for all these years?\"" if d17a_tribesman_q1 == False:
+                            $ d17a_tribesman_q1 = True
+                            Z "I have a general question..."
+                            Z "Looking at this place and how it is structured... how did you manage to survive for all these years?"
+                            Z "Savages roam these lands quite frequently."
+                            scene d17a-614
+                            with dissolve
+                            Stm "We tend to not attract much attention usually. Few people are interested in what appear to be long abandoned ruins, thankfully."
+                            Stm "But... every now and then some will come closer."
+                            scene d17a-616
+                            with dissolve
+                            Stm "And not always with good intentions."
+                            scene d17a-614
+                            with dissolve
+                            Stm "But... I suppose this is a danger we chose to live with, it is part of our journey."
+                            scene d17a-615
+                            with dissolve
+                            Z "Your journey?"
+                            scene d17a-614x-2
+                            with dissolve
+                            Stm "Once, maybe twice a lifetime, we move to a new place in the world, scavenge the area, in our perennial search for the world's secrets..."
+                            Stm "...my father, his father, and his grand father have been doing the same."
+                            scene d17a-614x-4 
+                            with dissolve
+                            Stm "The Sapa is a generational task... one I cannot expect to see the end during my lifetime."
+                            scene d17a-614x-3
+                            with dissolve
+                            "He holds in for a moment..."
+                            scene d17a-614x-2
+                            with dissolve
+                            Stm "Purpose is a powerful driving force, you know. And purpose is what keeps us together."
+                            Stm "We all share the same fate after all..."
+                            Stm "But... some of us have been growing ever more demotivated....or frustrated even."
+                            scene d17a-614x-5
+                            with dissolve
+                            Stm "And I cannot blame them really, even if we don't necessarily share the same sentiments."
+                            scene d17a-614x-6
+                            with dissolve
+                            Z "How so?"
+                            scene d17a-614x-2
+                            with dissolve
+                            Stm "It's just that..."
+                            scene d17a-614x-5
+                            with dissolve
+                            Stm "...everybody will eventually die, and every person knows this. But in a nebulous, abstract way."
+                            Stm "But us? We know {i}when{/i}, and that...is different. It makes death tangible, real."
+                            scene d17a-644x-2
+                            with dissolve
+                            Stm "What would you do if you knew? If you had absolute certainty, down to the day? How would you choose to spend your time?"
+                            Stm "Would you try and make the most of it? For you? For others?"
+                            Stm "How many breaths would you spend on things you think do not matter?"
+                            Stm "So yes, I understand them. As I understood Elvira."
+                            scene d17a-644x-3
+                            with dissolve
+                            Z "I guess you don't see eye to eye?"
+                            Stm "No, it's not that. At least I don't think so..."  
+                            Stm "She kept telling us how our ways are ineffective, how we are squandering our days chasing fairytales."            
+                            Stm "And then... one day, she came upon your people and suggested joining you, with a promise of real access to the technology we had until then only learned from in abstraction, from old books."
+                            Stm "An actual way to try and {i}fight this{/i}, in her words..."
+                            scene d17a-614x-2
+                            with dissolve
+                            Stm "...and we declined."
+                            scene d17a-614x-3
+                            with dissolve
+                            pause 1.5
+                            scene d17a-614x-2
+                            with dissolve
+                            Stm "{i}*sigh*{/i}.. I saw your leader, when they came to petition us. She is strongly driven to fight, to build her own future."
+                            scene d17a-614x-7
+                            with dissolve
+                            Stm "...I wonder if our forefathers were also this determined, when they started their journey?"
+                            scene d17a-616
+                            with dissolve
+                            Stm "I also wonder about our path forward sometimes."
+                            Stm "And this now? It got me thinking..."
+                            Stm "Do we continue our journey, or will we forfeit our ways and start a different approach?"
+                            scene d17a-617
+                            with dissolve
+                            Z "Do you think your people want change?"
+                            scene d17a-614x-4
+                            with dissolve
+                            Stm "I believe that people are uncertain, and divided in their opinions about the future."
+                            scene d17a-614
+                            with dissolve
+                            Stm "However we decide though, we will stay one family. Of that I am certain."
+                            Stm "Because... after all... we all share the same fate, at the end of our lives."
+                            scene d17a-615
+                            with dissolve
+                            Z "May you find your peace in whatever direction your people take."
+                            scene d17a-615
+                            with dissolve
+                            jump d17a_tribesman_questions
+
+                        "\"The time piece was broken.\"" if d17a_tribesman_q2 == False:
+                            $ d17a_tribesman_q2 = True
+                            Z "The time piece was stopped... how does this affect you?"
+                            scene d17a-614x-7
+                            with dissolve
+                            Stm "It did... during the last months, some of us died... and we could not even come together."
+                            scene d17a-616
+                            with dissolve
+                            Stm "Poor Dinara. Bless her soul..."
+                            scene d17a-617
+                            with dissolve
+                            pause 1.5
+                            scene d17a-614x-5
+                            with dissolve
+                            Stm "It scares me, sometimes. Before, I knew the exact second I would eventually pass."
+                            scene d17a-614x-2
+                            with dissolve
+                            Stm "Now... if anything, I will know the rough time of the day."
+                            scene d17a-614x-3
+                            with dissolve
+                            jump d17a_tribesman_questions
+
+                        "Move on" if d17a_tribesman_q1 == True or d17a_tribesman_q2 == True:
+                            label d17a_tribesman_move_on:
+                                Z "It was insightful speaking with you. Farewell for now."
+                            scene d17a-614
+                            with dissolve
+                            Stm "Farewell, friend. May our paths cross again."
+                            scene d17a-615
+                            with dissolve
+                            scene black pic
+                            with slowfade
+                            jump d17a_aftermath_overview
+
+
+
+        "See [I]" if d17a_ivy_visited == False:
+            $ d17a_ivy_visited = True
+            scene d17a-618
+            with fade
+            "You spot [I] sitting on the roof, and decide to join her..."
+            scene d17a-619
+            with fade
+            I "..."
+            Z "How's the drink?"
+            scene d17a-620
+            with dissolve
+            I "..."
+            scene d17a-621
+            with slowfade
+            "You look at her. Last night has barely left a mark on her. You recognized it before, after you freed her from the decayed..."
+            pause 0.5
+            Z "I have talked to the others. Things are indeed more complicated than they appeared to me."
+            scene d17a-623
+            with dissolve
+            I "..."
+            "She looks aside..."
+            scene d17a-622
+            with dissolve
+            I "We inherited cruel curses from our ancestors..."
+            scene d17a-623
+            with dissolve
+            Z "At least she's not going to be alone."
+            scene d17a-624
+            with dissolve
+            I "..."
+            "You look at her, wondering if conditions like those of [I] and Chili were ever present or accepted before the world fell."
+            Z "In my years of wandering the desert and exploring the most unusual and sometimes extraordinary things and people..."
+            I "..."
+            Z "...I can see a connection of sorts between you and this tribe. Your lives seem to exist at the opposite sides of the swing of a pendulum."
+            scene d17a-621x
+            with dissolve
+            Z "But I can't help but wonder if this is a quirk of fate...  a coincidence... a design..."
+            scene d17a-623x
+            with dissolve
+            pause 1
+            "[I] considers your remarks for a while, in silence, considering whether to reply, and deciding against it."
+            pause 1.2
+            scene d17a-625
+            with dissolve
+            I "Will you... visit my place again soon?"
+            scene d17a-626
+            with dissolve
+            "She looks at you, expectantly..."
+            Z "I shall... in time."
+            scene d17a-624x
+            with dissolve
+            I "..."
+            scene black pic
+            with fade
+            "You leave [I] to her thoughts, and climb down the stairs..."
+            jump d17a_aftermath_overview
+
+        "Wait for the gathering":
+            scene black pic
+            with fade
+            "You rest until you see members of the team gathering near the center..."
+            jump d17a627
+
+label d17a627:
+    scene d17a-627
+    with slowfade
+    Fa "Hey, Red. Want to join us?"
+    Fa "We could use your input."
+    scene d17a-628
+    with fade
+    Re "Thanks, but..."
+    Re "...you guys got this."
+    scene d17a-629
+    with dissolve
+    Re "I want to get this done before we leave."
+    Re "Ah... damn it."
+    scene d17a-630
+    with dissolve
+    Re "Can't wait for a proper bath, later. This dust is making me feel all sticky..."
+    scene d17a-631
+    with dissolve
+    Sc "Let's get this over with, then."
+    scene d17a-642
+    with fade
+    Sc "Okay. As far as I can see, there are two options on how to proceed."
+    Sc "Chili, your people either stick around in these ruins, waiting to be attacked again, or we ask them to join us."
+    scene d17a-633
+    with dissolve
+    Sc "You wanted allies, Fangs? These people seem smart, and several of them could be willing to fight for something."
+    scene d17a-633x
+    with dissolve
+    Chi "Excuse me, Scarp, but these are a bit more than ruins."
+    Chi "Can I propose a different idea?"
+    scene d17a-644x
+    with fade
+    Chi "This place... It could be fortified! Serve as an outpost for the people in the bunker."
+    Chi "Sooner or later, you're going to be at full capacity. What will you do then? Start turning people away?"
+    Fa "That won't be a problem for a long while. There are not that many of us around these parts. The occasional straggler brought in by Ivy barely counts."
+    Sc "There's merit in having a second outpost or base, eventually."
+    scene d17a-633
+    with fade
+    Sc "But right now all it would do is stretch us too thin. We can't operate and defend the bunker {i}and{/i} this place at the same time."
+    Sc "Fangs, what do you say?"
+    scene d17a-634
+    with dissolve
+    Fa "I... don't know. That's why I called you here, to discuss our next step."
+    scene d17a-634x
+    with dissolve
+    Chi "Then we should involve other members of the tribe."
+    scene d17a-635x-2
+    with dissolve
+    Fa "You and Pepper are their best advocates. You have seen the bunker and know what we stand for."
+    scene d17a-635x-3
+    with dissolve
+    Pe "You already know what I think. Their best chance at survival is to join us."
+    scene d17a-637x-2
+    with dissolve
+    Pe "There's too few of us to take on another attack by the next potential adversary."
+    scene d17a-637x-3
+    with dissolve
+    Chi "We might have stepped out of it, but you can't ask the others that!"
+    scene d17a-637x-4
+    with dissolve
+    Pe "What else can they do?"
+    Pe "We have joined the Bunker and its resources with good reason. If they could see the place..."
+    scene d17a-637x-5
+    with dissolve
+    Pe "They say we must look for answers. They say they still do, but have they made any progress?"
+    scene d17a-637x-6
+    with dissolve
+    scene d17a-636x-2
+    with vpunch
+    Chi "So? Have you?"
+    scene d17a-636x-3
+    with dissolve 
+    Pe "..."
+    scene d17a-636x-4
+    with dissolve
+    pause 1.5
+    Pe "You know I am doing my best..."
+    scene d17a-636x-5
+    with dissolve
+    Chi "I am sorry, sister, I... don't even want you to..."
+    scene d17a-636x-6
+    with dissolve
+    pause 1.5
+    scene d17a-642
+    with fade
+    "Another moment of silence follows, as every member of this small improvised council reflects on what they know about the tribe and about the two sisters in particular."
+    Pe "I have not made much progress, no..."
+    Pe "...but what if I had? You know the Sapa is all about the quest, and it is fundamentally tied to our mortality..."
+    Sc "Well, that's just fucking dumb."
+    pause 0.5
+    "Pepper's tone snaps into a sharp one..."
+    Pe "Would you care to explain yourself? What do you know abou-..."
+    Sc "Oh, stop it will you? Woe is me, I'm so special because I have a timer that tells me when I will die."
+    Sc "Do you think that we don't die? That we don't hold life as precious and worthy of celebrating? That we don't honour our dead?"
+    Sc "If anything, not knowing when it will end makes it just as important to us."
+    pause 1
+    "No one seems to want to pick up on her words for some moments..."
+    scene d17a-635
+    with fade
+    Fa "We must go back to consider the situation practically."
+    scene d17a-637x
+    with fade
+    Z "Then let's be practical. Chili mentioned that the tribe used to travel, or have travelled and moved the tribe around before."
+    Z "These people are smart. We could help bolster their defenses. In return, what can they offer? Their crops?"
+    scene d17a-637x
+    with dissolve
+    Sc "Right? Crops are one thing. Fangs, you know what we really need is one thing: Manpower."
+    Sc "Let them join our ranks. For people who talk and think about dying so much, we can give them a purpose to die for."
+    scene d17a-636
+    with dissolve
+    Chi "I-I don't know, but... is it worth throwing away hundreds of years of our tradition? Many here aren't fighters..."
+    scene d17a-636x
+    with dissolve
+    Sc "Doing your part for the common good doesn't necessarily mean taking up arms. There are other ways to fight."
+    Sc "Hells, you have kept our machines running. That alone has given us an edge."
+    scene d17a-636x-8
+    with dissolve
+    Chi "I know that... but there are other ways they could contribute, without giving up on the journey!"
+    scene d17a-636x-7
+    with dissolve
+    Chi "We're not out here only being attacked by tribes trying to conquer!"
+    Chi "If you hide in a bunker, you will no longer encounter all the people that come through here!"
+    scene d17a-636x-9
+    with dissolve
+    Chi "There were many travellers over the years... traders, and even lonely people looking for a place to stay. Some even joined the tribe!"
+    scene d17a-636x-10
+    with dissolve
+    Chi "We could set this place up to invite more people to the bunker. Many more than Ivy could ever reach out to!"
+    scene d17a-636x-11
+    with dissolve
+    Pe "{i}*sigh*{/i} Mina..."
+    scene d17a-642
+    with fade
+    Pe "...look at this place. Look at the people... what is there left to live for here?"
+    Chi "What? We grew up here! Our family lived here for a long time. You know our parents never needed much either!"
+    Chi "I think you would change these people at the core. Many do not believe in conflict..."
+    Chi "The Sapa is about accepting our lives, no matter how short. I grew up living each day as it is our last."
+    Chi "The bunker... is just not that... I'm sorry..."
+    Fa "It is not... It's a means to an end. We want better lives for ourselves. Once we achieve that, we can leave the bunker behind."
+    scene d17a-632
+    with fade
+    Sc "I think we all have made our points. Let's cast our votes. I'm for taking them in."
+    scene d17a-632x
+    with fade
+    Pe "Assimilation it is, for me. Sorry, sister."
+    scene d17a-636x-7
+    with dissolve
+    Chi "It's okay. Whatever happens, we make a choice together..."
+    scene d17a-636x-10
+    with dissolve
+    Chi "I would vote for defending this place, and repairing the time-piece!"
+    scene d17a-636x
+    with dissolve
+    Sc "Fangs?"
+    scene d17a-634
+    with dissolve
+    Fa "I... You guys do the voting, this time."
+    scene d17a-634x
+    with dissolve
+    scene d17a-637
+    with fade
+    Sc "[persistent.player_name]? What's your vote?"
+    scene d17a-637x
+    with dissolve
+    menu:
+        "Vote to take the tribe in":
+            $ sapa_assimilated = True
+            Z "I vote to let the people here move into the bunker."
+        
+        "Vote to defend the settlement":
+            $ sapa_protected = True
+            Z "I vote to guard this place. Let the people here support the bunker in their own way."
+
+    scene d17a-638
+    with fade
+    Sc "Krait? What do you think?"
+    scene d17a-639
+    with dissolve
+    Kr "..."
+    scene d17a-640
+    with fade
+    Kr "I think that there are still a few nice things out there. The view is pretty here."
+    scene d17a-641x
+    with dissolve
+    Kr "Look at it. You've travelled the desert, you've seen those mountains. Do you think they care about our petty squabbles?"
+    pause 0.5
+    Sc "..."
+    label d17a_ending_cutscenes:
+        scene d17a-639
+        with fade
+        Kr "Do whatever you want."
+    stop music fadeout 3
+    scene d17a-638
+    with dissolve
+    Sc "Fine... I think that concludes it, then."
+    if mq_m_2.current_step == 1: #TODO @paz change to proper quest steps when we split this step
+        $ mq_m_2.advance()
+    scene d17a-642
+    with fade
+    if sapa_assimilated == True:
+        Sc "That's three to one. So we agree to renew our proposal to join us."
+        Fa "Let's go talk to them... and see what they will say about it."
+        show screen cutscene_marker 
+        Fa "Once we have their answer, we'll know what to do. {w=3} {nw}"
+        scene d17a-636x-7
+        play music "audio/music/mutants/fallout.mp3" fadein 2
+        with fade
+        Chi "Then life might change for everyone here. {w=3} {nw}"
+        scene d17a-636x-11
+        with dissolve
+        Pe "Just as it did for us, Mina, for the better. {w=3} {nw}"
+        scene d17a-637x-2
+        with dissolve
+        Pe "You will see. There is no need to worry. {w=2.5} {nw}"
+        scene d17a-637x-3
+        with dissolve
+        scene black pic
+        with fade
+        "She moves away... {w=1.5} {nw}"
+        scene d17a-650
+        with fade
+        Pe "We might leave this place for good, yes... {w=3.5} {nw}"
+        Pe "...but that doesn't mean they have to abandon everything. I might have an idea... {w=4.5} {nw}"
+        scene d17a-651
+        with dissolve
+        pause 2.02
+        scene d17a-652-659-anim
+        pause 40
+        hide screen cutscene_marker
+        jump mutants_command_center
+
+    if sapa_protected == True:
+        Sc "That's two in favour, two against... Chili and [persistent.player_name]'s voice against mine and Pepper's."
+        Sc "Fangs... you're the leader for a reason. You need to break the tie here."
+        Fa "..."
+        Fa "I suppose we could lend these people a hand."
+        Pe "...?"
+        pause 2
+        Fa "My vote is for Chili. Let's ask them if they want our protection."
+        pause 1
+        Sc "Hm... fine."
+        show screen cutscene_marker
+        play music "audio/music/mutants/fallout.mp3" fadein 2
+        Sc "I will ask their leaders what they think of it. {w=3.5} {nw}"
+        scene d17a-636x-10
+        with dissolve
+        Chi "And I will get to work as well! {w=3} {nw}"
+        scene d17a-636x
+        with dissolve
+        scene black pic
+        play sound "audio/sounds/actions/running.mp3"
+        with fade
+        "She quickly gets up... {w=3} {nw}"
+        scene d17a-645
+        queue music "audio/music/mutants/fallout.mp3" fadein 2
+        with fade
+        Pe "Mina... {w=2} {nw}"
+        scene d17a-646
+        with dissolve
+        Chi "Hmm... where do I start? {w=2.7} {nw}"
+        scene d17a-647
+        with fade
+        Chi "First, I will make sure to get you running again. {w=2.3} {nw}"
+        Chi "I would say it's about time! {w=2} {nw}"
+        scene d17a-648
+        with dissolve
+        pause 1.3
+        scene d17a-649-655-anim
+        pause 40
+        hide screen cutscene_marker
+        jump mutants_command_center
+
+label d17b:
+    $ m_d17b = True
+    C "[persistent.player_name]... wake up..."
+    scene d17b-1
+    with fade
+    Z "Mh... Fangs?"
+    scene d17b-2
+    with dissolve
+    Fa "Sorry for interrupting your sleep. There is someone who wanted to see you."
+    scene d17b-3
+    with dissolve
+    Z "Someone... okay, who is it."
+    scene d17b-4
+    with dissolve
+    C "Hey..."
+    scene d17b-5
+    with dissolve
+    C "Do you...remember me?"
+    scene d17b-6
+    with dissolve
+    "The girl speaks with a lisp, as she stands near the edge of the bed, with a tremor betraying her anxiety..."
+    Z "Remind me again?"
+    scene d17b-5
+    with dissolve
+    C "Oh... maybe you can't see me."
+    scene black
+    with fade
+    "She gets closer, in a few short steps."
+    scene d17b-7
+    with fade
+    C "Maybe now!"
+    scene d17b-8
+    with fade
+    C "I am Slink. Several weeks ago, you saved me from this big brute in the market!"
+    scene d17b-9
+    with dissolve
+    Z "Ah... I remember that. I didn't get a good look at you then."
+    "Her frame is small and lithe, and as you look her in the eyes, you have a notion that she must have lived a hard life, and seen much adversity."
+    scene d17b-10
+    with dissolve
+    Fa "Our new girl here had been sneaking into the city and stealing from its good people at night..."
+    Fa "She was lucky that Ivy found her before she got herself into real trouble..."
+    Fa "...isn't that right, Slink?"
+    scene d17b-11
+    with dissolve
+    Sli "Oh... about that..."
+    scene d17b-12
+    with fade
+    Fa "Come on, you wanted to show the man how thankful you are."
+    scene d17b-13
+    with dissolve
+    Sli "Yes... I do."
+    scene d17b-14
+    with fade
+    Sli "{i}*kiss*{/i}"
+    scene d17b-15
+    with dissolve
+    Sliw "Thank you, sir, for saving my life."
+    scene d17b-16
+    with fade
+    Z "That was not..."
+    scene d17b-17
+    with dissolve
+    Fa "Weren't you trying to learn to restrain yourself?"
+    scene d17b-18
+    with dissolve
+    Z "Restrain myself?"
+    scene d17b-19
+    with dissolve
+    Fa "Not you, her, Slink! She knows she can get too.. physical."
+    Fa "Here, I'll show you something."
+    scene black
+    with fade
+    "Fangs pulls the girl close and wraps her arm around her..."
+    scene d17b-20
+    with fade
+    Fa "You probably didn't notice but as it turns out, you and Ivy found me a..."
+    Fa "...little sister of sorts."
+    scene d17b-21
+    with dissolve
+    Fa "Come on, show him what I mean."
+    scene d17b-22
+    with dissolve
+    Sli "Ah..."
+    Fa "Good girl."
+    scene d17b-23
+    with dissolve
+    Fa "Our little wasteland devil is not as innocent as she seems."
+    Fa "That man you confronted wasn't her first...prey."
+    scene d17b-24
+    with dissolve
+    Sli "Ha..."
+    Fa "But... now that she is under my... supervision, she might just learn to behave."
+    scene d17b-25
+    with dissolve
+    Fa "Na-ah... don't you dare bite me again..."
+    scene d17b-26
+    with dissolve
+    Sli "Mh..."
+    Fa "That's better..."
+    scene d17b-27
+    with dissolve
+    Sli "Mhm..."
+    Fa "There... all you need to do is listen to me."
+    scene d17b-28
+    with fade
+    Fa "Thank you for bringing her to me. I will continue to personally train her."
+    scene d17b-29
+    with dissolve
+    Z "Yeah... you girls have fun training tonight."
+    Z "Let me know whenever you need my advice. I'll go back to sleep."
+    scene d17b-28
+    with dissolve
+    Fa "Have a good rest."
+    scene d17b-29
+    with dissolve
+    scene black
+    with fade
+    "As they leave, you go back to sleep..."
+    call daily_reset from _call_daily_reset_1
+    jump mutants_command_center
+
+label d17c:
+    $ m_d17c = True
+    $ daily_lab = True
+    play music "audio/music/background/laboratory.mp3" fadeout 2
+    scene black pic
+    with fade
+    pause 2
+    scene d8c-11
+    with fade
+    Pe "Hello, [persistent.player_name]."
+    Z "Pepper..."
+    scene d17c-1
+    with fade
+    Pe "Good that you're here. If you have a moment, I have something I want to say to you."
+    scene d17c-2
+    with dissolve
+    Z "I'm listening..."
+    scene black pic
+    with fade
+    "She walks by you, puts her notebook down and leans against the machine..."
+    scene d17c-3
+    with fade
+    Pe "Thank you for fighting with us."
+    scene d17c-10
+    with dissolve
+    Pe "Specifically, thank you for protecting my sister."
+    scene d17c-3
+    with dissolve
+    Z "You're welcome. Also... I came to ask you, just so I know..."
+    Z "What is your number?"
+    scene d17c-10
+    with dissolve
+    Pe "You don't have to worry about me, [persistent.player_name]. My number is forty two."
+    scene d17c-3
+    with dissolve
+    Pe "I still have fifteen years. The real urgency on my research comes from my sister, who has less than half of that."
+    scene d17c-6
+    with dissolve
+    Pe "As you know, Mina is the main reason why I joined Fangs' group, and why I am working here."
+    scene d17c-10
+    with dissolve
+    Pe "I just don't want to lose her. I didn't leave my tribe to come here, only to see her die in some random fight."
+    if sapa_tribe_assimilated == True:
+        Pe "That said, now that my former tribe has opened the door to this place, I am highly motivated to continue."
+    else:
+        Pe "Either way, I am going back to my work, especially now that I don't have to hide my true purpose from Fangs anymore."
+    scene d17c-8
+    with dissolve
+    Pe "The research to figure out the difference in the genome between my people and men of... your kind, demands more work..."
+    scene d17c-6
+    with dissolve
+    if pepper_examination == True:
+        Pe "...and yes, that includes you, too."
+    else:
+        scene d17c-10
+        with dissolve
+        Pe "Regardless... I have said my piece. You have my appreciation."
+        Pe "Now... if you'll excuse me... I have to get back to work."
+        scene d17c-11
+        with dissolve
+        Z "Very well. See you around then, Pepper."
+        scene black pic
+        with fade
+        "You leave the laboratory..."
+        jump mutants_command_center
+    scene d17c-10
+    with dissolve
+    Pe "So, are you willing to continue donating samples?"
+    scene d17c-11
+    with dissolve
+    if pepper_exam_stage == 1:
+        jump d17c8
+    else:
+        menu:
+            "\"I am ready whenever you need me.\"":
+                label d17c8:
+                    Z "I am ready whenever you need me."
+                scene d17c-8
+                with dissolve
+                Pe "I hoped so."
+                scene d17c-10
+                with dissolve
+                Pe "However, I have maintenance and cleaning work to do today."
+                scene d17c-6
+                with dissolve
+                Pe "From tomorrow onward, you may visit me so I can continue helping you donate samples."
+                scene d17c-7
+                with dissolve
+            
+            "\"That depends...\"":
+                Z "That depends. It's getting repetitive, Pepper."
+                Z "Don't take it as an insult to your... manual skills." 
+                scene d17c-6
+                with dissolve
+                Pe "I see where you are coming from, and I won't."
+                scene d17c-8
+                with dissolve
+                Pe "However, I don't need to remind you that we are not a couple, and that my way to helping you climax is exclusively for scientific reasons."
+                scene d17c-3
+                with dissolve
+                Pe "If you have suggestions on how to speed up the procedure, you may make them next time. But I will not promise anything."
+                scene d17c-9
+                with dissolve
+
+    Z "Very well..."
+    scene black pic
+    with fade
+    "You leave the laboratory..."
+    jump mutants_command_center
+

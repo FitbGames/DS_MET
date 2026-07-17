@@ -1,0 +1,4241 @@
+label d21a:
+    $ m_d21a = True
+    "Some time has passed since I last visited [I].  I wonder if her friend, Sonmi was her name, has returned to her..."
+    scene black
+    stop music fadeout 3
+    queue music "audio/sounds/environment/desert wind.mp3" fadein 2
+    with slowfade
+    show d21a-1-anim
+    with slowfade
+    pause 3
+    show d21a-2-anim
+    with slowfade
+    pause 3
+    scene black
+    with slowfade
+    Z "[I]? It's me.{w=2}{nw}"
+    scene d21a-3-anim
+    with fade
+    I "...{w=3}{nw}"
+    scene d21a-4
+    with fade
+    I "It's good to see you again, [persistent.player_name]."
+    scene d21a-5
+    with dissolve
+    Z "Are you alone or did your friend return?"
+    scene d21a-5x
+    with dissolve
+    I "...she did. She is inside."
+    scene d21a-5x-2
+    with dissolve
+    Z "Good. Because it's best for you both to be there, for this."
+    scene d21a-5x-3
+    with dissolve
+    I "...?"
+    Z "I promised to take you back to your old home. The day has come."
+    scene d21a-5x-4
+    with dissolve
+    Z "But before that, I think I need to know more of what happened back there. To understand more."
+    scene d21a-5x-5
+    with dissolve
+    I "..."
+    scene d21a-5x-6
+    with dissolve
+    I "I see."
+    scene d21a-5x-7
+    with dissolve
+    pause 0.4
+    scene black
+    with fade
+    "As you move towards the entrance..."
+    scene d21a-6x
+    with hpunch
+    I "[persistent.player_name]! Wait..."
+    scene d21a-6x-2
+    with dissolve
+    I "Please, do not..."
+    scene d21a-6x-3
+    with fade
+    I "Do not call for her yet. She is resting."
+    scene d21a-6x-4
+    with dissolve
+    Z "Understood."
+    scene black
+    stop music fadeout 3
+    with slowfade
+    scene d21a-7
+    play music "audio/music/background/cave background.mp3" fadein 2
+    with slowfade
+    pause 2.5
+    scene d21a-8
+    with fade
+    Yu "The second and fourth files are the ones you want to read."
+    scene d21a-9
+    with dissolve
+    Z "If I remember right, those were locked last time, weren't they?"
+    show d21a-12-anim
+    with fade
+    pause 1
+    show d21a-12-anim-atl
+    pause 11
+    scene black
+    hide d21a-12-anim-atl
+    with fade
+    play sound "audio/sounds/objects/computer beep.mp3"
+    scene d21a-12x-22
+    with fade
+    pause 2
+    Z "\"High-rise\", \"What I saw\"..." 
+    Yu "The first one was from long before the... attack."
+    show screen ivy_comp_2()
+    play sound "audio/sounds/objects/computer press.mp3"
+    pause
+    label d21a12:
+        stop music fadeout 3
+    scene d21a-12x
+    hide screen ivy_comp_2
+    queue music "audio/music/decayed/dead city.mp3" fadein 2
+    with longflash
+    "More than eighty years earlier..."
+    So "Come on, Yuna! You sound like Aloi!"
+    Yu "Are you sure this is a good idea?"
+    show d21a-12x-12-anim
+    with slowfade
+    So "It doesn't hurt to try!"
+    So "I mean... Wherever these people come from, they must be desperate to explore this place."
+    Yu "I... agree with others... we shouldn't trust them."
+    So "But what if that's why they ended up in this place? Because people outside didn't trust them, just like they don't trust our kind?"
+    scene d21a-12x-3
+    with fade
+    So "Did you know they actually entered the inner parts of the city?"
+    So "That's what they told me, at least. It would explain why their appearance changed so much, eventually."
+    scene d21a-12x-4
+    with dissolve
+    Yu "You... talked to them? Where?"
+    scene d21a-12x-5
+    with dissolve
+    So "J-just... somewhere outside, of course."
+    scene d21a-12x-6
+    with dissolve
+    So "Don't worry, I didn't give away where we live, or anything specific!" 
+    scene d21a-12x-7
+    with dissolve
+    Yu "Sonmi, we talked about this..."
+    show d21a-12x-12x-anim
+    with fade
+    hide d21a-12x-12-anim
+    So "Yuna, I know you have seen more of this world than me. But I also want to learn more, you know?"
+    I "I understand, but..."
+    So "But it's not just about that!"
+    scene d21a-12x-10
+    play sound "audio/sounds/actions/metal footstep.mp3"
+    with fade
+    Yu "Where are you going? Be careful!"
+    So "Isn't it obvious? No one who comes into the city truly stays here willingly. Neither do we, really!"
+    So "Sure, we have the tower, but if we didn't have to hide from those desert people, perhaps we would have found another safe place by now..."
+    So "A place with clean air, maybe!"
+    scene d21a-12x-11
+    with fade
+    So "Anyway, we're here now and it is what it is... we should stick together. What do you think?"
+    scene d21a-12x-12
+    with dissolve
+    Yu "As you say, I have been to other places before. There are many people who are desperate and it often means they don't necessarily want what's good for you."
+    Yu "Many times, it's the exact opposite."
+    scene d21a-12x-13
+    with fade
+    So "I know that. All I'm saying is, we can't paint everybody with the same brush! Not everybody is that way."
+    So "Maybe that's exactly the mistake people made back then, why all of this happened in the first place."
+    scene d21a-12x-14
+    with dissolve
+    So "They saw this city and thought it wasn't worth saving, so they left it to rot. They only saw the mud, and not the diamonds hidden underneath."
+    Yu "Sonmi, you're going too far..."
+    scene d21a-12x-15
+    with dissolve
+    So "Come on, Yuna! You've read the same books I am reading. \"Do whatever you can't not do\"!"
+    scene d21a-12x-16
+    with fade
+    Yu "Alright, that's enough! What you're doing is dangerous!"
+    scene d21a-12x-17
+    with dissolve
+    Yu "Come back, please..."
+    scene d21a-12x-18
+    with fade
+    So "Woow... you should see this!"
+    So "Have you ever seen the city laid out under your feet from this high? It's beautiful."
+    scene d21a-12x-19
+    with dissolve
+    So "I can't imagine what it must have looked like befor-"
+    scene d21a-12x-20
+    play sound "audio/sounds/actions/metal footstep 2.mp3"
+    with vpunch
+    So "Ah-!"
+    scene d21a-12x-21
+    with Dissolve(0.3)
+    I "Sonmi!"
+    scene black
+    stop music fadeout 4
+    queue music "audio/music/background/cave background.mp3" fadein 2
+    with longflash
+    scene d21a-10
+    with slowfade
+    Yu "..."
+    scene d21a-9x
+    with dissolve
+    Yu "The next part... is Sonmi's writings."
+    scene d21a-9x-2
+    with dissolve
+    Z "So this is what happened? But why did she..."
+    scene d21a-9x
+    with dissolve
+    I "We thought that writing the words could help her make peace with it."
+    scene d21a-9x-2
+    with dissolve 
+    scene d21a-11
+    with fade
+    "As you read through her detailed accounts of the incident, your burning questions begin to find some answers..."
+    "She was there for all of it. Not from a distance. Not in fragments passed down through someone else's retelling."
+    "She witnessed every moment firsthand, the kind of thing that doesn't just stay in your memories, but settles into your soul, your dreams, and refuses to leave."
+    "Whoever she was before that day, some part of her died that day."
+    "Something in her had shifted permanently, irrevocably, and you can feel it in every word she wrote. It reads like an gaping wound."
+    pause 0.5
+    Z "I see it now."
+    scene d21a-13
+    with fade
+    I "The things your people call the decayed... they are still there."
+    I "Perhaps, likely, not the same ones, and maybe not inside the tower, but they still linger in the same place. This is where I was caught."
+    scene d21a-14
+    with dissolve
+    Z "I have dealt with them before, for many years. What happened to you, will not happen again."
+    scene d21a-15
+    with fade
+    Z "I will make sure of it."
+    Z "Is there anything else that keeps you from entering the tower?"
+    scene d21a-17
+    with dissolve
+    I "No... the bunker is accessed through the same code as the one in the desert."
+    Z "Good. Then we need to let your friend know that..."
+    pause 0.7
+    I "She's already here."
+    scene d21a-18
+    with fade
+    So "What have I missed?!"
+    I "..."
+    scene d21a-19x
+    with dissolve
+    So "Don't tell me you still want to go out there again..."
+    scene d21a-19
+    with dissolve
+    Z "{i}*sigh*{/i}"
+    scene black
+    with fade
+    "You stand up..."
+    scene d21a-21
+    with fade
+    Z "If you're unwilling to listen to your friend, listen to me instead."
+    Z "I have read everything. I know what you both witnessed."
+    scene d21a-23
+    with dissolve
+    Z "You have been carrying this for longer than I have been alive, and it still hurts you to this day. This much is clear to me."  
+    Z "...The same is true for her."
+    scene d21a-24
+    with dissolve
+    I "..."
+    scene d21a-25
+    with fade
+    Z "But she has dealt with that pain."
+    scene d21a-26
+    with dissolve
+    Z "She even tried to go back to that place for you, and ended up getting caught for her troubles.."
+    Z "Had I not encountered her by chance, she would have died."
+    scene d21a-26x
+    with dissolve
+    So "..."
+    Z "If you honour the risks she was willing to take for you, the least you can do is listen to her, after all these years."
+    scene d21a-22
+    with fade
+    Z "Anyway, I've decided to escort you two back to the old tower. This is her wish for you." 
+    scene black
+    with fade
+    "You approach [I]..."
+    scene d21a-28
+    with fade
+    Z "I have been to the inner city before. It's actually pretty readily accessible from this place."
+    scene d21a-29
+    with dissolve
+    Z "So what do you say..."
+    scene d21a-30
+    stop music fadeout 3
+    with fade
+    Z "Do you want to go for a ride?"
+    scene d21a-31
+    with dissolve
+    I "..."
+    pause 0.5
+    $ renpy.music.set_volume(1, delay = 0, channel="music")
+    play music "audio/music/decayed/two towers.mp3"
+    show screen cutscene_marker
+    show d21a-32-40-anim
+    pause 46
+    hide screen cutscene_marker
+    scene d21a-41
+    $ renpy.music.set_volume(0.3, delay = 3.0, channel="music")
+    with slowfade
+    I "..."
+    scene d21a-42
+    with fade
+    Z "This should be the place, right?"
+    I "...yes."
+    scene d21a-43
+    with fade
+    Z "Let's stick together, then. I see those living corpses wandering around everywhere."
+    scene d21a-44
+    with dissolve
+    Z "You brought your bow, [I]."
+    Z "Be ready to use it."
+    scene d21a-45
+    with slowfade
+    "You take a long look at the scene stretching before you. The blood-soaked light paints the ruins of this city quarter with a red hue."
+    "Countless buildings reduced to the skeletal frames of what they once were, stand tall but fragile against the dark sky." 
+    "In the middle of it all, a small tower, incongruous, maybe once disguised as an architectural feature, stands solitary and untarnished."
+    scene d21a-46
+    with fade
+    "The undead city is silent as the three of you move forward."
+    "The only sounds that accompany your footsteps shuffling in the dust are the creaking of nearby buildings, disturbed by the wind and the occasional wail of a distant Decayed scavenger."
+    scene d21a-47
+    with fade
+    "The elves first follow you, then you notice them fall behind and slow your pace. For you, this place reeks of death and always has. For them, this was home."
+    scene d21a-48
+    with fade
+    I "We... must tread carefully here."
+    Z "Is this where it all happened, last time?"
+    scene d21a-49
+    with dissolve
+    I "...yes."
+    scene d21a-50
+    with fade
+    I "I remember them clearly..."
+    scene d21a-51
+    with dissolve
+    I "...but it wasn't just them... There were a lot more when it happened."
+    scene d21a-52
+    with fade
+    Dec "Hrr... do you see that..."
+    scene d21a-53
+    with dissolve
+    "With acrid groaning, the Decayed turn their heads towards you..."
+    scene d21a-54
+    with dissolve
+    Z "Murderers. Banished thieves. Broken soldiers. Bereaved widowers. Not every Decayed started their transformation a victim to the change." 
+    Z "Some chose to be here knowing what they would become."
+    Z "I know the stories of these men, and why they chose this hell."
+    scene d21a-55
+    with fade
+    "Instinctively, they ready their arms..."
+    scene d21a-57
+    with fade
+    I "[persistent.player_name], watch your left."
+    "A figure reveals herself from inside the next building..."
+    scene d21a-58
+    with fade
+    Dec "Do you have a death wish, travellers? Because I will not be able to hold these men back for much longer."
+    Dec "Should I decide to try in the first place..."
+    scene d21a-59
+    with dissolve
+    Dec "...plenty of meat on you to satisfy the dreaded hunger."
+    menu:
+        "\"Let's get rid of them, [I].\"":
+            scene d21a-60
+            with fade
+            Z "Let's get rid of them, [I]. You start with him."
+            scene d21a-61
+            with dissolve
+            I "..."
+            scene d21a-59
+            with dissolve
+            Dec "What the fuck are you doing down there..."
+            scene d21a-58
+            with dissolve
+            Dec "...wait, is that a..."
+            jump d21a64
+            
+        "\"Lord Abrax sends his regards.\"":
+            scene d21a-60
+            with fade
+            Z "Lord Abrax sends his regards. I doubt he would appreciate his soldiers being so undisciplined!"
+            scene d21a-58
+            with fade
+            Dec "Lord Abrax... and what are you then? Another disciple eager to join his cult?!"
+            Dec "If those women are your tribute, we would... happily accept."
+            scene d21a-59
+            with dissolve
+            Dec "...but if you are looking to turn, then we won't help you."
+            Dec "This is not his territory, here. We are not his puppets."
+            menu:
+                "\"Get ready, [I].\"":
+                    $ d21a_decayed_killed = True
+                    scene d21a-60
+                    with fade
+                    Z "Get ready, [I]. We will make this quick."
+                    scene d21a-61
+                    with dissolve
+                    I "..."
+                    scene d21a-59
+                    with dissolve
+                    Z "Tributes, you say?"
+                    scene d21a-58
+                    with dissolve
+                    Z "As you wish... here's one."
+                    jump d21a64
+
+                "\"I was his apprentice. Let us pass through.\"":
+                    $ d21a_decayed_killed = False
+                    Z "I was his apprentice, once..."
+                    scene d21a-62
+                    with dissolve
+                    I "...?"
+                    Z "If any part of that rotten brain of yours is still working, do the smart thing and let us through."
+                    Z "I will tell him to spare you and your tribe. Attack us, and you will die."
+                    Z "...either by our hands, or by those of his men." 
+                    scene d21a-59
+                    with fade
+                    Dec "You? Lord Abrax's disciple? Give me a reason to believe you have spoken to him..."
+                    Z "Have you been to his personal chambers? Have you seen him seated in power, his two women to his side?"
+                    Z "I have. That and more."
+                    Z "But then, I knew him well, from the time before his ascension. That's one reason he let me go unharmed. You don't want to find out the other." 
+                    scene d21a-58
+                    with dissolve
+                    Dec "His... chambers."
+                    Dec "You... you aren't bluffing."
+                    scene d21a-60
+                    with fade
+                    Dec "Men... {i}*sighs*{/i}"
+                    Dec "Stand aside. There shall be no fighting, today."
+                    scene d21a-68
+                    with fade
+                    stop music fadeout 5
+                    queue music "audio/music/decayed/old cairo.mp3"
+                    $ renpy.music.set_volume(1, delay = 3.0, channel="music")
+                    Z "Come, you two. Let's not wait for them to change their minds."
+                    scene d21a-69
+                    with dissolve
+                    So "..."
+                    jump d21a71x
+
+    label d21a64:
+        play sound "audio/sounds/objects/arrow 2.mp3"
+        pause 0.9
+        $ d21a_decayed_killed = True
+        scene d21a-64
+        with hpunch
+        pause 0.2
+        scene d21a-65
+        with dissolve
+        pause 0.2
+        scene black
+        with fade
+        play sound "audio/sounds/actions/drop.mp3"
+        pause 0.5
+        scene d21a-63
+        with fade
+        Z "Well done. Now turn around; they're coming."
+        scene d21a-66
+        with fade
+        "A feral growl rises as the decayed march toward you..."
+        scene d21a-67
+        with dissolve
+        I "I'm taking the slow ones."
+        scene d21a-68
+        with fade
+        stop music fadeout 5
+        "As you fight your way through the crowd..."
+        queue music "audio/music/decayed/old cairo.mp3"
+        $ renpy.music.set_volume(1, delay = 3.0, channel="music")
+        scene d21a-69
+        with dissolve
+        So "..."
+        Z "Sonmi, stay close as we get through them, before others show up!"
+        jump d21a71x
+
+    label d21a71x:
+        scene d21a-70
+        with slowfade
+        Z "Sonmi!..."
+        scene d21a-71
+        with Dissolve(1)
+        C "I'm... so... hungry..."
+        scene d21a-71x
+        with Dissolve(2)
+        C "Please... Sonmi..."
+        scene d21a-71x-2
+        with fade
+        Decm "That... is your name, is it not?"
+        scene d21a-71x-3
+        with fade
+        Decm "Please... I know..."
+        Decm "...that you have food in there."
+        scene d21a-71x-4
+        with dissolve
+        So "I..."
+        scene d21a-71x-5
+        with fade
+        So "I'm sorry, but I can't..."
+        Al "Sonmi, h-he knows your name?"
+        scene d21a-71x-7
+        with fade
+        Al "Please. I don't know who this is..."
+        scene d21a-71x-8
+        with dissolve
+        Al "...but we need to leave, now."
+        scene d21a-71x-9
+        with dissolve
+        Al "We are not safe out here. Please, think of Lunai."
+        Lu "..."
+        scene black
+        stop music fadeout 3
+        with slowfade
+        pause 0.5
+        scene black
+        play music "audio/music/mutants/sapa ambience.mp3" fadein 2
+        $ renpy.music.set_volume(1, delay = 3.0, channel="music")
+        pause 2
+        scene d21a-72
+        with slowfade
+        "As you enter the tower, you are reminded of the similar entrance to the bunker where the mutants live."
+        "You recognize the pattern of ramshackle surroundings, the large somewhat rusty but still sealed gate..."
+        "...and just like when you first followed her, the short-haired elf is approaching what appears to be a switch."
+        scene d21a-73
+        with fade
+        "[I] and Sonmi are silent, almost solemn, as they take in the surroundings..."
+        scene d21a-74
+        with dissolve
+        "...a place they have not dared to come to for more than eighty years."
+        show screen cutscene_marker
+        show d21a-75-76-anim
+        with fade
+        pause 2.8
+        $ renpy.music.set_volume(0.3, delay = 3.0, channel="music")
+        play sound "audio/sounds/environment/hermetic gate long.mp3"
+        pause 3.5
+        scene black
+        with slowfade
+        pause 3
+        scene d21a-77
+        with slowfade
+        show d21a-78-anim
+        pause 12
+        $ renpy.music.set_volume(1, delay = 5.0, channel="music")
+        scene d21a-79
+        with slowfade
+        pause 2.5
+        hide screen cutscene_marker
+        "As the large vault door opens, the three of you forget to breathe for a moment, as you take in the environment."
+        stop sound fadeout 1
+        "A thick layer of dust and a dry sense of stuffy decay fill the air, debris and remains of a different time are scattered everywhere."
+        "For you, this place is long abandoned. But your two companions see so much more."
+        "And for a moment, the white-haired girl's breathing becomes quick and shallow."
+        scene d21a-80
+        with fade
+        pause 0.5
+        play sound "audio/sounds/actions/gas mask take off.mp3"
+        pause 0.7
+        scene black
+        with fade
+        pause 0.5
+        scene d21a-81
+        with fade
+        pause 2.3
+        scene d21a-82
+        with dissolve
+        So "..."
+        pause 0.5
+        scene d21a-83
+        with slowfade
+        "Once that sense of urgent breathing passes, the silence is deafening. Finally you see the source of her distress..."
+        scene d21a-84
+        with fade
+        pause 1
+        "You step forward, approaching the withered corpse."
+        scene d21a-85
+        with dissolve
+        pause 1
+        "It's mouth open, and face twisted, you recognize the ears."
+        "Even after all this time, the clear marks of stab wounds and dried blood spatters make it obvious that his death must have been painful and tragic."
+        scene d21a-86
+        with fade
+        "Sonmi and you stand before it, and you notice a slight trembling in her hands, as her gaze is fixed on someone who was once family to her."
+        scene d21a-87
+        with fade
+        I "..."
+        scene d21a-88
+        with dissolve
+        pause 1.3
+        scene d21a-89
+        with dissolve
+        pause 0.5
+        scene d21a-90
+        with fade
+        pause 1
+        play sound "audio/sounds/objects/computer press.mp3"
+        "She presses a button, and you notice the heavy steel walls behind you start to move..."
+        show d21a-92-anim
+        play sound "audio/sounds/environment/hermetic gate close.mp3"
+        with fade
+        pause 11
+        play sound "audio/sounds/environment/gate close and ventilation.mp3"
+        scene d21a-94
+        with Dissolve(0.5)
+        pause 3
+        scene d21a-95
+        with Dissolve(3)
+        pause 2
+        I "{i}*gasps*{/i}"
+        stop sound fadeout 4
+        scene d21a-96
+        with fade
+        "With the door in front of her open, [I] sharply inhales, before pausing..."
+        pause 0.5
+        scene d21a-97
+        with dissolve
+        I "Sonmi, you..."
+        scene d21a-98
+        with dissolve
+        I "...you don't have to go in there."
+        scene d21a-99
+        with dissolve
+        So "...?"
+        scene black
+        with fade
+        pause 0.5
+        scene d21a-100
+        with fade
+        I "I'm sorry..."
+        scene d21a-101
+        stop music fadeout 10
+        play sfx_1 "audio/sounds/environment/soft ventilation.mp3" fadein 10 noloop
+        with dissolve
+        I "...but there is nothing left."    
+        scene d21a-102
+        with slowfade
+        So "..."
+        scene d21a-103
+        with dissolve
+        pause 0.8
+        scene d21a-104
+        play sound "audio/sounds/environment/light flickering.mp3"
+        with Dissolve(0.1)
+        pause 0.2
+        scene d21a-103
+        with dissolve
+        pause 1
+        "She stares at the old chairs. Those which she described in explicit detail in her writings."
+        scene d21a-105
+        with fade
+        "The centerpiece, the tangible evidence and reminder of that one moment in time that changed her life forever."
+        scene d21a-106
+        with fade
+        So "..."
+        show d21a-107-anim
+        with fade
+        pause 4
+        scene d21a-108
+        with slowfade
+        pause 1.2
+        So "..."
+        scene d21a-109
+        with dissolve
+        pause 2.5
+        scene d21a-110
+        with dissolve
+        $ renpy.music.set_volume(1, delay = 3.0, channel="music")
+        So "I want you back..."
+        scene d21a-109
+        with dissolve
+        scene black
+        stop sfx_1 fadeout 3
+        with fade
+        play sound "audio/sounds/actions/drop 3.mp3"
+        scene d21a-111
+        queue music "audio/music/exploration/cursed souls.mp3" fadein 3
+        with fade
+        So "I want you back... {i}*sniff*{/i}"
+        So "Please... oh please... Aloi... Lunai..."
+        scene d21a-112
+        with dissolve
+        So "Please.... it's not right... {i}*sobs*{/i}"
+        scene d21a-112x
+        with Dissolve(2)
+        So "...Please don't hurt him."
+        So "I beg of you!"
+        scene d21a-112x-2
+        play sound "audio/sounds/actions/hand grip.mp3"
+        with hpunch
+        So "Aaah!"
+        Decm "Keep your head up, girl!"
+        scene d21a-112x-3
+        with dissolve
+        So "Please, please don't hurt him. I will do anything... not him!"
+        scene d21a-112x-4
+        with dissolve
+        Decm "He's that important to you, huh?!"
+        scene d21a-112x-5
+        with dissolve
+        Decm "Yeah... I remember him. He was the one telling you to get back inside..."
+        scene d21a-112x-6
+        with dissolve
+        Decm "Back underground, like the cockroach he is..."
+        scene d21a-112x-7
+        with fade
+        Decm "Should've let us in here, you two."
+        Decm "Shouldn't have been showing off, with your clean faces, your full bellies..."
+        Decm "...had your own perfect bunker in here all along, but were too good to share though, all this time."
+        scene d21a-112x-8
+        with dissolve
+        Al "Sonmi, I'm sorry it came to this. Please don't think this is your fault."
+        scene d21a-112x-9
+        with dissolve
+        Al "I love you, and always will. And I will see you again, on the other side."
+        Decm "See you on the other side, ay?! And what if there ain't nothing after this? {i}*laughs*{/i}"
+        scene d21a-112x-10
+        with dissolve
+        So "No... please. He doesn't deserve this..."
+        Decm "Don't {i}deserve{/i}?!"
+        scene d21a-112x-11
+        with dissolve
+        Decm "I'll tell you what, little flower. There's nothing you deserve."
+        Decm "Look at us! Do you think we deserve to have our skin rot in this hellscape of a city?"
+        scene d21a-112x-12
+        with dissolve
+        Decm "No. The only thing you deserve, is DEATH. The weak are meat, nothing else!"
+        scene d21a-112x-13
+        with dissolve
+        Decm "Now open your eyes, and watch the fruit of your choices. Only you were brave and stupid enough."
+        scene d21a-112x-14
+        with dissolve
+        Al "Don't ever forget, Sonmi. Death is just another path." 
+        if persistent.gore == True:
+            scene d21a-112x-15
+            play sound "audio/sounds/gore/cut meat.mp3"
+            with dissolve
+            Al "Nhghaa... White shores..."
+            Al "...remember."
+            scene d21a-112x-16
+            with hpunch
+            So "NOOOO!!! Aloi...!"
+            scene d21a-112x-17
+            play sound "audio/sounds/gore/flesh 1.mp3"
+            with dissolve
+            Al "Agh... I... love you... both..."
+            So "{i}*whimpering*{/i} Aloi..."
+            scene d21a-112x-18
+            play sound "audio/sounds/gore/cut meat.mp3"
+            with dissolve
+            Al "{i}*cough*{/i}"
+            scene d21a-112x-19
+            play sound "audio/sounds/gore/flesh pull.mp3"
+            with dissolve
+            Al "..."
+            So "{i}*crying*{/i} This is not real... please..."
+            So "...wake me up..."
+            scene d21a-112x-20
+            with fade
+            Decm "He's bleeding out like a pig, tsk. I haven't eaten anything good for weeks..."
+            scene d21a-112x-21
+            with dissolve
+            Al "{i}*exhales*{/i}"
+            So "A-Aloi... Aloi?!"
+            scene d21a-112x-22
+            with dissolve
+        else:
+            scene d21a-112x-22
+            with fade
+            play sound "audio/sounds/gore/cut meat.mp3"
+            Al "Nhghaa... White shores..."
+            Al "...remember."
+            So "NOOOO!!! Aloi...!"
+            play sound "audio/sounds/gore/flesh 1.mp3"
+            Al "Agh... I... love you... both..."
+            So "{i}*whimpering*{/i} Aloi..."
+            play sound "audio/sounds/gore/cut meat.mp3"
+            Al "{i}*cough*{/i}"
+            play sound "audio/sounds/gore/flesh pull.mp3"
+            Al "..."
+            So "{i}*crying*{/i} This is not real... please..."
+            So "...wake me up..."
+            Decm "He's bleeding out like a pig, tsk. I haven't eaten anything good for weeks..."
+            Al "{i}*exhales*{/i}"
+            So "A-Aloi... Aloi?!"
+        So "P-please, talk to me. Please... please..."
+        scene d21a-112x-23
+        with dissolve
+        Decm "Looks like your friend is gone, girl."
+        scene d21a-112x-24
+        with dissolve
+        Decm "...and you're soon to join him! But before that, let us see who else we caught in these halls, shall we?"
+        scene d21a-112x-25
+        with dissolve
+        Decm "...you spoiled, ignorant elven freak."
+        scene black
+        with fade
+        Decm "HELP ME CARRY HER..."
+        scene d21a-112x-26
+        play sound "audio/sounds/actions/drop 2.mp3"
+        with vpunch
+        Decm "There!"
+        Decm "This is where meatbags like you belongs."
+        scene d21a-112x-27
+        with dissolve
+        Decm "Boss, we've found one more."
+        C "W-where are you taking me...?"
+        with vpunch
+        C "Ah! P-please let me go!"
+        So "No..."
+        scene d21a-112x-28
+        with dissolve
+        Lu "S-sonmi? Where is Aloi? W-what do we do?!"
+        Decm "More fresh meat!"
+        scene d21a-112x-29
+        with dissolve
+        Lu "Sister, why are you looking like this? What are they doing to us?"
+        scene d21a-112x-30
+        with dissolve
+        So "I... I am so sorry..."
+        So "...for everything."
+        scene d21a-112x-31
+        with dissolve
+        Decm "How do they keep this clean and smooth..."
+        scene d21a-112x-32
+        with dissolve
+        Decm "Can't believe I'd end up doing this, but she's gonna keep me fed for a long while!"
+        scene d21a-112x-33
+        with dissolve
+        Decm "Get to work, you freak! Let's get the meat and leave."
+        scene d21a-112x-34
+        with fade
+        Decm "One clean chop will do the trick!"
+        Lu "W-what are you..."
+        scene d21a-112x-35
+        with dissolve
+        So "Please, don't... not her..."
+        So "...out of anyone... please not Lunai. Take me!"
+        scene d21a-112x-36
+        with dissolve
+        Decm "Shut up! You know begging won't help!"
+        scene d21a-112x-37
+        with dissolve
+        Lu "W-why are you looking like that, are they... going to do something bad?"
+        So "Not Lunai... I'm begging you..."
+        pause 0.3
+        Lu "Sonmi... I'm scared!"
+        stop music fadeout 1
+        if persistent.gore == True:
+            show d21a-112x-38-anim
+            pause 0.1
+            play sound "audio/sounds/gore/cleaver cinematic.mp3"
+            pause 0.2
+            with vpunch
+            pause 2.1
+            $ renpy.music.set_volume(1, delay = 1.0, channel="music")
+            play music "audio/music/mutants/sonmis theme.mp3"
+            Lu "..."
+            show d21a-112x-40-40x-anim
+            with Dissolve(0.3)
+        else:
+            show d21a-112x-40-40x-anim
+            with Dissolve(0.3)
+            pause 0.1
+            play sound "audio/sounds/gore/cleaver cinematic.mp3"
+            pause 0.2
+            with vpunch
+            pause 2.1
+            $ renpy.music.set_volume(1, delay = 1.0, channel="music")
+            play music "audio/music/mutants/sonmis theme.mp3"
+        So "..."
+        if persistent.gore == True:
+            show d21a-112x-42-anim
+            play sound "audio/sounds/objects/knife on wood.mp3"
+            with Dissolve(0.3)
+            pause 3
+            scene d21a-112x-44
+            play sound "audio/sounds/gore/cleaver.mp3"
+            with vpunch
+            pause 1.3
+            scene d21a-112x-45
+            play sound "audio/sounds/gore/flesh 1.mp3"
+            with dissolve
+            pause 1.2
+        scene d21a-112x-46
+        play sound "audio/sounds/actions/drop 2.mp3"
+        with fade
+        Decm "Finally silent, girl?"
+        Decm "Good. I like it when they don't resist."
+        scene d21a-112x-47
+        with dissolve
+        Decm "I'm going to... ngh... take off these clothes before you can join your friends."
+        scene d21a-112x-48
+        with fade
+        Decm "That's what you believe in, don't you? Seeing someone in the next life and what not?"
+        Decm "Tsk... maybe you're right. Maybe we all deserve a better life."
+        if persistent.gore == True:
+            scene d21a-112x-49
+            play sound "audio/sounds/gore/nasty knife stab 2.mp3"
+            with vpunch
+            Decm "Now, what you don't deserve, is an easy death, if you don't stop cramping up!!"
+            scene d21a-112x-50
+            play sound "audio/sounds/gore/cut meat.mp3"
+            with dissolve
+            So "..."
+            Decm "Let me take off these clothes, do you hear me?!"
+            scene d21a-112x-51
+            with dissolve
+        Decm "Why do you have to make it so damn hard. Just... nh..."
+        scene d21a-112x-52
+        with fade
+        Decm "Ah, you know what, fuck it. I might as well just finish you off."
+        scene d21a-112x-53
+        with dissolve
+        Decm "Your journey is over, stupid girl. It's been real nice of you to show us the way in."
+        scene d21a-112x-54
+        with dissolve
+        Decm "Putting up with your lectures was rough. But it was worth it in the end. We've got what we wanted."
+        Decm "Now, see you on the other side."
+        play sound "audio/sounds/objects/arrow 1.mp3"
+        pause 0.5
+        scene black
+        with hpunch
+        pause 0.5
+        play sound "audio/sounds/actions/drop 4.mp3"
+        pause 0.5
+        Decm "M-Malik?... What happe-"
+        play sound "audio/sounds/objects/arrow 2.mp3"
+        pause 0.8
+        with hpunch
+        Decm "What is going on?!"
+        play sound "audio/sounds/objects/arrow 3.mp3"
+        with hpunch
+        pause 0.5
+        play sound "audio/sounds/actions/drop.mp3"
+        pause 1
+        scene d21a-112x-56
+        with fade
+        Decm "Nkgh... agh..."
+        scene d21a-112x-57
+        with dissolve
+        Decm "{i}*exhales*{/i}"
+        scene d21a-112x-58
+        with fade
+        Yu "Murderers..."
+        scene d21a-112x-59
+        with dissolve
+        Yu "S-Sonmi.. is that you?"
+        scene d21a-112x-60
+        with dissolve
+        Yu "Did they hurt you?! The others, they are..."
+        scene d21a-112x-61
+        with dissolve
+        Yu "Where is Lu-..."
+        scene d21a-112x-62
+        with dissolve
+        Yu "{i}*gasps in terror*{/i}"
+        Yu "No..."
+        scene d21a-112x-63
+        with dissolve
+        scene black
+        play sound "audio/sounds/actions/running.mp3"
+        with fade
+        Yu "Sonmi. You need to be strong now. We need to run fast..."
+        Yu "...and far, far away from here!"
+        scene d21a-113
+        with slowfade
+        pause 0.5
+        So "Please... come back..."
+        So "{i}*whimpers*{/i}"
+        scene d21a-114
+        with dissolve
+        So "That's all... I want."
+        scene d21a-115
+        with dissolve
+        So "I am sorry for talking to them. I am sorry. They followed me home."
+        scene d21a-116
+        with dissolve
+        So "I am sorry I was so naive. Please, come back to me, please!!"
+        scene d21a-117
+        with dissolve
+        So "You didn't deserve it... They should have taken me instead."
+        "She cries out..."
+        I "..."
+        scene d21a-118
+        with dissolve
+        I "I'm sorry, but I must go to her."
+        I "There is something... I'd like you to bring me."
+        I "You will know what I mean. Take a look at the device. It should still work."
+        scene d21a-119
+        with dissolve
+        scene d21a-120
+        with fade
+        "You look to your right, and notice a device similar to the one in [I]'s hideout..."
+        scene black
+        with fade
+        I "Come here, Sonmi."
+        scene d21a-121
+        with fade
+        So "{i}*sobs*{/i} Can we really not bring them back, Yuna?"
+        I "You know this... We can't..."
+        scene d21a-122
+        with fade
+        So "...I still miss them so much."
+        I "..."
+        scene d21a-123
+        with dissolve
+        "The two of them share a moment together, and Sonmi's crying eventually turns into a quiet sobbing..."
+        scene d21a-124
+        with fade
+        "You quietly approach the device in the meantime, wondering what [I] meant for you to bring her."
+        scene d21a-125
+        with fade
+        pause 1
+        Z "How to start this thing..."
+        pause 0.8
+        show d21a-125-anim
+        pause 4.25
+        call screen bunker_computer
+        show screen bunker_computer_2()
+        with fade
+        pause
+        label d21a127:
+            scene d21a-127    
+            hide screen bunker_computer_2
+            with fade
+            # "You reach for the screen..."
+        Zt "This message is not for me to open."
+        pause 0.7
+        scene d21a-128
+        play sound "audio/sounds/objects/unplug.mp3"
+        with Dissolve(0.2)
+        pause 0.8
+        scene black
+        with fade
+        "With the tab in your hand, you walk over to [I]..."
+        scene d21a-129
+        with fade
+        Z "I think this is what you wanted."
+        scene d21a-130
+        with fade
+        I "..."
+        pause 1.2
+        scene d21a-131
+        with dissolve
+        I "..."
+        "Her eyes lighten up..."
+        scene d21a-132
+        with dissolve
+        I "..."
+        scene d21a-133
+        with dissolve
+        I "Yes, this is what I was searching for. Thank you."
+        scene d21a-134
+        with dissolve
+        I "Sonmi, look, this is why I brought us here."
+        I "A message from Aloi, to you."
+        scene d21a-135
+        with dissolve
+        pause 0.6
+        scene d21a-136
+        with dissolve
+        pause 1.2
+        scene d21a-137
+        with fade
+        So "..."
+        pause 0.8
+        scene d21a-138
+        with dissolve
+        So "{i}*gasps*{/i}"
+        So "It's..."
+        scene d21a-139
+        with dissolve
+        So "...it's really him."
+        scene d21a-140
+        with dissolve
+        pause 0.6
+        scene d21a-141
+        with fade
+        So "He... really wrote this..."
+        I "He did. And he wanted me to give it to you, when the time was right."
+        scene d21a-142
+        with slowfade
+        "The two of them read the message together, and for the first time, you see a faint smile cross the stern features of the white haired elf."
+        "You step outside the room, granting them the privacy of this moment, that you recognise being for them only..."
+        "...and wait until the time comes to travel back to the hideout."
+        scene black
+        stop music fadeout 6
+        with slowfade3
+        pause 2
+        scene d21a-143
+        play music "audio/sounds/environment/desert wind.mp3"
+        with slowfade
+        pause 2
+        So "I'm leaving, Yuna."
+        scene d21a-144
+        with slowfade
+        I "But... we just came back from there... are you sure, that...-"
+        scene d21a-145
+        with dissolve
+        So "I am."
+        scene d21a-146
+        with slowfade
+        So "And don't come looking for me."
+        scene d21a-147
+        with fade
+        So "Whatever happens."
+        scene d21a-148
+        with dissolve
+        I "But Sonmi, I..."
+        scene d21a-149
+        with dissolve
+        So "I'm sorry, Yuna."
+        scene d21a-150
+        with dissolve
+        "She turns around and leaves..."
+        scene d21a-151
+        with slowfade
+        I "Why do I have a feeling that it's different, this time..."
+        scene d21a-152
+        with dissolve
+        I "...do you want to stay a little longer?"
+        scene d21a-153
+        with dissolve
+        menu:
+            "\"Gladly.\"":
+                Z "Gladly."
+                scene d21a-154
+                with dissolve
+
+            "\"I can stay for a while, yes.\"":
+                Z "I can stay for a while, yes."
+                scene d21a-155
+                with dissolve
+
+        pause 0.8
+        scene d21a-156
+        with fade
+        I "We can go up there, if you want?"
+        scene d21a-157
+        with dissolve
+        I "I will be with you in a few minutes, if that is okay."
+        scene black
+        stop music fadeout 3
+        with slowfade
+        "Twenty minutes later..."
+        scene d21a-158
+        queue music "audio/music/mutants/ivys theme.mp3" fadein 6
+        $ renpy.music.set_volume(0.2, delay = 3.0, channel="music")
+        with slowfade
+        Zt "This place is beautiful..."
+        I "Are you not scared of heights?"
+        scene d21a-159
+        with dissolve
+        Z "I have had to climb entire pyramids before. This is different, but not undoable."
+        I "{i}*giggles*{/i} "
+        scene d21a-160
+        with fade
+        I "Then we share a similar fate. Sonmi loved to climb the tallest of towers."
+        scene d21a-161
+        with dissolve
+        I "And she'd try to balance her steps like this. It never not made me worry!"
+        I "It requires only one single step to expose our fragility."
+        scene d21a-162
+        with fade
+        I "To be fair, she got really good at it. And she always had a big smile when climbing!"
+        I "But... those times are over."
+        scene d21a-163
+        with dissolve
+        I "Everything eventually changes, one way or another."
+        scene d21a-164
+        with dissolve
+        pause 0.5
+        scene black
+        with fade
+        "She sits down next to you..."
+        scene d21a-165
+        with fade
+        I "..."
+        Z "You're very resilient."
+        I "Me? What makes you say that?"
+        Z "I've seen it ever since you left my house."
+        scene d21a-166
+        with fade
+        Z "Always moving forward, always focused on what's next."
+        Z "The decayed didn't get to you."
+        Z "You found Fangs. Built a place for yourself among strangers."
+        Z "And now you're asking me to help your friend."
+        Z "Who depends on you, too."
+        scene d21a-167
+        with dissolve
+        I "..."
+        scene d21a-167x
+        with dissolve
+        I "Sometimes it feels like looking after family."
+        I "But you know more about that than me."
+        scene d21a-167x-2
+        with dissolve
+        "She giggles quietly..."
+        Z "Would I?"
+        Z "How long has it been since you found the first tower? A hundred years?"
+        scene d21a-168
+        with fade
+        I "I..."
+        scene d21a-168x
+        with dissolve
+        "She smiles..."
+        scene d21a-170
+        with fade
+        I "Probably... yes."
+        label d21a_ivy_conversation:
+            if d21a_ivy_q1 == True and d21a_ivy_q2 == True and d21a_ivy_q3 == True and d21a_ivy_q4 == True:
+                jump d21a172
+        menu:
+            "\"You have never lost that resilience. Why is that?\"" if d21a_ivy_q1 == False:
+                $ d21a_ivy_q1 = True
+                Z "...and you never seem to have lost that resilience. Why is that?"
+                I "..."
+                "She takes her time answering."
+                scene d21a-168
+                with fade
+                I "Because every challenge I've ever faced eventually became a memory."
+                scene d21a-168x
+                with dissolve
+                Z "A memory?"
+                scene d21a-170
+                with fade
+                I "At the time, it always feels like the end."
+                I "Then a year passes. Ten years. Fifty."
+                I "And one day you wake up and realise it's something else keeping you awake at night. Some new challenge."
+                I "The old wound is still there... it just doesn't hurt the same."
+                Z "And Sonmi can't move on? It has been a lifetime."
+                I "For you, it has."
+                scene d21a-168
+                with fade
+                I "For her... the pain is still strong."
+                I "If I knew how to help her..."
+                scene d21a-168x
+                with dissolve
+                Z "Do you believe this will pass as well? For her?"
+                scene d21a-170
+                with fade
+                I "I have to."
+                I "But I can't make that choice for her."
+                I "I can't stand beside her every moment of every day in case she..."
+                "She pauses, not daring to speak it out..."
+                I "All I can do is stay within reach."
+                jump d21a_ivy_conversation
+
+            "\"Do you ever think of leaving?\"" if d21a_ivy_q2 == False and d21a_ivy_q1 == True:
+                $ d21a_ivy_q2 = True
+                scene d21a-166
+                with fade
+                Z "Do you ever think of leaving this part of the world behind for good?"
+                scene d21a-167
+                with dissolve
+                I "..."
+                scene d21a-167x
+                with dissolve
+                I "Yes... More often than you'd think."
+                scene d21a-167
+                with dissolve
+                "She pauses..."
+                scene d21a-168
+                with dissolve
+                I "I've spent so long walking in one direction that it feels strange not to wonder where the road keeps going."
+                scene d21a-168x
+                with dissolve
+                Z "Yet you're still here."
+                scene d21a-170
+                with fade
+                I "Because this place isn't finished with me."
+                I "I see my life as chapters. If I left now and closed this one, I think a part of me would always be looking back."
+                Z "And your past chapters? They are closed?"
+                I "I think so."
+                I "Some I closed myself."
+                I "Some were closed for me."
+                "Her gaze drifts somewhere far beyond the walls, beyond the forests, beyond the horizon itself."
+                jump d21a_ivy_conversation
+
+
+            "\"Where are you really from?\"" if d21a_ivy_q3 == False and d21a_ivy_q1 == True:
+                $ d21a_ivy_q3 = True
+                Z "You mentioned traveling east before. Where are you really from, [I]? Can you tell me something about your past chapters?"            
+                "She is quiet for a moment."
+                scene d21a-168x
+                with fade
+                "Then she smiles."
+                scene d21a-169x
+                with dissolve
+                I "My mother always told me that memories grow heavier the longer you carry them."
+                scene d21a-168
+                with dissolve
+                I "The truth is..."
+                I "I don't actually have a memory of the place I am from."
+                scene d21a-168x-2
+                with dissolve
+                I "I never saw it with my own eyes."
+                I "Everything I know from my youngest years came from her retelling."
+                scene d21a-168x-3
+                with dissolve
+                pause 1.2
+                scene d21a-168x-4
+                with fade
+                "You extend your hand..."
+                Z "Show me."
+                scene d21a-168x-5
+                with fade
+                I "..."
+                show d21a-171x-171x-7-anim
+                with slowfade
+                I "She would picture a slender string of islands, and somewhere in them, a big city. Tall, full of lights, yet grey and endless..."
+                I "She remembered the sound of rainfall, the smell of food drifting in from open windows."
+                I "People there spent their lives surrounded by countless others. They were connected in every possible way."
+                I "But then, the stories changed..."
+                I "...they became lonely."
+                I "Wandering through life aimlessly, only ever thinking about what's in front of them."
+                I "My mother used to say they became so distracted by the noises that they forgot to listen. Or chose not to."
+                I "To each other... and also themselves."
+                I "The things that matter... they never disappeared. People just stopped looking for them."
+                scene black
+                with slowfade
+                scene d21a-170
+                with fade
+                I "Maybe one day I'll go back to her..."
+                I "...and then she will listen to my stories instead."
+                jump d21a_ivy_conversation
+                                        
+            "\"Have you and Sonmi ever been closer than now?\"" if d21a_ivy_q4 == False:
+                $ d21a_ivy_q4 = True
+                scene d21a-165
+                with fade
+                Z "I wonder... have you and Sonmi ever been closer than now?"
+                Z "Something... more?"
+                scene d21a-171x-8
+                with fade
+                "She blushes..."
+                scene d21a-168
+                with dissolve
+                I "I..."
+                I "I don't think I've ever really looked at girls in that way."
+                scene d21a-168x
+                with dissolve
+                "She pauses..."
+                scene d21a-170
+                with fade
+                I "And Sonmi..."
+                I "She's spent so much of her life trying to survive, she never had much chance to think about what she wants to live for."
+                I "I hope she gets the chance one day..."
+                I "...to find someone."
+                scene d21a-167x
+                with fade
+                I "Someone who makes her feel safer than I could."
+                I "Someone who stays, for all the many years she still has ahead of her..."
+                scene d21a-167x-2
+                with dissolve
+                "She waits for a moment."
+                scene d21a-168
+                with dissolve
+                I "Perhaps I am like a sister to her."
+                I "Though..."
+                I "I could never replace the real one."
+                scene d21a-169
+                with dissolve
+                pause 0.7
+                scene d21a-170
+                with fade
+                I "She was supposed to be there... Lunai."
+                I "They should have discovered the world together."
+                I "Still..."
+                I "I think Lunai would be happy to know she isn't alone."
+                jump d21a_ivy_conversation
+
+
+        label d21a172:
+            pause 0.9
+            scene d21a-172
+            with fade
+        I "Now that I think of it... I don't remember the last time I talked about myself that much."
+        scene d21a-173
+        with dissolve
+        "You pause, caught off guard..."
+        Z "Hm..."
+        scene d21a-174
+        with dissolve
+        Z "Being able to isn't such a bad thing, right?"
+        scene d21a-173
+        with dissolve
+        scene d21a-177
+        with fade
+        I "It is not a bad feeling, no. I like it a lot."
+        "Her head rests on your shoulder as your gaze follows the subtle movement of the water below you..."
+        scene d21a-178x-5
+        with fade
+        I "..."
+        scene d21a-178x-6
+        with dissolve
+        Z "Is something on your mind?"
+        scene d21a-178x-7
+        with dissolve
+        pause 1.8
+        scene d21a-178x-2
+        with dissolve
+        I "Was I that obvious?"
+        scene d21a-178x-4
+        with dissolve
+        Z "A little."
+        scene d21a-178x-2
+        with dissolve
+        I "It's just..."
+        I "You know much about me now..."
+        I "But I still feel like there are parts of you I don't know."
+        scene d21a-178x-3
+        with dissolve
+        Z "Hm."
+        scene d21a-178x
+        with dissolve
+        I "I don't mean your title, or the fact that you seem to be who everyone comes to when they need something."
+        "She searches for the words."
+        scene d21a-178
+        with fade
+        I "The person before who you are now."
+        I "What kind of life did you imagine for yourself?"
+        Z "Hm..."
+        Z "That's a big question."
+        pause 0.5
+        I "You don't have to answer."
+        Z "No, it's fair."
+        scene d21a-177
+        with fade
+        menu:
+            "\"I wanted to become the kind of fighter people listened to.\"":
+                $ d21a_fighter = True
+                Z "I wanted to become the kind of fighter people listened to."
+                Z "I learned early on that strength mattered."
+                Z "People listen to strong men. Respect and trust them."
+                Z "That's what I wanted. And once I stared earning it..."
+                Z "I discovered I rather enjoyed having a say and a hand in how things turned out."
+                Z "Having standing amongst powerful people. Having influence on their decisions and in turn being useful to them."
+                jump d21a_romance_menu
+                        
+            "\"I needed to feel that my life was contributing to something larger than myself.\"": 
+                $ d21a_patriot = True
+                Z "I needed to feel that my life was contributing to something larger than myself."
+                Z "I've spent enough time beyond the city walls to understand how fortunate we are."
+                Z "Zeta isn't perfect, but compared to what's out there..."
+                pause 0.5
+                Z "Everything I've done... It has never really been about me." 
+                Z "People died building what we have. Sacrificed their lives in ways most people couldn't possibly understand."
+                Z "I want to continue that."
+                Z "Help build a better place. One worth living in."
+                jump d21a_romance_menu
+
+
+            "\"I always wanted to come back to a full house.\"":
+                $ d21a_family_man = True
+                Z "I always wanted to come back to a full house."
+                Z "I spend a lot of life travelling. Most of it alone."
+                Z "Sometimes a few days. Sometimes weeks."
+                Z "After a while, you start noticing the difference between arriving somewhere..."
+                Z "And coming home."
+                Z "That's what I've always wanted."
+                Z "Coming home to a house full of life. Someone to share it with..."
+                Z "A woman. Safety. Stability. A household you can call your own."
+                Z "The sort of things you don't appreciate until you've spent enough nights sleeping alone."
+                Z "That's what I have worked towards and I can say with some pride that it is largely what I obtained."
+                jump d21a_romance_menu
+                    
+
+            "\"I always wanted to see more of the world.\"":
+                $ d21a_explorer = True
+                Z "I always wanted to see more of the world."
+                Z "I've travelled for as long as I can remember."
+                Z "I've spent most of my life chasing distant places, and somehow never managed to leave this corner of the world."
+                Z "I've seen more of the old kingdom than most people ever will."
+                Z "But there is still an entire world out there."
+                Z "I still want to see it. Even now that my pace is steadier and my heart is with my family."
+                jump d21a_romance_menu
+                
+
+
+    label d21a_romance_menu:
+        pause 0.8
+        "You pause, feeling her head rest on your shoulder, listening quietly..."
+        menu d21a_romance:
+            "Hold her close":
+                $ ivy_romance = True
+                scene d21a-179
+                with fade
+                "You wrap your arm around her..."
+                scene d21a-180
+                with dissolve
+                "...and pull her in, just a little closer."
+                scene d21a-181
+                with fade
+                "Surprised, she looks over to you..."
+                scene d21a-183
+                with dissolve
+                pause 1.3
+                scene d21a-184
+                with dissolve
+                I "..."
+                jump d21a_ivy_response
+                
+            "Let her respond":
+                jump d21a_ivy_response
+
+
+
+    label d21a_ivy_response:
+        if ivy_romance == True:
+                scene d21a-185
+                with fade
+        else:
+            scene d21a-178x-2
+            with fade
+
+        if d21a_fighter == True:
+            I "Everywhere I've been, it's always the same."
+            I "The things people value may change..."
+            I "But everyone needs something that earns them a place in the world."
+            if ivy_romance == False:
+                scene d21a-178x-3
+                with dissolve
+            "She smiles..."
+            if ivy_romance == True:
+                scene d21a-186
+                with fade
+            else:
+                scene d21a-177
+                with fade
+            I "You know... I think there is something you missed."
+            if ivy_romance == True:
+                scene d21a-187
+                with dissolve
+            Z "Hm?"
+            I "You talked about strength. About wanting people to listen to you." 
+            I "But I don't think that's why they do."
+            Z "No?"
+            I "People listen to you because you make them feel safe."
+            I "I noticed that the day you brought me to your home."
+            if ivy_romance == True:
+                scene d21a-188
+                with fade
+                "She leans on you more..."
+            I "It's rare, in these times..."
+            if ivy_romance == True:
+                scene d21a-189
+                with dissolve
+                I "...to feel safe around someone."
+            
+
+        if d21a_patriot == True:
+            I "It's a noble cause..."
+            I "I can imagine Zeta being a lovely place to settle down in."
+            I "...For those who are allowed to call it home and have the means for it, that is."
+            if ivy_romance == False:
+                scene d21a-178x-3
+                with dissolve
+            if ivy_romance == True:
+                scene d21a-186
+                with fade
+                "She leans in closer to your shoulder..."
+            else:
+                scene d21a-177
+                with fade
+            I "I hope you succeed."
+            if ivy_romance == True:
+                scene d21a-187
+                with dissolve
+            I "You know..."
+            I "So far, I have only briefly seen it from the inside."
+            if ivy_romance == True:
+                scene d21a-188
+                with fade
+            I "When you talk about it like that, I can almost believe it..."
+            if ivy_romance == True:
+                scene d21a-189
+                with dissolve
+                I "...that it could be nice to live in such a place."
+
+        if d21a_family_man == True:
+            I "I understand."
+            I "I don't think I've ever had that..."
+            I "Someone to return home to. Someone waiting for me..."
+            if ivy_romance == False:
+                scene d21a-178x-3
+                with dissolve
+            if ivy_romance == True:
+                scene d21a-186
+                with fade
+            else:
+                scene d21a-177
+                with fade
+            I "Not even with Sonmi's people."
+            if ivy_romance == True:
+                scene d21a-187
+                with dissolve
+            I "It sounds nice. Sweet, even."
+            I "I can see why you would want that."
+            I "I've travelled for so long that I never really stopped to imagine what it might feel like."
+            I "Coming home to someone."
+            if ivy_romance == True:
+                scene d21a-188
+                with fade
+            "She thinks for a moment..."
+            I "Perhaps I've simply never had the opportunity."
+            if ivy_romance == True:
+                scene d21a-189
+                with dissolve 
+                I "It sounds like something I could learn to like..."
+
+        if d21a_explorer == True:
+            I "You strike me as someone who belongs on the road."
+            if ivy_romance == False:
+                scene d21a-178x-3
+                with dissolve
+                pause 0.9
+            if ivy_romance == True:
+                scene d21a-186
+                with fade
+            else:
+                scene d21a-177
+                with fade
+            I "Perhaps one day you'll finally leave the desert..."
+            if ivy_romance == True:
+                scene d21a-187
+                with dissolve
+            I "And find out what lies beyond."
+            I "The strange thing is..."
+            I "No matter how much of the world you see, there's always another, more different road."
+            if ivy_romance == True:
+                scene d21a-188
+                with fade
+            I "I think you'd like that."
+            if ivy_romance == True:
+                scene d21a-189
+                with dissolve 
+            I "Maybe one day, your curiosity will get the better of you, after all?"
+            
+        if ivy_romance == False:
+            scene black
+            stop music fadeout 3
+            with slowfade
+            jump d21a219 #TODO fix properly
+        else:
+            jump d21a208
+        
+    label d21a208:
+        scene d21a-190
+        with dissolve
+        pause 1
+        "Her eyes meet yours..."
+        scene d21a-191
+        with dissolve
+        I "..."
+        scene d21a-192
+        with dissolve
+        pause 1.7
+        scene d21a-193
+        with dissolve
+        pause 1.2
+        "...and neither of you look away."
+        scene d21a-194
+        with dissolve
+        I "..."
+        scene d21a-195
+        with dissolve
+        "You place your hand under her cheek..."
+        scene d21a-196
+        with dissolve
+        "...and caress it gently, feeling her soft skin."
+        scene d21a-197
+        with fade
+        "You look into her pink eyes, lost in the moment. She does not look surprised anymore."
+        scene d21a-198
+        with dissolve
+        "...and then, just a moment later..."
+        scene d21a-199
+        with dissolve
+        "...all but one of your thoughts fade away."
+        scene d21a-200
+        with fade
+        "You kiss..."
+        I "Mh..." 
+        scene d21a-201
+        with dissolve
+        "You don't notice her nervously clenched fist relaxing as her lips join yours."
+        I "{i}*kissing*{/i}"
+        "You hold her tight, and she gives in to you, in a moment you did not expect, but quietly hoped for."
+        "Perhaps... she did too?"
+        scene d21a-202
+        with fade
+        "Your thumb scours the edge of her cheekbone, a gentle caress as your breaths combine."
+        scene d21a-203
+        with dissolve
+        "A quiet, hushed, murmur escapes her as you capture her upper lip."
+        scene d21a-204
+        with dissolve
+        "She follows suit, almost playfully..." 
+        scene d21a-205
+        with dissolve
+        "For several minutes, everything around you falls silent."
+        "And all that can be heard is the intimate exchange of tenderness."
+        scene black
+        stop music fadeout 5
+        with slowfade
+        pause 0.8
+        queue music "audio/sounds/environment/desert wind.mp3"
+        scene d21a-206
+        with slowfade
+        "You lean back, still mesmerized by her softness and taste..."
+        scene d21a-207
+        with dissolve
+        "...and see her eyes wander away from you."
+        scene black
+        with fade
+        "And then, she quickly stands up..."
+        scene d21a-208
+        with fade
+        I "You... have a wife, [persistent.player_name]."
+        scene d21a-209
+        with dissolve
+        I "I have lived long enough to know what this is."
+        scene d21a-210
+        with dissolve
+        "You think about her words and what they mean..."
+        scene black
+        with fade
+        "...and then approach her."
+        scene d21a-211
+        with fade
+        Z "You are afraid of coming between something..."
+        I "..."
+        scene black
+        with fade
+        "You close up on her..."
+        scene d21a-212
+        with slowfade
+        Z "Look at me..."
+        scene d21a-213
+        with dissolve
+        Z "You are a kind soul, [I]."
+        scene d21a-214
+        with dissolve
+        I "..."
+        Z "But you worry too much."
+        scene d21a-215
+        with dissolve
+        "You let go of her cheek..."
+        scene d21a-216
+        with dissolve
+        "...and admire her blue eyes, trying to understand their meaning."
+        scene d21a-217
+        with fade
+        Z "I will travel back home, now."
+        scene d21a-218
+        with dissolve
+        I "..."
+        "Her smile fades in surprise..."
+        label d21a219:
+            if ivy_romance == True:
+                scene d21a-219
+                with dissolve
+                I "Can you..."
+                I "...come back and see me again?"
+                scene d21a-220
+                with dissolve
+                Z "I will, [I]. Soon."
+                scene d21a-221
+                with dissolve
+            else:
+                scene black
+                with slowfade
+                "After a while, you realize it is getting late, and so you both stand up and prepare to say bye."
+                scene d21a-219x
+                with slowfade
+                I "You are always invited to visit again, [persistent.player_name]."
+                scene d21a-220x
+                with dissolve
+                Z "Thank you, [I]. And yes, I will return soon."
+                Z "I need to know if she comes back."
+                scene d21a-221x
+                with dissolve
+                
+        pause 0.8
+        if sq_i_1.current_step == 3:
+            $ sq_i_1.advance()
+            if ivy_romance == True:
+                $ sq_i_1.resolution = _("It was a difficult day for Sonmi, and despite her best efforts, [I] could not prevent her from leaving the hideout again. Still, one long-held wish finally came true; I was able to show her the old message from before the incident. If there is a light spot to be taken from this day, it is that [I] and I have grown considerably closer. She is a fascinating, wise, and strikingly attractive woman from another era, and I am seeing myself increasingly drawn to her.")
+            else:
+                $ sq_i_1.resolution = _("It was a difficult day for Sonmi, and despite her best efforts, [I] could not prevent her from leaving the hideout again. Still, one long-held wish finally came true; I was able to show her the old message from before the incident. If there was any light to be found in this day, it was that I had learned a great deal through my conversations with her. She truly felt like someone from another era.")
+
+        scene black
+        stop music fadeout 5
+        with slowfade
+        "Eventually, you make your way home, telling yourself to return again soon."
+        $ renpy.music.set_volume(1, delay = 3, channel="music")
+        jump daily_home
+
+
+label d21b:
+    $ m_d21b = True
+    Zt "It has been a few days since Sonmi disappeared again."
+    Zt "Tonight, I will go to their hideout and see how [I] is doing."
+    stop music fadeout 3
+    scene black
+    with fade
+    "You start your car after the sun sets, travelling under the cover of darkness, to preserve the secret of their location."
+    pause 2
+    $ renpy.music.set_volume(1, delay = 0, channel="music")
+    play music "audio/music/exploration/echoes of the past.mp3"
+    show screen cutscene_marker
+    show d21b-1-3-anim
+    pause 33
+    scene d21b-5
+    with slowfade
+    hide screen cutscene_marker
+    pause 0.5
+    $ renpy.music.set_volume(0.3, delay = 5, channel="music")
+    "While searching for [I], you find familiar blue plants towering over the area where you last saw her friend..."
+    Zt "I remember these... but how could they grow here so quickly?"
+    scene d21b-7
+    with slowfade
+    "Focused on studying the plants, you overhear gentle footsteps behind you..."
+    scene d21b-9
+    with slowfade
+    pause 1.5
+    scene d21b-10
+    with dissolve
+    I "..."
+    scene d21b-11
+    with slowfade
+    pause 1.5
+    scene d21b-12
+    with dissolve
+    pause 1.7
+    scene d21b-13
+    with dissolve
+    I "..."
+    scene d21b-14
+    with slowfade
+    I "They are fast climbing organisms, aren't they? Sometimes, you can even watch them grow in real time."
+    scene d21b-15
+    with dissolve
+    Z "I was just here a few days ago. This place... it completely changed."
+    scene d21b-16
+    with fade
+    I "The quicker things change, the more unnatural they seem to us."
+    I "And yet, even the most unnatural things, when touched by life, want only to grow. Life finds a way." 
+    scene d21b-17
+    with dissolve
+    pause 0.7
+    scene d21b-18
+    with dissolve
+    pause 1.2
+    I "..."
+    scene d21b-19
+    with dissolve
+    I "Sonmi has not returned."
+    scene d21b-18
+    with dissolve
+    pause 0.8
+    scene d21b-20
+    with slowfade
+    if ivy_romance == False:
+        Z "Oh, I see..."
+        scene d21b-20x
+        with dissolve
+        I "I am sorry, [persistent.player_name]. You have come here all the way to see what happened."
+        scene d21b-21x
+        with dissolve
+        I "If you want, you can spend the night here [persistent.player_name]. It will be safer to return tomorrow."
+        scene d21b-21
+        with dissolve
+        Z "Perhaps you are right, there is no need to start going back at this hour."
+        Z "I might as well stay the night here. Thank you."
+        scene d21b-21x-2
+        with dissolve 
+        I "Are you feeling sleepy, yet? Because I could still use some help with the plants..."
+        scene d21b-21x-3
+        with dissolve
+        Z "Lead the way, [I]."
+        scene d21b-21x-4
+        with dissolve
+        "She smiles..."
+        scene black
+        with slowfade
+        jump d21b415
+    else:
+        Z "I have brought you something."
+        scene d21b-21
+        with dissolve
+        I "...?"
+        Z "Something from our last conversation, about your mother's tales..."
+        Z "I was thinking about it, your mention of slender islands." 
+        scene d21b-22
+        with dissolve
+        Z "...and went looking through the relics and trinkets I found in my early days."
+        scene d21b-23
+        with dissolve
+        Z "I remembered I once found a map of one such place."
+        Z "I found this, together with it."
+        scene d21b-24
+        with fade
+        Z "I want you to have it."
+        I "{i}*gasps*{/i}"
+        scene d21b-25
+        with fade
+        I "I..."
+        scene d21b-26
+        with dissolve
+        I "... yes, I remember this symbol, I think."
+        scene d21b-27
+        with dissolve
+        scene d21b-28
+        with fade
+        Z "Over the years, I have tried to research its meaning..."
+        Z "...but now I believe, it's better left in your hands."
+        scene black
+        with fade
+        "You give her the necklace..."
+        scene d21b-29
+        with fade
+        I "It is... beautiful."
+        I "There is a word I read in an old book, many years ago: anemoia. It translates as nostalgia for a place you have never been..."
+        scene d21b-29x
+        with dissolve
+        I "...but I could not really grasp the concept, until now. I think this might be such a thing."
+        I "Thank you... I will cherish it."
+        scene d21b-30
+        with dissolve
+        Z "Do you want to wear it?"
+        scene d21b-31
+        with dissolve
+        I "Wear it..."
+        scene d21b-32
+        with fade
+        I "I... don't think I can, or should..."
+        scene d21b-33
+        with dissolve
+        I "It's shiny and fragile, and might get lost. I think I should keep it somewhere safe instead."
+        scene d21b-34
+        with dissolve
+        Z "I see. Maybe another time, then."
+        scene d21b-35
+        with dissolve
+        I "Maybe...!"
+        "Her eyes suddenly light up as she realizes something..."
+        scene d21b-36
+        with dissolve
+        I "I just realized... that I have something from a long time ago."
+        scene d21b-38
+        with fade
+        I "Do you mind if I wear this with something else?"
+        scene d21b-39
+        with dissolve
+        Z "Not at all. Now you've got me curious."
+        scene black
+        with slowfade
+        I "Okay, I will be back!"
+        "She walks back inside, a hurried excitement in her steps..."
+        scene d21b-40
+        play sound "audio/sounds/environment/desert wind.mp3" fadein 3
+        stop music fadeout 5
+        with slowfade
+        Z "Something from a long time ago, hm..."
+        Z "I wonder what that will be."
+        label red21b41:
+            scene d21b-41
+            with slowfade
+        "Many minutes pass in silence under the cloudy sky, as you stand on the ancient stones above the water."
+        "And then, as if initiated by the gods themselves..."
+        scene d21b-42
+        $ renpy.music.set_volume(1, delay = 3.0, channel="music")
+        stop sound fadeout 5
+        play music "audio/music/exploration/rain all around.mp3" fadein 3
+        with Dissolve(7)
+        pause 1.2
+        Zt "...rain?"
+        scene d21b-43
+        with Dissolve(4)
+        "a torrential downpour surprises you. Its droplets are warm, pleasant, and surprisingly clean."
+        scene d21b-44
+        with slowfade
+        "...and a slender figure slowly starts to emerge from the inside of the ruins."
+        scene d21b-45
+        with slowfade
+        "She glides smoothly to a halt at the entrance, just out of reach of the rain..."
+        scene d21b-46
+        with slowfade
+        I "..."
+        scene d21b-47
+        with dissolve
+        "...and smiles."
+        scene d21b-48
+        with slowfade
+        "As she steps into the moonlight, you see a thin veil of fabric that hugs her figure accentuating her curves." 
+        scene d21b-49
+        with slowfade
+        pause 2
+        Zt "She looks beautiful."
+        scene d21b-50
+        with slowfade
+        "She steps towards you, into the rain..."
+        scene d21b-51
+        with dissolve
+        "...ever closer, the fabric, in places, sticking to her wet skin."
+        scene d21b-52
+        with fade
+        "She stands before you: the night dress and the necklace complementing each other, further enhancing her beautiful frame."
+        "Gentle eyes, covered by her raven, wet hair, look deep into yours and you respond with open admiration."
+        scene d21b-53
+        with dissolve
+        I "I... have not looked at this dress ever since I discovered it."
+        scene d21b-54
+        with dissolve
+        "She pauses, unsure of what to say. Unsure of... how to behave?"
+        scene d21b-55
+        with dissolve
+        "You reach out for her..."
+        Z "Take my hand."
+        scene d21b-56
+        with dissolve
+        pause 1.7
+        scene d21b-57
+        with dissolve
+        I "..."
+        scene d21b-58
+        with fade
+        "She lays her hand onto yours..."
+        scene d21b-59
+        with fade
+        "...and you pull her towards you."
+        scene d21b-60
+        with fade
+        "You take your time holding her in your arms, and start to move... a silent embrace that melts into the merest hint to a dance in the rain."
+        "Minutes pass as she looks at you. Her gentle, pink eyes expressing the timid joy for a moment of shared beauty and closeness..."
+        scene d21b-61
+        with slowfade
+        "...in her characteristic silence, you both find a message..."
+        "...a mutual invitation to leave this moment with only the weight of the rain, bearing down on your shoulders, refreshed, renewed."
+        scene d21b-62
+        with Dissolve(2.5)
+        "And then, as quickly as it came..."
+        scene d21b-63
+        with Dissolve(2.5)
+        "...the cloud breaks right above you, leaving you untouched." 
+        show d21b-64-65-anim
+        with fade
+        pause 2
+        I "..."
+        show d21b-66-anim
+        with fade
+        hide d21b-64-65-anim
+        pause 4
+        "As you look at [I], her expression shifts, as a million thoughts seem to cross her mind."
+        "She stares at you, her bright eyes shining under the pale light."
+        "You look at this woman who straddles the weird dichotomy between looking decades younger than you whilst being decades older."
+        "You are left wondering: throughout your interactions with her, you have always sensed in her a curious mixture of world weariness and innocence..."
+        "...and you can't help thinking that maybe, if you were to live as long, you would be a lot more jaded and worn out. "
+        "Instead, [I] stands before you and averts her eyes like a young timid girl."
+
+        "You look at her, your voice firm but gentle..."
+        scene d21b-67
+        with fade
+        pause 1.4
+        Z "...You are beautiful, [I]."
+        scene d21b-68
+        with dissolve
+        I "I...."
+        I "...don't know what to..."
+        scene d21b-69
+        with fade
+        pause 1.2
+        "And then, under the shining light of the moon, she reaches out for a kiss..."
+        I "mh..."
+        scene d21b-70
+        with dissolve
+        "She reaches for your lips, her arms resting on your shoulders."
+        "Her kiss is full but nervous. Reserved, and yet eager. Delicate, and yet intoxicating."
+        scene d21b-71
+        with dissolve
+        "Minutes pass, as you hold each other, and as you give her the attention she so very much needed."
+        "Tonight is not about duties or responsibilities."
+        "It is not about the countless years where you lived your lives separate from each other, nor about the years she will inevitably spend without you."
+        scene d21b-72
+        with dissolve
+        "It is a moment frozen in time, for two people sharing a mutual desire."
+        scene d21b-73
+        with dissolve
+        I "..."
+        "Her beautiful eyes linger on yours for a moment longer..."
+        scene d21b-74
+        with fade
+        I "..."
+        scene d21b-75
+        with dissolve
+        I "Do you... want to take a bath, together?"
+        scene d21b-76
+        with dissolve
+        Z "After you."
+        scene d21b-77
+        with dissolve
+        pause 1.3
+        scene black
+        with slowfade
+        pause 1
+        scene d21b-78
+        play sound "audio/sounds/environment/water pour.mp3"
+        with fade
+        "Her fingers dip just under the water surface as she moves with measured steps.."
+        scene d21b-80
+        with fade
+        I "{i}*humming*{/i}"
+        scene d21b-81
+        with dissolve
+        I "You know, [persistent.player_name]..."
+        scene d21b-82
+        with fade
+        I "...I am feeling in ways I have not felt for a long time."
+        scene d21b-83
+        with dissolve
+        "She smiles..."
+        scene d21b-84
+        with dissolve
+        "...and pauses."
+        pause 0.6
+        scene d21b-85
+        with dissolve
+        "And then, her gaze changes..."
+        scene d21b-86
+        with dissolve
+        I "..."
+        scene d21b-87
+        with slowfade
+        "She approaches you, as silently as she did back in the barracks..."
+        scene d21b-88
+        with dissolve
+        "Pearls of water drip down her chest, and the necklace shimmers in the light."
+        scene d21b-89
+        with dissolve
+        "You are lost for a moment, admiring her smooth and flawless skin..."
+        scene d21b-90
+        with dissolve
+        "...and she looks at you, with a longing that goes far beyond adventure."
+        scene d21b-91
+        with fade
+        I "..."
+        "She stops, waiting for your next move. Waiting for you to express your desire..."
+        scene d21b-92
+        with dissolve
+        "...and there is no doubt that you do."
+        scene d21b-93
+        with fade
+        "You begin caressing her body, while slowly pulling her towards you."
+        scene d21b-94
+        with dissolve
+        "She rests motionless as your fingers find her neck, rough fingers for such a fine texture..."
+        scene d21b-95
+        with dissolve
+        I "mh..."
+        "It's hard to say if her reaction comes from your touch or her pent up feelings."
+        scene d21b-96
+        with dissolve
+        "Her voice trembles slightly..." 
+        I "You... you feel so... solid, real."
+        scene d21b-97
+        with dissolve
+        I "It makes me feel small... and protected..."
+        scene d21b-98
+        with dissolve
+        I "...I want to feel more, [persistent.player_name]."
+        scene d21b-99
+        with dissolve
+        Z "Then I shall give you more, [I]."
+        scene d21b-100
+        with fade
+        I "Hah...!"
+        "She gasps audibly as your lips find her neck and start kissing it."
+        scene d21b-101
+        with dissolve
+        I "[persistent.player_name], what are you..."
+        scene d21b-102
+        with dissolve
+        I "...mh."
+        scene d21b-103
+        with dissolve
+        "You gently nibble on her neck, down to her shoulder, and her heavy breathing slowly turns into a soft moan..."
+        scene d21b-104
+        with dissolve
+        I "Ah..."
+        "As your hands glide around her waist, you feel her hips quiver, as if wanting to meet your touch."
+        scene d21b-105
+        with dissolve
+        I "[persistent.player_name]... it..."
+        I "...it feels incredible."
+        scene d21b-106
+        with dissolve
+        I "Hah... ah..."
+        scene d21b-107
+        with slowfade
+        "She slowly, hesitantly lowers her arms under water..."
+        scene d21b-108
+        with dissolve
+        "...searching for something more, while you kiss her gently."
+        scene d21b-109
+        with dissolve
+        I "{i}*gasps*{/i}"
+        scene d21b-110
+        with dissolve
+        I "Mh..."
+        scene black
+        play sound "audio/sounds/environment/desert wind.mp3" fadein 3
+        stop music fadeout 4
+        with slowfade
+        "...before letting go."
+        scene d21b-111
+        with slowfade
+        I "Do you..."
+        I "...want to come inside?"
+        scene d21b-112
+        with dissolve
+        pause 0.4
+        play music "audio/music/mutants/sentimental.mp3"
+        queue music ["audio/music/mutants/floating.mp3", "audio/music/mutants/sentimental.mp3"] loop
+        scene black
+        stop sound fadeout 1
+        with slowfade
+        pause 1
+        scene d21b-113
+        with w33slow
+        pause 1
+        scene d21b-114
+        with dissolve
+        I "..."
+        scene d21b-115
+        with dissolve
+        pause 1.4
+        scene d21b-116
+        with dissolve
+        I "..."
+        scene d21b-117
+        with fade
+        "Her figure is wrapped in a bright beam of light, standing before you..."
+        scene d21b-118
+        with dissolve
+        Z "You look irresistible..."
+        scene d21b-119
+        with dissolve
+        "You see deep appreciation in her eyes..."
+        scene d21b-120
+        with dissolve
+        "...and your mind races towards what is to come."
+        scene d21b-121
+        with fade
+        "As if reading your thoughts, she stands before you, following your eyes..."
+        scene d21b-122
+        with dissolve
+        "...as you examine her lace wrapped body."
+        scene d21b-123
+        with dissolve
+        "And then, after giving you a long moment, she turns around..."
+        scene d21b-124
+        with dissolve
+        "...and glides out of the straps holding her negligé together."
+        scene d21b-125
+        with slowfade
+        I "..."
+        scene d21b-126
+        with fade
+        if d11a_ivy_stared == True:
+            I "I... have been in this situation before, have I not..."
+            Z "You have, yes..."
+        else:
+            Z "..."
+        "Lost for words, you are more happy for your eyesight than ever before."
+        show d21b-127-anim
+        with fade
+        Z "By the gods... you are out of this world."
+        I "..."
+        show d21b-128-anim
+        with fade
+        hide d21b-127-anim
+        pause 6
+        show d21b-129-anim
+        pause 2
+        hide d21b-128-anim
+        Z "Wow..."
+        "You can't help but gasp, as she coyly stands before you, naked, covering her chest."
+        show d21b-130-anim
+        with fade
+        hide d21b-129-anim
+        "You take your time admiring her beautiful figure, ever so slightly swaying in front of your eyes."
+        "From her smooth and white skin, to her toned but feminine muscles underneath..."
+        "...this woman is a work of art. Natural perfection, sculpted by the gods of beauty."
+        show d21b-131-anim
+        with fade
+        hide d21b-130-anim
+        "Her perfect body sways in the spotlight. She notices you staring."
+        "For a moment, it's as if she wants to move towards you, but decided against it."
+        scene d21b-132
+        with fade
+        Z "[I]..."
+        Z "Lower your arms, please."
+        scene d21b-133
+        with dissolve
+        "She glances back at you, subtly smiling, as if to ponder the request..."
+        scene d21b-134
+        with fade
+        "...and slowly..."
+        scene d21b-135
+        with dissolve
+        "...lowers her arms."
+        scene d21b-136
+        with dissolve
+        "Then she pauses again, looking at you sensually, before..."
+        scene d21b-137
+        with fade
+        I "..."
+        Zt "Wow..."
+        scene d21b-138
+        with dissolve
+        "For the time being, you push all other thoughts out of your mind and revel in her company." 
+        scene d21b-139
+        with fade
+        Z "You are... perfect."
+        "Her breasts are full and firm, her nipples erect in her arousal." 
+        scene d21b-140
+        with fade
+        Zt "Not even the best artists I know could draw such beauty.."
+        Z "I... don't know what to say."
+
+        scene d21b-141
+        with dissolve
+        Z "[I]..."
+        scene d21b-142
+        with dissolve
+        Z "...come here."
+        scene black
+        with fade
+        "She moves closer, and places herself on your lap..."
+        scene d21b-143
+        with fade
+        I "I see you... staring at them..."
+        Z "How can I not..."
+        scene d21b-144
+        with dissolve
+        I "Can I touch you, too?"
+        Z "Go ahead."
+        scene d21b-145
+        with dissolve
+        I "Ah..."
+        "Her hands go over your chest again, gently, carefully..."
+        scene d21b-146
+        with dissolve
+        I "It's so... I..."
+        "She loses her words as her fingers trace the chiseled edge of your chest."
+        scene d21b-147
+        with dissolve
+        I "Mh..."
+        "Her breath quickens, and you feel her hips squirm."
+        scene d21b-148
+        with fade
+        I "Ah..."
+        Z "My turn."
+        show d21b-151-anim
+        with fade
+        I "mh..."
+        "You start massaging her firm breasts, taking in the feeling, admiring them..."
+        if d11a_ivy_looked == True:
+            Z "I wanted to do this since I saw you outside."
+            Z "Back then, when you were trying to cover yourself up..."
+            I "I... mh... saw that..."
+        else:
+            Z "I always wondered how they feel..."
+            I "mh... now you know..."
+        show d21b-152-anim
+        with fade
+        "The shape and suppleness of her breasts feel at home in your hands."
+        I "Mh..."
+        pause 0.7
+        show d21b-153-anim
+        with fade
+        "[I]'s breath is heated, she enjoys the attention you give her."
+        "Nha..."
+        "And her soft skin... it moves in unison with your touch; her nipples harden as her moans grows louder."
+        scene d21b-149
+        with fade
+        I "Ah..."
+        "She looks up at you..."
+        scene d21b-150
+        with dissolve
+        I "I..."
+        scene d21b-155
+        with dissolve
+        I "...I can feel you like it."
+        scene d21b-156
+        with dissolve
+        "She slowly strokes your shaft..."
+        scene d21b-157
+        with dissolve
+        I "It's so... hard."
+        I "Maybe we can..."
+        scene d21b-158
+        with fade
+        "She keeps stroking it, lost in thought..."
+        scene d21b-159
+        with dissolve
+        I "mh..."
+        scene d21b-160
+        with dissolve
+        "You reach towards her..."
+        scene d21b-161
+        with dissolve
+        pause 1.2
+        scene d21b-163
+        with dissolve
+        I "..."
+        Z "Kiss me again, [I]."
+        scene d21b-164
+        with dissolve
+        "She smiles, as her radiant eyes mark you..."
+        scene black
+        with fade
+        I "mh... {i}*kissing*{/i}"
+        scene d21b-165
+        with fade
+        Zt "This is perfect."
+        I "Ah..."
+        scene d21b-166
+        with dissolve
+        Zt "...perfect in every way."
+        Z "{i}*kissing*{/i}"
+        scene d21b-167
+        with dissolve
+        "Her lips are sweet, her tongue addicting... and as her hands rest on you, you feel her soft breast on your chest."
+        scene d21b-168
+        with dissolve
+        I "Nh..."
+        "She breathes heavily in anticipation, as if having to hold herself back."
+        scene d21b-169
+        with dissolve
+        I "mh..."
+        scene d21b-170
+        with fade
+        "Your kisses become eager, impatient, and it is becoming clear that she wants to go a step further."
+        scene d21b-171
+        with dissolve
+        "An unique mixture of experience and modesty pervades her every movement." 
+        scene d21b-172
+        with fade
+        "...and finally, she mounts on top of you." 
+        I "mh... [persistent.player_name]..."
+        scene d21b-173
+        with fade
+        I "I... don't want to wait anymore."
+        Z "Me too."
+        scene d21b-174
+        with dissolve
+        "She strokes you, as she looks deep in your eyes, in anticipation of the following moments..."
+        Z "You're driving me crazy..."
+        I "... and you me."
+        scene d21b-175
+        with dissolve
+        I "Hah... I need to..."
+        scene d21b-176
+        with dissolve
+        I "Ah..."
+        scene d21b-177
+        with dissolve
+        I "{i}*gasp*{/i}"
+        show d21b-178-179-anim
+        with fade
+        I "Hah..."
+        pause 0.5
+        I "It's..."
+        pause 0.8
+        I "Mmh..."
+        "Your mind goes blank as she moves down on you."
+        "The feeling is out of this world. Her walls feel soft and moist as they grip on your manhood, keeping you inside her."
+        scene d21b-180
+        with fade
+        I "Ah... [persistent.player_name]...!"
+        Z "[I]..."
+        show d21b-181-anim
+        with dissolve
+        "Though her rhythm is sweetly awkward in the beginning, her skin feels like silk, urging you to hold her ever more tightly."
+        I "This... feeling... nh..."
+        I "{i}*kissing*{/i}"
+        show d21b-182-anim
+        with fade
+        hide d21b-181-anim
+        "You notice her nipples gently brushing against your chest as she moves."
+        I "Mh..."
+        "Your necklace hangs down her neck, waving slightly back and forth while she kisses you passionately."
+        show d21b-183-anim
+        with fade
+        hide d21b-182-anim
+        "She tilts her hips, pushing herself harder into you..."
+        "You feel her wetness, her excitement... Her juices running down your skin."
+        scene d21b-185
+        with fade
+        I "mh..."
+        "She releases the kiss, moving away slightly..."
+        scene d21b-186
+        with dissolve
+        I "Ah... [persistent.player_name]..."
+        Z "ngh..."
+        scene d21b-187
+        with dissolve
+        "You stare at her perfect breasts, bouncing up and down as she rides you..."
+        scene d21b-188
+        with fade
+        I "You... keep staring."
+        scene d21b-189
+        with dissolve
+        Z "I can't help it..."
+        scene d21b-190
+        with fade
+        "She guides your head forward..."
+        I "...is this better?"
+        scene d21b-191
+        with dissolve
+        I "Nhah... you can... go ahead..."
+        scene d21b-192
+        with dissolve
+        Z "{i}*sucking*{/i}"
+        I "Mh... yes..."
+        scene d21b-193
+        with dissolve
+        Z "Mgh... {i}*sucking*{/i}"
+        I "Nh... you can... do it as long as you want..."
+        scene d21b-194
+        with dissolve
+        I "Ah... yes..."
+        "The sensual, husky tone of the elf, her delicious, soft breasts... the sensations are overwhelming."
+        scene d21b-195
+        with dissolve
+        "...and then she starts to ride you."
+        I "Ah..."
+        Zt "This elf is a... I'm getting close already..."
+        Zt "I... must not..."
+        scene black
+        with fade
+        play sound "audio/sounds/actions/drop 4.mp3" volume 0.3
+        "You throw her off just before you were about to cum, tossing her on her back..."
+        scene d21b-196
+        with fade
+        I "mh... {i}*giggles*{/i}"
+        Z "You... {i}*pant*{/i}"
+        scene d21b-197
+        with dissolve
+        Z "...you almost drove me over the edge."
+        "She lays before you, still, motionless, sexy..."
+        scene d21b-198
+        with fade
+        "She looks at you in a way that would drive any man mad."
+        Z "You are incredible..."
+        Z "...but now, let me return the favor."
+        scene d21b-199
+        with dissolve
+        I "..."
+        scene d21b-200
+        with dissolve
+        "Your eyes roam across her body..."
+        scene d21b-201
+        with dissolve
+        "...from her abdomen..."
+        scene d21b-202
+        with dissolve
+        "...to her waist and thighs."
+        scene d21b-203
+        with fade
+        "Her flawless shape lies before you, and you take it all in..."
+        Z "I see you, [I]."
+        scene d21b-204
+        with fade
+        Z "Now let me prove it to you."
+        scene d21b-205
+        with dissolve
+        Z "...are you ready?"
+        I "Yes..."
+        scene d21b-206
+        with dissolve
+        I "mh..."
+        "Your lips meet, and you make out gently at first, before the pace increases."
+        scene d21b-207
+        with dissolve
+        I "...ah."
+        "She moans, as your hands scour her waist."
+        scene d21b-208
+        with dissolve
+        I "{i}*kissing*{/i}"
+        "Your make-out is wet, sloppy, intense. And your hand..."
+        scene d21b-209
+        with dissolve
+        "...is guiding her to adjust her position slightly."
+        scene d21b-210
+        with dissolve
+        I "nh... [persistent.player_name]..."
+        scene d21b-211
+        with dissolve
+        I "{i}*kissing*{/i}"
+        scene d21b-212
+        with dissolve
+        I "Ahh..."
+        "Her moan is genuine and sharp..."
+        scene d21b-213
+        with dissolve
+        I "mmh...!"
+        "You massage her wet, glistening pussy lips, rubbing them from the inside out. Her hips tremble, her breath intensifies."
+        scene d21b-214
+        with dissolve
+        I "Ah... please..."
+        I "nnh...!"
+        scene d21b-215
+        with dissolve
+        "She clenches her legs..."
+        with hpunch
+        I "Mmmh....!"
+        "Her pussy twitches, leaks, for a moment of pure bliss inside her..."
+        with hpunch
+        I "...ahh!"
+        "...before she lustfully returns to dig her tongue into your mouth, meeting yours."
+        I "{i}*kissing*{/i}"
+        scene d21b-216
+        with fade
+        I "It... has been so long..."
+        scene d21b-217
+        with dissolve
+        I "Give me more, please..."
+        scene black
+        with fade
+        "Hearing her words, you reposition yourself, to take her just like she lays there."
+        scene d21b-218
+        with fade
+        I "Haa..."
+        Zt "It's impossible to resist her."
+        scene d21b-219
+        with fade
+        Zt "Her and her perfect body."
+        I "Nh..."
+        scene d21b-220
+        with fade
+        Zt "I will make sure to fill her out entirely."
+        scene d21b-221
+        with dissolve
+        Zt "This slim waist, so sexy.."
+        scene d21b-222
+        with dissolve
+        Zt "By the gods..."
+        scene d21b-223
+        with dissolve
+        Zt "...she needs to get fucked."
+        scene d21b-224
+        with dissolve
+        I "A-aah..."
+        Z "Nnngh..."
+        Zt "She feels amazing..."
+        show d21b-227-anim
+        with fade
+        I "Ah... [persistent.player_name]...~"
+        "You start fucking her at a fast pace."
+        Zt "Enough cuddling. I want to take her properly."
+        show d21b-228-anim
+        with fade
+        hide d21b-227-anim
+        "You fuck her in quick, deep thrusts, your hands frantically moving across her body, kneading, caressing, pinching..." 
+        Zt "She is amazing. Her soft moans, the reactions of her body, the soft feeling inside her..."
+        show d21b-229-anim
+        with fade
+        hide d21b-228-anim
+        Z "Ngh... [I]..."
+        I "Ah... nh..."
+        "Lustfully, you both enjoy the feeling of each other. You're not saying anything, letting your eyes do all of the talking."
+        "You see what she wants. She knows instinctively what you want."
+        "An escape from your life just for this night. Something otherworldly, together."
+        show d21b-230-anim #TODO re render
+        with fade
+        hide d21b-229-anim
+        I "mh... nh... ah...~"
+        "She moans sensually, lovingly, full of passion and heat."
+        "Underneath you lies a woman who trusts you to make her feel special again, after decades of self-imposed seclusion."
+        show d21b-231-anim
+        with dissolve
+        hide d21b-230-anim
+        I "Mmmh... nhh!"
+        "Your passionate thrusts go on for many minutes, and you can feel her pussy twitch and climax repeatedly."
+        "After a while, you can feel that sensation come back yourself. The urge to cum. And she senses it, too, your manhood twitching strongly..."
+        scene d21b-232
+        with fade
+        I "[persistent.player_name]... nh... wait..."
+        scene d21b-233
+        with dissolve
+        "She holds you in place for a moment. Lightheaded, you move your gaze..."
+        scene d21b-234
+        with dissolve
+        I "Our kind is... very receptive."
+        I "Please... I can't risk it."
+        scene d21b-235
+        with dissolve
+        "Understanding her concern, you give her an straightforward nod."
+        scene d21b-236
+        with dissolve
+        I "Please come... on my body. I want to see it."
+        scene d21b-237
+        with dissolve
+        I "Ah... [persistent.player_name]..."
+        "With her tits pressed between her arms, your erection grows inside her..."
+        scene d21b-238
+        with dissolve
+        "You pause for a moment, enjoying her hands caressing you in anticipation, her insides starting to twitch..."
+        Z "All over your body, you say?"
+        scene d21b-239
+        with fade
+        I "Yes... I..."
+        scene d21b-240
+        with dissolve
+        I "...I want to feel it."
+        scene d21b-241
+        with dissolve
+        pause 0.7
+        scene d21b-242
+        with fade
+        I "Have your way, [persistent.player_name]."
+        scene d21b-243
+        with dissolve
+        Z "Let's come together, then."
+        show d21b-230-anim
+        with fade
+        "With her arms open, you resume where you pick up your pace..."
+        I "Ah... mh..."
+        Z "Ngh..."
+        Z "You feel so good, [I]."
+        I "And you... I love it..."
+        show d21b-227-anim
+        with fade
+        Z "I... I'm close."
+        I "Me too... mmh..."
+        with vpunch
+        I "Haa...!!"
+        with vpunch
+        I "Mmhh!"
+        "She cums intensely as you thrust in and out of her..."
+        Z "[I]...!"
+        scene d21b-244
+        with fade
+        "You pull out just in time..."
+        Z "Fuck..."
+        scene d21b-245
+        with vpunch
+        Z "Agh-"
+        scene d21b-246
+        with dissolve
+        I "Yes..."
+        scene d21b-247
+        with hpunch
+        I "Ah..!"
+        Z "Nngh-"
+        scene d21b-248
+        with hpunch
+        Z "{i}*grunts*{/i}"
+        I "So much..."
+        scene d21b-249
+        with dissolve
+        Z "{i}*heavy breathing*{/i}"
+        scene d21b-250
+        with fade
+        I "mh..."
+        "You grab her firm breast..."
+        Z "I'm not..."
+        scene d21b-252
+        with vpunch
+        Z "Ngh-"
+        scene d21b-253
+        with dissolve
+        Z "{i}*pant*{/i}"
+        Z "...done yet."
+        scene d21b-254
+        with dissolve
+        "You look at your cum plastered all over her flawless, white body..."
+        I "Thank you, [persistent.player_name]..."
+        scene d21b-255
+        with dissolve
+        Z "I... {i}*breathes*{/i}"
+        Z "I must thank you... for tonight."
+        scene d21b-256
+        with fade
+        "With her body in your hands, and your cum all over her stomach and chest, you feel your knees starting to give up..."
+        scene d21b-257
+        with dissolve
+        "Quietly, she watches you as your manhood slowly subsides."
+        Z "You are very special, [I]..."
+        scene black
+        with fade
+        "And then, you let yourself fall to your left, laying right next to her."
+        scene d21b-258
+        with fade
+        Z "Ah... wow..."
+        scene d21b-259
+        with dissolve
+        I "I... can still feel you..."
+        Z "Me too..."
+        scene d21b-260
+        with dissolve
+        Z "I'm getting lightheaded..."
+        scene d21b-261
+        with dissolve
+        Z "Wow..."
+        $ renpy.music.set_volume(0.05, delay = 4, channel="music")
+        scene d21b-262
+        with Dissolve(2)
+        "You close your eyes, letting the flow of emotions wash over you..."
+        pause 1.5
+        "...until you hear a gentle humming..."
+        $ renpy.music.set_volume(1, delay = 1.5, channel="music")
+        show d21b-263-anim
+        pause 5.5
+        show d21b-264-anim
+        pause 1
+        I "..."
+        "Your jaw drops at the sight before you..."
+        Z "I..."
+        pause 2
+        "Her seductive pose, the innocent but inviting smile..."
+        show d21b-265-anim
+        with fade
+        hide d21b-264-anim
+        "...she must know what she is doing. Or does she?"
+        Z "[I]..."
+        I "{i}*humming*{/i}"
+        # show d21b-266-anim
+        # with dissolve
+        # hide d21b-265-anim
+        Zt "Are all elves like this?"
+        "Her legs sway around, and you feel your energy and lust for her building again..."
+        I "Hmm..."
+        "Her irresistible hum continues..."
+        # show d21b-267-anim
+        # with dissolve
+        # hide d21b-266-anim
+        
+        Z "[I], if you keep doing this..."
+        I "...{i}*giggles*{/i}"
+        scene black
+        with fade
+        I "Nh..."
+        scene d21b-268
+        with fade
+        Z "You're making it impossible to hold back."
+        scene d21b-269
+        with dissolve
+        Zt "Wow... such a perfect ass."
+        "She keeps on humming subtly, and you can even feel her backside sway a little between your hands..."
+        scene d21b-270
+        with fade
+        Z "I know what you're doing..."
+        I "Hm..."
+        scene d21b-271
+        with dissolve
+        "She does not react to your words, quietly ignores you."
+        Z "It can't be helped, then."
+        scene d21b-272
+        with fade
+        Z "{i}*kissing*{/i}"
+        I "Nha..."
+        "You dive deep between her cheeks and eat out her dripping pussy..."
+        scene d21b-273
+        with dissolve
+        I "Ahh..."
+        scene d21b-274
+        with dissolve
+        Z "{i}*slurp*{/i}"
+        I "Mmmh..."
+        Zt "Now you're reacting..."
+        scene d21b-275
+        with dissolve
+        Z "mh..."
+        Zt "This taste... is different."
+        I "[persistent.player_name]..."
+        "You realise you will eventually be wanting more."
+        scene d21b-276
+        with dissolve
+        "Is this... part of her mutation? She tastes sweet, like honey... and citrus?"
+        I "Ah..."
+        Zt "She is irresistible..."
+        I "nh... I..."
+        with hpunch
+        I "Ngh~"
+        "Her walls clench for a moment as she climaxes again, this time a leg shaking one... only to instantly release more of her sweet nectar..."
+        with hpunch
+        I "Ah...!"
+        Z "{i}*slurp*{/i}"
+        Zt "She came so much..."
+        scene d21b-277
+        with fade
+        "You give her pussy a few more licks and kisses..."
+        I "mmh..."
+        scene d21b-278
+        with dissolve
+        "...before deciding that she needs something more."
+        scene black
+        with fade
+        "She stays in her position, and you climb on top of her..."
+        scene d21b-279
+        with fade
+        Zt "She's so quiet..."
+        scene d21b-280
+        with fade
+        I "..."
+        Zt "This silent teasing comes so natural to her."
+        scene d21b-281
+        with dissolve
+        "You rest your hard tip between her bubbly cheeks, enjoying her seductive response..."
+        I "...mh."
+        scene d21b-282
+        with fade
+        Z "You're something else, [I]..."
+        scene d21b-283
+        with dissolve
+        Z "...tell me, are you doing this on purpose?"
+        I "..."
+        scene d21b-284
+        with dissolve
+        I "What would I be doing...?"
+        scene d21b-285
+        with dissolve
+        "She lifts her ass..."
+        Z "Fuck..."
+        scene d21b-286
+        with fade
+        "She subtly bumps against your dick, waiting for you to take her..."
+        scene d21b-287
+        with dissolve
+        I "..."
+        Zt "I don't think I will ever forget this night."
+        scene d21b-288
+        with fade
+        "She smiles confidently, feeling your erection twitch on her skin..."
+        I "Hm..."
+        scene d21b-289
+        with fade
+        Z "Alright... I will give you what you desire."
+        I "{i}*giggles*{/i}"
+        Zt "She is so wet..."
+        show d21b-292-anim
+        with fade
+        I "Aah..."
+        "You passionately thrust deep inside of her, releasing all the pent-up energy from the last minutes..."
+        I "mmh... ah..."
+        Zt "I love this..."
+        show d21b-293-anim
+        with fade
+        hide d21b-292-anim
+        "You don't exchange words, but rather body language, thrusting and pulling and teasing...."
+        I "Ah... mh..."
+        "She wants more, and so do you."
+        show d21b-294-anim
+        with fade
+        hide d21b-293-anim
+        "Her perfect, firm ass feels soft to your touch. You can't stop looking at it as you take her..."
+        Z "You're gorgeous, [I]."
+        I "mmh..."
+        "Upon hearing your compliment, her pussy tightens, and grabs your cock hard, not letting you go..."
+        with hpunch
+        I "Mmmh...!"
+        with hpunch
+        I "Ahh..."
+        Zt "Amazing... she came again."
+        show d21b-291-anim
+        with fade
+        hide d21b-294-anim
+        I "Ah... ahh..."
+        "Your minds are foggy, your passion uncontrolled. You will never forget this night you didn't know you needed."
+        Z "You're so special, [I]."
+        I "I love how you... take me."
+        "Her moaning increases again in pitch and volume..."
+        show d21b-290-anim
+        with fade
+        hide d21b-291-anim
+        Zt "This girl... can't have enough..."
+        Zt "...neither can I."
+        Z "I... can't hold it anymore, [I]."
+        I "mmh..."
+        scene d21b-295
+        with fade
+        "You pull out in an instant..."
+        Z "Damn...-"
+        scene d21b-296
+        with vpunch
+        Z "Agh-"
+        scene d21b-297
+        with vpunch
+        pause 0.7
+        scene d21b-298
+        with dissolve
+        I "Ah..."
+        scene d21b-299
+        with dissolve
+        Z "{i}*heavy breathing*{/i}" 
+        scene d21b-300
+        with dissolve
+        I "mh..."
+        "Having cum a second time, you feel dizzy and spent..."
+        scene d21b-301
+        with dissolve
+        I "I can feel it on me..."
+        scene d21b-301x
+        with dissolve
+        Z "You've almost drained me."
+        menu d21b_ivy_sex_menu:
+            "Fondle her breasts some more" if d21b_ivy_action != 1:
+                $ d21b_ivy_action = 1
+                Z "I want to feel your breasts again..."
+                scene black
+                with fade
+                "You switch positions..."
+                scene d21b-155
+                with fade
+                I "You... really like them..."
+                show d21b-151-anim
+                with fade
+                I "mh..."
+                "You massage her firm tits again, taking in the feeling, admiring them..."
+                show d21b-152-anim
+                with fade
+                "The shape and suppleness of her breasts feel at home in your hands."
+                I "Mh..."
+                pause 0.7
+                show d21b-153-anim
+                with fade
+                "[I]'s breath is heated, she enjoys the attention you give her."
+                "Nha..."
+                "And her soft skin... it moves in unison with your touch; her nipples harden as her moans grows louder."
+                I "...it feels nice, [persistent.player_name]."
+                scene d21b-156
+                with dissolve
+                "She slowly strokes your shaft..."
+                scene d21b-157
+                with dissolve
+                I "Just like... this."
+                scene d21b-153-anim
+                with fade
+                I "Ah..."
+                "You grope and fondle each other eagerly..."
+                jump d21b_ivy_sex_menu
+
+            "Caress her pussy" if d21b_ivy_action != 2:
+                $ d21b_ivy_action = 2
+                Z "Lay down, [I]."
+                I "Mh...?"
+                scene black
+                with fade
+                "You gently toss her on her back..."
+                scene d21b-197
+                with fade
+                "She lays before you, still, motionless, sexy..."
+                scene d21b-198
+                with fade
+                "...and again looks at you in a way that makes you weak."
+                Z "You are still incredible..."
+                scene d21b-199
+                with dissolve
+                I "..."
+                scene d21b-200
+                with dissolve
+                "Your eyes roam across her body..."
+                scene d21b-201
+                with dissolve
+                "...from her abdomen..."
+                scene d21b-202
+                with dissolve
+                "...to her waist and thighs."
+                scene d21b-203
+                with fade
+                "Her flawless shape lies before you, and you take it all in..."
+                scene d21b-204
+                with fade
+                Z "Your turn, princess. Are you ready?"
+                scene d21b-205
+                with dissolve
+                I "Yes... please."
+                scene d21b-206
+                with dissolve
+                I "mh..."
+                "Your lips meet, and you make out gently at first, before the pace increases."
+                scene d21b-207
+                with dissolve
+                I "...ah."
+                "She moans, as your hands scour her waist."
+                scene d21b-208
+                with dissolve
+                I "{i}*kissing*{/i}"
+                "Your make-out is wet, sloppy, intense. And your hand..."
+                scene d21b-209
+                with dissolve
+                "...is guiding her to adjust her position slightly."
+                scene d21b-210
+                with dissolve
+                I "nh... [persistent.player_name]..."
+                scene d21b-211
+                with dissolve
+                I "{i}*kissing*{/i}"
+                scene d21b-212
+                with dissolve
+                I "Ahh..."
+                "Her moan is genuine and sharp..."
+                scene d21b-213
+                with dissolve
+                I "mmh...!"
+                "You massage her wet, glistening pussy lips, rubbing them from the inside out. Her hips tremble, her breath intensifies."
+                scene d21b-214
+                with dissolve
+                I "Ah... please..."
+                I "nnh...!"
+                scene d21b-215
+                with dissolve
+                "She clenches her legs..."
+                with hpunch
+                I "Mmmh....!"
+                "Her pussy twitches, leaks, for a moment of pure bliss inside her..."
+                with hpunch
+                I "...ahh!"
+                "...before she lustfully returns to dig her tongue into your mouth again, meeting yours."
+                I "{i}*kissing*{/i}"
+                scene d21b-216
+                with fade
+                I "W-wow..."
+                scene d21b-217
+                with dissolve
+                I "Thank you, [persistent.player_name]..."
+                jump d21b_ivy_sex_menu
+
+            "Tell her to lay on her front" if d21b_ivy_action != 3:
+                $ d21b_ivy_action = 3
+                $ d21b_ivy_fuck = False
+                $ d21b_ivy_eat_out = False
+                Z "[I]..."
+                I "Mmh?"
+                Z "Lay on your front again, like before..."
+                scene black
+                with fade
+                I "{i}*giggles*{/i}"
+                "She turns over, following your suggestion..."
+                show d21b-264-anim
+                with fade
+                I "..."
+                "She lays before you, swaying her body suggestively like before..."
+                pause 2
+                "Her seductive pose, the innocent but inviting smile..."
+                show d21b-265-anim
+                with fade
+                hide d21b-266-anim
+                "...she knows what she is doing."
+                Z "[I]..."
+                I "{i}*humming*{/i}"
+                show d21b-266-anim
+                with dissolve
+                hide d21b-265-anim
+                Zt "I could have her do this all night."
+                "Her legs sway around, and you feel your energy and lust for her building..."
+                I "Hmm..."
+                "Her irresistible hum continues..."
+                label d21b_ivy_lay:
+                    if d21b_ivy_eat_out == True and d21b_ivy_fuck == True:
+                        jump d21b_ivy_sex_menu
+                    else:
+                        menu :
+                            "Eat her out" if d21b_ivy_eat_out == False:
+                                $ d21b_ivy_eat_out = True
+                                Z "I can't resist."
+                                scene black
+                                with fade
+                                "You move behind her..."
+                                scene d21b-268
+                                with fade
+                                Z "I want to taste you again."
+                                scene d21b-269
+                                with dissolve
+                                Zt "Such a perfect ass..."
+                                "She keeps on humming subtly, and you can even feel her backside sway a little between your hands..."
+                                scene d21b-270
+                                with fade
+                                Z "You like teasing me, don't you..."
+                                I "Hm..."
+                                scene d21b-271
+                                with dissolve
+                                "She does not react to your words, quietly ignores you."
+                                Z "It can't be helped, then."
+                                scene d21b-272
+                                with fade
+                                Z "{i}*kissing*{/i}"
+                                I "Nha..."
+                                "You dive deep between her cheeks and eat out her dripping pussy..."
+                                scene d21b-273
+                                with dissolve
+                                I "Ahh..."
+                                scene d21b-274
+                                with dissolve
+                                Z "{i}*slurp*{/i}"
+                                I "Mmmh..."
+                                scene d21b-275
+                                with dissolve
+                                Z "mh..."
+                                Zt "This taste... I can't have enough."
+                                I "[persistent.player_name]..."
+                                scene d21b-276
+                                with dissolve
+                                I "Ah..."
+                                Zt "She is irresistible..."
+                                I "nh... I..."
+                                with hpunch
+                                I "Ngh~"
+                                "Her walls clench for a moment as she climaxes again, this time a leg shaking one... only to instantly release more of her sweet nectar..."
+                                with hpunch
+                                I "Ah...!"
+                                Z "{i}*slurp*{/i}"
+                                Zt "She came so much..."
+                                scene d21b-277
+                                with fade
+                                "You give her pussy a few more licks and kisses..."
+                                I "mmh..."
+                                jump d21b_ivy_lay
+
+                            "Fuck her" if d21b_ivy_fuck == False:
+                                $ d21b_ivy_fuck = True
+                                Z "Enough with the teasing."
+                                scene black
+                                with fade
+                                I "Mh..."
+                                "You climb on top of her..."
+                                scene d21b-279
+                                with fade
+                                Z "Staying silent again, hm?"
+                                scene d21b-280
+                                with fade
+                                I "..."
+                                Zt "This quiet teasing comes so natural to her."
+                                scene d21b-281
+                                with dissolve
+                                "You rest your hard tip between her bubbly cheeks, enjoying her seductive response..."
+                                I "...mh."
+                                scene d21b-282
+                                with fade
+                                Z "Remember what you did before?"
+                                scene d21b-283
+                                with dissolve
+                                Z "Do it again, [I]."
+                                I "..."
+                                scene d21b-284
+                                with dissolve
+                                I "I don't remember..."
+                                scene d21b-285
+                                with dissolve
+                                I "...what do you mean?"
+                                Z "Fuck..."
+                                scene d21b-286
+                                with fade
+                                "She subtly bumps against your dick, waiting for you to take her..."
+                                scene d21b-287
+                                with dissolve
+                                I "..."
+                                Zt "She is so sexy."
+                                scene d21b-288
+                                with fade
+                                "She smiles confidently, feeling your erection twitch on her skin..."
+                                I "Hm..."
+                                scene d21b-289
+                                with fade
+                                Z "Alright... you deserve what's coming."
+                                I "{i}*giggles*{/i}"
+                                Zt "She is still so wet..."
+                                show d21b-292-anim
+                                with fade
+                                I "Aah..."
+                                "You passionately thrust deep inside of her, releasing all the pent-up energy from the last minutes..."
+                                I "mmh... ah..."
+                                Zt "I love this..."
+                                show d21b-293-anim
+                                with fade
+                                hide d21b-292-anim
+                                "You don't exchange words, but rather body language, thrusting and pulling and teasing...."
+                                I "Ah... mh..."
+                                "She wants more, and so do you."
+                                show d21b-294-anim
+                                with fade
+                                hide d21b-293-anim
+                                "Her perfect, firm ass feels soft to your touch. You can't stop looking at it as you take her..."
+                                Z "You're gorgeous, [I]."
+                                I "mmh..."
+                                "Upon hearing your compliment, her pussy tightens, and grabs your cock hard, not letting you go..."
+                                with hpunch
+                                I "Mmmh...!"
+                                with hpunch
+                                I "Ahh..."
+                                Zt "Amazing... she came again."
+                                show d21b-291-anim
+                                with fade
+                                hide d21b-294-anim
+                                I "Ah... ahh..."
+                                "Your minds are foggy, your passion uncontrolled."
+                                Z "You're so wet, [I]."
+                                I "I love how you... take me."
+                                "Her moaning increases again in pitch and volume..."
+                                show d21b-290-anim
+                                with fade
+                                hide d21b-291-anim
+                                Zt "This girl... can't have enough..."
+                                Zt "...neither can I."
+                                jump d21b_ivy_sex_menu
+
+                            "Do something else":
+                                jump d21b_ivy_sex_menu
+
+            "Fuck her on her back" if d21b_ivy_action != 4:
+                $ d21b_ivy_action = 4
+                Z "[I], I... don't have enough."
+                scene black
+                with fade
+                I "Ah...~"
+                scene d21b-219
+                with fade
+                "You tower her, ready to take her once more."
+                I "Nh..."
+                scene d21b-220
+                with fade
+                "Your thick cock rests against her..."
+                scene d21b-221
+                with dissolve
+                Zt "This slim waist, so sexy.."
+                scene d21b-222
+                with dissolve
+                Zt "By the gods..."
+                scene d21b-223
+                with dissolve
+                Zt "...she needs to get fucked again."
+                scene d21b-224
+                with dissolve
+                I "A-aah..."
+                Z "Nnngh..."
+                Zt "She feels amazing..."
+                show d21b-227-anim
+                with fade
+                I "Ah... [persistent.player_name]...~"
+                "You start fucking her at a fast pace."
+                Zt "Enough cuddling. I want to take her properly."
+                show d21b-228-anim
+                with fade
+                hide d21b-227-anim
+                "You fuck her in quick, deep thrusts, your hands frantically moving across her body, kneading, caressing, pinching..." 
+                Zt "She is amazing. Her soft moans, the reactions of her body, the soft feeling inside her..."
+                show d21b-229-anim
+                with fade
+                hide d21b-228-anim
+                Z "Ngh... [I]..."
+                I "Ah... nh..."
+                "Lustfully, you both enjoy the feeling of each other. You're not saying anything, letting your eyes do all of the talking."
+                "You see what she wants. She knows instinctively what you want."
+                "An escape from your life just for this night. Something otherworldly, together."
+                show d21b-230-anim #TODO re render
+                with fade
+                hide d21b-229-anim
+                I "mh... nh... ah...~"
+                "She moans sensually, lovingly, full of passion and heat."
+                "Underneath you lies a woman who trusts you to make her feel special again, after decades of self-imposed seclusion."
+                show d21b-231-anim
+                with dissolve
+                hide d21b-230-anim
+                I "Mmmh... nhh!"
+                "Your passionate thrusts go on for many minutes, and you can feel her pussy twitch and climax repeatedly."
+                jump d21b_ivy_sex_menu
+
+
+            "Ask her to get on top" if d21b_ivy_action != 5:
+                $ d21b_ivy_action = 5
+                Z "I'm not... ngh... done yet."
+                Z "[I]... get on top of me again."
+                scene black
+                with fade
+                "Moments later..."
+                scene d21b-180
+                with fade
+                I "Ah... you... want more...?"
+                Z "Yes."
+                show d21b-178-179-anim
+                with fade
+                I "Hah..."
+                pause 0.5
+                I "It's..."
+                pause 0.8
+                I "Mmh..."
+                "Your mind goes blank as she moves down on you."
+                "The feeling is out of this world. Her walls feel soft and moist as they grip on your manhood, keeping you inside her."
+                scene d21b-180
+                with fade
+                I "Ah... [persistent.player_name]...!"
+                Z "[I]..."
+                show d21b-181-anim
+                with dissolve
+                "Her skin still feels like silk, urging you to hold her ever more tightly."
+                I "This... feeling... nh..."
+                I "{i}*kissing*{/i}"
+                show d21b-182-anim
+                with fade
+                hide d21b-181-anim
+                "You notice her nipples gently brushing against your chest as she moves."
+                I "Mh..."
+                "Your necklace hangs down her neck, waving slightly back and forth while she kisses you passionately."
+                show d21b-183-anim
+                with fade
+                hide d21b-182-anim
+                "She tilts her hips, pushing herself harder into you..."
+                "You feel her wetness, her excitement... Her juices running down your skin."
+                Zt "I can't get enough..."
+                jump d21b_ivy_sex_menu
+            
+            
+            "Fall beside her":
+                Zt "Damn... I'm out of energy..."
+                scene black
+                $ renpy.music.set_volume(0.3, delay = 3, channel="music")
+                with fade
+                play sound "audio/sounds/actions/drop 4.mp3"
+                "You fall beside her a second time..."
+                scene d21b-302
+                with fade
+                Z "Wow... this woman..."
+                "Failing to think clearly, you begin to doze off..."
+                pause 1.5
+                "...and feel something climbing up on you."
+                scene d21b-303
+                $ renpy.music.set_volume(1, delay = 6, channel="music")
+                with slowfade
+                Z "mh... [I]...?"
+                scene d21b-304
+                with fade
+                "Exhausted, you slowly come back to your senses..."
+                scene d21b-305
+                with dissolve
+                I "mmh..."
+                scene d21b-306
+                with dissolve
+                "She grabs your cock firmly, almost impatiently, and strokes it slowly..."
+                scene d21b-307
+                with dissolve
+                "Not speaking a word, she breathes heavily, lustfully..."
+                scene d21b-308
+                with dissolve
+                I "Ah..."
+                Z "[I]..."
+                I "[persistent.player_name]..."
+                scene d21b-309
+                with dissolve
+                "She does not need to say more. She wants more, and every part of her is telling you so."
+                scene d21b-310
+                with fade
+                "She looks at you with lust, relentless lust..."
+                scene d21b-311
+                with dissolve
+                I "Haa..."
+                scene d21b-312
+                with fade
+                I "mmmh...."
+                "She slowly inserts herself."
+                Zt "She's still so incredibly wet..."
+                scene d21b-313
+                with dissolve
+                Zt "This goddamn siren... has spellbound me."
+                scene d21b-314
+                with dissolve
+                Zt "...and she wants more still."
+                scene d21b-315
+                with fade
+                I "mh..."
+                scene d21b-316
+                with dissolve
+                "The sloppy sound of her humping motions entice you..."
+                scene d21b-317
+                with dissolve
+                I "Ah...!"
+                scene d21b-318
+                with dissolve
+                I "Nhaah! This feeling...!"
+                scene d21b-319
+                with fade
+                "The elf takes you inside her whole, her pussy a mess of mixed juices..."
+                scene d21b-320
+                with dissolve
+                Z "[I]..."
+                Z "You are incredible."
+                scene d21b-321
+                with dissolve
+                I "You too."
+                show d21b-324-anim
+                with fade
+                "She starts grinding intensely..."
+                I "I just... want more..." 
+                I "nh...!"
+                show d21b-325-anim
+                with fade
+                hide d21b-324-anim
+                "Despite your exhaustion, your erection and attraction to her is stronger than ever."
+                I "Ah... mh..."
+                "She's in trance, fully committed on using your thick cock inside her to hit all the spots she needs..."
+                show d21b-325x-anim
+                with fade
+                hide d21b-325-anim
+                "Her movement is frantic and her moans are strong and loud."
+                Zt "Wow... She's massaging me... and herself..."
+                I "Ah..."
+                with vpunch
+                I "Mmmmnhhh...!"
+                "She unapologetically cums on you, again and again..."
+                show d21b-325x-2-anim
+                with fade
+                Zt "I would have never thought she had it in her to be like this."
+                "You admire her perfect torso..."
+                Zt "It's like a dam has broken and a flood has become unstoppable." 
+                show d21b-325x-3-anim
+                with fade
+                "She stares into the room absentmindedly, fully engulfed in her own pleasure..."
+                Zt "She's amazing. To think I once had her life in my hands..."
+                show d21b-325x-4-anim
+                with fade
+                I "mmmh...!"
+                "She increases her speed, making you throb inside her..."
+                Z "Damn... [I], careful now..."
+                I "Hah... I'm..."
+                scene d21b-327
+                with fade
+                I "Aahhh!"
+                scene d21b-328
+                with vpunch
+                I "Mmhmmhhh...!"
+                "She climaxes hard, with a strangled sound..."
+                scene d21b-328x
+                with vpunch
+                I "Mmmmmmhhhhh...!"
+                "...this is the moment she has been building towards."
+                scene d21b-329
+                with fade
+                "Her pussy is twitching and dripping, massaging your manhood, and you feel you are about to cum too..."
+                Z "[I], I must pull out..."
+                scene d21b-330
+                with dissolve
+                I "Nnngh..."
+                Z "Fuck, I..."
+                scene d21b-331
+                with dissolve
+                I "Ah, I'm sorry..."
+                scene d21b-332
+                with fade
+                Z "Can't... hold it...-"
+                scene d21b-333
+                with fade
+                "She hesitantly moves up, finally releasing you..."
+                I "Hah..."
+                scene d21b-334
+                with dissolve
+                Z "Ngh-"
+                scene d21b-335
+                with hpunch
+                Z "Akh-!"
+                scene d21b-336
+                with hpunch
+                Z "Fuck..."
+                scene d21b-337
+                with dissolve
+                Z "{i}*pants heavily{/i}"
+                Z "That... was close. I almost..."
+                scene d21b-338
+                with dissolve
+                I "...came inside me."
+                scene d21b-339
+                with dissolve
+                "She gently touches your tip..."
+                Z "What are you..."
+                Z "I thought you wanted to avoid it?"
+                I "Yes... mh... I'm sorry..."
+                scene d21b-340
+                with fade
+                I "Nh..."
+                "She suddenly inserts herself again..."
+                I "...but sometimes, risks are an acceptable trade-off."
+                scene d21b-341
+                with dissolve
+                I "...ah!"
+                Zt "By the gods..."
+                scene d21b-342
+                with dissolve
+                I "Mmh..."
+                Zt "The siren keeps her spell on me..."
+                scene d21b-344
+                with fade
+                I "Aah...~"
+                "Her moan rings with satisfaction and glee..."
+                scene d21b-345
+                with dissolve
+                "She rests on you, and you both barely move at all, if not for breathing deep, spent breaths..."
+                I "nh..."
+                scene d21b-343
+                with fade
+                Z "Ah..."
+                I "mh... you feel... amazing..."
+                "The feeling of being perfectly connected... you both enjoy it for another moment."
+                scene d21b-346
+                with fade
+                "You grab her hips tightly as she lowers her head, looking at you..."
+                scene d21b-347
+                with fade
+                "...and you feel her warmth wrapped around you, her eyes lost in yours..."
+                scene d21b-348
+                with dissolve
+                "...lingering on you with admiration."
+                scene black
+                $ renpy.music.set_volume(0.3, delay = 3.0, channel="music")
+                with slowfade
+                "And just one moment later..."
+                scene d21b-349
+                with slowfade
+                "...she gets up, and out of bed."
+                Zt "Wow..."
+                scene d21b-350
+                with fade
+                Zt "I am spent... this woman..."
+                scene d21b-351
+                with fade
+                "Drowsily, you glance over at the elf and once more notice a robe draped around her body..."
+                scene d21b-352
+                with dissolve
+                I "{i}*humming*{/i}"
+                "The robe is black and silky, something you have not seen on her before..."
+                scene d21b-353
+                with fade
+                "...and for a moment, you believe to see her throwing a glimpse at you, right before seductively covering her chest..."
+                Z "[I]... where are you going?"
+                scene d21b-354
+                with fade
+                I "I will sit by the water for a while. The night is still young..."
+                scene d21b-355
+                with dissolve
+                "...she says softly, almost whispering..."
+                scene black
+                stop music fadeout 4
+                with fade
+                play sound "audio/sounds/doors/door closed.mp3"
+                "...and leaves the room."
+                scene d21b-356
+                with fade
+                Z "..."
+                "You think about her words, how she opened up to you..."
+                "And how that impacted your subsequent mating." 
+                pause 0.7
+                Zt "The night is still young..."
+                scene black
+                with slowfade
+                $ renpy.music.set_volume(1, delay = 1.0, channel="music")
+                pause 1
+                Z "...and perhaps, not over just yet."
+                play music "audio/music/mutants/midnight paradise.mp3"
+                pause 1
+                scene d21b-357
+                with Dissolve(6)
+                show d21b-357-anim
+                pause 6
+                scene d21b-358
+                with slowfade
+                pause 4
+                scene d21b-359
+                with slowfade
+                pause 1.5
+                "Her silhouette is framed by the light of the stars draping her in darkness..."
+                scene d21b-360
+                with slowfade
+                pause 1.2
+                scene d21b-361
+                with dissolve
+                pause 1.8
+                scene d21b-362
+                with slowfade
+                pause 1.5
+                scene d21b-363
+                with dissolve
+                I "..."
+                scene d21b-364
+                with slowfade
+                "As you stand behind her, at the edge of the pond, you sense it again..."
+                scene d21b-365
+                with dissolve
+                "...the feeling you had back in the barracks, when she sat next to you, and reached out her hand."
+                "She was right there before you, within your grasp. But her mind, her person, her essence… mysteriously out of reach."
+                scene d21b-366
+                with fade
+                "Her hands grab the edges of the robe..."
+                scene d21b-367
+                with dissolve
+                "...and reveal her chest."
+                scene d21b-369
+                with fade
+                pause 2.5
+                scene d21b-370
+                with fade
+                "...she is closer than ever."
+                scene d21b-371
+                with dissolve
+                "Her intoxicating presence has again aroused your senses." 
+                scene d21b-373
+                with fade
+                "She turns around, waiting for you..."
+                "...and you move following your cravings once more."
+                scene d21b-374
+                with slowfade
+                I "..."
+                scene d21b-375
+                with dissolve
+                I "{i}*gasp*{/i}"
+                scene d21b-376
+                with fade
+                "Silently, you rest your stiff shaft against her buttocks. Her body responding immediately."
+                scene d21b-377
+                with hpunch
+                I "Ah..."
+                "...but this time, you take the initiative."
+                scene d21b-378
+                with dissolve
+                Iw "[persistent.player_name]..."
+                "You grab her firmly, like she belongs to you, and slowly guide your tip towards her entrance."
+                scene d21b-379
+                with dissolve
+                "Her moist pussy twitches slightly as you enter her tip..."
+                scene d21b-380
+                with dissolve
+                I "...mh."
+                "...and then, you push inside of the elf, one more time..."
+                scene d21b-381
+                with dissolve
+                I "Ah...~"
+                "...until she engulfs you again."
+                scene d21b-382
+                with fade
+                "Her arms move back, her breathing becoming heavy."
+                "Your grip is firm, and your body presses against her, telling her:"
+                Z "You are mine, tonight."
+                show d21b-383-anim
+                with fade
+                "And so you take her again, under the moonlight. But this time your pace is gentle, the slowest it has been tonight."
+                I "Ah... haa..."
+                Z "mh... [I]..."
+                I "[persistent.player_name]..."
+                show d21b-384-anim
+                with fade
+                hide d21b-383-anim
+                "Her beautiful, slender figure sways from your gentle thrusts, as you bury your face in her neck, exhaling on her skin, causing goosebumps to form."
+                I "Ahh... mh..."
+                "She feels lithe in your arms, leaning back against you for comfort, your recent gift to her bouncing on her chest."
+                show d21b-386-anim
+                with fade
+                hide d21b-385-anim
+                "You can't get enough of her flawless body, no matter how many hours you already spent with her tonight."
+                "Her smooth skin... her soothing voice... the smell of her short hair. Everything about her is intoxicating, as if by design."
+                "Any remaining inhibitions are long gone, tonight. Now, it's only her and you. Two souls connecting in the most sensual of ways."
+                show d21b-385-anim
+                with fade
+                hide d21b-384-anim
+                I "Nhaa... haa..."
+                "She climaxes repeatedly, sometimes close together and never lets it stop her."
+                scene d21b-390
+                with fade
+                Z "mmgh..."
+                I "Aaah...?"
+                "You gently bite her neck, sending shivers through her spine."
+                I "[persistent.player_name]...!"
+                I "Ahh... you... are driving me crazy..."
+                scene d21b-391
+                with dissolve
+                "Unable to stay silent, she trembles and twitches."
+                with vpunch
+                I "Ah-!"
+                I "I..."
+                with vpunch
+                I "Hah...!"
+                "...as she inevitably climaxes intensely, yet again."
+                scene d21b-392
+                with fade
+                "Moments later, you pull out of her..."
+                Z "I can't...-"
+                scene d21b-393
+                with hpunch
+                I "Ah..."
+                "...and press your shaft between her round ass cheeks."
+                scene d21b-394
+                with vpunch
+                Z "Kgh-"
+                scene d21b-395
+                with dissolve
+                Z "mmh... {i}*kissing*{/i}"
+                I "[persistent.player_name]...!"
+                with vpunch
+                Z "{i}*grunt*{/i}"
+                "You cum shaking, on her lower back, spending your last few available drops."
+                scene d21b-396
+                with dissolve
+                I "{i}*heavy breathing*{/i}"
+                Z "mmh..."
+                "Coming down from the height of your climax, you feel your and her knees becoming weak."
+                scene d21b-397
+                with dissolve
+                Z "Wow..."
+                I "Mh..."
+                scene d21b-398
+                with dissolve
+                I "Thank... you..."
+                scene d21b-399
+                with dissolve
+                I "mhh..."
+                Z "{i}*kissing*{/i}"
+                scene d21b-400
+                with dissolve
+                "Completely spent, she leans against you, moaning quietly, while you kiss and caress her for a minute longer..."
+                scene black
+                stop music fadeout 4
+                $ renpy.music.set_volume(0.5, delay = 4, channel="music")
+                with slowfade3
+                if _in_replay:
+                    $ renpy.end_replay()
+                jump d21b401
+
+    label d21b401:
+        scene d21b-401
+        queue music "audio/music/exploration/neon dreams.mp3" fadein 3
+        with slowfade
+        "You find yourself in the pond resting against the stone, as the girl you spent the night with swims towards you."
+        scene d21b-402
+        with fade
+        I "Did you know... that for our kind, our ears are the most sensitive in our body?"
+        scene d21b-403
+        with dissolve
+        Z "I did not, no."
+        scene d21b-403x
+        with fade
+        "You gently reach out to her..."
+        Z "Tell me then, how exactly does this feel?"
+        scene d21b-403x-2
+        with dissolve
+        Z "Is it ticklish, or does it hurt?"
+        "You gently rub the back of her pointy ear..."
+        scene d21b-403x-3
+        with dissolve
+        I "It's... a unique feeling. It calms me down..."
+        scene d21b-403x-4
+        with dissolve
+        I "...when it's the right person."
+        scene d21b-403x-5
+        with dissolve
+        "You look each other into the eyes..."
+        scene black
+        with slowfade
+        play sound "audio/sounds/environment/water pour.mp3"
+        scene d21b-404
+        with slowfade
+        "She rests her arms on your shoulder..."
+        scene d21b-405
+        with fade
+        I "And it's an erogenous zone too. It gets us excited."
+        scene d21b-406
+        with dissolve
+        Z "Is that so... how excited exactly?"
+        scene d21b-407
+        with dissolve
+        I "Very... it's..."
+        scene d21b-408
+        with dissolve
+        I "Ah..."
+        "She lets out a cute moan as she lowers herself on you..."
+        I "...hard to resist."
+        scene d21b-409
+        with dissolve
+        Z "That's good to know."
+        pause 1.3
+        scene d21b-409x
+        with dissolve
+        pause 0.7
+        I "Thank you for this very special night, [persistent.player_name]."
+        I "I... appreciate you taking your time for Sonmi... and me."
+        scene d21b-409x-2
+        with dissolve
+        I "It has been such a long time... I forgot how much I could enjoy it."
+        scene d21b-409x-3
+        with dissolve
+        I "...and I am not just talking about the physical side."
+        scene d21b-409x-4
+        with dissolve
+        menu:
+            "\"You deserved it.\"":
+                Z "And you deserved it. After everything you went through." 
+                Z "You are a fascinating woman, [I]. I was struck since the moment we met."
+                scene d21b-409x-5
+                with dissolve
+                "She smiles..."
+                scene d21b-410
+                with fade
+                I "Do you mind, if..."
+                Z "...we keep going?"
+                I "How did you..."
+                scene d21b-411
+                with fade
+                "You hold her firmly..."
+                Z "Well... I'd say I'm beginning to understand how \"elves\" really work. Or maybe it's just you I am getting to know."
+                I "{i}*giggles*{/i}"
+                scene d21b-412
+                with fade
+                I "But just how long can you really last, hm?"
+                scene d21b-413
+                with dissolve
+                Z "Let's find out, together."
+                scene d21b-414
+                with dissolve
+                "And so you kiss again, under the same moonlight that guided you to this place."
+                "The elf who already taught you so much about yourself since the moment you saved her..."
+                "...still seems to have a few more lessons for you prepared."
+                scene black
+                stop music fadeout 4
+                with slowfade3
+                "Before you know it, you both fall asleep together, and what seems to be a long, dreamy night, comes to an end."
+                jump d21b415
+
+            "\"Maybe this does not have to end.\"":
+                "She smiles, but behind her sweet facade, hides a lifetime of loneliness..."                 
+                scene d21b-410x
+                with fade
+                Z "Maybe this does not have to end here."
+                scene d21b-410
+                with dissolve
+                I "What... do you mean by that, [persistent.player_name]?"
+                scene d21b-410x
+                with dissolve
+                menu:
+                    "\"Our chapter.\"":
+                        $ ivy_love = True 
+                        Z "Our chapter... and us."
+                        Z "You have fascinated me the moment I saw you."
+                        scene d21b-409x-6
+                        with fade
+                        Z "...Everything about you, not just your mysteriously shifting eyes."
+                        scene d21b-409x-7
+                        with dissolve
+                        "She blushes..."
+                        scene d21b-409x-8
+                        with dissolve
+                        "...and then, her smile returns. And her eyes; blue, like yours."
+                        scene d21b-409x-9
+                        with dissolve
+                        I "I... will remember your words, [persistent.player_name]."
+                        scene d21b-409x-10
+                        with dissolve
+                        I "But we both know that to begin something new, we also must let go of the old."
+                        scene d21b-409x-11
+                        with dissolve
+                        pause 0.7
+                        "You look into her eyes, trying to understand the meaning of her words..."
+                        scene d21b-411
+                        with fade
+                        "...and hold her, as she leans back a little."
+                        scene d21b-412x
+                        with fade
+                        I "All we can do now, is to not let this night end just yet."
+                        scene d21b-413x
+                        with dissolve
+                        "Smiling, she looks deeply into your eyes. Her words still echoing through your mind." 
+                        "A mix of yearning... and loss seeps through you."
+                        "A feeling that you are looking into the eyes of an impossibly old soul that is making an effort to be there with you, and yet, fading away as the night goes on."
+                        "The intoxication you felt at the taste of her lips on yours is something that moves beyond physical pleasure, the limits of sexual play."
+                        "You recognise that whatever the future might bring, this night will stay with you for as long as you will live."
+                        scene d21b-414
+                        with slowfade
+                        "And as you kiss, that acceptance becomes easier, only to flee again once your lips will be separated."
+                        "But to regret the future, is to miss out on the present. And so you kiss for a while longer, under the moonlight..."
+                        scene black
+                        stop music fadeout 5
+                        with slowfade3
+                        "...until the inevitable end of the night comes, and the dream slips away."
+                        jump d21b415
+
+
+                    "\"This night.\"": #This is basically the "Non-love" path, a very genuine ending, and a loving one. but not a soul-binding one
+                        Z "This night. It does not have to end yet."
+                        scene d21b-410x-2
+                        with dissolve
+                        "She smiles..."
+                        scene d21b-411
+                        with fade
+                        "You hold her tight, as she lowers herself onto you further..."
+                        scene d21b-412
+                        with dissolve
+                        I "You are right, [persistent.player_name]."
+                        I "It does not have to end just yet."
+                        scene d21b-413
+                        with dissolve
+                        "She looks at you, with renewed eagerness..."
+                        scene d21b-414
+                        with dissolve
+                        "...and kisses you, while her hips start to move again."
+                        "You enjoy the dream as long as it lasts. But all dreams eventually come to an end, and before you know it..."
+                        scene black
+                        stop music fadeout 5
+                        with slowfade3
+                        "...you fall asleep, together, firmly wrapped in one another."
+                        jump d21b415
+
+    label d21b415:
+        pause 2
+        $ renpy.music.set_volume(1, delay = 3, channel="music")
+        scene d21b-415
+        play music "audio/music/mutants/sapa ambience.mp3"
+        with slowfade3
+        call daily_reset from _call_daily_reset_4
+        "The next morning..."
+        scene d21b-416
+        with slowfade
+        pause 2
+        I "[persistent.player_name]?"
+        scene d21b-417
+        with dissolve
+        Z "mh... yes?"
+        scene d21b-418
+        play sound "audio/sounds/environment/water swirl.mp3"
+        $ renpy.music.set_volume(0.5, delay = 3, channel="music")
+        with fade
+        if ivy_romance == True:
+            I "Sorry for waking you up. But I figured you have not eaten anything since yesterday, so..."
+        else:
+            I "Sorry for waking you up. But I figured you'd want to see the fruits of yesterday's labor."
+        scene d21b-419
+        with dissolve
+        I "I... made you something to get the day started."
+        scene d21b-420
+        with dissolve
+        I "It's maybe not like what you get in the city, but I think it turned out well!"
+        scene d21b-421
+        with dissolve
+        Z "You... made this just this morning?"
+        I "mhm..."
+        scene d21b-422
+        with dissolve
+        Z "You didn't have to, but thank you. And you're right, now that you mention it..."
+        scene d21b-423
+        with dissolve
+        "...I am feeling quite hungry, indeed."
+        scene d21b-420
+        with fade
+        I "I will put this down here. I also brought your clothes."
+        scene d21b-424
+        with dissolve
+        Z "Sure, thank you..."
+        if ivy_love == True:
+            Zt "She's a gem..."
+        elif ivy_romance == True:
+            Zt "She is truly adorable."
+        else:
+            Zt "She's a sweet one."
+        pause 1.8
+        $ renpy.music.set_volume(0, delay = 1, channel="music")
+        C "Yuna?"
+        scene d21b-425
+        with dissolve
+        I "..."
+        scene d21b-426
+        with dissolve
+        C "Yuna... I..."
+        scene d21b-427
+        with fade
+        pause 1
+        scene d21b-428
+        with dissolve
+        So "...I'm back."
+        scene d21b-429
+        play sound "audio/sounds/actions/running.mp3"
+        $ renpy.music.set_volume(0.5, delay = 3, channel="music")
+        with fade
+        I "S-Sonmi...?!"
+        scene d21b-430
+        with fade
+        I "Sonmi... are you hurt?"
+        scene d21b-431
+        with dissolve
+        I "H-how are you? Tell me..."
+        pause 0.5
+        So "I..."
+        pause 0.8
+        show d21b-432-anim
+        with fade
+        pause 0.1
+        So "...I feel better."
+        I "{i}*gasp*{/i}"
+        scene d21b-433
+        with fade
+        I "Your..."
+        scene d21b-434
+        with dissolve
+        I "...your eyes."
+        scene black
+        with fade
+        pause 1
+        scene d21b-435
+        play sound "audio/sounds/actions/foot step in sand 1.mp3"
+        with hpunch
+        So "...!"
+        I "You're really back!"
+        scene d21b-436
+        with dissolve
+        So "I'm sorry, Yuna. For everything..."
+        scene d21b-437
+        with dissolve
+        So "...all these years!"
+        scene d21b-438
+        with dissolve
+        I "It's fine..."
+        I "You don't need to go out there anymore."
+        scene d21b-439
+        with dissolve
+        So "{i}*cries*{/i} I don't want to. I really want to move on..."
+        scene d21b-440
+        with slowfade
+        I "And we will, together."
+        So "Yes, please..."
+        scene d21b-441
+        with slowfade
+        "You slowly approach the two women..."
+        scene d21b-442
+        with fade
+        So "{i}*sobs*{/i}"
+        scene d21b-443
+        with dissolve
+        "...and notice her looking at you."
+        scene black
+        with fade
+        So "Yuna, give me one moment, please."
+        scene d21b-444
+        with slowfade
+        "She stands before you..."
+        scene d21b-445
+        with fade
+        "Hesitating to look at you, she tries to form her words."
+        scene d21b-446
+        with slowfade
+        So "Thank you for your help, [persistent.player_name]."
+        scene d21b-447
+        with dissolve
+        Z "Don't mention it, Sonmi."
+        pause 0.5
+        scene d21b-448
+        play sound "audio/sounds/actions/foot step in sand 1.mp3"
+        with hpunch
+        pause 0.8
+        scene d21b-449
+        with dissolve
+        Z "...!"
+        "She hugs you tight..."
+        scene d21b-450
+        with fade
+        Z "Are you... by any chance hungry?"
+        So "Yes..."
+        Z "Maybe we could eat something together then."
+        Z "I'm sure Yuna made enough for the both of us."
+        So "That... sounds nice."
+        scene d21b-451
+        with dissolve
+        I "..."
+        scene d21a-12x-18
+        $ renpy.music.set_volume(1, delay = 3, channel="music")
+        with longflash #cynical a reminder these following lines are a repeat of the flashback in the beginning. you already worked on this until....
+        So "Woow... you should see this!"
+        So "Have you ever seen the city laid out under your feet from this high? It's beautiful."
+        scene d21a-12x-19
+        with dissolve
+        So "I can't imagine what it must have looked like befor-" 
+        scene d21a-12x-20
+        play sound "audio/sounds/actions/metal footstep 2.mp3"
+        with vpunch
+        So "Ah-!"
+        scene d21a-12x-21
+        with Dissolve(0.3)
+        I "Sonmi!" #...here
+        scene d21b-452
+        with fade
+        So "Whoa..."
+        scene d21b-453
+        with dissolve
+        So "That... was close."
+        scene d21b-454
+        with dissolve
+        So "I guess I should be more careful. Sorry!"
+        scene d21b-454x
+        with dissolve
+        pause 0.6
+        play sound "audio/sounds/environment/desert wind.mp3"
+        scene d21b-454-anim
+        with fade
+        So "{i}*humming*{/i}"
+        scene d21b-455
+        with fade
+        So "You see, Yuna? Sometimes, to see the good things, we must step outside our safe zone." 
+        scene d21b-457
+        stop sound fadeout 3
+        with dissolve
+        So "You know this better than anyone!"
+        scene d21b-458
+        with slowfade
+        So "And as long as we don't fall all the way down..."
+        scene d21b-459
+        with fade
+        So "...we can always pick ourselves up again!"
+        scene d21b-460
+        with dissolve
+        pause 2
+        scene black
+        stop music fadeout 10
+        with slowfade3
+        pause 3
+        "Later that day..."
+        scene d21b-461
+        with slowfade
+        Z "..."
+        play sound "audio/sounds/doors/door closed.mp3"
+        pause 0.6
+        S "Hey... I'm sorry to disturb."
+        Z "Come in."
+        scene d21b-462
+        with fade
+        S "You have been... silent, ever since you returned."
+        scene d21b-463
+        with fade
+        S "I just wanted to ask if you are okay, or if things turned out badly out there?"
+        scene d21b-464
+        with dissolve
+        Z "Turn out badly? Hm..."
+        scene d21b-465
+        with fade
+        Z "No... actually, quite the opposite." 
+        Z "You see... I was reminded of something, today."
+        scene d21b-466
+        with dissolve
+        Z "Once in a while, there are happy endings to be found in the desert..."
+        pause 0.7
+        Z "...you just have to see the stories to the end."
+        $ persistent.d21mm_2 = True
+        $ persistent.mm = '0.21B'
+        scene black
+        with slowfade
+        if sq_i_1.current_step == 4:
+            $ sq_i_1.complete()
+        if ivy_romance == True:
+            $ sq_i_1.resolution = _("No matter how many years I have spent out in the desert... some things come unexpected.\nFirst, my special night with [I]. Then, Sonmi returning, trying to leave her horrible experiences behind her.\n\nI can only hope that she succeeds, because from here on out, it is her battle again. I am optimistic though that she will find the inner peace she has been chasing for so long.\n\nAbout [I]... it seems that she did indeed turn my head, in more ways than one. Whatever happens in the future, I will not forget her, nor her sweet friend.")
+        else:
+            $ sq_i_1.resolution = _("No matter how many years I have spent out in the desert... some things come unexpected.\nSonmi returned, and now tries to leave her horrible experiences behind her.\n\nI can only hope that she succeeds, because from here on out, it is her battle again. I am optimistic though that she will find the inner peace she has been chasing for so long.\n\nWhatever may come their way, I am sure they will face it together.")
+        pause 2
+        jump daily_home
+
+

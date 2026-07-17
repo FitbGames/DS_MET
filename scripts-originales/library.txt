@@ -1,0 +1,175 @@
+label la1:
+    $ m_la1 = True
+    scene la-1
+    play music "audio/music/background/serious ambience.mp3" fadein 3
+    with slowfade
+    EPN "Dear reader, if you hold this text, I can only hope that you have first read what I wrote about the end of the world, and the birth of a new one."
+    EPN "Depending on your view of the world, I may have garnered your admiration or your scorn. Either way, that was the role I played on the larger stage."
+    EPN "You will hopefully have come to understand my misgivings about how those things played out."
+    EPN "What may have eluded you however is that my personal indiscretions and missteps, my more intimate tribulations have played a role in shaping how I now look back at those events."
+    EPN "So let me enumerate to you my more private and saddest failures, so you can gain the full measure of this fallible man who is trying to impart what little wisdom his errors have granted him."
+    scene la-2
+    with fade
+    EPN "Long before the Queen's new edicts placed in my hand the lawful dominion over the women of my concern, allowing me to act upon them and with them how I saw fit... "
+    scene la-3
+    with dissolve
+    if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+        EPN "During the nights, hidden from the eyes of my daughter Skye, while the rest of my companions were sleeping, Vale, my personal assistant, kept me company."
+    else:
+        EPN "During the nights, hidden from the eyes of Skye, while the rest of my companions were sleeping, my personal assistant, Vale kept me company."
+    scene la-4
+    with fade
+    Val "Mh..."
+    EPN "If it wasn't obvious by now... the true reason for her employment was far removed from her clerical and administrative duties..."
+    scene la-5
+    with fade
+    Val "Mh... Professor..."
+    scene la-6
+    with dissolve
+    Val "You are especially hard today."
+    PS "It's nothing you can't handle. Get to work."
+    scene la-7
+    with dissolve
+    Val "{i}*slurp*{/i}"
+    PS "Don't be too loud, we can't let the others hear."
+    Val "Yes, professor..."
+    scene la-8
+    with dissolve
+    Val "Ah..."
+    EPN "Much of her dignity was already lost well before the war, and long before she assumed the role of my second wife."
+    EPN "Her role in the team was obvious to everyone, after all, how I chose my secretaries was by now an open secret for the other teachers on staff."
+    scene la-9
+    with dissolve
+    Val "Nh..."
+    PS "Agh... you damn tease."
+    scene la-10
+    with hpunch
+    Val "nha...~"
+    PS "Use your tongue."
+    scene la-11
+    with dissolve
+    EPN "If I look back, to this day, I do not know the real motivations for why Vale, who was more than thirty years younger than me, would meet my expectations with the passion she put in, as I did not exactly treat her gently."
+    PS "Open up, now."
+    Val "Yhes..."
+    show la-12-anim
+    with fade
+    Val "{i}*slurp*{/i}"
+    PS "{i}*muffled grunt*{/i}"
+    EPN "I can only explain her persistent loyalty with either a healthy sense of devotion to my title, if not to myself, a desperate need for money, or overdeveloped submissive tendencies."
+    EPN "Perhaps it was a combination of all three. The universities were full of young people willing to learn, after all, but little to no actual paid work options were available."
+    EPN "So there I was, stuffing my erect shaft into her petite face."
+    EPN "The deeper I went, the more she stuck her tongue out to reward me. She was, to my tastes, the ideal whore."
+    show la-13-anim
+    with dissolve
+    hide la-12-anim
+    Val "Mmph.... {i}*schlurp*{/i}"
+    EPN "Granted, Skye had a point when she confronted me about my hypocritical stances against her degenerate city-lifestyle."
+    EPN "She was right. I was, not so secretly, a hypocrite."
+    Val "Mmh..."
+    show la-13-anim
+    with dissolve
+    hide la-12-anim
+    EPN "I was using the willing mouth of a more or less desperate young woman, who just two days earlier had shared with me that her boyfriend had just proposed to her."
+    EPN "Only the gods know what happened to him on that fateful day."
+    Val "{i}*glug*{/i}"
+    EPN "What I know is that there is a good chance he already knew what was going on at her work place. The things she had to do to earn her keep."
+    # show la-14-anim
+    # with dissolve
+    # hide la-13-anim
+    Val "Mmh... {i}*slurp*{/i}"
+    PS "Almost... keep going."
+    EPN "But with the modern explosion of hedonistic sexual freedom, something the old pre-war world had already developed to excess, came the normalized belief that young women like herself could legitimately whore their way up the corporate ladder."
+    # show la-15-anim
+    # with dissolve
+    # hide la-14-anim
+    EPN "Which was fine by me. Her fiancé perhaps saw it as defeating the competition, when she went the extra mile."
+    EPN "A \"smart move\" by a free woman to trick her stupid Professor into hiring her."
+    Val "{i}*cough*{/i}"
+    PS "Open wide, I'm not done yet."
+    # show la-16-anim #TODO renders
+    # with dissolve
+    # hide la-15-anim
+    EPN "But no. Secretary Vale was not a particularly smart woman, nor was she playing the system."
+    EPN "She was down on her knees, pleasing me. I was using her throat every night, as roughly as I desired."
+    EPN "A personal, twenty-something year old whore, available for my pleasure. And all I had to do, was to pay her salary, a salary she was due anyway, but I was in the position of terminating.Tenure is a wonderful thing."
+    scene la-17
+    with fade
+    Val "Mh..."
+    PS "That's it..."
+    scene la-18
+    with hpunch
+    PS "Kgh-"
+    with hpunch
+    PS "Ngh..."
+    scene la-19
+    with dissolve
+    PS "Don't spill a drop, you hear me?"
+    Val "Mhn..."
+    scene la-20
+    with dissolve
+    Val "{i}*gulp*{/i}"
+    EPN "I patted her golden-red hair as she swallowed my first streams of cum, just like she always did."
+    Val "{i}*cough*{/i}"
+    EPN "To be precise, I enjoyed keeping her head down, just until I could feel her sway from the oxygen deprivation."
+    scene la-21
+    with dissolve
+    Val "{i}*gasp*{/i}"
+    Val "Haah... ah..."
+    scene la-22
+    with dissolve
+    EPN "Having my personal whore almost suffocate on my shaft, frequently lead to another, quick climax for both of us."
+    scene la-23
+    with hpunch
+    Val "Ah..."
+    EPN "Ngh-"
+    with hpunch
+    Val "Nh..."
+    scene la-25
+    with dissolve
+    PS "You sultry whore..."
+    scene la-26
+    with dissolve
+    Val "Ah..."
+    scene la-27
+    with hpunch
+    PS "Agh-"
+    scene la-28
+    with hpunch
+    pause 0.7
+    scene la-29
+    with dissolve
+    Val "Ngh..."
+    PS "For heaven's sake..."
+    scene la-30
+    with dissolve
+    PS "I ruined you again..."
+    PS "...just make sure to clean up properly. We can't have the others make a fuss."
+    Val "Yhes, Profess..."
+    PS "Start with me."
+    scene la-31
+    with hpunch
+    Val "{i}*cough*{/i}"
+    PS "I pulled her back down on my shaft. I enjoyed her humiliation before me, wanted more of it."
+    scene la-32
+    with dissolve
+    EPN "Seeing her drooling mouth and face plastered with my seed, I couldn't help but quickly produce yet another strong erection."
+    Val "{i}*slurp*{/i}"
+    EPN "Hence... I changed my mind, and kept using her for many more hours into the night."
+    scene la-33
+    with fade
+    EPN "Now that I think back, I suppose that despite my best attempts at discretion, we were probably heard clearly by the others, that night."
+    scene la-34
+    with dissolve
+    Sky "..."
+    scene black
+    stop music fadeout 3
+    queue music "audio/music/home/dream town.mp3" fadein 1
+    with slowfade
+    "You put the scripture aside..."
+    scene l-3
+    with fade
+    jump library_menu
+    
+    
+
+    

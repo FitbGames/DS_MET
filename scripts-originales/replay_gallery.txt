@@ -1,0 +1,109 @@
+init -1:
+    $ persistent.unlock_replay = False
+
+init python:
+    def get_custom_name(c, d=None):
+        if c in d.keys():
+            if d.get(c, None) is not None:
+                return d.get(c)
+            else:
+                return c
+        else:
+            return c
+
+    def ToggleSet(set, i):
+        if i in set:
+            RemoveFromSet(set, i)
+        else:
+            AddToSet(set, i)
+        return
+
+    def check_list(l1, l2):
+        return any(i in l1 for i in l2)
+
+style category_button_text is text:
+    font "gui/fonts/Cinzel-Regular.otf"
+    idle_color "#574833"
+    hover_color "#9f8461"
+    selected_color "#9f8461"
+    size 35
+
+style list_button_text is text:
+    font "gui/fonts/Cinzel-Regular.otf"
+    idle_color "#fff3e6"
+    hover_color "#cc6600"
+    selected_color "#cc6600"
+    size 22
+
+style thumbnail_text is text:
+    font "gui/fonts/ArimaMadurai-Medium.ttf"
+    idle_color "#fff3e6"
+    hover_color "#cc6600"
+    selected_color "#cc6600"
+    size 22
+
+style gallery_vscrollbar:
+    unscrollable 'hide'
+
+screen replay_gallery():
+    $ tooltip = GetTooltip()
+    default parent = 'Household'
+    default cat = set(replay_categories.get(parent))
+    $ button_width = 555
+    $ button_height = 312
+    tag menu
+    add 'gui/main_menu/game_menu_bg.png'
+    use game_menu(_("Gallery"), scroll=None):
+        vbox:
+            xsize 1350
+            xpos 50
+            spacing 10
+            ypos 30
+            hbox:
+                xalign 0.5
+                spacing 50
+                for p in ['Household', 'Zetans', 'Mutants', 'Raiders']:
+                    textbutton "[p!t]":
+                        style_prefix 'options_tab'
+                        action [SetScreenVariable('parent', p), SetScreenVariable('cat', replay_categories.get(p))]
+                        selected parent == p
+            text "{image=gui/main_menu/menu_separator.png}" xalign 0.5 size 10
+            frame padding(0,0):
+                background None
+                hbox:
+                    style_prefix "list"
+                    vbox xalign 1.0 spacing 5 xsize 150:
+                        textbutton _("All") action SetScreenVariable('cat', replay_categories.get(parent)) xalign 1.0
+                        for c in replay_categories[parent]:
+                            if c in character_conditions.keys() and not character_conditions[c] and not persistent.unlock_replay:
+                                textbutton "????" xalign 1.0
+                            else:
+                                textbutton "%s"%(get_custom_name(c, d = custom_names)) action SetScreenVariable('cat', c) xalign 1.0
+
+                vpgrid cols 2 spacing 20 xpos 180 ysize 0.9:
+                    style_prefix 'gallery'
+                    draggable True
+                    mousewheel True
+                    scrollbars "vertical"
+                    for item in replay_scenes:
+                        if check_list(cat, item.category) and check_list(parent, item.parent) and not item.is_hidden:
+                            if renpy.seen_label(item.label) or persistent.unlock_replay:
+                                vbox:
+                                    button xsize button_width ysize button_height padding(0,0) :
+                                        idle_background AlphaMask(im.Scale(item.cover, button_width, button_height),im.Scale('gui/gallery/gallery_alpha_2.png', button_width, button_height))
+                                        hover_background AlphaMask(im.Scale(item.cover, button_width, button_height),im.Scale('gui/gallery/gallery_alpha_2.png', button_width, button_height))
+                                        hover_foreground AlphaMask(im.Scale('gui/gallery/gallery_highlight.png', button_width, button_height),im.Scale('gui/gallery/gallery_alpha_2.png', button_width, button_height))
+                                        action Replay(item.label, locked=False, scope=item.arguments)
+                                    text "[item.title!t]" xalign 0.5 style "thumbnail_text"
+                            else:
+                                vbox:
+                                    button xsize button_width ysize button_height padding(0,0) :
+                                        idle_background AlphaMask(im.Scale(im.Blur(item.cover, 25), button_width, button_height), im.Scale('gui/gallery/gallery_alpha_2.png', button_width, button_height))
+                                        hover_background AlphaMask(im.Scale(im.Blur(item.cover, 25), button_width, button_height), im.Scale('gui/gallery/gallery_alpha_2.png', button_width, button_height))
+                                        tooltip renpy.substitute(item.hint)
+                                        action NullAction()
+                                    text _("-Classified-") xalign 0.5 style "thumbnail_text"
+
+        if tooltip:
+            frame background None ypos 0.95 xalign 0.65 at tt_trans:
+                text [tooltip] xalign 0.5 font gui.text_font size 25

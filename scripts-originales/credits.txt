@@ -1,0 +1,156 @@
+## This is redefined in options.rpy to add text to the about screen.
+define gui.about = ""
+
+define supporters = ["$3F0","0000 Quanta","Abhishek G.","Abistel","Adevs26","Adler","Andy S.","Andy Z","Ant Bgd","Anthony","Anuj A.","Artichokeheart11","Baboord","Blake S.","Bobby L.","Brandon W.","CaptainP","Chris F.","Clark S.","Cordis Die","Cpt_chromosome","CryonixHD","Daniel N.","Dark Blade","Darren","Deimos","Devsfan24","Dolog","DonkeyPunchBandit","Dwhoot","Dylan","Earthh C'nk","Eli Presson","Eltis W.","Erik O.","Erol","Errr ge","Evoq J.","Eylsson","FaorGaldr","Fioricet","Flash Abuser","Gabriel R.","George J. Jr","GetOutOfMyLab","Ghostwalker","Gray8059","Greenjf","Gregg Z.","Gt9797","Harry","Hartjespers","HMS","Hwsidwh","Ilyas","Inuyuwolf","Ion D. R.","Ismael S.","J M Young","JayZer0","Joe B.","John D.","John S.","Jonathan H.","Jonathan L.","Jordan M.","Jorge","Jostein E.","Juan","Jumanji223","Jynx","KetchupIsSpicy","Kevin F.","Khái P.","Killer","Kirkland C.","Kostya Kim","Kristle F.","Kyle A.","Kyle Jones","Leroy G.","LoopyWolf","Marc H.","Marco K.","Mark","Markus J.","Massie B.","Mat R.","Matrix632","Maverick","Milos K.","MosQuito","Muhammad D. F.","Nagatsu S.","Nathan B.","Nathan S.","Nathaniel C.","Navarre S.","Neo T.","NerdyCupcake","Nick","OriginalRoggy","Pablo A. N.","Pan_dres K.","PatCon1","PD","Peblo","Phantom","Philipp 'Gedion' K.","Pranvat G.","Q8KE","Randomname1863","Rebelyon","Redneckraver","Revan","Riley","Rust","Saleh","Sean L.","SGDubb","Shoka8782","Silent Ghost","Singleuse","Slight One","SnakePit007","Sontyp","Spazt1cmunkie","Sylvio","Tacitus Z.","Tavish R.","Tigo","Tobil","Tyrel W.","VD-MonsterN7","Veniat","Vladdy G.","Vortex","Wiild","William M.","XJJeff","Xsesshoumaru","X_Konsti_X","Yicheng Shi","YogiBear420","Zach D.","ZenBiker","Zipfl","Zsl228"]
+# define supporters = ["20meiki92","A R","Achilles2231","ad1257","Adam C.","Adler","Alexander M.","andrej v.","Andrew","Annettemaru","aro.","ashley m.","Astaroth TheGreatDuke","Austin M.","A_Short_Baker","B","Baku Seria","Banou","bastardthrille","Beast of Bray","bebekong","bEo1c","Bigfatman1212","BiggusBonggus","Biowar","Black","Blair M","Blake S","bobby lewis","Brandon A.","Brandon W.","Brian M.","Byakuei","CapNCheeks","CaptainP","cassar","Ccheev","CheeseIon YT","chris f.","Christhian L.","Cody K.","Cookies","CornerPocket","CryonixHD","dark blade","Dark Rome","darkestnight123","david whoo","DEB","Degen Pink","diego c.","DN","Dolog","DR","DRG","Duane P.","Dwhoot","D_And123","Earthh C'nk","eduard o.","Ekko A.","elite 10101","Ethan C.","etrox","eyedhitit","fahad","faisel09","Fallen Legend","FaorGaldr","FBI's godchild","fff11122333","FuhkYuu FuhkMii","Gabriel R.","George J Jr","Gerold F.","GetOutOfMyLab","Ghostwalker","Gibby","gkratos123","Glockcoma42","gray8059","Gutzelnn","Happy89","Harry","HighPerform89 .","HMS","Hugo S.","Irishpride","j SMITH","Jack R.","Jack727","jacktheripperTT","JamesIssacNeutron","Jan O.","Jason F.","Jason S.","javik","Jeff","Jelly","jerhudste","Jill Valentine","Jim Jo","JJ wat","Joaodark Pe.","joaquin m.","JoeDowntown","John D.","john h.","Jonathan Hang","Jonathan L.","Jordan M.","Jostein E.","Juanjo B.","Jynx","Kei ram","kevin f.","kimzaza","Knytling","Kyle A.","L G","Lalinis","LeFix","Leonardo M.","Leroy G.","Lexus","Lidia S.","LongJohn","Lope Z","Luan R.","Lucas Costa M.","Luciferx99","Manowar","marc haag","MarcMai","Marco K.","Mark M.","Markus J.","Mattis T.","maxivore","MaxMaximum","Method Man","Michael","Mike","MosQuito","movteX","MrRobin1512","Mustard Jar","Mutton","MyRealName","Nah","Nam P.","Nathan A.","Naythi M.","Nebula","Neo T.","Neutronized","Nick","Nick","Nixys","no idea","No Name Norm","Noah W.","NovumPhoenix","OB","ochita usagi","Oppai-Man","Osamabeenfappin","Pablo A.","Panda","Panferno95","PatCon1","Gedion","Piat84","Picco Timbo","Pkanimes","Polaxymer","Pridac","Quinlan V.","R1C0SUAVE","ratlizard22 ratlizard22","Rebelyon","Richard T.","Rob W.","Robert","Robica30","Rust","Sag","Sean G.","Sean L.","Seinaru H.","Sektor7","Seraphim","sgtgrr","Shanita R.","Shawn B.","Shynri","Siem97","Silvo75","Simmi","Snow201134","Songbottom","spazt1cmunkie","starlightgl","stealthbomber","Stoffer444","Sylvesterwolf","sylvio","Tahoe8754","Tareq A.","The Dude","TheMagnar","Thomas M.","tkz45","Tom B.","tommyjellybeans","TR13","Trix","trumbo","Trumpdog","TSavage","Vatenkeist","VaWLE","Vengrin","Veronis","Vladdy G.","VMonster29","vPinkFro","Vvex","Warwise","Whueme","william madison","Wolfsen","Xelth","Yicheng S.","Yuri","Zettor","Zsl228","{font=gui/fonts/EBGaramond-Regular.ttf}Аскольд Варлов{/font}","{font=gui/fonts/NotoSansKR-Regular.ttf}승우 양{/font}"]
+
+## About screen ################################################################
+##
+## This screen gives credit and copyright information about the game and Ren'Py.
+##
+## There's nothing special about this screen, and hence it also serves as an
+## example of how to make a custom screen.
+screen about():
+    default content = 'about'
+    tag menu
+    add 'gui/main_menu/game_menu_bg.png'
+    ## This use statement includes the game_menu screen inside this one. The
+    ## vbox child is then included inside the viewport inside the game_menu
+    ## screen.
+    use game_menu(_("About")):
+        style_prefix "about"
+        vbox:
+            spacing 10
+            xfill True
+            ypos 30
+            hbox:
+                xalign 0.5
+                spacing 50
+                style_prefix "category"
+                textbutton _("About"):
+                    style_prefix 'options_tab'
+                    action [SetScreenVariable('content', 'about')]
+                    selected content == 'about'
+                if not build.release_channel == "SteamEA":
+                    textbutton _("Supporters"):
+                        style_prefix 'options_tab'
+                        action [SetScreenVariable('content', 'supporters')]
+                        selected content == 'supporters'
+                textbutton _("Soundtrack"):
+                    style_prefix 'options_tab'
+                    action [SetScreenVariable('content', 'soundtrack')]
+                    selected content == 'soundtrack'
+            null height 10
+            text "{image=gui/main_menu/menu_separator.png}" xalign 0.5
+            if content == 'about':
+                viewport id 'about_content':
+                    xsize 1350
+                    xpos 50
+                    ysize 0.9
+                    mousewheel True
+                    draggable True
+                    scrollbars 'vertical'
+                    text __("""{size=22}
+Developed by: ZetanDS
+Renders & Animations: ZetanDS, Hadham
+Story: ZetanDS
+Dialogues: ZetanDS, CynicalADM
+Code: Paz
+UI: Paz, Hadham
+
+Community translators:
+Spanish: Darax
+Russian: Kasatik
+Italian: Eagle1900
+Simplified Chinese: Aler, Wert
+Traditional Chinese: AHHCrazy
+Turkish: BoxxO
+French: Gryff
+
+And a sincere thank you to the community for their continued support, helpful bug reports, and constructive discussions!
+
+Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only]
+{size=18}[renpy.license!t]{/size}
+
+Renders created with Daz3d
+""")
+            elif content == 'supporters':
+                viewport id 'supporters_content':
+                        xsize 1350
+                        xpos 50
+                        ysize 0.9
+                        mousewheel True
+                        draggable True
+                        scrollbars 'vertical'
+                        vbox:
+                            spacing 0
+                            text __("""
+First and foremost:{size=22}
+To everybody who enjoys playing this game and see it develop over time;
+a sincere thank you for showing your support, for spreading the word and for the compliments and constructive
+criticism you send my way.
+Your support helps out greatly and maybe even eventually lets me hire people to achieve more efficient game development.
+{/size}
+Special mention goes to the people who support the game in various ways:{size=22}
+- Ivy's Stalker and GetOutOfMyLab for their efforts on Discord.
+- Eleven12 for his generous startup support.
+{/size}
+Finally, many thanks to all the Legates, Elders and Ancestors on Patreon and SubscribeStar:
+""")
+                            vpgrid:
+                                xfill True
+                                cols 3
+                                spacing 10
+                                transpose True
+                                for s in supporters:
+                                    text "[s]" size 23
+
+                            text _("\nIf your name is not on the list {color=#9f8461}({/color}or it's in the list and you'd prefer to have it removed{color=#9f8461}){/color} please contact me.") size 25
+
+            elif content == 'soundtrack':
+                viewport id 'supporters_content':
+                        xsize 1350
+                        xpos 50
+                        ysize 0.9
+                        mousewheel True
+                        draggable True
+                        scrollbars 'vertical'
+                        text __("""
+Music:{size=22}
+The music used in the game is either released under a CC / CCA license and listed down below
+or purchased from marketplaces for digital assets.
+Should that not be the case, it was not my intention to spread your work without permission.
+Please contact me to be properly accredited or have your works removed from the game if you wish.
+
+I am not affiliated with the creators in any way, and I do not claim ownership over their respective creations.
+{/size}
+CC / CCA Artists:{size=22}
+- {a=https://www.youtube.com/channel/UC1KJEk-EZMmDF9DJKMK5OCQ}Aim to Head Official{/a}
+- {a=https://www.youtube.com/user/teknoaxe}TeknoAXE's Royalty Free Music{/a}
+- {a=https://www.youtube.com/channel/UCd9s9Vq6aGYSRNjlTpZa3pA}The Sound Club{/a}
+- {a=https://www.youtube.com/user/VivEKhsihbA}Vivek Abhishek{/a}
+- {a=https://www.youtube.com/channel/UC_6hQy4elsyHhCOskZo0U5g}White Bat Audio{/a}
+- {a=https://www.youtube.com/c/WhitesandComposer/featured}Whitesand{/a}
+- {a=https://www.youtube.com/c/kmmusic/featured}Kevin MacLeod{/a}
+{/size}
+
+------------------------------------------------------
+{size=30}{color=#9f8461}S{/color}{/size}ounds are partly provided by freesound.org and mixkit.co under the creative commons or attribution license and acquired from other marketplaces for digital assets.
+
+CCA Sounds:{size=22}
+- Large Crash by Cgeffex
+- Car Breaking Skid 01 by Medartimus
+- Car start by enric592
+- 2 Car horns by alukahn
+- WoodenFloorFootsteps_Boots_02 by Lex777
+- Neon ON OFF by SkyernAklea
+- horror ambience LONG 190624_0042 by klankbeeld
+- Door sheet metal by cdrk
+- RoomTone EmptyClassRoom 01 by {a=http://www.freesound.org/people/klankbeeld}klankbeeld{/a}
+- Nasty Knife Stab 2 by {a=https://freesound.org/people/Aris621}Aris621{/a}
+{/size}
+""")
+
+
+
+# - Sightseeing with Kateryna: 'Full Moon Night' by Rukamu Co

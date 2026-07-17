@@ -1,0 +1,128 @@
+label after_load:
+    if _version == '0.17.0':
+        $ _version = '0.17.1'
+    if _version in ['0.17.1', '0.17.1.1']:
+        if m_d5c == True and faction_raiders == False:
+            $ m_d5c = False
+        $ _version = '0.17.1.2'
+    if _version == '0.17.1.2': 
+        if m_d11c == True and mq_r_2.current_step == 2:
+            $ mq_r_2.current_step = 3
+        if m_d14e == True and mq_r_2.current_step < 4:
+            $ mq_r_2.current_step = 4
+        $ _version = '0.17.2'
+    if _version == '0.17.2':
+        if m_d4a == True and m_d5c == False and mq_r_1.current_step > 2:
+            $ mq_r_1.current_step = 2
+        if m_d15b == True and mq_z_1.current_step == 10:
+            $ mq_z_1.current_step == 11
+            if m_d13l == True:
+                $ mq_z_1.complete()
+                $ mq_z_1.resolution = _("The Queen did not have any updates yet about the deceased Elder's hideout.\nHowever, she invited me to visit the palace more often from now on to help her with some of her personal matters.\nShe even granted me and my household access to the royal grounds! It seems she's getting warmed up to me more and more.")
+        if sq_e_1.current_step == 5 and m_d18a == False and m_d18d == False:
+            $ sq_e_1.current_step = 4
+        if m_d16c == True and m_d9b == True:
+            $ sq_a_1.start()
+        $ _version = '0.18.0'
+    if _version == '0.18.0':
+        $ _version = '0.18.1'
+    if _version == '0.18.1':
+        $ _version = '0.18.2'
+    if _version == '0.18.2':
+        $ _version = '0.18.2.1'
+        if renpy.seen_label('re_d188b8b228'): # Fix Ain gallery entry not showing
+            $ renpy.mark_label_seen('re_d18b228')
+        if m_d5c == False and faction_raiders == True: #Fix Raiders' initial event flag being bypassed in beta
+            $ m_d5c = True
+        if sq_l_1.current_step == 10 and sq_l_1.completed and m_d16a_aftermath == False: #Fix Lirah's ending event flag being bypassed in beta
+            $ m_d16a_aftermath = True
+    if _version == '0.18.2.1':
+        $ _version = '0.18.2.1'
+    if _version == '0.18.2.1':
+        $ _version = '0.18.3'
+    if _version == '0.18.3':
+        $ _version = '0.18.4'
+    if _version == '0.18.4':
+        $ _version = '0.19.0'
+        if renpy.seen_label('d6a5'): #Fix "Foreign Affairs" having its label changed
+            $ renpy.mark_label_seen('re_d6a13') 
+        $ d18f_queen_cum_inside = True
+        if m_d18e == True:
+            $ m_d18f = True
+    if _version == '0.19.0':
+        $ _version = '0.19.1'
+        if m_d16a_aftermath == True and sq_q_1.current_step == 14 and sq_q_1.completed == False:
+            $ sq_l_1.complete()
+            if lirah_pregnant == True:
+                $ sq_l_1.resolution = _("It's good to see Lirah having finally accepted her position in the palace. With my child growing inside her, I can be ensured she will be of service, whenever I enter the palace.")
+            else:
+                $ sq_l_1.resolution = _("It's good to see Lirah having finally accepted her position in the palace, especially when she encounters me.")
+        $ mq_z_2.name = _('History or heresy')
+        if m_d19a == True:
+            $ mq_z_2.start()
+        if m_d19b == True:
+            $ mq_z_2.current_step = 2
+        if m_d19c == True:
+            $ mq_z_2.current_step = 3
+    if _version == '0.19.1':
+        $ _version = '0.19.2'
+    if _version == '0.19.2':
+        $ _version = '0.19.3'
+    if _version == '0.19.3':
+        $ _version = '0.19.4'
+    if _version == '0.19.4':
+        $ _version = '0.19.5'
+    if _version == '0.19.5':
+        $ _version = '0.20.0'
+        if m_d14f_part_2 == True and mq_r_2.current_step < 6:
+            $ mq_r_2.current_step = 6
+            $ mq_r_2.resolution = _("Casanova may be unhinged, but he is not a bad storyteller.\nI now know about his and Zion's backstory, and how a tribe that names itself \"Sekhmet's Legion\" is connected to them.\nZion said that she will contemplate about what to do with the new threat.")
+        if temple_first_visit == True:
+            $ throne_first_visit = True
+    if _version == '0.20.0':
+        $ _version = '0.20.1'
+        if m_d14f_part_2 == True and mq_r_2.current_step < 6:
+            $ mq_r_2.current_step = 6
+            $ mq_r_2.resolution = _("Casanova may be unhinged, but he is not a bad storyteller.\nI now know about his and Zion's backstory, and how a tribe that names itself \"Sekhmet's Legion\" is connected to them.\nZion said that she will contemplate about what to do with the new threat.")
+    if _version == '0.20.1':
+        $ _version = '0.20.2'
+    if _version == '0.20.2':
+        $ _version = '0.20.2.1'
+    if _version == '0.20.2.1':
+        $ _version = '0.20.3'
+        if m_d18b == True:
+            $ d18b_talked_to_savana = True
+        if m_d20a == True:
+            $ m_d19d = True
+            $ m_d19e = True
+            $ m_d19f = True
+        if m_d20b == True:
+            $ persistent.d20mm_2 = True
+    if _version == '0.20.3':
+        $ _version = '0.20.3.1'
+    if _version == '0.20.3.1':
+        $ _version = '0.20.4'
+    if _version == '0.20.4':
+        $ _version = '0.21.0'
+    if _version == '0.21.0':
+        if sq_rn_1.active or sq_rn_1.completed:
+            if sq_rn_1.current_step > 5:
+                $ sq_rn_1.current_step = 5
+        if m_d15c == True:
+            $ d3b_mutant_saved = True 
+        if persistent.d21mm_2 == True: #TODO remove next update so it doesn't reset the new mm
+            $ persistent.mm = '0.21B'
+        $ _version = '0.21.1'
+    if _version == '0.21.1':
+        if renpy.seen_label('d18b342'):
+            $ d18b_ain_slave = True 
+        if m_d14f_part_2 == True and mq_r_2.current_step < 6:
+            $ mq_r_2.current_step = 6
+            $ mq_r_2.resolution = _("Casanova may be unhinged, but he is not a bad storyteller.\nI now know about his and Zion's backstory, and how a tribe that names itself \"Sekhmet's Legion\" is connected to them.\nZion said that she will contemplate about what to do with the new threat.")
+        $ _version = '0.21.2'
+    if _version == '0.21.2':
+        if renpy.seen_label('d19f285x12'):
+            $ d19f_shani_anal = True 
+        $ update_quests(quests)
+        $ renpy.block_rollback()
+    return

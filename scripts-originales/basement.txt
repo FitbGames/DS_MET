@@ -1,1 +1,4232 @@
+label basement_entry:
+    hide screen toggle_ql
+    if kyra_rescued == True and m_d5c == False:
+        scene b-1x
+    else:
+        scene b-1
+    play music "audio/music/background/horror ambience.mp3" fadeout 2
+    with fade
+    menu (screen = 'harem_choice'):
+        "Visit [A]" (img = 'gui/harem/ain_side.png') if ain_basement == True :
+            jump basement_ain
+        "Visit [F]" (blocked = daily_basement_fairy, img = 'gui/harem/fairy_side.png') if sq_f_1.active == True and fairy_talked_again == False:
+            if repeatfairy_1 == False:
+                Zt "Time to try and figure out this girl.."
+            jump basement_fairy
+        "Visit [F]" (blocked = daily_basement_fairy, img = 'gui/harem/fairy_side.png') if fairy_broken == True:
+            jump fairy_broken_repeat
+        "Visit the captured raider" (img = 'gui/harem/kyra_side.png') if kyra_rescued == True and m_d4a == False:
+            jump d4a
+        "Visit [Ky]" (img = 'gui/harem/kyra_side.png') if ev_d5c.is_active:
+            jump d5c
+        "Leave" (img = 'gui/harem/home_side.png'):
+            stop music fadeout 2
+            jump daily_home
 
+label basement_ain:
+    $ basement_ain_repeatable_intro = True
+    $ daily_basement_ain = True
+    scene b-2
+    play sound "audio/sounds/environment/dungeon cell.mp3"
+    with fade
+    pause 0.5
+    scene ba-1
+    with fade
+    pause 1
+    scene ba-3
+    with fade
+    A "Hey [persistent.dad], thank you for visiting me."
+    A "Do you need me to do anything...?"
+    scene ba-4
+    with dissolve
+    menu:
+        "Blindfold her":
+            Z "Follow me."
+            scene black
+            with fade
+            "Minutes later, on the cold basement floor..."
+            scene ba-63
+            with slowfade
+            A "Mh... [persistent.dad]..."
+            Z "Be quiet, focus on your task."
+            scene ba-64
+            with fade
+            "She kneels before you, naked, tied up, blindfolded..."
+            Z "Look up to me."
+            scene ba-65
+            with fade
+            A "Ah..."
+            "Wiggling uncomfortably, she tries to keep her posture..."
+            Z "Come closer. Do you smell it?"
+            scene ba-66
+            with fade
+            A "{i}*sniff*{/i}"
+            pause 0.7
+            scene ba-67
+            with dissolve
+            A "Haa..."
+            "She instinctively sticks out her tongue..."
+            scene ba-68
+            with dissolve
+            Z "Good girl. Now taste it."
+            A "Aah..."
+            Zt "It's hard to resist putting her on display like this."
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                Zt "I'm blessed with such a fuckable [persistent.da]. Every man in Zeta would do the same."
+            else:
+                Zt "I'm blessed owning such a fuckable young woman. Every man in Zeta would do the same."
+            scene ba-69
+            with fade
+            A "Ah..."
+            "You can feel her warm tongue as she licks the tip of your cock passionately..."
+            scene ba-70
+            with fade
+            Z "You know why we do this, right?"
+            random:
+                A "Yhes, [persistent.dad]... {i}*licks*{/i}"
+                A "Mhn... {i}*licks*{/i}"
+            scene ba-71
+            with fade
+            Z "You may be enjoying sex, but you need to practice patience. To properly caress a man."
+            A "Ah... {i}*licks*{/i} yes, [persistent.dad]..."
+            Z "Take it slow. Tease me."
+            scene ba-72
+            with fade
+            A "Mh..."
+            "She suddenly engulfs her lips around your cock, letting out a satisfied moan..."
+            Z "[A]..."
+            scene ba-73
+            with fade
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                "The young minx pauses for a moment, waiting for her father's signal."
+            else:
+                "The young minx pauses for a moment, waiting for your signal."
+            random:
+                Z "It's always the same. You can't resist, can you?"
+                Z "You were supposed to tease me, not make me cum."
+                Z "One day you will learn to be patient..."
+            Z "{i}*sigh*{/i} Fine."
+            random:
+                Z "Go ahead. Make me cum."
+                Z "Go ahead."
+                Z "You've got permission."
+            show ba-74-anim
+            A "{i}*slurp*{/i}"
+            Z "Mh..."
+            "She starts to hungrily fuck your cock with her mouth..."
+            A "{i}*muffled moaning*{/i}..."
+            show ba-73-anim
+            with fade
+            hide ba-74-anim
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                Z "Needy slut of a [persistent.da]. Your mother had more class at your age."
+            else:
+                Z "Needy slut. [W] had more class at your age."
+            A "Mh... {i}*slurp*{/i}"
+            "Ignoring your words, she focuses on stroking your thick cock as much as possible."
+            Z "I know you... ngh... want to make me cum."
+            A "Mhm..."
+            show ba-75-anim
+            with fade
+            hide ba-74-anim
+            Z "Fuck...."
+            Zt "I know she's not just doing it because she loves me."
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                Zt "The girl is dripping and wet. Just like her [persistent.mom], when she was in this position."
+            else:
+                Zt "The girl is dripping and wet. Just like [W], when she was in this position."
+            A "Mmh... {i}*gluck*{/i}"
+            show ba-76-anim
+            with fade
+            hide ba-75-anim
+            "She keeps on going, without a sense of time or place."
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                "Just there on her knees, doing what good [persistent.da]'s do."
+            else:
+                "Just there on her knees, doing what good girls do."
+            Zt "She is so perfect..."
+            show ba-73-anim
+            with fade
+            hide ba-76-anim
+            A "{i}*slurp*{/i}"
+            random:
+                Z "Ngh... you'd make for a fine slave, [A]. That much is clear."
+                Z "I... ngh... should have enslaved you the moment you turned of age."
+                Z "Who needs a slave when I have you..."
+            "Hearing your words, her tongue strokes your shaft even more eagerly..."
+            Z "That's enough."
+            scene ba-78
+            with fade
+            A "Mmh..."
+            with hpunch
+            Z "Ngh-"
+            scene ba-79
+            with dissolve
+            A "{i}*gulp*{/i}"
+            Z "Agh..."
+            with hpunch
+            A "{i}*muffled moans*{/i}"
+            "She let's out a high pitched moan, one you know too well..."
+            Z "You just came again, didn't you?"
+            A "Mmmh..."
+            scene ba-80
+            with dissolve
+            A "{i}*slurp*{/i}"
+            random:
+                Z "{i}*chuckles*{/i} You're welcome."
+                Z "Fuck... you goddamn slut."
+                Z "Good girl."
+            Z "Now show me your mouth."
+            scene ba-81
+            with fade
+            A "Aah..."
+            "She obediently opens her mouth, revealing your cum inside it. You take your time appreciating it..."
+            Z "Now, swallow."
+            scene ba-82
+            with dissolve
+            A "Mh... {i}*gulp*{/i}"
+            scene ba-83
+            with dissolve
+            A "Ah..."
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                Z "Good [persistent.da]."
+            else:
+                Z "Good girl."
+            scene ba-84
+            with dissolve
+            "She smiles, cheekily..."
+            random:
+                Z "But you ignored my orders yet again."
+                Z "That wasn't exactly what you'd call teasing, though, was it?"
+            Z "Now, let's get you back to your cell, you little minx."
+            scene black
+            with fade
+            "You do as you say, and leave the basement shortly after."
+
+        "Fuck her":
+            Z "Come with me, [A]."
+            scene black
+            with fade
+            "Moments later..."
+            scene d18b-309
+            play sound "audio/sounds/actions/drop 2.mp3"
+            with vpunch
+            "You drop your [persistent.da] on the wooden bench, where slaves and captives ought to sleep..."
+            scene d18b-310
+            with dissolve
+            Z "Here we are again."
+            Aw "Yes..."
+            scene d18b-311
+            with fade
+            A "Nha..."
+            Z "You didn't take much convincing, to join me here, in the slave quarters."
+            A "Am I... your slave...?"
+            scene d18b-310
+            with vpunch
+            A "Nhaahh...!"
+            scene d18b-313
+            with fade
+            "You ignore her teasing, and start fucking her hard and fast..."
+            Z "I don't know yet what you are, girl, but for now, you make for a fine fuck slave, [A]."
+            A "Ahh..."
+            scene d18b-314
+            with dissolve
+            "You can feel her juices coating your manhood at every thrust."
+            A "I'm... nh..."
+            scene d18b-315
+            with dissolve
+            Z "If you weren't such a slut, I would feel bad for you."
+            Z "But you're having fun, aren't you?"
+            A "...mh..."
+            scene d18b-316
+            with dissolve
+            A "[persistent.dad!c]... am I... not, uhnn... a good girl...?"
+            Z "You little tease..."
+            scene d18b-314
+            with hpunch
+            A "Ahh...!"
+            "You thrust harder in her, your cock stirring against her womb."
+            scene d18b-317
+            with vpunch
+            Z "{i}*grunts*{/i}"
+            "You lean forward, putting all your weight on her..."
+            A "[persistent.dad!c]... Master..."
+            scene d18b-318
+            with dissolve
+            A "Ah..."
+            Z "{i}*chuckles*{/i}"
+            Zt "Master..."
+            scene d18b-319
+            with hpunch
+            Z "Someone is eager to serve."
+            A "Mostly the fuck... uh... -ing."
+            Z "Have it your way."
+            scene d18b-320-anim
+            with fade
+            A "Haa... nggh... mmmh..."
+            A "[persistent.dad!c]..."
+            random:
+                A "Am I... nh... your slave...?"
+                A "I am... yours... ah..."
+                A "I'm... ah... cumming..."
+            scene d18b-321
+            with fade
+            "You pause for a moment... looking at the girl you call your [persistent.da]."
+            Zt "What should I do with her... she's a hopeless sex addict."
+            menu:
+                "Fill up her cunt":
+                    scene d18b-322
+                    with fade
+                    Z "Now... Be a good girl, take it."
+                    scene d18b-323
+                    with vpunch
+                    A "Ah...!!"
+                    with vpunch
+                    Z "Ngh..-"
+                    scene d18b-324
+                    with dissolve
+                    "Releasing all the built up tension from a day of edging, you cum inside her womb, releasing thick ropes of cum."
+                    with vpunch
+                    Z "Mhh... you're amazing..."
+                    with vpunch
+                    A "Nh..."
+                    scene d18b-325
+                    with dissolve
+                    A "So much..."  
+                    "Cum leaks on her glistening skin, as you pull away slowly..."
+                    scene d18b-326
+                    with fade
+                    "Taking a breath, you look at the girl trembling, as she comes down from her own orgasm."
+                    scene d18b-327
+                    with dissolve
+                    A "Hah..."
+                    Z "You're the best [persistent.da] I could ask for, [A]."
+                    scene d18b-328
+                    with dissolve
+                    A "Thank... you..."
+                    scene d18b-329
+                    with dissolve
+                    A "...and you are... the best..."
+                    scene d18b-328
+                    with vpunch
+                    A "Nghaah...!"
+                    scene d18b-330
+                    with fade
+                    "She looks at you, always ready for more..."
+                    Zt "She is insatiable..."
+                    Z "Now, back into the cell with you."
+                    scene black
+                    with fade
+                    "You put her back inside, ready for when you want to use her again."
+                    jump daily_home
+
+                "Fuck her throat":
+                    scene d18b-330
+                    with fade
+                    "She looks at you, ready to be used some more..."
+                    Z "You know what's coming next..."
+                    scene d18b-331
+                    with dissolve
+                    A "Yes..."
+                    scene black
+                    play sound "audio/sounds/actions/drop.mp3"
+                    with vpunch
+                    A "Nha..."
+                    "You grab her, and turn her around in a swift move..."
+                    scene d18b-332
+                    with fade
+                    Z "Open your mouth, [A]."
+                    A "Yes, [persistent.dad]..."
+                    scene d18b-333
+                    with dissolve
+                    A "It's... hard again..."
+                    Z "You will take care of it until I've had enough."
+                    scene d18b-334
+                    with fade
+                    Z "Breathe through your nose, girl."
+                    "She prepares for what's coming, knowing you, and having been through this before..."
+                    scene d18b-335
+                    with dissolve
+                    Z "Don't hold your head too stiff, [A]."
+                    A "Like this...?"
+                    Z "Like this, yes."
+                    scene d18b-336
+                    with fade
+                    Z "Ready now..."
+                    scene d18b-337
+                    with dissolve
+                    A "Ah..."
+                    Z "That's not enough."
+                    scene d18b-338
+                    with fade
+                    "You look at your personal fucktoy, ready to take it in."
+                    menu:
+                        "Start fucking her throat":
+                            jump basement_d18b342
+
+                        "Slap her":
+                            Zt "I should give her some additonal motivation first..."
+                            scene d18b-339
+                            play sound "audio/sounds/actions/slap.mp3"
+                            with hpunch
+                            scene d18b-340
+                            with dissolve
+                            A "Ah...! [persistent.dad!c]..."
+                            scene d18b-341
+                            with dissolve
+                            Z "That's not open enough."
+                            scene d18b-339
+                            with vpunch
+                            scene d18b-340
+                            with dissolve
+                            scene d18b-341
+                            with dissolve
+                            A "Nh..."
+                            Z "Wider, slut!"
+                            scene d18b-338
+                            with dissolve
+                            A "Aaah...!"
+                            Z "Good."
+                            jump basement_d18b342
+
+                    label basement_d18b342:
+                        scene d18b-342
+                        with fade
+                        "She is ready. Time to feed your [persistent.da] what she deserves..."
+                        show d18b-343-anim
+                        pause 2.5
+                        A "{i}*cough*{/i}"
+                        Z "Fuck... this is heavenly..."
+                        scene d18b-345
+                        with vpunch
+                        A "Mgh-"
+                        "You grab the girl by her dangling tits, and start to thrust in and out of her skull..."
+                        scene d18b-344-anim
+                        with fade
+                        hide d18b-343-anim
+                        A "{i}*slurp*{/i}"
+                        "Ignoring her need for air, her tongue twirls around, trying to rub against your shaft..."
+                        Zt "I have the best [persistent.da] in the world. I must have done something right..."
+                        scene d18b-346
+                        with fade
+                        "Seeing her degraded like this, choking and slurping on your cock, with her throat stretched to its limit..."
+                        "...it awakens a sadistic streak you very rarely have unleashed with your [persistent.da]..."
+                        scene d18b-344-anim
+                        with dissolve
+                        A "{i}*gluck*{/i}"
+                        "She struggles for air, but keeps allowing you access to her throat."
+                        Z "you're a natural whore, [A]. A born slave."
+                        "You wonder how far you can take it, how close to the edge you can get her."
+                        A "{i}*slurp*{/i}"
+                        "...perhaps now is the time to do something you have never done to your second [persistent.da] before...?"
+                        label basement_ain_slave_options:
+                            if basement_ain_relief == True and basement_ain_puke == True:
+                                jump basement_d18b354
+                            menu:
+                                "Relieve yourself" if basement_ain_relief == False:
+                                    $ basement_ain_relief = True
+                                    scene d18b-348
+                                    with fade
+                                    A "Ah...?"
+                                    Z "You will not avert your face or close your mouth, understood?"
+                                    A "Nh..."
+                                    scene d18b-349
+                                    with vpunch
+                                    A "...!"
+                                    Z "Ngh... fuck..."
+                                    "You start pissing directly in her mouth, making her eyes spread wide open in surprise..."
+                                    scene d18b-350
+                                    with dissolve
+                                    A "Nh..."
+                                    "You knead her breasts, enjoying the moment. Her tongue twitches, but not to avoid her father's pee..."
+                                    scene d18b-351
+                                    with dissolve
+                                    A "...nhhaah.."
+                                    "...she spreads her legs, opening her mouth further, inviting you to relieve yourself inside her..."
+                                    Zt "What a sight... to have [A] sink so low for me..."
+                                    scene d18b-352
+                                    with dissolve
+                                    A "Mgh..."
+                                    "As you stop, she closes her mouth, trying to stop it from overflowing..."
+                                    scene d18b-353
+                                    with dissolve
+                                    A "{i}*gag*{/i}"
+                                    Z "Keep it down..."
+                                    scene d18b-348
+                                    with dissolve
+                                    A "Hah..."
+                                    Z "Good girl."
+                                    scene d18b-344-anim
+                                    with fade
+                                    "You resume fucking her throat..."
+                                    jump basement_ain_slave_options
+
+                                "Make her throw up" if basement_ain_puke == False:
+                                    $ basement_ain_puke = True
+                                    "Your curiosity and sadism mix into a dangerous cocktail, and your [persistent.da] is there to take the brunt of it, willingly..."
+                                    "You care for her deeply, yet... you can't hold yourself back."
+                                    scene d18b-354
+                                    with hpunch
+                                    A "Gkh-"
+                                    Z "Hold it down..."
+                                    A "{i}*mumbling*{/i}"
+                                    Z "Don't talk to me... focus..."
+                                    A "{i}*choke*{/i}"
+                                    pause 0.5
+                                    "You can hear her trying to breathe."
+                                    Z "You trust me, don't you..."
+                                    pause 0.5
+                                    A "{i}*gag*{/i}"
+                                    A "{i}*cough*{/i}"
+                                    pause 0.5
+                                    "You hold her down for what seems to be an eternity. Your cock twitches inside her throat."
+                                    "You're not going to stop. You don't care. You have set your mind to using your [persistent.da], and push her boundaries."
+                                    scene d18b-354x
+                                    with hpunch
+                                    A "{i}*gag*{/i}"
+                                    "Finally a gag reflex becomes too strong to resist and she throws up... a natural instinct even your [persistent.da] can't avoid forever."
+                                    with hpunch
+                                    A "{i}*choke*{/i}"
+                                    "...but how far can you take it... will she pass out... or worse?"
+                                    with hpunch
+                                    A "..."
+                                    Zt "I have to pull out... or else..."
+                                    scene d18b-354x-2
+                                    with dissolve
+                                    "You slowly pull out, enjoying every little, sadistic moment of it as she struggles against your grip on her."
+                                    scene d18b-354x-3
+                                    with dissolve
+                                    A "..."
+                                    "Her tongue lays flat, running over your shaft. Her throat is relaxed... did she pass out?"
+                                    scene d18b-354x-5
+                                    with fade
+                                    "You pull out further, giving her stretched jaw room to breathe..."
+                                    A "..."
+                                    scene d18b-354x-4
+                                    with dissolve
+                                    A "Ngh... [persistent.dad]...?"
+                                    Z "I'm proud of you, [A]."
+                                    scene d18b-344-anim
+                                    with fade
+                                    "Without respite, you again enter her lips, and resume face-fucking her..."
+                                    jump basement_ain_slave_options
+
+                                "Cum in her throat":
+                                    label basement_d18b354:
+                                        "You can't hold it together any longer; you're about to cum for a third time."
+                                        Z "[A]... open up as wide as you can..."
+                                        A "{i}*slurp*{/i}"
+                                        scene d18b-354
+                                        with hpunch
+                                        A "Ngk-"
+                                        Z "{i}*grunts*{/i}... fuck...!"
+                                        scene d18b-355
+                                        with hpunch
+                                        Z "Ngh..."
+                                        A "{i}*slurp*{/i}"
+                                        with hpunch
+                                        "Whatever you have left, you release it into her throat."
+                                        Zt "My [persistent.da]... is milking me dry..."
+                                        scene d18b-356
+                                        with dissolve
+                                        "saliva and cum mix into a messy, dirty combination..."
+                                        "...a combination she now has to deal with."
+                                        scene d18b-357
+                                        with fade
+                                        Z "[A]... clean my shaft..."
+                                        A "Ngh..."
+                                        show d18b-357-anim
+                                        A "{i}*slurp*{/i}"
+                                        Zt "There is no end to this girl's willingness to please me..."
+                                        "Cleaning yourself on her, you think of the events of the day..."
+                                        A "{i}*slurp*{/i}"
+
+                            scene d18b-358-anim
+                            with fade
+                            Z "Good. Clean me up some more..."
+                            A "Mgh..."
+                            A "{i}*sucking*{/i}"
+                            "You eventually bring her back to her cell, where she will be waiting for her release... or further use."
+                            scene black
+                            stop music fadeout 3
+                            with slowfade
+                            $ renpy.end_replay()
+                            jump newday
+
+        "Put her in a cage":
+            $ ain_cage_repeatable_intro = True
+            Z "Come with me..."
+            scene black
+            with fade
+            "You lead her out of the cell and into the main room..."
+            "A while later..."
+            if ain_cage_repeatable_intro == False: #change to basement_ain_cage...
+                scene ba-5
+                with slowfade
+                pause 2
+                scene ba-5x-2
+                with fade
+                pause 1
+                scene ba-5x-3
+                with dissolve
+                A "..."
+                scene ba-5x-4
+                with dissolve
+                pause 1
+                scene ba-5x-5
+                with dissolve
+                pause 1.2
+            
+            scene ba-6
+            with fade
+            A "..."
+            if ain_cage_repeatable_intro == False:
+                scene ba-7
+                with fade
+                "[A]'s vision is blurred as her eyes adapt to the light flooding the room."
+                scene ba-8
+                with dissolve
+                "Her eyes adjust, and she sees that it is you."
+            else:
+                scene ba-7
+                with fade
+                "Now that you're ready, you approach her..."
+                Z "[A], stand up."
+            if ain_cage_repeatable_intro == False:
+                scene ba-9
+                with fade
+                A "Oh, hi [persistent.dad]!"
+                scene ba-10
+                with fade
+                A "You were gone a while..."
+                scene ba-11
+                with dissolve
+                A "...how long has it been?"
+
+            scene ba-14
+            with fade
+            A "Why did you want me in here today, [persistent.dad]...?"
+            scene ba-14x
+            with dissolve
+            if ain_cage_repeatable_intro == True:
+                Z "To teach you another lesson."
+                scene ba-16
+                with fade
+                random:
+                    Z "I want you to know what it can be like out there. In the wasteland."
+                    Z "You lose focus a lot. Perhaps a cage will remind you of what's important."
+                    Z "My wife said you have been acting spoiled, perhaps this will help remind you how good you have it."
+            else:
+                scene ba-16
+                with dissolve
+                Z "One day, you may take on the same role as your [persistent.mom], leading a house of your own."
+                Z "If that's to go smoothly, there's no room for mistakes."
+                scene ba-17
+                with dissolve
+                if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                    A "But [persistent.dad], you didn't say what I did wrong."
+                else:
+                    A "But... you didn't say what I did wrong."
+                scene ba-17x
+                with dissolve
+                Z "At the moment, no. You haven't done anything wrong."
+                Z "But you keep letting your mind wander too often. Mistakes happen. Think of this a preemptive measure."
+                Z "A measure that will continue until I am confident you will toe the line."
+                scene ba-18
+                with dissolve
+                A "And... what if I just want to stay here, with you?"
+                scene ba-18x
+                with dissolve
+                Z "Whatever I decide for your future, these measures still have a purpose."
+                Z "Stay or go, you must not make mistakes."
+                scene ba-19
+                with dissolve
+                Z "If chores, silence, or separation don't get through to you, perhaps this will."
+                "[A] is lost in thought."
+                Z "Do you understand?"
+                scene ba-19x
+                with dissolve
+                if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                    A "I understand, [persistent.dad]."
+                else:
+                    A "I understand."
+
+            menu:
+                "\"Get on your knees.\"":
+                    $ basement_ain_hands = False
+                    $ basement_ain_groped = False
+                    $ basement_ain_choked = False
+                    $ basement_ain_suck = False
+                    scene ba-19
+                    with fade
+                    Z "Now, I want you to get on your knees."
+                    scene ba-20
+                    with dissolve
+                    "She watches you, a faint smile tugging at the corners of her mouth."
+                    scene ba-21
+                    with fade
+                    "Being on her knees, she awaits your next command..."
+                    menu basement_ain_kneeling_menu:
+                        "Have her show her hands" if basement_ain_hands == False:
+                            $ basement_ain_hands = True
+                            scene ba-22
+                            with dissolve
+                            A "Like this?"
+                            scene ba-21
+                            with dissolve
+                            Z "Your hands. Give them to me."
+                            scene ba-23
+                            with dissolve
+                            pause 1
+                            scene ba-24
+                            with dissolve
+                            pause 1
+                            scene ba-25
+                            with dissolve
+                            "You crouch down to her level, and take hold of her hands."
+                            A "You're not going to take them from me, are you?"
+                            "You detect a playful tone in the way she speaks, though can't help but notice a hint of worry."
+                            scene ba-26
+                            with fade
+                            "You feel her heartbeat in her wrists."
+                            A "Still alive, I promise!"
+                            scene ba-27
+                            with dissolve
+                            Z "Hmm."
+                            scene ba-28
+                            with dissolve
+                            A "If you wanted me still, you'd have to hold me tighter than that."
+                            scene ba-27
+                            with dissolve
+                            "Her heartbeat quickens."
+                            Z "You're enjoying this, aren't you?"
+                            jump basement_ain_kneeling_menu
+
+                        "Grope her tits" if basement_ain_groped == False:
+                            $ basement_ain_groped = True
+                            scene ba-31
+                            with dissolve
+                            "You reach towards her top, lifting it up and exposing her breast."
+                            scene ba-29
+                            with dissolve
+                            "You squeeze it hard, and [A] lets out a small noise."
+                            A "Hmm..."
+                            scene ba-30
+                            with dissolve
+                            "You move your hand to her nipple."
+                            Zt "Her nipples are already hard. As expected..."
+                            jump basement_ain_kneeling_menu
+
+                        "Choke her" if basement_ain_choked == False:
+                            $ basement_ain_choked = True
+                            scene ba-32x
+                            with fade
+                            A "Agh... [persistent.dad]..."
+                            "You gently wrap your fingers around her neck..."
+                            scene ba-33
+                            with dissolve
+                            Z "I can't resist."
+                            Z "...Seeing you in that cage, looking at me like that."
+                            Z "If you were one of my slaves, I'd choke you out and fuck your skull."
+                            scene ba-33x
+                            with dissolve
+                            A "Ah..."
+                            "Her eyes are starting to look heavy, yet aroused."
+                            Z "Let this be a lesson, [A]. Things could be much worse."
+                            jump basement_ain_kneeling_menu
+
+                        "Let her suck you off" if basement_ain_suck == False:
+                            $ basement_ain_suck = True
+                            scene ba-34
+                            with fade
+                            "You get back to your feet. She looks dejected, but also curious as to what's coming next."
+                            Z "Stay on your knees."
+                            scene ba-35
+                            with fade
+                            A "Like this?"
+                            scene ba-36
+                            with dissolve
+                            Z "Keep your back straight, square your shoulders, and chin level."
+                            scene ba-37
+                            with dissolve
+                            Z "Good, you're starting to listen."
+                            Z "Don't forget: You're not here to be clever, you're here to learn."
+                            Z "Keep your hands behind you back and your eyes closed until I say otherwise."
+                            scene ba-37
+                            with dissolve
+                            Z "Good. Stay still, completely still."
+                            scene ba-38
+                            with dissolve
+                            "You take your dick out, and position it between the bars of the cage."
+                            scene ba-39
+                            with dissolve
+                            if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                                "You press the tip gently against your [persistent.da]'s full lips."
+                            else:
+                                "You press the tip gently against [A]'s full lips."
+                            scene ba-40
+                            with dissolve
+                            "Without having to be told, [A] parts her lips, eager to take you in her mouth."
+                            scene ba-41
+                            with dissolve
+                            A "Mgh..."
+                            scene ba-42
+                            with dissolve
+                            A "{i}*slurp*{/i}"
+                            Z "Good girl."
+                            scene ba-43
+                            with dissolve
+                            A "Mhm..."
+                            "She hums, as if she thanks you for the compliment..."
+                            scene ba-44
+                            with dissolve
+                            "[A] grabs hold of the cage bars, taking your dick deeper down her throat."
+                            "With all your willpower, you pull away from her."
+                            scene ba-45
+                            with dissolve
+                            A "Wh-why did you stop?"
+                            scene ba-45x
+                            with dissolve
+                            Z "You disobeyed my command."
+                            Z "You're enjoying this too much, and you moved your hands."
+                            jump basement_ain_kneeling_menu
+                            
+                        "Take her from behind":
+                            Z "Stand up."
+                            scene ba-46
+                            with fade
+                            Z "Turn around and remove your clothes."
+                            scene ba-47
+                            with fade
+                            "She turns around as told..."
+                            scene ba-48
+                            with dissolve
+                            "...and removes her clothes, from top to bottom..."
+                            scene ba-49
+                            with dissolve
+                            A "..."
+                            Z "Good."
+                            scene ba-50
+                            with fade
+                            Z "Now hold on to the bars, and bend over for me."
+                            scene ba-51
+                            with dissolve
+                            if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                                "You look at your [persistent.da]'s ass as she bends over for you."
+                            else:
+                                "You look at [A]'s ass as she bends over for you."
+                            scene ba-52
+                            with dissolve
+                            A "Mhh..."
+                            "With a strong grip on the cage, you push your dick into her pussy."
+                            scene ba-52x
+                            with dissolve
+                            "You feel her body twitch and her pussy stretch as your enter her."
+                            A "Oww..."
+                            scene ba-53
+                            with hpunch
+                            "[A] holds onto the bars as instructed, and from outside the cage, you thrust yourself deeper inside her."
+                            Z "Fuck..."
+                            scene ba-55
+                            with fade
+                            Z "Hope that's a proper lesson for you... ngh..."
+                            "You thrust yourself deeper inside, as far as you can go."
+                            scene ba-55
+                            with hpunch
+                            A "Aghh... Yes... I'm... learning..."
+                            Zt "I'm getting close..."
+                            if persistent.forceplay == False:
+                                jump ba52
+                            else:
+                                menu:
+                                    "Grab her neck" if persistent.forceplay == True:
+                                        scene ba-56
+                                        with dissolve
+                                        Z "Perhaps this will help you learn faster..."
+                                        scene ba-57
+                                        with hpunch
+                                        A "Agh-"
+                                        A "That... agh... helps...!"
+                                        A "...I'm learning... faster..."
+                                        scene ba-58
+                                        with fade
+                                        "Your grip tightens on [A]'s neck and you feel her body begin to grow heavy."
+                                        Z "You slut of a [persistent.da]..."
+                                        with vpunch
+                                        A "Aaah...!"
+                                        Z "Kgh... fuck..."
+                                        with vpunch
+                                        Z "Ngh..."
+                                        "You cum inside her violently..."
+                                        with vpunch
+                                        if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                                            A "[persistent.dad!c]... I love... learning..."
+                                        else:
+                                            A "I love... learning..."
+                                        A "So... much..."
+                                        menu:
+                                            "Tighten your grip":
+                                                Zt "I can't resist..."
+                                                scene ba-61
+                                                with hpunch
+                                                A "Ngh-"
+                                                A "So... much...~"
+                                                Z "Fuck..."
+                                                with hpunch
+                                                "You tighten your grip while cumming deep inside her womb..."
+                                                scene ba-62
+                                                with dissolve
+                                                A "Agh..."
+                                                "She twitches and cums on your dick as you get your last ropes of cum inside her..."
+                                                Z "Fuck... you're almost out..."
+                                                scene ba-61
+                                                with dissolve
+                                                "You loosen your grip..."
+                                                A "Nnhh..."
+                                                jump ba54
+                                                
+                                            "Let go of her":
+                                                Z "I think you've had enough..."
+                                                jump ba54
+
+                                    "Finish inside her":
+                                        label ba52:
+                                            scene ba-52
+                                            with fade
+                                        Z "You slut of a [persistent.da]..."
+                                        scene ba-53
+                                        with vpunch
+                                        A "Aaah...!"
+                                        Z "Kgh... fuck..."
+                                        with vpunch
+                                        Z "Ngh..."
+                                        "You cum inside her violently..."
+                                        with vpunch
+                                        A "[persistent.dad!c]... I love... learning..."
+                                        A "So... much..."
+                                        label ba54:
+                                            scene ba-54
+                                            with fade
+                                            Z "{i}*pant*{/i}"
+                                            Z "I'm done with you, but I will leave you here to think about what you learned today."
+                                            if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                                                A "Yes, thank you, [persistent.dad]..."
+                                            else:
+                                                A "Yes, thank you..."
+                                            scene black
+                                            stop music fadeout 3
+                                            with fade
+                                            Z "Your [persistent.mom] will come soon."
+                                scene black
+                                with fade
+                                jump leave_basement
+
+                        "Release her":
+                            Z "I'm done with you. Get back up."
+                            scene ba-17x
+                            with fade
+                            Z "Let's get you back into your cell until your next lesson."
+                            scene ba-17
+                            with dissolve
+                            A "Yes, [persistent.dad]. Got it."
+                            scene ba-18x
+                            with dissolve
+                            scene black
+                            stop music fadeout 3
+                            with fade
+                            if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                                "You exit the basement, leaving your [persistent.da] in her cell..."
+                            else:
+                                "You exit the basement, leaving [A] in her cell..."
+                            jump daily_home
+
+                "\"That's all for today.\"":
+                    Z "That's all for today. You will return to your cell."
+                    scene ba-17
+                    with dissolve
+                    A "Yes, [persistent.dad]. Got it."
+                    scene ba-18
+                    with dissolve
+                    scene black
+                    stop music fadeout 3
+                    with fade
+                    if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                        "You exit the basement, leaving your [persistent.da] in her cell..."
+                    else:
+                        "You exit the basement, leaving [A] in her cell..."
+                    jump leave_basement
+                    
+        "Call [W] for help":
+            Z "I have something in mind for you again. But I need the help of your [persistent.mom] for it."
+            scene black
+            with fade
+            "Some time later..."
+            scene d5g-3
+            with fade
+            W "How are you holding up, honey?"
+            scene d5g-3x
+            with dissolve
+            A "It's... not my first time."
+            scene d5g-4
+            with fade
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                W "You know that your father likes you in this position, right?"
+            else:
+                W "You know that my husband likes you in this position, right?"
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                A "I do, [persistent.mom]..."
+            else:
+                A "Yes."
+            scene d5g-5
+            with dissolve
+            A "Is he already here?"
+            scene d5g-6
+            with dissolve
+            W "Patience, [A]..."
+            scene d5g-9
+            with fade
+            W "Everything is ready."
+            W "Are you ready, husband?"
+            Z "I am."
+            menu:
+                "Spank [A]":
+                    Z "Let's begin."
+                    scene d5g-11
+                    with fade
+                    W "Remember what I told you, [A]."
+                    scene d5g-18
+                    with dissolve
+                    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                        W "Count the strokes and remember to thank your [persistent.dad]."
+                    else:
+                        W "Count the strokes and remember to thank us."
+                    scene d5g-13
+                    with hpunch
+                    A "Ahhh... one!"
+                    W "Aren't you forgetting something?"
+                    scene d5g-13
+                    with hpunch
+                    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                        A "Ah! Two! Thank you [persistent.dad]!"
+                    else:
+                        A "Ah! Two! Thank you!"
+                    W "Start from scratch, you cute slut..."
+                    scene d5g-13
+                    with hpunch
+                    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                        A "One! One! T-thank you, [persistent.dad]...!"
+                    else:
+                        A "One! One! T-thank you...!"
+                    scene d5g-12
+                    with dissolve
+                    Z "Better..."
+                    A "..."
+                    scene d5g-13
+                    with hpunch
+                    pause 0.3
+                    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                        A "Mmmh, two! Thank you, [persistent.dad]!"
+                    else:
+                        A "Mmmh, two! Thank you!"
+                    scene d5g-12
+                    with dissolve
+                    pause 0.3
+                    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                        A "T-three! Thank you... [persistent.dad]!"
+                    else:
+                        A "T-three! Thank you...!"
+                    scene d5g-13
+                    with hpunch
+                    pause 0.3
+                    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                        A "Ahh...! Thank you [persistent.dad]! Four!"
+                    else:
+                        A "Ahh...! Thank you! Four!"
+                    scene d5g-12
+                    with dissolve
+                    "Her squirming reactions stimulate your senses and your commitment towards giving her an experience she will remember."
+                    "Your breathing becomes more focused, more deliberate, as you take a second, your hand tingling from the friction."
+                    scene d5g-18
+                    with fade
+                    pause 0.3
+                    scene d5g-19
+                    with hpunch
+                    A "Ahh..."
+                    scene d5g-18
+                    with dissolve
+                    pause 0.3
+                    scene d5g-19
+                    with hpunch
+                    A "Mhhh..."
+                    pause 0.3
+                    scene d5g-18
+                    with dissolve
+                    W "I think she's has enough..."
+                    W "...or did she?"
+                    menu basement_spank_menu:
+                        "Spank her harder":
+                            $ basement_ain_spanked = True
+                            Z "Start counting again..."
+                            scene d5g-19
+                            with hpunch
+                            A "Owww...! One! Thank you [persistent.dad]!"
+                            scene d5g-20x
+                            with dissolve
+                            pause 0.3
+                            scene d5g-20
+                            with vpunch
+                            A "Two! Thank you [persistent.dad]!" 
+                            pause 0.3
+                            scene d5g-20x
+                            with dissolve
+                            pause 0.3
+                            scene d5g-21
+                            with hpunch
+                            A "Three! Thank you [persistent.dad]!"
+                            pause 0.3
+                            scene d5g-21x
+                            with dissolve
+                            pause 0.3
+                            scene d5g-21x
+                            with dissolve
+                            pause 0.3
+                            scene d5g-22
+                            with hpunch
+                            pause 0.3
+                            scene d5g-20x
+                            with hpunch
+                            A "Ahhhh... Four! Thank you [persistent.dad]!"
+                            scene d5g-23
+                            with dissolve
+                            pause 0.3
+                            scene d5g-20x
+                            with hpunch
+                            A "Fiveee! T-thank you..."
+                            A "...nh-"
+                            with hpunch
+                            A "Ahaww..."
+                            W "Well, husband... Looks like you brought her over the edge."
+                            A "Mmhh..."
+                            jump basement_spank_menu
+                            
+                        "Fuck her":
+                            label basement_ain_d5g29:
+                                if basement_ain_spanked == False:
+                                    scene d5g-29
+                                else:
+                                    scene d5g-29x
+                                with fade
+                                "Not able to resist the temptation, you lower your pants and move behind [A]..."
+                                if basement_ain_spanked == False:
+                                    scene d5g-30
+                                else:
+                                    scene d5g-30x
+                                with dissolve
+                                A "Ah... [persistent.dad]...?"
+                                W "Why are you looking like that, [A]?!"
+                                if basement_ain_spanked == False:
+                                    scene d5g-31
+                                else:
+                                    scene d5g-31x
+                                with fade
+                                A "Nhh..."
+                                "You slowly push yourself inside her wet, tight cunt..."
+                                W "Aren't you enjoying yourself, so far?"
+                                A "[persistent.mom], I lov-..."
+                                W "Look me in the eyes [A], when you talk to me."
+                                if basement_ain_spanked == False:
+                                    scene d5g-33
+                                else:
+                                    scene d5g-33x
+                                with dissolve
+                                W "You {i}are{/i} enjoying yourself!"
+                                W "Maybe I should take over and find a way to paint some more tears on your little cheeks."
+                                if basement_ain_spanked == False:
+                                    scene d5g-34
+                                    with vpunch
+                                else:
+                                    scene d5g-34x
+                                    with vpunch
+                                A "Hhnnn..."
+                                if basement_ain_spanked == False:
+                                    scene d5g-33
+                                    with dissolve
+                                else:
+                                    scene d5g-33x
+                                    with dissolve
+                                pause 0.3
+                                if basement_ain_spanked == False:
+                                    scene d5g-34
+                                    with dissolve
+                                else:
+                                    scene d5g-34x
+                                    with vpunch
+                                W "And there it is, the flicker in your eyes..."
+                                A "Mmhh..."
+                                Zt "I love my girls..."
+                                if basement_ain_spanked == False:
+                                    scene d5g-33
+                                    with dissolve
+                                else:
+                                    scene d5g-33x
+                                    with dissolve
+                                pause 0.3
+                                if basement_ain_spanked == False:
+                                    scene d5g-34
+                                    with dissolve
+                                else:
+                                    scene d5g-34x
+                                    with vpunch
+                                pause 0.3
+                                if basement_ain_spanked == False:
+                                    scene d5g-33
+                                    with dissolve
+                                else:
+                                    scene d5g-33x
+                                    with dissolve
+                                pause 0.3
+                                if basement_ain_spanked == False:
+                                    scene d5g-34
+                                    with dissolve
+                                else:
+                                    scene d5g-34x
+                                    with vpunch
+                                pause 0.3
+                                scene d5g-35
+                                with dissolve
+                                A "Haa..."
+                                "You keep pounding [A] mercilessly, savoring her enjoyment..."
+                                "...and that of your wife, even if she refuses to show it."
+                                W "..."
+                                scene d5g-36
+                                with dissolve
+                                W "Such a spoiled little brat."
+                                if basement_ain_spanked == False:
+                                    scene d5g-37
+                                    with dissolve
+                                else:
+                                    scene d5g-37x
+                                    with dissolve
+                                A "Ah..."
+                                W "What to do with you..."
+                                if basement_ain_spanked == False:
+                                    scene d5g-33
+                                    with fade
+                                else:
+                                    scene d5g-33x
+                                    with fade
+                                pause 0.3
+                                if basement_ain_spanked == False:
+                                    scene d5g-34
+                                    with vpunch
+                                else:
+                                    scene d5g-34x
+                                    with vpunch
+                                W "Husband, maybe I should take over handling the crops and paddles, next time..."
+                                Z "{i}*sigh*"
+                                Z "Where's the fun in that though? You know you can always take your time with her when I am not around..."
+                                if basement_ain_spanked == False:
+                                    scene d5g-33
+                                    with dissolve
+                                else:
+                                    scene d5g-33x
+                                    with dissolve
+                                pause 0.3
+                                if basement_ain_spanked == False:
+                                    scene d5g-34
+                                    with dissolve
+                                else:
+                                    scene d5g-34x
+                                    with vpunch
+                                A "Haa..."
+                                W "Did you notice she has orgasmed already at least once?!"
+                                A "[persistent.mom!c]... don't tell him..."
+                                Z "Agh... Fuck-"
+                                with vpunch
+                                A "Ah...! [persistent.dad!c]...!"
+                                W "Hm... is he cumming inside you?"
+                                with vpunch
+                                A "Aaah... y-yes... it's so..."
+                                with vpunch
+                                A "Nh... warm..."
+                                if basement_ain_spanked == False:
+                                    scene d5g-37
+                                    with dissolve
+                                else:
+                                    scene d5g-37x
+                                    with dissolve
+                                "You cum inside her some more, enjoying your [persistent.da]'s filled up, wet cunt..."
+                                W "Stay still, [A]... let him release it all..."
+                                A "Yes... mh..."
+
+                        "Release her":
+                            Z "This should be enough."
+                            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                                W "You heard your father, [A]. You're lucky, this time."
+                            else:
+                                W "You heard him, [A]. You're lucky, this time."
+                            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                                A "Aw... I mean... thank you, [persistent.dad]..."
+                            else:
+                                A "Aw... I mean... thank you..."
+                            scene black
+                            with fade
+
+                "Fuck her directly":
+                    jump basement_ain_d5g29
+
+
+
+            scene d5g-25
+            with fade
+            W "Well then. Your training is over, [A]. Let's bring you back to your cell."
+            scene d5g-26
+            with dissolve
+            A "Okay... thank you, [persistent.mom]..."
+            scene black
+            with fade
+            "You leave [A] to your wife and leave the basement..."
+            jump daily_home
+
+        "Release her from the basement":
+            $ ain_basement = False
+            Z "You're free to leave, until I decide otherwise."
+            scene ba-3
+            with dissolve
+            A "Okay. Can you help me take the collar off, please?"
+            scene ba-4
+            with dissolve
+            Z "Come here."
+            scene black
+            with fade
+            "You release her from her cell, and she eventually returns to her room."
+            jump leave_basement
+
+        "Return upstairs":
+            Z "I was checking on how you're doing. You stay in here for a little longer."
+            scene ba-3
+            with dissolve
+            if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                A "Understood, [persistent.dad]."
+            else:
+                A "Got it. I will wait."
+            scene ba-4
+            with dissolve
+            scene black
+            with fade
+            jump leave_basement
+            
+label leave_basement:
+    stop music fadeout 2
+    jump daily_home
+
+label basement_fairy_2:
+    if fairy_gave_bed == False:
+        if fairy_h >= fairy_b:
+            scene bf-149
+            with fade
+            F "..."
+            "She appears to be sleeping..."
+            scene bf-150
+            with dissolve
+            F "Hn..."
+            scene bf-151
+            with fade
+            "She just woke up. She seems to have slept well, judging by how dizzy she looks."
+            "At least she seems relaxed."
+            scene bf-153
+            with dissolve
+            F "..."
+            scene bf-152
+            with hpunch
+            F "M-Master-"
+            scene black pic
+            with fade
+            "She hurries over..."
+
+        else:
+            scene bf-149
+            with fade
+            F "..."
+            "She seems to be sleeping..."
+            scene bf-150
+            with dissolve
+            F "Hn..."
+            scene bf-155
+            with fade
+            "She gets up. it seems she was in a pretty deep slumber. Unusual for her..."
+            scene bf-153
+            with dissolve
+            F "..."
+            scene bf-152
+            with hpunch
+            F "M-Master!! Sorry!!"
+            scene black pic
+            with fade
+            "She hurries over..."
+
+    elif fairy_gave_bed == True: # WAKING UP PHASE
+        if fairy_proper_bed == True:
+            scene bf-215x
+            with fade
+            F "..."
+            "She appears to be sleeping..."
+            scene bf-215
+            with dissolve
+            F "..."
+            scene bf-216
+            with fade
+            "She looks at you, appearing to be waking up from a good rest..."
+            scene black pic
+            with fade
+            "She hurries over..."
+
+        elif fairy_pet_bed == True:
+            scene bf-228
+            with fade
+            F "..."
+            "She appears to be sleeping..."
+            scene bf-227
+            with dissolve
+            F "..."
+            "Looks like she just woke up..."
+            scene black pic
+            with fade
+            F "Master..."
+            "She hurries over..."
+
+    if fairy_bathed == False or fairy_gave_bed == False: # CRAWLING TO PLAYER PHASE
+        scene bf-229
+        with dissolve
+        if fairy_h >= fairy_b:
+            "That didn't last long. She still looks happier than when you first brought her here, but she's still behaving as if pulled on a string."
+        else:
+            "Even though she was dizzy for a moment, she's back to her old self, if a little more domesticated than last time."
+        
+    if fairy_bathed == True and fairy_gave_bed == True:
+        if fairy_h >= 7: #70% to 30% relation required for the very good reaction!!!
+            scene bf-229x
+            with fade
+            F "Hello Master. Happy to serve!" # CHOICE TO NOT PUT HER IN THE SLAVE OUTFIT FOR NOW.
+            scene bf-229
+            with dissolve
+
+        elif fairy_b >= 10: #all bad choices lead to the broken ending
+            play music "audio/music/decayed/dead city.mp3" fadeout 2 
+            scene bf-233
+            with fade
+            "She kneels down, looking straight through you."
+            "Something has changed..."
+            
+        else:  #meaning if fairy_h is contributed in less than 30% of total points, causes the slave reaction
+            scene bf-229x
+            with fade
+            "Master. I serve."
+            scene bf-229
+            with fade 
+
+    menu:
+        "Have her take a bath" if fairy_bathed == False and daily_basement_fairy == False:
+            jump fairy_bath
+
+        "Give her a new bed" if fairy_gave_bed == False and daily_basement_fairy == False:
+            jump fairy_bed
+            
+        "Try talking to her again" if fairy_bathed == True and fairy_gave_bed == True and fairy_talked_again == False:
+            $ fairy_talked_again = True
+            $ fairy_outcome = True
+            $ fairy_outcome_day = day
+            if fairy_b >= 10:
+                jump bf233
+            else:
+                Z "Alright... let's try this again..."
+            scene black pic
+            with fade
+            "You sit down..."
+            scene bf-142
+            with fade
+            Z "..."
+            show bf-143-anim
+            with dissolve
+            if fairy_h >= fairy_b:
+                Z "I've tried before... to communicate with you."
+                if fairy_proper_bed == True:
+                    Z "I hoped that giving you a better place to sleep would help."
+                    Z "And I know very well that this basement is not a good place to forget about what you've experienced."
+                else:
+                    Z "I know very well that this basement is not a good place to forget about what you've experienced."
+                Z "But as I said before, I need to make sure you're not going to try to harm my girls."
+                Z "So I will try again..."
+                Z "...Are you feeling better? Because I want to get you out of this basement."
+            
+            if fairy_b > fairy_h:
+                Z "I've tried to get through to you before, you know."
+                if fairy_proper_bed == True:
+                    Z "I've given you a good bed. It's not perfect, but seeing how you acted before..."
+                Z "Listen... you can talk to me. You must know by now that I am not like your former Masters."
+                Z "If not, I can't let you out."
+
+            if fairy_h >= 7: # GOOD PATH, CHOICE BETWEEN WAIFU AND SERVANT ENDING
+                $ fairy_healed = True
+                scene bf-142
+                with fade
+                "Fairy seems hesitant, uncertain on how to reply in a way that might not provoke anger."
+                Z "Come now, girl. You are not in Old Cairo anymore. You can let go of the fear for your life."
+                scene bf-146x
+                with dissolve
+                Fw "Thank you, master. I serve."
+                scene bf-146x-3 #aside
+                with dissolve
+                Z "Look at me, girl!"
+                scene bf-146x-2
+                with dissolve
+                F "..."
+                Z "Look around you. This place is clean, there are no people around wanting to eat you. You are being fed and washed and left alone."
+                Z "Is that not better than how you've had it in a long time?"
+                scene bf-146
+                with dissolve
+                Fw "Thank you master, yes. Better."
+                scene bf-146x-2
+                with dissolve
+                Z "Speak up, girl."
+                scene bf-146x
+                with dissolve
+                F "Thank you, master! Yes, is... better."
+                scene bf-143x
+                with dissolve
+                Z "So you do have a voice."
+                scene bf-146
+                with dissolve 
+                F "...Yes, I..sorry."
+                scene bf-144
+                with dissolve
+                Z "You have been confined here for a few days now. Do you feel safer now?"
+                F "Safe, yes."
+                Z "You have met several members of the household now. What do you think of them?"
+                F "Nice... Kind women."
+                Z "Can I trust that you will not try to harm them?"
+                F "No! No harm! Never!"
+                Z "Calm down... I am not accusing you, Fairy."
+                F "Promise.. Never harm."
+                Z "I believe you."
+                show bf-143-anim
+                with dissolve 
+                Z "Do you have any questions for me?"
+                scene bf-146x
+                with dissolve
+                F "Food is good... can I have... more?"
+                scene bf-146x-3
+                with dissolve
+                Z "Dinner will be served in a while."
+                scene bf-146x-4
+                with dissolve
+                F "Is not.. night?"
+                scene bf-143x
+                with dissolve
+                Z "No, Fairy. The sun is high in the sky, outside."
+                scene bf-142
+                with dissolve
+                F "..."
+                pause 2
+                F "Can... Can I see?"
+                show bf-143-anim
+                with dissolve
+                "She looks at you with an expression which tells that she doesn't know whether to regret what she just said or not, but her curiosity takes over."
+                "She awaits eagerly for your answer."
+                scene bf-144
+                with dissolve
+                Z "You want to leave the basement?"
+                "Fairy nods emphatically."
+                Z "Do you think you are ready?"
+                F "I... try?"
+                F "..."
+                "You notice she doesn't seem to whisper anymore, and doesn't try to shy away from you."
+                show bf-143-anim
+                with dissolve
+                Z "From what I gather, you were not always a slave, a sex toy to your masters, so I would like you to speak plainly and in full sentences."
+                Z "Show me you have something of value, beyond those pretty eyes."
+                scene bf-146x
+                with dissolve
+                F "Yes, Master... I will. I... can talk.. normally.." 
+                scene bf-144
+                with dissolve
+                Z "...So you have had bad masters. You will find that I am more discerning."
+                F "Discerning?"
+                Z "I don't give punishments unless they are deserved."
+                Z "Take notice: In this house, you have nothing to fear but the consequences of your own actions. This I promise."
+                Z "You are, all things considered, in a safe place, Fairy. It is time for you to heal."
+                F "Master... good master!"
+                Z "My name is [persistent.player_name]. Say it."
+                Fw "Master [persistent.player_name]."
+                F "Master [persistent.player_name]..."
+                scene bf-230
+                with fade
+                "That is when [W] walks into the cell."
+                Z "In time, we will find out if you will be a good servant, or if you can be something more. Now let [W] get you sorted out."
+                scene bf-232
+                with fade
+                W "I'll take it from here..."
+                $ sq_f_1.advance()
+                scene bf-231
+                Z "You know what to do with her."
+                scene black pic
+                with fade
+                jump mission_end
+
+            else: # NEUTRAL PATH, SERVANT ENDING 
+                $ fairy_neutral = True
+                scene bf-142
+                with fade
+                if fairy_h >= fairy_b:
+                    Z "Im glad that you are learning a bit of discipline."
+                elif fairy_b > fairy_h:
+                    Z "It took you long enough to find some discipline."
+                show bf-143-anim
+                with dissolve
+                "The girl sits at your feet, her eyes fixed upon your face, expectantly."
+                Z "What should I do with you..."
+                scene bf-146x
+                with hpunch
+                F "No kill, please... Mercy.. No kill."
+                F "Please... I serve. Mercy."
+                scene bf-146x-2
+                with dissolve
+                Z "You can put your mind at ease, Fairy. You are safe here."
+                scene bf-146
+                with dissolve
+                F "No kill?"
+                scene bf-144
+                with dissolve
+                Z "No kill, but no nonsense either."
+                Z "You will earn your keep by serving in my House, and there will be some rules for you to follow." 
+                Z "Yes, punishments do exist, if you violate them, but I think you will find that I am a strict but fair master."  
+                Z "Do as you are told, carry yourself appropriately and do not make me regret the decision to keep you."
+                Z "Ultimately, you are bought and paid for, but I do not deal in the misery of people."
+                Z "Your life will be protected, in this House."
+                F "Master..?"
+                Z "My name is [persistent.player_name]."
+                F "Master [persistent.player_name]"
+                scene bf-229
+                with dissolve
+                Z "Indeed, now go with my wife, and she will sort you out."
+                $ sq_f_1.advance()
+                scene bf-230
+                with fade
+                Z "Ah, right on time."
+                scene bf-232
+                with dissolve
+                W "How did your little chat go?"
+                scene bf-231
+                with dissolve
+                Z "I think she's as ready as I can make her. And she knows to follow orders and behave. What follows is on you."
+                Z "Don't you, Fairy?"
+                scene bf-229x
+                with dissolve
+                F "Yes master [persistent.player_name]."
+                scene bf-229
+                with dissolve
+                scene black pic
+                with fade
+                jump mission_end
+            
+
+        "Leave":
+            Z "I just came to check on you."
+            scene black pic
+            with fade
+            "You leave..."
+            jump mission_end
+
+label bf233: # BAD PATH, BROKEN ENDING
+    $ fairy_broken = True
+    "The girl steals glances at you, alternating between looking up adoringly when she thinks that's expected off her, and staring at the ground..."
+    "There seems to be no pattern no this."
+    scene bf-234
+    with fade
+    "You approach her and grab her head."
+    Z "I am not sure what to do with you."
+    scene bf-235
+    with dissolve
+    F "..."
+    Z "There seems to be nothing left here. Nothing but a toy..."
+    Z "...but broken toys can, and should, make themselves useful too."
+    scene bf-236
+    with dissolve
+    "You slowly raise your hand towards her face..."
+    Z "And I think you know the way for you to do so."
+    Z "Such a pretty face..."
+    scene bf-237
+    with dissolve
+    "You dig between her lips..."
+    menu:
+        "\"You don't need to worry. I'll keep you safe from danger.\"":
+            Z "You don't need to worry about anything anymore."
+            Z "I'll keep you safe from the outside world..."
+            Z "In my own way."
+            
+        "\"Tell me, who's your Master.\"":
+            Z "Tell me, slave. Who is your Master."
+            F "H..Yhou... Mahshter..."
+            "She almost drools out the sentences..."
+            Z "Good slave."
+
+    F "Yes... Mas..."
+    Z "I wonder..."
+    scene bf-238
+    with dissolve
+    F "Haa..."
+    Z "Show me your tongue, slut."
+    scene bf-239
+    with dissolve
+    "She sticks it out..."
+    Z "I'm going to enjoy that soon enough."
+    scene bf-237
+    with dissolve
+    Z "I am not sure what I have saddled myself with, by taking you in."
+    Z "It doesn't really matter anymore. You'll be serving me from now on, without reservations."
+    scene bf-234
+    with dissolve
+    Z "As long as you do as you're told, you will not lack for food, shelter and essential commodities, this I promise."
+    F "..."
+    scene black pic
+    with fade
+    "As you conclude your \"conversation\" with your new red headed toy, your wife comes in to take care of her..."
+    scene bf-232
+    with fade
+    W "I'll take it from here. You can wait outside the cell, if you want?"
+    W "I've got a special idea."
+    scene bf-231
+    with dissolve
+    Z "Now I'm curious."
+    jump fairy_broken_outcome
+
+label fairy_broken_outcome:
+    scene black pic
+    with fade
+    scene bf-253
+    with dissolve
+    "Getting anything beyond the most basic words out of Fairy seems an inpossible task."
+    "Whatever, whoever she was in the past, that woman is gone, now only Fairy remains, a mindless sex craving and sex dependent toy. She will be of service that way, but nothing more."
+    scene bf-252
+    with fade
+    Z "..."
+    "You hear the door open and look up..."
+    scene bf-254
+    with fade
+    W "Get a move on, come now. You're not an animal... or are you?"
+    W "I'm not sure at this point."
+    scene bf-255
+    with hpunch
+    W "Hey, don't pull on the chain!"
+    "You see [W] tighten her grip on the chain tied to Fairy's new collar..."
+    scene bf-256
+    with dissolve
+    W "Poor girl, you've had your chance. Don't worry though. You will be well fed and groomed... but we will do things with you... I can already picture some of them.."
+    scene bf-257
+    with dissolve
+    "As you wife stares down at Fairy, you acknowledge the truth in her words."
+    "As you look at your wife, you see her fierce expression. She is in her element, in command of the little redhead."
+    "You have had toys of this nature before, however briefly."
+    "It always amazes you to see your faithful and devoted wife take control of someone. The casual observer who knows her on the surface would not see it."
+    "But you know this side of her, that lurks under the surface of your otherwise submissive wife, like a lioness waiting to pounce."
+    "Her entire body language seems to change subtly, and it's never for too long, but it something that has always impressed you."
+    scene bf-258
+    with dissolve
+    "Your wife drags Fairy into the room, towering over her. On all fours and dragging her legs across the floor, Fairy doesn't say a word, obedient like a hungry dog..."
+    scene bf-259
+    with dissolve
+    "The girl whimpers, as you look at her naked frail form."
+    scene bf-260
+    with fade
+    "Chained to the bench you're sitting on, the girl assumes a position that she has obviously been trained into before, one of servitude and attendance."
+    "You look at her pretty face and stare into her green eyes, looking for a glimpse of something, fear, hurt, anger or even resignation..."
+    "Instead you find nothing. Just a passive presence, barely aware of her surroundings but still ready to jump at the first threat, or to serve, at the first command."
+    scene bf-261
+    with dissolve
+    "Now that she has relinquished the power that comes with holding the leash, [W] is smiling at you, her usual self again..."
+    "To the point that you wonder if your perception of her was maybe altered by your mutual devotion. Then you remember the many occasions in which your lioness showed her claws."
+    scene bf-262
+    with dissolve
+    W "Well, here she is. As pretty and exotic as I've ever seen anybody, but... she might as well not be here at all."
+    W "Just a body for you.. for us, to use as we please. It's a pity that these thing should happen but... what can you do?"
+    scene bf-261
+    with dissolve
+    Z "We tried. We honestly did our best to bring her back from wherever her mind has decided to hide."
+    Z "If there's nothing to be done for her, we might as well make use of her to suit our wants."
+    scene bf-260
+    with dissolve
+    "Indifferent, or maybe unaware, Fairy sits there staring into nowhere, letting the words wash over her."
+    $ sq_f_1.complete()
+    $ sq_f_1.resolution = _("Despite my efforts -or perhaps because of them- Fairy seems to have sunk deeper and deeper into a state of numbness, her mind all but shutting down.\nThere seems to be nothing that can be done to salvage any fragment of personality, and instead she has become something closer to an empty husk. But I think I can still find some use for her...")
+    scene black pic
+    with fade
+    "You and your wife leave the basement shortly after..."
+    jump mission_end
+
+label fairy_broken_repeat:
+    if fairy_broken_visited == False:
+        $ fairy_broken_visited = True
+    $ daily_basement_fairy = True
+    scene bf-233
+    play sound "audio/sounds/doors/door closed.mp3"
+    with fade
+    random:
+        F "Mast..."
+        Z "How's my favourite pet..."
+        "You stand in front of your broken slave..."
+        Z "Ready and willing. Just how I like it."
+    label fairy_broken_menu:
+        if not renpy.showing('bf-233'):
+            scene bf-233
+            with fade
+        menu:
+            "Name your pet" if fairy_broken_renamed == False:
+                Z "I was having the thought of renaming you, now that you're properly trained."
+                menu:
+                    "Rename her":
+                        $ fairy_broken_renamed = True
+                        Z "From now on, I will call you..."
+                        $ fairy_name = renpy.input("", default=_("Fairy"), length = 12).strip()
+                        if fairy_name == renpy.translate_string("Fairy", language = _preferences.language):
+                            Z "Mh..."
+                            Z "Nevermind. Fairy suits you, and I am not creative enough to give you a better name."
+                        else:
+                            Z "You will respond to [F] from now on. Understood?"
+                            F "Yes... Master."
+                            Z "That should be better. A good call name for something like you."
+                            jump fairy_broken_menu
+
+                    "Keep the name Fairy":
+                        Z "Mh..."
+                        Z "Nevermind. It suits you, and I am not creative enough to give you a better name."
+                        jump fairy_broken_menu
+                    
+            "Grab her head" if fbd_deepthroat == False or fbd_drink == False:
+                scene bf-237
+                with fade
+                Z "Open your mouth, slave."
+                scene bf-238
+                with dissolve
+                F "Nha..."
+                Z "Show me your tongue."
+                scene bf-239
+                with dissolve
+                label fairy_broken_grab_head:
+                    menu:
+                        "Fuck her throat" if fbd_deepthroat == False: 
+                            $ fbd_deepthroat = True
+                            scene bf-275
+                            with dissolve
+                            Z "Suck it, redhead pet."
+                            scene bf-276
+                            with fade
+                            F "Ngh..."
+                            Z "Right down your throat."
+                            scene bf-277
+                            with dissolve
+                            F "..."
+                            scene bf-276
+                            with dissolve
+                            Z "Good slut. Use your tongue to clean it."
+                            scene bf-278
+                            with dissolve
+                            F "{i}*slurp*{/i}"
+                            Z "What a stupid face you make."
+                            Z "No wonder you're good for nothing but this."
+                            scene bf-277
+                            with vpunch
+                            Z "Ah... at least your throat feels nice."
+                            scene bf-278
+                            with Dissolve(0.6)
+                            pause 0.5
+                            scene bf-277
+                            with vpunch
+                            pause 0.5
+                            scene bf-278
+                            with Dissolve(0.6)
+                            pause 0.4
+                            scene bf-277
+                            with vpunch
+                            pause 0.3
+                            scene bf-278
+                            with dissolve
+                            F "..."
+                            Zt "No gag reflex."
+                            Z "Alright. That'l do it."
+                            jump fairy_broken_grab_head
+
+                        "Let her drink" if fbd_drink == False:
+                            $ fbd_drink = True
+                            scene bf-264
+                            with dissolve
+                            Z "You look thirsty. Time for another drink."
+                            scene bf-265
+                            with fade
+                            Z "Stay still."
+                            Z "Now, open your mouth."
+                            scene bf-266
+                            with dissolve
+                            F "..."
+                            Z "Tongue."
+                            scene bf-267
+                            with dissolve
+                            pause 0.7
+                            scene bf-268
+                            with dissolve
+                            Z "There..."
+                            scene bf-269
+                            with dissolve
+                            "A long stream of piss fills her cheeks..."
+                            scene bf-270
+                            with dissolve
+                            F "..."
+                            scene bf-271
+                            with dissolve
+                            pause 0.7
+                            scene bf-272
+                            with dissolve
+                            Z "Good girl."
+                            scene bf-271
+                            with dissolve
+                            pause 0.5
+                            scene bf-271
+                            with dissolve
+                            Z "Almost finished."
+                            scene bf-273
+                            with fade
+                            pause 0.7
+                            scene bf-274
+                            with dissolve
+                            Z "That's it."
+                            F "..."
+                            jump fairy_broken_grab_head
+
+                        "Go back":
+                            jump fairy_broken_menu
+                        
+            "Call [W]":
+                Z "[W]!"
+                pause 0.5
+                play sound "audio/sounds/doors/door closed.mp3"
+                scene bf-279
+                with fade
+                W "You called?"
+                scene bf-280
+                with dissolve
+                W "Do you need my assistance?"
+                scene bf-281
+                with dissolve
+                menu:
+                    "Take her from behind":
+                        Z "Help me prepare [F]."
+                        Z "I want to fuck my slave."
+                        scene bf-282
+                        with dissolve
+                        W "Will you let me watch?"
+                        scene bf-283
+                        with dissolve
+                        scene black pic
+                        with fade
+                        "Soon later..."
+                        scene bf-336
+                        with vpunch
+                        F "Ah..."
+                        Zt "Time for some exotic slave pussy."
+                        scene bf-337
+                        with fade
+                        F "Nh..."
+                        W "She is ready for you, husband."
+                        # scene bf-338-anim #TODO:ANIMATION
+                        # with dissolve
+                        F "Ah... nh..."
+                        scene bf-339
+                        with dissolve
+                        Z "You are the best, [W]."
+                        scene bf-340
+                        with dissolve
+                        W "You know I get horny when you show off, [persistent.player_name]."
+                        scene bf-341
+                        with dissolve
+                        W "Why else would I want to watch?"
+                        W "Give it to her good, husband. Show me."
+                        scene bf-342
+                        with dissolve
+                        Z "You know just how to get me going."
+                        scene bf-343
+                        with dissolve
+                        W "Make her feel it!"
+                        scene bf-344
+                        with vpunch
+                        F "Agh-"
+                        "You grab a fistful of the girl's hair and yank her back, arching her back in one fell move, while [W] wraps her fingers around her neck."
+                        scene bf-345
+                        with dissolve
+                        W "How does that feel?"
+                        Z "She's clenching..."
+                        scene bf-346
+                        with vpunch
+                        scene bf-345
+                        with dissolve
+                        F "Ah..."
+                        scene bf-346
+                        with vpunch
+                        "You pound her with strong and brutal strokes..."
+                        scene bf-345
+                        with dissolve
+                        scene bf-346
+                        with vpunch
+                        F "Nh..."
+                        scene bf-347
+                        with fade
+                        Z "Little whore!"
+                        W "Your training worked, my love."
+                        scene bf-348
+                        with dissolve
+                        W "We have managed to get her out of her frenzied state. Now she's compliant and horny, but not unhinged."
+                        W "Her mind is still filled with nothing but animalistic lust, but at least she's functional."
+                        Z "Good."
+                        scene bf-350
+                        with fade
+                        Z "What a shame. Her pretty red hair, wasted on such an empty, mindless fucktoy."
+                        scene bf-349
+                        with dissolve
+                        F "Mgh..."
+                        Z "At least she can take a good pounding."
+                        Z "I'm cumming. Hold her still, wife."
+                        W "Yes... Master."
+                        scene bf-351
+                        with hpunch
+                        Z "Agh..."
+                        with hpunch
+                        "You cum deep inside her..."
+                        scene bf-352
+                        with dissolve
+                        F "Ah... mas..."
+                        scene bf-345
+                        with fade
+                        Z "Good slave."
+                        scene bf-346
+                        with vpunch
+                        F "Ngh-"
+                        scene bf-345
+                        with dissolve
+                        "You keep pounding her, your shaft slick with your cum..."
+                        scene bf-346
+                        with vpunch
+                        scene bf-345
+                        with dissolve
+                        F "Nh..."
+                        scene bf-341
+                        with fade
+                        W "That was so hot!"
+                        scene bf-342
+                        with dissolve
+                        Z "Maybe I should have fucked you to, instead of leaving you hanging..."
+                        scene bf-343
+                        with dissolve
+                        W "Oh, don't worry about that, my love. This was very satisfying anyway."
+                        scene bf-342
+                        with dissolve
+                        scene black pic
+                        with fade
+                        jump fairy_end
+
+                    "Flagellate [F]":
+                        Z "I'm feeling a bit tense today. I need a distraction."
+                        Z "Prepare her for some flogging, will you?"
+                        scene bf-280
+                        with dissolve
+                        W "Of course, husband. She will be ready for you."
+                        scene bf-283
+                        with dissolve
+                        scene black pic
+                        with fade
+                        "A short while later..."
+                        scene bf-284
+                        with fade
+                        W "Alright, [F]..."
+                        scene bf-286
+                        with dissolve
+                        W "Are you ready for your Master?"
+                        F "Mh..."
+                        scene bf-287
+                        with dissolve
+                        W "I will be watching you, so... do me proud."
+                        scene bf-288
+                        with dissolve
+                        W "Show your strength and determination. Don't disappoint me."
+                        F "Nh..."
+                        scene bf-289
+                        with fade
+                        W "She is ready for you, husband."
+                        scene bf-290
+                        with dissolve
+                        Z "My whip...?"
+                        scene bf-292
+                        with fade
+                        "Your tied up, broken slave shows only a hint of apprehension in anticipation for what is to come..."
+                        scene bf-293
+                        with fade
+                        Zt "Time to work out some frustrations..."
+                        scene bf-294
+                        with dissolve
+                        pause 0.5
+                        scene bf-295
+                        play sound "audio/sounds/objects/whip.mp3"
+                        with vpunch
+                        F "Ngh..!"
+                        scene bf-297
+                        with fade
+                        F "..."
+                        scene bf-296
+                        play sound "audio/sounds/objects/whipcrack 1.mp3"
+                        with vpunch
+                        F "Ah..-"
+                        scene bf-297
+                        with dissolve
+                        W "That must've hurt, husband..."
+                        scene bf-298
+                        play sound "audio/sounds/objects/whip.mp3"
+                        with vpunch
+                        scene bf-297
+                        with dissolve
+                        F "..."
+                        scene bf-299
+                        play sound "audio/sounds/objects/whipcrack 2.mp3"
+                        with vpunch
+                        F "Ngh-"
+                        scene bf-297
+                        with dissolve
+                        W "I love watching her like this..."
+                        scene bf-300
+                        with fade
+                        F "{i}*pant*{/i}"
+                        scene bf-301
+                        with dissolve
+                        W "I think she could take more..."
+                        scene bf-302
+                        with dissolve
+                        menu:
+                            "Whip her more":
+                                scene bf-294x
+                                with dissolve
+                                pause 0.5
+                                scene bf-298
+                                play sound "audio/sounds/objects/whipcrack 1.mp3"
+                                with vpunch
+                                F "Ah..."
+                                scene bf-297
+                                with dissolve
+                                pause 0.5
+                                scene bf-299
+                                play sound "audio/sounds/objects/whip.mp3"
+                                with vpunch
+                                pause 0.5
+                                scene bf-297
+                                with dissolve
+                                pause 0.4
+                                scene bf-296
+                                play sound "audio/sounds/objects/whipcrack 2.mp3"
+                                with vpunch
+                                scene bf-297
+                                with dissolve
+                                F "..."
+                                scene bf-304
+                                with fade
+                                W "You left quite the mark. Is this as far as she can go?"
+                                scene bf-305
+                                with dissolve
+                                F "Mh..."
+                                scene bf-303
+                                with fade
+                                menu:
+                                    "Whip her even more":
+                                        $ fairy_broken_whipped_bloody = True
+                                        scene bf-294x-2
+                                        with dissolve
+                                        pause 0.5
+                                        scene bf-306
+                                        play sound "audio/sounds/objects/whip.mp3"
+                                        with vpunch
+                                        F "Ah..."
+                                        scene bf-307
+                                        with dissolve
+                                        pause 0.6
+                                        scene bf-308
+                                        play sound "audio/sounds/objects/whipcrack 2.mp3"
+                                        with hpunch
+                                        scene bf-307
+                                        with dissolve
+                                        pause 0.4
+                                        scene bf-308
+                                        play sound "audio/sounds/objects/whipcrack 1.mp3"
+                                        with vpunch
+                                        scene bf-307
+                                        with dissolve
+                                        W "Did she pass out?"
+                                        W "Hm... I think she's... floating."
+                                        scene bf-306
+                                        play sound "audio/sounds/objects/whipcrack 2.mp3"
+                                        with vpunch
+                                        pause 0.5
+                                        scene bf-307
+                                        with dissolve
+                                        F "..."
+                                        scene bf-303x
+                                        with fade
+                                        menu:
+                                            "Finish inside her":
+                                                label bf309:
+                                                    scene bf-309
+                                                    with fade
+                                                    "You drop your whip and approach the bound girl..."
+                                                    W "Take her good, husband..."
+                                                    scene bf-310
+                                                    with hpunch
+                                                    F "Nh..."
+                                                    scene bf-311
+                                                    with vpunch
+                                                    Z "I need this pussy, right now."
+                                                    "Deeply lost in the reverie of subspace, [F] reacts automatically, lifting her leg."
+                                                    scene bf-312
+                                                    with dissolve
+                                                    pause 0.1
+                                                    show bf-313-anim
+                                                    with Dissolve(0.1)
+                                                    pause 2
+                                                    Z "Ah... fuck yes."
+                                                    with hpunch
+                                                    Z "Ngh-"
+                                                    scene bf-315
+                                                    with hpunch
+                                                    F "Ah..."
+                                                    Z "Fuck..."
+                                                    scene bf-316
+                                                    with dissolve
+                                                    Z "Take it, slave."
+                                                    with hpunch
+                                                    "You cum deep inside your slave's womb..."
+                                                    scene bf-317
+                                                    with dissolve
+                                                    if fairy_broken_whipped_bloody == True:
+                                                        scene bf-318
+                                                        with dissolve
+                                                        F "Nha... mhh..."
+                                                        W "It almost looks like she's wetting herself."
+                                                        scene bf-320
+                                                        with dissolve
+                                                        F "Haaa... nnggghh...."
+                                                        scene bf-319
+                                                        with dissolve
+                                                        W "She really got off of all of this. You got her to squirt."
+                                                        F "Hahh... Mas... cuhmm..."
+                                                        scene bf-318
+                                                        with fade
+                                                        pause 0.7
+                                                        scene bf-317
+                                                        with dissolve
+                                                        Z "You're good, for a cumbucket."
+
+                                                    else:
+                                                        Z "Yes. That's what I needed."
+                                                        Z "I think she enjoyed the pain, She's soaking wet."
+                                                        W "I believe you. Her cute face can't lie..."
+
+                                                    scene bf-321
+                                                    with fade
+                                                    W "Did she satisfy you?"
+                                                    scene bf-322
+                                                    with dissolve
+                                                    Z "She did."
+                                                    scene bf-323
+                                                    with dissolve
+                                                    scene bf-324
+                                                    with dissolve
+                                                    W "I will... have some fun with her myself, if you don't mind."
+                                                    scene bf-325
+                                                    with dissolve
+                                                    Z "Don't go too hard on her though. We don't want to ruin her good looks."
+                                                    scene bf-326
+                                                    with dissolve
+                                                    W "You know I wouldn't want that either, my love."
+                                                    if introduction_emilia == True:
+                                                        W "When I'm done and she's out of her daze, the servant can come take care of her and pamper her as she deserves."
+                                                    else:
+                                                        W "You can leave us now. I will take care of her, when she's snapped out of it."
+                                                    scene bf-327
+                                                    with dissolve
+                                                    Z "Good. I will take a rest now. See you later, love. Have fun."
+                                                    scene black pic
+                                                    with fade
+                                                    jump fairy_end
+
+                                    "Finish inside her":
+                                        jump bf309
+
+                            "Finish inside her":
+                                jump bf309
+
+                    "Hand her to [W]":
+                        Z "It's time she gets out of here for a little bit."
+                        Z "Might taking her on a leash?"
+                        W "You know I enjoy taking out our pet."
+                        scene bf-283
+                        with dissolve
+                        scene black pic
+                        with fade
+                        "You leave the cell..."
+                        scene bf-328
+                        with fade
+                        F "Nh..."
+                        W "I will put her back inside once I grow bored."
+                        scene bf-330
+                        with dissolve
+                        Z "Enjoy your time, then."
+                        scene black pic
+                        with w33slow
+                        "Later..."
+                        scene bf-331
+                        with fade
+                        W "Hmm..."
+                        scene bf-332
+                        with dissolve
+                        W "So relaxing..."
+                        scene bf-333
+                        with dissolve
+                        W "Mhh..."
+                        F "..."
+                        scene bf-334
+                        with dissolve
+                        W "You're a good slave, [F]..."
+                        scene black pic
+                        with fade
+                        jump fairy_end
+                        
+            "Leave":
+                random:
+                    Z "Stay alert, slave."
+                    Z "Go back to sleep, [F]."
+                scene black pic
+                with fade
+                jump fairy_end
+
+label fairy_bed:
+    $ fairy_gave_bed = True
+    $ daily_basement_fairy = True
+    $ fairy_counter += 1
+    Z "It's time we make some proper sleeping arrangements."
+    Z "Sticking you in here was for your own safety, and this room is not built for comfort."
+    Z "But that doesn't mean we can't improve your situation."
+    Z "There's no point in you waking up full of bruises just from sleeping on the ground."
+    menu:
+        "Give her a proper bed":
+            $ fairy_proper_bed = True
+            $ fairy_h += 2
+            Z "This is not right. You deserve at least some comfort. I'll be back soon."
+            scene black pic
+            with fade
+            "Some time later, you come back to the cell carrying an old bedframe and a mattress..."
+            "You leave the cell again, coming back with an armful of linen."
+            scene bf-201
+            with w33slow
+            "After a bit of work manoeuvering the frame into the cell, you look at the result of your efforts."
+            Z "This should do for now."
+            scene bf-202
+            with fade
+            if introduction_emilia == True:
+                Z "Emilia washed the sheets. They're clean. The mattress was in storage, but is still soft."
+            else:
+                Z "My wife cleaned the sheets. This is a good mattress, from [A]'s old bed."
+            scene bf-203
+            with dissolve
+            Z "You will be a lot more comfortable than on the bench or the floor."
+            Z "Go on then... Try it."
+            scene bf-204
+            with fade
+            "She hesitantly approaches the bed. You wonder when, if ever, she slept in a normal bed?"
+            "Maybe you will find out eventually."
+            scene bf-205
+            with fade
+            F "..."
+            "Seeing how she still hesitates, you understand that you will have to guide her every step of the way."
+            scene bf-206
+            with dissolve
+            Z "Come on, touch it."
+            scene bf-207
+            with fade
+            pause 1.5
+            scene bf-208
+            with dissolve
+            pause 1
+            scene bf-209
+            with dissolve
+            F "...!"
+            scene bf-211
+            with dissolve
+            pause 1.5
+            scene bf-212
+            with dissolve
+            "She touches the fabric, and looks at it in surprise."
+            "You wonder what she might be thinking, as she becomes less skittish, nervous, and settles with a calm expression."
+            Z "Try it. Go on, lay down..."
+            scene bf-210
+            with dissolve
+            F "Lay...?"
+            Z "Yes...."
+            "With a measured movement, without actually touching her, you gesture towards the bed."
+            scene bf-213
+            with fade
+            "She lays down, her eyes still darting around like those of hunted prey."
+            "Her breathing is nervous and you look at this frail figure shivering a little as she tries for a comfortable position."
+            scene bf-214
+            with dissolve
+            "Instinctively she goes into fetal position, her body finally relaxing a little."
+            "You notice the bruises on her skin seem to be slowly healing."
+            scene bf-215
+            with dissolve
+            "She looks up at you from there, hesitantly, a tentative hint of a smile coursing her lips."
+            scene bf-216
+            with dissolve
+            "As you look at her, her natural exotic beauty strikes you again."
+            "Between her freckled skin, her piercing eyes and red curls, you can't help but being attracted to her."
+            scene bf-217
+            with dissolve
+            "You notice she laid down on top of her sheets, maybe out of a habit of immediate obedience."
+            "The thought occurs to you that she might not be used to even seeing proper bed linen, so she just did what she was told."
+            scene bf-218
+            with fade
+            "With some manoeuvring, you manage to pull the sheets from under her, and tuck her in, the patterned blanket covering her slim figure."
+            "As you were pulling at the blankets, you noticed Fairy being as still as she possibly could, which actually made your task more bothersome."
+            scene bf-219
+            with dissolve
+            "Immediately she closes her eyes, but you can tell she's doing what she thinks is expected of her.. so you stick around for a little while."
+            "For several minutes, she keeps her eyes shut, trying to move as little as possible. Only the slight movement of her chest betrays her, as she breathes as quietly as she can manage."
+            scene bf-220
+            with Dissolve(1.5)
+            "Eventually, exhaustion overcomes Fairy and beats her nervous energy, as she drifts into the deepest of sleeps."
+            "Before your eyes, you see her features soften, her jaw unclench, her limbs sink deeper into the mattress as tension abandons them."
+            scene bf-221
+            with dissolve
+            "You walk to the door of the cell and look back at the girl, now seemingly at peace with the world."
+            "You take the torch with you and leave her in darkness."
+            jump fairy_end
+
+        "Give her a pet bed":
+            $ fairy_pet_bed = True
+            $ fairy_b += 2
+            Z "I will arrange proper bedding for you."
+            Z "Wait for me."
+            scene black pic
+            with fade
+            "Eventually,you come back into the room and place a small but soft square mattress on the floor..."
+            scene bf-223
+            with fade
+            Z "You will sleep better on this instead of the bench."
+            Z "I have no use for a slave covered in bruises, so... don't let me catch you hiding under the bench again. Use this."
+            F "..."     
+            Z "Come on, try it out."       
+            scene bf-224
+            with fade
+            "She kneels down and curiously looks at it..."
+            F "..."            
+            scene bf-225
+            with dissolve
+            Z "Lay down. I want to see if it's big enough."
+            scene black pic
+            with fade
+            "She does as you say, assuming a fetal position..."
+            "Curling up into a ball, you see a slight tremor in her knees."
+            "It's hard to say if she's still afraid or maybe cold."
+            scene bf-226
+            with fade
+            Z "There you go. Now sleep. Tomorrow is another day."
+            scene bf-227
+            with dissolve
+            if fairy_b >= fairy_h:
+                Z "You've come a long way, but the day has been long. You need some rest."
+            else:
+                Z "You've come a long way, girl. You deserve to rest for now."
+            Z "Good night."
+            scene bf-228
+            with dissolve
+            F "..."
+            scene bf-228x
+            with Dissolve(1.5)
+            "You extinguish the torch..."
+            scene bf-228x-2
+            with fade
+            "You can hear her soft breathing getting deeper as sleep embraces her. This is probably the most comfortable she's been in a long while."
+            "It may not be the best you can give her, but for now this will do, you think to yourself."
+            jump fairy_end
+
+label fairy_bath:
+    $ fairy_bathed = True
+    $ daily_basement_fairy = True
+    $ fairy_counter += 1
+    Z "You've been in here for some time now."
+    Z "You're dirty, and that just will not do."
+    if fairy_b >= fairy_h:
+        Z "Don't get nervous. I need my slaves to be clean."
+    else:
+        Z "Don't worry now, you will be safe."
+    if introduction_emilia == True:
+        if emilia_sub >= emilia_love:
+            Z "My maid will take care of you."
+            Z "She's a very well trained slave. You will learn much from her."
+        else:
+            Z "Emilia will take care of you."
+            Z "She's the maid in this house. You should listen to her, she can teach you many things."
+    else:
+        Z "I will take care of you myself."
+    Z "Understood?"
+    scene bf-229x
+    with dissolve
+    F "Yes, Master."
+    scene bf-229
+    with dissolve
+    scene black pic
+    play music "audio/music/home/dream town.mp3" fadeout 2
+    with w33slow
+    "A few minutes later..."
+    if introduction_emilia == True:
+        scene bf-165
+        with w33slow
+        "As you get into the bathroom, the sun is piercing through the curtained windows. You see Emilia heating up pails of water."
+        "Fairy seems to be sitting idly, staring curiously at your maid."
+        scene bf-168
+        with fade
+        E "No need to be nervous. It is almost ready and then we can begin."
+        scene bf-169
+        play sound "audio/sounds/environment/water pour.mp3"
+        with dissolve
+        "She dunks the sponge in the water..."
+        scene bf-170
+        with fade
+        "You head inside the room and lean on a nearby closet..."
+        E "Oh, hello, Master. I didn't notice you come in."
+        Z "It's fine. Focus on what you're doing."
+        scene black pic
+        with fade
+        "She moves over to Fairy, and begins washing her..."
+        label re_fairy_bath:
+            scene bf-174
+            with fade
+        E "Hold still. This is good for you."
+        "In her caring fashion, she cushion's Fairy's head with her own cleavage, while caressing her cheeks and slowly starting to wash her..."
+        E "You have so much dirt caked on your skin... I guess you haven't had a proper bath in a long time."
+        scene bf-178
+        with dissolve
+        E "It's okay. You can calm down, now."
+        "Emilia continues to use her most soothing tones, to placate Fairy..."
+        scene bf-179
+        with dissolve
+        F "..."
+        E "I am just giving you a good wash. You will feel better for it, I promise."
+        scene bf-180
+        with dissolve
+        F "..."
+        E "There, there."
+        scene bf-182
+        with dissolve
+        "For a moment, Emilia drops the sponge, and starts to gently caress Fairy's still tense chest in something of a sensual but comforting hug."
+        scene bf-181
+        with dissolve
+        "Seeing this play out, you see Fairy's long legs stop trembling, and slowly submerge into the water."
+        "She seems to enjoy the experience. You wonder when the last time was that she had a proper bath, if ever, as you realise that for most people, even in Zeta, using water this way is a luxury."
+        scene bf-175
+        with dissolve
+        E "..."
+        scene bf-173
+        with fade
+        "You take a step back, not saying anything."
+        scene bf-179
+        with dissolve
+        "She starts humming a song..."
+        E "Å mang en tår på m1 kinn ha runne, eg tenkte vetet det hadde sprange..."
+        scene bf-180
+        with dissolve
+        E "Å eg har gråte så mang ei tar, som det er dagar I tusind år..."
+        scene bf-184
+        with dissolve
+        E "You seem worried..."
+        if emilia_love > emilia_sub:
+            E "...but you don't need to be worried here."
+            E "Our Master will be kind to you, I'm sure."
+            E "We will have a good life here, together."
+            scene bf-184x
+            with dissolve
+            F "..."
+            "You notice how she seems to be emotionally affected by what Emilia said to her."
+            "Maybe it was also because of her angelic voice?"
+        else:
+            E "...but you don't need to be worried here."
+            E "Serve our Master well, and he will give you a good life, like he gives me."
+            E "Maybe we will serve Master together, soon?"
+            scene bf-184x
+            with dissolve
+            F "..."
+            "She seems to be reassured from what your maid was saying."
+            "Maybe her calm voice also did the trick?"
+        menu:
+            "Send Emilia away and take over":
+                label fairy_bath_take_over:
+                    if emilia_love > emilia_sub:
+                        Z "Emilia, that's enough for now, you can go."
+                        Z "I will take over from here."
+                    else:
+                        Z "That's enough, slave, you can leave."
+                        Z "I will take over from here."
+                    scene black pic
+                    with fade
+                    "She leaves. You take a chair and sit down at the end of the bathtub..."
+                    label fairy_bath_solo:    
+                        scene bf-242
+                        with fade
+                        pause 1
+                        scene bf-244
+                        with fade
+                        "As you look down on her, you plan on what to do next..."
+                        menu:
+                            "Massage her head":
+                                $ fairy_h += 2
+                                scene bf-243
+                                with dissolve
+                                Z "Lean back and relax, Fairy. This will feel good."
+                                scene bf-246
+                                with dissolve
+                                "You place your hands around her temple..."
+                                Z "You're lucky. I'm quite good at this."
+                                if fairy_b >= fairy_h:
+                                    Z "You are my servant now. There is no reason for you to be on edge at all times."
+                                    scene bf-247
+                                    with dissolve
+                                    Z "You're no good to any of us here if you're constantly so agitated."
+                                    "You keep massaging her gently but firmly..."
+                                else:
+                                    Z "I want you to feel safe here."
+                                    scene bf-247
+                                    with dissolve
+                                    Z "No one here wants you to be on edge at all times, Fairy."
+                                    "You keep massaging her gently but firmly..."
+                                F "..."
+                                Z "This spot should do the trick..."
+                                scene bf-248
+                                with dissolve
+                                F "..."                    
+                                Z "Don't fret, Fairy. You're still in the tub, and I am here with you."
+                                "You can feel she likes it. Her eyes get heavy, and she's starting to relax her posture."
+                                Z "That isn't so bad, is it..."
+                                Z "I'm going to wash you a bit more."
+                                scene bf-249
+                                with fade
+                                "Her head feels like a ragdoll in your hand as you grab for the sponge to clean her up some more..."
+                                F "..."
+                                scene bf-250
+                                with dissolve
+                                "The refreshing water moistens her skin, and she gives in to the experience..."
+                                scene bf-251
+                                with dissolve
+                                "...and apparently, she feels more than relaxation, when being massaged by her Master."
+                                Zt "Look at that..."
+                                scene bf-250
+                                with dissolve
+                                Z "Did you enjoy that?"
+                                F "Yes... Master..."
+                                Z "Well then. You can stay in here a bit longer. I will leave now."
+                                Z "I will send in one of my girls soon to lead you back."
+                                scene bf-241
+                                with fade
+                                "On your way out, you can see Fairy looking back at you."
+                                if _in_replay:
+                                    scene black pic
+                                    with fade
+                                    $ renpy.end_replay()
+                                F "..."    
+                                jump fairy_end
+
+                            "Remind her of her place":
+                                $ fairy_b += 2
+                                scene bf-245
+                                with dissolve
+                                Z "..."
+                                scene black pic
+                                with fade
+                                "You take the sponge, and start washing her neck..."
+                                scene bf-249
+                                with dissolve
+                                F "..."
+                                if introduction_emilia == True:
+                                    Z "Emilia is a kind servant. You two will get along."
+                                scene bf-250
+                                with dissolve
+                                "You continue washing her. She rests her head against your hand..."
+                                F "Mh..."
+                                scene bf-251
+                                with dissolve
+                                Z "You do enjoy this, don't you..."
+                                scene bf-251x
+                                with dissolve
+                                F "Mh..."
+                                "You start groping her right breast..."
+                                Z "You better not get too comfortable."
+                                Z "I might wash you now, but once you're ready, you will be returning the favor."
+                                scene bf-251x-2
+                                with dissolve
+                                F "Ahnn... Mas..."
+                                "You pinch her nipple..."
+                                Z "Do you understand this?"
+                                F "Mh..."
+                                "Her attention seems to go entirely to her nipple instead of to your words, so you pinch her harder and raise your voice to match..."
+                                with hpunch
+                                F "Awh... hah..."
+                                Z "I ask again. Do you understand me?"
+                                with hpunch
+                                F "Mas... Yes... I... unders-"
+                                scene bf-251x-3
+                                with hpunch
+                                F "Mh...!"
+                                "Your pinching causes her to yelp, but her body betrays excitements accompanying her pain..."
+                                if fairy_h > fairy_b:
+                                    Z "You really are a masochist, aren't you...?"
+                                else:
+                                    Z "It looks like I've got myself a masochistic slave."
+                                Z "Tell me, who do you belong to, Fairy?"
+                                F "{i}*pant*"
+                                scene bf-251x-4
+                                with dissolve
+                                F "Mhh.... You, Master... You-..!"
+                                with hpunch
+                                F "Ahhh-"
+                                "As you pinch her even more, you see her legs spreading."
+                                "Fairy climaxes hard, just from this short interaction, her legs shivering and shaking in the process..."
+                                scene bf-251x
+                                with dissolve
+                                F "Nh... {i}*heavy breathing*{/i}"
+                                Z "That's right."
+                                scene bf-245
+                                with fade
+                                Z "I will let [W] know that you're clean. She will take it from here."
+                                scene black pic
+                                with fade
+                                "You get up and head for the door..."
+                                scene bf-241
+                                with fade
+                                "On your way out, you can see Fairy looking back at you."
+                                if _in_replay:
+                                    scene black pic
+                                    with fade
+                                    $ renpy.end_replay()
+                                F "..."    
+                                jump fairy_end
+            
+            "Tell her to kiss Fairy":
+                Z "Emilia."
+                scene bf-176
+                with dissolve
+                if emilia_sub >= emilia_love:
+                    Z "She's still fidgeting, Emilia.. Maybe there's another way to calm her down."
+                    E "Master?"
+                    Z "I want to see you two make out."
+                    scene bf-184
+                    with fade
+                    E "As you wish, Master."
+                    F "..."
+                    scene bf-183
+                    with dissolve
+                    E "Did you hear what the master said? He wishes for us to entertain each other."
+                    E "We will do as he commands..."
+                else:
+                    Z "She seems to be agitated still. Maybe a change of approach is in order."
+                    Z "You know how to calm our girls down, it may work with her, too."
+                    scene bf-184
+                    with fade
+                    E "As you wish, Master. I have something in mind."
+                    F "..."
+                    scene bf-182
+                    with dissolve
+                    E "Focus on me, now..."
+                    scene bf-183
+                    with dissolve
+                    E "I can make you feel better..."
+                scene bf-185
+                with dissolve
+                F "Mh...!"
+                E "{i}*kissing*"
+                scene bf-186
+                with dissolve
+                if emilia_sub >= emilia_love:
+                    "Your two slaves start making out."
+                else:
+                    "Emilia and Fairy start making out."
+                "While Emilia kisses her in a very sensual way, Fairy slowly seems to match the elder woman's energy."
+                scene bf-187
+                with dissolve
+                "{i}*kissing*"
+                scene bf-188
+                with dissolve
+                F "Nh..."
+                "Delicately, Emilia's hand grabs hold of Fairy's breast again, groping it gently."
+                scene bf-189
+                with dissolve
+                "This seems to have the desired effect of calming down the agitated redhead."
+                menu:
+                    "Show Fairy that Emilia can teach her about other duties as well":
+                        scene bf-190
+                        with fade
+                        "You step close behind her..."
+                        scene bf-191
+                        with dissolve
+                        "...touching her head..."
+                        scene bf-192
+                        with dissolve
+                        "...Emilia catches your meaning without skipping a beat."
+                        "Fairy is looking somewhat passively at your hand unbuckling your belt with a hint of recognition in her eyes."
+                        scene bf-193
+                        with dissolve
+                        if fairy_b >= fairy_h:
+                            Z "I know what you're thinking."
+                            Z "This is all you have been used for in a long while, but now you will be sharing this task with others: look."
+                            E "Mmph..."
+                            scene bf-194
+                            with dissolve
+                            F "..."
+                            E "{i}*slurp*{/i}"
+                            Z "And unless I tell you to do something, you can rest and be at peace."
+                        else:
+                            Z "I know what you're going through, right now."
+                            Z "You probably think that if I don't use you, this means you are of no use, and that your life is in danger."
+                            Z "But as you can see, we all take care of each other in this household."
+                            E "Mmph..."
+                            scene bf-194
+                            with dissolve
+                            F "..."
+                            E "{i}*slurp*{/i}"
+                            Z "There is no need to force yourself to anything, unless I command otherwise. Do it out of your own pleasure, at least for now."
+                        scene bf-195
+                        with dissolve
+                        "You push your cock deep into your maid's mouth. She sucks on it dutifully..."
+                        scene bf-196
+                        with dissolve
+                        "As you make Emilia service you, you look at Fairy and acknowledge how much she has changed since she first came here."
+                        if fairy_h >= fairy_b:
+                            "However, despite her being calmer and more focused, she is still entirely engrossed in what is happening in front of her."
+                        else:
+                            "But despite her being calmer and less tense, she still watches you with feral curiosity, expecting to be called upon."
+                        scene bf-199
+                        with dissolve
+                        "With Emilia carefully massaging your shaft with her lips, you notice Fairy's hand reaching between her legs."
+                        scene bf-200
+                        with dissolve
+                        F "..."
+                        E "{i}*sucking*{/i}"
+                        scene bf-197
+                        with fade
+                        "The scene is sensual and being so closely observed by this new girl, you get to the edge faster than usual..."
+                        if emilia_sub >= emilia_love:
+                            Z "Drink it... Slave."
+                        else:
+                            Z "Emilia, I am cumming."
+                        with hpunch
+                        Z "Ngh-"
+                        with hpunch
+                        E "Mh..."
+                        scene bf-198
+                        with hpunch
+                        E "{i}*gulp*{/i}"
+                        scene bf-193
+                        with dissolve
+                        if emilia_sub >= emilia_love:
+                            Z "Such a good maid. Always ready to serve."
+                            Z "Call [W] when you're done to take Fairy back to her cell."
+                            E "Yes, Master. As you wish."
+                        else:
+                            Z "You always give your best, Emilia."
+                            Z "Continue washing Fairy. Once you're finished notify [W] to take her back to the basement."
+                            E "Yes, Master. As you wish."
+                        scene black pic
+                        with fade
+                        $ renpy.end_replay()
+                        "You head out of the bathroom."
+                        jump fairy_end
+
+                    "That is enough":
+                        scene bf-183
+                        with fade
+                        "As [E] ends the kiss, Fairy looks at her with a mixture of excitement and confusion."
+                        scene bf-175
+                        with dissolve
+                        "With [E] resuming her task of bathing Fairy, you figure it's time to leave her to it."
+                        scene bf-176
+                        with dissolve
+                        Z "Well done, Emilia. I'm heading out. Once you're finished, let [W] know so she can take her back to the basement."
+                        scene bf-180
+                        with dissolve
+                        E "Yes, Master. As you wish."
+                        $ renpy.end_replay()
+                        jump fairy_end
+
+            "Leave them alone":
+                scene bf-173
+                with fade
+                "You watch them for a little while longer, until you've seen enough and decide to leave."
+                "Fairy seemingly enjoying this, you're sure that she will be a little more relaxed tonight."
+                scene bf-176
+                with dissolve
+                Z "Well done, Emilia. I'm going out. Once you're finished, let [W] know so she can take her back to the basement."
+                scene bf-180
+                with dissolve
+                E "Yes, Master. As you wish."
+                $ renpy.end_replay()
+                jump fairy_end
+
+    if introduction_emilia == False:
+        scene bf-240
+        with w33slow
+        "The sun is piercing through the curtained windows as you get into the bathroom, and you see Fairy already lying in the bathtub."
+        "It looks like your wife already prepared her to get in there."
+        scene bf-241
+        with dissolve
+        Z "Are you ready?"
+        F "..."
+        Z "You definitely need a bath. It must've been a long time since your last opportunity."
+        scene black pic
+        with fade
+        "You take a chair and sit down at the end of the bathtub..."
+        scene bf-245
+        with dissolve
+        "Looking at her still hands, it's clear that she doesn't know what to do."
+        "Maybe she has forgotten how this feels, or maybe she has never had this much water at her disposal for such a task?"
+        jump fairy_bath_solo
+            
+label basement_fairy: # not relevant anymore
+    if repeatfairy_1 == True and repeatfairy_2 == True and repeatfairy_3 == True:
+        jump basement_fairy_2
+    else:
+        scene b-2
+        with slowfade
+        pause 0.5
+        scene bf-1
+        with dissolve
+        if repeatfairy_1 == False:
+            Zt "Why is she lying under the bed?"
+        else:
+            pause 1
+        scene bf-2
+        with fade
+        Z "Fairy?"
+        scene bf-3
+        with dissolve
+        F "...?!"
+        scene black pic
+        with fade
+        "{i}She hastily gets up...{/i}"
+        scene bf-4
+        with fade
+        F "Hello Master..."
+        scene bf-5
+        with dissolve
+        F "More, please?"
+        scene bf-5x
+        with dissolve
+        if repeatfairy_1 == False:
+            if ki_killed == False and d1b_kinzi_met == True:
+                Zt "Hasn't changed a bit since the first time I saw her..."
+            if d1b_kinzi_met == False:
+                Zt "What? Is she always like this?"
+            Z "Drop the act..."
+            Z "Tell me, why do you act like this?"
+            scene bf-6
+            with dissolve
+            F "No! No act!"
+            F "Master please!"
+            scene bf-8
+            with dissolve
+            F "Please... I need more..."
+            scene bf-9
+            with dissolve
+            F "Will serve.."
+            scene bf-10
+            with dissolve
+            Zt "I won't get a word out of her, like this."
+            Zt "Maybe there is another way to find out why she acts this way."
+
+        menu:
+            "Interact with her" (important = True) if repeatfairy_3 == False:
+                $ daily_basement_fairy = True
+                jump fairy_talk
+
+            "See to her needs" (important = True) if repeatfairy_1 == False:
+                $ daily_basement_fairy = True
+                jump fairy_sex
+
+            "Treat her gently" if repeatfairy_1 == True and fairy_h > fairy_b and fairy_not_indulged == False:
+                $ daily_basement_fairy = True
+                Z "You may get what you need."
+                F "...!"
+                Z "But you must be more calm, less frantic."
+                scene bf-8
+                with dissolve
+                F "Yes... calm, caring..."
+                jump fairy_nice
+
+            "Treat her roughly" if repeatfairy_1 == True and fairy_b >= fairy_h and fairy_not_indulged == False:
+                $ daily_basement_fairy = True
+                jump fairy_rough
+
+            "Give her some food" (important = True) if repeatfairy_2 == False:
+                $ daily_basement_fairy = True
+                jump fairy_food
+
+            "Give her some food" if repeatfairy_2 == True:
+                $ daily_basement_fairy = True
+                jump fairy_food
+
+            "Leave":
+                Z "I just came to check on you."
+                scene black pic
+                with fade
+                "You leave..."
+                jump mission_end
+
+label fairy_talk:
+    if repeatfairy_3 == False:
+        $ fairy_counter += 1
+    menu:
+        "Try to communicate with her":
+            Z "Fairy, let go and sit down."
+            scene bf-125
+            with dissolve
+            F "Master...?"
+            scene bf-126
+            with dissolve
+            Z "Just do it."
+            scene black pic
+            with fade
+            "She does as you say..."
+            jump fairy_communicate
+
+        "Inspect her body":
+            Z "Stand up."
+            scene bf-125
+            with dissolve
+            F "Mast..-"
+            scene bf-126
+            with dissolve
+            Z "I said stand up. And take your clothes off."
+            scene black pic
+            with fade
+            "She does as you say..."
+            jump fairy_inspect
+
+label fairy_sex:
+    menu:
+        "Just give it to her" if repeatfairy_1 == False:
+            Z "Alright, if you want it so badly..."
+            Z "But you better be gentle; and not too hasty."
+            scene bf-7
+            with dissolve
+            F "Yes... thank you."
+            jump fairy_nice
+
+        "Make her pay attention first" if repeatfairy_1 == False:
+            jump fairy_rough
+
+        "Don't indulge her" if repeatfairy_1 == False:
+            if repeatfairy_1 == False:
+                $ fairy_not_indulged = True
+                $ fairy_counter += 1
+                $ repeatfairy_1 = True            
+                $ fairy_h += 1
+            Z "No, you won't."
+            Z "It's not necessary. You're not required to do this."
+            scene bf-10
+            with dissolve
+            F "But... Master... I need..."
+            scene bf-9
+            with dissolve
+            Z "You don't... {i}*sigh*"
+            "She is so obsessed with serving you, that getting through her is no option for now."
+            scene bf-5x
+            with fade
+            "You step back..."
+            Z "You're not thinking straight."
+            Z "I will see return tomorrow. Come back to your senses, girl."
+            scene black pic
+            with fade
+            "Ignoring her obsessions, you head out, leaving her to herself..."
+            jump fairy_end
+                
+label fairy_communicate:
+    $ fairy_h += 1
+    scene bf-142
+    with fade
+    F "Master, I want-"
+    Z "Fairy... no."
+    Z "{i}*sigh*{/i}"
+    show bf-143-anim
+    with dissolve
+    menu:
+        "\"Are you feeling okay?\"":
+            $ fairy_h += 1
+            Z "Are you feeling okay?"
+            Z "I know this isn't exactly a comfortable place to sleep..."
+            Z "...maybe we can do something about it soon."
+            Z "But I have to make sure my household is safe, you know."
+            F "..."
+            scene bf-144
+            with dissolve
+            Z "..."
+            if d5f_bought_fairy == True:
+                Z "How long were you in that cage?"
+            else:
+                Z "How long were you with these two back there?"
+            F "..."
+            scene bf-146
+            with dissolve
+            F "Master, I want more, please?"
+            scene bf-145
+            with dissolve
+            Z "..."
+            Zt "She seems genuinely eager..."
+            Zt "And yet, the way she looks at me... I can sense tension in her expression."
+            Zt "I have to wait and see."
+            jump fairy_communicate_result
+
+        "\"What happened to you?\"":
+            $ fairy_h += 1
+            Z "Tell me..."
+            Z "What happened to you?"
+            Z "I can't risk letting you out of here yet, as long as we can't predict what you will do."
+            Z "But you're safe here. You can tell me anything."
+            F "..."
+            scene bf-144
+            with dissolve
+            Z "..."
+            Z "What did they do to you?"
+            F "..."
+            scene bf-146
+            with dissolve
+            F "Master, I'm sorry, I need more."
+            scene bf-145
+            with dissolve
+            Z "..."
+            Zt "I am not even sure she understands what I'm saying."
+            Zt "Either way, it's too early to tell."
+            jump fairy_communicate_result
+
+        "\"Why do you want to serve me?\"":
+            scene bf-145
+            with dissolve
+            Z "Why do you want to serve me?"
+            Z "Tell me the truth."
+            scene bf-146
+            with dissolve
+            F "You are Master... please, more."
+            F "I serve..."
+            scene bf-144
+            with dissolve
+            Z "..."
+            "You can sense that she has a difficult time waiting for your response..."
+            menu:
+                "\"You don't need more.\"":
+                    $ fairy_h += 1
+                    show bf-143-anim
+                    with dissolve
+                    Z "You don't need more. And you don't need to do everything."
+                    Z "Maybe you don't trust me yet, but I can assure you of that."
+                    F "..."
+                    jump fairy_communicate_end
+
+                "\"Do you enjoy serving me?\"":
+                    $ fairy_b += 1
+                    Z "Do you enjoy serving me?"
+                    scene bf-146x
+                    with dissolve
+                    F "Yes, Master!"
+                    F "I always enjoy! Please, I need more!"
+                    scene bf-146x-2
+                    with dissolve
+                    Z "..."
+                    jump fairy_communicate_end
+
+label fairy_communicate_result:
+    show bf-143-anim
+    with dissolve
+    menu:
+        "\"You are under no pressure here.\"":
+            $ fairy_h += 1
+            Z "I understand that you don't trust me."
+            Z "But you need to start talking to me eventually."
+            Z "Take all the time you need, you are under no pressure here."
+            F "..."
+            jump fairy_communicate_end
+
+        "\"Everyone has their role to play here. And so do you.\"":
+            Z "Everyone has their role to play in this house, Fairy."
+            Z "And so do you. But I need to know why you act like this."
+            Z "Else, we can never find out how to move forward."
+            F "..."
+            jump fairy_communicate_end
+
+label fairy_communicate_end:
+    scene black pic
+    with fade
+    "Just as you get up, she rushes over to you..."
+    scene bf-125
+    with fade
+    F "Master! Don't go, please."
+    F "I can serve more!"
+    scene bf-126
+    with dissolve
+    Z "..."
+    Z "You should rest."
+    Z "Just think about what I said."
+    scene b-2
+    with slowfade
+    pause 1
+    scene bf-147
+    with dissolve
+    Z "..."
+    $ repeatfairy_3 = True
+
+    jump fairy_end
+
+label fairy_inspect:
+    $ fairy_b += 1
+    scene bf-127
+    with fade
+    Z "..."
+    F "Master... I want..."
+    menu:
+        "\"Maybe later.\"":
+            Z "I have not taken a look at you yet."
+            F "..."
+            scene bf-128
+            with dissolve
+            Z "Maybe later."
+            jump bf129
+
+        "\"Shut up.\"":
+            $ fairy_b += 1
+            Z "Shut up."
+            F "..."
+            scene bf-128
+            with dissolve
+            Z "I have not inspected you yet, so stay quiet and let me do my thing."
+            jump bf129
+
+label bf129:
+    scene bf-129
+    with dissolve
+    Z "..."
+    Zt "Such a nice body. Perfect shape, slim but toned."
+    Zt "She seems young, must be barely in her twenties."
+    if ki_killed == True:
+        Zt "I see no scars either. I wonder what happened before they decided to put her in that cage."
+    else:
+        Zt "[Ki] and [Ko] must've not realized this, otherwise they would've sold her off quickly."
+        Zt "I know those greedy bastards..."
+    scene bf-130
+    with dissolve
+    F "..."
+    scene bf-133
+    with fade
+    Z "..."
+    scene bf-132
+    with dissolve
+    Zt "That's a cute face. I don't think she's from around here."
+    scene bf-134
+    with fade
+    "You start feeling her up..."
+    scene bf-135
+    with dissolve
+    Zt "Yes, definitely toned and firm."
+    Zt "And yet..."
+    scene bf-136
+    with dissolve
+    Zt "...plump in all the right places."
+    scene bf-137
+    with dissolve
+    pause 0.5
+    scene bf-136
+    with dissolve
+    F "..."
+    menu:
+        "\"You look healthy.\"":
+            scene bf-139
+            with dissolve
+            Z "You look healthy."
+            Z "Dirty too, but that we can fix."
+            scene bf-141
+            with dissolve
+            Z "I'm done inspecting you."
+            Z "You can get dressed again."
+            scene bf-140
+            with dissolve
+            F "Master... can I..."
+            scene bf-141
+            with dissolve
+            Z "No. I said get dressed. That's all for today."
+            scene b-2
+            with slowfade
+            pause 1
+            scene bf-148
+            with dissolve
+            Z "..."
+            $ repeatfairy_3 = True
+            jump fairy_end
+
+        "\"Your body will do just fine.\"":
+            $ fairy_b += 1
+            scene bf-138
+            with dissolve
+            Z "Your body will do just fine."
+            Z "Those are nice hips for sure."
+            scene bf-139
+            with dissolve
+            Zt "The decayed hold slaves, but I am not sure if she is the result of selective breeding. It can't be."
+            if ki_killed == True:
+                Zt "They didn't seem to use her as what they call \"cattle\" either way."
+            else:
+                Zt "Looking at how [Ki] and [Ko] treated her, it seems unlikely she was used for anything other than personal relief."
+            Z "We're done."
+            Z "You can get dressed again."
+            scene bf-140
+            with dissolve
+            F "Master... can I..."
+            scene bf-141
+            with dissolve
+            Z "No. I said get dressed. That's all for today."
+            scene b-2
+            with slowfade
+            pause 1
+            scene bf-148
+            with dissolve
+            Z "..."
+            $ repeatfairy_3 = True
+            jump fairy_end
+
+label fairy_food:
+    Z "I've brought you something."
+    scene black pic
+    with fade
+    "You head to the bench and sit down..."
+    scene bf-83
+    with fade
+    F "..."
+    scene bf-84
+    with fade
+    F "Master, this..."
+    scene bf-86
+    with dissolve
+    F "I don't..."
+    scene bf-87
+    with dissolve
+    F "Let me serve, Master."
+    F "I want mor-"
+    scene bf-88
+    with dissolve
+    Z "Come over here."
+    scene bf-89
+    with dissolve
+    F "I don't understand..."
+    scene black pic
+    with fade
+    "She hesitantly crawls over to you..."
+    scene bf-90
+    with fade
+    F "..."
+    scene bf-92
+    with fade
+    Z "Are you hungry?"
+    F "..."
+    scene bf-91
+    with dissolve
+    F "Master, I must serve... not..."
+    scene bf-93
+    with dissolve
+    pause 1
+    scene bf-94
+    with dissolve
+    Z "That's up to me to decide."
+    scene bf-95
+    with dissolve
+    pause 1.5
+    scene bf-96
+    with dissolve
+    menu:
+        "Let her eat on her own" if (fairy_food_let_eat == True and repeatfairy_2 == True) or repeatfairy_2 == False:
+            Z "I can promise you it tastes great."
+            label fairy_food_fed_herself:
+                if repeatfairy_2 == False:
+                    $ fairy_h += 1
+                scene bf-97
+                with dissolve
+                if fairy_fed_once == True:
+                    Z "You can have the rest, but you have to eat it for yourself."
+                else:
+                    Z "You can have it, but I'm not going to feed you."
+                F "..."
+                scene bf-113
+                with dissolve
+                Z "Don't look at me like that."
+                Z "Stand up, sit down next to me. I won't do anything to you."
+                scene black pic
+                with fade
+                "She slowly gets up and sits down next to you..."
+                scene bf-114
+                with fade
+                Z "Here, take it, before it gets cold."
+                scene bf-115
+                with dissolve
+                pause 1.5
+                scene bf-116
+                with dissolve
+                F "..."
+                Z "Why do you hesitate?"
+                scene bf-117
+                with dissolve
+                F "Master, I... don't deserve."
+                scene bf-118
+                with dissolve
+                if fairy_fed_once == True:
+                    jump fairy_food_earned
+                menu:
+                    "\"You don't need to earn anything.\"":
+                        label fairy_food_trust:
+                            $ fairy_food_let_eat = True
+                            if repeatfairy_2 == False:
+                                $ fairy_h += 1
+                            Z "You don't need to earn anything."
+                            Z "I want to help you, you're safe here."
+                            Z "Now, take it and eat."
+                            scene black pic
+                            with fade
+                            "She takes the bowl, before clumsily taking the spoon in her hand, as if she never learned to use it."
+                            scene bf-119
+                            with fade
+                            F "{i}*chewing*{/i}"
+                            scene bf-120
+                            with dissolve
+                            F "..."
+                            "She impatiently stuffs her mouth with the stew, seemingly surprised by the taste."
+                            Z "Do you like it?"
+                            scene bf-121
+                            with dissolve
+                            F "..."
+                            "She keeps chewing eagerly, but despite her not responding to your question..."
+                            scene bf-122
+                            with dissolve
+                            "...you can see a faint smile forming across her lips."
+                            Z "I will let you eat in peace. Take all the time you want."
+                        jump fairy_food_end
+
+                    "\"You're obedient, you earned it.\"":
+                        label fairy_food_earned:
+                            $ fairy_food_let_eat = True
+                            Z "You're obedient and you follow orders."
+                            Z "You earned it."
+                            Z "Now do as I say and start eating."
+                            scene black pic
+                            with fade
+                            "She takes the bowl, before clumsily taking the spoon in her hand, as if she never learned to use it."
+                            scene bf-119
+                            with fade
+                            F "{i}*chewing*{/i}"
+                            scene bf-120
+                            with dissolve
+                            F "..."
+                            "She impatiently stuffs her mouth with the stew, seemingly surprised by the taste."
+                            Z "See, you can trust me."
+                            scene bf-121
+                            with dissolve
+                            F "..."
+                            "She keeps chewing eagerly, looking over to you..."
+                            scene bf-122
+                            with dissolve
+                            "...and a faint trustful smile crosses her lips."
+                            Z "I will leave now. Make sure you finish all of it, you need it."
+                            jump fairy_food_end
+
+
+        "Feed her":
+            if repeatfairy_2 == False:
+                $ fairy_b += 1
+            Z "Do you smell this?"
+            Z "If you want to taste it, open your mouth."
+            scene bf-99
+            with fade
+            F "..."
+            scene bf-100
+            with dissolve
+            pause 0.3
+            scene bf-101
+            with dissolve
+            pause 0.5
+            scene bf-102
+            with dissolve
+            label bf102:
+                menu:
+                    "Let her have a bite" if (fairy_food_let_eat == True and repeatfairy_2 == True) or repeatfairy_2 == False:
+                        label fairy_food_leteat:
+                            scene bf-104
+                            with Dissolve(0.5)
+                            F "Nam..."
+                            scene bf-106
+                            with dissolve
+                            "She eagerly starts chewing..."
+                            $ fairy_fed_once = True
+                            jump bf107
+
+                    "Test her discipline" if (fairy_food_disciplined == True and repeatfairy_2 == True) or repeatfairy_2 == False:
+                        label fairy_food_discipline:
+                            $ fairy_food_disciplined = True
+                            if fairy_fed_once == False and repeatfairy_2 == False:
+                                $ fairy_b += 1
+                            scene bf-102
+                            with fade
+                            if fairy_fed_once == False:
+                                Z "Hold... don't bite yet."
+                            else:
+                                Z "Don't..."
+                            scene bf-103
+                            with dissolve
+                            F "..."
+                            if fairy_fed_once == False:
+                                Z "Look at me, Fairy."
+                            else:
+                                Z "Fairy."
+                            scene bf-102
+                            with dissolve
+                            F "..."
+                            if fairy_fed_once == False:
+                                Z "You will only put it in your mouth when I tell you to."
+                                Z "Do you understand?"
+                            else:
+                                Z "Wait for my sign..."
+                            F "Yhes, Mhahta..."
+                            Z "Good girl."
+                            scene bf-103
+                            with dissolve
+                            Z "Now."
+                            scene bf-104
+                            with Dissolve(0.5)
+                            F "Nam..."
+                            if fairy_fed_once == True:
+                                scene bf-98
+                                with dissolve
+                                "{i}*chewing noises*{/i}"
+                                scene bf-102
+                                with dissolve
+                                F "Mmh..."
+                                scene bf-105
+                                with dissolve
+                                F "Mnn..."
+                                "You keep feeding her again and again, spoon by spoon..."
+                            scene bf-106
+                            with dissolve
+                            if fairy_fed_once == False:
+                                "She looks at you, while trying to chew eagerly..."
+                            else:
+                                F "..."
+                            $ fairy_fed_once = True
+                            jump bf107
+
+label bf107: # repeatable area
+    scene bf-107
+    with fade
+    F "..."
+    "She patiently looks at you, waiting for more..."
+    menu:
+        "Let her eat on her own" if (fairy_food_let_eat == True and repeatfairy_2 == True) or repeatfairy_2 == False:
+            Z "Come sit and take the bowl."
+            jump fairy_food_earned
+
+        "Feed her more":
+            jump fairy_food_discipline
+
+        "Make her eat off the floor" if (fairy_fed_floor == True and repeatfairy_2 == True) or repeatfairy_2 == False:
+            jump fairy_food_floor
+
+label fairy_food_floor:
+    $ fairy_fed_floor = True
+    if repeatfairy_2 == False:
+        $ fairy_b += 1
+    Z "Want more? Then you have to eat yourself."
+    scene black pic
+    with fade
+    "You place the bowl on the ground..."
+    scene bf-108
+    with fade
+    Z "There."
+    scene bf-109
+    with dissolve
+    Z "It's yours."
+    scene bf-110
+    with dissolve
+    F "..."
+    "Slightly confused but waiting for your signal, she looks at you..."
+    Z "Eat."
+    scene black pic
+    with fade
+    "She hurries over to the bowl..."
+    scene bf-111
+    with fade
+    "{i}*eating noises*{/i}"
+    F "{i}*slurp*{/i}"
+    scene bf-112
+    with dissolve
+    menu:
+        "\"I can see you're hungry.\"":
+            Z "I can see you're hungry."
+            Z "Don't let anything go to waste."
+            Z "You will get more soon."
+            scene black pic
+            with fade
+            "You head out of the cell and leave her to it..."
+            jump fairy_food_end
+
+        "\"You're one hungry animal.\"":
+            if fairy_dehumanized == False:
+                $ fairy_b += 1
+                $ fairy_dehumanized = True
+            Z "You're one hungry animal."
+            Z "No wonder the decayed were holding you like they did."
+            Z "You barely are human."
+            scene black pic
+            with fade
+            "You head out of the cell and leave her to it..."
+            jump fairy_food_end
+
+label fairy_food_end:
+    if repeatfairy_2 == False:
+        $ repeatfairy_2 = True
+        $ fairy_counter += 1
+    if fairy_fed_floor == True:
+        scene b-2
+        with slowfade
+        pause 1
+        scene bf-124
+        with dissolve
+        Z "..."
+        jump fairy_end
+    else:
+        scene b-2
+        with slowfade
+        pause 1
+        scene bf-123
+        with dissolve
+        Z "..."
+        jump fairy_end
+
+label fairy_nice:
+    scene bf-49
+    with slowfade
+    F "Master..."
+    scene bf-51
+    with dissolve
+    pause 0.5
+    show bf-52-anim
+    with dissolve # I put it.....sneaky
+    pause 4
+    scene bf-53
+    with dissolve
+    pause 1
+    scene bf-54
+    with dissolve
+    F "Hnn..."
+    "{i}She uses her tongue masterfully...{/i}"
+    scene bf-55
+    with dissolve
+    pause 0.7
+    scene bf-56
+    with dissolve
+    pause 0.7
+    scene bf-57
+    with dissolve
+    Z "All the way..."
+    "{i}Even now, she uses her tongue to caress your shaft...{/i}"
+    scene bf-58
+    with dissolve
+    "{i}She keeps at it, and continues to play with her mouth...{/i}"
+    Zt "She almost matches the skills of my wife."
+    scene bf-57
+    with dissolve
+    pause 0.7
+    scene bf-56x
+    with dissolve
+    pause 0.7
+    scene bf-55x
+    with dissolve
+    pause 0.7
+    scene bf-54x
+    with dissolve
+    pause 0.7
+    scene bf-60
+    with dissolve
+    F "Master has more for me..."
+    scene bf-66
+    with dissolve
+    F "I want to care for Master every day.."
+    scene bf-67
+    with dissolve
+    F "{i}*licking*{/i}"
+    scene bf-68
+    with dissolve
+    if repeatfairy_1 == False:
+        Zt "This girl is special, in her own way."
+        Z "Put it in your mouth again."
+    else:
+        Z "Put it in your mouth again."
+    scene bf-60
+    with dissolve
+    pause 0.7
+    scene bf-54x
+    with dissolve
+    pause 0.7
+    scene bf-55x
+    with dissolve
+    pause 0.7
+    scene bf-56x
+    with dissolve
+    Z "I'm... ready."
+    scene bf-55x
+    with dissolve
+    pause 0.5
+    scene bf-54x
+    with dissolve
+    pause 0.5
+    scene bf-61
+    with dissolve
+    F "Master... please... release..."
+    scene bf-62
+    with hpunch
+    F "...!"
+    scene bf-63
+    with dissolve
+    pause 1
+    scene bf-64
+    with dissolve
+    Fw "Thank you..."
+    scene bf-65
+    with dissolve
+    F "..."
+    scene bf-59
+    with dissolve
+    F "{i}*sucking*{/i}"
+    scene black pic
+    with slowfade
+    "{i}You have to stop her eventually.{/i}"
+    "{i}As you're trying to leave...{/i}"
+    jump bf70
+
+label fairy_rough:
+    if repeatfairy_1 == False:
+        $ fairy_b += 1
+        Z "Stop it."
+    else:
+        Z "Nah..."
+    scene bf-11
+    with hpunch
+    F "Haa..."
+    if repeatfairy_1 == False:
+        Z "And listen to me."
+        scene bf-12
+        with dissolve
+        Z "Tell me why you act like this!"
+        scene bf-13
+        with dissolve
+        F "Just need... more...?"
+        Z "..."
+        menu:
+            "Give it to her":
+                Z "Alright, here!"
+                F "Yes..."
+                jump fairy_nice
+            "Teach her a lesson":
+                jump fairy_rough_1
+    else:
+        pause 0.5
+        scene bf-12
+        with dissolve
+        Z "Ready for another lesson, slave?"
+        scene bf-13
+        with dissolve
+        F "Yes... please..."
+        jump fairy_rough_1
+
+label fairy_rough_1:
+    Z "This is how you want it, hm?"
+    scene black pic
+    with fade
+    pause 0.4
+    scene bf-14
+    with vpunch
+    F "Ahh..."
+    scene bf-15
+    with dissolve
+    F "Master... use-"
+    Z "Shut up."
+    scene bf-16
+    with dissolve
+    Z "I'm going to teach you when it's time for you to open your mouth..."
+    scene bf-17
+    with dissolve
+    Z "...and when to close it."
+    scene bf-18
+    with fade
+    Z "Ready?"
+    F "Yes..."
+    "{i}You hear someone entering the room...{/i}"
+    if repeatfairy_1 == False:
+        W "Not sure if that will be effective..."
+    else:
+        W "Trying to teach her again?"
+    scene bf-19
+    with dissolve
+    Z "She doesn't listen..."
+    W "I know..."
+    scene bf-20
+    with dissolve
+    W "She still keeps begging for more and more..."
+    scene bf-21
+    with dissolve
+    if repeatfairy_1 == False:
+        W "And I can hear her even from upstairs."
+    else:
+        W "And I still don't get a break from her."
+    scene bf-22
+    with dissolve
+    if repeatfairy_1 == False:
+        W "The day you brought her here, I learned that she is very sensitive..."
+    else:
+        F "Please, mistress, touch me..."
+    show bf-22-anim
+    F "Hnn..."
+    if repeatfairy_1 == False:
+        W "When I was washing her, she was constantly trying to jump me, wanting more and more of my touch."
+    scene black pic
+    with fade
+    W "Up, on the bed with you, slave."
+    F "Please, I nee-"
+    W "Shut up and follow my orders, or you'll get nothing."
+    F "Yes..."
+    scene bf-23
+    with fade
+    if repeatfairy_1 == False:
+        W "Now... listen to me, princess."
+        W "I don't know who you are, and I don't care."
+    else:
+        W "You remember how this works, right?"
+    scene bf-24
+    with dissolve
+    if repeatfairy_1 == False:
+        W "As long as you are in this house, you will do everything we say."
+        W "Do you understand?"
+    F "Yes..."
+    if repeatfairy_1 == True:
+        F "I do everything you say..."
+    scene bf-25
+    with dissolve
+    W "What have I told you about how to address me?"
+    if repeatfairy_1 == False:
+        F "Yes, mistress..."
+        F "But please... use me..."
+    else:
+        F "I'm sorry, mistress."
+    scene bf-26
+    with dissolve
+    if repeatfairy_1 == False:
+        W "Maybe your master will be so kind."
+    else:
+        W "Good girl."
+    scene bf-27
+    with dissolve
+    F "Please.. I-"
+    W "Shh. You only ask once, and then you wait patiently; do you understand?"
+    scene bf-28
+    with dissolve
+    W "Now... answer me..."
+    W "Do you want your master to fill you up?"
+    F "Yes. Yes please, mistress."
+    scene bf-29
+    with dissolve
+    W "Husband..."
+    W "How do you want to satisfy her wish...?"
+    menu:
+        "Fuck her":
+            Z "Oh, I know how."
+            Z "Come and help me out, [W]."
+            W "Of course."
+            scene bf-29x
+            with fade
+            W "Do you need help holding her leg?"
+            Z "No."
+            scene bf-29x-2
+            with dissolve
+            W "Hmm... this reminds me of a time when you broke into my room..."
+            Z "I think I remember that... I could hear your moans from across the house."
+            scene bf-29x-3
+            with dissolve
+            W "I want you to take her like you took me back then."
+            scene bf-29x-4
+            with dissolve
+            W "Let your wife help you out..."
+            scene bf-29x-5
+            with dissolve
+            Zt "Her hand always feels so good."
+            scene bf-29x-6
+            with dissolve
+            W "I know she anticipates it..."
+            scene bf-29x-10
+            with dissolve
+            F "Yes...!"
+            "You penetrate her..."
+            scene bf-29x-9
+            with dissolve
+            F "Haa..."
+            scene bf-29x-11
+            with dissolve
+            F "So good... Master..."
+            scene bf-29x-7
+            with dissolve
+            W "Now go in deep, all the way..."
+            Z "Is that an order...?"
+            scene bf-29x-8
+            with dissolve
+            W "...I wouldn't presume, husband."
+            Z "Hm... I know."
+            scene bf-29x-12
+            with dissolve
+            Z "Patience, [W]."
+            scene bf-29x-13
+            with dissolve
+            pause 1.5
+            scene bf-29x-14
+            with dissolve
+            Z "You know you need to encourage your man, not pressure him..."
+            scene bf-29x-15
+            with dissolve
+            W "I'm sorry, husband."
+            Zt "I am so lucky. A more loyal wife than her does not exist."
+            scene bf-29x-16
+            with dissolve
+            Z "Do not worry."
+            Z "You know I'm not angry, just playing."
+            scene bf-29x-10
+            with dissolve
+            F "Master, please ta...-"
+            scene bf-29x-9
+            with dissolve
+            F "Haa..."
+            scene bf-29x-17
+            with dissolve
+            W "Something tells me she waited long enough for this."
+            scene bf-29x-20
+            with dissolve
+            W "That will hopefully shut her up for tonight."
+            scene bf-29x-18
+            with dissolve
+            F "..."
+            Z "You think she passed out?"
+            W "I don't know, maybe she just can't think straight."
+            scene bf-29x-20
+            with dissolve
+            W "I wonder if she can still manage a clear thought at all, she has been begging and moaning since she got here."
+            show bf-29x-17
+            with dissolve
+            Z "She feels great..."
+            menu:
+                "Finish inside":
+                    Z "Hnghr..."
+                    scene bf-29x-20
+                    with hpunch
+                    pause 1
+                    scene bf-29x-20
+                    with hpunch
+                    Z "Fuck..."
+                    scene bf-29x-21
+                    with dissolve
+                    Z "I couldn't help myself."
+                    W "I believe you."
+                    scene bf-29x-22
+                    with dissolve
+                    W "Don't worry about it, should she get pregnant, the Temple will take care of the baby."
+                    jump bf29x25
+
+                "Finish outside":
+                    scene bf-29x-21x
+                    with dissolve
+                    Z "[W]..."
+                    scene bf-29x-22
+                    with dissolve
+                    pause 1.5
+                    scene bf-29x-23
+                    with hpunch
+                    pause 1
+                    scene bf-29x-24
+                    with dissolve
+                    Z "Fuck..."
+                    Z "That was nice."
+                    jump bf29x25
+
+        "Use your fist":
+            if repeatfairy_1 == False:
+                $ fairy_b += 1
+            scene bf-30
+            with dissolve
+            Z "Let's see..."
+            "{i}You can feel her shivering at the lightest touch...{/i}"
+            scene bf-31
+            with dissolve
+            F "Mhh..."
+            scene bf-32
+            with dissolve
+            W "I can see it in her eyes..."
+            scene bf-23
+            with dissolve
+            W "She can take more."
+            F "Mhm..."
+            scene bf-33
+            with dissolve
+            F "Hnn..."
+            scene bf-34
+            with dissolve
+            pause 0.3
+            scene bf-33
+            with dissolve
+            pause 0.3
+            scene bf-34
+            with dissolve
+            Zt "She feels so soft and wet..."
+            scene bf-36
+            with dissolve
+            F "{i}*squealing*{/i}"
+            F "Haaa..."
+            scene bf-23
+            with dissolve
+            W "Do you have enough?"
+            F "No...?"
+            F "Need... more... please..."
+            W "..."
+            if persistent.forceplay == False:
+                jump bf69
+            if persistent.forceplay == True:
+                menu:
+                    "Let Fairy rest":
+                        jump bf69
+
+                    "Test her limits":
+                        if repeatfairy_1 == False:
+                            $ fairy_b += 1
+                            $ fairy_limit = True
+                        scene bf-29
+                        with dissolve
+                        Z "Are you thinking what I'm thinking?"
+                        W "She knows no limit... so teach her!"
+                        scene black pic
+                        with fade
+                        W "Let me lend you a hand..."
+                        scene bf-40
+                        with fade
+                        W "Ready?"
+                        Ww "Shut her up for me..."
+                        scene bf-39
+                        with dissolve
+                        F "Yah... haa...."
+                        scene bf-37
+                        with dissolve
+                        "{i}You can feel her shivering and violently climaxing...{/i}"
+                        scene bf-41
+                        with dissolve
+                        pause 0.8
+                        scene bf-41x
+                        with dissolve
+                        F "Haaaaa... aaahhh..."
+                        scene bf-43
+                        with dissolve
+                        Ww "That looks like it should hurt..."
+                        scene bf-44
+                        with dissolve
+                        F "Hnngh... Sooo... good..."
+                        Ww "I bet she's in heaven right now."
+                        scene bf-45
+                        with dissolve
+                        W "Have you got enough, Fairy?"
+                        F "..."
+                        pause 0.3
+                        play sound "audio/sounds/environment/droplets.mp3"
+                        pause 0.2
+                        scene bf-46
+                        pause 0.3
+                        scene bf-47
+                        pause 1.5
+                        scene bf-48
+                        pause 0.98
+                        W "I think she's had enough for today."
+                        scene black pic
+                        with fade
+                        W "Let's put her on the bench so she can rest..."
+                        scene bf-20
+                        with fade
+                        W "Thank you, love."
+                        if repeatfairy_1 == False:
+                            W "I couldn't stand her constant moaning..."
+                            W "She should be quiet now."
+                        if repeatfairy_1 == True:
+                            W "We really should find a way to teach her to keep it down without having to do this to her every time."
+                            W "Gagging and tying her up is not something she can endure all day long."
+                        W "Want to come back upstairs?"
+                        Z "Yes, in a moment."
+                        scene black pic
+                        with fade
+                        "{i}[W] cleans the place up for a short while and leaves the basement.{/i}"
+                        "{i}You are about to follow her upstairs, when suddenly...{/i}"
+                        jump bf70
+
+label bf29x25:
+    scene bf-29x-25
+    with dissolve
+    W "She is silent."
+    W "I think you did it."
+    W "I will head up for now."
+    W "Let's hope she stays that way..."
+    jump bf70
+
+label bf69:
+    scene bf-20
+    with fade
+    W "She never stops..."
+    Z "Even though she's at her limit."
+    W "I will head up for now."
+    W "Let's hope this is just an adjustment thing..."
+    jump bf70
+
+label bf70:
+    scene black pic
+    with fade
+    "After you put your clothes back on, you are just about to leave, when..."
+    scene bf-70
+    with fade
+    F "Master..."
+    F "Don't leave yet..."
+    scene bf-71
+    with dissolve
+    F "I do everything... please..."
+    if repeatfairy_1 == False:
+        if fairy_limit == True:
+            Zt "She is up again? I thought she had passed out!"
+        else:
+            Z "..."
+    else:
+        Zt "..."
+    scene bf-72
+    with fade
+    Z "Stand up."
+    scene bf-73
+    with fade
+    F "Master..."
+    F "I need more."
+    if repeatfairy_1 == False:
+        scene bf-74
+        with dissolve
+        menu:
+            "\"You don't. Rest now.\"":
+                $ fairy_h += 1
+                scene bf-75
+                with dissolve
+                Z "I'm sure you don't."
+                F "No, M-Master, I want to. I need..."
+                scene bf-78
+                with fade
+                F "...!"
+                Zw "I can see that you look tired."
+                Zw "You don't have to do anything anymore, today."
+                Zw "Lay down... and rest."
+                scene b-2
+                with slowfade
+                pause 1
+                if fairy_h > fairy_b:
+                    scene bf-79
+                    with dissolve
+                else:
+                    scene bf-80
+                    with dissolve
+                Z "..."
+                if repeatfairy_1 == False:
+                    $ fairy_counter += 1
+                    $ repeatfairy_1 = True
+                jump fairy_end
+
+            "\"Be ready to serve.\"":
+                if fairy_h >= fairy_b:
+                    $ fairy_b += 1
+                scene bf-76
+                with dissolve
+                Z "I will come back soon."
+                F "Yes... please..."
+                scene bf-77
+                with dissolve
+                Z "Until then, you will stay ready to serve."
+                F "Yesh... Mashter..."
+                scene b-2
+                with slowfade
+                pause 1
+                scene bf-80
+                with dissolve
+                Z "..."
+                if repeatfairy_1 == False:
+                    $ fairy_counter += 1
+                    $ repeatfairy_1 = True
+                jump fairy_end
+
+    if repeatfairy_1 == True:
+        scene bf-74
+        with dissolve
+        if fairy_h > fairy_b:
+            scene bf-75
+            with dissolve
+            Z "I'm sure you don't."
+            F "No, M-Master, I want to. I need..."
+            scene bf-78
+            with fade
+            F "...!"
+            Zw "I can tell that you are tired."
+            Zw "You don't have to do anything anymore today."
+            Zw "Lay down... and rest."
+            scene b-2
+            with slowfade
+            pause 1
+            scene bf-79
+            with dissolve
+            Z "..."
+            jump fairy_end
+
+        else:
+            scene bf-76
+            with dissolve
+            Z "I will come back soon."
+            F "Yes... please..."
+            scene bf-77
+            with dissolve
+            Z "Until then, keep it down but be ready to serve."
+            F "Yesh... Mashter..."
+            scene b-2
+            with slowfade
+            pause 1
+            scene bf-80
+            with dissolve
+            Z "..."
+            jump fairy_end
+
+label fairy_end:
+    if sq_f_1.current_step < 3:
+        $ sq_f_1.go_to_step(3)
+
+    elif sq_f_1.current_step == 3 and (fairy_bathed == False or fairy_gave_bed == False):
+        $ sq_f_1o2.description = _("The new girl, Fairy, is showing to be more problematic than I thought. I am trying to figure out what to do with her. For the time being, she's in the basement. I should interact with her more.\n(Events {c}/5)".format(c=fairy_counter))
+
+    elif sq_f_1.current_step == 3 and fairy_bathed == True and fairy_gave_bed == True:
+        $ sq_f_1.advance()
+
+    jump mission_end

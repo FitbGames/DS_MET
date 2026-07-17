@@ -1,0 +1,1754 @@
+define event_pool = []
+
+init python:
+    class EventHandler(object):
+        """
+        """
+        def __init__(self, label, condition, parent = None, location = None, blocked = None, tt = None, important = True, repeatable = False, completed = None, tracked = None, name = None):
+            self.name = name
+            self.parent = parent
+            self.location = location
+            self.label = label
+            self.condition = condition
+            self.blocked = blocked
+            self.tt = tt
+            self.important = important
+            self.repeatable = repeatable
+            self.completed = completed
+            self.tracked = tracked
+            self.validate()
+            event_pool.append(self)
+
+        def __str__(self):
+            return str(self.name)
+
+        def validate(self):
+            if self.important and self.repeatable:
+                raise AttributeError('Event cannot have the important and repeatable attributes at the same time.')
+
+        @property
+        def is_blocked(self):
+            try:
+                return eval(str(self.blocked))
+            except NameError:
+                raise
+            except:
+                raise SyntaxError(str(self.blocked))
+
+        @property
+        def is_available(self):
+            try:
+                return eval(str(self.condition))
+            except NameError:
+                raise
+            except:
+                raise SyntaxError('Malformed condition: {}'.format(self.condition))
+
+        @property
+        def is_completed(self):
+            try:
+                return eval(str(self.completed))
+            except NameError:
+                raise
+            except:
+                raise SyntaxError(str(self.completed))
+
+        @property
+        def is_active(self):
+            try:
+                return all([self.is_available and not self.is_completed and not self.is_blocked])
+            except NameError:
+                pass
+
+        @property
+        def is_tracked(self):
+            return eval(str(self.tracked))
+
+    def get_active_event(parent = None, location = None, events = event_pool):
+        if isinstance(parent, list):
+            valid_events = [x for x in events if ((x.parent in parent or x.location == location) and (x.parent is not None or x.location is not None) and x.is_active )]
+        else:
+            valid_events = [x for x in events if ((x.parent == parent or x.location == location) and (x.parent is not None or x.location is not None) and x.is_active)]
+        if valid_events:
+            for e in valid_events:
+                if e.is_tracked:
+                    return e
+            for e in valid_events:
+                if e.important:
+                    return e    
+            return valid_events.pop(0)
+        else:
+            return None    
+
+    ##### Debug functions ####
+    ### Show events that are still available to trigger
+    def get_available_events(events = event_pool):
+        return [e.name for e in events if e.important and e.is_available and not e.is_completed and not e.is_blocked]
+
+    ### Show events that should be available still
+    def get_incomplete_events(events = event_pool):
+        return [e.name for e in events if e.important and not e.is_blocked and not e.is_completed]
+
+    ### Show events that have unevaluated blocked conditions
+    def check_blocked_conditions(events = event_pool):
+        return [e.name for e in events if e.is_blocked not in [True, False, None]]
+
+##### Event Chain Block Triggers #####
+define shani_romance_blocked = 'm_d7a == True and shani_romance == False'
+define shani_perspective_disabled = 'shani_perspective == False'
+define ivy_blocked = 'ivy_alive == False or (m_d3b == True and d3b_mutant_saved == False)'
+define asani_blocked = 'asani_alive == False'
+define fairy_blocked = 'refused_fairy == True'
+define kateryna_blocked = 'kateryna_romance == False'
+define emilia_blocked = 'emilia_joined == False'
+define raiders_blocked = '(faction_raiders == False and m_d5c == True) or (m_d3c == True and kyra_rescued == False)'
+define mutants_blocked = 'faction_mutants == False or denied_mutants == True'
+define queen_romance_blocked = 'palace_bedroom_3 == True and queen_romance == False'
+define fangs_romance_blocked = 'fangs_romance == False and faction_mutants == True'
+
+##### Events #####
+########## Home - Master Bedroom ##########
+define ev_d1e = EventHandler(
+    name = "Zahra's introduction (d1e)",
+    parent = 'bedrooms', 
+    location = 'master_bedroom', 
+    condition = 'home_intro_seen == False and shani_visit_intro == True', 
+    label = 'd1e', 
+    completed = 'home_intro_seen'
+)
+define ev_d5b = EventHandler(
+    name = "Ivy's introduction of the Mutants & Shani meets Queen (d5b)",
+    parent = 'bedrooms', 
+    location = 'master_bedroom', 
+    condition = 'm_d4g == True and m_d2c == True and faction_mutants == False and m_d4b == True and m_d3b == True and daily_main_mission == False', 
+    tracked = 'mq_m_1.is_tracked',
+    blocked = ivy_blocked,
+    label = 'visit_zahra', 
+    completed = 'm_d5b'
+)
+define ev_d5d = EventHandler(
+    name = "Shani meets Queen (d5d)",
+    parent = 'bedrooms', 
+    location = 'master_bedroom', 
+    condition = 'm_d4g == True and m_d2c == True and m_d5b == False and m_d4b == True and ivy_alive == False and daily_main_mission == False',
+    label = 'visit_zahra', 
+    completed = 'm_d5b'
+)
+define ev_d5e = EventHandler(
+    name = "Igor's first visit (d5e)",
+    parent = 'bedrooms', 
+    location = 'master_bedroom', 
+    condition = 'm_d4b == True and m_d5e == False and daily_main_mission == False', 
+    tracked = 'sq_k_1.tracked',
+    label = 'visit_zahra', 
+    completed = 'm_d5e'
+)
+define ev_d7c = EventHandler(
+    name = "Meeting Rabiah and Nadia at the market (d7c)",
+    parent = 'bedrooms', 
+    location = 'master_bedroom', 
+    condition = 'm_d5e == True and zahra_talk_4 == True and daily_zahra == False and m_d7c == False', 
+    label = 'visit_zahra', 
+    completed = 'm_d7c'
+)
+define ev_zahra_talk_2 = EventHandler(
+    name = 'Zahra conversation #2',
+    parent = 'bedrooms',
+    location = 'master_bedroom',  
+    condition = 'faction_decayed == True and zahra_talk_2 == False', 
+    label = 'visit_zahra', 
+    important = False,
+    completed = 'zahra_talk_2'
+)
+define ev_zahra_talk_3 = EventHandler(
+    name = 'Zahra conversation #3',
+    parent = 'bedrooms',
+    location = 'master_bedroom',  
+    condition = 'm_d5b == True and zahra_talk_3 == False and m_d8a == False', 
+    label = 'visit_zahra', 
+    important = False,
+    completed = 'zahra_talk_3'
+)
+define ev_zahra_talk_4 = EventHandler(
+    name = "Zahra conversation #4",
+    parent = 'bedrooms',
+    location = 'master_bedroom', 
+    condition = '(m_d5b == True or m_d5c == True or m_d5d == True or m_d5e == True or m_d5f == True) and zahra_talk_4 == False', 
+    label = 'visit_zahra', 
+    completed = 'zahra_talk_4'
+)
+define ev_d5g = EventHandler(
+    name = "Ain punishment (d5g)",
+    parent = 'bedrooms',
+    location = 'master_bedroom', 
+    condition = 'm_d4b == True and m_d5g == False and ((kyra_rescued == True and m_d4a == True) or kyra_rescued == False)', 
+    label = 'visit_zahra', 
+    completed = 'm_d5g'
+)
+define ev_d11d = EventHandler(
+    name = "Zahra sex on balcony (d11d)",
+    parent = 'bedrooms', 
+    location = 'master_bedroom', 
+    condition = 'shani_zone == True and m_d11d == False',
+    blocked = 'shani_zone_returned', 
+    label = 'd11d', 
+    completed = 'm_d11d'
+)
+define ev_d14g = EventHandler(
+    name = "Fairy introduction (d14g)",
+    parent = 'bedrooms', 
+    location = 'master_bedroom', 
+    condition = 'm_d12a == True and introduction_fairy == False and shani_zone == False',
+    blocked = fairy_blocked,
+    label = 'visit_zahra', 
+    completed = 'm_d14g'
+)
+define ev_d16b_intro = EventHandler(
+    name = "Invite Igor & Savana (d16b_intro)",
+    parent = 'bedrooms', 
+    location = 'master_bedroom',  
+    condition = 'm_d14a_part_2 == True and days_passed_since("d14a_part_2") > 2 and d16b_arrangement == False and m_d16b == False and daily_zahra == False', 
+    label = 'visit_zahra',
+    blocked =  kateryna_blocked,
+    tracked = 'sq_k_1.is_tracked',
+    important = True, 
+    completed = 'd16b_arrangement'
+)
+define ev_d16b = EventHandler(
+    ### Automatic, triggered from home
+    name = "Igor & Savana visit Kateryna (d16b)",
+    condition = 'd16b_arrangement == True and m_d16b == False', 
+    label = 'd16b', 
+    blocked = kateryna_blocked,
+    important = True, 
+    completed = 'm_d16b'
+)
+define ev_d16b_repeat = EventHandler(
+    name = 'Igor & Savana repeat visit',
+    parent = 'bedrooms',
+    location = 'master_bedroom',  
+    condition = 'm_d16b == True and daily_zahra == False and days_passed_since("d16b") >= 1', 
+    label = 'visit_zahra', 
+    blocked = kateryna_blocked,
+    important = False,
+    repeatable = True,
+    completed = None
+)
+define ev_d16c = EventHandler(
+    name = "Date with Zahra (d16c)",
+    parent = 'bedrooms', 
+    location = 'master_bedroom', 
+    condition = 'm_d13i == True and m_d16c == False and (day - d13c_day) >= 2', 
+    label = 'visit_zahra', 
+    important = True, 
+    completed = 'm_d16c'
+)
+
+########## Home - Ain's Bedroom ##########
+define ev_d12b = EventHandler(
+    name = "Ain plays with Emilia (d12b)",
+    parent = 'bedrooms', 
+    location = 'ain_bedroom',
+    condition = 'sq_e_1.current_step == 4 and m_d7b == True and daily_emilia == False and m_d12b == False and ain_basement == False',
+    tracked = 'sq_e_1.is_tracked',
+    blocked = emilia_blocked,
+    label = 'd12b', 
+    completed = 'm_d12b'
+)
+define ev_d15a = EventHandler(
+    name = "Nadia & Rabiah visiting the household (d15a)",
+    parent = 'bedrooms', 
+    location = 'ain_bedroom',
+    condition = 'vf_dinner_part_3 == True and sq_rn_1.current_step == 4 and (day - vf_dinner_part_3_day) >= 2 and shani_zone == False and m_d15a == False and daily_main_mission == False', 
+    tracked = 'sq_rn_1.is_tracked',
+    label = 'd15a', 
+    important = True, 
+    completed = 'm_d15a'
+)
+define ev_ain_conversation_1 = EventHandler(
+    name = "Ain conversation #1 (talk about Shani)",
+    parent = 'bedrooms', 
+    location = 'ain_bedroom', 
+    condition = 'm_d4b == True and daily_ain == False and ain_basement == False and m_d5g == True and ain_talk_1 == False', 
+    label = 'visit_ain', 
+    completed = 'ain_talk_1'
+)
+define ev_d9b = EventHandler(
+    name = "Date with Ain (d9b)",
+    parent = 'bedrooms', 
+    location = 'ain_bedroom', 
+    condition = 'm_d4b == True and daily_ain == False and ain_basement == False and m_d5g == True and ain_talk_1 == True and m_d9b == False', 
+    label = 'visit_ain', 
+    completed = 'm_d9b'
+)
+define ev_ain_conversation_2 = EventHandler(
+    name = "Ain conversation #2",
+    parent = 'bedrooms', 
+    location = 'ain_bedroom', 
+    condition = 'm_d4b == True and daily_ain == False and ain_basement == False and m_d5g == True and ain_talk_2 == False', 
+    label = 'visit_ain', 
+    important = False,
+    completed = 'ain_talk_2'
+)
+
+########## Home - Shani's Bedroom ##########
+define ev_d1_shani_bedroom = EventHandler(
+    name = "Shani bedroom intro (d1_shani_bedroom)",
+    parent = 'bedrooms', 
+    location = 'shani_bedroom', 
+    condition = 'home_intro_seen == False and shani_visit_intro == False', 
+    label = 'd1_shani_bedroom', 
+    completed = 'shani_visit_intro'
+)
+define ev_d7a = EventHandler(
+    name = "Preparation with Shani & visiting arena (d7a)",
+    parent = 'bedrooms', 
+    location = 'shani_bedroom', 
+    condition = 'm_d6b == True and daily_main_mission == False and m_d7a == False', 
+    tracked = 'mq_d_1.is_tracked or mq_z_1.is_tracked',
+    label = 'd7a', 
+    completed = 'm_d7a'
+)
+define ev_d8a = EventHandler(
+    name = "Shani's departure to the Zone (d8a)",
+    parent = 'bedrooms', 
+    location = 'shani_bedroom', 
+    condition = 'm_d7a == True and daily_main_mission == False and m_d8a == False', 
+    label = 'd8a', 
+    tracked = 'mq_z_1.is_tracked or mq_d_1.is_tracked',
+    completed = 'm_d8a'
+)
+define ev_d13d = EventHandler(
+    name = "Talking with Shani outside after the Zone (d13d)",
+    parent = 'bedrooms', 
+    location = 'shani_bedroom', 
+    condition = 'm_d13b == True and m_d13d == False', 
+    tracked = 'mq_z_1.is_tracked or mq_d_1.is_tracked',
+    label = 'd13d', 
+    completed = 'm_d13d'
+)
+define ev_d13k = EventHandler(
+    name = "Shani's dressup (d13k)",
+    parent = 'bedrooms', 
+    location = 'shani_bedroom',
+    condition = 'm_d15b == True and days_passed_since("d15b") >= 3 and m_d13k == False', #THIS CHANGES OVER THE GAME
+    blocked = shani_romance_blocked,
+    label = 'd13k', 
+    completed = 'm_d13k'
+)
+define ev_d15b = EventHandler(
+    name = "Shani balcony + sex (d15b)",
+    parent = 'bedrooms', 
+    location = 'shani_bedroom', 
+    condition = 'm_d15b == False and m_d13i == True and days_passed_since("d13i") >= 1', 
+    label = 'd15b', 
+    tracked = 'mq_z_1.is_tracked',
+    completed = 'm_d15b'
+)
+define ev_d5a = EventHandler(
+    name = "Shani's first workout (d5a)",
+    parent = 'bedrooms', 
+    location = 'shani_bedroom', 
+    condition = 'shani_zone == False and m_d4g == True and m_d4c == False', 
+    label = 'd4c', 
+    completed = 'm_d4c'
+)
+define ev_d5a_repeat = EventHandler(
+    name = "Shani's repeatable workout (d5a)",
+    parent = 'bedrooms', 
+    location = 'shani_bedroom', 
+    condition = 'shani_zone == False and m_d4c == True and m_d4g == True and daily_shani == False', 
+    label = 'visit_shani', 
+    important = False,
+    repeatable = True
+)
+########## Commom - Harem ##########
+define ev_d12a = EventHandler(
+    name = "Fairy's good and neutral outcome (d12a)",
+    parent = 'common_rooms', 
+    location = 'harem', 
+    condition = '(day - fairy_outcome_day >= 2) and fairy_talked_again == True and fairy_broken == False and m_d12a == False', 
+    label = 'd12a',
+    tracked = 'sq_f_1.is_tracked',
+    blocked = fairy_blocked, 
+    completed = 'm_d12a'
+)
+define ev_d13c = EventHandler(
+    name = "Family get-together after Zone (d13c)",
+    parent = 'common_rooms', 
+    location = 'harem', 
+    condition = 'm_d13b == True and m_d13c == False', 
+    tracked = 'mq_z_1.is_tracked or mq_d_1.is_tracked',
+    label = 'd13c', 
+    completed = 'm_d13c'
+)
+define ev_d13g = EventHandler(
+    ### Automatic, triggers at home
+    name = 'Ain, Shani & Zahra bedroom (d13g)',
+    condition = 'shani_perspective == True and m_d13f == True and m_d13g == False and (day - d13f_day >= 3) and (m_d15b == True and (day - d15b_day) >= 2) and shani_romance == True', 
+    label = 'd13g',
+    blocked = 'shani_perspective == False or shani_romance == False',
+    completed = 'm_d13g'
+)
+define ev_d13h = EventHandler(
+    name = "Ain & Shani double BJ (d13h)",
+    parent = 'common_rooms', 
+    location = 'harem',
+    condition = 'm_d15b == True and ((shani_perspective == True and m_d13g == True and (day - d13g_day) >= 2) or (shani_perspective == False and (day - d15b_day) >= 4)) and m_d13h == False', 
+    blocked = shani_romance_blocked,
+    label = 'd13h', 
+    completed = 'm_d13h'
+)
+define ev_d14a_part_1 = EventHandler(
+    ### Automatic, triggers at home
+    name = "Kateryna's introduction part 1 (d14a_part_1)",
+    condition = 'm_d11e == True and day - d11e_kateryna_day >= 2 and shani_zone == False and kateryna_romance == True and m_d6b == True', 
+    label = 'd14a_part_1', 
+    blocked = kateryna_blocked, 
+    completed = 'm_d14a_part_1'
+)
+define ev_d14a_part_2 = EventHandler(
+    name = "Kateryna's introduction part 2 (d14a_part_2)",
+    parent = 'common_rooms', 
+    location = 'harem', 
+    condition = 'm_d14a_part_1 == True and m_d14a_part_2 == False',
+    tracked = 'sq_k_1.is_tracked',
+    blocked = kateryna_blocked, 
+    label = 'd14a_part_2', 
+    completed = 'm_d14a_part_2'
+)
+
+
+########## Commom - Dining Room ##########
+define ev_d3d = EventHandler(
+    name = "Emilia introduction (d3d)",
+    parent = 'common_rooms', 
+    location = 'dining_room', 
+    condition = 'emilia_joined == True and introduction_emilia == False', 
+    blocked = emilia_blocked,
+    tracked = 'sq_e_1.tracked',
+    label = 'd3d', 
+    completed = 'introduction_emilia'
+)
+define ev_k11 = EventHandler(
+    name = 'Kateryna kitchen introduction',
+    parent = 'common_rooms', 
+    location = 'dining_room', 
+    condition = 'm_d6a == True and kitchen_kateryna_introduction == False and (day - d6a_day) >= 1 and daily_side_mission == False',
+    tracked = 'sq_k_1.is_tracked',
+    label = 'kitchen_menu', 
+    completed = 'kitchen_kateryna_introduction'
+)
+define ev_d11e = EventHandler(
+    name = "Visit Igor's house (d11e)",
+    parent = 'common_rooms', 
+    location = 'dining_room', 
+    condition = 'm_d11e == False and kitchen_kateryna_introduction == True and daily_side_mission == False and daily_kitchen == False and (day - d6a_day) >= 1', 
+    tracked = 'sq_k_1.is_tracked',
+    label = 'd11e', 
+    completed = 'm_d11e'
+)
+define ev_daily_kitchen_repeatable = EventHandler(
+    name = "Daily kitchen repeatable",
+    parent = 'common_rooms', 
+    location = 'dining_room', 
+    condition = 'm_d2f == True and daily_kitchen == False', 
+    label = 'kitchen_menu', 
+    important = False, 
+    repeatable = False,
+)
+
+define ha_05 = EventHandler(
+    name = "Generic harem visit",
+    parent = 'common_rooms', 
+    location = 'harem', 
+    condition = 'm_d2f == True and daily_harem == False', 
+    label = 'harementer', 
+    important = False,
+    repeatable = False
+)
+########## Commom - Library ##########
+define ev_d13e = EventHandler(
+    name = "Battery discussion with Shani in library (d13e)",
+    parent = 'common_rooms', 
+    location = 'library', 
+    condition = 'm_d13d == True and m_d13c == True and m_d13e == False', 
+    tracked = 'mq_z_1.is_tracked or mq_d_1.is_tracked',
+    label = 'd13e', 
+    completed = 'm_d13e'
+)
+define ev_codex = EventHandler(
+    name = "Codex screen",
+    parent = 'common_rooms', 
+    location = 'library', 
+    condition = 'm_d2f == True', 
+    label = 'library_intro', 
+    important = False, 
+    repeatable = False,
+)
+
+########## Servants - Emilia Room ##########
+define ev_d4e = EventHandler(
+    name = "Emilia's new room",
+    parent = 'servants', 
+    location = 'emilia',
+    condition = 'emilia_joined == True and introduction_emilia == True and m_d4e == False and days_passed_since("d3d") >= 1',
+    blocked = emilia_blocked, 
+    tracked = 'sq_e_1.is_tracked',
+    label = 'd4e', 
+    completed = 'm_d4e'
+)
+define ev_d7b = EventHandler(
+    name = "Visit Emilia's room (d7b)",
+    parent = 'servants', 
+    location = 'emilia', 
+    condition = 'm_d4e == True and emilia_joined == True and introduction_emilia == True and m_d7b == False and days_passed_since("d4e") >= 2', 
+    blocked = emilia_blocked, 
+    tracked = 'sq_e_1.is_tracked',
+    label = 'd7b', 
+    completed = 'm_d7b'
+)
+
+########## Basement ##########
+define ev_d4a = EventHandler(
+    name = "Kyra's Introduction",
+    parent = '', 
+    location = 'basement',  
+    condition = 'kyra_rescued == True and m_d4a == False', 
+    label = 'basement_entry', 
+    tracked = 'mq_r_1.is_tracked',
+    blocked = 'kyra_rescued == False',
+    completed = 'm_d4a'
+)
+define ev_d5c = EventHandler(
+    name = "Escort Kyra to Adira (d5c)",
+    parent = '', 
+    location = 'basement',
+    condition = 'faction_raiders == False and m_d4a == True and days_passed_since("d4a") >= 1 and daily_main_mission == False and daily_kyra_basement == False', 
+    blocked = 'kyra_rescued == False or d5c_kyra_sold_off == True',
+    tracked = 'mq_r_1.is_tracked',
+    label = 'basement_entry', 
+    completed = 'm_d5c'
+)
+
+define ev_basement_fairy = EventHandler(
+    name = 'Fairy basement events',
+    parent = '', 
+    location = 'basement', 
+    condition = 'sq_f_1.active and fairy_talked_again == False and daily_basement_fairy == False', 
+    blocked = fairy_blocked,
+    tracked = 'sq_f_1.is_tracked',
+    label = 'basement_entry', 
+    completed = 'fairy_outcome'
+)
+define ev_fairy_broken = EventHandler(
+    name = 'Fairy broken event',
+    parent = '', 
+    location = 'basement', 
+    condition = 'fairy_broken == True and daily_basement_fairy == False and fairy_broken_visited == False', 
+    label = 'basement_entry',
+    blocked = 'fairy_broken == False',
+    completed = 'fairy_broken_visited'
+)
+define ev_fairy_broken_repeat = EventHandler(
+    name = 'Fairy broken repeat event',
+    parent = '', 
+    location = 'basement', 
+    condition = 'fairy_broken == True and daily_basement_fairy == False', 
+    label = 'basement_entry', 
+    blocked = fairy_blocked,
+    important = False,
+    repeatable = True, 
+    completed = None
+)
+
+########## Car ##########
+define ev_d3c = EventHandler(
+    name = 'Cairo outskirts with Shani',
+    parent = 'car', 
+    location = '',  
+    condition = 'm_d2c == True and m_d3c == False and daily_main_mission == False', 
+    label = 'd3c', 
+    tracked = 'mq_z_1.tracked',
+    completed = 'm_d3c'
+)
+define ev_d4b = EventHandler(
+    name = 'd4b',
+    parent = 'car', 
+    location = '',  
+    condition = 'daily_main_mission == False and ((m_d4g == True and m_d3b == True and m_d4b == False) or (m_d4g == True and ivy_alive == False and m_d4b == False))', 
+    label = 'd4b', 
+    completed = 'm_d4b'
+)
+define ev_d15c = EventHandler(
+    name = "Visit Ivy (d15c)",
+    parent = 'car', 
+    location = '', 
+    condition = 'm_d15c == False and daily_main_mission == False and m_d11a == True and days_passed_since("d11a") >= 3 and sq_i_1.current_step == 2 and shani_zone_returned == True', 
+    label = 'car_menu', 
+    blocked = ivy_blocked,
+    tracked = 'sq_i_1.is_tracked',
+    completed = 'm_d15c'
+)
+define ev_d9c = EventHandler(
+    name = "Buy groceries (d9c)",
+    parent = 'car', 
+    location = '', 
+    condition = 'shani_killed_thug_girl == False and m_d7a == True and m_d9c == False and daily_side_mission == False', 
+    label = 'car_menu', 
+    blocked = 'shani_killed_thug_girl == True',
+    completed = 'm_d9c'
+)
+define ev_d6b_a = EventHandler(
+    name = "New car - No raiders (d6b)",
+    parent = 'car', 
+    location = '',  
+    condition = '((faction_raiders == False and m_d5c == True) or (m_d3c == True and kyra_rescued == False)) and faction_decayed == True and m_d6b == False and daily_main_mission == False', 
+    label = 'car_menu', 
+    blocked = not raiders_blocked,
+    completed = 'm_d6b'
+)
+define ev_d6b_b = EventHandler(
+    name = "New car - Raiders (d6b)",
+    parent = 'car', 
+    location = '',  
+    condition = 'faction_decayed == True and faction_raiders == True and m_d6b == False and daily_main_mission == False', 
+    label = 'car_menu',
+    tracked = 'mq_r_1.is_tracked',
+    blocked = raiders_blocked,
+    completed = 'm_d6b'
+)
+define ev_d5f = EventHandler(
+    name = "decayed_mainbase (d5f)",
+    parent = 'car', 
+    location = '',  
+    condition = 'm_d2c == True and faction_decayed == False and m_d5b == True and daily_main_mission == False', 
+    label = 'car_menu', 
+    completed = 'm_d5f'
+)
+define ev_d10b = EventHandler(
+    name = "Highway settlement (d10b)",
+    parent = 'car',  
+    location = '',  
+    condition = 'm_d9a == True and m_d10b == False and daily_main_mission == False', 
+    label = 'car_menu', 
+    tracked = 'mq_r_1.is_tracked',
+    completed = 'm_d10b'
+)
+define ev_d14b = EventHandler(
+    name = "Visit Asani (d14b)",
+    parent = 'car', 
+    location = '',  
+    condition = 'm_d14b == False and m_d6b == True and d6b_asani_sex == True and (day - d6b_visited_asani_day >= 3)', 
+    label = 'car_menu',  
+    blocked = asani_blocked,
+    completed = 'm_d14b'
+)
+define ev_d16a115 = EventHandler(
+    name = "Meet Lirah (d16a115)",
+    parent = 'car', 
+    location = '',  
+    condition = 'sq_l_1.current_step == 3 and (day - lirah_step_2_day) >= 2', 
+    label = 'car_menu',
+    tracked = 'sq_l_1.is_tracked',
+    blocked = 'lirah_freedom_path == False',
+    completed = 'm_d16a_lirah_freedom_path_1'
+)
+define ev_d16a128 = EventHandler(
+    name = 'Ask about Lirah (d16a128)',
+    parent = 'palace',
+    location = '',  
+    condition = 'm_d16a == True and sq_l_1.current_step == 12 and lirah_duty_path == True', 
+    label = 'visit_palace', 
+    tracked = 'sq_l_1.is_tracked',
+    blocked = 'lirah_duty_path == False',
+    completed = 'm_d16a_lirah_duty_path_1'
+)
+define ev_d16a142 = EventHandler(
+    name = "Meet Lirah at the oasis (d16a142)",
+    parent = 'car', 
+    location = '',  
+    condition = 'sq_l_1.current_step == 5 and (day - lirah_step_4_day) >= 3', 
+    label = 'car_menu', 
+    tracked = 'sq_l_1.is_tracked',
+    blocked = 'lirah_freedom_path == False',
+    completed = 'm_d16a_lirah_freedom_path_2'
+)
+define ev_d16a246 = EventHandler(
+    name = "Head to the city (d16a246)",
+    parent = 'car', 
+    location = '',  
+    condition = 'sq_l_1.current_step == 7 and (day - lirah_step_6_day) >= 3', 
+    label = 'car_menu', 
+    tracked = 'sq_l_1.is_tracked',
+    blocked = 'lirah_freedom_path == False',
+    completed = 'm_d16a_lirah_freedom_path_3'
+)
+define ev_d16a261 = EventHandler(
+    name = "Meet Talia & Lirah (d16a261)",
+    parent = 'car', 
+    location = '',  
+    condition = 'sq_l_1.current_step == 9 and (day - lirah_step_8_day) >= 2', 
+    label = 'car_menu', 
+    tracked = 'sq_l_1.is_tracked',
+    blocked = 'lirah_freedom_path == False',
+    completed = 'm_d16a_lirah_freedom_path_4'
+)
+########## Word ##########
+define ev_d13i = EventHandler(
+    name = 'Visit Queen with Shani (d13i)',
+    parent = 'palace', 
+    location = '',  
+    condition = '((shani_perspective == True and m_d13f == True) or (shani_perspective == False and m_d13c == True and m_d13e == True)) and m_d9a == True and m_d10b == True and m_d13i == False and daily_main_mission == False', 
+    label = 'd13i', 
+    tracked = 'mq_z_1.is_tracked',
+    completed = 'm_d13i'
+)
+define ev_d13l = EventHandler(
+    name = 'Thermae fun (d13l)',
+    parent = 'palace', 
+    location = '',  
+    condition = 'm_d15b == True and daily_main_mission == False and m_d13l == False',
+    label = 'd13l', 
+    tracked = 'mq_z_1.is_tracked',
+    completed = 'm_d13l'
+)
+########## Palace ##########
+define ev_d2b = EventHandler(
+    name = 'First palace visit (d2b)',
+    parent = 'palace', 
+    location = '',  
+    condition = 'home_intro_seen == True and m_d2c == False', 
+    tracked = 'mq_m_1.tracked',
+    label = 'd2b', 
+    completed = 'm_d2c'
+)
+define ev_d4d = EventHandler(
+    name = 'Queen 2nd visit - Taliah part (d4d)',
+    parent = 'palace', 
+    location = '',  
+    condition = 'm_d3c == True and m_d4d == False and daily_main_mission == False', 
+    tracked = 'mq_z_1.is_tracked',
+    label = 'd4d', 
+    completed = 'm_d4d'
+)
+define ev_d4g = EventHandler(
+    name = 'Queen 2nd visit - Queen part (d4g)',
+    parent = 'palace', 
+    location = '',  
+    condition = 'm_d4d == True and m_d4g == False', 
+    label = 'd4d', 
+    completed = 'm_d4g'
+)
+define ev_d16a = EventHandler(
+    name = 'Lirah quest start (d16a)',
+    parent = 'palace', 
+    location = '',  
+    condition = 'sq_q_1.current_step == 2 and daily_side_mission == False and m_d16a == False', 
+    label = 'visit_palace',
+    tracked = 'sq_q_1.is_tracked',
+    completed = 'm_d16a'
+)
+define ev_d16a_aftermath = EventHandler(
+    name = "Lirah's outcome (d16a_aftermath)",
+    parent = 'palace', 
+    location = '',  
+    condition = 'sq_l_1.active == True and (sq_l_1.current_step == 10 or sq_l_1.current_step == 14)', 
+    label = 'visit_palace',
+    tracked = 'sq_l_1.is_tracked',
+    blocked = 'lirah_freedom_path == False and lirah_duty_path == False and m_d16a == True',
+    completed = 'm_d16a_aftermath'
+)
+define ev_d14d = EventHandler(
+    name = 'Queen sidequest introduction chain (d14d)',
+    parent = 'palace', 
+    location = '',  
+    condition = 'm_d13l == True and daily_main_mission == False and m_d14d == False', 
+    label = 'd14d', 
+    tracked = 'sq_q_1.is_tracked',
+    completed = 'm_d14d'
+)
+define ev_queen_palace_tasks = EventHandler(
+    name = 'Queen palace tasks event chain',
+    parent = 'palace', 
+    location = '',  
+    condition = 'm_d14d == True and daily_side_mission == False and palace_tasks_counter < 6', 
+    label = 'visit_palace',
+    tracked = 'sq_q_1.is_tracked', 
+    completed = 'palace_tasks_counter == 6'
+)
+define ev_palace_quarters_1 = EventHandler(
+    name = 'palace_quarters_1',
+    parent = 'palace', 
+    location = '',  
+    condition = 'palace_quarters_1 == False and daily_side_mission == False and palace_tasks_counter >= 2', 
+    label = 'visit_palace', 
+    completed = 'palace_quarters_1'
+)
+define ev_palace_bedroom_1 = EventHandler(
+    name = 'palace_bedroom_1',
+    parent = 'palace', 
+    location = '',  
+    condition = 'm_d14d == True and palace_bedroom_1 == False and palace_tasks_counter >= 3 and daily_side_mission == False', 
+    label = 'visit_palace', 
+    completed = 'palace_bedroom_1'
+)
+define ev_palace_bedroom_2 = EventHandler(
+    name = 'palace_bedroom_2',
+    parent = 'palace', 
+    location = '',  
+    condition = 'm_d14d == True and palace_bedroom_2 == False and palace_tasks_counter >= 5 and daily_side_mission == False', 
+    label = 'visit_palace', 
+    completed = 'palace_bedroom_2'
+)
+define ev_palace_bedroom_3 = EventHandler(
+    name = 'Ask about sharifa (palace_bedroom_3)',
+    parent = 'palace', 
+    location = '',  
+    condition = 'm_d16a == True and daily_side_mission == False and palace_bedroom_3 == False', 
+    label = 'visit_palace', 
+    tracked = 'sq_q_1.is_tracked',
+    completed = 'palace_bedroom_3'
+)
+define ev_palace_planning_room_1 = EventHandler(
+    name = 'palace_planning_room_1',
+    parent = 'palace', 
+    location = '',  
+    condition = 'm_d14d == True and palace_planning_room_1 == False and daily_side_mission == False', 
+    label = 'visit_palace', 
+    completed = 'palace_planning_room_1'
+)
+define ev_palace_planning_room_2 = EventHandler(
+    name = 'palace_planning_room_2',
+    parent = 'palace', 
+    location = '',  
+    condition = 'm_d14d == True and palace_planning_room_2 == False and palace_tasks_counter >= 3 and daily_side_mission == False', 
+    label = 'visit_palace', 
+    completed = 'palace_planning_room_2'
+)
+define ev_palace_throne_room_1 = EventHandler(
+    name = 'palace_throne_room_1',
+    parent = 'palace', 
+    location = '',  
+    condition = 'm_d14d == True and palace_throne_room_1 == False and daily_side_mission == False', 
+    label = 'visit_palace', 
+    completed = 'palace_throne_room_1'
+)
+########## Mutants ##########
+define ev_d8b = EventHandler(
+    name = 'Hive intro (d8b)',
+    parent = 'mutants', 
+    location = '',  
+    condition = 'm_d8b_part_1 == False and daily_main_mission == False and m_d6b == True',
+    blocked = mutants_blocked, 
+    tracked = 'mq_m_1.is_tracked',
+    label = 'd8b', 
+    completed = 'm_d8b_part_1' 
+)
+define ev_d8b76 = EventHandler(
+    name = "Mutant mission part 1 (d8b76)",
+    parent = 'mutants', 
+    location = 'mutants_mission_table',  
+    condition = 'm_d6b == True and m_d8b_part_2 == False and daily_main_mission == False', 
+    label = 'mutants_mission_table',
+    tracked = 'mq_m_2.is_tracked',
+    blocked = mutants_blocked,
+    completed = 'm_d8b_part_2' #same
+)
+define ev_d10a = EventHandler(
+    name = "Mutant mission part 2 (d10a)",
+    parent = 'mutants', 
+    location = 'mutants_mission_table',  
+    condition = 'm_d8b_part_2 == True and m_d10a == False and daily_main_mission == False and (day - d8b_day_part_2 > 1)', 
+    label = 'mutants_mission_table',
+    tracked = 'mq_m_2.is_tracked', 
+    blocked = mutants_blocked,
+    completed = 'm_d10a'
+)
+define ev_d8c = EventHandler(
+    name = "Pepper lab (d8c)",
+    parent = 'mutants', 
+    location = 'mutants_lab',  
+    condition = 'm_d8c == False and m_d8b_part_2 == True', 
+    label = 'd8c', 
+    blocked = mutants_blocked, 
+    completed = 'm_d8c'
+)
+define ev_d11a = EventHandler(
+    name = "Visit Ivy's place (d11a)",
+    parent = 'mutants', 
+    location = 'ivy',  
+    condition = 'm_d8d == True and m_d11a == False', 
+    label = 'd11a', 
+    tracked = 'sq_i_1.is_tracked',
+    blocked = ivy_blocked, 
+    completed = 'm_d11a'
+)
+define ev_hive_repeatable = EventHandler(
+    name = "Hive repeatable visit (first time)",
+    parent = 'mutants', 
+    location = 'hive',  
+    condition = 'm_d10a == True and visited_hive_queen_repeatable_first_time == False and d10a_hq_sex == True and daily_hive == False', 
+    label = 'hive_repeatable', 
+    blocked = 'd10a_hq_sex == False', 
+    completed = 'visited_hive_queen_repeatable_first_time'
+)
+define ev_hive_repeatable_2 = EventHandler(
+    name = "Hive repeatable visit (repeat)",
+    parent = 'mutants', 
+    location = 'hive',  
+    condition = 'visited_hive_queen_repeatable_first_time == True and m_d10a == True and d10a_hq_sex == True and daily_hive == False', 
+    important = False,
+    label = 'hive_repeatable', 
+    blocked = 'd10a_hq_sex == False',
+    completed = None
+)
+define ev_d10a86 = EventHandler(
+    name = "Sleep at Mutants + Fun with Fangs (d10a86)",
+    parent = 'mutants', 
+    location = 'mutants_sleep',  
+    condition = 'd10a_mantis_sleep == False and m_d10a == True and mantis_left_behind == False', 
+    label = 'd10a86', 
+    blocked = 'faction_mutants == False or denied_mutants == True or mantis_left_behind == True',
+    completed = 'd10a_mantis_sleep'
+)
+define ev_mutants_sleep = EventHandler(
+    name = "Sleep at Mutants",
+    parent = 'mutants', 
+    location = 'bunker',  
+    condition = 'm_d6b == True', 
+    label = 'mutants_sleep', 
+    blocked = mutants_blocked,
+    important = False,
+    tt = ''
+)
+########## Raiders - Settlement pre-takeover ##########
+define ev_settlement_water_woman = EventHandler(
+    name = "Settlement water woman",
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'settlement_medic_intro == True and settlement_water_woman_visited == False', 
+    label = 'settlement_water_woman',
+    blocked = raiders_blocked, 
+    tt = 'Approach the woman', 
+    completed = 'settlement_water_woman_visited'
+)
+define ev_settlement_bathtub_worker = EventHandler(
+    name = "Settlement bathtub worker",
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'settlement_medic_intro == True and settlement_bathtub_worker_visited == False', 
+    label = 'settlement_bathtub_worker',
+    blocked = raiders_blocked, 
+    tt = 'Talk to Wick', 
+    completed = 'settlement_bathtub_worker_visited'
+)
+define ev_settlement_old_guy = EventHandler(
+    name = "settlement old guy",
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'settlement_medic_intro == True and settlement_old_guy_visited == False', 
+    label = 'settlement_old_guy', 
+    blocked = raiders_blocked, 
+    tt = 'Investigate the shack', 
+    completed = 'settlement_old_guy_visited'
+)
+define ev_settlement_camper_woman = EventHandler(
+    name = "Settlement camper woman",
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'settlement_medic_intro == True and settlement_camper_woman_visited == False', 
+    label = 'settlement_camper_woman',
+    blocked = raiders_blocked, 
+    tt = 'Revisit the bald woman', 
+    completed = 'settlement_camper_woman_visited'
+)
+define ev_settlement_medic_introduction = EventHandler(
+    name = "Settlement medic intro",
+    parent = 'raiders', 
+    location = 'raiders_settlement',   
+    condition = 'm_d10b == True and settlement_medic_intro == False', 
+    label = 'settlement_medic_introduction', 
+    blocked = raiders_blocked, 
+    tt = 'Revisit the bald woman', 
+    completed = 'settlement_medic_intro'
+)
+define ev_settlement_simp = EventHandler(
+    name = "Settlement simp",
+    parent = 'raiders', 
+    location = 'raiders_settlement',   
+    condition = 'settlement_medic_intro == True and settlement_simp_visited == False', 
+    label = 'settlement_simp', 
+    blocked = raiders_blocked, 
+    tt = 'Approach the man', 
+    completed = 'settlement_simp_visited'
+)
+define ev_settlement_medic_conclusion = EventHandler(
+    name = "Settlement medic conclusion",
+    parent = 'raiders', 
+    location = 'raiders_settlement',   
+    condition = 'settlement_medic_intro == True and settlement_water_woman_visited == True and settlement_bathtub_worker_visited == True and settlement_old_guy_visited == True and settlement_camper_woman_visited == True and settlement_simp_visited == True', 
+    label = 'settlement_medic_conclusion', 
+    blocked = raiders_blocked, 
+    tt = 'Go back to the medic', 
+    completed = 'settlement_medic_concluded'
+)
+
+########## Raiders - Settlement post-takeover ##########
+define ev_settlement_overview_post_takeover = EventHandler(
+    name = 'settlement_overview_post_takeover',
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'm_d14e == True and (not all([m_rsa_1, m_rsf_1, m_rsg_1, m_rss_1, m_rst_1, m_rsw_1]) or (m_rsf_2 == False and settlement_simp_helped == True and (day - settlement_simp_first_visit_day >= 2))) or (m_d14e == True and m_d14f_part_1 == False and mq_r_2.current_step == 3 and (day - d14e_day) >= 2)', 
+    # condition = 'm_d14e == True and settlement_outcomes_seen == False', 
+    label = 'settlement_overview_post_takeover', 
+    blocked = raiders_blocked, 
+    completed = 'settlement_outcomes_seen'
+)
+define ev_rsa_1 = EventHandler(
+    name = 'Search for Wick (rsa_1)',
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'm_d14e == True and m_rsa_1 == False', 
+    label = 'rsa_1', 
+    blocked = raiders_blocked, 
+    completed = 'm_rsa_1'
+)
+define ev_rsf_1 = EventHandler(
+    name = 'Look for the fool (rsf_1)',
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'm_d14e == True and m_rsf_1 == False', 
+    label = 'rsf_1', 
+    blocked = raiders_blocked, 
+    completed = 'm_rsf_1'
+)
+define ev_rsf_2 = EventHandler(
+    name = 'Look for the fool (rsf_2)',
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'm_rsf_1 == True and m_rsf_2 == False and settlement_simp_helped == True and (day - settlement_simp_first_visit_day >= 2)', 
+    label = 'rsf_2', 
+    blocked = 'settlement_simp_helped == False and raiders_blocked', 
+    completed = 'm_rsf_2'
+)
+define ev_rsg_1 = EventHandler(
+    name = 'Visit the guards (rsg_1)',
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'm_d14e == True and m_rsg_1 == False', 
+    label = 'rsg_1', 
+    blocked = raiders_blocked, 
+    completed = 'm_rsg_1'
+)
+define ev_rss_1 = EventHandler(
+    name = 'Visit the old man (rsg_1)',
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'm_d14e == True and m_rss_1 == False', 
+    label = 'rss_1', 
+    blocked = raiders_blocked, 
+    completed = 'm_rss_1'
+)
+define ev_rst_1 = EventHandler(
+    name = 'Visit Rue (rst_1)',
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'm_d14e == True and m_rst_1 == False', 
+    label = 'rst_1', 
+    blocked = raiders_blocked, 
+    completed = 'm_rst_1'
+)
+define ev_rsw_1 = EventHandler(
+    name = 'Visit the water reserves (rsw_1)',
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'm_d14e == True and m_rsw_1 == False', 
+    label = 'rsw_1', 
+    blocked = raiders_blocked, 
+    completed = 'm_rsw_1'
+)
+define ev_d11c = EventHandler(
+    name = "Kitty (d11c)",
+    parent = 'raiders', 
+    location = 'raiders_throne',  
+    condition = 'm_d10b == True and m_d11c == False and (day >= settlement_takeover_day + 1)', 
+    label = 'd11c',
+    blocked = raiders_blocked, 
+    tracked = 'mq_r_2.is_tracked',
+    completed = 'm_d11c'
+)
+define ev_d14e = EventHandler(
+    name = "Settlemet post-raid intro (d14e)",
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'm_d11c == True and m_d14e == False and days_passed_since("d11c") > 0', 
+    blocked = raiders_blocked, 
+    tracked = 'mq_r_2.is_tracked',
+    label = 'd14e', 
+    completed = 'm_d14e'
+)
+define ev_d14c = EventHandler(
+    name = 'Abrax visit after Zone (d14c)',
+    parent = 'decayed', 
+    location = '',  
+    condition = 'm_d13i == True and daily_main_mission == False and m_d14c == False', 
+    label = 'd14c', 
+    tracked = 'mq_d_1.is_tracked',
+    completed = 'm_d14c'
+)
+define ev_d14f_part_1 = EventHandler(
+    name = "settlement assault (d14f_part_1)",
+    parent = 'raiders', 
+    location = 'raiders_settlement',  
+    condition = 'm_d14e == True and (day - d14e_day) >= 2 and mq_r_2.current_step == 4 and m_d14f_part_1 == False', 
+    label = 'd14f_part_1', 
+    blocked = raiders_blocked, 
+    tracked = 'mq_r_2.is_tracked',
+    completed = 'm_d14f_part_1'
+)
+define ev_d14f_part_2 = EventHandler(
+    name = "zion pt 2(d14f_part_2)",
+    parent = 'raiders', 
+    location = 'raiders_mission_table',  
+    condition = 'm_d14f_part_1 == True and m_d14f_part_2 == False', 
+    label = 'raiders_mission_table', 
+    blocked = raiders_blocked, 
+    tracked = 'mq_r_2.is_tracked',
+    completed = 'm_d14f_part_2'
+)
+define ev_raiders_throne_menu = EventHandler(
+    name = "(raiders_throne_menu)",
+    parent = 'raiders', 
+    location = 'raiders_throne',  
+    condition = 'm_d14e == True and daily_raiders_throne == False and raiders_reward_asha == False', 
+    label = 'raiders_throne_menu', 
+    tt = 'Look at [As] & [Kit]', 
+    blocked = raiders_blocked, 
+    important = False,
+    repeatable = True,
+    completed = None
+)
+########## Zone ##########
+define ev_d10c = EventHandler( 
+    name = 'Shani Zone intro (d10c)',
+    parent = 'zone', 
+    location = '',  
+    condition = 'shani_zone == True and m_d10c == False', 
+    label = 'd10c', 
+    blocked = shani_perspective_disabled,
+    completed = 'm_d11b'
+)
+define ev_d11b = EventHandler( 
+    name = 'Follow the map (d11b)',
+    parent = 'zone', 
+    location = 'zone',  
+    condition = 'shani_zone == True and m_d11b == False', 
+    label = 'leave_bunker', 
+    blocked = shani_perspective_disabled,
+    completed = 'm_d11b'
+)
+define ev_d13a_no_sp = EventHandler(
+    ### Automatic, triggers at home
+    name = "Shani's return from the Zone",
+    condition = 'm_d8a == True and m_d13a == False and m_d10b == True and (day >= shani_zone_departure_day + 5)', 
+    blocked = 'shani_perspective == True',
+    label = 'd13a_no_sp', 
+    completed = 'm_d13a'
+)
+define ev_d13a = EventHandler(
+    name = 'Find the scout (d13a)',
+    parent = 'zone', 
+    location = 'zone',  
+    condition = 'shani_zone == True and m_d13a == False and m_d11b == True', 
+    label = 'leave_bunker',
+    blocked = shani_perspective_disabled,
+    completed = 'm_d13a'
+)
+define ev_d13j = EventHandler(
+    name = '(Optional) Investigate the apartment (d13j)',
+    parent = 'zone', 
+    location = 'zone',  
+    condition = 'shani_zone == True and m_d13j == False and d13j_apartment_visited == False', 
+    label = 'leave_bunker', 
+    important = False,
+    blocked = shani_perspective_disabled,
+    completed = 'm_d13j'
+)
+##### Story #####
+define ev_d3a = EventHandler(
+    name = "Ain Zahra massage",
+    parent = 'bedrooms',
+    location = 'master_bedroom',  
+    condition = 'm_d2f == True and ain_basement == False',
+    label = 'd3a',
+    completed = 'm_d3a'
+)
+
+define ev_d3b = EventHandler(
+    name = 'Night market (d3b)',
+    parent = '', 
+    location = '',  
+    condition = 'm_d3c == True and m_d3b == False', 
+    label = 'd3b',
+    blocked = ivy_blocked,
+    completed = 'm_d3b'
+)
+define ev_d12c = EventHandler(
+    ### Automatic, triggers at home
+    name = 'Ain shower (d12c)',
+    condition = 'm_d4b == True and m_d7c == True and m_d6a == True and m_d12c == False and ain_basement == False', 
+    label = 'd12c', 
+    completed = 'm_d12c'
+)
+define ev_d8d = EventHandler(
+    ### Automatic, triggers at home
+    name = 'Ivy night visit (d8d)',
+    condition = 'm_d8b_part_2 == True and days_passed_since("d8b76") > 1 and m_d8d == False', 
+    blocked = ivy_blocked,
+    label = 'd8d', 
+    completed = 'm_d8d'
+)
+define ev_d9a = EventHandler(
+    ### Automatic, triggers at home
+    name = 'Queen talk about settlement (d9a)',
+    condition = 'm_d8a == True and m_d9a == False and ((kyra_rescued == False and (day >= shani_zone_departure_day + 1)) or (d5c_kyra_sold_off == True and (day >= shani_zone_departure_day + 1)) or (faction_raiders == True and (day >= shani_zone_departure_day + 1) and (day >= raiders_met_day + 2)))',
+    label = 'd9a', 
+    completed = 'm_d9a'
+)
+define ev_d13f = EventHandler(
+    ### Automatic, triggers at home
+    name = 'Shani nightmare (d13f)',
+    condition = 'm_d13c == True and m_d13e == True and m_d13f == False', 
+    blocked = shani_perspective_disabled,
+    label = 'd13f', 
+    completed = 'm_d13f'
+)
+### Rabiah stuff
+define ev_rabiah_nadia_chain = EventHandler(
+    name = 'Rabiah & Nadia event chain',
+    parent = 'rabiah_house', 
+    location = '',  
+    condition = 'm_d7c == True and family_limit == 0 and vf_dinner_part_3 == False and days_passed_since("d7c") >= 1', 
+    tracked = 'sq_rn_1.is_tracked',
+    label = 'visit_family', 
+    completed = 'vf_dinner_part_3'
+)
+define ev_rabiah_1 = EventHandler(
+    name = 'Rabiah 1st event',
+    parent = 'rabiah_house', 
+    location = 'rabiah_kitchen',  
+    condition = 'm_d7c == True and family_limit < 2 and rabiah_introduction == False and daily_rabiah == False', 
+    tracked = 'sq_rn_1.is_tracked',
+    label = 'rabiah_menu', 
+    completed = 'rabiah_introduction'
+)
+define ev_rabiah_2 = EventHandler(
+    name = 'Rabiah 2nd event',
+    parent = 'rabiah_house', 
+    location = 'rabiah_kitchen',  
+    condition = 'rabiah_introduction == True and family_limit < 2 and nadia_part_3 == True and rabiah_part_2 == False and daily_rabiah == False', 
+    tracked = 'sq_rn_1.is_tracked',
+    label = 'rabiah_menu', 
+    completed = 'rabiah_part_2'
+)
+define ev_omar_1 = EventHandler(
+    name = 'Omar 1st event',
+    parent = 'rabiah_house', 
+    location = 'rabiah_living_room',  
+    condition = 'm_d7c == True and omar_introduction == False and family_limit < 2 and daily_omar == False', 
+    tracked = 'sq_rn_1.is_tracked',
+    label = 'omar_menu', 
+    completed = 'omar_introduction'
+)
+define ev_omar_2 = EventHandler(
+    name = 'Omar 2nd event',
+    parent = 'rabiah_house', 
+    location = 'rabiah_living_room',  
+    condition = 'omar_introduction == True and family_limit < 2 and omar_convi_2 == False and daily_omar == False', 
+    tracked = 'sq_rn_1.is_tracked',
+    label = 'omar_menu', 
+    completed = 'omar_convi_2'
+)
+define ev_omar_3 = EventHandler(
+    name = 'Omar 3rd event',
+    parent = 'rabiah_house', 
+    location = 'rabiah_living_room',  
+    condition = 'rabiah_part_2 == True and family_limit < 2 and omar_part_3 == False and daily_omar == False',
+    tracked = 'sq_rn_1.is_tracked', 
+    label = 'omar_menu', 
+    completed = 'omar_part_3'
+)
+define ev_nadia_1 = EventHandler(
+    name = 'Nadia 1st event',
+    parent = 'rabiah_house', 
+    location = 'nadia_bedroom',  
+    condition = 'family_second_visit == True and family_limit < 2 and nadia_introduction == False and daily_nadia == False',
+    tracked = 'sq_rn_1.is_tracked', 
+    label = 'nadia_menu', 
+    completed = 'nadia_introduction'
+)
+define ev_nadia_2 = EventHandler(
+    name = 'Nadia 2nd event',
+    parent = 'rabiah_house', 
+    location = 'nadia_bedroom',  
+    condition = 'nadia_introduction == True and family_limit < 2 and nadia_part_2 == False and omar_convi_2 == True and daily_nadia == False', 
+    tracked = 'sq_rn_1.is_tracked',
+    label = 'nadia_menu', 
+    completed = 'nadia_part_2'
+)
+define ev_nadia_3 = EventHandler(
+    name = 'Nadia 3rd event',
+    parent = 'rabiah_house', 
+    location = 'nadia_bedroom',  
+    condition = 'nadia_part_2 == True and family_limit < 2 and nadia_part_3 == False and daily_nadia == False', 
+    tracked = 'sq_rn_1.is_tracked',
+    label = 'nadia_menu', 
+    completed = 'nadia_part_3'
+)
+
+### New stuff
+define ev_d17a_part_1 = EventHandler(
+    name = 'Chilli mission (d17a part 1)',
+    parent = 'mutants', 
+    location = 'mutants_mission_table',  
+    condition = 'm_d10a == True and m_d11a == True and days_passed_since("d10a") > 1 and daily_main_mission == False and m_d17a_part_1 == False', 
+    label = 'mutants_mission_table', 
+    blocked = mutants_blocked,
+    tracked = 'mq_m_2.is_tracked',
+    completed = 'm_d17a_part_1'
+)
+define ev_d17a_part_2 = EventHandler(
+    name = 'Chilli mission (d17a part 2)',
+    parent = 'mutants', 
+    location = 'mutants_mission_table',  
+    condition = 'm_d17a_part_1 == True and m_d17a_part_2 == False', 
+    label = 'mutants_mission_table',
+    tracked = 'mq_m_2.is_tracked',
+    blocked = mutants_blocked,
+    completed = 'm_d17a_part_2'
+)
+define ev_d17b = EventHandler(
+    name = "Freed market mutant returns (d17b)",
+    parent = 'mutants', 
+    location = 'mutants_sleep',  
+    condition = 'm_d10a == True and days_passed_since("d10a") >= 2 and d3b_mutant_saved == True and m_d17b == False', 
+    label = 'd17b', 
+    blocked = 'faction_mutants == False or denied_mutants == True or d3b_mutant_saved == False', 
+    completed = 'm_d17b'
+)
+define ev_d17c = EventHandler(
+    name = 'Pepper lab (d17c)',
+    parent = 'mutants', 
+    location = 'mutants_lab',  
+    condition = 'm_d8c == True and m_d17a_part_2 == True and daily_lab == False and m_d17c == False', 
+    blocked = 'faction_mutants == False or denied_mutants == True or pepper_examination == False', 
+    label = 'd17c', 
+    completed = 'm_d17c'
+)
+define ev_pepper_lab_stage_1 = EventHandler(
+    name = 'Pepper lab (Stage 1)',
+    parent = 'mutants', 
+    location = 'mutants_lab',  
+    condition = 'm_d17c == True and daily_lab == False and pepper_exam_stage <= 2', 
+    blocked = 'faction_mutants == False or denied_mutants == True or pepper_examination == False', 
+    label = 'lab_repeat', 
+    completed = 'pepper_exam_stage >= 2'
+)
+define ev_pepper_lab_stage_2_to_6 = EventHandler(
+    name = 'Pepper lab (Stage 2 - 6)',
+    parent = 'mutants', 
+    location = 'mutants_lab',  
+    condition = 'm_d17c == True and daily_lab == False and pepper_exam_stage < 6', 
+    blocked = 'faction_mutants == False or denied_mutants == True or pepper_examination == False', 
+    label = 'lab_repeat', 
+    completed = 'pepper_exam_stage == 6'
+)
+define ev_pepper_lab_repeat = EventHandler(
+    name = 'Pepper lab (repeatable)',
+    parent = 'mutants', 
+    location = 'mutants_lab',  
+    condition = 'm_d17c == True and daily_lab == False and pepper_exam_stage >= 6', 
+    blocked = 'faction_mutants == False or denied_mutants == True or pepper_examination == False',
+    label = 'lab_repeat', 
+    important = False,
+    repeatable = True,
+    completed = None
+)
+define ev_mutants_gym = EventHandler(
+    name = 'Mutants Gym (1st time)',
+    parent = 'mutants', 
+    location = 'mutants_gym',  
+    condition = 'm_d17a_part_2 == True and daily_gym == False and mutants_gym_visited_first_time == False', 
+    label = 'mutants_gym',
+    blocked = mutants_blocked,
+    completed = 'mutants_gym_visited_first_time'
+)
+define ev_mutants_gym_repeat = EventHandler(
+    name = 'Mutants Gym (repeatable)',
+    parent = 'mutants', 
+    location = 'mutants_gym',  
+    condition = 'm_d17a_part_2 == True and daily_gym == False and mutants_gym_visited_first_time == True', 
+    label = 'mutants_gym',
+    blocked = mutants_blocked,
+    important = False,
+    repeatable = True,
+    completed = None
+)
+
+define ev_shani_spar = EventHandler( 
+    name = 'Shani sparring (1st time)',
+    parent = 'bedrooms', 
+    location = 'shani_bedroom',  
+    condition = 'm_d15b == True and shani_practice == False and daily_shani == False and shani_romance == True', 
+    blocked = 'shani_romance == False and m_d8a == True',
+    label = 'shani_conversations', 
+    completed = 'shani_practice'
+)
+
+define ev_shani_spar_repeat = EventHandler(
+    name = 'Shani sparring (repeatable)',
+    parent = 'bedrooms', 
+    location = 'shani_bedroom',  
+    condition = 'm_d15b == True and shani_practice == False and daily_shani == False and shani_romance == True', 
+    label = 'shani_conversations', 
+    important = False,
+    repeatable = True,
+    completed = 'shani_practice'
+)
+
+### Old ones
+define ev_d6a = EventHandler(
+    ### Automatic, triggered at home
+    name = 'Kateryna trip to city (d6a)',
+    condition = 'sq_k_1.current_step == 2 and m_d5b == True and m_d6a == False and days_passed_since("d5e") > 2', 
+    label = 'd6a', 
+    completed = 'm_d6a'
+)
+define ev_d5h = EventHandler(
+    ### Automatic, triggered at home
+    name = 'Emilia 2nd offer (d5h)',
+    condition = 'emilia_joined == False and second_offer_emilia == False and (m_d5b == True or faction_mutants == True)', 
+    label = 'd5h',
+    blocked = 'emilia_joined == True',
+    completed = 'm_d5h'
+)
+
+### 0.18
+define ev_d18a = EventHandler(
+    name = 'Emilia & Shani in library (d18a)',
+    parent = 'common_rooms', 
+    location = 'library',  
+    condition = 'sq_e_1.current_step == 4 and m_d7b == True and daily_emilia == False and m_d18a == False and shani_zone == False',
+    tracked = 'sq_e_1.is_tracked',
+    blocked = emilia_blocked,
+    label = 'd18a', 
+    completed = 'm_d18a'
+)
+define ev_d18b = EventHandler(
+    name = 'Ain slave market (d18b)',
+    parent = 'bedrooms', 
+    location = 'ain_bedroom',  
+    condition = 'm_d16c == True and m_d9b == True and m_d18b == False and daily_ain == False and daily_main_mission == False', 
+    tracked = 'sq_a_1.is_tracked',
+    label = 'visit_ain', 
+    completed = 'm_d18b'
+)
+define ev_d18c = EventHandler(
+    name = 'Sharifa in cell (d18c)',
+    parent = 'palace', 
+    location = '',  
+    condition = 'palace_bedroom_3 == True and queen_romance == True and days_passed_since("palace_bedroom_3") >= 1 and m_d18c == False',
+    tracked = 'sq_q_1.is_tracked',
+    blocked = queen_romance_blocked,
+    label = 'visit_palace', 
+    completed = 'm_d18c'
+)
+define ev_d18d = EventHandler(
+    name = 'Emilia massage (d18d)',
+    parent = 'bedrooms', 
+    location = 'master_bedroom',  
+    condition = 'sq_e_1.current_step == 4 and m_d7b == True and daily_emilia == False and m_d18d == False',
+    tracked = 'sq_e_1.is_tracked',
+    blocked = emilia_blocked,
+    label = 'd18d', 
+    completed = 'm_d18d'
+)
+define ev_d18e = EventHandler(
+    ### Automatic, triggered at home
+    name = 'Queen home visit (d18e)',
+    condition = 'm_d18c == True and days_passed_since("d18c") >= 2', 
+    tracked = 'sq_q_1.is_tracked',
+    blocked = queen_romance_blocked,
+    label = 'd18e', 
+    completed = 'm_d18e'
+)
+define ev_d18f = EventHandler(
+    ### Automatic, triggered after d18e
+    name = 'Queen sex scene (d18e)',
+    condition = 'm_d18e == True', 
+    tracked = 'sq_q_1.is_tracked',
+    blocked = queen_romance_blocked,
+    label = 'd18f', 
+    completed = 'm_d18f'
+)
+define ev_d18g = EventHandler(
+    name = 'Krait at night (d18g)',
+    parent = 'mutants', 
+    location = 'mutants_sleep',  
+    condition = 'mutants_gym_visited_first_time == True and mutants_gym_visited_krait_first_time == True',
+    blocked = 'fangs_romance == False or (faction_mutants == False or denied_mutants == True)', 
+    label = 'd18g', 
+    completed = 'm_d18g'
+)
+#### 0.19
+define ev_d19a = EventHandler(
+    name = 'Queen aftermath (d19a)',
+    parent = 'palace', 
+    location = '',  
+    condition = '(palace_bedroom_3 == True and queen_romance == False and days_passed_since("palace_bedroom_3") >= 3) or (m_d18f == True and queen_romance == True and days_passed_since("d18f") >= 1)',
+    tracked = 'sq_q_1.is_tracked',
+    label = 'd19a', 
+    completed = 'm_d19a'
+)
+define ev_d19b = EventHandler(
+    name = 'Shani visits Mandisa (d19b)',
+    parent = 'bedrooms', 
+    location = 'shani_bedroom',  
+    condition = 'm_d19a == True',
+    tracked = 'mq_z_2.is_tracked',
+    label = 'd19b', 
+    completed = 'm_d19b'
+)
+define ev_d19c = EventHandler(
+    name = 'Palace visit for Elders quest (d19c)',
+    parent = 'bedrooms', 
+    location = 'shani_bedroom',  
+    condition = 'm_d19b == True and days_passed_since("d19b") >= 1',
+    tracked = 'mq_z_2.is_tracked',
+    label = 'd19c', 
+    completed = 'm_d19c'
+)
+define ev_d19d = EventHandler(
+    ### Automatic after d19c
+    name = 'Travel into desert (d19d)',
+    condition = 'm_d19c == True',
+    label = 'd19d', 
+    completed = 'm_d19d'
+)
+define ev_d19e = EventHandler(
+    ### Automatic after d19d
+    name = 'Search for location (d19e)',  
+    condition = 'm_d19d == True',
+    label = 'd19e', 
+    completed = 'm_d19e'
+)
+define ev_d19f = EventHandler(
+    ### Automatic after d19e
+    name = 'Sex + Kidnapping (d19f)',
+    condition = 'm_d19e == True',
+    label = 'd19f', 
+    completed = 'm_d19f'
+)
+define ev_d19g = EventHandler(
+    ### Automatic after d19e
+    name = 'Kyra at the watchtower',
+    condition = 'm_d14f_part_2 == True and days_passed_since("d14f_part_2") >= 1',
+    blocked = raiders_blocked,
+    tracked = 'mq_r_2.is_tracked',
+    label = 'd19g', 
+    completed = 'm_d19g'
+)
+define ev_d19h = EventHandler(
+    name = 'Bath with Shani (d19h)',
+    parent = 'bedrooms', 
+    location = 'master_bedroom',  
+    condition = 'm_d15b == True and daily_shani == False and shani_romance == True and days_passed_since("d15b") >= 3', 
+    blocked = 'shani_romance == False and m_d8a == True',
+    label = 'visit_zahra', 
+    completed = 'm_d19h'
+)
+define ev_raiders_raid = EventHandler( 
+    name = 'Raiders raid reward (1st time)',
+    parent = 'raiders', 
+    location = 'raiders_mission_table',  
+    condition = 'm_d14e == True and daily_raiders_reward == False', 
+    blocked = 'faction_raiders == False or persistent.sharing == False', #TODO remove sharing condition when more options are added
+    label = 'raiders_mission_table', 
+    completed = 'raiders_raid_first_time'
+)
+
+define ev_raiders_raid_repeat = EventHandler(
+    name = 'Raiders raid reward (repeatable)',
+    parent = 'raiders', 
+    location = 'raiders_mission_table',  
+    condition = 'raiders_raid_first_time == True and daily_raiders_reward == False', 
+    blocked = 'faction_raiders == False or persistent.sharing == False', #TODO remove sharing condition when more options are added
+    important = False,
+    repeatable = True,
+    label = 'raiders_mission_table'
+)
+
+define ev_raiders_raid_asha_return = EventHandler( 
+    ### Automatic after d19e
+    name = 'Retrieve Asha after raider reward',
+    parent = 'raiders', 
+    location = 'raiders_mission_table', 
+    condition = 'raiders_reward_asha == True and daily_raiders_reward == False', 
+    blocked = 'faction_raiders == False or persistent.sharing == False or raiders_reward_asha == False', #TODO remove sharing condition when more options are added
+    important = True,
+    label = 'rr_retrieve_asha'
+)
+#### 0.20
+define ev_d20a = EventHandler(
+    name = 'Shani & MC captured (d20a)',
+    condition = 'm_d19a == True',
+    label = 'd19b', 
+    completed = 'm_d20a'
+)
+
+define ev_d20b = EventHandler(
+    name = "Elder's hideout  (d20b)",
+    condition = 'm_d20a == True',
+    label = 'd20b', 
+    completed = 'm_d20b'
+)
+
+define ev_d20c = EventHandler(
+    name = "Ain Shani threesome (d20c)",
+    condition = 'm_d20b == True and days_passed_since("d20b") >= 1', 
+    parent = 'bedrooms', 
+    location = 'ain_bedroom', 
+    label = 'd20c', 
+    completed = 'm_d20c',
+    blocked = 'ain_basement == True or shani_romance == False',
+    important = True
+)
+
+define ev_d20d = EventHandler(
+    name = "Stealing Pepper (d20d)",
+    condition = 'pepper_exam_stage == 6 and days_passed_since("lab_repeat") >= 3', #TODO check days_passed condition, might work wonky with repeatables
+    parent = 'mutants', 
+    location = 'mutants_mission_table', 
+    label = 'd20d', 
+    completed = 'm_d20d',
+    blocked = 'faction_mutants == False or denied_mutants == True or pepper_examination == False',
+    important = True
+)
+
+define ev_ain_basement_intro = EventHandler(
+    name = "Ain basement intro post-market",
+    parent = 'bedrooms', 
+    location = 'ain_bedroom', 
+    condition = 'm_d18b == True and (d5g_attend_punishment == True or d18b_ain_slave == True) and ain_basement == False',
+    blocked = 'm_d18b == True and d5g_attend_punishment == False and d18b_ain_slave == False',
+    label = 'visit_ain', 
+    completed = 'basement_ain_repeatable_intro'
+)
+
+define ev_ain_basement_repeat_1 = EventHandler(
+    name = "Ain basement repeat post-market",
+    parent = 'bedrooms', 
+    location = 'ain_bedroom', 
+    condition = 'basement_ain_repeatable_intro == True and daily_basement_ain == False and ain_basement == False',
+    label = 'visit_ain', 
+    important = False,
+    repeatable = True
+)
+
+define ev_ain_basement_repeat_2 = EventHandler(
+    name = "Ain basement repeat post-market",
+    parent = '', 
+    location = 'basement',  
+    condition = 'basement_ain_repeatable_intro == True and daily_basement_ain == False and ain_basement == True',
+    label = 'basement_entry', 
+    important = False,
+    repeatable = True
+)
+
+define ev_temple_intro = EventHandler(
+    name = "Temple intro",
+    parent = 'temple',
+    location = '',  
+    condition = 'm_d20b == True',
+    label = 'visit_temple',
+    completed = 'temple_introduction'
+)
+
+define ev_la1 = EventHandler(
+    name = 'Archaeologists pt.1',
+    parent = 'common_rooms', 
+    location = 'library',  
+    condition = 'm_d20b == True', 
+    label = 'library_intro', 
+    completed = 'm_la1'
+)
+
+define ev_temple_repeat = EventHandler(
+    name = "Temple repeat",
+    parent = 'temple',
+    location = '',  
+    condition = 'temple_introduction == True',
+    label = 'visit_temple',
+    important = False
+)
+
+define ev_temple_isra_intro = EventHandler(
+    name = "Temple Isra 1st time",
+    parent = 'temple',
+    location = '',  
+    condition = 'temple_introduction == True and temple_isra_introduction == False',
+    label = 'visit_temple',
+    completed = 'temple_isra_introduction'
+) 
+
+define ev_temple_jamila_intro = EventHandler(
+    name = "Temple Jamila 1st time",
+    parent = 'temple',
+    location = '',  
+    condition = 'temple_introduction == True and temple_jamila_introduction == False',
+    label = 'visit_temple',
+    completed = 'temple_jamila_introduction'
+) 
+
+define ev_d21a = EventHandler(
+    name = 'Revisit Ivy (d21a)',
+    parent = 'car', 
+    location = '',  
+    tracked = 'sq_i_1.is_tracked',
+    condition = 'm_d15c == True and m_d17b == True and days_passed_since("d15c") > 3 and days_passed_since("d17b") > 2 and daily_main_mission == False', 
+    label = 'car_menu', 
+    tt = 'Bringing Sonmi to the tower', 
+    blocked = ivy_blocked,
+    completed = 'm_d21a'
+)
+
+define ev_d21b = EventHandler(
+    name = 'Check on Ivy (d21b)',
+    parent = 'car', 
+    location = '',  
+    tracked = 'sq_i_1.is_tracked',
+    condition = 'm_d21a == True and days_passed_since("d21a") > 3', 
+    label = 'car_menu', 
+    tt = 'Spending a night with [I]', 
+    blocked = ivy_blocked,
+    completed = 'm_d21b'
+)
+
+define ev_kyra_repeat = EventHandler(
+    name = 'Kyra repeatable',
+    parent = 'raiders', 
+    location = 'raiders_mission_table',   
+    condition = 'm_d10b == True and daily_kyra_sex == False', 
+    label = 'raiders_kyra', 
+    tt = '', 
+    important = False,
+    repeatable = True,
+    blocked = raiders_blocked
+)
+# ain basement, leave her there until the end of the day (make sure ain_basement resets on daily_reset)
+
+# temple visit - generic, go there to pick a girl
+# if any of them still has non-repeatable content, exclamation mark exists
+# - Isra (will have multiple stages)
+# - Jamila (one event + repeatable)

@@ -1,0 +1,994 @@
+label visit_temple: #TODO cynical/hadham
+    if temple_introduction == True:
+        jump temple_repeat
+    else:
+        $ temple_introduction = True
+    stop music fadeout 3
+    scene black #TODO PAZ repeatable segment!
+    with fade
+    "As you approach the temple, a guard stops you in your tracks, to identify you."
+    "Once you have gained the permission, the large gate to the holy temple opens, and you find yourself in a courtyard..."
+    show tm-1-anim
+    play music "audio/music/zeta/scorching sands.mp3" fadein 1
+    with fade
+    pause 3
+    scene tm-2
+    with fade
+    Zt "It has been some time, indeed."
+    C "Um... sir?"
+    scene tm-3
+    with fade
+    C "I have been informed that you are a Stalker in good standing, looking to serve the Temple?"
+    C "W-we have not met yet..."
+    scene tm-4
+    with dissolve
+    Z "My name is Stalker [persistent.player_name]. You have been told the truth."
+    scene tm-5
+    with fade
+    Zt "I thought I had at least seen most of the current people serving the Temple, but her face doesn't ring any bells..."
+    Z "It has been some time since I last visited this place."
+    scene tm-6
+    with dissolve
+    "Your eyes casually scan her body..."
+    "Ample breasts and wide hips... The Temple does not disappoint in its ability to recruit good looking women." 
+    Z "You must be new here."
+    C "Yes, you are right, sir."
+    scene tm-7
+    with dissolve
+    C "My name is Nezmira. I serve the Temple as a maiden, to guide its visitors to the Revered Mothers."
+    Nez "Welcome to the Great Temple, Stalker [persistent.player_name]."
+    Nez "Will you follow me, so I can look through the Temple records to see which of the Revered Mothers are available for you at this time?"
+    scene tm-8
+    with dissolve
+    label tm_menu:
+        if tm_question_1 == True and tm_question_2 == True:
+            jump tm9
+        else:
+            pass
+    menu:
+        "\"What if I want to consult the high priestess?\"" (question = True) if tm_question_1 == False:
+            $ tm_question_1 = True
+            Z "What if I want to consult the high priestess?"
+            scene tm-7
+            with dissolve
+            Nez "I can inquire about that, Sir. I have been instructed not to deny the request of an esteemed Stalker such as yourself."
+            Nez "But a consultation is not necessary for your service today."
+            Nez "As you know, the Priestesses are already aware of the privileged few who are allowed to directly access the Temple."
+            Nez "As such, the Priestesses have already selected which Revered Mothers may choose to receive you."
+            scene tm-8
+            with dissolve
+            "She is well spoken and talks slowly, in a clear and deliberate manner. It is evident that she takes her role seriously."
+            Z "I see, I am not in need of consultation at the moment, anyway."
+            jump tm_menu
+
+        "\"So you are you not a Revered mother yourself?\"" (question = True) if tm_question_2 == False:
+            $ tm_question_2 = True
+            Z "What about you, are you not a Revered mother yourself?"
+            scene tm-7x
+            with dissolve
+            Nez "Oh... did... my attire give you that impression, Sir?"
+            scene tm-7x-3
+            with dissolve
+            Zt "Is she... serious?"
+            menu:
+                "Explain your thoughts":
+                    Z "Yeah... your attire, among other things. Your manner, your physique..."
+                    Z "You certainly look the part."
+                    scene tm-7
+                    with dissolve
+                    Nez "Thank you, Stalker [persistent.player_name]. But I am merely a guide for visitors."
+                    Nez "It is kind of you to say this though, much like my girlfriend does..."
+                    scene tm-7x
+                    with dissolve
+                    Nez "But a Revered Mother is very dedicated to her role in the Temple; she must be."
+                    Nez "I am afraid I lack the commitment."
+                    scene tm-7x-3
+                    with dissolve
+                    jump tm_menu
+                    
+                "Spell it out, in every detail":
+                    $ tm_direct = True
+                    Z "Yeah... not just the attire. Look at yourself."
+                    scene tm-7x-4
+                    with dissolve
+                    Z "A short but stacked body. Thick thighs, a very fuckable face..."
+                    scene tm-7x-5
+                    with dissolve
+                    Z "...and big tits, that would easily fill with milk."
+                    Nez "I... have heard that before, yes... Maybe expressed a little less directly."
+                    scene tm-7x-6
+                    with dissolve
+                    Nez "But do you think I should ask the priestess for a change of attire...?"
+                    scene tm-7x-7
+                    with dissolve
+                    Zt "She just ignores what I said..."
+                    Z "No. I think you look just fine."
+                    scene tm-7x-3
+                    with fade
+                    jump tm_menu
+                    
+        "\"Lead the way.\"":
+            label tm9:
+                Z "Very good, lead the way."
+            scene black
+            with fade
+            "She turns around and starts walking..."
+            scene tm-9
+            with fade
+            Nez "Feel free to look around, Stalker."
+            scene tm-10
+            with dissolve
+            Zt "Here we go again... a day in the world's smallest paradise."
+            scene tm-11
+            with fade
+            Zt "Gods be damned... I have not seen these two here before..."
+            Zt "Looks like they've already received a blessing."
+            show tm-13-anim
+            with fade
+            Rt "...{w=1.5}{nw}"
+            scene tm-12
+            with fade
+            Rt "{i}*giggles*{/i}"
+            Zt "That look they're giving me... sexy nymphs."
+            scene tm-14
+            with dissolve
+            "Your eyes wander from one beautiful woman to another..."
+            scene tm-15
+            with dissolve
+            "...as a gallery of voluptuous and enticing figures reveals itself to you."
+            scene tm-16
+            with dissolve
+            Zt "They all have one purpose only: to breed as many babies for the city as possible."
+            scene tm-17
+            with fade
+            Nez "This way, Stalker [persistent.player_name]..."
+            scene tm-18
+            with dissolve
+            Nez "...unless you want to join the ladies during their bath hours."
+            Nez "They do appreciate some company...{i}*giggles*{/i}"
+            scene tm-19
+            with dissolve
+            Rm "{i}*giggles*{/i} Mhh... it's growing nicely..."
+            Rm2 "Yours too..."
+            scene tm-20
+            with dissolve
+            Rm2 "Would you need a massage, later...?"
+            scene tm-21
+            with dissolve
+            Rm "Mmh... why not right now...?"
+            scene tm-22
+            with dissolve
+            Zt "I remember the pool to be for women who are expecting..."
+            scene tm-23
+            with dissolve
+            Rm3 "Mh..."
+            Zt "She must be carrying triplets..."
+            scene tm-24
+            with dissolve
+            Rm3 "{i}*giggles*{/i}"
+            Zt "Such a pretty face, too..."
+            scene tm-25
+            with dissolve
+            Nez "Would you like to stay a while before we continue, sir?"
+            Z "No, I will be coming..."
+            scene tm-26
+            with dissolve
+            Rm "Hello, Stalker. It's nice to see you again."
+            Rm "Do you want to join us? We are so lonely around here today, and could use a man to bathe with us..."
+            scene tm-27
+            with dissolve
+            Z "Maybe another time, ladies."
+            scene black
+            with fade
+            "With a hint of hesitation entering your mind, you keep moving..."
+            scene tm-28
+            with fade
+            Nez "Do you know these ladies, Stalker [persistent.player_name]?"
+            Z "Some of them..."
+            scene black
+            stop music fadeout 3
+            with slowfade
+            "You enter the temple..."
+            show tm-29-anim
+            play music "audio/music/zeta/sahara desert.mp3"
+            with fade
+            pause 2.5
+            show tm-30-anim
+            with dissolve
+            hide tm-29-anim
+            pause 2.5
+            show tm-31-anim
+            with dissolve
+            hide tm-30-anim
+            Nez "Here we are, sir.{w=2.5}{nw}"
+            scene tm-32
+            with fade
+            Nez "So, I have seen the records. There are certain Revered Mothers who you could visit."
+            Nez "Do you have any special preferences for today? Maybe you want to see someone you already know?"
+            scene tm-33
+            with dissolve
+            menu temple_menu:
+                "See Jamila" (important = True) if temple_jamila_introduction == False:
+                    Z "Lead me to Jamila. The woman knows me, and has invited me to visit her when we last met."
+                    scene tm-32
+                    with dissolve
+                    Nez "Our experienced mother Jamila, hm? Follow me, sir. But you should know that she is still carrying."
+                    scene tm-33
+                    with dissolve
+                    Z "I know."
+                    scene black
+                    with fade
+                    jump temple_jamila
+                
+                "Visit Jamila" if temple_jamila_introduction == True:
+                    Z "Lead me to Jamila, I owe her another visit."
+                    scene tm-32
+                    with dissolve
+                    Nez "As you wish, sir. I'm sure she's awaiting your company."
+                    scene tm-33
+                    with dissolve
+                    scene black
+                    with fade
+                    jump temple_jamila_repeat
+
+                "Light-built, aspiring" (important = True) if temple_isra_introduction == False:
+                    Z "I want to see an aspiring Revered Mother today. Someone who might need a hand settling into the role, the commitment."
+                    scene tm-32
+                    with dissolve
+                    Nez "Hm... Normally, there are not many who fit that description."
+                    Nez "However, you are in luck. A rather new Vessel has joined the fold and has just recently weaned her first Child off her milk."
+                    Nez "It was a boy, conceived before she joined us, so this would be the first time she properly receives a deserving partner selected for her."
+                    scene tm-33
+                    with dissolve
+                    Z "Describe her to me."
+                    scene tm-32
+                    with dissolve
+                    Nez "Sure. She has a very unique look, especially for a Vessel of the Temple. Think of a sharp side-cut, a small, petite frame with remarkably small breasts... and yet, wide hips."
+                    Nez "She has had a rough start in life, but ever since joining, she has been eager to demonstrate her devotion."
+                    scene tm-33
+                    with dissolve
+                    Z "Interesting. Lead me to her."
+                    scene tm-32
+                    with dissolve
+                    Nez "Of course."
+                    scene tm-33
+                    with dissolve
+                    jump temple_isra
+
+                "Visit Isra" if temple_isra_introduction == True:
+                    Z "I want to see Isra again."
+                    scene tm-32
+                    with dissolve
+                    Nez "Then I can see to ask if she is available, sir. Let me get you to an available room and I will go notify her."
+                    scene tm-33
+                    with dissolve
+                    scene black
+                    with fade
+                    jump temple_isra_repeat
+
+label temple_repeat:
+    $ daily_temple = True
+    stop music fadeout 3
+    scene black
+    with fade
+    "As you approach the temple, a guard stops you in your tracks, to identify you."
+    "Once you have gained the permission, the large gate to the holy temple opens, and you find yourself in a courtyard..."
+    show tm-1-anim
+    play music "audio/music/zeta/scorching sands.mp3" fadein 1
+    with fade
+    Nez "Hello again, sir. May I lead you inside? {w=2.5}{nw}"
+    scene black
+    with fade
+    pause 0.5
+    show tm-29-anim
+    with fade
+    pause 2
+    scene tm-32
+    with fade
+    Nez "Here we are, sir. What would be your preferences for today?"
+    scene tm-33
+    with dissolve
+    jump temple_menu
+
+label temple_jamila:
+    $ temple_jamila_introduction = True
+    show tj-1
+    with fade
+    if jamila_baby == True:
+        "[Nez] leads you to the room of the woman you have visited many times before..."
+    else:
+        "[Nez] leads you to the room of the woman you have met with Kateryna before..."
+    scene tj-1
+    with fade
+    Ja "Mh... look who decided to pay me a visit."
+    scene tj-2
+    with dissolve
+    Ja "Couldn't wait until the baby was delivered?"
+    scene tj-3
+    with fade
+    if jamila_baby == True:
+        Ja "I should thank your wife then, for lending me her handsome stud once more, even on a social call."
+        scene tj-4
+        with dissolve
+        Z "I had a little time and couldn't resist seeing you again. [W] told me I should convey her greetings."
+    else:
+        Ja "How come you chose me, dear Stalker? There are other, fertile women the priestesses designated to you."
+        menu:
+            "\"I was drawn to your curves\"":
+                Z "I was drawn to your curves. They reminded me of my woman, when she was carrying."
+                scene tj-5
+                with dissolve
+                Ja "Very well... old friend. I should focus on bringing the pregnancy to term, but we're close and maybe this will help bringing it about."
+                Ja "Not exactly what the purpose of a visit to this Temple should be, but I will give you a pass."
+                scene tj-6
+                with fade
+                Ja "...and you are in luck. I have not yet been able to breastfeed yet, today."
+
+            "\"Your beauty struck me.\"":
+                Z "Your beauty struck me. Your eyes, your hair..."
+                Z "...and that voluptuous body of yours, with this big stretched belly."
+                scene tj-5
+                with dissolve
+                Ja "Well then... us carrying Mothers are always happy for companionship."
+                scene tj-6
+                with fade
+                Ja "...especially if it is with sweet-talkers like yourself."
+
+    scene tj-8
+    with dissolve
+    "You look into her bright, brown eyes, before lowering your sight to her soft lips..."
+    if jamila_baby == True:
+        Z "Remind me the taste of your lips, first, Revered Mother."
+    else:
+        Z "I would savour the taste of your lips, to begin with."
+    scene tj-7
+    with dissolve
+    Ja "You don't need to ask twice, Stalker."
+    scene tj-9
+    with fade
+    Ja "Mmmh... {i}*kissing*{/i}"
+    "Your lips connect, and her tongue finds yours."
+    "Her touch is soft and gentle, and yet she firmly presses against you."
+    scene tj-10
+    with dissolve
+    "Her loose top slips from her body, revealing breasts heavy with milk."
+    "As you keep kissing her, you realise that she is aroused."
+    scene tj-11
+    with dissolve
+    Ja "Nh..."
+    "you push your hand towards her plump and round ass..."
+    scene tj-12
+    with dissolve
+    "...while she lowers hers on your bulge..."
+    if jamila_baby == True:
+        Ja "You are a handsome man, [persistent.player_name]."
+        Ja "It was a pleasure receiving your seed. The Priestess tells me it will be a boy. I am sure he will become a mighty soldier for the City."
+        scene tj-13
+        with fade
+        Ja "I will welcome you as long as I am carrying, and then again, so you can give me another one."
+        scene tj-14
+        with dissolve
+        Z "Then I shall keep breeding you, for as long as the Priestesses see fit."
+        scene tj-15
+        with dissolve
+        Ja "My time to join their number is not far anymore, but for now, let me enjoy this big cock of yours..."
+
+    else:
+        Ja "You are a handsome man, Stalker. [persistent.player_name], was it?"
+        Z "Yes."
+        Ja "I have thought of you, when I saw your name on the Priestesses' list for the approved companions."
+        Ja "It seems to be a little miracle that our paths have not crossed for all these years."
+        Z "I haven't been a frequent contributor to the Temple and was mostly moving on orders from the Palace."
+        scene tj-13
+        with fade
+        Ja "What a shame. All these strong, capable children you could have given me."
+        scene tj-14
+        with dissolve
+        Z "There is still some time after you deliver this one."
+        scene tj-15
+        with dissolve
+        Ja "Mmh... there is indeed... such a thick cock... I am soon to join the ranks of the Priestesses, but I think there is indeed for you to breed me at least once."
+
+    "She strokes it gently..."
+    scene tj-16
+    with dissolve
+    Ja "What do you think, should we go to bed?"
+    Z "After you."
+    scene black
+    with fade
+    "Moments later..."
+    scene tj-17
+    with fade
+    Ja "Nh... thank you for carrying me."
+    Z "You're welcome."
+    scene tj-18
+    with fade
+    Ja "Well... how do you want to start, handsome?"
+    scene tj-19
+    with dissolve
+    Z "I will take off this needless robe of yours."
+    scene tj-20
+    with dissolve
+    Zt "The loose silk robes of the Revered Mothers..."
+    Z "...they were made to be taken off."
+    scene black
+    with fade
+    Ja "You may take off your clothes too."
+    scene tj-21
+    with fade
+    if jamila_baby == True:
+        Ja "Just as I remember. Your wife is a lucky one, Stalker..."
+    else:
+        Ja "Oh my! Tell me, whatever happened to that young girl you introduced me to..."
+        Ja "Did she get to ride this hard pole?"
+        if kateryna_romance == True and kateryna_pregnant == True:
+            Z "She has. And she too will be carrying a child soon..."
+            scene tj-22
+            with dissolve
+            Z "...just like you."
+        else:
+            Z "I have not made advances on her, no."
+            Ja "I see..."
+            scene tj-22
+            with dissolve
+            Ja "Perhaps you prefer a more mature flavour..."
+    
+    scene tj-23
+    with fade
+    Ja "My body is yours, Stalker [persistent.player_name]. Do with it as you desire."
+    scene tj-24
+    with dissolve
+    Zt "Where should I start..." #CYNICAL From here until the end of jamila
+    jump temple_jamila_menu
+
+label temple_jamila_repeat:
+    $ temple_jamila_introduction = True
+    show tj-1
+    with fade
+    if jamila_baby == True:
+        "[Nez] leads you to the room of the mother of many children..."
+    scene tj-1
+    with fade
+    Ja "Mh... look who decided to pay me a visit."
+    scene tj-2
+    with dissolve
+    Z "It is difficult to resist you, Jamila. My wife knows this, and sends her blessings."
+    scene tj-8
+    with fade
+    "You look into her bright, brown eyes, before lowering your sight to her soft lips..."
+    Z "Now, remind me the taste of your lips, woman."
+    scene tj-7
+    with dissolve
+    Ja "You don't need to ask twice, Stalker."
+    scene tj-8
+    with dissolve
+    scene tj-9
+    with fade
+    Ja "Mmmh... {i}*kissing*{/i}"
+    scene tj-15
+    with dissolve
+    Ja "Mmh... there it is... that thick cock I have been missing..."
+    Ja "What do you think, should we go to bed?"
+    scene black
+    with fade
+    "Minutes later..."
+    scene tj-23
+    with fade
+    Ja "My body is yours, Stalker [persistent.player_name]. Do with it as you desire."
+    scene tj-24
+    with dissolve
+    menu temple_jamila_menu:
+        # "Suck on her breasts":
+        #     scene tj-26
+        #     with fade
+        
+        "Fuck her pussy":
+            scene tj-25
+            with fade
+            Ja "mh... I know what you're looking at..."
+            scene black
+            with fade
+            Ja "Ah... mmmh..."
+            scene tj-27
+            with fade
+            "You spread her legs like the breeder she is..."
+            scene tj-28
+            with dissolve
+            Ja "You are eager, [persistent.player_name]."
+            scene tj-29
+            with dissolve
+            "You admire the pregnant mother while resting your large cock on her fat belly..."
+            Z "You are an irresistible woman. Of course I am."
+            scene tj-31
+            with dissolve
+            Zt "Gods, she is fucking sexy."
+            if jamila_baby == True:
+                Zt "It's good to know that I am responsible for her swollen belly, and fat tits."
+            scene tj-32
+            with dissolve
+            Z "Your children might feel this one, {i}*chuckles*{/i}" #is this weird to say XD
+            Ja "Mmh... I will enjoy every moment of this."
+            show tj-33-anim
+            pause 3
+            show tj-34-anim
+            pause 3
+            Ja "Aaahh..."
+            Ja "Such a good cock..."
+            show tj-35-anim
+            with fade
+            "You start pumping your full length in and our of her fat, pregnant cunt..."
+            Ja "Yes, Stalker... ah..."
+            if jamila_baby == True:
+                Z "You feel... ngh... incredible, just like last time, Jamila."
+                Ja "Yes, and so do you... mh..."
+                Ja "If only your wife would be here..."
+                Ja "...I would thank her personally for sharing such a handsome man with me."
+            else:
+                Z "You feel... ngh... incredible, Jamila."
+                Ja "Yes, and so do you... mh..."
+                Ja "Where were you during my previous pregnancies, Stalker?"
+                Z "Maybe I will be there for the next ones."
+                Ja "I... ah... would hope so."
+            show tj-36-anim
+            with fade
+            hide tj-35-anim
+            "Her needy, worn out cunt drips from her juices..."
+            Ja "mmh... I can't wait to receive your strong seed."
+            Z "And I will not refuse that opportunity."
+            show tj-37-anim
+            with fade
+            hide tj-36-anim
+            Z "Fuck..."
+            "You feel as her pussy grips your cock, as if it does not want you to pull out..."
+            Z "Ready to receive another blessing, revered mother?"
+            Ja "Mh... Yes, give me your cum, handsome. All of it."
+            scene tj-39
+            with hpunch
+            pause 0.5
+            scene tj-40
+            with hpunch
+            pause 0.5
+            scene tj-41
+            with hpunch
+            Ja "Aah...!"
+            scene tj-39
+            with fade
+            Z "Cumming..."
+            scene tj-42
+            with hpunch
+            Z "Mh..."
+            with hpunch
+            Zt "Fuck... Seeing her milk splatter around the room..."
+            scene tj-43
+            with dissolve
+            Z "...makes me cum even harder."
+            scene tj-42
+            with hpunch
+            Ja "Mmmh...~"
+            "You give the pregnant mother one last squirt of your cum..."
+            scene tj-43
+            with dissolve
+            Ja "Thank you, Stalker..."
+            scene tj-44
+            with dissolve
+            Ja "...for your delicious gift."
+            scene tj-45
+            with dissolve
+            Ja "I will be sure to savor your cum until your return..."
+            scene tj-46
+            with dissolve
+            Z "...and return I will, Jamila."
+
+    scene black
+    stop music fadeout 3
+    with slowfade
+    "Shortly after, a temple assistant enters the room. After you are asked to leave, you make your way home."
+    jump daily_home
+         
+label temple_isra:
+    $ temple_isra_introduction = True
+    scene black
+    stop music fadeout 2
+    with fade
+    "You are led to the room, where Isra was awaiting you."
+    scene ti-1
+    play music "audio/music/zeta/mirage of three.mp3" fadein 3
+    with slowfade
+    pause 1.2
+    scene ti-2
+    with dissolve
+    Isr "..."
+    "She gives you a stern look as you enter the room..."
+    scene ti-3
+    with dissolve
+    Isr "Is it you who the priestess chose to impregnate me next, Stalker?"
+    scene ti-4
+    with dissolve
+    Z "Yes."
+    scene ti-5
+    with fade
+    Isr "Then I will undress and prepare for the blessing."
+    scene ti-6
+    with dissolve
+    "Her direct, blunt approach takes you aback for a moment."
+    "She looks at you, a young woman with determination. You remember that she was described to you as determined."
+    scene ti-7
+    with dissolve
+    "Her hands slowly move towards her hips. They're wide, unusually wide for her small torso and chest."
+    scene ti-8
+    with dissolve
+    Isr "Watch closely, Stalker."
+    scene ti-9
+    with dissolve
+    "She slowly pushes down her silky underwear, while looking at you..."
+    scene ti-10
+    with dissolve
+    "...and reveals her thick, juicy pussylips."
+    scene ti-11
+    with dissolve
+    Z "Merneith be blessed..."
+    scene ti-12
+    with dissolve
+    "She turns around, slowly grabbing her top..."
+    scene ti-13
+    with dissolve
+    Zt "Damn."
+    scene ti-14
+    with fade
+    "...and drops the last piece of her veil."
+    scene ti-15
+    with dissolve
+    "Her bare ass is swaying before you for a long moment."
+    Zt "She knows what she's doing..."
+    scene ti-16
+    with dissolve
+    Isr "Do you want to continue, Stalker?"
+    Z "Yes."
+    scene ti-17
+    with fade
+    Isr "Lower your trousers, then."
+    Isr "I want to see what we're working with."
+    scene ti-18
+    with dissolve
+    "You move your hand towards your pants..."
+    scene ti-19
+    with fade
+    Isr "The Priestesses may have their ideas about who to pick, but... well, I want to know that the blessing is well earned and well received." 
+    scene ti-20
+    with dissolve
+    "She stares right into your eyes, as if to read your thoughts...."
+    scene ti-21
+    with dissolve
+    Isr "...it seems that they chose well."
+    Z "Does the tool fit the purpose?"
+    scene ti-22
+    with dissolve
+    Isr "Yes, Stalker. You might please the Gods tonight."
+    scene ti-23
+    with fade
+    "She suddenly stands on her toes..."
+    Isr "...but I will test the waters before we begin."
+    show ti-24-anim
+    with fade
+    "She starts grinding on your cock..."
+    Zt "Gods be damned... this girl..."
+    show ti-26-anim
+    with dissolve
+    hide ti-24-anim
+    "Her body rhythmically moves forward, and then backward, while she keeps looking at you, curious about your reaction."
+    Z "The sayings were true. You are determined."
+    Isr "I have been since my first child. And now, you will give me my fourth."
+    Z "That is an achievement, for such a young age."
+    Isr "The gods have given me the hips to carry Zeta's children. Who am I to refuse their calling..."
+    show ti-27-anim
+    with dissolve
+    hide ti-26-anim
+    "Her wet pussylips slide back and forth on your shaft. You're as hard as it gets."
+    Zt "This feels amazing..."
+    Isr "Are you ready for the next step?"
+    Z "I am."
+    scene ti-28
+    with fade
+    Isr "Then lie down, Stalker, and let me proceed as I see fit."
+    scene ti-29
+    with dissolve
+    Zt "Even if I wanted a different position, it is considered unholy and criminal to refuse a Revered Mother's requests or demands..."
+    Z "Your temple, your rules."
+    scene black
+    with fade
+    "You lie on the bed, and she quickly climbs on top of you..."
+    scene ti-30
+    with fade
+    Isr "Stay still..."
+    scene ti-31
+    with dissolve
+    Zt "What a beautiful sight. Those legs could break necks..."
+    scene ti-32
+    with fade
+    Isr "Are you ready?"
+    scene ti-33
+    with dissolve
+    "You stare at her toned body.."
+    Z "Of course I am."
+    scene ti-34
+    with dissolve
+    Isr "It will be a healthy child, it must be..."
+    scene ti-35
+    with dissolve
+    "She bites her lips..."
+    show ti-36-anim
+    with fade
+    Isr "Mmmh... ah..."
+    Zt "Fuck... she's aggressive."
+    "She bounces up and down on your cock, moaning sensually."
+    "Her pussy is swollen with lust and wet, and engulfs your cock easily..."
+    show ti-37-anim
+    with fade
+    Z "Ngh... you are amazing."
+    Isr "Mhh..."
+    Zt "Those hips... they're heavy, yet soft..."
+    "You can feel her meaty ass bouncing on your thighs. Her legs are doing all the work, strong and fast."
+    show ti-38-anim
+    with dissolve
+    hide ti-37-anim
+    "Every few thrusts, her pussy squirts, then her muscles contract, tightening her grip on you even further."
+    Zt "And there I was, expecting her to be dry and stiff... she's a freak."
+    Isr "Mh..."
+    show ti-39-anim
+    with dissolve
+    hide ti-38-anim
+    Zt "I'm filling her fat cunt nicely. She's becoming more aggressive..."
+    Isr "You're twitching, Stalker..."
+    Z "Yes... if you keep this up..."
+    Isr "Mh..."
+    scene ti-40
+    with vpunch
+    Z "Ah...-"
+    Isr "Mmmh..."
+    with vpunch
+    "She brings you over the edge, and ropes of thick cum starts pouring into her womb..."
+    scene ti-41
+    with dissolve
+    "She tightens her cunt, and moves around, massaging you mid climax..."
+    Z "You're wild..."
+    scene ti-42
+    with fade
+    Isr "Mmh..."
+    "She looks at you, confident, while biting her lip, as you keep shooting your seed inside her."
+    scene ti-43
+    with dissolve
+    Isr "That is more than enough..."
+    scene ti-44
+    with dissolve
+    "She grins, as you release your last seed into her..."
+    scene ti-45
+    with fade
+    Isr "You surpassed the holy gods' expectations..."
+    scene ti-46
+    with dissolve
+    Isr "Mh..."
+    scene ti-47
+    with dissolve
+    Isr "Do you want to help me ensure this breeding, Stalker?"
+    scene ti-48
+    with dissolve
+    "Absent minded, you stare at her thick thighs and wide hips..."
+    Z "...yes."
+    scene ti-49
+    with dissolve
+    Isr "Then you know this must be done again, until it is certain."
+    Z "Yes."
+    scene ti-50
+    with dissolve
+    Isr "The goddess Hathor has her eyes on you, Stalker."
+    Isr "I am expecting your return, so we can ensure the blessings..."
+    scene ti-51
+    with dissolve
+    Z "You have my word, Mother Isra."
+    scene black
+    stop music fadeout 3
+    with slowfade
+    if _in_replay:
+        $ renpy.end_replay()
+    "With some of your cum dripping down her thighs, she gets up and leaves the room, where a temple assistant is waiting to lead her to the bath house..."
+    "You eventually return home."
+    jump daily_home
+
+label temple_isra_repeat:
+    $ temple_isra_introduction = True
+    $ daily_temple_isra_grind = False
+    scene black
+    stop music fadeout 2
+    with fade
+    "You are led to the room, where Isra was awaiting you."
+    scene ti-1
+    play music "audio/music/zeta/mirage of three.mp3" fadein 3
+    with slowfade
+    pause 1.2
+    scene ti-2
+    with dissolve
+    Isr "..."
+    "She gives you a stern look as you enter the room..."
+    scene ti-3
+    with dissolve
+    Isr "You have returned..."
+    Isr "Do you intend to inseminate me again, Stalker?"
+    scene ti-4
+    with dissolve
+    Z "Yes, I do."
+    scene ti-8
+    with fade
+    Isr "Then I will undress and prepare for the blessing."
+    scene ti-9
+    with dissolve
+    "She slowly pushes down her silky underwear, while looking at you..."
+    scene ti-10
+    with dissolve
+    pause 1.1
+    scene ti-11
+    with dissolve
+    "...and reveals her thick, juicy pussylips."
+    scene ti-13
+    with dissolve
+    "She turns around, slowly grabbing her top..."
+    scene ti-14
+    with fade
+    "...and drops the last piece of her veil."
+    scene ti-15
+    with dissolve
+    "Her bare ass is swaying before you for a long moment."
+    scene ti-17
+    with fade
+    Isr "I will grant you the choice, Stalker."
+    Isr "Tell me what you intend to do next..."
+    scene ti-18
+    with dissolve
+    menu temple_isra_menu:
+        "\"I want to feel your hips again.\"" if daily_temple_isra_grind == False:
+            $ daily_temple_isra_grind = True
+            Z "I want to feel your hips again."
+            Isr "Hm..."
+            scene ti-19
+            with fade
+            Isr "Did my hips excite you last time? Answer me."
+            Z "Yes."
+            scene ti-21
+            with dissolve
+            Isr "I am pleased to hear that..."
+            Isr "...so I will grant you the favor."
+            scene ti-22
+            with dissolve
+            Isr "I have a good feeling we will please the gods again, tonight."
+            scene ti-23
+            with fade
+            "She stands on her toes..."
+            Isr "...but I will test the waters before we begin."
+            show ti-24-anim
+            with fade
+            "She starts grinding on your cock..."
+            Zt "Gods be damned... this girl..."
+            show ti-26-anim
+            with dissolve
+            hide ti-24-anim
+            "Her body rhythmically moves forward, and then backward, while she keeps looking at you, still curious about your reaction."
+            Isr "Remind me, Stalker. What made you want to impregnate me when you saw me?"
+            Isr "Is it my age? My bearing? Or was it my hips after all?"
+            show ti-27-anim
+            with dissolve
+            hide ti-26-anim
+            "Her wet pussylips slide back and forth on your shaft. You're as hard as it gets."
+            Z "ngh... All of it..."
+            Isr "As expected..."
+            scene ti-24-anim
+            with fade
+            "She grinds you for a moment longer, and you can feel her pussy starting to leak more excessively..."
+            Isr "I am ready for the next step. Are you?"
+            Z "I am."
+            jump temple_isra_menu
+
+        "\"Proceed as you see fit.\"":
+            Z "Proceed as you see fit."
+            scene ti-28
+            with fade
+            Isr "Then lie down, Stalker. Just like last time."
+            scene ti-29
+            with dissolve
+            Z "I am yours, Isra."
+            scene black
+            with fade
+            "You lie on the bed, and she quickly climbs on top of you..."
+            scene ti-30
+            with fade
+            Isr "Stay still..."
+            scene ti-31
+            with dissolve
+            Zt "What a beautiful sight. Those legs could break necks..."
+            scene ti-32
+            with fade
+            "You stare at her toned body.."
+            scene ti-33
+            with dissolve
+            Zt "Blessed be Merneith..."
+            scene ti-35
+            with dissolve
+            "She bites her lips..."
+            show ti-36-anim
+            with fade
+            Isr "Mmmh... ah..."
+            Zt "Fuck... she's aggressive, as always."
+            "She bounces up and down on your cock, moaning sensually."
+            "Her pussy is swollen with lust and wet, and engulfs your cock easily..."
+            show ti-37-anim
+            with fade
+            Z "Ngh... you are amazing, every time."
+            Isr "Mhh..."
+            "You can feel her meaty ass bouncing on your thighs. Her legs are doing all the work, strong and fast."
+            show ti-38-anim
+            with dissolve
+            hide ti-37-anim
+            "Every few thrusts, her pussy squirts, then her muscles contract, tightening her grip on you even further."
+            Zt "She's such a freak..."
+            Z "Enjoying yourself, Isra?"
+            Isr "Nnnh... Quiet... I am..."
+            with vpunch
+            "She twitches and cums, and you can feel her juices leaking out..."
+            Isr "mmmh...!"
+            Zt "She's so hot..."
+            show ti-39-anim
+            with dissolve
+            hide ti-38-anim
+            Zt "Fuck... the way she's pumping my dick..."
+            Isr "You're twitching, Stalker..."
+            Z "Yes... if you keep this up..."
+            Isr "Mh..."
+            scene ti-40
+            with vpunch
+            Z "Ah...-"
+            Isr "Mmmh..."
+            with vpunch
+            "She brings you over the edge, and ropes of thick cum starts pouring into her womb..."
+            scene ti-41
+            with dissolve
+            "She tightens her cunt, and moves around, massaging you mid climax..."
+            Z "You're wild..."
+            scene ti-42
+            with fade
+            Isr "Mmh..."
+            "She looks at you, confident, while biting her lip, as you keep shooting your seed inside her."
+            scene ti-43
+            with dissolve
+            Isr "Yes, release everything..."
+            scene ti-44
+            with dissolve
+            "She grins, as you release your last seed into her..."
+            scene ti-45
+            with fade
+            Isr "You filled my womb again..."
+            scene ti-46
+            with dissolve
+            Isr "Mh..."
+            scene ti-47
+            with dissolve
+            "Satisfied, you watch your cum leak out of her..."
+            scene ti-48
+            with dissolve
+            Isr "The gods thank you for another visit, Stalker."
+            scene ti-49
+            with dissolve
+            Isr "But until it is certain, I expect you to return."
+            Z "Yes."
+            scene ti-50
+            with dissolve
+            Isr "The goddess Hathor keeps her eyes on you, Stalker."
+            scene ti-51
+            with dissolve
+            Z "I keep my word, Mother Isra."
+            scene black
+            stop music fadeout 3
+            with slowfade
+            if _in_replay:
+                $ renpy.end_replay()
+            "With some of your cum dripping down her thighs, she gets up and leaves the room, where a temple assistant is waiting to lead her to the bath house..."
+            "You eventually return home."
+            jump daily_home
+

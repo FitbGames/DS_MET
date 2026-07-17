@@ -1,0 +1,364 @@
+python early:
+    ### Creator-Defined Statement for having random dialogue lines  
+    ### https://patreon.renpy.org/three-creator-defined-statements.html#random
+    def parse_random(l):
+        l.require(":")
+        l.expect_eol()
+        blocks = [ ]
+        ll = l.subblock_lexer()
+
+        while ll.advance():
+            with ll.catch_error():
+                weight = 1.0
+                if ll.keyword('weight'):
+                    weight = float(ll.require(ll.float))
+                blocks.append((weight, ll.renpy_statement()))
+        return { "blocks" : blocks }
+
+    def next_random(p):
+        blocks = p["blocks"]
+        # Pick a number between 0 and the total weight.
+        total_weight = sum(i[0] for i in blocks)
+        n = renpy.random.random() * total_weight
+        for weight, block in blocks:
+            if n <= weight:
+                break
+            else:
+                n -= weight
+        return block
+
+    renpy.register_statement("random", parse=parse_random, next=next_random, predict_all=True, block=True)
+
+    def parse_block(l):
+
+        # Looks for a colon and the end of line.
+        l.require(':')
+        l.expect_eol()
+
+        # Parses the block below this statement.
+        block = l.subblock_lexer().renpy_block()
+
+        return { "block" : block }
+
+    # The next function returns the statement to execute next - in this case,
+    # the first statement in the block.
+    def next_block(p):
+        return p["block"]
+
+    renpy.register_statement("block", parse=parse_block, next=next_block, predict_all=True, block=True)
+
+init -1 python:
+    import random
+
+    ### Check if file slot screenshot exists or not
+    def loadable_fs(name, empty=None, page=None):
+        screenshot = renpy.slot_screenshot(str(page)+'-'+str(name))
+        if screenshot is not None:
+            return True
+        return False
+
+    def sanitize_filename(s):
+        return s.replace('[', '(').replace(']', ')').replace('{', '(').replace('}', ')')
+
+    def pov_view():
+        if hasattr(persistent, 'first_person') and persistent.first_person is True:
+            return "You"
+        else:
+            return persistent.player_name
+
+    def end_of_content_check(events):
+        for e in events:
+            if e.important and not e.is_blocked and not e.is_completed:
+                return False
+        return True
+        # return [e.name for e in events if not e.repeatable and not e.is_blocked and e.is_completed for e in events]
+
+    ##### Change main menu title color based on intro #####
+    def get_mm_color(c):
+        return c.get(persistent.mm, "#b96e21")
+
+    ##### ATL-compatible audio #####
+    def play_music(tran, st, at, action, channel, file = None, fadeout = 0.0, fadein = 0.0, volume = 1.0):
+        if action == 'stop':
+            renpy.music.stop(channel = channel, fadeout = fadeout)
+        elif action == 'play':
+            renpy.music.play(filenames = file, channel = channel, fadein = fadein, relative_volume = volume)
+        return None
+
+    # Enables audio playing during ATL tranforms and composite images by currying it
+    atl_play_music = renpy.curry(play_music)
+
+    ### Extend ConditionSwitch to support transitions (credit: Asceai @ lemmasoft)
+    class TransitionConditionSwitch(renpy.Displayable):
+        def __init__(self, transition, *args, **kwargs):
+            super(TransitionConditionSwitch, self).__init__(**kwargs)
+            self.transition = transition
+            self.d = [(args[i], args[i+1]) for i in range(0, len(args), 2)]
+            self.time_reset = True
+            self.old_d = None
+            self.current_d = None
+            self.ta = None
+            self.old_st = 0
+
+        def render(self, width, height, st, at):
+            if self.ta is None:
+                self.per_interact()
+            if self.time_reset:
+                self.time_reset = False
+                self.st = st
+                self.at = at
+                self.old_st = 0
+            if st < self.old_st:
+                self.st, self.at, st, at = 0, 0, 1000000.0, 1000000.0
+            self.old_st = st
+            return renpy.render(self.ta, width, height, st-self.st, at-self.at)
+
+        def per_interact(self):
+            for i, (name, d) in enumerate(self.d):
+                if eval(name):
+                    self.per_interact_change(name,d)
+                    break
+
+        def per_interact_change(self, name, change_to):
+            if change_to is not self.current_d:
+                self.time_reset = True
+                self.old_d = self.current_d
+                self.current_d = change_to
+                if self.old_d is None:
+                    self.old_d = self.current_d
+                self.ta = anim.TransitionAnimation(self.old_d, 0.00, self.transition, self.current_d)
+                renpy.redraw(self, 0)
+
+        def visit(self):
+            return [ self.ta ]
+
+    ##### Get current and previous label #####
+    store.current_label = None
+    def track_labels(name, abnormal):
+        if name.startswith("_"): return
+        store.previous_label = store.current_label
+        store.current_label = name
+
+    def random_event(events, fallback, chance, re = True):
+        """
+        Picks an event at random from a pool of possible ones. Returns fallback event if below chance
+        @param events: A dict of (event: condition) pairs.
+        @param re: A boolean to make rollback preserve the outcome (renpy.random vs python random)
+        """
+        valid_events = [x for x in list(events.keys()) if eval(events[x]) is True]
+        print(len(valid_events))
+        if len(valid_events) > 0:
+            if re:
+                r = renpy.random.random()
+                e = renpy.random.choice(valid_events)
+            else:
+                r = random.random()
+                e = random.choice(valid_events)
+            return fallback if r >= chance else e
+        else:
+            return fallback
+
+    def random_image(events, coeff):
+        """
+        Picks an image at random from a pool of possible ones. Returns None if below threshold
+        Chance is (valid / total) * coeff
+        @param events: A dict of (image: condition) pairs.
+        @param coeff: A Number that controls the probability of an event firing 
+        """
+        valid_events = [x for x in list(events.keys()) if eval(events[x]) is True]
+        if renpy.random.random() <= (len(valid_events) / float(len(events.keys()))) * coeff:
+            return random.choice(valid_events)
+        else:
+            return None
+
+    def is_here_randomly(c):
+        if renpy.random.random() <= c:
+            return True
+        else:
+            return False        
+
+    def register_label_day(label, abnormal):
+        """
+        Automatically keeps track of which in-game day an event has happened for purposes
+        of triggering other events X days after
+        """
+        if not label.startswith("_"): 
+            try:
+                store.day_tracker[label] = store.day
+            except NameError:
+                return
+            return
+
+    def set_label_day(label, day):
+        """
+        manual
+        """
+        if not label.startswith("_"): 
+            try:
+                store.day_tracker[label] = day
+            except NameError:
+                return
+            return
+
+    def get_label_day(label):
+        return store.day_tracker.get(label, None)
+
+
+    def days_passed_since(label):
+        try:
+            return store.day - store.day_tracker.get(label, None)
+        except:
+            return -1
+
+    def update_quests(quest_list):
+        for quest in quest_list:
+            quest.refresh_objectives()
+        return
+
+
+    def check_quests_oob(quest_list):
+        '''
+        Debug function to check if any quest has a current step
+        higher than intended.
+        '''
+        for quest in quest_list:
+            print(f'{quest.name}: current: {quest.current_step}, max: {len(quest.objectives)}')
+        return
+
+    def add_playtime_to_saves(d):
+        h, m = divmod(int(renpy.get_game_runtime()) // 60, 60)
+        d["hours"] = h
+        d["minutes"] = m
+    config.save_json_callbacks.append(add_playtime_to_saves)
+
+    renpy.register_textshader(
+        "gradientglow",
+        variables="""
+            uniform vec4 u__glow_color;    
+            uniform float u__glow_intensity;
+            uniform float u__glow_radius;  
+            uniform vec2 u_model_size;      
+            varying vec2 v__uv;             
+            attribute vec2 a_tex_coord;     
+        """,
+        vertex_300="""  
+            v__uv = a_tex_coord;
+        """,
+        fragment_300="""
+            vec4 text_color = texture2D(tex0, v__uv);
+            vec4 glow_color = vec4(0.0);
+            const float MAX_LOOPS = 100.0;
+            for (float x = 0.0; x <= MAX_LOOPS; x++) {
+                if((u__glow_radius * 2.0) - (x*u__glow_radius*0.25) <= 0.0) break;
+                for (float y = 0.0; y <= MAX_LOOPS; y++) {
+                    if((u__glow_radius * 2.0) - (y*u__glow_radius*0.25) <= 0.0) break;
+                    float offx = u__glow_radius - distance((u__glow_radius * 2.0), x*u__glow_radius*0.25);
+                    float offy = u__glow_radius - distance((u__glow_radius * 2.0), y*u__glow_radius*0.25);
+                    vec2 offset = vec2(offx, offy) / u_model_size;
+                    glow_color += texture2D(tex0, v__uv + offset) * u__glow_color;
+                }
+            }
+
+            glow_color /= (4.0 * u__glow_radius * u__glow_radius);
+            gl_FragColor = text_color + glow_color * u__glow_intensity;
+        """,
+        u__glow_color="#e95700cc",    
+        u__glow_intensity=2.0, #Maybe 2.5-3.0   
+        u__glow_radius=4.0,             
+    )
+
+define config.load_failed_label = 'load_failed'
+
+screen confirm_load_retry():
+    ## Ensure other screens do not get input while this screen is displayed.
+    modal True
+
+    zorder 400
+    style_prefix "confirm"
+
+    add "gui/overlay/confirm.png"
+
+    frame:
+
+        vbox:
+            xalign .5
+            yalign .5
+            spacing 45
+
+            label _('Failed to properly load the save file. Do you want to try and recover it?\n(Repeated failures might be a result of a corrupted save.)'):
+                style "confirm_prompt"
+                xalign 0.5
+
+            hbox:
+                xalign 0.5
+                spacing 150
+
+                textbutton _("Yes") action Function(restore_load, persistent.last_fn)
+                textbutton _("No") action ShowMenu("load")
+
+    ## Right-click and escape answer "no".
+    key "game_menu" action ShowMenu("load")
+
+
+label load_failed:
+    scene black
+    with fade
+    call screen confirm_load_retry
+    return
+
+
+init python:
+    from renpy.compat.pickle import loads
+
+    def load(filename):
+        """
+        :doc: loadsave
+
+        Loads the game state from the save slot `filename`. If the file is loaded
+        successfully, this function never returns.
+        """
+        log_data, signature = renpy.loadsave.location.load(filename)
+        persistent.last_fn = filename
+
+        if not renpy.savetoken.check_load(log_data, signature):
+            return
+            
+        roots, log = loads(log_data)
+        log.unfreeze(roots, label="_after_load")
+
+    renpy.load = load
+
+    def restore_load(filename):
+        log_data, signature = renpy.loadsave.location.load(filename)
+
+        if not renpy.savetoken.check_load(log_data, signature):
+            return
+            
+        roots, log = loads(log_data)
+
+        with open('./save_trace.log', 'w') as output:
+            new_ast = {}
+            for k,v in renpy.game.script.namemap.items():
+                if isinstance(v, renpy.ast.Say):
+                    new_ast[(v.name[0], v.who, v.what)] = v.name
+
+            for idx, item  in enumerate(log.log):
+                print(f'___ Rollback log #{idx} ___', file=output)
+                try:
+                    print(f'Return Stack: {item.context.return_stack}', file=output)
+                    print(f'Current: {item.context.current}, {renpy.game.script.lookup(item.context.current)}. Context OK', file=output)
+                except Exception as e:
+                    print(f'Current: {item.context.current} , failed script lookup with exception {e}', file=output)
+                    try:
+                        _last_statement = (item.context.current[0], item.stores['store']['_last_say_who'], item.stores['store']['_last_say_what'])
+                        if _last_statement in new_ast:
+                            print(f'Match found: Old key {item.context.current}, New key {new_ast[_last_statement]}. Remapping...', file=output)
+                            item.context.current = new_ast[_last_statement]
+                    except:
+                        print(f'Failed to find match. Skipping...', file=output)
+                        pass
+                
+                print(f'Stores: {item.stores}', file=output)
+                print(f'AST ID: {item.identifier}\n', file=output)
+
+        log.unfreeze(roots, label="_after_load")      

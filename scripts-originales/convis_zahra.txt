@@ -1,0 +1,568 @@
+label zahra_conversations:
+    show vz1-5
+    with dissolve
+    menu:
+        "Talk about Kateryna" if m_d6a == True and zahra_talk_1 == False and kitchen_kateryna_introduction == False:
+            $ daily_zahra = True
+            jump z_convi_1
+
+        "Talk about Lord Abrax" if faction_decayed == True and zahra_talk_2 == False:
+            $ daily_zahra = True
+            jump z_convi_2
+
+        "Talk about [S] and the Zone" if m_d5b == True and zahra_talk_3 == False and m_d8a == False:
+            $ daily_zahra = True
+            jump z_convi_3
+
+        "Talk about her sister" (important = True) if ev_zahra_talk_4.is_active:
+            $ daily_zahra = True
+            jump z_convi_4
+
+        "Introduce [F] to the household" (important = True) if m_d12a == True and introduction_fairy == False and shani_zone == False:
+            Z "Say, do you want to introduce [F] to the household?"
+            if fairy_name != renpy.translate_string("Fairy", language = _preferences.language):
+                scene vz1-5c
+                with dissolve
+                W "Wait... [F]?"
+                scene vz1-5cx
+                with dissolve
+                if fairy_h > fairy_b:
+                    Z "Yeah. I'm talking about Fairy. I decided she should have a new name."
+                    scene vz1-5e
+                    with dissolve
+                    Z "The decayed probably gave her that name... And, after all those years in the darkness, she deserves a new start."
+                    scene vz1-5i
+                    with dissolve
+                    W "I see. You're very considerate. Did she like the idea?"
+                    scene vz1-5ix
+                    with dissolve
+                    Z "Yes. She asked me in the first place."
+
+                else:
+                    Z "Yeah. I'm talking about Fairy. I decided to give her a new name."
+                    Z "The decayed probably gave her that name. But she's my slave now, so I gave her a new identity."
+                    scene vz1-5c
+                    with dissolve
+                    W "She is indeed... how did she react?"
+                    scene vz1-5cx
+                    with dissolve
+                    Z "She asked me in the first place. Seems she is used to being renamed."
+
+                scene vz1-5i
+                with dissolve
+                W "Alright then. Yes, we can introduce her to the household. She has come a long way after all."
+                W "I will let everyone know to come outside, okay?"
+                scene vz1-5
+                with dissolve
+                Z "Yes. I don't want to make this too long. But the girls deserve to know more about their new servant."
+                scene black pic
+                with fade
+                "Later..."
+                jump d14g
+
+            else:
+                scene vz1-5c
+                with dissolve
+                W "Now that you mention it, yes. We still have to introduce her to the girls."
+                scene vz1-5i
+                with dissolve
+                W "I think she is very much ready for it. She has come a long way since she first got here."
+                W "I will let everyone know to come outside, okay?"
+                scene vz1-5
+                with dissolve
+                Z "Yes. I don't want to make this too long. But the girls deserve to know more about their new servant."
+                scene black pic
+                with fade
+                "Later..."
+                jump d14g
+
+        "Daily chores" (important = True) if m_d5e == True and zahra_talk_4 == True and daily_zahra == False and m_d7c == False and daily_side_mission == False:
+            show vz1-5fx
+            with dissolve
+            Z "I'm going to see how [S] is doing. Do you need anything?"
+            show vz1-5c
+            with dissolve
+            W "Not now, [persistent.player_name], but I am going to the market later... Could you come with me?"
+            Z "Sure. I'd like to catch up with Igor."
+            W "That's fine. I'll see you shortly then."
+            scene black pic
+            with fade
+            "You and [W] eventually head out..."
+            jump d7c
+
+        "Relax on the terrace" (important = True) if m_d4g == True and m_d2c == True and faction_mutants == False and m_d4b == True and m_d3b == True and daily_main_mission == False:
+            Z "Why don't we take the day off."
+            Z "The weather is nice and we could relax on the terrace."
+            W "That would be nice, husband."
+            $ daily_zahra = True
+            jump d5b_ivy
+        "Relax on the terrace" (important = True) if m_d4g == True and m_d2c == True and m_d5b == False and m_d4b == True and ivy_alive == False and daily_main_mission == False:
+            Z "Why don't we take the day off."
+            Z "The weather is nice and we could relax on the terrace."
+            W "That would be nice, husband."
+            $ daily_zahra = True
+            jump d5b_shani
+
+        "Invite [Ig] and [Ka]" (important = True) if m_d4b == True and m_d5e == False and daily_main_mission == False:
+            Z "It has been a long time since [Ig] visited us."
+            Z "Why don't we invite him and his niece?"
+            scene vz1-2
+            with dissolve
+            W "Lovely idea."
+            W "[A] and I will arrange everything."
+            scene vz1-3
+            with dissolve
+            Z "I will prepare something to eat and drink."
+            Z "Let me know when they arrive."
+            $ daily_zahra = True
+            jump d5e #TODO change standin and sitting (Zahra poses)
+
+        "Go on a date with [W]" (important = True)  if m_d13c == True and m_d16c == False and (day - d13c_day) >= 2:
+            Z "So... about that date we were mentioning before..." #ODO dialogue
+            scene vz1-5d
+            with dissolve
+            W "I was looking forward to you asking..."
+            scene vz1-5e
+            with dissolve
+            Z "What about tonight? I have a place in mind."
+            scene vz1-5f
+            with dissolve
+            W "A surprise? You won't mind me giggling like a little girl, then?"
+            W "I will take a bath then. See you later, my love."
+            scene vz1-5fx
+            with dissolve
+            $ daily_zahra = True
+            jump d16c
+
+        "Invite Igor and his girlfriend" (important = True) if ev_d16b_intro.is_active:
+            $ daily_zahra = True
+            Z "Now that [Ka] has settled in a bit, I'm thinking to invite Igor. Maybe his girlfriend will come along?"
+            scene vz1-5i
+            with dissolve
+            W "Oh, right. We have yet to see the lady your friend got for himself."
+            scene vz1-5ix
+            with dissolve
+            Z "What do you think, can you arrange it?"
+            scene vz1-5i
+            with dissolve
+            W "Sure, leave it to me. I could ask them to come over tomorrow, what do you think?"
+            menu:
+                "Yes, tomorrow is good.":
+                    $ d16b_arrangement = True
+                    scene vz1-5ix
+                    with dissolve
+                    Z "Yes, tomorrow is good."
+                    scene vz1-5i
+                    with dissolve
+                    W "I bet Kateryna is going to be excited."
+
+                "No, let's do it another time.":
+                    Z "Tomorrow is difficult. Let's do it another time."
+                    scene vz1-5f
+                    with dissolve
+                    W "Fine by me. Just let me know then whenever you want me to ask them."
+
+            scene black pic
+            with fade
+            jump daily_home
+
+        "Invite Igor and Savana again" (repeatable = True) if ev_d16b_repeat.is_active:
+            $ daily_zahra = True
+            Z "I want to invite Igor and Savana again. What do you think?"
+            scene vz1-5i
+            with dissolve
+            W "Our afternoon is free today, so we could make it happen."
+            W "I will head over to their house and ask them to come over."
+            scene vz1-5e
+            with dissolve
+            if introduction_emilia == True:
+                Z "I will have Emilia prepare the living room in the meantime."
+            else:
+                Z "I will have [A] prepare the living room in the meantime."
+            scene black pic
+            with fade
+            jump visit_igor
+
+
+
+        "[A]'s punishment" (important = True) if ev_d5g.is_active:
+            $ daily_zahra = True
+            Z "About [A]..."
+            Z "We can't just let it slide."
+            Z "Her arrogance and obsession with attention nearly got her killed."
+            Z "What do you think we should do about it?"
+            scene vz1-2
+            with dissolve
+            W "I'm glad you asked."
+            W "[A] and I have been... talking about this matter."
+            W "I want to scold our [persistent.da] in a manner that she will remember."
+            W "Do you mind joining me?"
+            if persistent.forceplay == False:
+                jump d5g_refuse
+            menu:
+                "\"Lead the way.\"":
+                    Z "Lead the way, [W]. Show me what you have in mind."
+                    W "Please, come with me, [persistent.player_name]."
+                    Z "Sure."
+                    jump d5g
+                
+                "\"Do it without me, this time.\"":
+                    label d5g_refuse:
+                        Z "Do it without me, this time."
+                        W "As you wish, husband. Give me but an hour."
+                        W "Maybe you should visit the library in the meantime, so you don't hear her whimpering."
+                        $ m_d5g = True
+                        $ d5g_day = day
+                        $ d5g_attend_punishment = False
+                        jump daily_home
+
+        "Take a bath" (important = True) if ev_d19h.is_active:
+            $ m_d19h = True
+            $ daily_zahra = True
+            if introduction_emilia == True:
+                Z "Can you tell our maid to prepare a bath? I need some time to relax."
+                W "Of course. Want someone specific to keep you company?"
+                
+            else:
+                Z "I think I will take a bath. I need some time to relax."
+                W "Then I will gladly help prepare it. Want someone specific keep you company?"
+
+            Z "You know me well. But no, not today, I will rest alone." #TODO expressions
+            W "And how do you want the water, warm and cozy, or ice cold from the basement?"
+            Z "Very funny. I will leave that up to you."
+            W "Ice cold it is, then."
+            jump d19h
+
+        "Leave":
+            Z "I have to leave for now."
+            scene vz1-5i
+            with dissolve
+            W "See you later, love."
+            jump daily_home
+
+######## Convis #########
+
+label z_convi_1:
+    $ zahra_talk_1 = True
+    Z "So... I swung by the market, and gave Kateryna that tour of the city I had promised her."
+    scene vz1-5c
+    with Dissolve(0.5)
+    W "She's a cute girl; did you have a good time?"
+    scene vz1-5e
+    with Dissolve(0.5)
+    Z "We did, yes. I think her interest in me goes further than just finding her way in the city, though."
+    scene vz1-5c
+    with Dissolve(0.5)
+    W "Well, she did not make a mystery of that when we first met her, don't you think?"
+    scene vz1-5e
+    with Dissolve(0.5)
+    Z "I guess not; but she's a lot less experienced, and a lot less forward, than she initially appeared."
+    scene vz1-5c
+    with Dissolve(0.5)
+    W "We could invite her to come by more often, if you want."
+    W "I think [A] would like that too. They're the same age, after all."
+    scene vz1-5f
+    with Dissolve(0.5)
+    W "And who knows...maybe you'll get the chance to give her what she's after."
+    scene vz1-5e
+    with Dissolve(0.5)
+    Z "Have I told you that I love you, [W]?"
+    scene vz1-5i
+    with Dissolve(0.5)
+    W "Yes, but I could stand to hear you say it more often."
+    scene vz1-5e
+    with Dissolve(0.5)
+    Z "Well, I do."
+    scene vz1-5f
+    with Dissolve(0.5)
+    W "I know that, you silly man..."
+    scene vz1-5e
+    with Dissolve(0.5)
+    Z "All sillyness aside, Igor is a good friend, and I don't want to offend him, so I won't rush things even though I've had a chat with him about it."
+    scene vz1-5d
+    with Dissolve(0.5)
+    W "You have already?"
+    scene vz1-5e
+    with Dissolve(0.5)
+    Z "It was his doing, actually. I think Kateryna confides in him."
+    Z "That said, I know that he's familiar with our customs, but she is new to these parts, and maybe I am reading her signals wrong."
+    scene vz1-5f
+    with Dissolve(0.5)
+    W "I doubt it, [persistent.player_name]. I think she may be a little shy, but she has a very clear idea of what she wants."
+    scene vz1-5e
+    with Dissolve(0.5)
+    Z "We'll see, I guess."
+    scene vz1-5d
+    with Dissolve(0.5)
+    W "Do you plan to bring another young woman in our family, [persistent.player_name]?"
+    scene vz1-5e
+    with Dissolve(0.5)
+    Z "I don't know yet, my love, I just met the girl. Igor did put that idea on the table, though."
+    Z "Would you oppose me if I did?"
+    scene vz1-5c
+    with Dissolve(0.5)
+    W "You know I would not, [persistent.player_name]. I will say this however: if you want to have your fun with her, you have my support, as always."
+    W "If you like this girl and want something more permanent, allow me to know her a bit better."
+    W "I've only met her once, and if she is to live with us, in whatever capacity and for however long, I would like to be sure she will add value to our House, and not disrupt it."
+    scene vz1-5e
+    with Dissolve(0.5)
+    Z "Your wisdom is as big as your heart, as always. I don't know her enough yet to have made up my mind, but should it come to it, I will listen to your opinion, as in all things."
+    scene vz1-5f
+    with Dissolve(0.5)
+    W "You're a good man, [persistent.player_name]. Stubborn and horny as a goat, but a good man."
+    scene vz1-5e
+    with Dissolve(0.5)
+    Z "I love you too, [W]..."
+    jump zahra_conversations
+
+label z_convi_2:
+    $ zahra_talk_2 = True
+    Z "I wanted to speak with you about something."
+    scene vz1-5g
+    with Dissolve(0.5)
+    W "You look worried."
+    scene vz1-5gx
+    with Dissolve(0.5)
+    Z "Do you remember Master Zosar, my teacher?"
+    scene vz1-5i
+    with Dissolve(0.5)
+    W "Of course I do. You were the disciple of a famous Desert Stalker, before you became a Stalker yourself."
+    W "My own father could not stop bragging about how his son in law was destined for greatness with such a prestigious teacher."
+    W "And the stories you told me, how could I forget?"
+    scene vz1-5e
+    with Dissolve(0.5)
+    Z "I just met him."
+    scene vz1-5b
+    with Dissolve(0.5)
+    W "..."
+    W "That's not.."
+    scene vz1-5a
+    with Dissolve(0.5)
+    Z "Not possible, I know. Still, it is as true as the light of the sun above."
+    scene vz1-5g
+    with Dissolve(0.5)
+    W "How can that be? He left so long ago."
+    W "You told me he was ill and decided to take the Long Walk."
+    scene vz1-5gx
+    with Dissolve(0.5)
+    Z "He's one of them now, one of the decayed."
+    scene vz1-5b
+    with Dissolve(0.5)
+    W "Are you sure? Maybe you just met with a decayed who looks like him."
+    scene vz1-5a
+    with Dissolve(0.5)
+    Z "We spoke at length, and he called me out before I realised it was him."
+    scene vz1-5g
+    with Dissolve(0.5)
+    W "I didn't know decayed really could live that long. I thought those were rumours."
+    scene vz1-5gx
+    with Dissolve(0.5)
+    Z "Well, he's proof that they can."
+    Z "He even changed his name to Lord Abrax and became a leader of the decayed..."
+    Z "And there's more... He knows about [S]."
+    scene vz1-5b
+    with Dissolve(0.5)
+    W "Great sun! Is she, are we in danger?"
+    Z "I don't think so, but it is difficult to say. Zosar has changed a great deal."
+    scene vz1-5h
+    with Dissolve(0.5)
+    W "You must protect [S]!"
+    scene vz1-5hx
+    with Dissolve(0.5)
+    Z "Calm yourself!"
+    Z "[S] is perfectly capable of looking after herself, and some things are out of our hands. But I have no intention to let anyone harm her if I can avoid it."
+    scene vz1-5g
+    with Dissolve(0.5)
+    W "I'm sorry, I spoke out of turn."
+    scene vz1-5gx
+    with Dissolve(0.5)
+    Z "I don't blame you, this is unsettling news for me too."
+    Z "There is more to my encounter with him, but you do not need to worry yourself with the details."
+    Z "I will be careful in my dealings with him."
+    scene vz1-5b
+    with Dissolve(0.5)
+    W "Please, husband. I do not want to lose you, or our [persistent.da]."
+    scene vz1-5a
+    with Dissolve(0.5)
+    Z "You will not, don't worry."
+    jump zahra_conversations
+
+
+label z_convi_3:
+    $ zahra_talk_3 = True
+    scene vz1-5
+    with Dissolve(0.5)
+    Z "[S] is ready, and soon I will receive more information about the new Zone."
+    scene vz1-5g
+    with Dissolve(0.5)
+    W "I know this is how it must be..."
+    scene vz1-5gx
+    with Dissolve(0.5)
+    Z "You're not happy."
+    scene vz1-5h
+    with Dissolve(0.5)
+    W "Can you blame me?"
+    W "You're sending her to her death!"
+    scene vz1-5hx
+    with Dissolve(0.5)
+    Z "Don't say that. She has been trained by the best."
+    Z "She is strong: she will survive."
+    scene vz1-5h
+    with Dissolve(0.5)
+    W "So are most of the men and women who enter a Zone. How many of them survive to become Stalkers?"
+    scene vz1-5hx
+    with Dissolve(0.5)
+    Z "..."
+    Z "You are not wrong, but... do you not trust our [persistent.da]?"
+    scene vz1-5g
+    with Dissolve(0.5)
+    W "Don't try that with me, [persistent.player_name], you know I trust her implicitly, but will that save her life?"
+    scene vz1-5gx
+    with Dissolve(0.5)
+    Z "No, it won't. What will is the years of training, preparation, learning, fighting... and luck."
+    Z "I don't deny that luck plays a part in this, [W]."
+    scene vz1-5g
+    with Dissolve(0.5)
+    W "Do you understand why I am worried? Why I fear for my little girl?"
+    scene vz1-5gx
+    with Dissolve(0.5)
+    Z "Your little girl, {i}our{/i} little girl, is a woman now, [W]."
+    Z "She has grown into an amazing, strong, talented and intelligent woman."
+    Z "Do not rob her of that. Do not allow your doubts to show, to weigh her down."
+    Z "When we're out there, doing what must be done, doubt is the first enemy, and often the most lethal one."
+    Z "There are threats that normal people can not even imagine. And yes, the emissions, the mutants, bandits..."
+    Z "[S] will have to be prepared. And she will have to be open minded, to face whatever anomalies await her."
+    Z "Doubt however, will kill you much faster, and when you least expect it."
+    Z "I'm asking you to not show doubt to [S]."
+    scene vz1-5g
+    with Dissolve(0.5)
+    W "I am sorry. You are right."
+    W "I understand what you mean... I will try to not think about it."
+    scene vz1-5gx
+    with Dissolve(0.5)
+    menu:
+        "Make peace":
+            Z "I did not mean to shout at you, [W]. I do not want to lose our girl either."
+            scene vz1-5i
+            with Dissolve(0.5)
+            W "Never, my love. I know your heart is in the right place, and I know this is all [S] ever wanted."
+            W "I know you have done this all for her."
+            scene vz1-5
+            with Dissolve(0.5)
+            Z "It's been a long road, but the end is near."
+            scene vz1-5c
+            with Dissolve(0.5)
+            W "You realise she only started on this path because she wanted to make you proud, right?"
+            scene vz1-5
+            with Dissolve(0.5)
+            Z "The thought has occurred to me, but I think she has grown out of that notion."
+            Z "She knows I would not hold it against her if she decided to aim for something else."
+            scene vz1-5i
+            with Dissolve(0.5)
+            W "I hope you're right, [persistent.player_name], for both of us."
+            scene vz1-5
+            with Dissolve(0.5)
+            Z "I know I am. Let's try to put it aside, now."
+            jump zahra_conversations
+            
+        "Remind her of what's at stake":
+            Z "Listen, [W]."
+            Z "You have forgotten your place."
+            Z "You're the wife of a Stalker, and [S] will soon become one."
+            scene vz1-5ax
+            with Dissolve(0.5)
+            Z "I know you're afraid. So am I, to be true."
+            scene vz1-5a
+            with Dissolve(0.5)
+            W "Then you know why I struggle so much with this."
+            scene vz1-5ax
+            with Dissolve(0.5)
+            Z "You, we must not show this to her though."
+            Z "She expects our support, not to see doubt in our eyes."
+            scene vz1-5g
+            with Dissolve(0.5)
+            W "It's not easy. She's our little girl."
+            scene vz1-5gx
+            with Dissolve(0.5)
+            Z "I know you worry, when I go out there, and I know you put up a brave face when you see me out."
+            Z "Please, find it in yourself to do the same for our [persistent.da], especially on her first outing."
+            Z "Give her the same respect you give me, in this matter."
+            scene vz1-5g
+            with Dissolve(0.5)
+            W "I will try my best."
+            jump zahra_conversations
+
+label z_convi_4:
+    $ zahra_talk_4 = True
+    scene vz1-5i
+    with Dissolve(0.5)
+    W "I met an old friend of mine at the market today, and she told me I should talk to my sister."
+    scene vz1-5ix
+    with Dissolve(0.5)
+    Z "Is something wrong with Rabiah?"
+    scene vz1-5i
+    with Dissolve(0.5)
+    W "My friend wouldn't say. She told me it would be better if I spoke with her directly, but that there were rumours."
+    scene vz1-5ix
+    with Dissolve(0.5)
+    Z "How many children do they have now?"
+    scene vz1-5f
+    with Dissolve(0.5)
+    W "It's been a few years now, since she's had the twins. She told me they would be her last."
+    W "I think her exact words were something like: I'd rather not have sex ever again!"
+    scene vz1-5fx
+    with Dissolve(0.5)
+    Z "I think we can both agree that that's a big fat lie."
+    scene vz1-5f
+    with Dissolve(0.5)
+    W "Ha! Yes, I suppose so. But still, she was exhausted."
+    W "Young children will do that to you. Especially if you start having them later."
+    scene vz1-5fx
+    with Dissolve(0.5)
+    Z "Well, it wasn't for lack of trying, that she didn't have them any sooner."
+    scene vz1-5c
+    with Dissolve(0.5)
+    W "I remember. I've seen you often enough."
+    scene vz1-5cx
+    with Dissolve(0.5)
+    Z "I know you're not jealous. Don't pretend to be."
+    scene vz1-5c
+    with Dissolve(0.5)
+    W "You're no fun! Then again, I guess I did steal you from her."
+    scene vz1-5d
+    with Dissolve(0.5)
+    Z "Is that how you remember things going? Because my memory is a bit different."
+    scene vz1-5i
+    with Dissolve(0.5)
+    W "That's why you married me, so that when you're old and your mind is all fogged up, I will be there to tell you how things really happened."
+    scene vz1-5
+    with Dissolve(0.5)
+    Z "Let's hope that day stays far away.... Anyway, your sister..."
+    scene vz1-5i
+    with Dissolve(0.5)
+    W "Yes, I was thinking we should invite her for dinner soon."
+    W "It really has been too long since I last saw her."
+    scene vz1-5ix
+    with Dissolve(0.5)
+    Z "This house is yours as much as it is mine. Do as you please."
+    scene vz1-5c
+    with Dissolve(0.5)
+    W "Why thank you, Master [persistent.player_name], you're too kind."
+    scene vz1-5cx
+    with Dissolve(0.5)
+    Z "Don't mock me, woman, or I shall have to spank you!"
+    scene vz1-5f
+    with Dissolve(0.5)
+    W "Is that a promise?"
+    Z "..."
+    W "However, I am telling you this because I would like you to be there too."
+    scene vz1-5fx
+    with Dissolve(0.5)
+    Z "I see. Well, I guess the house is large enough to invite her entire tribe over."
+    scene vz1-5f
+    with Dissolve(0.5)
+    W "I shall try to see if they can leave the children at home for a night."
+    scene vz1-5fx
+    with Dissolve(0.5)
+    Z "You do that, yes. And let me know when they will be here."
+    jump zahra_conversations

@@ -1,0 +1,144 @@
+init python:
+    class ReplayScene(object):
+        def __init__(self, title, cover, label, parent = [], category = [], unlocked = False, arguments = {}, hint = '', hidden = False):
+            self.parent = parent
+            self.category = category
+            self.title = title
+            self.cover = cover
+            self.label = label
+            self.arguments = arguments
+            self.hint = hint
+            self.hidden = hidden
+            replay_scenes.append(self)
+
+
+        @property
+        def is_hidden(self):
+            try:
+                return eval(str(self.hidden))
+            except NameError:
+                raise
+            except:
+                raise SyntaxError(str(self.hidden))
+
+define replay_categories = {
+    'Household': ['Zahra', 'Shani', 'Ain', 'Emilia', 'Fairy'],
+    'Zetans': ['Queen', 'Kateryna', 'Nadia', 'Rabiah', 'Others'],
+    'Mutants': ['Ivy','Fangs', 'Krait', 'Others'],
+    'Raiders': ['Asha', 'Kyra', 'Asani', 'Others']
+}
+
+define character_conditions = {
+    'Kyra': persistent.met_kyra,
+    'Fairy': persistent.met_fairy,
+    'Ivy': persistent.met_ivy,
+    'Emilia': persistent.met_emilia,
+    'Fangs': persistent.met_fangs,
+    'Asani': persistent.met_asani,
+    'Nadia': persistent.met_nadia,
+    'Krait': persistent.met_krait
+}
+
+define custom_names = {
+    'Zahra': persistent.W_name,
+    'Ain': persistent.A_name,
+    'Shani': persistent.S_name
+}
+
+define replay_scenes = []
+
+# Day 1
+define replay1 = ReplayScene(parent = ['Raiders'], category = ['Asha'], title = _('Wild encounter'), cover = 'images/Days/day1/SceneA/d1a-74.png', label = 're_d1a_asha', hint = _('Enjoy the Raider after defeating her during the introduction.'), hidden = 'not persistent.forceplay')
+define replay2 = ReplayScene(parent = ['Household'], category = ['Zahra', 'Ain'], title = _('Coming home'), cover = 'images/Days/day1/SceneE/d1e-5.png', label = 're_zahra1', hint = _('Progress the game to unlock this scene.'))
+# Day 2
+define replay3 = ReplayScene(parent = ['Household'], category = ['Ain'], title = _('Tasty dessert'), cover = 'images/Days/day2/SceneF/d2f-11.png', label = 're_d2f4', hint = _('Progress the game to unlock this scene.'))
+# Day 3
+define replay4 = ReplayScene(parent = ['Household'], category = ['Emilia', 'Zahra'], title = _('Introduction'), cover = 'images/Days/day3/SceneD/d3d-27.png', label = 're_d3d22', hint = _('Accept Emilia when offered and visit the kitchen.'))
+# Day 4
+define replay5 = ReplayScene(parent = ['Raiders'], category = ['Kyra'], title = _('Fierce guest'), cover = 'images/Days/day4/SceneA/d4a-3x.png', label = 're_d4a3', hint = _('Save the raider from the Decayed and then visit her in the basement.'))
+define replay6 = ReplayScene(parent = ['Zetans'], category = ['Others'], title = _('On the spot'), cover = 'images/Days/day4/SceneD/d4d-14.png', label = 'd4d', hint = _('Progress the game to unlock this scene.'))
+# Day 5
+define replay7 = ReplayScene(parent = ['Mutants'], category = ['Fangs'], title = _('Recruitment test'), cover = 'images/Days/day5/SceneB/d5b-79x-10.png', label = 'd5b_fangs_fight_p4', hint = _('Convince Ivy to lead you to the tower.'), arguments = {'d5b_queen_kissed_shani':False})
+define replay8 = ReplayScene(parent = ['Household', 'Zetans'], category = ['Ain', 'Kateryna', 'Emilia'], title = _('Sharing is caring'), cover = 'images/Days/day5/SceneE/d5e-26x.png', hint = _('Have your friend Igor visit you at home.'), label = 're_d5e12', arguments = {'emilia_joined':True, "emilia_love":1, "emilia_sub":0})
+define replay9 = ReplayScene(parent = ['Household'], category = ['Ain', 'Zahra'], title = _('Punishment'), cover = 'images/Days/day5/SceneG/d5g-36.png', label = 'd5g', hint = _('Allow your wife to punish [A] after the market incident.'), arguments = {'m_d4a':True, 'd4a_kyra_fucked':True})
+define replay10 = ReplayScene(parent = ['Raiders'], category = ['Asha', 'Kyra'], title = _('Knowing your place'), cover = 'images/Days/day5/SceneC/d5c-134.png', label = 're_d5c_asha', hint = _('Confront Asha after claiming back their outpost.'), arguments = {'d1a_asha_dominated':True})
+define replay11 = ReplayScene(parent = ['Raiders'], category = ['Asha', 'Kyra'], title = _('New toy'), cover = 'images/Days/day5/SceneC/d5c-245.png', label = 're_d5c180', hint = _('Confront Asha after claiming back their outpost.'), arguments = {'d1a_asha_dominated':True})
+
+define replay12 = ReplayScene(parent = ['Household'], category = ['Fairy'], title = _('Not a fairytale'), cover = 'images/Days/day5/SceneF/d5f-62.png', label = 'd5f_fairy', hint = _('Meet Kinzi & Kosey alive in the introduction and keep them alive, then visit the Decayed.'))
+# Day 6
+define replay13 = ReplayScene(parent = ['Household', 'Zetans'], category = ['Kateryna'], title = _('Foreign affairs'), cover = 'images/Days/day6/SceneA/d6a-35.png', label = 're_d6a13', hint = _('Progress the game to unlock this scene.'))
+define replay14 = ReplayScene(parent = ['Raiders'], category = ['Asani'], title = _('Drive by'), cover = 'images/Days/day6/SceneB/d6b-63.png', label = 're_d6b53', hint=_("Don't kill Asani in the introduction, then progress the game."), arguments = {'d1a_asha_dominated':True})
+# Day 7
+define replay15a = ReplayScene(parent = ['Zetans'], category = ['Queen'], title = _('A royal offer'), cover = 'images/Days/day7/SceneA/d7a-148.png', label = 're_d7a141', hint=_("Kneel before the Queen and don't act out, then progress the game."))
+define replay15b = ReplayScene(parent = ['Zetans'], category = ['Queen'], title = _('Prisoner'), cover = 'images/Days/day7/SceneA/d7a-226.png', label = 're_d7a217', hint=_('Lose your temper before the Queen, then progress the game.'), arguments = {'d5d_deserved_torture': False})
+define replay16 = ReplayScene(parent = ['Zetans'], category = ['Nadia'], title = _('Alley adventures'), cover = 'images/Days/day7/SceneC/d7c-67.png', label = 'd7c66', hint=_('Visit your wife in the bedroom and arrange a meeting with your sister-in-law.'))
+# Day 8
+define replay17 = ReplayScene(parent = ['Household'], category = ['Shani'], title = _('Oasis night'), cover = 'images/Days/day8/SceneA/d8a-222.png', label = 're_d8a174', hint=_('Show interest in [S] at the oasis.'))
+define replay18 = ReplayScene(parent = ['Mutants'], category = ['Fangs'], title = _('The man she needs'), cover = 'images/Days/day8/SceneB/d8b-55.png', label = 're_d8b17', hint=_('Tell Fangs that you will help the mutants.'))
+# Day 9
+define replay19 = ReplayScene(parent = ['Zetans'], category = ['Others'], title = _('Public servant'), cover = 'images/Days/day9/SceneC/d9c-18.png', label = 're_d9c23', hint=_('Keep the girl who tried to kidnap [A] alive.'), arguments = {'thug_humiliated':False, 'thug_praised':False, 'd1a_asha_dominated':True, 'asha_knocked_out':True})
+# Day 10
+define replay20 = ReplayScene(parent = ['Mutants'], category = ['Fangs', 'Others'], title = _('Team building'), cover = 'images/Days/day10/SceneA/d10a-110.png', label = 're_d10a86', hint=_('Take Mantis with you.'))
+define replay21 = ReplayScene(parent = ['Mutants'], category = ['Others'], title = _('Breeding the Queen'), cover = 'images/Days/day10/SceneA/d10a-231.png', label = 'd10a197', hint=_('Leave Mantis behind.'))
+define replay22 = ReplayScene(parent = ['Raiders'], category = ['Asha', 'Kyra'], title = _('Victory lap'), cover = 'images/Days/day10/SceneB/d10b-200.png', label = 'd10b198', hint=_('Take over the overpass settlement.'), arguments = {'asha_knocked_out':True})
+# Day 11
+define replay23 = ReplayScene(parent = ['Raiders'], category = ['Others'], title = _('Spoils of war'), cover = 'images/Days/day11/SceneC/d11c-21.png', label = 're_d11c19', hint=_("Take over the overpass settlement and enjoy the General's sister."), hidden = 'not persistent.forceplay')
+define replay24 = ReplayScene(parent = ['Mutants'], category = ['Ivy'], title = _('Night bath'), cover = 'images/Days/day11/SceneA/d11a-97.png', label = 'd11a70', hint=_('Visit Ivy to her hideout.'))
+define replay25 = ReplayScene(parent = ['Household'], category = ['Zahra'], title = _('Amour nocturne'), cover = 'images/Days/day11/SceneD/d11d-10.png', label = 're_d11d', hint=_('Visit [W] in the balcony while [S] is in the Zone.'))
+define replay26 = ReplayScene(parent = ['Household', 'Zetans'], category = ['Zahra', 'Ain', 'Kateryna'], title = _('House party'), cover = 'images/Days/day11/SceneE/d11e-99.png', hint=_('Visit Kateryna and Igor.'), label = 'd11e_door_rings')
+# Day 12
+define replay27 = ReplayScene(parent = ['Household'], category = ['Fairy'], title = _('Gratitude'), cover = 'images/Days/day12/SceneA/d12a-26.png', label = 're_d12a18_h', hint=_('Treat Fairy as well as you can.'), arguments = {'fairy_h': 1, 'fairy_b': 0})
+define replay28 = ReplayScene(parent = ['Household'], category = ['Fairy'], title = _('Appreciation'), cover = 'images/Days/day12/SceneA/d12a-49.png', label = 're_d12a18_n', hint=_('Treat Fairy decently.'), arguments = {'fairy_h': 0, 'fairy_b': 1})
+define replay29 = ReplayScene(parent = ['Household'], category = ['Fairy', 'Emilia'], title = _('Cleaning service'), cover = 'images/Home/Basement/Fairy/bf-187.png', label = 're_fairy_bath', hint=_('Have Emilia give Fairy a bath.'), arguments = {'emilia_love': 0, 'emilia_sub': 1, 'fairy_h': 0, 'fairy_b': 1})
+define replay30 = ReplayScene(parent = ['Zetans'], category = ['Nadia'], title = _('Haute couture'), cover = 'images/World/Family/Rooms/Nadia/vfn-153.png', label = 're_vfn145', hint=_('Have Nadia show off her outfits to you.'))
+define replay31 = ReplayScene(parent = ['Zetans'], category = ['Nadia'], title = _('Caught in the act'), cover = 'images/World/Family/Rooms/Nadia/vfn-251.png', label = 're_vfn224', hint=_('Have sex with Nadia in her room.'))
+define replay32 = ReplayScene(parent = ['Household', 'Zetans'], category = ['Zahra', 'Rabiah'], title = _('Egotistical'), cover = 'images/World/Family/Rooms/Nadia/vfn-180.png', label = 'vfn_167', hint=_('Tell Nadia a story about your past with Rabiah.'))
+define replay33 = ReplayScene(parent = ['Household', 'Zetans'], category = ['Zahra', 'Rabiah'], title = _('Supportive sister'), cover = 'images/World/Family/Rooms/Nadia/vfn-209.png', label = 'vfn205', hint=_('Tell Nadia yet another story about your past.'))
+define replay34 = ReplayScene(parent = ['Household'], category = ['Ain', 'Emilia'], title = _('Little queen'), cover = 'images/Days/day12/SceneB/d12b-2.png', label = 're_d12b', hint=_("Progress Emilia's story."))
+define replay35 = ReplayScene(parent = ['Household'], category = ['Ain'], title = _('Morning routine'), cover = 'images/Days/day12/SceneC/d12c-14.png', label = 'd12c', hint=_('Progress the game to unlock this scene.'))
+# Day 13
+define replay36 = ReplayScene(parent = ['Household'], category = ['Ain', 'Shani', 'Zahra'], title = _('Waited long enough'), cover = 'images/Days/day13/SceneG/d13g-40.png', label = 're_d13g13', hint=_('Romance [S] before the Zone and see the event after her return from her perspective.'))
+define replay37 = ReplayScene(parent = ['Household'], category = ['Ain', 'Shani', 'Zahra'], title = _('Reunion'), cover = 'images/Days/day13/SceneH/d13h-22.png', label = 're_d13h16', hint=_('Romance [S] before the Zone, then wait for her return.'))
+define replay38 = ReplayScene(parent = ['Household'], category = ['Shani'], title = _("It can't be helped"), cover = 'images/Days/day13/SceneK/d13k-31.png', label = 're_d13k13', hint=_('Finish the apartment event as [S] in the Zone, then visit her room after she returns.'), arguments = {'shani_romance': True})
+define replay39 = ReplayScene(parent = ['Household', 'Zetans'], category = ['Shani', 'Queen'], title = _('Making her jealous'), cover = 'images/Days/day13/SceneL/d13l-113.png', hint=_('Romance [S] and visit the Queen in the thermae together.'), label = 're_d13l63')
+# Day 14
+define replay40 = ReplayScene(parent = ['Household', 'Zetans'], category = ['Kateryna', 'Zahra'], title = _('Mating season'), cover = 'images/Days/day14/SceneA/d14a-135.png', label = 're_d14a85', hint=_('Introduce Kateryna to the household.'), arguments = {'d14a_zahra_blowjob': False})
+define replay41 = ReplayScene(parent = ['Raiders'], category = ['Asani'], title = _('Intimate strangers'), cover = 'images/Days/day14/SceneB/d14b-25.png', label = 're_d14b20', hint=_('Visit Asani again.'))
+define replay42 = ReplayScene(parent = ['Raiders'], category = ['Others'], title = _('Therapy session'), cover = 'images/World/Raiders/Settlement/Trailer/rst-28.png', label = 're_rst1a', hint=_('Have the trailer woman in the overpass become a therapist, then visit her.'))
+define replay43 = ReplayScene(parent = ['Raiders'], category = ['Others'], title = _('Trailer trash'), cover = 'images/World/Raiders/Settlement/Trailer/rst-71.png', label = 're_rst1b', hint=_('Turn the trailer woman in the overpass into a prostitute, then visit her.'))
+define replay44 = ReplayScene(parent = ['Zetans'], category = ['Others'], title = _('Regent benefits'), cover = 'images/World/Palace/Planning Room/pp-22.png', label = 're_pp17', hint=_('Help the Queen with her personal tasks and accept her reward.'), arguments = {'pp_1_slave_denied': False})
+# Day 15
+define replay45 = ReplayScene(parent = ['Household', 'Zetans'], category = ['Ain', 'Nadia'], title = _('Pigtails and Curls'), cover = 'images/Days/day15/SceneA/d15a-157.png', label = 're_d15a73', hint=_('Wait for Nadia and Rabiah to visit your home.'))
+define replay46 = ReplayScene(parent = ['Household'], category = ['Shani'], title = _('Partners in cream'), cover = 'images/Days/day15/SceneB/d15b-89.png', label = 're_d15b12', hint=_('Romance [S] before the Zone and wait for her return.'))
+# Day 16
+define replay47 = ReplayScene(parent = ['Zetans'], category = ['Kateryna'], title = _('Forbidden fruit'), cover = 'images/Days/Day16/SceneB/d16b-54.png', label = 're_d16b35', hint=_("Invite Igor to your home after Kateryna's introduction to house."), arguments = {'kat_babywish': True, 'kateryna_pregnant':True})
+define replay48 = ReplayScene(parent = ['Zetans'], category = ['Others'], title = _('Waiting room'), cover = 'images/Days/Day16/SceneA/d16a-32.png', label = 're_d1620', hint=_('Visit the Queen after consoling her in her chambers.'), arguments = {'d16a_talia_used': True})
+define replay49 = ReplayScene(parent = ['Zetans'], category = ['Others'], title = _('Trusted teacher'), cover = 'images/Days/Day16/SceneA/d16a-321.png', label = 're_d16a315', hint=_('Help Lirah and support her decision.'))
+define replay50 = ReplayScene(parent = ['Zetans'], category = ['Others'], title = _('Duty above all'), cover = 'images/Days/Day16/SceneA/d16a-197.png', label = 're_d16a162', hint=_('Help Lirah and convince her to remain a guard.'))
+define replay51 = ReplayScene(parent = ['Zetans'], category = ['Others'], title = _('Tag team'), cover = 'images/Days/Day16/SceneA/d16a-492.png', label = 're_d16a9', hint=_('Convince Lirah to remain a guard and visit the palace two times afterwards.'))
+define replay52 = ReplayScene(parent = ['Household'], category = ['Zahra'], title = _('Anniversary date'), cover = 'images/Days/Day16/SceneC/d16c-210.png', label = 're_d16c194', hint=_('Go on a date with your wife.'))
+define replay53 = ReplayScene(parent = ['Household', 'Zetans'], category = ['Zahra', 'Others'], title = _('Straight from the tap'), cover = 'images/Days/Day16/SceneC/d16c-84.png', label = 're_d16c81', hint=_("Go on a date with your wife and accept the waitress' offer."))
+define replay54 = ReplayScene(parent = ['Zetans'], category = ['Others'], title = _('Five star service'), cover = 'images/Days/Day16/SceneC/d16c-140.png', label = 're_d16c137', hint=_('Go on a date with your wife and tell the waitress to serve the customers.'), hidden = 'not persistent.sharing')
+define replay55 = ReplayScene(parent = ['Zetans'], category = ['Queen'], title = _("The emperor's new clothes"), cover = 'images/World/Palace/Bedroom/pb-94.png', label = 're_pb79', hint=_('Talk to the Queen after the second arena event.'))
+# Day 18
+define replay56 = ReplayScene(parent = ['Household'], category = ['Zahra', 'Emilia'], title = _('Gentle touch'), cover = 'images/Days/Day18/SceneD/d18d-98.png', label = 're_d18d7', hint=_('Check on Emilia in the bedroom'), arguments = {'emilia_love': 1, 'emilia_sub': 0})
+define replay57 = ReplayScene(parent = ['Household', 'Zetans'], category = ['Ain', 'Others'], title = _('Jewel of the desert'), cover = 'images/Days/Day18/SceneB/d18b-57.png', label = 're_d18b56', hint=_("Take [A] to the slave market and explore the various goods"))
+define replay58 = ReplayScene(parent = ['Zetans'], category = ['Others'], title = _('Nothing unusual'), cover = 'images/Days/Day18/SceneB/d18b-87.png', label = 're_d18b83', hint=_("Take [A] to the slave market and explore the various goods"), hidden = 'not persistent.sharing')
+define replay59 = ReplayScene(parent = ['Zetans'], category = ['Others'], title = _('Family business'), cover = 'images/Days/Day18/SceneB/d18b-141.png', label = 're_d18b140', hint=_("Take [A] to the slave market and explore the various goods"), hidden = 'not persistent.forceplay')
+define replay60 = ReplayScene(parent = ['Zetans'], category = ['Others'], title = _('Quality control'), cover = 'images/Days/Day18/SceneB/d18b-180x-12.png', label = 're_d18b180', hint=_('Suggest that the twins spend more time together during the visit to the slave market with [A]'), hidden = 'not persistent.forceplay and persistent.sharing')
+define replay61 = ReplayScene(parent = ['Household'], category = ['Ain'], title = _('Primal instict'), cover = 'images/Days/Day18/SceneB/d18b-241.png', label = 're_d18b228', hint=_("Have fun with [A] after exploring the slave market"), arguments = {'introduction_kateryna': True, 'introduction_fairy': True})
+define replay62 = ReplayScene(parent = ['Zetans'], category = ['Queen'], title = _('Struggle & submission'), cover = 'images/Days/Day18/SceneF/d18f-92.png', label = 're_d18f42', hint=_("Progress the Queen's quest after leaving her flustered in her bedroom. (Requires romanced Queen)"))
+define replay63 = ReplayScene(parent = ['Mutants'], category = ['Fangs', 'Krait'], title = _('Hands off'), cover = 'images/Days/Day18/SceneG/d18g-40.png', label = 're_d18g1', hint=_('Sleep at the mutants base after meeting Krait at the gym (Requires romanced Fangs)'))
+# Day 19
+define replay64 = ReplayScene(parent = ['Household'], category = ['Shani'], title = _('Steam release'), cover = 'images/Days/Day19/SceneH/d19h-55.png', label = 're_d19h2', hint=_('Let [S] stay while you are having a bath'))
+define replay65 = ReplayScene(parent = ['Raiders'], category = ['Kyra'], title = _('On the lookout'), cover = 'images/Days/Day19/SceneG/d19g-29.png', label = 're_d19g18', hint=_('Approach Kyra while she\'s on the tower'), arguments = {'d5c_misk_cumshot': True})
+define replay66 = ReplayScene(parent = ['Household', 'Zetans'], category = ['Shani', 'Queen'], title = _('Team effort'), cover = 'images/Days/Day19/SceneF/d19f-92.png', label = 're_d19f34', hint=_("Enjoy the first night during the Elder's hideout quest together"))
+# Day 20
+define replay67 = ReplayScene(parent = ['Household'], category = ['Ain', 'Zahra'], title = _('Bedroom massage'), cover = 'images/Days/Day3/SceneA/d3a-5.png', label = 'd3a', hint=_("Visit [W]'s room some time after the prologue."))
+define replay68 = ReplayScene(parent = ['Household'], category = ['Shani'], title = _('Ignore their words'), cover = 'images/Days/Day20/SceneA/d20a-100.png', label = 'd20a113', hint=_("Give in to the bandits demands during the Elder's hideout quest."), hidden = 'not persistent.forceplay or not persistent.sharing')
+define replay69 = ReplayScene(parent = ['Household'], category = ['Shani'], title = _('Her new role (bad end)'), cover = 'images/Days/Day20/SceneA/d20a-5.png', label = 're_d20a156', hint=_("Give in to the bandits demands and fail the escape during the Elder's hideout quest."), arguments = {'d20a_shani_blowjob': True}, hidden = 'not persistent.forceplay or not persistent.sharing')
+define replay70 = ReplayScene(parent = ['Household'], category = ['Ain', 'Shani'], title = _('Double trouble'), cover = 'images/Days/Day20/SceneC/d20c-38.png', label = 'd20c', arguments = {'shani_romance': True}, hint=_("Visit [A]'s room some time after returning from Elder's hideout quest."))
+define replay71 = ReplayScene(parent = ['Mutants'], category = ['Others'], title = _('Stealing pepper'), cover = 'images/Days/Day20/SceneD/d20d-37.png', label = 're_d20d25', hint=_('See Pepper at the mission table after having completed her examinations')) #TODO add or remove dots everywhere
+define replay72 = ReplayScene(parent = ['Zetans'], category = ['Others'], title = _('Eyes of Hathor'), cover = 'images/World/Temple/Isra/ti-18.png', label = 'temple_isra', hint=_('Visit Isra at the Temple.'))
+# Day 21
+define replay73 = ReplayScene(parent = ['Mutants'], category = ['Ivy'], title = _('Timeless night'), cover = 'images/Days/Day21/SceneB/d21b-64.png', label = 'red21b41', hint=_("Follow [I]'s quest line."))

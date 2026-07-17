@@ -1,0 +1,259 @@
+label bunker_overview:
+    if zone_read_note == False:
+        if m_d11b == True:
+            show d10c-51x-2 # artifact + note
+            with fade
+        else:
+            show d10c-51 # note
+            with fade
+    else:
+        if m_d11b == True:
+            show d10c-51x-3 # artifact
+            with fade
+        else:
+            show d10c-51x # none
+            with fade
+    if not renpy.music.is_playing():
+        play music "audio/music/zone/zone ambience.mp3" fadein 3
+    call screen bunker_overview
+
+label explore_bunker:
+    if zone_read_note == False:
+        if m_d11b == True:
+            show d10c-51x-2
+            with fade
+        else:
+            show d10c-51
+            with fade
+    else:
+        if m_d11b == True:
+            show d10c-51x-3
+            with fade
+        else:
+            show d10c-51x
+            with fade
+    menu:
+        "Examine the mysterious device" if bunker_device == False and m_d11b == True:
+            $ bunker_device = True
+            scene d10c-51x-4
+            with fade
+            "The object glows bright, a greenish hue..."
+            St "I never knew such things existed. I wonder what they were manufacturing, what this was for..."
+            St "The note called this the \"EPB 11\"...apparently."
+            scene d10c-51x-5
+            with dissolve
+            St "But what is it for exactly? From the notes I found, I think it integrates with a station, for something called a \"Horus\" System. What does the old god of the sky have to do with all this?"
+            St "I wonder what [persistent.dad] will think of this... and of this \"scorched earth project\" that was also mentioned..."
+            St "What if it has something to do with the red mist in Old Cairo?"
+            jump explore_bunker
+
+        "Examine the weapon" if bunker_crossbow == False:
+            $ bunker_crossbow = True
+            scene d10c-55
+            play sound "audio/sounds/actions/wooden steps.mp3"
+            with slowfade
+            if zone_read_note == False:
+                St "What is this... a crossbow?"
+            else:
+                St "That's the crossbow he wrote about..."
+            scene d10c-56
+            with fade
+            St "The strings seem intact... you're an old one, but I'm sure you pack a punch..."
+            St "The frame is solid. It's truly been well cared for."
+            St "I wonder where they found it, or if they had it custom made. If what I know about crossbows is true, this would be a powerful weapon in anyone's hands."
+            scene d10c-57
+            with dissolve
+            St "I wish I knew how to use it... but no, Zeta insists on only using bows..."
+            if zone_read_note == True:
+                St "I should take it home, clean it up and start training with it."
+                St "Sair and his father are not going to need it anymore."
+                scene d10c-58
+                with dissolve
+                St "Maybe Mandisa can help me figure out how it works."
+                St "If anyone can teach me how to use these things, it's her."
+            if zone_read_note == False:
+                show d10c-51
+                with fade
+            else:
+                show d10c-51x
+                with fade
+            jump explore_bunker
+
+        "Look outside" if bunker_outside == False:
+            $ bunker_outside = True
+            scene d10c-59
+            play sound "audio/sounds/actions/wooden steps.mp3"
+            with slowfade
+            S "..."
+            St "The weather is... weird, chill like at night, even in broad daylight."
+            St "Between all the emissions, the clouds don't seem to clear up."
+            scene d10c-60
+            play sound "audio/sounds/environment/desert wind.mp3" fadein 1.5
+            with dissolve
+            St "Is the habitat real, or am I just looking at an echo of the past? If it is, would it be sustainable outside a Zone?"
+            St "Was this what the region originally looked like, or is this vegetation migrated from someplace else?"
+            St "I have so many questions... I've studied these places, read [persistent.dad]'s journals."
+            St "I received some good answers from my teachers, yet, experiencing this in person is..."
+            St "..."
+            St "There's got to be a meaning to all of this, a reason for these things to happen..."
+            window hide
+            stop sound fadeout 2
+            if zone_read_note == False:
+                show d10c-51
+                with fade
+            else:
+                show d10c-51x
+                with fade
+            jump explore_bunker
+
+        "Look at the written notes" if bunker_note == False:
+            jump written_notes
+
+        "go back":
+            jump bunker_overview
+
+label leave_bunker:
+    St "Time to head out..."
+    scene black pic
+    stop music fadeout 3
+    play sound "audio/sounds/actions/wooden steps.mp3"
+    with slowfade
+    scene d10c-65x
+    play music ["<silence 2>", "audio/music/zone/jupiter.mp3"] fadein 3
+    with slowfade3
+    pause 4
+    scene d10c-63
+    with w33slow
+    menu:
+        "Follow Abrax's map" if m_d11b == False:
+            jump abrax_map
+
+        "Find the Scout" if m_d13a == False and m_d11b == True:
+            St "I don't think I will return to this place once I go out to look for him."
+            St "Should I really leave this place?"
+            menu:
+                "Leave the Zone":
+                    jump d13a
+                "Return to the bunker":
+                    jump bunker_overview
+            
+        "(Optional) Investigate the apartment" if ev_d13j.is_active:
+            scene d10c-64
+            with dissolve
+            St "The survivor's last note mentioned a noise from the apartment..."
+            play music_2 ["audio/sounds/doors/thud.mp3", "<silence 4.0>"] volume 0.3 loop
+            St "..."
+            St "Yeah... that seems to be it..."
+            scene d10c-66
+            with fade
+            St "Maybe it's a survivor who can't get out."
+            St "I can check it out... it shouldn't take too long."
+            stop music_2 fadeout 2
+            jump d13j
+
+        "Go back inside":
+            jump bunker_overview
+
+label zone_codex:
+    if zone_read_note == False:
+        scene d10c-61
+        with fade
+    else:
+        scene d10c-61x
+        with fade
+    St "Let's take a look..."
+    jump zone_codex_index
+
+label zone_codex_index:
+    scene d10c-62-x2
+    with fade
+    menu:
+        "Read \"Anomalies\"":
+            jump codex_anomalies
+        "Read \"Legends & Spirits\"":
+            jump codex_spirits
+        "Go back":
+            jump bunker_overview
+
+
+label written_notes:
+    $ bunker_note = True
+    scene d10c-62x
+    with fade
+    nvl clear
+    "The handwriting is hurried and a little shaky."
+    Nar "{i}It seems that my journey must come to a sudden end. I am wounded.{/i}"
+
+    Nar "{i}This morning I went to explore the big apartment complex next door. I heard some banging sound coming from inside, so I investigated it. It turns out there were two stray hounds stalking around the broken down entrance...{/i}"
+    Nar "{i}They jumped me before I could even think of heading upstairs. Ripped me a new one, these things. I took one out, scared the other one away. Took care of the wounds, but the pain won't stop.{/i}"
+    Nar "{i}I have no hope of getting out of the desert wounded like this, and breathing is becoming harder, I'm getting sleepy. Internal bleeding? I wish I knew what keeps this radio randomly turning on.{/i}"
+    Nar "{i}This is going to be my last message... and I still need to put down a few things.{/i}"
+
+    Nar "{i}To any other Stalker who might be reading this. This room, that you and I are in, is a safe place in the Zone. More than that, I think of it like a time capsule, an image of times long gone, so I implore you to leave it unchanged. If anything, add to the place like I did.{/i}"
+    Nar "{i}Allow this to be a haven for anybody else who wants to explore these ruins... And if you can, leave some medicines and tools behind, for people who might need them.{/i}"
+
+    Nar "{i}I visited this place before and after the Zone has formed. Used it for a shortcut to a village to the east of here. Thought I knew the place well enough to explore it again after the first emissions.{/i}"
+    Nar "{i}In some ways, things stayed the same. In other ways, they became very, very different. I now found vegetation sprouting from every crack in the floor; plants that I have never encountered before.{/i}"
+    Nar "{i}I have a feeling, however, that it is not just the vegetation that changes. With every emission, things change around here. If Zones often turn out to be like pictures of times and places far removed, it feels as if this Zone has yet to settle on a specific image.{/i}"
+
+    Nar "{i}On my last attempt towards the inner part of the Zone, I saw what looks like an old factory, in the distance. I knew this area before it changed. Mostly desert, with some remnants of a settlement I was exploring.{/i}"
+    Nar "{i}The Zone must have reclaimed what was hidden underneath the dunes. I guess I shall never get to explore it now...{/i}"
+    Nar "{i}To whoever reads this, my only possession of some value is my crossbow. It's an antique, restored to full functionality. My last wish is that my son Sair receives it. My name is Farran, and my house is the second one in the alley behind the eastern market. The blue door.{/i}"
+    Nar "{i}Please, in the name of the gods, bring it to him.{/i}"
+
+    Nar "{i}And Sair, if it is you reading this, I am sorry son. I am sorry I can't be there for you any longer. But I do not regret stopping you from joining me. You are not yet ready for places like this. Neither was I, apparently.{/i}"
+    Nar "{i}Try to make something of yourself beyond what I taught you.{/i}"
+    Nar "{i}Tell your mother I love her. I am proud of you, son.{/i}"
+    Nar "{i}I am Farran, and this is my word.{/i}"
+    pause 0.5
+    St "This is just sad. Writing to a son who will never see this."
+    scene black pic
+    with fade
+    S "I should find a safe place for this letter, so that other people can read it."
+    $ zone_read_note = True
+    if zone_read_note == False:
+        show d10c-51
+        with fade
+    else:
+        show d10c-51x
+        with fade
+    jump explore_bunker
+
+label codex_anomalies:
+    show d10c-62-x3
+    with w33slow
+    window hide
+    nvl clear
+    Nar "Judging by the first mentions of anomalies that appeared almost 400 years ago, it is commonly believed that the timeline of the first sightings coincides with the event that shaped the modern world."
+    Nar "One might believe that anomalies, which we define as phenomena and events that cannot be explained through our knowledge of physics, occurred even before the \"End of days\" as some call it."
+    Nar "Unidentified flying objects or unexplainable natural sightings in shapes that were not readily explainable - I have read about those things from documents of the old world. However, it feels wrong to believe that these things really relate to what we experience in our current world."
+    Nar "I have read about what scholars now call the age of information and disinformation. A time in which the masses were distracted from what was in front of them, through the spreading of information that was often represented in a misleading way or entirely fictional."
+    Nar "Yet, what this world faces can not be confused with fairytales, conspiracy theories or other made up stories."
+    Nar "I strongly believe that anomalies are a direct result of the catastrophe that was unleashed on the world roughly 400 years ago. Those who survived found themselves prey of a cruel game nature started to play."
+    Nar "Elements that once were bound by the rules of physics were left unchained and bouncing around without any reason or pattern. Heat, gravity and electricity emerging from the ground or manifesting in the air, reshaping as they please."
+    Nar "Every Stalker has heard of these stories - whether it's burnt fuzzes, tesla anomalies or whirlgigs - their behaviour follows only their internal logic, inscrutable and unknown."
+    Nar "Never extinguishing torches, found in ruins long forgotten, vegetation growing in places barren for decades; the documentation is clear, and relies on the testimony of our forefathers who have battled these anomalies just as we do."
+    Nar "Anomalies can occur everywhere, but the highest concentrations of them has been observed in what we call \"Zones\"; specific locations, utterly diverse and ever changing."
+    Nar "To quote one of the earliest records I have found reporting on the Zones: \"It is likely that emissions, a kind of sudden outbursts of energy, are causing the creation and modification of anomalies.\""
+    Nar "In rare cases, I understand, anomalies can cause a \"fossilization\" of the surrounding objects and elements, to create so called \"artifacts\", as they are known by Stalkers. But I have yet to encounter such a rare circumstance."
+    Nar "There are other phenomena that have yet to be explained, such as the red mist of Old Cairo, or the cursed storms in its immediate surroundings."
+    Nar "To what extent they are connected to the comparatively small anomalies that can be encountered in more remote Zones, I don't know."
+    Nar "I guess that the reason why no one speaks of the mist in Old Cairo as an \"anomaly\" is because unlike those, who are subject to the passage of time, the mist in Old Cairo never fades and has been there as far as living memory and records go."
+    jump zone_codex_index
+
+label codex_spirits:
+    show d10c-62-x4
+    with w33slow
+    window hide
+    nvl clear
+    Nar "Every Stalker has heard legends. They form the core of our education, after all. Some are more factual, and tell about the origins of the Zones, supposed to be found somewhere in what was known as Eastern Europe, long before our time."
+    Nar "Some tales are about the life before the birth of the new world. Some even tell stories about events that cyclically present themselves throughout time, stories about spirits returning to this world, or worse, never leaving it."
+    Nar "While I have not personally witnessed any similar event, I have been fortunate enough to see anomalies with my own eyes. How farfetched can a story about spirits be, I ask myself, when such portents are real and tangible?"
+    Nar "Ancient recordings going back entire civilisations, tell us about the original Egyptians, in whose image the city-state of Zeta was founded. It appears they had some knowledge of the ways of life and of what's beyond."
+    Nar "The scriptures of Ancient Egypt talk about the Gods, the structure of the cosmos and how our lives will be one day judged, our souls measured by the goddess Maat. The soul was understood to exist in three parts; the Ka, the Ba, and the Akh."
+    Nar "The Ka, the soul that survives our death, would linger and wait for the goddess to pronounce its fate; the Ba, the messenger side of our spirit, would keep the connection between the spirit world and the body."
+    Nar "The Akh on the other hand, was said to be an effective, manifested spirit, which could still influence events in this world. The Akh and the Ka were believed to need a preserved body and tomb in order to exist."
+    Nar "Comparing these scriptures with the stories of the spirits encountered by countless Stalkers, it's understandable why legends about Akh still lingering around in this world, are so popular and widely known."
+    Nar "One part of me hopes to never encounter such a phenomenon, and for it to be just be an expression of the trauma suffered by Stalkers. Another part of me is curious."
+    Nar "If the Akh exist, are they conscious? Do they interact with the outside world, or do they create their own?"
+    jump zone_codex_index

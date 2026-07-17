@@ -1,0 +1,1749 @@
+label day1_end:
+    $ day = 2
+    play music "audio/music/home/dream town.mp3" fadein 3
+    $ daytime = 'night'
+    show home day
+    with fade
+    pause 1.5
+    $ daytime = 'day'
+    pause 1.5
+    if ivy_alive == True:
+        scene d2a-1
+        with fade
+        Zt "*yawn*... Time to check how our... guest is doing."
+        scene d2a-2
+        with dissolve
+        pause 1
+        scene black pic
+        with fade
+        "You head to the basement..."
+        scene d2a-3
+        play sound "audio/sounds/doors/cell door.mp3"
+        with fade
+        pause 1
+        scene d2a-4
+        with fade
+        "You enter an empty cell..."
+        Zt "Where is she?"
+        Zt "I didn't hear anything during the night. She must've gotten out quietly."
+        scene d2a-5
+        with dissolve
+        Zt "But where could she be now?"
+        Zt "It seems she at least ate something..."
+        $ mq_m_1.advance()
+        scene home day
+        with fade
+    jump d2a_home
+        
+label d2a_home:
+    
+    if ivy_alive == True:
+        Zt "She could be anywhere." 
+        Zt "Damn it... I was ready to find out more about her."
+        pause 0.7
+        Zt "Anyway... chasing her would be a waste of time. I should head back to the palace and report to the Queen."
+        if lost_artifact == False:
+            Zt "That little statue should get me a nice reward from the Queen."
+        else:
+            Zt "Coming before the Queen without the statue in my hand won't be pretty."
+    if ivy_alive == False:
+        Zt "I should head to the palace. That little statue should get me a nice reward from the Queen."
+    queue music ["audio/music/home/dream town.mp3"]
+    call screen nav_menu
+
+label d2b:
+    $ m_d2b = True
+    scene black pic
+    with fade
+    "{i}*Some time later...*"
+    Zt "*sigh...*"
+    Zt "All this walking when I could take the car..."
+    Zt "But [Q] would not appreciate me driving a vehicle next to some camel riding traders."
+    Zt "Alright.. here we are."
+    scene d2b-0
+    with fade
+    play music "audio/music/zeta/palace.mp3" fadeout 2
+    Z "..."
+    Zt "They have a new guard?"
+    scene d2b-1
+    with fade
+    with vpunch
+    G2 "Stop right there old man!"
+    Zt "Old man?!"
+    G2 "Identify yourself and state your reason for coming here."
+    scene d2b-1x-2
+    with dissolve
+    G1 "..."
+    Zt "*sigh...*"
+    menu:
+        "\"[persistent.player_name!c], Desert Stalker. I was tasked to recover an old relic.\"":
+            Z "[persistent.player_name!c], Desert Stalker. I was tasked to recover an old relic."
+            Z "I've come to report about the mission."
+            scene d2b-2
+            with dissolve
+            G2 "Des..!"
+            G1 "{i}*chuckling*"
+            scene d2b-3
+            with dissolve
+            G2 "You may pass. Talia will escort you to the throne room."
+            scene d2b-4
+            with dissolve
+            Ta "Follow me [persistent.player_name]. And forgive [Li]. She's new."
+            Z "I thought so."
+            scene d2b-6
+            with fade
+            Ta "The Queen is in a strategic meeting right now."
+            Ta "But she will be done by the time we get there."
+            scene d2b-7
+            with fade
+            Li "..."
+            show d2b-8
+            with dissolve
+            Li "..."
+
+        "\"Is this how you treat your elders?\"":
+            Z "Is this how you treat your elders?"
+            Z "You could be my daughter, that's how young you are."
+            Z "Your attitude is unbecoming for a royal guard."
+            scene d2b-1x
+            with dissolve
+            Z "By your brashness, I bet you're a scavenger, and not a real guard."
+            Z "Maybe your talents are better suited to work in the field, rather than guarding the entrance."
+            scene d2b-2
+            with dissolve
+            G2 "Excuse me?!"
+            scene d2b-4x
+            with dissolve
+            G1 "He's right [Li]. This is the entryway to the throne room."
+            G1 "There are guards everywhere."
+            G1 "If he was suspicious, they would've stopped him a while ago."
+            scene d2b-3x
+            with dissolve
+            Li "I know that [Ta], but protocol is protocol."
+            scene d2b-1x
+            with dissolve
+            Ta "I'm sure you will let the protocol slide once you get to know [persistent.player_name] better..."
+            scene d2b-3
+            with dissolve
+            Li "I don't know what you mean, but he can pass."
+            scene d2b-5
+            with dissolve
+            Ta "He's a Desert Stalker. Learn to show some respect, girl. It's a valuable lesson."
+            scene d2b-4
+            with dissolve
+            Li "Dese...! I didn't know!"
+            scene d2b-4x
+            with dissolve
+            Ta "Don't worry about it, you're a smart girl."
+            Ta "You will learn to judge character, in time."
+            scene d2b-6
+            with fade
+            Ta "[persistent.player_name!c], the Queen is in a strategic meeting right now."
+            Ta "But she will be done by the time we get there."
+            scene d2b-7
+            with fade
+            Li "..."
+            scene d2b-8
+            with dissolve
+            Li "..."
+
+        "\"You'll regret talking like that.\"":
+            $ d2b_lirah_disrespected = True
+            Z "You'll regret talking like that."
+            scene d2b-2
+            with dissolve
+            G2 "...!"
+            Z "Let [Ta] be an example to you. She's polite, doesn't talk too much and lets me pass through."
+            scene d2b-4
+            with dissolve
+            G2 "[Ta]?!"
+            scene d2b-4x
+            with dissolve
+            Ta "What? Come on [Li], this is [persistent.player_name]. You should treat a Desert Stalker better than this. Especially him."
+            scene d2b-5
+            with dissolve
+            Z "She will need a long time to catch up to your example, [Ta]."
+            Ta "Maybe I'll show her how to treat you properly, [persistent.player_name]."
+            scene d2b-3
+            with dissolve
+            Li "I don't know what you're talking about, but you can pass through, Stalker."
+            scene black pic
+            with fade
+            "You walk past her..."
+            scene d2b-7
+            with dissolve
+            Ta "Of course she doesn't..."
+            scene d2b-8
+            with dissolve
+            Ta "Follow me [persistent.player_name]. And don't be too hard on her, she's trying."
+            scene d2b-6
+            with fade
+            Ta "[persistent.player_name!c], the Queen is in a meeting with some mercenaries right now."
+            Ta "But she will be done by the time we get there."
+
+    scene d2b-9
+    with fade
+    Ta "How was your trip?"
+    Z "Nothing special. A few mummies here, some raiders there."
+    Ta "You look great, having gone through that."
+    Z "You look nice too [Ta], as always."
+    Ta "What a charmer."
+    Ta "Why don't you show me that you mean it? It's been a while now..."
+    Z "Not today [Ta]. My [persistent.da] is waiting for me at home. Today I'm taking her on her first tomb raid."
+    Ta "Too bad."
+    scene black pic
+    with fade
+    "{i}Soon after..."
+    jump d2c
+
+label d2c:
+    $ m_d2c = True
+    scene d2c-1
+    with fade
+    Ta "Okay [persistent.player_name], here we are."
+    Ta "You know the drill. Show respect to her authority."
+    Z "Standard protocol..."
+    scene d2c-2
+    with dissolve
+    Ta "Ha, I can't wait to listen to [Li]'s complaints about you already."
+    scene d2c-2x
+    with dissolve
+    Z "She will get used to me."
+    Z "See you soon [Ta], take care."
+    scene d2c-2
+    with dissolve
+    Ta "And you, [persistent.player_name]."
+    scene black pic
+    with fade
+    "You head inside..."
+    Q "...I want you to find whoever did this, is that clear?!"
+    Q "How can it happen that someone steals from the royal armoury?!"
+    scene d2c-3
+    with fade
+    Q "If the...things the thief stole were to be seen by the public..."
+    Q "We can't let that happen, do you understand?!"
+    scene d2c-4
+    with dissolve
+    Q "Capture whoever did it and bring them back to me."
+    scene d2c-4x
+    with dissolve
+    Q "...and then prepare a public execution of course."
+    scene d2c-4x-3
+    with dissolve
+    Merc "Yes, my Queen."
+    scene d2c-4x
+    with dissolve
+    Q "I want regular reports on your investigation in the matter."
+    scene d2c-4x-2
+    with dissolve
+    Q "Oh and... my dogs are quite hungry lately..."
+    Q "So if you disappoint me, trust me, I will find a different use for you!"
+    scene d2c-5
+    with fade
+    Q "Now go! What's next..."
+    Q "...oh! Look who we have here! An important guest..."
+    scene d2c-6
+    with dissolve
+    Q "Stalker [persistent.player_name], what brings you to me today?"
+    Q "Oh, I know.. You have something for me, am I right?!"
+    scene d2c-6x
+    with dissolve
+    Q "So... Tell me. Was the old man right?"
+    Q "What did you find in those tombs?"
+    scene d2c-7
+    with dissolve
+    menu:
+        "\"I found an ancient relic.\"" if lost_artifact == False:
+            scene d2c-6x-2
+            with dissolve
+            Z "I found an ancient relic. A statue of Bastet."
+            $ queen_cat_statue = True
+            Z "I'm confident it is to your tastes."
+            scene d2c-6x
+            with dissolve
+            Q "Show me what you found, then."
+            jump d2c_relic_reward
+
+        "\"I found something. What do I get in return?\"" if lost_artifact == False:
+            scene d2c-6x-2
+            with dissolve
+            Z "I found something. What do I get in return?"
+            $ queen_cat_statue = True
+            scene d2c-6
+            with dissolve
+            Q "Ohh, look at you.. a negotiator, huh?"
+            Q "Well, I could just take it and have you beheaded on the spot."
+            scene d2c-8x
+            with dissolve
+            Q "That would not be an unfitting reaction to your impudent question, Stalker!"
+            scene d2c-6x
+            with dissolve
+            Q "But no, I'm a good Queen... do not worry."
+            Q "Now show me what you found!"
+            jump d2c_relic_reward
+
+        "\"There was nothing left. The tomb was empty.\" (Lie)":
+            scene d2c-8
+            with dissolve
+            Z "There was nothing left. The tomb was empty."
+            scene d2c-8x-2
+            with dissolve
+            Q "It was what?! You're telling me the old man was wrong?!"
+            scene d2c-8x-3
+            with dissolve
+            Z "I'm not suggesting anything."
+            Z "I said the tomb was empty, that's all I know."
+            scene d2c-8x
+            with dissolve
+            Q "[persistent.player_name!c], you disappoint me..."
+            Q "But I'm willing to give you another chance to impress me."
+            jump d2c6
+
+label d2c_relic_reward:
+    scene black pic
+    with fade
+    "You take out the Cat statue and hand it over to her..."
+    Q "Oh my..."
+    scene d2c-21
+    with fade
+    Q "This looks so cute."
+    Qw "You're mine now...!"
+    scene d2c-22
+    with dissolve
+    Qw "I will take good care of you."
+    scene d2c-23
+    with dissolve
+    "She takes her time examining her latest acquisition..."
+    scene black pic
+    with fade
+    "...before carefully putting it away and turning her gaze back to you..."
+    scene d2c-9
+    with dissolve
+    Q "Stalker, I am pleased."
+    Q "You deserve a reward."
+    scene d2c-10
+    with hpunch
+    Q "Send the slave in!"
+    scene black pic
+    with fade
+    "The door opens, and a rather unusual looking woman enters the room..."
+    Q "Come closer, we won't bite!"
+    scene d2c-11
+    with fade
+    Q "I know you want to build yourself a little harem. What man doesn't..."
+    scene d2c-12
+    with dissolve
+    Q "So I'm giving you this slave as a token of gratitude."
+    scene d2c-13
+    with dissolve
+    Q "Her name is Emilia, she's yours now. She will do whatever you want."
+    Q "She's good at cleaning too, so if you're still in need of a housemaid, she's a decent choice."
+    scene d2c-19
+    with dissolve
+    menu d2c_question_menu:
+        "\"How did your soldiers find her?\"" (question = True) if d2c_question == False:
+            Z "How did your soldiers find her?"
+            Z "She doesn't look like she's from around here."
+            scene d2c-18
+            with dissolve
+            Q "My soldiers found her somewhere in the west, relatively far from here."
+            Q "They picked her up from a border village, several months ago."
+            scene d2c-17
+            with dissolve
+            Q "I don't know who she was with, but she seems to enjoy her role. So I am not concerned to find out."
+            $ d2c_question = True
+            jump d2c_question_menu
+
+        "\"Thank you, Queen Merneith.\"":
+            Z "Thank you, Queen Merneith."
+            $ sq_e_1.start()
+            $ emilia_joined = True
+            $ persistent.met_emilia = True
+            jump d2c_emilia_accepted
+
+        "\"That's a valuable reward. I accept.\"":
+            Z "That's a valuable reward. I accept."
+            $ sq_e_1.start()
+            $ emilia_joined = True
+            $ persistent.met_emilia = True
+            jump d2c_emilia_accepted
+
+        "\"I don't want her.\"":
+            Z "I don't want her."
+            scene d2c-18
+            with dissolve
+            Q "As you wish. Not that I mind keeping her."
+            scene d2c-13
+            with dissolve
+            Q "Slave, you can leave."
+            scene d2c-14
+            with dissolve
+            pause 0.5
+            scene d2c-13
+            with dissolve
+            scene black pic
+            with fade
+            "The woman leaves..."
+            $ d2c_refused_emilia = True
+            jump d2c6
+
+label d2c_emilia_accepted:
+    scene d2c-17
+    with dissolve
+    Q "I'll have her escorted to your estate."
+    scene d2c-13
+    with dissolve
+    Q "You can go, slave."
+    scene d2c-14
+    with dissolve
+    pause 0.5
+    scene d2c-13
+    with dissolve
+    scene black pic
+    with fade
+    "She leaves..."
+    Q "Where were we... ah yes."
+    jump d2c6
+
+label d2c6:
+    scene d2c-6
+    with fade
+    queue music "audio/music/zeta/palace.mp3"
+    Q "Now, [persistent.player_name]..."
+    Q "Kneel."
+    scene d2c-6x-3
+    with dissolve
+    Z "...?"
+    scene d2c-8x-2
+    with hpunch
+    Q "I said kneel!"
+    scene d2c-8x-3
+    with dissolve
+    menu:
+        "Do as she says":
+            pass
+
+        "Do it reluctantly":
+            Z "Why so polite..."
+            $ d2c_queen_disrespected = True
+
+        "Refuse":
+            $ d2c_queen_disrespected = True
+            Z "I'm not going to be shouted at."
+            scene d2c-8
+            with dissolve
+            Q "Refusing my orders..."
+            scene d2c-8x-2
+            with dissolve
+            Q "[persistent.player_name!c], I will give you one last warning..."
+            Q "Kneel or I'll have you escorted out and you'll never enter my throne room again."
+            scene d2c-8x-3
+            with dissolve
+            Zt "Spoiled brat..."
+            Zt "I should play her game for now."
+
+    scene black pic
+    with fade
+    "You kneel..."
+    scene d2c-15
+    with dissolve
+    if d2c_queen_disrespected == True:
+        Q "See? Was that so difficult?"
+    Z "..."
+    scene d2c-16
+    with dissolve
+    Q "Now, I have a new mission for you."
+    Q "And this time it is serious."
+    scene d2c-17
+    with dissolve
+    Q "I know you're familiar with the decayed..."
+    Q "...they have taken to attacking our caravans in the north west."
+    Q "I recently sent a couple soldiers out to scout the area."
+    scene d2c-18
+    with dissolve
+    Q "Their report included some indications of where one of their hideouts might be."
+    scene d2c-19
+    with dissolve
+    Z "...And you want me to head out there to verify this claim."
+    scene d2c-20
+    with dissolve
+    Q "...and kill them off, yes."
+    Q "You know they're not well organized. A tribe here, a local group there."
+    scene d2c-18
+    with dissolve
+    Q "Even if you erase that nest, other groups will not be affected. But it still needs doing."
+    scene d2c-19
+    with dissolve
+    Z "I will head out tomorrow and see what I can do."
+    scene d2c-17
+    with dissolve
+    Q "Impress me, and I'll have a reward for you, as always."
+    Q "You may leave now, Stalker."
+    scene d2c-19
+    with dissolve
+    $ mq_z_1.start()
+    scene black pic
+    with slowfade
+    stop music fadeout 5
+    Zt "Despite her brashness, I should count myself lucky to receive my orders directly from the Queen herself, rather than an underling."
+    Zt "The decayed are indeed a divided faction. Their selfishness doesn't encourage solidarity or a common cause."
+    Zt "But I will worry about that tomorrow."
+    Zt "For now I need to head back home and pick up [S] for the raid."
+    jump d2d
+
+label d2d:
+    $ m_d2d = True
+    "A short time later..."
+    scene d2d-1
+    play music "audio/music/exploration/spatium.mp3" fadein 3
+    with slowfade
+    Z "..."
+    scene d2d-2
+    with fade
+    pause 1.5
+    scene d2d-4
+    with fade
+    Z "..."
+    scene d2d-3
+    with dissolve
+    pause 1.5
+    scene d2d-5
+    with fade
+    if ivy_alive == True:
+        play sound "audio/sounds/people/whistle.mp3"
+        stop music fadeout 2
+        "{i}*whistling noise*"
+        Z "...?"
+        scene d2d-8
+        with fade
+        Zt "Wait..."
+        scene d2d-6
+        with fade
+        Zt "That's her."
+        scene d2d-7
+        with dissolve
+        C "..."
+        scene d2d-8
+        with fade
+        play sound "audio/sounds/environment/dramatic bass.mp3"
+        Z "Hey, where did you go? What happene- {p=1.3} {nw}"
+        stop music fadeout 0.6
+        show d2d-9
+        with flash
+        Z "...!  {p=0.8} {nw}"
+        show black pic
+        play sound "audio/sounds/objects/sword in ground.mp3"
+        Z "..."
+        scene d2d-10
+        with fade
+        play music "audio/music/mutants/ivys theme.mp3" volume 0.3 fadein 2
+        Z "..."
+        scene d2d-11
+        with dissolve
+        Zt "She is quick..."
+        Zt "...and I don't think she was aiming to hit me."
+        scene d2d-12
+        with fade
+        Zt "What do you want to tell me, elf..."
+        Zt "..."
+        Zt "Engraved words..."
+        Zt "\"Tomorrow midnight at the market. Be there.\""
+        Zt "Midnight you say..."
+        Zt "There must be more to this."
+        $ mq_m_1.advance()
+        stop music fadeout 3
+        Zt "If she wanted to kill me, this would have been her best chance."
+        Zt "So be it, I will play your game."
+        scene d2d-5
+        with fade
+        play music "audio/music/exploration/spatium.mp3"
+        Zt "Tomorrow is going to be a long day."
+        Zt "First the Queen's quest, now this..."
+        Zt "At least that solves the question regarding the armoury's thief."
+        Zt "Time to head home."
+        scene black pic
+        with slowfade
+        jump d2e
+
+    if ivy_alive == False:
+        Zt "Time to head home."
+        scene black pic
+        with slowfade
+        jump d2e
+
+label d2e:
+    $ m_d2e = True
+    "{i}Half an hour later..."
+    play music "audio/music/home/dream town.mp3" fadeout 3
+    scene d2e-1
+    with quickfade
+    pause 1.5
+    play sound "audio/sounds/doors/gate.mp3"
+    scene d2e-2
+    with fade
+    pause 1.5
+    scene d2e-3
+    with fade
+    Z "[S]! I'm back!! Are you ready?"
+    Zt "She's usually on time..."
+    scene d2e-3x-2
+    with fade
+    S "Am I really that quiet, or are you just deaf?"
+    Z "..!"
+    scene d2e-5
+    with fade
+    Z "Damn it [S], you are getting good at this; almost gave me a scare."
+    scene d2e-4
+    with dissolve
+    S "Sorry, not sorry."
+    scene d2e-5
+    with dissolve
+    scene d2e-6
+    with dissolve
+    Zt "Here she is, ready to head out for her first tomb raid."
+    scene d2e-6x
+    with dissolve
+    "You look at her again, thinking about how far she's come."
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        "In her gaze, you recognise the pride of her mother, and your own quiet confidence."
+    else:
+        "You feel you have done a good job, as she seems to be as confident as you were at her age."
+    scene d2e-5
+    with fade
+    Z "So... have you prepared everything?"
+    scene d2e-4
+    with dissolve
+    S "Of course I did."
+    scene d2e-5
+    with dissolve
+    Z "Swords?"
+    scene d2e-4
+    with dissolve
+    S "In the car."
+    scene d2e-5
+    with dissolve
+    Z "First aid kit?"
+    scene d2e-4
+    with dissolve
+    S "In the car."
+    scene d2e-5
+    with dissolve
+    Z "Emergency rations?"
+    scene d2e-4
+    with dissolve
+    S "Take a guess."
+    scene d2e-5
+    with dissolve
+    Z "That's my girl."
+    scene d2e-4
+    with dissolve
+    Z "Alright, let's go."
+    Z "That outfit suits you perfectly. I'm glad."
+    S "Hm."
+    scene black pic
+    with fade
+    "She walks towards you..."
+    scene d2e-7
+    with fade
+    S "The top is a little tattered here and there, but it does feel safer than simple cotton fabric."
+    scene d2e-7x
+    with dissolve
+    Z "I was lucky to find it for you."
+    scene d2e-8
+    with fade
+    S "Haha, yeah [persistent.dad]..."
+    S "Shall we go?"
+    scene d2e-8x
+    with dissolve
+    Z "After you."
+    scene black pic
+    with fade
+    "You both head to the car..."
+    scene d2e-9
+    play sound "audio/sounds/vehicles/car door.mp3"
+    with fade
+    Z "We should arrive in a few hours, it's not too far away."
+    S "Further away than I've ever been."
+    S "To be honest [persistent.dad]..."
+    scene d2e-10
+    with dissolve
+    S "I don't know whether to be excited or nervous."
+    scene d2e-11
+    with dissolve
+    menu:
+        "\"Whatever happens, I got your back.\"":
+            Z "Whatever happens, I've got your back."
+            $ shani_help += 1
+            Z "Focus on the adventure ahead."
+            Z "Don't think too much of what might or might not happen."
+            Z "Try to enjoy this moment. You waited long enough."
+            scene d2e-11x
+            with dissolve
+            S "I will. Thanks [persistent.dad]."
+            S "That's... good."
+            scene d2e-11x-2
+            with dissolve
+            jump d2e11x
+
+        "\"Don't be afraid, have confidence in your skills.\"":
+            Z "Don't be afraid, have confidence in your skills."
+            $ shani_self += 1
+            Z "You know how to protect yourself."
+            Z "You passed all the challenges you faced so far."
+            Z "And when I will be long gone and you sit where I'm sitting,"
+            Z "...you will think back to this day and be able to tell yourself that you did it."
+            scene d2e-11x-3
+            with dissolve
+            S "I see. It's difficult, but I will try. Thanks [persistent.dad]."
+            scene d2e-11x-4
+            with dissolve
+            jump d2e11x
+
+label d2e11x:
+    play music "audio/music/zeta/osiris.mp3" fadeout 3
+    Z "Now... are we ready to kick some ass?"
+    scene d2e-11x-3
+    with dissolve
+    S "You can bet yours!"
+    scene d2e-11x-4
+    with dissolve
+    Z "Hah, come on. Get in."
+    scene black pic
+    with fade
+    play sound "audio/sounds/vehicles/car door.mp3"
+    S "I can't wait, wohoo!"
+    play sound "audio/sounds/vehicles/car noise.mp3"
+    pause 1.5
+    scene d2e-12
+    play music_1 "audio/sounds/vehicles/engine drive.mp3" fadein 1
+    with fade
+    "You've been building up your pupil's skills and competence for several years now."
+    "It's time to put what she has learned to the test in a more direct, dangerous way."
+    scene d2e-14
+    with fade
+    "You have been given directions to this reportedly abandoned ruin. A recent sandstorm cleared the dunes around it, revealing an imposing building."
+    scene d2e-13
+    with fade
+    pause 1.5
+    "Ordinarily, you would scout out the place and expect it to be looted empty. This time however, the discovery is so recent that you feel you have a good shot at finding some treasure worth taking."
+    scene d2e-15
+    with fade
+    pause 1.5
+    "Additionally, rushing the job might be reckless for a single man, even one of your experience, but now you have backup, and, more importantly..."
+    scene d2e-17
+    with dissolve
+    pause 1.5
+    "She will have to really apply all she has learned, from the hours spent studying ancient lore, to the very real possibility of having to confront other looters or random creatures."
+    scene d2e-18
+    with dissolve
+    pause 1.5
+    scene d2e-19
+    with dissolve
+    S "Look, [persistent.dad]!"
+    S "A settlement!"
+    scene d2e-20
+    with dissolve
+    pause
+    scene d2e-21
+    with dissolve
+    C3 "..."
+    scene d2e-22
+    C "Uncle.. is that a Desert Stal-"
+    C3 "Don't look Abena. Get back to bed."
+    show screen cutscene_marker
+    scene d2e-23-25-anim
+    with fade
+    pause 5
+    stop music_1 fadeout 2
+    pause 0.5
+    hide screen cutscene_marker
+    scene d2e-26
+    with fade
+    Z "This is the place."
+    scene d2e-27
+    with dissolve
+    S "...Woow!"
+    scene d2e-28
+    with dissolve
+    S "...this place must be full of secrets!"
+    scene d2e-29
+    with dissolve
+    Z "Let's try to find a path before the sun sets..."
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    "Some time later..."
+    S "This place is huge!"
+    Z "Yes. We will definitely have to come back here again if we want to explore everything."
+    S "Let's go this way."
+    S "I have a good feeling about this."
+    scene d2e-30
+    play music "audio/music/background/cave background.mp3" fadein 5
+    with slowfade
+    "An hour or more passes, and you find yourself inside a corridor buried deep at the base of the pyramid."
+    S "It looks like we are not the first ones to come here."
+    Z "Not the first, perhaps. But certainly the first in a long time."
+    scene d2e-31
+    with dissolve
+    S "The torches and braziers are still lit..."
+    S "Someone was here not long ago."
+    Z "Not necessarily..."
+    Z "I've explored many tombs over the years, and these are not the first lit torches I have seen."
+    scene d2e-33
+    with dissolve
+    Z "I've talked with other Stalkers about this, several times."
+    Z "Some say the torches have some property that keeps them forever alight since the days before the End of Days."
+    Z "Others say that the mummies themselves ignite the torches from time to time."
+    S "But you said they never wake up unless they're alerted?"
+    Z "That is true according to my direct experience. They never would - when I encountered them."
+    Z "But I cannot claim to know every possible thing, when I encounter these places in but a fraction of their centuries long stories."
+    Z "Some things in this world follow their own logic."
+    Z "And it is better for us not to question everything."
+    S "I will... keep this in mind."
+    scene d2e-31
+    with fade
+    Z "That door won't open on its own."
+    Z "But I don't think this is a dead end either."
+    scene d2e-31x
+    with dissolve
+    S "Let's hope you're right."
+    Z "See if there is a hidden mechanism in place."
+    Z "I will scout the rest of the room and see what I can find." 
+    S "I'm on it."
+    Z "Let's see..."
+    label d2e_tomb_search:
+        scene d2e-32
+        with fade
+        if d2e_clue_1 == False or d2e_clue_2 == False or d2e_clue_3 == False:
+            menu:
+                "Look at the impaled skull" if d2e_clue_1 == False:
+                    $ d2e_clue_1 = True
+                    scene d2e-33
+                    with fade
+                    Zt "That was definitely set as a warning."
+                    Zt "I wonder what the story behind this is."
+                    Zt "..."
+                    Zt "I should keep looking around."
+                    jump d2e_tomb_search
+
+                "Inspect the bones on the ground" if d2e_clue_2 == False:
+                    $ d2e_clue_2 = True
+                    scene d2e-34
+                    with fade
+                    Zt "Bones and a weapon."
+                    Zt "It looks like people came here armed... Did they just all die in the same spot, or did something pile up their remains?"
+                    Zt "That looks like a serious weapon, like that of a soldier."
+                    Zt "But this tomb isn't in Zeta's territory, and the Queen never mentioned it either."
+                    Zt "Whoever used these weapons, they lost and didn't get very close to the door."
+                    jump d2e_tomb_search
+
+                "Check out the torches and braziers" if d2e_clue_3 == False:
+                    $ d2e_clue_3 = True
+                    Zt "Four braziers, four torches. Two on each side, front and back."
+                    Zt "Hm..."
+                    jump d2e_tomb_search
+
+    
+        Zt "Whoever fought here, the victors definitely put up a warning."
+        Zt "The weapon in between those bones on the ground is of higher quality than the sword used to impale the skull too."
+        Zt "..."
+        Zt "They were defending the tomb from these attackers..."
+        Zt "...and the attackers knew how to get in, else there wouldn't have been a fight in the first place."
+        scene d2e-35x
+        with fade
+        Z "[S], there must be an easy way to get in. Look for a loose brick in the wall."
+        Z "Something that might hide a mechanism, or directly a passage."
+        scene d2e-35
+        with dissolve
+        S "I tried, but none of these are easy to move."
+        scene d2e-35x
+        with dissolve
+        Zt "Let me think... there are four torches and four braziers. And one path in the middle..."
+        Z "Try the fourth brick from the bottom. The center one."
+        scene d2e-35
+        with dissolve
+        S "Sure. I'll call you a wizard if this works."
+        scene d2e-35x-2
+        with dissolve
+        Z "We have to start somewhere. Should I help?"
+        scene d2e-36
+        with fade
+        S "No, I got this."
+        S "{i}*pushes* Hnnnnngghh..."
+        S "This is a tough one..!"
+        scene d2e-37
+        with dissolve
+        Z "..."
+        scene d2e-38
+        with dissolve
+        S "Something..."
+        S "is..."
+        S "moving...!"
+        scene black pic
+        with flash
+        play sound "audio/sounds/doors/mechanical door.mp3"
+        S "Yes!"
+        stop music fadeout 3
+        pause 1.5
+        S "Guess what [persistent.dad], you're a wizard now."
+        S "Can I go first?"
+        Z "Go ahead, but be careful."
+        "{i}Moments later..."
+        play music "audio/music/background/horror ambience.mp3" fadeout 5
+        scene d2e-39
+        with fade
+        Sw "A cave inside a tomb?"
+        Sw "Who would do this?"
+        scene d2e-39x-2
+        with dissolve
+        Zw "Whoever needed to build another tomb... or hide something of value."
+        scene d2e-39x
+        with dissolve
+        Sw "[persistent.dad!c]... not going to lie. This is creeping me out."
+        scene d2e-40x
+        with dissolve
+        Zw "Shh... turn around. Do you see that?"
+        scene d2e-41
+        play sound "audio/sounds/objects/bone crunch.mp3"
+        S "...?"
+        scene black pic
+        with fade
+        Zw "Get down."
+        Zw "Stay low [S]. Look closer..."
+        scene d2e-42
+        with fade
+        Zw "Remember what I taught you?"
+        scene d2e-42x
+        with dissolve
+        Sw "Always scout the area first; do not move unnecessarily; watch your steps."
+        Zw "Good. What do you see?"
+        scene d2e-42x-2
+        with dissolve
+        Sw "I see... mummies...! Two of them... and one more, laying down."
+        Sw "You can barely see them in the dark."
+        Zw "Expect there to be more."
+        scene d2e-43
+        with dissolve
+        Sw "What do you want to do now?"
+        scene d2e-43x
+        with dissolve
+        Zw "Advancing any further might leave us exposed on all sides."
+        Zw "It's best if we take a stand here."
+        Zw "I taught you to fight."
+        Zw "It is time to show what you've learned."
+        Zw "Why don't you make yourself known to them?"
+        scene d2e-43
+        with dissolve
+        Sw "A-are you serious, [persistent.dad]?"
+        scene d2e-43x
+        with dissolve
+        Z "To face danger and uncertainty is the path of a Desert Stalker, [S]."
+        Z "Mummies are much less scary once you understand how they move and act. Only through experience, will that come to you."
+        Z "I have your back. Go on."
+        scene d2e-44
+        stop music fadeout 1.5
+        with dissolve
+        S "Okay... let's do this!"
+        scene d2e-45
+        play music "audio/music/zeta/pyramid fight.mp3" fadein 5
+        with fade
+        S "Hey assholes!!"
+        S "What does a girl have to do here, to have a good time?"
+        S "..."
+        scene d2e-45x
+        
+        with dissolve
+        S "Come on then!"
+        play sound "audio/sounds/people/mummy 1.mp3"
+        pause 1.5
+        Z "Bold words."
+        scene d2e-46
+        with dissolve
+        S "Tcha, I guess the apple doesn't fall far from the tree..."
+        scene black pic
+        with Dissolve(0.2)
+        Z "Get ready [S], here goes nothing!"
+        play sound "audio/sounds/actions/running.mp3"
+        S "I think I pissed them off!"
+        scene d2e-47
+        with hpunch
+        play sound "audio/sounds/objects/sword slash 2.mp3"
+        S "..."
+        scene d2e-48
+        with hpunch
+        play sound "audio/sounds/objects/sword slash.mp3"
+        S "Strike!"
+        Z "I got your back!"
+        scene d2e-49
+        play sound "audio/sounds/actions/running.mp3"
+        with fade
+        Z "Where the fuck..."
+        scene d2e-49x
+        with fade
+        play sound "audio/sounds/people/mummy 2.mp3"
+        pause 1
+        scene d2e-50
+        play sound "audio/sounds/gore/gore3.mp3"
+        with vpunch
+        Z "...sneaky bastards."
+        scene d2e-51
+        with shortfade
+        S "More of them!"
+        Z "They were hiding in the walls!!"
+        scene d2e-52
+        with shortfade
+        Z "Closer..."
+        scene d2e-53
+        play sound "audio/sounds/objects/sword slash big.mp3"
+        with hpunch
+        pause 1.5
+        scene d2e-54
+        play sound "audio/sounds/objects/sword slash big.mp3"
+        with hpunch
+        pause 1.5
+        scene d2e-55
+        with shortfade
+        Sw "{i}You can do this, [S]..."
+        play sound "audio/sounds/people/mummy 3.mp3"
+        scene d2e-56
+        with vpunch
+        play sound "audio/sounds/objects/spear slice.mp3"
+        S "..."
+        scene d2e-57
+        with vpunch
+        play sound "audio/sounds/gore/gut rip.mp3"
+        Z "[S]...!"
+        scene black pic
+        with fade
+        Z "Watch out, behind you!!"
+        scene d2e-58
+        with shortfade
+        S "Huh...?"
+        scene d2e-59
+        with vpunch
+        play sound "audio/sounds/people/mummy 1.mp3"
+        S "Ahh!"
+        scene d2e-59x
+        with shortfade
+        S "[persistent.dad!c]..!!"
+        Z "[S]!"
+        label d2e_shani_attacked:
+            queue music "audio/music/zeta/pyramid fight.mp3"
+            scene d2e-59x-2
+            with Dissolve(0.3)
+        S "{i}*muffled*{/i} They're on me!!"
+        Z "Shit..."
+        scene d2e-59x-4
+        play sound "audio/sounds/people/mummy 2.mp3"
+        with fade
+        Z "...!"
+        menu:
+            "Kill the mummy":
+                Zt "You first..."
+                scene d2e-59x-7
+                play sound "audio/sounds/people/mummy 2.mp3"
+                with vpunch
+                Z "Ngh-"
+                S "[persistent.dad!c]!! Aagh-!"
+                scene d2e-59x-9
+                play sound "audio/sounds/gore/eating flesh short.mp3"
+                with fade
+                S "Ngh...!"
+                Z "Noo!!!"
+                scene d2e-59x-10
+                with dissolve
+                S "..."
+                Z "[S]!!"
+                scene d2e-59x-11
+                play sound "audio/sounds/gore/flesh ripped.mp3"
+                with hpunch
+                Mum "..."
+                scene d2e-59x-12
+                with vpunch
+                S "..."
+                scene d2e-59x-13
+                with dissolve
+                play sound "audio/sounds/gore/flesh pull.mp3"
+                Z "No...!"
+                scene d2e-59x-14
+                play sound "audio/sounds/gore/blood splat.mp3"
+                with vpunch
+                Z "This can't be... real..."
+                play sound "audio/sounds/people/mummy 2.mp3"
+                scene d2e-59x-5
+                with shortfade
+                Z "It can't be..."
+                scene black pic
+                play sound "audio/sounds/gore/bone crack.mp3"
+                with vpunch
+                Z "Akh-"
+                stop music fadeout 1
+                pause 2
+                scene d2e-59x-16
+                play music "audio/music/background/horror ambience.mp3" fadein 3
+                with slowfade
+                pause 1.5
+                "The mummy lunged at you, causing you to fall and never get up again."
+                "[S]'s corpse got devoured. Her bones will be a reminder for future travellers, if any should ever dare to enter these tombs again."
+                stop music fadeout 3
+                play sound "audio/sounds/environment/game over.mp3"
+                pause 1.5
+                menu:
+                    "Try again":
+                        jump d2e_shani_attacked
+                    
+                    "Return to the main menu":
+                        $ renpy.full_restart()
+
+            "Help [S] first":
+                scene d2e-59x-3
+                with shortfade
+                Z "[S], get down!"
+                play sound "audio/sounds/objects/spear slice.mp3"
+                scene black pic
+                Z "NOW!!"
+                scene d2e-59x-8
+                with hpunch
+                play sound "audio/sounds/objects/sword slash big.mp3"
+                pause 1.2
+                S "...!"
+                scene d2e-59x-5
+                with vpunch
+                Z "Fuck... you!"
+                S "Stay still, [persistent.dad]!!"
+                play sound "audio/sounds/people/mummy 2.mp3"
+                pause 0.7
+                scene d2e-59x-6
+                play sound "audio/sounds/gore/gore3.mp3"
+                with vpunch
+                Mum "...!"
+                scene black pic
+                stop music fadeout 4
+                with slowfade
+                Z "Whew..."
+                S "Whoa... my... first fight against mummies!"
+                Z "That was intense."
+                S "Let's see if it was worth it."
+                scene d2e-59x-17
+                with w33slow
+                S "Oh this is a good haul."
+                Z "I can see why they held on to it for so long."
+                scene d2e-59x-18
+                with fade
+                S "I wonder about the ones we fought... what it meant to them..."
+                scene d2e-59x-19
+                with dissolve
+                Z "We better leave this knowledge buried. However, if there were mummies around, then there's probably something rotting not far away."
+                Z "Let's get ready to leave. It should be dark outside by now. And I don't want to breathe in this stale stench for any longer than I have to."
+                scene d2e-59x-20
+                with dissolve
+                S "Yes... just give me a minute. I just conquered my first ever treasure. {i}*giggles*{/i}"
+                Z "Take your time, but do not dally too long. We still need to bring this back to the car."
+                scene black pic
+                with fade
+                "Some time later..."
+                jump d2e_leaving_tomb
+
+        
+        
+
+label d2e_leaving_tomb:
+    play music "audio/music/background/different dimensions.mp3" loop fadein 5
+    scene d2e-60
+    with slowfade
+    pause 2
+    scene d2e-60x
+    with slowfade
+    S "Can you carry the rest...? I want to try something."
+    Z "Okay... but what is that?"
+    S "You will see!"
+    scene d2e-60x-2
+    with slowfade
+    Zt "Okay... that should be it. Everything is packed and ready..."
+    Zt "Now... where is my girl..."
+    scene d2e-61
+    with fade
+    "You turn around..."
+    Zt "What is she..."
+    Z "[S]! What are you doing up there?"
+    scene d2e-62
+    with fade
+    Zt "Climbing up there... this is dangerous, how did she even get up there?"
+    scene black pic
+    with fade
+    "You climb up the bricks, one by one, until you reach the top of the entrance..."
+    scene d2e-64
+    with slowfade
+    Z "[S]... {i}*pant*{/i}"
+    Z "Why are we here?"
+    pause 1.5
+    S "No reason, really..."
+    scene d2e-65
+    with dissolve
+    S "Just enjoying the view..."
+    Z "..."
+    scene black pic
+    with fade
+    "You sit down, next to her..."
+    scene d2e-66
+    with fade
+    Z "This is a nice view indeed..."
+    pause 1.5
+    scene d2e-67
+    with fade
+    Z "You did well today."
+    scene d2e-68x-2
+    with dissolve
+    S "I was so nervous."
+    S "First the impaled skull, then the sleeping mummies."
+    scene d2e-68
+    with dissolve
+    if shani_help >= 1:
+        S "But I thought about earlier, when you said you got my back if anything happens."
+        S "That helped a lot."
+    if shani_self >= 1:
+        S "But I thought about earlier, when you said I need to trust in myself."
+        S "That helped a lot."
+    scene d2e-68x
+    with dissolve
+    Z "I'm glad."
+    scene d2e-68
+    with dissolve
+    S "Say..."
+    S "How do you... {i}*sigh*"
+    scene d2e-68x
+    with dissolve
+    Z "How do I what?"
+    scene d2e-68
+    with dissolve
+    S "How do you even... cope with all this?"
+    S "I mean what did we ever do to deserve to live with cursed storms or buried mummies..."
+    S "Or dead megacities that only tell us stories about a world long gone?"
+    scene d2e-68x-4
+    with fade
+    S "Why are we not allowed to experience such a life as they must once have had?"
+    scene d2e-69
+    with dissolve
+    S "How come we can't seem to find a way to rebuild?!"
+    scene d2e-69x
+    with dissolve
+    Z "..."
+    Z "I don't have an answer to your questions..."
+    Z "But sometimes, I believe that we were put here to be tested."
+    Z "Maybe not by someone or something, and maybe for no reason at all."
+    scene d2e-66
+    with dissolve
+    Z "Maybe it's just bad luck, that we are born in this moment in time, and things could and will indeed be a lot better than they are right now."
+    Z "The point I'm getting at is this:"
+    Z "The question, in the end, is always what you do with the life you are given."
+    Z "No matter how hard it may seem."
+    Z "There is no alternative to this one life you have."
+    Z "Non-existence is something you can't experience."
+    Z "And if we can't change the time we were born in..."
+    Z "We might as well make the best of it while we can."
+    scene d2e-68x
+    with fade
+    S "..."
+    scene d2e-68
+    with dissolve
+    S "But what do you mean by \"make the best out of it\"?"
+    S "What to do with those who abuse their power to ruin other lives..."
+    S "...only because it profits theirs?"
+    scene d2e-68x-2
+    with dissolve
+    S "What about those who work so hard day in day out to help others?"
+    scene d2e-68x-3
+    with dissolve
+    menu:
+        "\"Try to make the world a better place while you're here.\"":
+            $ d2e_shani_advice = 1
+            $ shani_help += 2
+            scene d2e-66
+            with dissolve
+            Z "Everyone has a reason for why they are who they are."
+            Z "But we all should try to make the world a better place while we're here."
+            Z "Just like those who came before us did."
+            S "But the world is in ruins."
+            Z "That doesn't mean that anyone back then wanted things to be this way."
+            Z "Just like there are more than enough people alive today who work for Zeta to be a better place for everyone."
+            Z "But in the end the people in charge bear the greatest responsibility..."
+            jump d2e68
+
+        "\"You can't help everyone. But you should do your best.\"":
+            $ d2e_shani_advice = 2
+            $ shani_help += 2
+            scene d2e-66
+            with dissolve
+            Z "There are those who work for a better society and then there are those who don't."
+            Z "But that is because every person has different motivations."
+            Z "You will get to know some of the decayed tomorrow."
+            Z "Most of them don't have anything to live for anymore."
+            Z "They are alone. Without family. No vision of a better tomorrow."
+            Z "And if people don't have the motivation to act good, it's likely that they won't."
+            Z "You can't help everyone. But you should do your best."
+            jump d2e68
+
+        "\"Take care of yourself first. Then worry about others.\"":
+            $ d2e_shani_advice = 3
+            $ shani_self += 2
+            scene d2e-66
+            with dissolve
+            Z "It rarely happens that someone is only thinking about others."
+            Z "If you want to help people, do so."
+            Z "But always take care of yourself first. Then worry about others."
+            Z "People thank you a lot when you help them."
+            Z "But there is no guarantee that, in this world, anyone will help you if you're the one in need."
+            Z "So it's better to not let it come to that."
+            jump d2e68
+
+        "\"You are free. You don't owe this world anything.\"":
+            $ d2e_shani_advice = 4
+            $ shani_self += 3
+            scene d2e-66
+            with dissolve
+            Z "People are very different, that is true."
+            Z "But don't let them make you behave in a way that restricts your life."
+            Z "You are free. You don't owe this world anything."
+            S "But should I not at least leave it better off than it was when I came here?"
+            Z "It depends on how you look at it."
+            Z "Think of how many things in this world want you harmed or dead."
+            Z "Why should you bear responsibility towards them?"
+            Z "Make sure that you care for yourself and your family."
+            Z "That's the only thing that matters."
+            jump d2e68
+
+
+label d2e68:
+    scene d2e-68
+    with fade
+    S "I see..."
+    S "That does make sense."
+    S "I can understand what [persistent.mom] sees in you."
+    scene d2e-68x
+    with dissolve
+    S "..."
+    scene d2e-68x-2
+    with dissolve
+    S "Even though you almost beheaded me."
+    scene d2e-68x-3
+    with dissolve
+    Z "Hey, come on, I knew you wer-"
+    scene d2e-66
+    with dissolve
+    S "I'm just kidding [persistent.dad]."
+    S "Want to know what happened while you were gone last week?"
+    Z "Sure. What happened?"
+    Z "Let me guess, the story begins with your sister."
+    S "Oh you won't believe this..."
+    scene d2e-71
+    with slowfade
+    "On top of the pyramid, where you can see far into the distance, you fall prey to introspection, for several, meaningful moments." 
+    scene d2e-72
+    with dissolve
+    pause
+    scene d2e-73
+    with dissolve
+    pause
+    scene d2e-74
+    with dissolve
+    pause
+    scene d2e-75
+    with dissolve
+    pause
+    scene d2e-76
+    with dissolve
+    pause
+    scene black pic
+    stop music fadeout 3
+    with slowfade3
+    jump d2f
+
+
+label d2f:
+    $ m_d2f = True
+    "Later that night, after travelling home..."
+    scene d2f-1
+    with fade
+    play music "audio/music/home/kitchen music.mp3" fadein 3
+    Z "{i}*munching*{/i}"
+    S "Mmmmhhh.....!!"
+    scene d2f-2
+    with fade
+    S "That. Was. Delicious."
+    S "I am so full..."
+    Z "Your [persistent.mom] is the best cook."
+    scene d2f-3
+    with dissolve
+    S "So true."
+    S "So... what's our plan for tomorrow?"
+    scene d2f-3x
+    with dissolve
+    Z "Let's see."
+    Z "We have to go on a quest for the Queen."
+    scene d2f-3
+    with dissolve
+    S "A quest for the Queen?"
+    scene d2f-3x
+    with dissolve
+    Z "Yes. The task is to eliminate a group of decayed in the outskirts of Old Cairo."
+    Z "Apparently they've been attacking several of the city's caravans."
+    play sound "audio/sounds/doors/door closed.mp3"
+    pause 1.2
+    label re_d2f4:
+        if _in_replay:
+            scene d2f-3x
+            play music "audio/music/home/kitchen music.mp3" fadeout 2
+            with fade
+    A "Hi guys! How was the food? Did you like what I brought?"
+    scene d2f-4
+    with fade
+    Z "It was very good. I didn't know you were learning to cook."
+    scene d2f-5
+    with vpunch
+    A "I- ... uh... I didn't make that. I just brought it."
+    scene d2f-6
+    with dissolve
+    Z "That makes sense. I thought I recognised my wife's touch there."
+    scene d2f-8
+    with dissolve
+    S "Nice [A]. Making us think you actually made this..."
+    scene d2f-9
+    with dissolve
+    A "I didn't, though! You're mean!"
+    scene d2f-10
+    with fade
+    A "Anyways... is there something else I can do for you, [persistent.dad]?"
+    scene d2f-11
+    with dissolve
+    menu d2f_menu:
+        "\"That's enough.\"":
+            Z "That's enough, [A]. I'm still finishing up."
+            scene d2f-5
+            with fade
+            A "Okay, [persistent.dad]. I will help [persistent.mom] clean up then."
+            scene d2f-6
+            with dissolve
+            scene black pic
+            $ renpy.end_replay()
+            with fade
+            "She hurries back to the kitchen..."
+            scene d2f-8
+            with fade
+            S "Such a little tease. Look at that dress..."
+            scene d2f-9
+            with dissolve
+            Z "Just how her [persistent.mom] raised her."
+            scene d2f-3x
+            with fade
+            Z "Anyway. I think I'll call it a night. What do you say?"
+            scene d2f-3
+            with dissolve
+            S "Sounds good... I'll go straight to bed. I could fall asleep right here."
+            scene d2f-3x
+            with dissolve
+            Z "Let's indeed call it a night then. Tomorrow will be another big day. Sleep well, [S]."
+            jump d2f_end
+
+        "\"Sit down... for now.\"" if d2f_look_down == True:
+            Z "Sit down... for now."
+            Z "Let me finish this first."
+            scene black pic
+            with fade
+            "She sits, obediently, quietly staring at you..."
+            scene d2f-14
+            with fade
+            A "..."
+            "You continue eating, occasionally glancing at her, and the conversation lulls, as you enjoy the food."
+            S "Well done, [A]. You got the attention you wanted..."
+            scene d2f-15
+            with dissolve
+            A "Hm?"
+            scene d2f-16
+            with dissolve
+            S "I hope you enjoy having [persistent.dad] for yourself."
+            scene d2f-17
+            with dissolve
+            S "He wouldn't want to miss out on his most favourite dessert, after all..."
+            scene d2f-18
+            with dissolve
+            Z "Calm down, [S]."
+            scene d2f-19
+            with fade
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                Z "If that's the attention my [persistent.da] wants, then that's the attention she will receive."
+            else:
+                Z "If that's the attention she wants, then that's the attention she will receive."
+            scene d2f-20
+            with vpunch
+            Z "[S], let's call it a night for now. [A] and I are going to spend some time together."
+            scene d2f-21
+            with dissolve
+            S "Yup, as you wish."
+            A "..."
+            scene d2f-22
+            with dissolve
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                "You stare into your [persistent.da]'s big eyes as you unfasten your pants. Just another night in your household..."
+            else:
+                "You stare into your [A]'s big eyes as you unfasten your pants. Just another night in your household..."
+            scene d2f-23
+            with fade
+            "You reveal your engorged dick, dangling it in front of her..."
+            A "..."
+            scene d2f-24
+            with dissolve
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                A "[persistent.dad!c]..."
+            else:
+                A "Whoa..."
+            scene d2f-25
+            with dissolve
+            A "It's so big today..."
+            Z "It always is for you."
+            scene d2f-26
+            with vpunch
+            A "Mgh-"
+            "You push her head towards your cock, and she immediately wraps her lips around it..."
+            scene d2f-27
+            with fade
+            S "{i}*sigh*{/i} I guess this is what we're doing now."
+            scene d2f-28
+            with fade
+            S "Since my sister found herself a new role now that we're home from our adventures, do I get the same service?"
+            scene d2f-29
+            with dissolve
+            A "{i}*sucking*{/i} mmhgm..."
+            scene d2f-30
+            with dissolve
+            S "I'm just kidding, [A]. In fact, let me help you."
+            scene d2f-32
+            with dissolve
+            S "You're doing so well..."
+            scene d2f-33
+            with dissolve
+            S "...keep cleaning [persistent.dad] with your mouth."
+            scene d2f-32
+            with dissolve
+            S "Make sure to not leave him unsatisfied!"
+            S "I will go to bed. Goodnight, guys!"
+            scene d2f-34
+            with dissolve
+            A "Mmghm..."
+            Z "Good night, [S]."
+            scene black pic
+            with fade
+            "She leaves..."
+            scene d2f-26
+            with fade
+            A "Mh..."
+            Z "Tell me [A], what happened today."
+            scene d2f-24
+            with dissolve
+            A "Ah... a... guard came over."
+            A "But I wore something different this time..."
+            A "Just like you said."
+            scene d2f-25
+            with dissolve
+            A "So he didn't stare at me or anything."
+            scene d2f-26
+            with dissolve
+            Z "Good girl."
+            if emilia_joined == True:
+                Z "What about our new servant? Do you know if your [persistent.mom] already took her in?"
+                scene d2f-35
+                with fade
+                A "Mh... yes, she told me that she showed her that she's \"the Lady of the House\"."
+                Z "Yes... that's my wife."
+            else:
+                scene d2f-35
+                with fade
+            Z "Alright. Get up, your back to the wall."
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                A "Yes, [persistent.dad]."
+            else:
+                A "Okay..."
+            jump d2f36
+
+
+        "Look down" if d2f_look_down == False:
+            $ d2f_look_down = True
+            scene d2f-12
+            with dissolve
+            Z "I..."
+            S "{i}*sigh*{/i} [A]..."
+            A "What... you're just jealous, sister..."
+            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                "You stare at your [persistent.da]'s oversized breasts. The minx is clearly putting them up for a show..."
+            else:
+                "You stare at her oversized breasts. The minx is clearly putting them on display on purpose..."
+            scene d2f-13
+            with dissolve
+            Z "Ehm... I..."
+            jump d2f_menu
+        
+
+
+    label d2f36:
+        scene black pic
+        with fade
+        "She gets up..."
+        scene d2f-36
+        with vpunch
+        A "Nh..."
+        Z "Stand still..."
+        scene d2f-37
+        with dissolve
+        "You rub your dick against her big, soft tits..."
+        scene d2f-38
+        with fade
+        Z "You look irresistible, as always."
+        A "..."
+        scene d2f-39-anim
+        with dissolve
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            "You start fucking your [persistent.da]' tits, giving yourself an excellent reward after a day of adventures."
+        else:
+            "You start fucking her tits, giving yourself an excellent reward after a day of adventures."
+        A "Mh... do they feel nice...?"
+        Z "They do... [A]... always."
+        scene d2f-41-anim
+        with dissolve
+        Z "You were made for this."
+        A "Mh..."
+        "She looks at you, a mix of curiosity and eroticism..."
+        Z "Ngh..."
+        "Her shy but sensual demeanor, and the fact that she is giving you a titjob, brings you quickly closer to the edge..."
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            Aw "[persistent.dad!c]..."
+        scene d2f-42
+        with fade
+        Z "I know that look. You know what's coming."
+        scene d2f-43
+        with dissolve
+        A "{i}*giggles*{/i}"
+        with vpunch
+        Z "Kgh-"
+        with vpunch
+        "She smiles while you cum..."
+        with vpunch
+        Z "Mh..."
+        scene d2f-44
+        with dissolve
+        A "That's a lot today..."
+        Z "We have been away for days..."
+        scene d2f-46
+        with fade
+        A "Do you... want more...?"
+        scene d2f-45
+        with dissolve
+        menu:
+            "Yes":
+                Z "Yes. Take off your dress."
+                jump d2f47
+
+            "That's enough":
+                Z "No, that's enough."
+                Z "You're the best."
+                Z "Now clean yourself and go help your [persistent.mom] in the kitchen."
+                Z "I will take a rest. Goodnight honey."
+                scene d2f-46
+                with dissolve
+                A "Goodnight, [persistent.dad]..."
+                if _in_replay:
+                    scene black pic
+                    with fade
+                    $ renpy.end_replay()
+                jump d2f_end
+
+
+
+    label d2f47:
+        scene black pic
+        with fade
+        "She does as she is told..."
+        scene d2f-47
+        with fade
+        A "..."
+        "She stands before you, her clothes on the floor, cum stains spread on her plump tits..."
+        scene d2f-48
+        with dissolve
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            Aw "[persistent.dad!c]..."
+        else:
+            Aw "Mh..."
+        menu:
+            "Praise her":
+                if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                    Z "[W] created a miracle when she gave birth to you."
+                    Z "What a beautiful short woman..."
+                else:
+                    Z "The Temple be blessed."
+                    Z "What a beautiful woman they created."
+
+            "Degrade her":
+                if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                    Z "Such a cute fuckdoll of a [persistent.da]."
+                    Z "I should thank your mother again for birthing a [persistent.da] this pretty."
+                else:
+                    Z "Such a cute fuckdoll you are."
+                    Z "What a beautiful woman the temple created."
+
+        scene d2f-49
+        with dissolve
+        Z "Kneel now. You know what to do next."
+        A "Mhm..."
+        scene black pic
+        with fade
+        "She kneels down, taking your dick in her hands..."
+        scene d2f-50
+        with fade
+        Z "Good girl. Massage it a little more. It won't take long."
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            A "Yes, [persistent.dad]..."
+        else:
+            A "Okay..."
+        scene d2f-51
+        with dissolve
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            "She gently caresses her father's dick, making sure you enjoy every moment."
+        else:
+            "She gently caresses your dick, making sure you enjoy every moment."
+        scene d2f-52
+        with dissolve
+        Z "Well done, [A]. Let me cover your pretty face."
+        scene d2f-53
+        with hpunch
+        Z "Ngh..."
+        scene d2f-54
+        with hpunch
+        A "Ah...!"
+        A "So much... still..."
+        Z "That's the last of it... what a good little thing you are."
+        Z "Now go to your [persistent.mom]. She will help you clean yourself."
+        scene d2f-55
+        with dissolve
+        A "Okay..."
+        Z "I will call it a day now. Goodnight, [A]."
+        jump d2f_end
+
+    label d2f_end:
+        scene black pic
+        stop music fadeout 3
+        with fade
+        $ renpy.end_replay()
+        "Later..."
+        scene sz-1x
+        with fade
+        Zt "I'm done for today."
+        Zt "Tomorrow is not going to be easy."
+        Zt "Old Cairo.."
+        if ivy_alive == True:
+            Zt "The elf at midnight..."
+        Zt "*yawn*... time to sleep."
+        play music "audio/music/home/dream town.mp3" fadeout 5
+        $ daytime = 'night'
+        scene black pic
+        with fade
+        $ daytime = 'day'
+        # "- End of prologue -"
+        jump daily_wakeup

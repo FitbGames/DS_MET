@@ -1,0 +1,1322 @@
+label d3d:
+    $ m_d3d = True
+    $ introduction_emilia = True
+    play music "audio/music/home/kitchen music.mp3" fadeout 3
+    scene d3d-1
+    with slowfade
+    Sl "Where is it..."
+    Sl "Ufff..."
+    Sl "There is no way she lost it under here."
+    scene d3d-2
+    play sound "audio/sounds/doors/door shut.mp3"
+    with fade
+    Sl "Oh!"
+    Sl "Lady [A]!"
+    scene d3d-4
+    with fade
+    Sl "I'm sorry, I can't find what you're looking for."
+    Sl "But I will keep trying!"
+    scene d3d-5
+    with fade
+    Z "It seems my [persistent.da] finally found someone to help her get organized."
+    Sl "...!"
+    Sl "Oh, [mas]!"
+    scene d3d-6
+    with fade
+    Sl "I didn't know it was you."
+    Sl "I didn't mean to disrespect you."
+    scene d3d-7
+    with fade
+    "You look into her eyes while approaching her..."
+    scene d3d-8x
+    with fade
+    menu:
+        "\"You seem to have settled in well.\"":
+            Z "You seem to have settled in well."
+            Z "I'm sure you will help us out a lot."
+            scene d3d-9
+            with fade
+            Sl "Thank you, [mas]."
+            Sl "I will try my hardest to please you."
+            jump d3d_emilia_menu
+            
+        "\"You know your place.\"":
+            Z "I know you don't mean to disrespect me."
+            Z "You know your place and purpose here."
+            scene d3d-9
+            with fade
+            Sl "I do, [mas]."
+            Sl "And I will try my best to please you."
+            jump d3d_emilia_menu
+
+label d3d_emilia_menu:
+    show d3d-9
+    menu:
+        "\"What is your name?\"" if d3d_q1 == False and not _in_replay:
+            Z "What is your name?"
+            $ d3d_q1 = True
+            Sl "I am your servant, [mas]."
+            Sl "You can give me any name you want."
+            Z "I want to know your real name."
+            Sl "It is very generous of you to ask, [mas]."
+            Sl "I haven't used that name in a very long time...."
+            Sl "But... my name is Emilia, [mas]."
+            Z "Emilia, hm..."
+            jump d3d_emilia_menu
+
+        "\"Where are you from?\"" if d3d_q2 == False and not _in_replay:
+            $ d3d_q2 = True
+            Z "Where are you from originally?"
+            E "Before the Queen's soldiers brought me here, I lived far away in the north west."
+            E "My old master owned a big land, and I was one of his servants."
+            E "Although life is easier in Zeta..."
+            E "...I sometimes miss the sound of the shores... and the fresh breeze through my hair."
+            jump d3d_emilia_menu
+
+        "Feel her up" if d3d_q3 == False and not _in_replay:
+            $ d3d_q3 = True
+            scene d3d-10
+            with dissolve
+            "You raise your hand, caressing her lip..."
+            Z "Let us see about your dedication, then..."
+            scene d3d-10x
+            with dissolve
+            E "Nh..."
+            "She does not hesitate and engulfs your thumb with her lips."
+            scene d3d-10x-2
+            with dissolve
+            E "Ngh..."
+            Zt "She does seem dedicated indeed..."
+            scene d3d-10x-3
+            with dissolve
+            "She sucks gently on your thumb, clearly showing off her oral abilities..."
+            scene d3d-10x-2
+            with dissolve
+            pause 0.5
+            scene d3d-10x
+            with dissolve
+            "She looks at you, ready for anything..."
+            Z "Well done, slave."
+            scene d3d-10
+            with dissolve
+            E "I am always available, Master."
+            Z "Mh... let me see what you are covering."
+            scene d3d-10x-4
+            with dissolve
+            pause 0.5
+            scene d3d-10x-5
+            with dissolve
+            "You uncover her breast..."
+            scene d3d-10x-6
+            with dissolve
+            "...and feel it up."
+            E "Do you like it, [mas]?"
+            Z "I do..."
+            scene d3d-10x-5
+            with dissolve
+            pause 0.2
+            scene d3d-10x-4
+            with dissolve
+            Z "But that will be all for now."
+            scene d3d-10
+            with dissolve
+            Z "I can't wait for later..."
+            E "...you don't have to, Master."
+            jump d3d_emilia_menu
+
+        "Continue" if d3d_q3 == True:
+            play sound "audio/sounds/doors/door closed.mp3"
+            pause 0.6
+            scene d3d-11
+            with dissolve
+            W "..."
+            scene d3d-12
+            with fade
+            E "Mistress, it's good to see you."
+            E "I'm still looking for Lady [A]'s hand brush."
+            E "Master wanted me to stop for a moment though."
+            scene d3d-13
+            with fade
+            "She walks towards you two. You can see a slightly concerned look on Emilia's face."
+            scene d3d-14
+            with fade
+            W "And if he does so, you better listen to him."
+            scene d3d-15
+            with fade
+            W "I hope you're behaving like I told you to."
+            E "Of course, mistress."
+            W "Good."
+            scene d3d-16
+            with dissolve
+            W "Hello, husband."
+            Z "Hello, wife."
+            scene d3d-17
+            with fade
+            "{i}*kissing*"
+            E "..."
+            scene d3d-18
+            with dissolve
+            W "Mh... I think it's time to properly introduce our new maid to the girls, don't you think?"
+            Z "Yes, we should do that."
+            scene d3d-19
+            with fade
+            W "I will get dressed and call them, see you soon, love..."
+            play music "audio/music/home/dream town.mp3" fadeout 3
+            scene black pic
+            with fade
+            "{i}Soon after..."
+            if shani_zone == True:
+                scene d3d-20x-2
+            else:
+                scene d3d-20
+            with fade
+            Z "I called you here because I wanted to properly introduce our first slave."
+            Z "You probably already made her acquaintance."
+            Z "Her name is [E]."
+            Z "She will be our maid and servant."
+            Z "That means she has to obey every one of your commands."
+            Z "[S], [A], that also means you have certain responsibilities."
+            Z "As a maid she will also be the first servant to our guests, so treat her well."
+            Z "She will clean the house and be there for you whenever you want."
+            Z "Any questions?"
+            scene d3d-21
+            with fade
+            A "..."
+            if shani_zone == False:
+                S "..."
+            W "..."
+            Z "Alright..."
+            Z "[E], kneel."
+            scene d3d-21x
+            with fade
+            Z "As your Master, I ask that you now pledge your allegiance and ultimate loyalty to my house and family..."
+            Z "...and that you will be there for us as a slave and servant."
+            E "On my life, I vow to be a loyal and responsible servant to the house of [persistent.player_name]."
+            Z "..."
+            menu:
+                "Continue the introduction privately.":
+                    $ d3d_emilia_sex = True
+                    Z "I accept you into my household."
+                    Z "You can get up, now."
+                    
+                "End the introduction":
+                    Z "I believe you."
+                    Z "You can get up again."
+
+            if shani_zone == True:
+                scene d3d-20x-2
+            else:
+                scene d3d-20
+            with fade
+            Z "[W], there are some things that need to be done around the house."
+            Z "Should our household expand any further, I want us to be ready for it."
+            Z "When you can, head to the city and inform the builders that I want to redo the basement."
+            Z "We need it to be more secure; I want more cages and chains: no more runaways."
+
+            if kyra_rescued == True and faction_raiders == False:
+                Z "Starting with the raider we just brought home."
+            Z "Secondly, our new maid needs a proper space for herself."
+            Z "With the treasure we acquired in the pyramid, we can afford it."
+
+            if shani_zone == False:
+                S "I will see to it the next time I'm in town, [persistent.dad]."
+                Z "Finally: It's time we procured some accessories for our servants."
+                Z "[S], your [persistent.mom] told me [E] can be trusted inside our walls; she won't try to escape." 
+            Z "It is important for the safety of our slaves that they wear a proper collar when outside..."
+            Z "...to protect them from strangers and to show that they belong to our House."
+
+            if shani_zone == False:
+                Z "Also, please talk to the blacksmith and have her acquire a few collars with the markings of the House on them."
+                S "I'm on it. You can count on me, [persistent.dad]."
+                Z "Perfect."
+                
+            if m_d3c == True and m_d4g == False:
+                Z "[W], should the guards show up, let them know we accomplished our mission."
+                Z "I will report to the Queen's palace soon enough."
+                W "It will be done, husband."
+            Z "Thank you for coming, girls."
+
+            if d3d_emilia_sex == True:
+                Z "[W], please prepare [E] and wait in the bedroom for me."
+                Z "I will test her loyalty right away."
+                if shani_zone == False:
+                    scene d3d-20x
+                    S "Have fun [persistent.dad]."
+                play music "audio/music/zeta/cleopatra.mp3" fadeout 4
+                label re_d3d22:
+                    scene d3d-22
+                    with fade
+                W "She is prepared and ready, husband."
+                W "Just like you asked."
+                Z "You're the best wife a man can have, [W]."
+                scene d3d-23
+                with dissolve
+                "You take a moment to admire her. Her light skin and blonde hair is complemented by the white top, which barely covers her full breasts..."
+                scene d3d-24
+                with dissolve
+                E "Hello again, [mas]."
+                scene d3d-25
+                with fade
+                Z "[W], help me undress."
+                scene d3d-26
+                with fade
+                "Emilia admires your body..."
+                W "Do you want me to stay?"
+                menu:
+                    "Yes":
+                        Z "Yes, [W]."
+                        $ d3d_zahra_stay = True
+                    "No":
+                        Z "Thank you [W], but if you would excuse us."
+                        W "Of course. Call me if you need something."
+
+                scene d3d-27
+                with fade
+                "You look at the exotic blonde woman, admiring her beauty..."
+                Z "Such a pretty face..."
+                Z "Prepare me."
+                E "Of course, [mas]."
+                scene d3d-28
+                with fade
+                E "By Merneith..."
+                if d3d_zahra_stay == True:
+                    scene d3d-29
+                    with dissolve
+                Z "Take care of it."
+                E "Yes, master."
+                scene d3d-30
+                with fade
+                Z "Yes...that feels nice."
+                scene d3d-31
+                with dissolve
+                E "{i}*kissing*{/i}"
+                "As ordered, she gently takes care of your member, letting out soft moans..."
+                scene d3d-32
+                with dissolve
+                E "{i}*sucking*{/i}"
+                if d3d_zahra_stay == True:
+                    W "Such a diligent maid..."
+                scene d3d-30
+                with fade
+                Z "Yes...that feels nice."
+                scene d3d-34
+                with dissolve
+                E "{i}*slurp*{/i}"
+                Z "Mh... that's enough."
+                scene d3d-36
+                with dissolve
+                Z "Time to get this off..."
+                scene black pic
+                play sound "audio/sounds/objects/cloth rip.mp3"
+                with vpunch
+                "{i}*You push her on the bed*"
+                if d3d_zahra_stay == True:
+                    scene d3d-37
+                    with fade
+                E "Hah..."
+                scene d3d-38
+                with dissolve
+                "You admire the body of your exposed maid..."
+                scene d3d-39
+                with fade
+                E "..."
+                if d3d_zahra_stay == True:
+                    W "My... such a fine lady..."
+                scene d3d-40
+                with dissolve
+                if d3d_zahra_stay == True:
+                    W "Ready to claim your prize, husband?"
+                    Z "Yes..."
+                E "Mh..."
+                scene d3d-40x
+                with dissolve
+                "Her pink pussy lies before you, ready for taking..."
+                scene black pic
+                with fade
+                "Moments later..."
+                E "Ah...!"
+                if d3d_zahra_stay == True:
+                    scene d3d-41
+                else:
+                    scene d3d-41x
+                with fade
+                E "Hah...oh my..."
+                if d3d_zahra_stay == True:
+                    scene d3d-42
+                else:
+                    scene d3d-42x
+                with hpunch
+                "You pull up her leg..."
+                if d3d_zahra_stay == True:
+                    scene d3d-43
+                else:
+                    scene d3d-43x
+                with dissolve
+                E "Mh..."
+                Zt "Wow... she's tight..."
+                if d3d_zahra_stay == True: #TODO anim
+                    scene d3d-44
+                else:
+                    scene d3d-44x
+                with dissolve
+                Z "You have not done this in a long time, have you?"
+                "You start slowly penetrating her. She responds with a slow, rhythmic swaying of her hips..."
+                E "No...ah..."
+                E "No, master."
+                if d3d_zahra_stay == True:
+                    scene d3d-46
+                else:
+                    scene d3d-46x
+                with dissolve
+                E "Nh..."
+                E "The Queen..."
+                if d3d_zahra_stay == True:
+                    scene d3d-44
+                else:
+                    scene d3d-44x
+                with dissolve
+                E "She only ever asked me to..."
+                if d3d_zahra_stay == True:
+                    scene d3d-46
+                else:
+                    scene d3d-46x
+                with dissolve
+                E "...pleasure her."
+                if d3d_zahra_stay == True:
+                    scene d3d-44
+                else:
+                    scene d3d-44x
+                with dissolve
+                menu:
+                    "Finish inside":
+                        if d3d_zahra_stay == True:
+                            Z "I'm going to fill you up..."
+                            E "Yes... ah..."
+                            E "But master..."
+                            E "...if I get pregnant..."
+                            E "The mistress will..."
+                            scene d3d-46
+                            with vpunch
+                            E "Ah...!"
+                            Z "Ngh-"
+                            W "[E]... he is already cumming inside you, isn't he...?"
+                            scene d3d-45
+                            with fade
+                            W "You should know that I support my husband in everything he does...."
+                            W "...and if he wants to get you pregnant..."
+                            W "...then he will do just that."
+                            W "And you will accept it."
+
+                        if d3d_zahra_stay == False:
+                            Z "I'm going to fill you up..."
+                            E "Hnn...yes, [mas]."
+                            E "I would do everything..."
+                            E "Even... bear your child..."
+
+                        if d3d_zahra_stay == True:
+                            scene d3d-46
+                        else:
+                            scene d3d-46x
+                        with vpunch
+                        Z "Hrgh..."
+                        "You release everything you have deep inside the womb of your exotic maid..."
+                        if d3d_zahra_stay == True:
+                            scene d3d-47
+                        else:
+                            scene d3d-47x
+                        with vpunch
+                        Z "Fuck..."
+                        E "Haa..."
+                        W "Well done, slave."
+                        if not _in_replay:
+                            $ sq_e_1.advance()
+                        if d3d_zahra_stay == True:
+                            E "Thank you..."
+                            W "I will clean her up, husband."
+                            Z "You're the best."
+                        else:
+                            Z "You have the perfect body, [E]."
+                            E "Thank you, master."
+                        scene black pic
+                        stop music fadeout 3
+                        with slowfade
+                        "{i}Some time later..."
+                        $ renpy.end_replay()
+                        jump daily_home
+
+                    "Finish outside":
+                        Z "I'm ready..."
+                        if d3d_zahra_stay == True:
+                            scene d3d-48
+                        else:
+                            scene d3d-48x
+                        with dissolve
+                        Z "Hrgh..."
+                        "You pull out of her well fucked pussy..."
+                        if d3d_zahra_stay == True:
+                            scene d3d-49
+                        else:
+                            scene d3d-49x
+                        with dissolve
+                        E "Master..."
+                        if d3d_zahra_stay == True:
+                            scene d3d-50
+                        else:
+                            scene d3d-50x
+                        with hpunch
+                        Z "Ngh-"
+                        if d3d_zahra_stay == True:
+                            scene d3d-51
+                        else:
+                            scene d3d-51x
+                        with dissolve
+                        pause 1.6
+                        if d3d_zahra_stay == True:
+                            scene d3d-52
+                        else:
+                            scene d3d-52x
+                        with hpunch
+                        E "Mh... Let it all out, Master..."
+                        if d3d_zahra_stay == True:
+                            scene d3d-53
+                        else:
+                            scene d3d-53x
+                        with dissolve
+                        E "Master... this is so much..."
+                        if not _in_replay:
+                            $ sq_e_1.advance()
+                        if d3d_zahra_stay == True:
+                            W "Looks like he liked it..."
+                            W "...but not enough to cum inside you, it seems."
+                            W "Maybe that will change one day..."
+                            W "Don't forget... if he likes you, then I like you."
+                        else:
+                            Z "Welcome to my household, Emilia..."
+                            Z "I know you will be a good servant."
+                            E "Thank you... Master..."
+                        scene black pic
+                        stop music fadeout 5
+                        with slowfade
+                        "Some time later..."
+                        $ renpy.end_replay()
+                        jump daily_home
+            else:
+                if not _in_replay:
+                    $ sq_e_1.advance()
+                scene black pic
+                stop music fadeout 3
+                with slowfade
+                jump daily_home
+            
+
+
+label d3b:
+    $ m_d3b = True
+    play music "audio/music/background/night ambience.mp3" fadeout 3
+    scene home_night_full_1
+    with slowfade
+    Zt "The elf said I should meet her at the market, at midnight..."
+    scene black pic
+    with fade
+    "As you enter the market, you think back to the letters carved on the dagger..."
+    scene d3b-1
+    with fade
+    "...will you really meet her again, tonight?"
+    scene d3b-2
+    with fade
+    Zt "Where are you..."
+    scene d3b-3
+    with dissolve
+    Zt "Dead silence."
+    pause 1.5
+    C "Come back here! Don't you run away from me!"
+    Z "...?"
+    scene d3b-4
+    play music_1 "audio/sounds/objects/glass smash.mp3" noloop
+    with hpunch
+    pause 0.7
+    play sound "audio/sounds/actions/drop 4.mp3"
+    scene d3b-5
+    with dissolve
+    C "That was your plan? {i}*laughs*{/i}"
+    scene d3b-6
+    with fade
+    Ci "Did that hurt? I bet it did."
+    scene d3b-7
+    with dissolve
+    Ci "You can fool my sister, but you can't fool me, thief."
+    scene d3b-8
+    with dissolve
+    Girl "Ngh... please..."
+    scene d3b-8x
+    with dissolve
+    Ci "Please? After what you have done, the best you can hope for is a long life of servitude."
+    scene d3b-8x-2
+    with dissolve
+    Girl "Mh..."
+    scene d3b-9
+    play sound "audio/sounds/actions/drop 3.mp3"
+    with vpunch
+    Ci "Stay put, thief. You're not going anywhere!"
+    scene d3b-10
+    with dissolve
+    Ci "I should have the guards put you down after what you did to my sister."
+    scene d3b-11
+    with dissolve
+    Ci "Aberrations like you should not even have made it past the gates."
+    Ci "You're lucky though... I'm willing to give you another chance to work for forgiveness."
+    scene d3b-12
+    with dissolve
+    Ci "Now come here. Don't make me drag you!"
+    scene d3b-13
+    with Dissolve(0.2)
+    Ci "What are you-"
+    scene black pic
+    play sound "audio/sounds/gore/cut meat.mp3"
+    with vpunch
+    Ci "AAAggh--!!"
+    scene d3b-14
+    with fade
+    play sound "audio/sounds/actions/running.mp3"
+    Ci "AAAHHH.. FUCK....!!"
+    Girl "..."
+    scene d3b-15
+    with dissolve
+    Ci "Aagh... what did you do... to my fingers... nghaa..."
+    scene d3b-16
+    with fade
+    Ci "STALKER!!... CATCH THAT MONSTER!!"
+    scene d3b-17
+    with dissolve
+    Girl "...!"
+    scene black pic
+    play sound "audio/sounds/actions/drop.mp3"
+    with fade
+    pause 1.5
+    scene d3b-18
+    with fade
+    Girl "..."
+    Ci "This... freak...!"
+    scene d3b-19
+    with dissolve
+    Ci "She bit my fingers off... {i}*squirming*{/i}"
+    scene d3b-20
+    with fade
+    Ci "Stalker... subdue this witch... mind her teeth! They are sharp as blades!"
+    scene d3b-21
+    with dissolve
+    Ci "S-she bit my fingers off. See?"
+    "As you look at the wounds, you realise that no normal bite could have done such damage."
+    scene d3b-23
+    with dissolve
+    Ci "this... argh... beast!"
+    scene d3b-26
+    with dissolve
+    "His words confirm your suspicion. He too must be aware of her inhuman nature."
+    scene d3b-22
+    with dissolve
+    Ci "She's a burglar and a thief. She broke into my sister's house, and when my sister caught her in the act, she was hurt worse than me!!"
+    scene d3b-25
+    with dissolve
+    Ci "By the ... ngh... city's laws, she should face the judgement of the Palace and be put to death like the other animals of her kind!"
+    scene d3b-26
+    with dissolve
+    "The man was clearly wounded by the girl and you suspect he might be telling the truth..."
+    "But will she receive a fair judgement? Will the man try to take justice in his own hands again?"
+    menu d3b_choice:
+        "\"I need more information\"" (question = True) if d3b_question_1 == False:
+            $ d3b_question_1 = True
+            Z "Tell me more. I see the signs of her violence, but what if she was only defending herself and you just told me a pretty story?"
+            Z "Is she a slave of your household?"
+            scene d3b-21
+            with dissolve
+            Ci "No, Stalker! This creature is a thief. My sister caught her in her home. Tonight is the first time I see her."
+            scene d3b-20
+            with dissolve
+            Ci "These freaks deserve no mercy. She is not one of us and should live as a slave to pay for her crime."
+            scene d3b-26 
+            with dissolve
+            jump d3b_choice
+
+        "\"What do you plan to do with her next?\"" (question = True) if d3b_question_1 == True and d3b_question_2 == False:
+            $ d3b_question_2 = True
+            Z "What do you plan to do with her next?"
+            scene d3b-22
+            with dissolve
+            Ci "This witch will soon repent for her violence. As I said, I will enslave her, and make sure she rues this day."
+            Ci "Leave this to me, Stalker. The next time you are in these parts, you will see her tamed and reformed."
+            scene d3b-23
+            with dissolve
+            jump d3b_choice
+
+        "Hand her over":
+            $ d3b_mutant_saved = False
+            Z "If she is guilty, she deserves punishment."
+            scene d3b-27
+            with fade
+            Ci "There you are, you monster."
+            Z "I will trust you to square this with the guards, if they show up, and to keep this a simple matter."
+            scene d3b-28
+            with dissolve
+            Ci "Thank you, Stalker. Your judgement shows you are a true Zetan, like me."
+            Ci "If things go as I intend, you will see first hand how the ways of Zeta will tame this... thing, the next time you see us. A week or two, I expect."
+            scene d3b-29
+            with dissolve
+            Z "I trust I will. I might come check on you in a while. Take care of your wounds now, citizen."
+            scene black pic
+            with fade
+            "You part ways..."
+
+        "Let her go":
+            Zt "I don't trust that she will be treated fairly."
+            $ d3b_mutant_saved = True
+            scene d3b-30
+            stop music fadeout 5
+            with fade
+            "You look at her deerlike wide eyes. She too seems to be waiting for your call of judgement..."
+            Z "Run away, girl."
+            Z "And pray I don't discover he was right and I made a mistake, tonight."
+            scene d3b-31
+            with dissolve
+            pause 0.3
+            scene d3b-30
+            with dissolve
+            pause 1.2
+            scene d3b-32
+            play sound "audio/sounds/actions/running.mp3"
+            with fade
+            "She swiftly runs away; lithe steps fading in the darkness..."
+            Ci "What are you... Stalker!!"
+            scene d3b-33
+            play music "audio/music/zeta/authority.mp3" fadein 6
+            with fade
+            Ci "NO!!! YOU LET HER GO!! HOW COULD YOU, DAMNED!!"
+            scene d3b-34
+            with dissolve
+            Z "I witnessed no crime today, only a woman trying to escape your grasp."
+            scene d3b-33
+            with dissolve
+            Ci "You are mad, Stalker!! I told you what happened!"
+            with vpunch
+            Ci "SHE IS A VIOLENT THIEF!"
+            scene d3b-35
+            with dissolve
+            Ci "A Stalker who refuses to impart justice can go to hell!"
+            scene d3b-36
+            with dissolve
+            Z "Do not do this, citizen. You may have lost a finger, but your life is still yours."
+            scene d3b-37
+            with dissolve
+            Ci "Fuck you, Stalker! The title you claim means nothing if you let that filth get away with her actions!"
+            scene d3b-38
+            with fade
+            Ci "AAaaghh!!"
+            scene d3b-39
+            play sound "audio/sounds/objects/sword clash 11.mp3"
+            with vpunch
+            Ci "Agh-!!"
+            Ci "!!"
+            scene d3b-40
+            with vpunch
+            Z "Ngh-"
+            Ci "Damn you!!"
+            scene d3b-41
+            with dissolve
+            Ci "You son of a..."
+            scene d3b-42
+            with dissolve
+            Ci "{i}*gasp*{/i}"
+            scene d3b-43
+            play sound "audio/sounds/gore/gore3.mp3"
+            with hpunch
+            Ci "AAaaahhhhh!!!"
+            scene d3b-44
+            with hpunch
+            Ci "{i}*squirming*{/i} nghhaaa!!!"
+            scene d3b-45
+            with fade
+            play sound "audio/sounds/objects/sword drop.mp3"
+            Ci "Arghh... my leg...!!!"
+            Ci "You fucking..., you chopped my leg off!!"
+            scene d3b-46
+            with dissolve
+            Ci "Hnnnrghh... I f-forfeit. You win... You win!!"
+            scene d3b-47
+            with fade
+            Ci "P-please... I have lost enough!!"
+            scene d3b-48
+            with dissolve
+            menu:
+                "Let him live":
+                    Z "One more word, and you lose your other leg."
+                    scene d3b-47
+                    with dissolve
+                    Ci "I... I promise. I have no more anger in me... only- ngh... only pain."
+                    Ci "Please. Let me go."
+                    scene d3b-48
+                    with dissolve
+                    Z "Run, and don't turn back. Speak ill of my judgement, and you will regret it."
+                    scene d3b-47
+                    with dissolve
+                    stop music fadeout 4
+                    Ci "Yes... Stalker. Yes..."
+                    scene d3b-48
+                    with dissolve
+
+                "Kill him":
+                    $ d3b_owner_killed = True
+                    Z "You challenged a Queen's Stalker to a fight."
+                    Z "Mercy is for the weak, and you weren't acting so weak, against that girl."
+                    scene d3b-49
+                    with vpunch
+                    Ci "NO!! PLEASE, STALKER!! NOOO!!!"
+                    scene black pic
+                    with Dissolve(0.1)
+                    play sound "audio/sounds/gore/gore4.mp3"
+                    C "AAghh!!"
+                    pause 0.5
+                    play sound "audio/sounds/gore/gore2.mp3"
+                    with vpunch
+                    C "ghh..."
+                    pause 0.5
+                    play sound "audio/sounds/objects/sword slash.mp3"
+                    with vpunch
+                    C "..."
+                    pause 0.5
+                    scene d3b-50
+                    with fade
+                    Ci "Nkgh... {i}*cough*{/i}"
+                    scene d3b-51
+                    with dissolve
+                    Ci "{i}*exhales*{/i}"
+                    stop music fadeout 4
+                    Z "May your heart be weighted more favourably than today's actions deserve."
+                    
+            
+    scene black pic
+    with slowfade
+    scene d3b-52
+    play music "audio/music/background/night ambience.mp3" fadeout 3
+    with fade
+    "Eventually, you leave the market, having not seen a hint of the elf."
+    if d3b_mutant_saved == True:
+        "You wonder if this distraction is what kept her away and if you will have another chance to meet her..."
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    jump newday
+
+label d3c:
+    $ m_d3c = True
+    $ daily_main_mission = True
+    Z "Time to pick up [S] and go."
+    scene black pic
+    play sound "audio/sounds/vehicles/car noise.mp3"
+    with slowfade
+    scene d1b-4
+    with fade
+    pause 1.5
+    scene d1b-5
+    with fade
+    pause 1.5
+    scene black pic
+    with fade
+    "{i}Hours later..."
+    play music "audio/music/decayed/old cairo.mp3" fadeout 3
+    scene d3c-1
+    play sound "audio/sounds/vehicles/car arrive.mp3"
+    with fade
+    Z "Here we are."
+    S "Wow..."
+    scene d3c-2
+    play sound "audio/sounds/vehicles/car door.mp3"
+    with dissolve
+    pause 1.3
+    scene black pic
+    with fade
+    "You get out..."
+    scene d3c-3
+    with fade
+    S "I would have never imagined this..."
+    S "...hellfire."
+    scene d3c-4
+    with dissolve
+    Z "I know. But you will get used to it."
+    scene d3c-5
+    with fade
+    Z "Let's get inside. Remember: whatever happens, our goal is to put an end to the raids coming from this area."
+    S "Okay... {i}*inhales deeply*{/i}"
+    S "{i}*cough*{/i} The air smells burnt."
+    Z "Don't take deep breaths in Cairo."
+    S "Yeah... either way... let's go."
+    scene black pic
+    with fade
+    play sound "audio/sounds/doors/heavy door.mp3"
+    "You walk inside. After heading down into the basement, you find yourself in a long, metallic corridor."
+    scene d3c-6
+    with slowfade
+    S "I'm going to be sick."
+    show d3c-7-anim
+    with Dissolve(0.1)
+    S "I..."
+    scene d3c-9
+    with fade
+    S "{i}*gag*{/i}"
+    scene d3c-10
+    with dissolve
+    S "Are these... corpses?"
+    scene d3c-11
+    with dissolve
+    "The hallway is filled with the remnants of chopped up corpses, decayed and human."
+    "The air smells of blood and decaying corpses."
+    scene d3c-12
+    with dissolve
+    "Puddles of blood cover the floor, as do the bones and skulls of those who fought here."
+    Z "This is... was... a warzone."
+    scene d3c-13
+    with fade
+    "You step towards a figure sitting in the dark."
+    Decw "Shatter... forgive me..."
+    pause 0.5
+    Decw "Forgive me."
+    scene d3c-14
+    with dissolve
+    "Looking closer, the decayed muttering these words does not seem to be sound of mind."
+    "He ignores the pair of you, repeating the same words, over and over."
+    Decw "Shatter the skin."
+    scene d3c-15
+    with dissolve
+    S "[persistent.dad!c]... W-what do we do?"
+    scene d3c-16
+    with dissolve
+    Z "We move on. These here pose no threat to us."
+    scene d3c-17
+    with dissolve
+    Z "Walk past him, [S]."
+    scene d3c-18
+    with dissolve
+    Dec "{i}*muttering*{/i}"
+    scene d3c-19
+    with dissolve
+    "You slowly walk past the lost souls."
+    "Over the years, you have encountered a handful of recently raided villages, or plowed tribes. Some broken beyond the state of posing any threat, despite their previous actions suggesting the opposite."
+    scene d3c-20
+    with fade
+    Z "Let's see if we find our answers in here."
+    S "I'm... not sure I want to."
+    scene d3c-21
+    with dissolve
+    Z "Stay behind me then."
+    scene black pic
+    with fade
+    "Minutes later..." #HINT the following is a conversation between a very intelligent, shady decayed and the MC, with shani leading a very passive and naive role.
+    scene d3c-22
+    with fade
+    Dec "Those who enter these halls may never leave them again, Stalker..."
+    Z "You will not threaten us."
+    Dec "I... will not, no. We are out of threats. Out of anger... out of lives."
+    scene d3c-23
+    with fade
+    Dec "You have come to a battlefield that is being harvested, my friend."
+    scene d3c-24
+    with dissolve
+    Dec "...but have you come to shed even more blood?"
+    scene d3c-25
+    with fade
+    S "[persistent.dad!c]... are they slaughtering the bodies?"
+    scene d3c-26
+    with dissolve
+    Z "All the decayed slaughter. The question is who, and why."
+    scene d3c-27
+    with fade
+    Dec "We were attacked, Stalker."
+    Dec "Attacked by savages. A wild tribe under an even wilder woman."
+    scene d3c-28
+    with dissolve
+    Dec "Many lives they took from us. What you see is all that's left."
+    scene d3c-30
+    with fade
+    Z "We came to put an end to the attacks on Zetan caravans."
+    Z "The raiders do not inhabit these lands. You do, and would have interest in the content of those wagons."
+    scene d3c-29
+    with dissolve
+    Dec "And why do you think my people would attack these caravans?!"
+    scene d3c-31
+    with fade
+    Dec "Your Queen starved us, refused to trade, decades after your little empire shunned us from the desert lands."
+    scene d3c-32
+    with dissolve
+    Dec "These caravans cross our land, packed with food and treasures, while my people are out here starving!"
+    Dec "Force a man to eat another long enough, and he will eventually relish in his habit."
+    scene d3c-33
+    with dissolve
+    Sw "[persistent.dad!c]... this girl is... alive!"
+    Dec "That harpy over there...? {i}*sigh*{/i}"
+    scene d3c-34
+    with dissolve
+    Dec "You are looking at the one responsible for every single drop of blood spilled today."
+    Dec "And now... she shall become our last offer to the boss's table."
+    Z "The boss...?"
+    scene d3c-35
+    with dissolve
+    Z "Don't speak in riddles, decayed."
+    Dec "I see that your knowledge in our ways are staggeringly limited, Stalker."
+    Dec "We will avenge our fallen brothers, and prepare her for her new role."
+    scene d3c-36
+    with dissolve
+    Dec "The fate that awaits her, you would find it hellish, but for us it's just another day confined to the few places where we thrive."
+    Dec "As for her, her mind will be in such a state that she will be past caring, for the rest of her days, which, if she's lucky, won't be many."
+    scene d3c-37
+    with dissolve
+    scene d3c-30
+    with fade
+    Dec "As for your caravans... Look around you, Zetan. My people are dead."
+    Dec "All that's left is four mad men guided by impulse and repetition. We will stay, and not bother you any longer."
+    Z "..."
+    scene d3c-31
+    with dissolve
+    Dec "You have heard the truth. Now... you and your protegée may leave."
+    Dec "There is nothing for you here but a few pounds of flesh attached to some bones. Some, still breathing, but broken..."
+    scene d3c-32
+    stop music fadeout 3
+    with dissolve
+    Dec "...and someone who will pay for this sorry state of affairs."
+    menu:
+        "Save the raider":
+            $ kyra_rescued = True
+            $ persistent.met_kyra = True
+            Z "We will take the woman, and leave with her."
+            scene d3c-38
+            play music "audio/music/exploration/holy storm.mp3" fadein 5
+            with dissolve
+            Dec "Turn around and leave, Stalker."
+            Z "We will. Your thirst for blood comes to an end."
+            scene d3c-39
+            with dissolve
+            But "Thirst for blood...?"
+            scene d3c-40
+            with dissolve
+            But "This woman has disfigured me, and murdered my friends!"
+            scene d3c-41
+            with vpunch
+            But "You will not take her from me!"
+            scene d3c-42
+            with dissolve
+            But "Don't come closer. I warn you, I will-"
+            scene d3c-43
+            play sound "audio/sounds/gore/nasty knife stab 2.mp3"
+            with hpunch
+            But "...!"
+            pause 1
+            play sound "audio/sounds/actions/drop.mp3"
+            pause 2
+            scene d3c-44
+            with fade
+            Dec "There was no need..."
+            
+            Z "[S], open the door. I will carry her."
+            Dec "My last friend... is dead!"
+            scene d3c-45
+            with dissolve
+            Dec "Why did you..."
+            Dec "{i}*mourning*{/i}"
+            scene black pic
+            with fade
+
+        "Leave her to her fate":
+            Z "[S]..."
+            scene d3c-31   
+            with dissolve
+            Z "Let us go. Our mission solved itself."
+            play music "audio/music/exploration/holy storm.mp3" fadein 5
+            $ shani_self += 1
+            scene d3c-46
+            with dissolve
+            Dec "Friend... prepare her for her last journey."
+            scene d3c-47
+            play sound "audio/sounds/gore/flesh ripped 2.mp3"
+            with vpunch
+            Dec "Farewell, Stalker."
+            Dec "And beware the holy storm... this one has been sent by the gods themselves."
+            scene black pic
+            with fade
+    
+    "You hurry outside..."
+    scene d3c-48
+    play sound "audio/sounds/environment/storm.mp3" fadein 2 loop
+    with fade
+    S "Let's hurry up, I have a feeling that..."
+    scene d3c-49
+    with dissolve
+    S "Holy... storms..."
+    scene d3c-50
+    with fade
+    S "I..."
+    scene d3c-51
+    with dissolve
+    S "I never saw one this intense!"
+    Z "[S], there is not much time. Move!"
+    scene d3c-52-anim
+    with fade
+    Z "Let us go fast, before we're caught in the middle of it!"
+    scene black pic
+    with fade
+    $ check_for_achievements()
+    stop sound fadeout 6
+    stop music fadeout 6
+    play sound "audio/sounds/vehicles/car door.mp3"
+    pause 1.5
+    play sound "audio/sounds/vehicles/engine start and driving.mp3"
+    pause 2
+    "Hours later..."
+    scene d1b-4
+    queue music "audio/sounds/environment/desert wind.mp3"
+    with w33slow
+    S "There are no traces of it left."
+    stop sound fadeout 6
+    Z "Good... then it calmed down, or didn't go in our direction."
+    S "I... I want to go home, now."
+    Z "I too could use the rest, yes..."
+    $ mq_z_1.advance()
+    if kyra_rescued == True:
+        Z "I will see to it that your [persistent.mom] takes care of our new guest..."
+        $ mq_r_1.start()
+    else:
+        $ mq_r_1.fail()
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    if ivy_alive == True:
+        "Hours later, once the storm has passed, you leave for the city; this time alone."
+        jump d3b
+    else:
+        jump mission_end
+
+
+label d3a:  
+    $ m_d3a = True
+    scene d3a-1
+    with slowfade
+    W "Mmh... right there, yes..."
+    scene d3a-2
+    with dissolve
+    A "I am doing better now, right?"
+    scene d3a-3
+    with dissolve
+    W "You are. Keep improving like this, and you will soon rival your [persistent.dad]."
+    scene d3a-4
+    with dissolve
+    W "A little more pressure with your palms, will you..."
+    A "Okay, [persistent.mom]..."
+    scene d3a-5
+    with fade
+    W "Hmm... that's very nice..."
+    scene d3a-6
+    with dissolve
+    W "...I am already undressed. You might as well keep going."
+    scene d3a-7
+    play sound "audio/sounds/doors/door closed.mp3"
+    with dissolve
+    A "...?"
+    scene black
+    with fade
+    "You step inside the bedroom..."
+    scene d3a-8
+    with fade
+    A "Oh, hi [persistent.dad]!"
+    scene d3a-9
+    with dissolve
+    W "Husband...? Hey..."
+    Z "Giving your [persistent.mom] a massage, hm?"
+    scene d3a-8
+    with dissolve
+    A "Yes, she asked me this morning! Do you need my help too?"
+    scene d3a-9x #TODO 
+    with dissolve
+    Z "No, I'm fine."
+    scene d3a-10
+    with dissolve
+    Zt "She looks so innocent... but she must know what [W]'s intentions are."
+    scene d3a-11
+    with dissolve
+    Zt "Not that I can blame her..."
+    scene d3a-13
+    with dissolve
+    Zt "And then there is my wife..."
+    menu:
+        "Use her":
+            $ d3a_sex = True
+            pause 0.5
+            Z "[W]..."
+            scene d3a-14
+            with dissolve
+            pause 1.2
+            scene d3a-15
+            with dissolve
+            W "...mh?"
+            scene d3a-16
+            with fade
+            W "Oh my..."
+            scene d3a-17
+            with dissolve
+            W "You want me to..."
+            scene d3a-18
+            with dissolve
+            W "mgh..."
+            scene d3a-19
+            with dissolve
+            W "...mmh"
+            "She takes it in her mouth without hesitation..."
+            scene d3a-20
+            with fade
+            if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                Z "Keep massaging your [persistent.mom], yes?"
+            else:
+                Z "Keep massaging her while she is busy, yes?"
+            scene d3a-21
+            with dissolve
+            A "Okay, [persistent.dad]..."
+            scene d3a-22
+            with dissolve
+            "She understands the assignment, and goes back to making biscuits alternating soft and sensual with forceful pushes..."
+            show d3a-23-anim
+            with fade
+            if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                "...while you slide in and out of her [persistent.mom]'s mouth at a steady pace."
+            else:
+                "...while you slide in and out of [W]'s mouth at a steady pace."
+            Zt "My wife is just as bad as me."
+            Zt "...and she knows to always be ready for when I want to take her."
+            show d3a-24-anim
+            with dissolve
+            hide d3a-23-anim
+            W "{i}*slurp*{/i}"
+            if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                Zt "Just as [A] knows to keep doing what she is told, even if I am fucking her [persistent.mom]'s throat next to her."
+            else:
+                Zt "Just as [A] knows to keep doing what she is told, even if I am fucking [W]'s throat next to her."
+            Zt "But she's getting distracted."
+            scene d3a-25
+            with fade
+            Z "[A]... you're not focusing on your task. What are you looking at..."
+            scene d3a-26
+            with dissolve
+            if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                A "I'm... sorry, [persistent.dad]... it's hard to focus, when..."
+            else:
+                A "I'm... sorry... it's hard to focus, when..."
+            scene d3a-27
+            with dissolve
+            Z "I figured..."
+            scene d3a-28
+            with dissolve
+            Z "Come on, open your mouth."
+            scene d3a-29
+            with dissolve
+            A "Ah..."
+            Z "If you can't focus on the massage..."
+            scene d3a-30
+            with dissolve
+            Z "...then you can help me cum."
+            scene d3a-31
+            with fade
+            A "nh... {i}*kissing*{/i}"
+            W "{i}*suck*{/i}"
+            "You tongue-kiss [A] while continuing to fuck your wife's mouth..."
+            if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                Zt "She's a minx. Always ready, just like her [persistent.mom]."
+            else:
+                Zt "She's a minx. Always ready, just like [W]."
+            scene d3a-32
+            with dissolve
+            A "Ah..."
+            Zt "And she's back to giving a massage. Good girl."
+            Zt "[W] made sure to teach her to stay on task. All she needs is a little motivation sometimes."
+            show d3a-33-anim
+            with fade
+            A "nh..."
+            W "{i}*slurp*{/i}"
+            Z "Ngh..."
+            with hpunch
+            Z "I'm cumming..."
+            scene d3a-34
+            with hpunch
+            W "mh-"
+            "You push her head down your shaft..."
+            with hpunch
+            Z "{i}*grunts*{/i}"
+            A "You are cumming a lot, [persistent.dad]..."
+            with hpunch
+            Z "Mmgh..."
+            pause 0.7
+            Z "Yeah... I did..."
+            scene d3a-35
+            with dissolve
+            W "...mh."
+            scene d3a-36
+            with dissolve
+            Z "Good wife..."
+            scene d3a-37
+            with dissolve
+            "She looks up..."
+            W "{i}*gulp*{/i}"
+            scene d3a-38
+            with fade
+            "You grab [A]'s head..."
+            A "Yes, [persistent.dad]...?"
+            Z "Your [persistent.mom] needs a little help with the cleaning, sometimes. You know what to do."
+            scene d3a-39
+            with dissolve
+            A "Okay..."
+            scene d3a-40
+            with fade
+            A "Mmh-"
+            Z "Get on with it..."
+            scene d3a-41
+            with fade
+            W "Ah..."
+            Z "Don't be shy..."
+            A "Mh..."
+            scene d3a-42
+            with dissolve
+            A "It's still so big..."
+            Z "Does that surprise you?"
+            scene d3a-43
+            with dissolve
+            Z "Now get to it..."
+            scene d3a-44
+            with dissolve
+            A "mmmgh..."
+            "You push her down on your manhood..."
+            scene d3a-45
+            with dissolve
+            Z "{i}*grunt*{/i}"
+            Z "Be a good [persistent.da]... lick it clean."
+            scene d3a-46
+            with fade
+            A "{i}*slurp*{/i}"
+            Zt "What a sight... You're making me hard again..."
+            scene d3a-47
+            with dissolve
+            Z "Just a little more... keep massaging your [persistent.mom]."
+            A "Mmh... {i}*suck*{/i}"
+            W "Mh..."
+            Z "I do love my girls..."
+            scene black
+            with fade
+            if _in_replay:
+                $ renpy.end_replay()
+            "You enjoy their attention for a few more minutes, before leaving the room..."
+            jump daily_home
+
+        "Leave":
+            scene d3a-9
+            with fade
+            Z "I will leave you two to it. Enjoy, [W]."
+            W "Thank you, love... this is making me sleepy..."
+            scene black
+            with fade
+            if _in_replay:
+                $ renpy.end_replay()
+            pause 0.8
+            jump daily_home

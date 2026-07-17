@@ -1,0 +1,991 @@
+### Changelog
+screen changelog():
+    modal True
+    tag menu
+    add 'gui/main_menu/game_menu_bg.png'
+    use game_menu(_("Changelog")):
+        vbox:
+            spacing 10
+            xfill True
+            ypos 30
+            viewport id 'changelog_content':
+                style_prefix "changelog"
+                xsize 1350
+                xpos 50
+                ysize 0.9
+                mousewheel True
+                draggable True
+                scrollbars 'vertical'
+                text ("""{size=20}
+{size=25}{color=#9f8461}0.21.3{/color} (07/07/2026){/size}
+Translations:
+- Updated the Traditional Chinese translation (credits: AHHCrazy)
+- Updated the Simplified Chinese translation (credits: Wert, Aler)
+- Updated the French translation (credits: Gryff)
+
+Minor changes / Bugfixes:
+- Added animations for the Ain basement blindfold scene
+- Added missing render variations for some of the new scenes
+
+{size=25}{color=#9f8461}0.21.2{/color} (01/07/2026){/size}
+New content (~20 renders):
+- Added a new Ain basement variation and made the event repeatable
+
+Minor changes / Bugfixes:
+- Now Ain leaves the basement immediately during d5g instead of spending the night there
+
+{size=25}{color=#9f8461}0.21.1{/color} (28/06/2026){/size}
+Minor changes / Bugfixes:
+- Added an animation and extended the ending of the Shani & Ain threesome
+- Fixed clipping in some animations
+- Fixed a long-standing logical error that would allow you to continue certain Ivy & mutants events even if you didn't save the mutant in the market
+- Kyra will now stay sold off and won't return to the basement again afterwards. For real this time. I hope.
+- Fixed an issue where the temple intro scene could be skipped under certain circumstances
+- Adjusted Kitty's available repeatable options depending on how you treated her initially
+- Fixed Emilia appearing in the kitchen repeatable events if you haven't accepted her
+
+{size=25}{color=#9f8461}0.21.0{/color} (25/06/2026){/size}
+New content (~1,250 renders):
+- Continuation of Ivy's questline (two parts)
+- Multiple small repeatable kitchen events
+  - Ain
+  - Fairy
+  - Kateryna
+  - Emilia
+- Small sparring variation with Shani
+- Repeatable scene with Kitty
+- Jamila in the Temple + repeatable variation
+- Repeatable variation of Isra in the Temple
+- Repeatable variation of Kyra & Asha threesome
+- Shani solo harem scene
+- Elder's secret texts in the library (Pt. 1)
+- Added a secret event at the end of the elder's quest if you previously gave the relic from the ruins to the old man
+
+Technical:
+- Revamped the navigation UI
+- Revamped the menu icons
+- The game will now try and restore broken saves upon load (experimental)
+
+Minor changes / Bugfixes:
+- Fixed more than 500 instances of typos and grammar issues throughout the game (thank you to everyone for reporting them!)
+- Expanded the library codex with new entries
+- Added the old 0.01 to 0.04 main menus in the menu list for completeness' sake
+- Lowered the change of random small interaction on waking up and visiting a room to make those events less spammy
+- Changed the Zahra date conditions to become available after visiting the Queen with Shani
+- Added some conditions in certain dialogue lines regarding the Queen during the date
+- Fixed an issue with the new car event becoming available earlier than intended if you rescued Kyra
+- Fixed a dialogue issue during the threesome with Shani & Ain
+- Finally made the trailer girl sexual encounters in the settlement avoidable
+- Changed the quest log to show the previous step resolution if current quest step is not yet available to reduce confusion
+- Fixed an issue in Emilia's day 7 when certain choices would skip a few dialogue lines
+- Fixed an issue with a small dialogue variation during Shani's bad ending
+- Fixed an issue with Mutants gym where some menus were skipped if only Chili was there
+- Fixed a bugged animation during Shani's bad ending
+- Fixed an menu issue during Pepper's exam when Chili is present that could skip content unintentionally
+- Made QTE buttons toggleable (players can now un-select a selected choice)
+- Fixed an issue in the French translation that would stall progress during cutscenes in the Sapa settlement
+- Re-encoded some audio tracks that appeared as having 0 duration in the music player
+
+{size=25}{color=#9f8461}0.20.4{/color} (07/03/2026){/size}
+Translations:
+- Updated the Spanish translation to 0.20 (credits: Darax)
+- Updated the French translation to 0.20 (credits: Gryff)
+
+{size=25}{color=#9f8461}0.20.3.1{/color} (01/03/2026){/size}
+Minor changes / Bugfixes:
+- Hopefully fixed an issue with certain saves not being able to load
+- Fixed an issue with the bad end replay not setting some flags properly, making a path inaccessible
+- Fixed an issue with missing Simplified Chinese translations
+- Fixed an issue with toggling the game over scenes in preferences
+
+{size=25}{color=#9f8461}0.20.3{/color} (20/02/2026){/size}
+Translations:
+- Updated the Russian translation to 0.20 (credits: Kasatik)
+- Updated the Italian translation to 0.20 (credits: Eagle1900)
+- Updated the Simplified Chinese translation (credits: Aler, Wert)
+
+Minor changes / Bugfixes:
+- Added an option to toggle Game Over scenes on or off in the preferences
+- Added an option to end the night early with Shani and the Queen
+- Fixed an inconsistency with seeing Savanah in the market with Ain before meeting her at home
+- Fixed a condition check issue where Kyra would still appear in the basement after you sold her off
+- Fixed an issue with accessing the alternative 0.20 main menu
+- Fixed a missing variable in d18f subdue path
+- Fixed a missing variable causing variation inconsistencies in d20b bad end
+
+{size=25}{color=#9f8461}0.20.2{/color} (11/02/2026){/size}
+New content (~25 renders):
+- Added an end variation in the Ain & Shani bedroom scene
+
+Translations:
+- Updated Turkish translation to 0.20 (credits: BoxxO)
+- Updated Traditional Chinese translation to 0.20 (credits: AHHCrazy)
+- Updated Simplified Chinese translation to 0.20 (credits: Aler, Wert)
+- Added Vietnamese translation up to 0.19 (WIP) (credits: Maple)
+
+Minor changes / Bugfixes:
+- Added a second main menu variation for 0.20
+- Fixed a softlock preventing Kateryna's quest from finishing properly if you were not interested in her
+- Fixed a softlock preventing the game from progressing if you sold Kyra off
+- Fixed a regression bug in d11e (visiting Igor) due to default variables
+- Fixed some variation paths in d20a not showing properly under certain circumstances
+
+{size=25}{color=#9f8461}0.20.1{/color} (08/02/2026){/size}
+New content (~170 renders):
+- Continuation of the Ain & Shani bedroom scene
+- Ain in the basement
+
+Minor changes / Bugfixes:
+- Fixed an error in choosing certain options in the bad end replay
+- Fixed a couple of variables preventing the end-of-content marker from triggering properly
+- (Hopefully) Fixed being able to sell Kyra off repeatedly
+- Fixed Reyna showing up in d20a even if she was killed in the Zone
+- Fixed an issue with the gallery replay of d20a not being able to access a variation of the scene
+- Fixed the narrator character during the flashback
+- Fixed various reported grammar errors
+- Fixed a small dialogue variation check in d16b
+- Fixed an issue with repeating transition events when visiting Ain
+
+{size=25}{color=#9f8461}0.20.0{/color} (05/02/2026){/size}
+New content (~1,260 renders):
+- Part two and conclusion of the quest started in 0.19
+- Visiting Pepper at night
+- Temple introduction & Isra
+- Shani & Ain in the bedroom (WIP)
+- A small event of selling off Kyra instead of bringing her to Adira (d5c)
+
+Reworks:
+- Ain's massage (d3a)
+
+Technical:
+- Revamped the game's UI (WIP)
+
+Minor changes / Bugfixes:
+- Fixed an issue with Asha reward scene not being properly blocked when sharing is disabled
+- Fixed a visual issue with the quest "Pride and prejudice" not updating properly
+- Fixed a wrong old image in Taliah's scene (d4d)
+
+{size=25}{color=#9f8461}0.19.5{/color} (18/12/2025){/size}
+Translations:
+- Added French translation (credits: Gryff)
+- Fixed some font issues with Turkish translation
+
+{size=25}{color=#9f8461}0.19.4{/color} (29/09/2025){/size}
+Translations:
+- Updated Spanish translation to 0.19 (credits: Darax)
+
+Minor changes / Bugfixes:
+- Fixed an issue where the cutscene with Shani & Reyna would stall while having the dialogue in Spanish
+- Fixed an issue with d18g (Krait's night scene) conditions not being evaluated properly
+- Fixed multiple reported typos and grammatical errors
+
+{size=25}{color=#9f8461}0.19.3{/color} (15/09/2025){/size}
+Translations:
+- Updated Russian translation to 0.19 (credits: Kasatik)
+- Updated Simplified Chinese translation to 0.19 (credits: AHHCrazy)
+- Added Turkish translation (WIP) (credits: BoxxO)
+
+Minor changes / Bugfixes:
+- Fixed an issue with Kyra's event flag for Adira not resetting properly if you told her to wait in the basement
+- Fixed a bug where you could trigger Ain & Emilia's event while Ain is in the basement
+- Fixed a missing variable during the threesome scene
+- Fixed a small logical error in d19b
+
+{size=25}{color=#9f8461}0.19.2{/color} (10/09/2025){/size}
+Translations:
+- Updated Italian translation to 0.19 (credits: Eagle1900)
+- Updated Simplified Chinese translation to 0.19 (credits: aler, Wert)
+
+Minor changes / Bugfixes:
+- Fixed some old remaining images in Fairy's bathroom scene (d5f)
+- Fixed an issue where you could trigger Emilia & Shani in the library while Shani was in the Zone
+- Fixed some erroneous text variation checks
+- Fixed a code issue where the game would jump from Chili in the gym to the repeatable Hive Queen quest
+
+{size=25}{color=#9f8461}0.19.1{/color} (01/09/2025){/size}
+Minor changes / Bugfixes:
+- Expanded the ending sequence of d19f
+- Added two small intermediate steps in "History or Heresy" quest
+- Added a marker for when Kyra asks you to get Asha back
+- Fixed a long-standing bug with Lirah's quest resolution on Duty path
+- Fixed a couple of instances of uninitialized variables that could cause a crash under certain occasions
+- Fixed an inconsistency where Kyra would ask you to get Asha back even if you haven't offered her as a reward
+- Fixed an issue with incorrectly not blocking d18g
+- Fixed an issue with the QTE menus appearing when they shouldn't
+- Fixed a couple renders where the Queen's collar clipped through the dress
+- Fixed various reported typos and grammar issues
+
+{size=25}{color=#9f8461}0.19.0{/color} (28/08/2025){/size}
+New content (~1,600 renders):
+- A new big event chain where Shani & the MC go on a mission together, consisting of 6 parts
+- Asha as a post-raid reward
+- Shani / MC in the bathroom
+- Kyra at the watchtower
+- Solo Fairy living room scene (only for good / neutral path)
+- Solo Kateryna living room scene
+- Chili at the gym
+
+Reworks (~100 renders):
+- d5f (Decayed) first part
+- d4d (Taliah)
+
+Minor changes / Bugfixes:
+- Added one animation in d5e
+- Added 2 small animations in Zahra's introduction
+- Added one animation when meeting Chili for the first time in d17a
+- Added render variations for Fairy / Kateryna in d18b
+- Added a no-blood version for Lirah's Duty path penetration scene
+- Added some render angles during the sex scene with the prostitute in the raider settlement
+- Removed inactive living room options to prevent confusion
+- Changed "Foreign Affairs" replay label
+- Fixed Zahra's variations in Emilia intro
+- Fixed a few instances of dialogue where Ain's name was hardcoded
+- Fixed a replay issue in "Alley Adventures" where choosing to not do anything would exit to the main menu
+- Fixed an incorrect hint for Fairy's scene in Decayed
+- Fixed some variation conditions in Emilia/Fairy wake-up scene
+- Fixed a missing event flag from d18f
+- Fixed various renders throughout the game
+- Updated the world map and the raider settlement overview to properly reflect the chosen paths
+- Redesigned Savana slightly with unique traits reflecting her character and profession, making her a bit more distinct from other characters in the game
+
+
+{size=25}{color=#9f8461}0.18.4{/color} (11/05/2025){/size}
+Translations
+- Added Spanish translation (credits: Darax)
+- Updated Traditional Chinese translation (credits: AHHCrazy)
+
+{size=25}{color=#9f8461}0.18.3{/color} (01/05/2025){/size}
+Minor changes / Bugfixes:
+- Fixed all animations that were choppy or incomplete due to compression
+- Fixed a potential soft-lock in the music player when selecting multiple categories
+- Fixed an issue where Ain's event after the market could not be unlocked in the gallery. Loading a save should retroactively unlock it if you have seen the event at least once.
+- Fixed a logical error that prevented Kateryna's quest from concluding if the player hasn't romanced her
+- Simplified the conditions for the twins market scene
+
+Translations
+- Added Italian translation (credits: Eagle1900)
+- Updated Simplified Chinese translation (credits: aler)
+- Updated Russian translation (credits: Kasatik)
+
+{size=25}{color=#9f8461}0.18.2{/color} (26/04/2025){/size}
+New content:
+- Added a small event with the twins during the visit at the slave market
+
+Minor changes / Bugfixes:
+- Added some animations and an additional finish option to the Queen scene
+- Added some animations for Fangs during Krait's night scene
+- Fixed a missing background image in Ivy's computer
+- Fixed a missing background image in the codex
+- Fixed a wrong conditional dialogue check in d18b during the basement part
+
+Translations
+- Updated Simplified Chinese translation to 0.18 (credits: aler)
+- Updated Traditional Chinese translation to 0.18 (credits: AHHCrazy)
+- Updated Russian translation to 0.18 (credits: Kasatik)
+
+{size=25}{color=#9f8461}0.18.1{/color} (17/04/2025){/size}
+Minor changes / Bugfixes:
+- Added a few missing animations in Emilia's massage scene and Queen's scene
+- Fixed an animation that looped when it shouldn't 
+- Fixed an issue with Kyra disappearing from the basement for some saves from 0.17.x
+- Fixed a few instances of the wrong character talking
+- Fixed reported grammar errors
+- Changed some vague hints in gallery
+
+{size=25}{color=#9f8461}0.18.0{/color} (13/04/2025){/size}
+New content (~1,300 renders):
+- Continued Queen's quest (2 events)
+- Market date with Ain
+- Continued Emilia's quest (2 small events)
+- Mutant bunker sleepover event
+- Something special in the main menu (Desktop version only)
+
+Reworks (~350 renders):
+- Ain market kidnapping scene (d4b)
+- First Asani visit / new car (d6b)
+
+Minor changes / Bugfixes:
+- Removed inconsistent Lirah's makeup in d16a
+- Fixed multiple instances of artifacts on Ain's torso
+- Fixed a wrong event condition for d13g
+- Fixed an issue in d15b where "Her Majesty" would not progress correctly if the player didn't romance Shani
+- Fixed a metric ton of typos and grammar errors that have been reported throughout the game
+
+{size=25}{color=#9f8461}0.17.2{/color} (30/12/2024){/size}
+Translations
+- Added Spanish translation (credits: Darax)
+- Added Russian translation (credits: Kasatik)
+- Added Simplified Chinese translation (credits: aler)
+- Added Traditional Chinese translation (credits: AHHCrazy)
+- Added Italian translation (credits: Eagle1900)
+
+Minor changes / Bugfixes
+- Fixed an issue which prevented "Pride & Prejudice" to advance during General's execution if gore was toggled off in options
+- Fixed an issue when talking to Zahra about inviting Igor & Savana, where it would improperly continue to other dialogues
+- Fixed an incorrect check in Shani's discussion after she's back from the Zone
+- Fixed an incorrect dialogue check in Emilia's introduction
+- Fixed an incorrect dialogue check with Shani after the thermae
+- Fixed an incorrect pose sequence of Sair in the Zone
+- Fixed an incorrect expression sequence when you prepare for Old Cairo with Shani
+- Fixed an incorrect render in Fairy's neutral conclusion
+- Discussing things with Shani in her room does not block you from interacting further with her now
+
+{size=25}{color=#9f8461}0.17.1.2{/color} (20/12/2024){/size}
+Minor changes / Bugfixes
+- Fixed an issue with the gallery scenes having the same hint
+- Fixed an issue with the new car event triggering too early (should also resolve the incorrect jump within the event)
+- Fixed an issue with Kyra's trip to Adira being locked out if you visited her in the basement and told her to wait
+- Fixed an issue with the Codex screen not being draggable on PC/Mac
+- Fixed an incorrect jump in Emilia's introduction scene which would cause the game to continue to the next scene automatically.
+- Fixed an incorrect flag for some dialogue variation in Emilia's introduction
+- Fixed a flag not being set correctly during Nadia's market scene
+- Fixed a missing blocker for Shani's repeatable sparring session
+- Fixed a replay scene ("Foreign Affairs") that couldn't be unlocked in the gallery.
+
+{size=25}{color=#9f8461}0.17.1.1{/color} (12/12/2024){/size}
+New content:
+- Added the mutants bunker gym (repeatable)
+
+Reworks:
+* The reworks listed below are almost solely visual upgrades, not story changes
+- Added d3d (Emilia's introduction)
+- Added d5d (Shani meets the Queen)
+
+Minor changes / Bugfixes:
+- Added a missing conversation with Red during d17a
+- Fix a missing flag that caused certain Ain events to be blocked
+- Added some missing renders throughout various scenes
+- Fixed an Ain conversation marked as important
+- Fixed a missing blocker for Friends In Low Places step #2
+- Fixed a wrong blocker, causing Shani's return from the Zone to happen if enough days have passed without the player actively triggering it
+- Fixed d13g from not being blocked properly
+- Fixed a missing flag in Kyra's intro
+- Fixed an incorrect scene flow during Kyra's intro
+- Fixed a condition that caused some settlement events to trigger out of order
+- Fixed missing Emilia images in harem buttons
+- Fixed a missing blocker for Pepper's lab events
+- Fixed a missing blocker that caused the wrong variation of the new car event to be fired
+- Added missing icons assets in world map for tracked quests
+- Fixed a missing flag that could potentially lead to Fairy never being offered
+- Fixed a wrong content flag which caused certain interactions with Fairy to be disabled
+- Fixed a long-standing issue with some screens that could cause stack pollution
+
+{size=25}{color=#9f8461}0.17.0{/color} (06/12/2024){/size}
+New Content (1,160 renders):
+- A new mutants mission
+- Pepper's examination (multiple steps, repeatable)
+- Sparring with Shani (repeatable)
+- Invite Igor & Savana again (repeatable)
+
+Reworks (~900 renders)*:
+* The reworks listed below are almost solely visual upgrades, not story changes
+- d2e (Shani's first adventure)
+- d2f (Back from the pyramid)
+- d3b (Night market visit)
+- d3c (Shani and MC in old Cairo)
+- d4a (Kyra in basement)
+- d5b (First mutants visit)
+- d5c (First raiders vist, including a 100-render extension)
+- d5e (Kateryna & Igor's first visit)
+- d6a (Kateryna's city visit)
+
+Technical:
+- Migrated to RenPy 8.3.3
+- Added the ability to track quests so it's easier to see where exactly you need to go
+- Made content flags persistent and available to change in the Options menu
+- Added the ability to upload/download saves using the Renpy Sync feature
+- Streamlined most of the quests
+- Completely reworked the underlying Event System
+
+{size=25}{color=#9f8461}0.16c{/color} (04/08/2024){/size}
+Minor changes / Bugfixes
+- Added new animations in Zahra date scene
+- Added new animations in Lirah's duty path
+- Added new animations in Shani's repeatable workout scene & Emilia kitchen scene
+- Fixed a bug where dismissing the Queen's question during the second arena event would continue the scene as if the player answered
+- Added non-sexual options when speaking to Talia at the end of the Freedom or Duty questline
+- Fixed a wrong condition where you could trigger Nadia and Rabiah visiting while Shani is in the Zone
+
+Translations
+- Updated the Russian translation to 0.16b (courtesy of Kasatik)
+- Updated the Spanish translation to 0.16b (courtesy of Darax)
+
+{size=25}{color=#9f8461}0.16b{/color} (28/06/2024):
+Minor changes / Bugfixes
+- Fixed Lirah's quest not starting under certain conditions (for real this time, I hope)
+- Fixed an old corner case where playthroughs that started in version 0.12b didn't have subsequent save compatibility fixes applied.
+- Fixed grammar errors and typos that were reported
+
+Translations
+- Updated the Italian translation to 0.16 (courtesy of Eagle1900)
+
+{size=25}{color=#9f8461}0.16a{/color} (18/06/2024){/size}
+Minor changes / Bugfixes
+- Added many missing renders & render variations
+- Fixed renders with clipping issues
+- Fixed Lirah's quest not starting under certain conditions (hopefully should cover all cases)
+- Fixed an issue with Fairy's introduction causing the game to flow back to the main menu or random scenes
+- Fixed an incorrect world map marker instance
+- Fixed a wrong name interpolation in Kateryna's scene
+- Fixed a wrong variable check in the Queen's bedroom scene
+- Fixed a variable not having a default state
+- Fixed a dialogue branch if you don't choose any of the Lirah paths
+- Fixed grammar errors and typos that were reported
+
+{size=25}{color=#9f8461}0.16 Beta{/color} (15/06/2024){/size}
+New Content (~1,250 renders):
+- Igor visiting the house
+- Date with Zahra
+- Lirah's questline (multiple events)
+
+Minor additions:
+- Added a continuation of the repeatable massage event with Shani
+- Emilia can now service you while you're eating in the kitchen
+- Added another way for Ain to wake you up if you sleep in Zahra's bed
+- Added hints to locked gallery items
+
+Reworks (~150 renders)*:
+* The reworks listed below are almost solely visual upgrades, not story changes
+- d1c (Ain's intro)
+- d1d (Shani's intro)
+- d2a (Ivy's escape)
+- d4c (Shani's workout)
+- d4f (Ain's new room)
+- d5a (Shani's massage)
+- d5f partial rework (Abrax's intro)
+- d5h (Lirah delivers Emilia)
+
+Minor changes / Bugfixes
+- Fixed a wrong name interpolation for in Kateryna's quest log
+- Fixed a wrong objective description in "All in the family"
+- Fixed a missing condition for d13k (the player needs to have romanced Shani for it to be available now)
+- Fixed a bug in the Fairy introduction where under certain conditions the script would continue into the void
+- Fixed a couple of instances in the home screen where people were showing up incorrectly
+- Fixed a missing variable check in the bunker when playing as Shani that made examining the device option inaccessible
+
+
+{size=25}{color=#9f8461}0.15c{/color} (08/02/2024){/size}
+Minor changes / Bugfixes:
+- Updated Italian translation to 0.15c
+- Updated Russian translation to 0.15c
+- Added some bloody animation variants in Kateryna's first time
+- Fixed a corner case where, if you met and denied helping the Mutants, some checks for reaching the end of current content would fail
+- Fixed some missing icon markers for first time of Pepper and repeatable Hive scenes
+- Fixed being able to sleep with Shani if you haven't romanced her. The option should be disabled now.
+- Fixed some noisy renders in d13l
+- Added whipping sounds in Fairy's broken scene
+- Fixed various typos and grammar errors
+
+{size=25}{color=#9f8461}0.15b{/color} (02/02/2024){/size}
+Minor changes / Bugfixes:
+- Added some missing animations in Nadia/Ain's scene
+- Two stray replay scenes have found their way back into the gallery (we have accidentally mislabeled them, causing them to vanish)
+- Fixed an issue where the Raiders quest wouldn't trigger the next step to show on the quest log
+- Fixed a missing quest log resolution for Ivy's quest
+- Fixed various reported typos and grammar issues
+
+{size=25}{color=#9f8461}0.15a{/color} (30/01/2024){/size}
+Minor changes / Bugfixes:
+- Added some missing animations in Shani's and Nadia/Ain's scenes
+- Added Shani licking her fingers at the end of the Kateryna/Shani harem event.
+- Fixed a wrong condition in Shani's harem button, causing a soft-lock if Kateryna hasn't joined the house
+- Fixed a crash in Replay gallery when trying to access the Zeta tab
+- Fixed a couple of instances where old saves would fail to update properly
+- Fixed a mistyped replay check in d9c
+- Added a missing tooltip in "Sleep with Shani" button
+- Fixed various typos and grammatical errors
+
+{size=25}{color=#9f8461}0.15 Beta{/color} (28/01/2024){/size}
+New Content:
+- Nadia visiting the house
+- Sekhmet's Legion pt. 1 (Raiders quest)
+- Shani in the terrace (leading to a repeatable scene)
+- You can now sleep with Shani
+- Visiting Ivy
+- Small repeatable Fairy scenes for her broken path
+- Harem scene (Shani/Kateryna)
+
+Minor additions:
+- You can be woken up by different people when you sleep with your wife
+- Added a few overlay variations in the home overview to make it feel more alive
+
+Minor changes / Bugfixes:
+- (Hopefully) Fixed all occasions where animations played on top of each other, causing lag/choppy animations.
+- Added animated backgrounds for home overview and world map
+- Fixed a really long-standing bug, where under certain conditions the player would never meet Fairy
+- Added a missing marker in world map button and Palace for the first Queen visit
+- Added a missing marker in world map button and mutants lab for the Pepper scene
+- Added a missing marker in Palace for the second Queen visit
+- Fixed an issue with d13i marker being shown, but the event not accessible yet because the settlement quest was not finished
+- Removed the requirement of Ivy not being scared for Hive mission pt. 2
+- Fixed an issue with Kateryna's introduction happening before getting the new car
+- Fixed a wrong variable check when discussing with Shani about the Zone, causing Ivy's notes to be referenced even if you haven't seen the event
+- Fixed an incorrect variable check, causing Shani to be injured after returning from the Zone even if she actually wasn't
+- Fixed being able to go to the scout mission in the Zone before doing Abrax's quest
+- You can't sleep with Ain or massage her if she's in the basement anymore
+- Fixed a small interaction appearing while Shani is actually in the Zone
+- Fixed a missing variable definition for the thug execution scene, potentially causing errors later on
+- Added an 1-day cooldown between the Hive mission parts
+- Added the option to avoid hugging the Queen in the Palace bedroom
+- Added the option to avoid checking out the Queen during d14d
+- Fixed a missing jump if you deny the servant in the second planning event with the Queen
+- Fixed "Public Servants" replay from missing an end for one of the paths, causing the game to crash.
+- Improved the animation quality of d9c-37 (Thug girl)
+- Ain sometimes took her choker off in the plaza date scene. Now she knows better
+- Fixed some dialogue inconsistency when the player sleeps with Ain
+- Fixed an incorrect image variant in Pepper's repeatable scene
+- Fixed missing background lighting in a couple of Mantis' training scene renders
+- Fixed Nadia's slave dress clipping in the dress-up scene
+- Fixed some incorrect image variants in Fairy's introduction
+- Fixed an incorrect image variant in Ain's punishment scene
+- Fixed some potential small stutter each time you start a new day
+
+Technical:
+- (Android) Added the RenPy Sync functionality for saves (this feature is still experimental, but should allow for easier migration of saves between versions)
+- (Android) Shani's fight cutscene in the Zone should now play automatically on touch devices, avoiding a potential soft lock
+
+{size=25}{color=#9f8461}0.14d{/color} (05/11/2023){/size}
+Minor changes / Bugfixes:
+- Added a new Zahra animation in the Kateryna scene
+- Various typos and grammar fixes
+- Fixed an incorrect sayer in Asha's settlement interaction
+- Fixed a couple of instances where Fairy's new name wasn't interpolated properly
+- Fixed an incorrect sayer in the settlement whore scene
+- Fixed an incorrect image condition in Fairy's introduction scene depending on whether Kateryna has joined the house or not
+- Fixed Shani incorrectly showing up in the Emilia/Fairy harem scene if she hasn't yet returned from the Zone
+- Made the Queen's palace interactions available only after the thermae scene to avoid out-of-order event references
+- Fixed a variable not being set to True when Kateryna joins the household
+- Made a small interaction between Ain and Kateryna available only if Kateryna has joined the household
+- Fixed some incorrect markers on the world map button in the home menu
+
+Technical:
+- Added an in-game option to toggle censorship/sharing on or off (currently under Edit Details)
+- Added the option to rename Fairy & Kitty in Edit Details after you chose their name the first time
+
+{size=25}{color=#9f8461}0.14c{/color} (30/10/2023){/size}
+Minor changes / Bugfixes:
+- Fixed a missing image crash in the Decayed scene
+- Improved the quality of the Emilia/Fairy harem animation
+- Added train animations at the start of the Decayed scene (We like trains)
+- Fixed a flag for the water woman in the settlement that caused the outcome dialogues to be reversed
+- The player now finds out Fairy's name if they got her from the trader
+
+{size=25}{color=#9f8461}0.14b{/color} (27/10/2023){/size}
+Minor changes / Bugfixes:
+- Hotfix for crash in the Palace
+
+{size=25}{color=#9f8461}0.14a{/color} (27/10/2023){/size}
+Minor changes / Bugfixes:
+- Added some missing animations in Kateryna's scene, Emilia/Fairy harem scene and Asha repeatable scene
+- Fairy's & Kateryna's introductions now won't happen as long as Shani is in the Zone
+- Fixed rolling back after loading a save that caused a revent in the variable updates. Now rollback is blocked prior to that point
+- Fixed Zahra's name not being interpolated in Kateryna's quest objectives
+- Kateryna's introduction shouldn't happen if you denied her
+- Fixed Asha talking while being knocked out in the intro scene
+- Fixed misspelled variable in multiple places
+- Fixed being unable to visit Raiders camp after seeing the settlement aftermath, blocking the player from Asha/Kitty
+- Made Ain's room available again
+- Fixed some button markers related to settlement events being enabled prematurely without the actual events being available
+- Asha/Kitty are now not accessible in Raider camp before the General and Kitty are captured
+- Fixed inconsistency in Queen's dialogue regarding the Thermae scene
+- Fixed missing flag checks in Queen's palace scene
+- Fixed Emilia appearing in Kateryna's introduction event even if the player denied her and added an alternative branch
+
+Translations
+- Added an Italian translation up to 0.14 (courtesy of Eagle1900)
+
+{size=25}{color=#9f8461}0.14 Beta{/color} (24/10/2023){/size}
+New Content:
+- Added scenes & events:
+  - Kateryna's introduction to the house (2 parts)
+  - Decayed visit
+  - Asani visit
+  - Fairy's introduction
+  - Series of small events at Queen's palace
+  - Settlement aftermath events
+  - Repeatable interactions with Asha & Kitty
+  - Harem scene (Emilia/Fairy)
+  - Brief interactions when you enter Ain or Shani's room
+
+Minor changes / Fixes:
+- Added End Of Content screen variations
+
+{size=25}{color=#9f8461}0.13c{/color} (30/06/2023){/size}
+Translations
+- Updated the Spanish translation to 0.13 (courtesy of Darax)
+- Added Indonesian translation up to 0.12 (courtesy of Genkho)
+
+Reworks and Revisions:
+- d5g (Ain's punishment)
+
+Minor changes / Fixes:
+- Updated the main menu animation
+- Added library entries for Fairy, Sharifa, Igor and Asani
+- Updated the library text and pictures for most entries
+
+{size=25}{color=#9f8461}0.13b{/color} (27/06/2023){/size}
+Minor changes / Bugfixes:
+- (Hopefully) fixed an issue with the Her Majesty & Till Death Do Us Part quests not updating properly. Now event order and quest log should align.
+- Added a small variation in Shani's return depending on she was wounded or not
+- Added some dialogue variation for the settlement discussion at the Palace if the player has not helped the Raiders
+- Made the overpass settlement arrows a bit more distinct, as some players had trouble noticing them the first time.
+- Fixed another (rare) potential soft-lock in the apartment scene
+- Fixed a bunch more text and typos
+- Fixed some render inconsistencies with Rabia's necklace in previous events
+
+{size=25}{color=#9f8461}0.13a{/color} (21/06/2023){/size}
+Minor changes / Bugfixes:
+- Added some missing animations in the Thermae scene
+- Fixed a soft-lock under certain conditions in the apartment
+- Fixed a wrong game jump from the Palace scene
+- Fixed the main menu music not stopping when loading into a game
+- Fixed logical dialogue errors
+- Fixed various typos
+- Fixed a bug where the cutscene marker wouldn't disappear on a game over in the fight sequence
+- Fixed some render inconsistencies
+- Added library entries for Zion and Kitty
+- Re-enabled the ability to scroll back during the apartment event after realizing it wasn't the best idea. Nice try though
+
+{size=25}{color=#9f8461}0.13 BETA{/color} (17/06/2023){/size}
+New Content:
+- Added scenes:
+ - Ending of Shani's quest in the Zone
+ - 10+ scenes that follow Shani's return and aftermath
+ - Harem scene (Emilia/Ain)
+
+Reworks and Revisions:
+- d4d (Talia & Lirah encounter)
+
+Minor changes / Bugfixes:
+- Replace some music tracks
+
+Technical:
+- Added a "content end" notification
+              
+{size=25}{color=#9f8461}0.12b{/color} (11/02/2023){/size}
+Minor changes / Bugfixes:
+- Fixed incorrect sayer characters in a few instances
+- Various text errors and typos (thank you for all the reports)
+- Removed a cooldown trigger from Kyra's second basement event to make it more streamlined
+- Fixed a couple of instances with overlapping videos causing lag 
+- Fixed an incorrect render sequence in Day 2
+
+{size=25}{color=#9f8461}0.12a{/color} (06/02/2023){/size}
+New Content:
+- Added scenes:
+  - Continuation of Fairy's questline
+  - Continuation of Rabiah/Nadia's questline.
+  - Harem scene (Zahra)
+  - Harem scene (Emilia)
+  - Ain/Emilia in Ain's room
+  - Ain in the hallway
+- Added 1 small event:
+  - Repeatable Hive Queen visit
+
+Reworks and Revisions:
+- d1e (Zahra's introduction)
+
+Minor changes / Bugfixes:
+- Various text errors and typos
+- Kyra's basement content should now not block other basement content
+- Fixed a long-standing bug where you couldn't get Fairy from K&K if Ivy was dead
+- Turned Ivy back to Igor in the Kateryna visit scene
+- Replaced Ivy's music theme in previous scenes
+
+{size=25}{color=#9f8461}0.11c{/color} (13/12/2022){/size}
+Translations:
+- Added Spanish translation (courtesy of Darax)
+- Added Russian translation (courtesy of Kasatik)
+
+Minor changes / Bugfixes:
+- Fixed a variable issue when accessing the prisoner scene from the replay gallery
+- Various text errors and typos (thank you for all the reports)
+- (Android) Fixed a text issue in Zone bunker notes
+- (Android) Fixed a few instances of overflowing text
+
+Technical:
+- Added an opacity slider for the in-game textbox
+- Added a "delete" icon for existing saves
+
+{size=25}{color=#9f8461}0.11b{/color} (15/11/2022){/size}
+Minor changes / Bugfixes:
+- Various text errors and typos
+- Fixed a notification issue in world map button due to a missing flag
+- Included 3 misplaced renders
+
+{size=25}{color=#9f8461}0.11a{/color} (10/11/2022){/size}
+New Content:
+- Added 6 scenes:
+  - Ivy's hideout
+  - Kateryna's house visit
+  - Continuation of Shani's quest in the Zone.
+  - Raiders/Kitty
+  - Zahra on the terrace
+  - Harem scene (Ain/Zahra)
+- Added 2 small events:
+  - A short revisit to pregnant Hive Queen
+  - Zahra sleeping scene variation
+
+Minor changes / Bugfixes:
+- Various text errors and typos
+- Fixed a flag error in Shani's new quest
+
+Technical:
+- Updated engine to RenPy 7.5.3
+
+{size=25}{color=#9f8461}0.10b{/color} (03/08/2022){/size}
+Minor changes / Bugfixes:
+- Fixed the radio in the Zone throwing an exception when the music is muted
+- Fixed incorrect variables in the Asha/Kyra scene
+- Fixed a variable issue in the Ain sleep scene
+- Fixed an incorrect sayer in the Fangs/Mantis scene
+- Fixed renders inconsistency for Asha in the Asha/Kyra scene
+
+{size=25}{color=#9f8461}0.10a{/color} (29/07/2022){/size}
+New Content:
+- Added 3 story scenes.
+  - Continuation of the Hive quest
+  - Raider quest
+  - Shani's entry in the Zone.
+- Added 2 events:
+  - Sleeping with Ain
+  - One kitchen dialogue
+
+Reworks and Revisions:
+- d4e (Emilia's room intro)
+- Ain room visit
+
+Minor changes / Fixes:
+- Fixed a path in Omar's dialogue that did not progress the quest
+- Fixed a missing audio file in Day 8
+- Fixed a missing image in Nadia's room scene
+- Various text errors and typos
+- Replaced some audio files and removed unused ones
+
+Technical:
+- Converted all images to webp, significantly reducing package size
+- Added a "Hide UI" button in Quick menu for android
+- Changed flash to be gray instead of white (thanks for pointing it out)
+
+{size=25}{color=#9f8461}0.09c{/color} (11/05/2022){/size}
+Minor changes / Bugfixes:
+- Fixed a missing audio file issue during the oasis event with Shani
+- Fixed a crash when visiting the prisoner in the market
+
+Technical:
+- Added Spanish translation (WIP), courtesy of Darax
+- Added version information next to each save
+
+{size=25}{color=#9f8461}0.09b{/color} (22/04/2022){/size}
+Minor changes / Bugfixes:
+- Removed the ability to feed Fairy until the end of time (players were getting soft-locked under certain conditions)
+    Note: Progression of Fairy basement events has been reset to account for the fix, they need to be replayed
+- Fixed the travel sequence to the Mutants based being repeated
+- Fixed Kateryna's kitchen event leaking into other events under certain conditions
+- Fixed Ain's room being available earlier than intended
+- Fixed a timeline inconsistency with Ain's event
+- Removed obsolete Ain/Shani relationship from "Edit Details"
+- Various typo and grammar correction
+
+{size=25}{color=#9f8461}0.09a{/color} (17/04/2022){/size}
+New Content:
+- Added 1 story scene
+- Added 9 events:
+    - One Ain event
+    - One kitchen event
+    - One event at the market
+    - Expanded Fairy's content (repeatable)
+    - Added Rabiah's home in the world map with 4 events
+- Added a Harem scene (Emilia)
+
+Reworks and Revisions:
+- d2b (Palace visit)
+- d2c (first Queen visit)
+- d2d (Leaving the Palace)
+- d4g (Second Queen visit)
+
+Minor changes / Bugfixes:
+- Added a new library entry
+- Fixed Shani appearing in events after she leaves for the Zone
+- Changed "Sleep with Zahra" tooltip to use the name variable instead
+- Fixed various instances of custom names being ignored
+- Fixed d2f-23 being cut off (Ain kitchen scene) at last
+
+Technical:
+- Added an in-game changelog
+- Changed the in-game menu
+- Changed the dialogue font (can be toggled in Options)
+- Changed the main font
+- Changed the dialogue box and notifications background
+- Reworked the credits sections
+
+{size=25}{color=#9f8461}0.08c{/color} (06/01/2022){/size}
+Minor changes / Bugfixes:
+- The mutant lab scene is now repeatable.
+- Fixed the missing car images.
+- Fixed the missing menu hint image.
+- Made the Shani choice a bit more clear.
+- (Hopefully) fixed an issue with unlocking the Asha/Kyra gallery scenes.
+- Fixed some dialogue issues caused by POV change.
+- Fixed a trigger bypass in Ivy's scene.
+- Fixed some wrong images in one path with Fangs
+- Various typo and grammar corrections
+
+{size=25}{color=#9f8461}0.08b{/color}:
+Minor changes / Bugfixes:
+- Includes a quick hotfix that prevent crashes from certain old animations.
+
+{size=25}{color=#9f8461}0.08a{/color} (29/12/2021){/size}
+New Content:
+- Added 1 new story scene.
+- Added 1 new side mission.
+- Added 2 new small events
+- You can now sleep with your lovely wife instead of alone if you choose to do so.
+
+Reworks and Revisions:
+- Reworked d1a (initial Raiders scene) from the ground up.
+
+Minor changes / Bugfixes:
+- Slightly changed "Sightseeing with Kateryna" mission's introduction to flow better
+- Fixed Asani being brought back from the dead under certain conditions.
+
+Technical:
+- Added the ability to select and view past main menu animations
+- Overhauled the structure of audio/image folders
+- Added basic Android gestures (experimental)
+
+{size=25}{color=#9f8461}0.07c{/color}{/size}
+Minor changes / Bugfixes:
+- You can now change the namebox POV in Edit Details
+- Fixed a handful of typos and text errors
+- Fixed an inconsistency between Kateryna's visit and it's marker
+- Ain is no longer doomed to be Abrax' wife (fixed the Harem scene)
+- Fixed an inconsistency regarding the fate of the kidnapper girl
+- Nadia can now be unlocked in the Gallery
+- Fixed a wrong condition in Thermae dialogue
+- Fixed some stray interpolation variables that should be persistent
+- Fixed Zahra being in the basement on Fairy's gentle variation
+
+{size=25}{color=#9f8461}0.07b{/color}{/size}
+Minor changes / Bugfixes:
+- Fixed the flipped default relationship values
+- Disabled "Presentation Options" due to a last-minute bug
+- Fixed wrong character name in Ain's harem scene
+- Fixed a wrong condition in one of the Thermae dialogues
+
+{size=25}{color=#9f8461}0.07a{/color} (22/09/2021){/size}
+New Content:
+- Added 1 new story scene.
+- Added 2 new side missions.
+- Added a new Harem variation (Ain solo).
+- Expanded the Fairy basement scene.
+
+Reworks and Revisions:
+- Revised d1b (Ivy's introduction scene).
+- Reworked the world map from the ground up.
+- Reworked the style of the main menu (options, gallery, loading screen).
+
+Minor changes / Bugfixes:
+- Added an option to change the namebox perspective in Edit Details.
+- Hopefully fixed the "None" issue with names that some players encountered
+
+{size=25}{color=#9f8461}0.06b{/color}{/size}
+Minor changes / Bugfixes:
+- Added an in-game menu to change names/relationships
+- Relationships are now permanent and should carry over to the gallery
+- Fixed Fairy not being unlocked in Gallery if you got her from the trader
+- Fixed a missing flag in Fairy's basement event
+- Fixed Ain's first meet Gallery scene
+- Fixed excess notifications for repeated Fairy's event
+- Fixed the credits, no more error log
+- Various typos and text corrections
+
+{size=25}{color=#9f8461}0.06a{/color} (16/07/2021){/size}
+New Content:
+- Added 2 new stories / side missions.
+- Introducing the first 3 NSFW animations.
+- Added the Harem / living room & 1 variation scene. (More variations coming in the future).
+- Added a free roam basement with access to girls kept in there & 1 new scene.
+- Added an ingame library that contains a codex about characters and places.
+
+Reworks and Revisions:
+- Reworked the intro of the  game. Instead of seeing a black screen when starting a new game, the  player will get a proper introduction.
+- Reworked and improved room  visits. You can now lay down and have a chat with Zahra, Ain and Shani  about multiple topics (to be expanded as the story goes on).
+- Revised d2e (Shani's tomb scene).
+- Revised d1e (Ain Zahra Introduction. Full skin and lighting rework coming in the future).
+- Revised the beginning of d1b (Ivy's introduction).
+
+Minor changes / Bugfixes:
+- Changed the home menu and world map background music due to copyright concerns.
+- Changed some old low quality sounds.
+- The gallery will now only show 1 time NSFW scenes. Repeatable free roam scenes will not be shown in the gallery.
+- quality of life updates for multiple HUD elements.
+- Removed the repeatable kitchen scene from free roam (for now).
+
+{size=25}{color=#9f8461}0.05c{/color}{/size}
+Minor changes / Bugfixes:
+- Various typos and text corrections
+- Fixed an error on declining Kyra/Asha due to incorrect variable
+- Fangs' Q&A is now more streamlined
+- Fixed a missing flag preventing Kyra from being unlocked in the Gallery under certain conditions
+- Fixed the trader interaction leading to opposite responses
+- Fixed Emilia not getting offered the second time under certain conditions
+- All quests have appropriate ending markers now
+- Emilia's room introduction event has been revised
+- Ain's room becomes unavailable after her punishment, for consistency reasons
+- Fixed some renders in Ain's introduction, that were overflowing the screen
+- Added the missing Home Menu tutorial image
+- Added Quick Menu option in preferences
+
+{size=25}{color=#9f8461}0.05a{/color} (31/05/2021){/size}
+New Content:
+- 8 new scenes
+- refreshed some scenes with several renders
+- Rework of the home menu from day 1-5
+- added a quest log
+- added markers for important events
+
+{size=25}{color=#9f8461}0.04{/color} (14/03/2021){/size}
+New Content:
+- 8 new scenes (Kyra, Market, Shani, Guard, Emilia, Ain, Queen, Elf)
+- You can now visit Ain, Shani and Zahra in their rooms.
+- added a gallery
+- added a teaser for car inspection
+- multiple text corrections (Thanks to CynicalADM and dsnow!)
+
+{size=25}{color=#9f8461}0.03{/color} (14/02/2021){/size}
+New Content:
+- 2 story missions
+- 2 side events
+- added the first two repeatable events
+
+Reworks and Revisions:
+- whole rework of Ain and all her scenes
+
+Minor changes / Bugfixes:
+- improved the open world quest mechanics
+- added back a familiar option to the first raider encounter (uncut version)
+- fixed spelling errors like "elf"
+- added options to avoid two prologue NFSW scenes
+- reworked the censor function a bit
+- removed the game over after letting the elf die
+- added a "go to sleep" option to start a new day
+- made the dialogue textbox more transparent
+
+{size=25}{color=#9f8461}0.02{/color} (29/12/2020){/size}
+New Content:
+- 6 new scenes (2st part of the prologue)
+
+Reworks and Revisions:
+- made Scene 2 and 5 of Day 1 brighter
+- changed some music tracks in Day 1
+
+Minor changes / Bugfixes:
+- added a censorship option
+- added a relationship options
+
+{size=25}{color=#9f8461}0.01{/color} (04/12/2020){/size}
+Initial release
+New Content:
+- 5 new scenes (1st part of the prologue)
+""")

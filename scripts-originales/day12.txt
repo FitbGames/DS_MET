@@ -1,0 +1,1994 @@
+label d12a:
+    $ m_d12a = True
+    scene d12a-1
+    with slowfade
+    A "And then she told us her slave got her pregnant, can you imagine?!"
+    Z "And so she left school?"
+    scene d12a-2
+    with dissolve
+    A "Yep. And she was the best in class, too-"
+    scene d12a-3
+    play sound "audio/sounds/doors/door closed.mp3"
+    with dissolve
+    A "...?"
+    if fairy_healed == True:
+        scene d12a-5
+        with dissolve
+        Z "..."
+        scene d12a-6
+        with fade
+        W "...and remember, just be yourself. He likes you like that."
+        scene d12a-7
+        with dissolve
+        W "He will like the dress, this time. You can put on the servant outfit another time."
+        scene d12a-8
+        with dissolve
+        W "Now, go ahead. Talk to him."
+
+    elif fairy_neutral == True:
+        scene d12a-5x
+        with dissolve
+        Z "..."
+        scene d12a-6x
+        with fade
+        W "...and don't forget what I told you. Behave, and I might let you be with the other girls."
+        scene d12a-7x
+        with dissolve
+        W "Today is a special occasion, in a way, but we'll see where we go from there, depending on how you perform."
+        scene d12a-8x
+        with dissolve
+        W "Now, go ahead. Serve my husband."
+
+    scene d12a-9
+    with fade
+    A "I know where this is going. Enjoy your time, [persistent.dad]."
+    scene black pic
+    with fade
+    "She gets up and leaves as Fairy steps closer..."
+    if fairy_healed == True:
+        scene d12a-10
+        with fade
+        F "Hello, Master."
+        scene d12a-11
+        with dissolve
+        "There she stands before you. No ragged clothes, no basement. Her entire figure seems healthier too. [W] really did manage to clean her up well."
+        menu:
+            "\"Hey Fairy. How are you?\"":
+                Z "Hey Fairy. How are you?"   
+                Z "You can sit down."
+
+            "\"You look stunning. I like that dress.\"":
+                Z "You look stunning. I like that dress."
+                Z "Come here, sit with me."
+
+        scene d12a-10
+        with dissolve
+        F "Thank you, Master."
+        scene black pic
+        with fade
+        "Fairy sits down besides you, her movement measured and controlled."
+        scene d12a-12
+        with fade
+        "Her dress is carefully chosen. The soft silky gown rests on her light skin, and the light pink underwear makes it hard to look away..."
+        Zt "[W] really knew what she was doing when she put her into this outfit..."
+        menu:
+            "Talk to her":
+                jump d12a14a
+
+            "Look closer":
+                $ d12a_looked_closer = True
+                scene d12a-13
+                with dissolve
+                "You take your time to look at her dress more closely."
+                "Her large breasts are beautifully cupped, and her curly red hair only complements her exotic looks."
+                Zt "It seems that she is eating well. She looks much more healthy, now."
+                F "...Master?"
+                jump d12a14a
+
+        label d12a14a:
+            scene d12a-14
+            with dissolve
+            "She looks at you, waiting for your words..."
+            menu:
+                "\"You look much healthier, now.\"" if d12a_looked_closer == True:
+                    Z "I got distracted. You look much healthier, now."
+                    Z "It seems that my wife took good care of you."
+                    scene d12a-15
+                    with dissolve
+                    F "Thank you... Master... it's..."
+                    scene d12a-15x
+                    with dissolve
+                    F "..."
+                    "You can see that she's still hesitant to speak freely..."
+                    scene d12a-14x
+                    with dissolve
+                    F "...it is because of you, Master. And Mistress."
+                    F "I never expected this... I am... thankful."
+                    jump d12a_questions
+
+                "\"You look irresistible.\"" if d12a_looked_closer == True:
+                    Z "You look irresistible, Fairy."
+                    Z "I had noticed your beauty before, but seeing you here, so adorned..."
+                    Z "You must be feeling better, after all this time?"
+                    scene d12a-16
+                    with dissolve
+                    F "Thank you, Master. I do feel better, yes. Much better."
+                    scene d12a-15x
+                    with dissolve
+                    F "..."
+                    "You can see that she's still hesitant to speak freely, but that she really is making an effort..."
+                    scene d12a-16
+                    with dissolve
+                    F "Also more... comfortable, now. I look forward to..."
+                    scene d12a-14x-2
+                    with dissolve
+                    F "...serve more... very much..."
+                    jump d12a_questions
+
+                "\"I am proud of you.\"" if d12a_looked_closer == False:
+                    Z "I am proud of you."
+                    scene d12a-14x-3
+                    with dissolve
+                    F "..."
+                    "She looks surprised, in a positive way..."
+                    Z "You have gone through so much, and now you are here."
+                    scene d12a-14x
+                    with dissolve
+                    F "Beca... because of you, Master. Thank you so... much."
+                    scene d12a-14x-2
+                    with dissolve
+                    F "You and Mistress... I never... thought... I..."
+                    jump d12a_questions
+
+                "\"How are you feeling?\"":
+                    Z "How are you feeling? I hope that after all this time, you feel more at ease."
+                    Z "You certainly look much better than when I found you. {i}*chuckles*{/i}"
+                    scene d12a-15
+                    with dissolve
+                    F "Thank you... Master... I..."
+                    scene d12a-15x
+                    with dissolve
+                    F "..."
+                    "You can see that she's still hesitant to speak freely..."
+                    scene d12a-14x
+                    with dissolve
+                    F "You... and mistress... have cared a lot for me."
+                    F "I am very thankful. I never expected... this."
+                    jump d12a_questions
+
+
+    elif fairy_neutral == True:
+        scene d12a-11x
+        with fade
+        F "Hello, Master."
+        scene d12a-11x-2
+        with dissolve
+        "There she stands before you. No ragged clothes, no basement. Only the traditional slave outfit."
+        "Her entire figure seems a bit healthier too. Eating regular meals for several days has done wonders."
+        menu:
+            "\"You look stunning.\"":
+                Z "You look stunning. You wear that dress well."
+                Z "Come here, sit with me."
+
+            "\"How are you, Fairy?\"":
+                Z "How are you, Fairy?"
+                Z "You behave well, and you're more disciplined."
+                Z "I approve."
+                Z "Come, sit down."
+
+            "\"I waited a long time to get through to you.\"":
+                Z "When I got you from Old Cairo, I didn't know where to start with you."
+                Z "But there you go... finally tamed and in control, the way I like it."
+                Z "Come, sit down with me."
+
+        scene d12a-11x
+        with dissolve
+        F "Thank you, Master."
+        scene black pic
+        with fade
+        "Fairy sits down, her movement measured and controlled."
+        scene d12a-12x
+        with fade
+        "Her dress is carefully chosen. The soft silky gown rests on her light skin, and the light pink underwear wraps her figure nicely..."
+        Zt "[W] really knew what she was doing when she put her into this outfit..."
+        menu:
+            "Talk to her":
+                jump d12a14b
+
+            "Look closer":
+                $ d12a_looked_closer = True
+                scene d12a-13x
+                with dissolve
+                "You take your time to look at her dress more closely."
+                "Her frame is fuller, healthier. Her is skin peachy smooth, and her red hair is like silk on her shoulders."
+                Zt "It seems that eating well has done her some good. She looks much more healthy, now."
+                F "...Master?"
+                jump d12a14b
+
+        label d12a14b:
+            scene d12a-17x-4
+            with dissolve
+            "She looks at you, waiting for your words..."
+            menu:
+                "\"I got distracted. You look much healthier, now.\"" if d12a_looked_closer == True and fairy_h > fairy_b:
+                    Z "I got distracted. You look much healthier, now."
+                    Z "Has my wife taken good care of you?"
+                    scene d12a-17x
+                    with dissolve
+                    F "Thank you... Master... it's..."
+                    scene d12a-17
+                    with dissolve
+                    F "..."
+                    "You can see that she's still hesitant to speak freely..."
+                    scene d12a-17x
+                    with dissolve
+                    F "Good food, warm bed... I don't deserve..."
+                    jump d12a_questions
+
+                "\"I got distracted. You make me want to fuck you.\"" if d12a_looked_closer == True:
+                    Z "I got distracted. This slave dress..."
+                    Z "It makes me want to rip it off you, and fuck you right here, right now."
+                    scene d12a-17x-5
+                    with dissolve
+                    F "Thank you, Master. Do you want to, now?"
+                    scene d12a-17x-4
+                    with dissolve
+                    Z "We should talk first. There are things that need saying."
+                    jump d12a_questions
+
+                "\"How are you feeling?\"":
+                    Z "How are you feeling? I hope that after all this time, you feel at ease again."
+                    Z "You look like you have found your place, now."
+                    scene d12a-17x
+                    with dissolve
+                    F "Thank you... Master... I..."
+                    scene d12a-17x-2
+                    with dissolve
+                    F "..."
+                    "You can see that she's still hesitant to speak freely..."
+                    scene d12a-17x-5
+                    with dissolve
+                    F "I will... serve well. I will show I am worthy."
+                    scene d12a-17x-4
+                    with dissolve
+                    Z "I'm sure you are."
+                    jump d12a_questions
+
+                "\"It's good to see my training paid off.\"":
+                    Z "It's good to see my training paid off."
+                    Z "You look like a proper slave now. I could sell you for a decent price at this point."
+                    Z "If your skills in bed have improved at the same pace, then I don't regret taking you out of Old Cairo one bit."
+                    scene d12a-17x-5
+                    with dissolve
+                    F "Thank you, Master."
+                    F "I... will prove I am worthy."
+                    scene d12a-17x-2
+                    with dissolve
+                    F "..."
+                    "You can see that she's still hesitant to speak freely..."
+                    scene d12a-17x-5
+                    with dissolve
+                    F "I will serve you at any time, I promise."
+                    jump d12a_questions
+                    
+        label d12a_questions:
+            if fairy_healed == True:
+                scene d12a-15x
+            else:
+                scene d12a-17x-2
+            with dissolve
+            if d12a_question_1 == False and d12a_question_2 == False and d12a_question_3 == False:
+                "She shyly looks to one side..."
+                pause 2
+            menu:
+                "\"Did my wife tell you more about the house?\"" (question = True) if d12a_question_1 == False:
+                    $ d12a_question_1 = True
+                    Z "You have spent some time with my wife now, Fairy, and seen how we live."
+                    Z "Did she tell you more about the house?"
+                    if fairy_healed == True or fairy_h > fairy_b:
+                        if fairy_healed == True:
+                            scene d12a-16
+                        else:
+                            scene d12a-17
+                        with dissolve
+                        F "Mistress told me the rules. Told me disobeying is wrong."
+                        F "She... dressed me, too. Gave me food, it makes me want more."
+
+                    else:
+                        if fairy_healed == True:
+                            scene d12a-16
+                        else:
+                            scene d12a-17
+                        with dissolve
+                        F "Mistress dressed me."
+                        F "Brushed my hair. She says I have nice hair."
+                        if fairy_healed == True:
+                            scene d12a-15
+                        else:
+                            scene d12a-17x
+                        with dissolve
+                        F "I was afraid she... cut it... for herself. But she let me keep, and wash."
+                        F "She showed me servant quarters, too."
+                        if fairy_healed == True:
+                            scene d12a-14x-2
+                        else:
+                            scene d12a-17x-5
+                        with dissolve
+                        if emilia_joined == True:
+                            F "I saw blonde girl again. Very pretty. Light skin, like me."
+                            F "I feel... maybe slaves can be happy, here."
+                            
+                    if fairy_healed == True:
+                        scene d12a-14
+                    else:
+                        scene d12a-17x-4
+                    with dissolve
+                    Z "So you had a good time."
+                    if fairy_healed == True:
+                        scene d12a-16
+                    else:
+                        scene d12a-17x-5
+                    with dissolve
+                    F "Mistress was kind."
+                    if fairy_healed == True:
+                        scene d12a-14
+                    else:
+                        scene d12a-17x-4
+                    with dissolve
+                    Z "In this house, we are welcoming and friendly to each other, when we can."
+                    Z "Life is hard enough outside these walls without us adding to the misery."
+                    if fairy_b >= fairy_h:
+                        Z "The same goes even for my slaves. If you follow the rules and respect my girls, you deserve to have a good life."
+                    F "Thank you, Master."
+                    jump d12a_questions
+
+                "\"I never asked about your past, and who you really are.\"" (question = True) if d12a_question_2 == False:
+                    $ d12a_question_2 = True
+                    Z "I never asked about your past, and who you really are."
+                    Z "Where do you come from? What happened to you?"
+                    if fairy_healed == True:
+                        scene d12a-15x-2
+                    else:
+                        scene d12a-17x-3
+                    with dissolve
+                    F "Village was... far away. Past old city. No more village now."
+                    if fairy_healed == True:
+                        scene d12a-15x
+                    else:
+                        scene d12a-17x-2
+                    with dissolve
+                    Z "What happened to it?"
+                    if fairy_healed == True:
+                        scene d12a-15x-3
+                    else:
+                        scene d12a-17x-6
+                    with dissolve
+                    "As you ask the question, you can already anticipate her response, as she and her people seem to have shared the fate of so many minor settlements."
+                    if fairy_healed == True:
+                        scene d12a-15x-2
+                    else:
+                        scene d12a-17x-3
+                    with dissolve
+                    F "Decayed... attacked. They killed many. Captured some. Captured me."
+                    F "The decayed, they... bring us to old city. Then we work. We serve. We eat. Sometimes... they eat."
+                    if fairy_healed == True:
+                        scene d12a-14x
+                    else:
+                        scene d12a-17
+                    with dissolve
+                    F "When village was there, I had family. When it destroyed... I was alone."
+                    if fairy_healed == True:
+                        scene d12a-15x-3
+                    else:
+                        scene d12a-17x-6
+                    with dissolve
+                    "You see she is saddened by the memories, so you pick up the conversation again, trying to move past it."
+                    if fairy_healed == True:
+                        scene d12a-15x
+                    else:
+                        scene d12a-17x-2
+                    with dissolve
+                    Z "Can you tell me more about your life before the attack? You mentioned a family?"
+                    if fairy_healed == True:
+                        scene d12a-15x-2
+                    else:
+                        scene d12a-17x-3
+                    with dissolve
+                    F "Yes, family... but not... own family."
+                    if fairy_healed == True:
+                        scene d12a-15x
+                    else:
+                        scene d12a-17x-2
+                    with dissolve
+                    "Seeing how she struggles with it, you think it's best to lay this topic to rest, and focus on something else..."
+                    jump d12a_questions
+
+                "\"Let's talk about your future.\"" if d12a_question_3 == False:
+                    $ d12a_question_3 = True
+                    Z "Listen, you're here now... far away from the decayed."
+                    Z "So we need to talk about your future."
+                    if fairy_healed == True:
+                        scene d12a-15
+                    else:
+                        scene d12a-17x
+                    with dissolve
+                    F "I... see..."
+                    if fairy_healed == True:
+                        scene d12a-16
+                    else:
+                        scene d12a-17
+                    with dissolve
+                    F "Master, I will follow all rules."
+                    F "What... is expected?"
+                    if fairy_healed == True:
+                        scene d12a-14
+                    else:
+                        scene d12a-17x-4
+                    with dissolve
+                    menu:
+                        "\"I don't expect anything. You're a free woman.\"" if fairy_healed == True:
+                            Z "I don't expect anything. I saved you because you needed help."
+                            if d5f_fairy_bj == True or d5f_fairy_piss == True:
+                                Z "Sure... I may have used you, back when you were in that bathroom stall..."
+                                Z "...and I don't regret it. But still, the point stands..."
+                            Z "You're a free woman now. You can go and start your life in the city. I just have to square things with the Palace bureaucrats."
+                            if fairy_healed == True:
+                                scene d12a-15x
+                            else:
+                                scene d12a-17x-2
+                            with dissolve
+                            F "..."
+                            pause 2
+                            if fairy_healed == True:
+                                scene d12a-15x-2
+                            else:
+                                scene d12a-17x-3
+                            with dissolve
+                            F "I never lived... alone... before. Even in village."
+                            F "When decayed came, took me. Made me serve... all went dark."
+                            if fairy_healed == True:
+                                scene d12a-16
+                            else:
+                                scene d12a-17
+                            with dissolve
+                            F "You saved me. I was not... me."
+                            F "Darkness... killing... eating humans... it broke me."
+                            F "You gave me new chance. I will never forget."
+                            if fairy_healed == True:
+                                scene d12a-14x #even more emotional
+                            else:
+                                scene d12a-17x-3
+                            with dissolve
+                            F "Master... I don't want to go. Please let me stay."
+                            F "I... you are all I have, Master."
+                            if fairy_healed == True:
+                                scene d12a-14
+                            else:
+                                scene d12a-17x-4
+                            with dissolve
+                            Z "..."
+                            Z "I see. If your desire is to stay here, you will be my servant in this house, then."
+                            jump d12a_question_3_sub
+
+                        "\"You will be a good servant, and you will enjoy it here.\"":
+                            Z "You will be a good servant, and you will enjoy it here."
+                            Z "When I first saw you, I was unsure. You were broken, and lost."
+                            Z "But you have come a long way, and recovered."
+                            if fairy_healed == True:
+                                scene d12a-15x-2
+                            else:
+                                scene d12a-17x
+                            with dissolve
+                            F "Master... I was not... me."
+                            F "But I feel better, now. Is because of you. I will never forget."
+                            if fairy_healed == True:
+                                scene d12a-16
+                            else:
+                                scene d12a-17x-5
+                            with dissolve
+                            F "I will prove I am worthy. Thank you, Master."
+                            jump d12a_question_3_sub
+
+                        "\"From now on, I expect you to serve me and my household.\"":
+                            Z "I'm going to be straight with you."
+                            if fairy_healed == True:
+                                scene d12a-14x-3
+                            else:
+                                scene d12a-17x-4
+                            with dissolve
+                            Z "You are here for a reason. I expect you go serve me and my household, in all ways."
+                            Z "When I need a warm bed, you will service me without hesitation."
+                            Z "When my [persistent.da]s ask for you, you will obey them."
+                            Z "You are bought and paid for, and you will follow my commands without a second thought, including, should I so decide, to let me breed you."
+                            if fairy_healed == True:
+                                scene d12a-6
+                            else:
+                                scene d12a-17x-5
+                            with dissolve
+                            F "Yes, Master. I understand and follow. I will prove I am worthy."
+                            F "Thank you, Master."
+                            if fairy_healed == True:
+                                scene d12a-14
+                            else:
+                                scene d12a-17x-4
+                            with dissolve
+                            Z "..."
+                            Zt "She's more disciplined than I thought... even if cruel, the decayed did lay that foundation, at least."
+                            Z "Good answer."
+                            jump d12a_question_3_sub
+                    
+
+                    label d12a_question_3_sub:
+                        if fairy_healed == True:
+                            scene d12a-15
+                        else:
+                            scene d12a-17x
+                        with dissolve
+                        F "I will make sure I serve, like... other servants. All time."
+                        if d5f_fairy_bj == True or d5f_fairy_piss == True:
+                            if fairy_healed == True:
+                                scene d12a-14x-2
+                            else:
+                                scene d12a-17x-5
+                            with dissolve
+                            F "...and... I like... you... take what you want."
+                            if d5f_fairy_piss == True:
+                                F "You can always demand. I like to serve. I don't mind... drinking, too like with first meeting."
+                            else:
+                                F "You can always demand. I like to serve."
+                            if fairy_healed == True:
+                                scene d12a-16
+                            else:
+                                scene d12a-17x
+                            with dissolve
+                        F "Even... pain... I can take." 
+                        if fairy_healed == True:
+                            scene d12a-14x-3
+                        else:
+                            scene d12a-17x-4
+                        with dissolve
+                        "Something in her demeanour makes this sound more like a request, a plea, than an offer."
+                        if fairy_healed == True:
+                            scene d12a-14
+                        else:
+                            scene d12a-17x-4
+                        with dissolve
+                        Zt "Damn..."
+                        if d12a_question_1 == True and d12a_question_2 == True and d12a_question_3 == True:
+                            if fairy_healed == True:
+                                scene d12a-15x
+                            else:
+                                scene d12a-17x-4
+                            with dissolve
+                            jump d12a_continue
+                        else:
+                            jump d12a_questions
+
+                "Continue" if d12a_question_3 == True:
+                    label d12a_continue:
+                        "You let the moment sink in and don't say a word..."
+                        pause 2.5
+                    if fairy_healed == True:
+                        scene d12a-14x
+                    else:
+                        scene d12a-17
+                    with dissolve
+                    F "...Master?"
+                    if fairy_healed == True:
+                        scene d12a-14x-3
+                    else:
+                        scene d12a-17x-4
+                    with dissolve
+                    Z "Yes, Fairy?"
+                    if fairy_healed == True:
+                        scene d12a-16
+                    else:
+                        scene d12a-17x
+                    with dissolve
+                    F "Do you want... to give me... new name?"
+                    F "You are my new master. I will listen to your name."
+                    if fairy_healed == True:
+                        scene d12a-14x-3
+                    else:
+                        scene d12a-17x-4
+                    with dissolve
+                    Z "What about your real name? Fairy was a nickname given to you by the decayed?"
+                    if fairy_healed == True:
+                        scene d12a-16
+                    else:
+                        scene d12a-17x
+                    with dissolve
+                    F "Yes... they called me... years ago, after the village..."
+                    F "I'm sorry, Master. Please... I want to leave past behind. Not go back to old name... of village."
+                    if fairy_healed == True:
+                        scene d12a-16
+                    else:
+                        scene d12a-17x-5
+                    with dissolve
+                    F "You can choose new name? If you not like Fairy... I understand."
+                    if fairy_healed == True:
+                        scene d12a-14
+                    else:
+                        scene d12a-17x-4
+                    with dissolve
+                    "You nod..."
+                    menu:
+                        "Keep her name as it is":
+                            if fairy_h > fairy_b:
+                                Z "Fairy, I want you to keep your name. You may not like it now, because of who gave it to you, but I will not rename you like a pet."
+                                Z "Maybe, eventually, you will like your name. I do. It's unusual."
+                                if fairy_healed == True:
+                                    scene d12a-15x
+                                else:
+                                    scene d12a-17x-2
+                                with dissolve
+                                F "..."
+                                if fairy_healed == True:
+                                    scene d12a-16
+                                else:
+                                    scene d12a-17x-5
+                                with dissolve
+                                F "Thank you, Master. If you like... my name... I will be happy to hear."
+                            else:
+                                Z "You're going to keep your name. It suits you."
+                                if fairy_healed == True:
+                                    scene d12a-16
+                                else:
+                                    scene d12a-17x-5
+                                with dissolve
+                                F "Yes, Master. I understand. Thank you."
+                                if fairy_healed == True:
+                                    scene d12a-14
+                                else:
+                                    scene d12a-17x-4
+                                with dissolve
+                                Zt "That was easy... I like her."
+                                jump d12a18
+
+                   
+                        "Give her a new name":
+                            Z "Alright then. You will start a new life here, with a new name."
+                            "You think carefully for a while, as the girl watches you with curiosity..."
+                            $ fairy_name = renpy.input(_("You will be named "), default=_('Fairy'), length=16, screen='say_with_input', show_who = Z, show_post = ' ...').strip()
+                            if fairy_healed == True:
+                                scene d12a-16
+                            else:
+                                scene d12a-17x-5
+                            with dissolve
+                            F "Thank you, Master. I am happy to receive a new name."
+                            if fairy_healed == True:
+                                scene d12a-14
+                            else:
+                                scene d12a-17x-4
+                            with dissolve
+                            "She smiles, visibly happy with the choice..."    
+                            "Her appreciation for your desire in this regard seems unconditional. She really looks forward to forging a new identity."
+                            if fairy_healed == True:
+                                scene d12a-15x
+                            else:
+                                scene d12a-17x-2
+                            with dissolve
+                            F "..."
+                            pause 1.5
+                            Z "[F]?"
+                            Z "What are you thinking about?"
+                            if fairy_healed == True:
+                                scene d12a-14x
+                            else:
+                                scene d12a-17
+                            with dissolve
+                            F "Master... I..."
+                            if fairy_healed == True:
+                                scene d12a-16
+                            else:
+                                scene d12a-17x
+                            with dissolve
+                            F "Do you... find me hot?"
+                            if d12a_looked_closer == True:
+                                F "I have seen you look at me, before."
+                                F "...say that I look good?"
+                            if fairy_healed == True:
+                                scene d12a-15x
+                            else:
+                                scene d12a-17x-2
+                            with dissolve
+                            Z "You are very attractive, yes."
+                            if fairy_healed == True:
+                                scene d12a-14x-3
+                            else:
+                                scene d12a-17x-4
+                            with dissolve
+                            pause 2
+                            jump d12a18
+                            
+label d12a18:
+    if fairy_healed == True:
+        label re_d12a18_h:
+            scene d12a-18
+            with fade
+        "She crawls up to you..."
+        scene d12a-20
+        with dissolve
+        F "..."
+        "Not saying a word, she rests her hand on your chest..."
+        Z "Hey there..."
+        scene d12a-22
+        with dissolve
+        F "Master... I..."
+        F "...feel safe..."
+        scene d12a-21
+        with dissolve
+        "For a moment, she hesitates, before continuing..."
+        scene d12a-22
+        with dissolve
+        F "Do you... want to..."
+        scene d12a-25
+        with dissolve
+        F "...take me?"
+        Zt "Damn..."
+        F "Master... please..."
+        F "I can do... everything..."
+        Z "Lie down, [F]..."
+        scene d12a-27
+        with slowfade
+        "There she lies, displayed before you. Her silky dress covering her curves, and her left arm holding her full breasts together..."
+        "She gazes at you, maybe for the first time really taking your appearance in."
+        "You find it hard to believe that someone can turn from this broken and hurt thing into someone open, trusting and even sophisticated."
+        "But... miracles do exist, apparently."
+        "You made it, you think... you truly helped her... and won her for yourself as a reward."
+        scene d12a-26
+        with dissolve
+        F "I am ready, Master..."
+        scene d12a-29
+        with dissolve
+        F "Don't need to be... gentle."
+        scene d12a-30
+        with dissolve
+        "She spreads her legs, and you take a full look at her inviting pussy..."
+        scene black pic
+        with fade
+        pause 1
+        scene d12a-31
+        with vpunch
+        F "Ah..."
+        Z "Be careful what you wish for..."
+        scene d12a-32
+        with dissolve
+        "You press her down on the bed, placing yourself on top of her."
+        "Her posture remains defenseless, giving you absolute control"
+        scene d12a-33
+        with dissolve
+        "She wraps her legs around you..."
+        scene d12a-34
+        with fade
+        menu:
+            "\"You are so pretty.\"":
+                Z "You are so pretty."
+                Z "Who knew that the filthy decayed could keep someone like you hiding in the shadows."
+                Z "These pretty green eyes... your lips..."
+                Z "I'm going to enjoy kissing them..."
+                jump d12a35
+
+            "\"We're all glad to have you around us.\"":
+                Z "We're all glad to have you around, [F]."
+                Z "You have something special, and I want to find out more..."
+                jump d12a35
+
+            "\"You will be a special servant.\"":
+                Z "You will be a special servant."
+                Z "I will make sure of that..."
+                jump d12a35
+
+        label d12a35:
+            scene d12a-35
+            with dissolve
+            "You close in on her face..."
+            scene d12a-36
+            with dissolve
+            F "..."
+            scene d12a-37
+            with dissolve
+            "{i}*kissing*"
+            "Her lips feel soft when you kiss. When you first met, the experience was similar but also very different."
+            "Behind the sex crazed attitude she displayed, a vulnerable girl was hiding all along..."
+            F "mh..."
+            scene d12a-38
+            with dissolve
+            "While kissing her romantically, you rub your dick against her wet slit..."
+            scene d12a-39
+            with dissolve
+            "...and insert yourself smoothly."
+            F "Mhh... Master..."
+            scene d12a-38
+            with dissolve
+            "You build up a good pace, giving her a different sensation than what she asked for. Despite her rough experiences in the past, she seems to enjoy this new experience."
+            scene d12a-39
+            with dissolve
+            "You can hear it in her moans; she really enjoys the tender lovemaking."
+            Zw "There is no pressure, [F]. Enjoy the moment... you are safe..."
+            F "Mh... I love... Master..."
+            scene d12a-38
+            with dissolve
+            "You keep going, and eventually feel like you're about to cum..."
+            F "Mas... Master... I can... give birth..."
+            F "I can be slave... of you... always."
+            "Her unconditional submission to you brings you over the edge..."
+            menu:
+                "Impregnate her":
+                    if not _in_replay:
+                        $ fairy_pregnant = True
+                    Z "I will make you mine, [F]..."
+                    F "Yes... please..."
+                    scene d12a-39
+                    with dissolve
+                    Z "Hngh-"
+                    F "Ah... yes..."
+                    with hpunch
+                    Z "Fuck..."
+                    with hpunch
+                    "You spout deep inside her womb..."
+                    scene d12a-39x
+                    with dissolve
+                    Z "Mh..."
+                    F "Master... I love... this..."
+                    scene d12a-39
+                    with hpunch
+                    F "Ahnn...hah..."
+                    with hpunch
+                    "You keep cumming..."
+                    scene d12a-39x
+                    with dissolve
+                    Z "Damn... you drained everything out of me..."
+                    scene d12a-39x-2
+                    with fade
+                    "She lies there, your spunk embedded in the folds of her pussy. She looks tired, but also in bliss..."
+                    scene d12a-35
+                    with fade
+                    "You lean back over her..."
+                    Z "You're a good girl, [F]."
+                    scene d12a-37
+                    with dissolve
+                    "{i}*kissing*"
+                    scene black pic
+                    with slowfade
+                    $ renpy.end_replay()
+                    "You continue fooling around with her for a bit, before deciding to bring it to an end."
+                    "[F] is eventually led back to the servant quarters, where she will learn more about everyone in the household, before preparing for her formal introduction..."
+                    jump d12a_end
+
+                "Cum outside":
+                    Z "I'm close, [F]..."
+                    scene d12a-39x-3
+                    with fade
+                    "You pull out and get ready to cum all over her..."
+                    F "Master... I am... yours..."
+                    "Hearing the words of your submissive redhead, you can't help but go over the edge..."
+                    scene d12a-39x-4
+                    with hpunch
+                    Z "Ngh-!"
+                    scene d12a-39x-5
+                    with dissolve
+                    pause 1
+                    scene d12a-39x-6
+                    with hpunch
+                    Z "Mh-"
+                    scene d12a-39x-5
+                    with dissolve
+                    "[F]'s unique submissive way and the novelty of this new addition to your house have you excited more than usual..."
+                    scene d12a-39x-6
+                    with hpunch
+                    Z "Fuckk..."
+                    scene d12a-39x-7
+                    with dissolve
+                    Z "I'm... empty..."
+                    scene d12a-39x-8
+                    with dissolve
+                    "You take a look at your artwork..."
+                    Z "{i}*pant*"
+                    Zt "Beautiful..."
+                    F "Master... I don't..."
+                    scene d12a-39x-9
+                    with dissolve
+                    F "I don't... deserve so much..."
+                    "You're wondering about the ridiculousness of that statement, until you realize that she truly meant that."
+                    "You think to yourself that there is still some work to do before she will truly know her worth and her place..."
+                    scene d12a-31
+                    with hpunch
+                    F "Ah..."
+                    scene d12a-34
+                    with dissolve
+                    Z "You deserve all of this. You are more special than you think."
+                    Z "But we will spend more time together, and I will show you."
+                    scene d12a-37
+                    with dissolve
+                    "{i}*kissing*"
+                    scene black pic
+                    with slowfade
+                    $ renpy.end_replay()
+                    "You continue for another few rounds, before deciding to call an end to it."
+                    "[F] is eventually led back to the servant quarters, where she will learn more about everyone in the household, before preparing for her formal introduction..."
+                    jump d12a_end
+                
+    elif fairy_neutral == True:
+        label re_d12a18_n:
+            scene d12a-17x-2
+            if _in_replay:
+                with fade
+            else:
+                with dissolve
+                pause 2
+        scene d12a-17x
+        with dissolve
+        F "I can... serve you more, Master."
+        scene d12a-17
+        with dissolve
+        F "Will you... fuck me? Mistress said... I can ask you."
+        scene d12a-17x-4
+        with dissolve
+        menu:
+            "\"Show me what you can do.\"":
+                Z "Asking so nicely..."
+                Z "Show me what you can do, then. I'll be watching."
+                jump d12a44
+
+            "\"Do you want to?\"":
+                Z "Do you want to?"
+                scene d12a-17x
+                with dissolve
+                F "Master... I want to ask. I enjoy when you... tell me what I do."
+                scene d12a-17x-4
+                with dissolve
+                Z "..."
+                Z "Alright. Come here, then."
+                jump d12a44
+
+            "\"About time you asked.\"":
+                Z "About time you asked."
+                Z "Enough talking for a while."
+                Z "Time to show me why you're here. Come, let me feel you up."
+                jump d12a44
+
+            "\"Not now.\"":
+                Z "Not now, Fairy. I have a few things to do."
+                Z "Now that we understand each other, I want you to go find [W], who will lead you to the servant quarters."
+                Z "We will have time for a little fun together another day."
+                scene d12a-17x
+                with dissolve
+                F "Yes, Master."
+                scene d12a-17x-4
+                with dissolve
+                scene black pic
+                with fade
+                "You send her back to the servant quarters, where your new slave can get accustomed to her new life, before she gets formally introduced to the household..."
+                $ renpy.end_replay()
+                jump d12a_end
+
+    label d12a44:
+        scene black pic
+        with fade
+        "She gets rid of the lower half of her robe and comes over, sitting down on your lap..."
+        scene d12a-44
+        with fade
+        F "Like... this?"
+        Z "Like this."
+        "You rest your hands on the petite red head's buttocks and feel her up thoroughly."
+        "Her peachy ass rests on your lap and presses against your crotch. She seems eager..."
+        if fairy_h > fairy_b:
+            Z "Kiss me, girl."
+        else:
+            Z "Kiss me, slave."
+        F "Yes, Master..."
+        scene d12a-48
+        with dissolve
+        F "{i}*kissing*"
+        "She passionately makes out with you. It's the first time you see her act with a lust that seems genuine and go beyond your commands."
+        scene d12a-49
+        with dissolve
+        F "Mh..."
+        "You're both getting into it more and more as time goes by. Could the common wisdom about fiery redheads be true?"
+        "Her submissive attitude does not entirely suppress her almost aggressive eagerness."
+        scene d12a-45
+        with fade
+        "You stop kissing for a second, to look at her."
+        "She looks at you. Her freckles and long, red hair are still an unusual sight to behold."
+        "Her green eyes are waiting for more; more of everything."
+        if fairy_h > fairy_b:
+            Z "[F], get up and show me everything."
+            Z "I want to see more of you."
+        else:
+            Z "Show me what kind of slave you are."
+            Z "I want to see your body, now."
+        scene black pic
+        with fade
+        "She gets up, quickly undresses, and leans against the nearest pillar..."
+        scene d12a-51
+        with w33slow
+        F "..."
+        "She looks at you expectantly..."
+        scene d12a-52
+        with dissolve
+        Zt "Such a nice body..."
+        F "Master... please come. You can do everything."
+        scene d12a-46
+        with fade
+        "Not waiting too long, you get up and stalk around the bed, as her eyes follow you..."
+        scene d12a-53
+        with fade
+        F "You are... here..."
+        scene d12a-54
+        with hpunch
+        "You hit your fist on the pillar above..."
+        scene d12a-55
+        with dissolve
+        "She looks up to you..."
+        F "Master..."
+        scene d12a-56
+        with fade
+        menu:
+            "\"Are you ready?\"":
+                if fairy_h > fairy_b:
+                    Z "Are you ready?"
+                else:
+                    Z "Are you ready, slave?"
+                scene d12a-57
+                with dissolve
+                F "I..."
+                "She looks at you with a mixture of admiration and shock..."
+                jump d12a58
+                
+            "\"You're mine now.\"":
+                Z "You're mine now."
+                Z "From this day on, I will take you whenever I want, however I want."
+                Z "Understood?"
+                scene d12a-57
+                with dissolve
+                F "I... understand..."
+                jump d12a58
+                
+            "\"You will bear my children.\"":
+                Z "You're mine now, that means you will bear my children."
+                Z "And I see no reason to delay."
+                scene d12a-57
+                with dissolve
+                F "Yes... please..."
+                jump d12a58
+        
+
+    label d12a58:
+        scene d12a-58
+        with dissolve
+        "You look down at her round tits..."
+        Z "Your hand..."
+        scene d12a-59
+        with hpunch
+        F "...!"
+        Z "You don't need it."
+        scene d12a-60
+        with hpunch
+        F "Mh..."
+        "You take her leg..."
+        scene d12a-61
+        with fade
+        "...and lift her up, exposing her to you..."
+        F "Please... take me, Master."
+        F "I like..."
+        scene d12a-57
+        with fade
+        F "...when you are..."
+        F "...rough."
+        scene d12a-62
+        with dissolve
+        Z "I'm not going to hold back."
+        scene d12a-62x
+        with dissolve
+        F "Hmm..."
+        scene d12a-63
+        with vpunch
+        F "Haahhh..."
+        "You plunge into her awaiting pussy..."
+        F "Fffuh..."
+        show d12a-62-anim
+        with fade
+        F "Mh... ah..."
+        "The slapping sounds of your bodies coming together fill the room..."
+        Z "Ngh..."
+        F "Ah... so... mh..."
+        "She does not utter anything coherent. Her voice is soft, almost weak as she gives in entirely."
+        show d12a-62x-anim
+        with dissolve
+        hide d12a-62-anim
+        "You keep pounding her mercilessly, your member squeezed by the walls of her vagina as she clenches down on you..."
+        "You press her against the pillar as you fuck her wet pussy. Her hands are limp, she is not trying to resist, or maintain balance in any way..."
+        "...instead, she completely gives in to the rough pounding."
+        if fairy_b >= fairy_h:
+            Z "You're such a good fuck, [F]. No wonder the decayed kept you alive."
+            Z "I could do anything to you, and you wouldn't resist."
+        else:
+            Z "You're amazing, [F]. You really know how take a pounding."
+            Z "I wouldn't trade you for anything, you can be sure of that."
+        show d12a-62x-2-anim
+        with fade
+        hide d12a-62x-anim
+        "You continue to mercilessly pound her, feeling her warm breath blow against your body..."
+        F "Mh... ah... Master..."
+        if fairy_b >= fairy_h:
+            Z "You fucking slut. You still never get enough."
+            Z "I bet it wasn't your survival instinct. You really like being treated like a worthless cumrag."
+        else:
+            Z "You're taking it well. I bet a part of you enjoyed being captive, fucking anyone the decayed threw at you. "
+        F "Nh... I... ah..."
+        F "Yes..."
+        show d12a-62x-3-anim
+        with dissolve
+        hide d12a-62x-2-anim
+        "Her expressions suggest that she is not really fully present anymore. Getting hammered mercilessly, reawakens something of her recent past, turning her into a mere sex object..."
+        if fairy_b >= fairy_h:
+            Z "I'm going to cum soon, slave."
+        else:
+            Z "I'm going to cum soon, [F]."
+        F "Mh... I... take all... please..."
+        show d12a-62x-4-anim
+        with dissolve
+        hide d12a-62x-3-anim
+        F "Ah... ngh..."
+        "You keep fucking her with increasing intensity, giving her no room for initiative."
+        "Reduced to a mere tool for your satisfaction, your pounding brings you ever closer to an abrupt orgasm."
+        Z "Fuck..."
+        menu:
+            "Impregnate her":
+                if not _in_replay:
+                    $ fairy_pregnant = True
+                Z "You're my servant now... and this will not change anytime soon."
+                Z "Because I will knock you up, now."
+                Z "Ngh-"
+                scene d12a-64
+                with hpunch
+                Z "Mhh-"
+                F "Hah... Mas..."
+                Z "I am not..."
+                scene d12a-65
+                with dissolve
+                F "Nh...!"
+                Z "...finished... yet..."
+                scene d12a-64
+                with dissolve
+                "You pull out some..."
+                scene d12a-65
+                with hpunch
+                "...and plunge back in, spurting another round into her."
+                F "Master..."
+                scene d12a-66
+                with dissolve
+                "Pressing her against the pillar, and deeply burrowed inside her, you cum your last rounds into her fertile pussy until she leaks some of your juices..."
+                scene d12a-67
+                with dissolve
+                F "I will... always be... slave to master..."
+                scene d12a-66
+                with hpunch
+                F "Ahh... haah..."
+                scene d12a-67
+                with dissolve
+                pause 1
+                scene d12a-66
+                with hpunch
+                F "Mh..."
+                F "{i}*whimpering*{/i}"
+                scene d12a-67
+                with dissolve
+                pause 1
+                F "Master... I..."
+                scene d12a-66
+                with hpunch
+                F "Nhgh-!!!"
+                with hpunch
+                F "...!"
+                "She cums violently as you fuck her already creampied pussy..."
+                scene d12a-67
+                with dissolve
+                Z "I will make sure that you keep it inside."
+                scene d12a-66
+                with hpunch
+                F "Mh..."
+                scene d12a-57x
+                with fade
+                Z "You're a good slave, [F]. You will enjoy your life, here."
+                Z "I will keep you safe."
+                scene black pic
+                with slowfade
+                $ renpy.end_replay()
+                "Shortly after, you send her back to the servant quarters, where your new slave can get more accustomed to her new life, before she gets formally introduced to the household..."
+                jump d12a_end
+
+            "Cum inside her mouth":
+                if fairy_h > fairy_b:
+                    Z "I'm about to cum, Fairy."
+                    Z "Get on the ground..."
+                    F "Yes..."
+                    scene d12a-68
+                    with fade
+                else:
+                    Z "I'm... close..."
+                    scene d12a-68
+                    with vpunch
+                    F "Mh..."
+                    "You wordlessly drop her on the floor..."
+                scene d12a-69
+                with fade
+                Z "{i}*pant*"
+                scene d12a-70
+                with dissolve
+                F "..."
+                if fairy_h > fairy_b:
+                    Z "You look amazing like that."
+                else:
+                    Z "You look great when you're defiled like that."
+                    Z "I've got myself a real slut as a slave."
+                scene d12a-71
+                with dissolve
+                Z "Come on, suck it."
+                F "Mast-..."
+                scene d12a-72
+                with dissolve
+                F "{i}*slurp*"
+                Z "There you go..."
+                scene d12a-73
+                with dissolve
+                "Knowing that you're on the edge, she masterfully licks the tip to get you closer..."
+                Zt "I can't get enough of her. Her submissive behaviour is... different from most other girls, even if I can't describe how..."
+                scene d12a-74
+                with dissolve
+                if fairy_h > fairy_b:
+                    Z "Open up, girl..."
+                else:
+                    Z "Open your mouth, slut... yeah, like that..."
+                scene d12a-75
+                with dissolve
+                Z "Ngh-"
+                scene d12a-76
+                with hpunch
+                Z "Ah... fuck-"
+                F "..."
+                scene d12a-75
+                with dissolve
+                F "{i}*gulp*"
+                scene d12a-76
+                with hpunch
+                Z "Mgh..."
+                "You keep shooting ropes of cum inside her throat..."
+                scene d12a-77
+                with dissolve
+                Z "Fuck..."
+                if fairy_h > fairy_b:
+                    Z "You're... talented..."
+                else:
+                    Z "You're such a filthy whore. I'll never regret having you around."
+                F "Hank yhou... Mhaster..."
+                scene d12a-72
+                with dissolve
+                "You enjoy her mouth for a bit longer, until it's time to send her back to the servant quarters, where your new slave can get accustomed to her new life, before she gets formally introduced to the household..."
+                $ renpy.end_replay()
+                jump d12a_end
+                
+label d12a_end:
+    $ sq_f_1.complete()
+    if fairy_healed == True:
+        $ sq_f_1.resolution = _("It seems that my efforts to help her recover from the terror in Old Cairo have paid off. [F] turned out to be a dutiful and caring girl, who is looking forward to earn her keep and serve the household.\nShe will soon be introduced to the household soon as one of my new servants...") #healed resolution
+    else:
+        $ sq_f_1.resolution = _("In the end, [F] has slowly found herself again, or at least most of what she must have been before her ordeal with the Decayed.\nIt looks like she could be a functioning servant but only time will tell if she can truly be integrated into the house and to what extent...")
+    jump mission_end
+    
+
+label d12b:
+    $ daily_emilia = True
+    $ daily_ain = True
+    $ m_d12b = True
+    $ emilia_counter += 1
+    scene black pic
+    play music "audio/music/home/ain scold.mp3" fadeout 3
+    with slowfade
+    "As you pass by [A]'s room, you hear your [persistent.da]'s voice from inside..."
+    A "Try harder, slave!"
+    "You head inside..."
+    label re_d12b:
+        scene d12b-1
+        if _in_replay:
+            with fade
+        else:
+            with dissolve
+    Zt "Well, look at that..."
+    "As you look to see what's going on, you notice Emilia kneeling on the floor, naked. She has her arms behind her back."
+    "In the mirror, you see reflected the image of [A]'s little foot sticking out into the maid's face, prodding."
+    scene d12b-2
+    with dissolve
+    A "Hm..."
+    "[A] seems very intent on examining her nails, but you know better. You can see she's enjoying it, being particularly playful."
+    "She hasn't noticed you yet and continues to put on her act."
+    "Meanwhile, Emilia is dutifully performing the task [A] clearly set her."
+    E "{i}*licking*{/i}"
+    scene d12b-3
+    with dissolve
+    A "You know, a bit more enthusiasm would be appreciated. I am your mistress, after all."
+    scene d12b-4
+    with dissolve
+    A "If it was my [persistent.mom] asking you to serve, she'd be more strict. You know that, right?"
+    scene d12b-5
+    with dissolve
+    E "{i}*sucking*"
+    "Looking at the scene, you can clearly see the similarities between your [persistent.da]'s behaviour and that of your wife."
+    "She has learned a lot of her [persistent.mom] over the years, and is trying to mimic her as much as she can. Emphasis on trying..."
+    scene d12b-6
+    with dissolve
+    A "Show me that you like it."
+    "She moves her foot a little, pushing further into Emilia's mouth..."
+    scene d12b-7
+    with dissolve
+    E "Mh..."
+    "She must have done something with her tongue, because [A] whimpers briefly."
+    A "That actually feels good. We should do this more often, slave."
+    A "Here... try this side..."
+    scene d12b-8
+    with dissolve
+    E "Mmmh..."
+    scene d12b-9
+    with dissolve
+    E "{i}*licking*"
+    Z "I didn't know you played these sorts of games with her."
+    scene d12b-10
+    with fade
+    A "Oh, hi [persistent.dad]! I hadn't seen you!"
+    scene black pic
+    with fade
+    "You step closer..."
+    scene d12b-11
+    with fade
+    A "Well... I play with her, when she's done with her chores. It seems only fair to give her something to do."
+    "She keeps talking as [E] licks the sole of her foot."
+    Z "Is that so?"
+    A "Maybe...? {i}*giggles*"
+    scene d12b-12
+    with dissolve
+    A "You did say she's supposed to obey us in all things, and service us...so, why not?"
+    scene d12b-13
+    with dissolve
+    A "I mean... it's fun? So I thought..."
+    scene d12b-14
+    with dissolve
+    A "..."
+    "Her expression becomes uncertain, as if, on second thought, she is doubting whether what she is doing to your maid is appropriate."
+    "She curiously awaits your judgement..."
+    scene d12b-11
+    with dissolve
+    Z "[E], get up."
+    scene black pic
+    with fade
+    "She does so..."
+    scene d12b-15
+    with fade
+    "You stand behind Emilia, who is leaning onto you..."
+    scene d12b-16
+    with dissolve
+    Z "So my [persistent.da] has been having fun with you, it seems."
+    if _in_replay:
+        menu:
+            "Caring path":
+                $ emilia_love = 5
+                $ emilia_sub = 0
+            "Strict path":
+                $ emilia_love = 0
+                $ emilia_sub = 5
+                
+    if emilia_love > emilia_sub:
+        Z "Tell me then, Emilia..."
+        scene d12b-40
+        with dissolve
+        "You place your hand on her shoulder..."
+        scene d12b-38
+        with dissolve
+        Z "Did she treat you like a proper maid, or did she treat you like a street servant?"
+        Z "I told my [persistent.da] many times that as our maid, you are a member of the House, and should be treated with respect."
+        Z "...even for a servant."
+        Z "So... did she mistreat you?"
+        scene d12b-39
+        with dissolve
+        E "No, Master. She only gave me the mildest tasks, and treated me well. She even asked me to sleep with her..."
+
+    else:
+        Z "Tell me then, slave..."
+        scene d12b-17
+        with dissolve
+        "You grab her by the throat, applying mild pressure..."
+        Z "...how did your petite mistress treat you exactly?"
+        scene d12b-18
+        with dissolve
+        Z "Did she treat you like a proper maid, or did she treat you like a street servant?"
+        A "{i}*gulp*"
+        scene d12b-19
+        with fade
+        Z "My [persistent.da] surely knows that you're mine, and only I can punish you whenever I feel like it."
+        Z "So..."
+        scene d12b-20
+        with dissolve
+        E "Ngh..."
+        "You tighten your grip..."
+        Z "Did she mistreat you?"
+        E "N-no... Master..."
+        E "I do as I am told. She gives orders... not too bad..."
+    
+    scene d12b-20x
+    with fade
+    Z "I see... that's good to hear."
+    "She looks at you with puppy eyes..."
+    menu:
+        "Reverse the roles and make [A] serve Emilia":
+            $ emilia_love += 1
+            Z "Hm... you know what..."
+            if emilia_love > emilia_sub:
+                scene d12b-38
+                with dissolve
+            else:
+                scene d12b-19
+                with dissolve
+            Z "Remind me, who owns this household. Me, or my [persistent.da]?"
+            if emilia_love > emilia_sub:
+                scene d12b-39
+                with dissolve
+                E "You, Master."
+            else:
+                scene d12b-20
+                with dissolve
+                E "You... Master..."
+            scene d12b-20x
+            with fade
+            Z "And who do you listen to for orders first and foremost. Me, or my [persistent.da]?"
+            E "I always listen to your orders first, Master."
+            Z "So let's have some fun, then."
+            Z "I want you to enjoy a relaxing afternoon in my [persistent.da]'s room."
+            Z "I want to see her servicing you on the bed. You have free reign over her after that."
+            scene d12b-20x-2
+            with dissolve
+            A "..."
+            Z "Got that, Emilia? How do you like the idea?"
+            E "I am... I am very grateful, Master. I look forward to it very much."
+            Z "So formal..."
+            scene black pic
+            with fade
+            "You let go of Emilia, who gets up on the bed, visibily curious and excited..."
+            scene d12b-21
+            with fade
+            A "..."
+            scene d12b-22
+            with dissolve
+            Z "You see, [A]..."
+            Z "Our maid needs enjoyment too, sometimes."            
+            Z "So go ahead, show her how much you appreciate all she does for us."
+            scene d12b-23
+            with dissolve
+            A "But [persistent.dad]... for how long do I have to do this?"
+            Z "As long as she asks of you. Now, do as you're told."
+            scene black pic
+            with fade
+            "[A] gets into position, lying between Emilia's legs..."
+            scene d12b-24
+            with w33slow
+            E "Mh..."
+            E "Mistress..."
+            "{i}*licking*"
+            scene d12b-25
+            with dissolve
+            A "{i}*slurp*"
+            if emilia_love > emilia_sub:
+                "Despite her initial hesitation, [A] is going all in to pleasure your maid."
+            else:
+                "Despite her initial hesitation, [A] is going all in to pleasure your slave."
+            E "A bit... deeper, please..."
+            E "Ah..."
+            scene d12b-26
+            with fade
+            "You stand next to the bed and watch them for a while, before you turn to Emilia..."
+            scene d12b-27
+            with dissolve
+            Z "Emilia, I'm going. You can enjoy your time with her as I said, just don't overdo it."
+            scene black pic
+            with fade
+            "You leave the two rutting women behind..."
+            scene d12b-28
+            with fade
+            "{i}*slurp*"
+            E "Master is... so kind... ah..."
+            scene d12b-29
+            with dissolve
+            E "I never get to play... like this..."
+            E "Mh... mistress..."
+            scene d12b-30
+            with hpunch
+            E "Nhaa...!!"
+            scene black pic
+            with slowfade
+            $ renpy.end_replay()
+            jump emilia_end
+
+
+        "Let [A] continue playing with [E]":
+            $ emilia_sub += 1
+            Z "Well, if that's the case... come here, [A]"
+            scene black pic
+            with fade
+            "She gets up and walks towards you..."
+            scene d12b-31
+            with fade
+            "You pat her on the head..."
+            if emilia_love > emilia_sub:
+                Z "So you were just having some fun, after all."
+                Z "It's good to see you respect our maid."
+            else:
+                Z "So you were just having fun, after all."
+                Z "But just because she's property of the House, it doesn't mean that {i}you{/i} can treat her however you want."
+                Z "Remembered that."
+            scene d12b-32
+            with dissolve
+            Z "Well done, [A]."
+            scene d12b-31
+            with dissolve
+            Z "So how is she holding up, are you enjoying yourself?"
+            scene d12b-31x # mouth open
+            with dissolve
+            A "Mhmm, she's great [persistent.dad]."
+            A "I always wanted a servant like that."
+            scene d12b-31
+            with dissolve
+            Z "Well, now you do. And you can enjoy her for some more hours, in fact. I'll give you that permission."
+            Z "I'm heading out again. Enjoy your time."
+            scene d12b-31x-2 # mouth open excited
+            with dissolve
+            A "Yay, thank you, [persistent.dad]!"
+            scene black pic
+            with fade
+            "As you leave the room, turning around once, you fill your eyes with the spectacle of the two women..."
+            scene d12b-34
+            with fade
+            A "I think there's another part of me that needs some care..."
+            A "Good slave..."
+            scene d12b-35
+            with dissolve
+            "You watch as [A] puts her leg over [E]'s shoulder and grabs [E]'s hair, pulling her between her legs."
+            A "There, that should give you better access."
+            A "Come on slave, do your duty."
+            E "Yes, mistr... {i}*slurp*"
+            A "Less talking, more licking."
+            scene d12b-36
+            with dissolve
+            E "{i}*licking*{/i}"
+            A "Ah... wow... you're really good at this..."
+            A "...I wonder if [persistent.mom] trained you or if you learned this at the Palace...?"
+            scene d12b-37
+            with dissolve
+            E "{i}*licking*{/i}"
+            A "Mh... I think... I'll... keep you close... for the night..."
+            scene black pic
+            with slowfade
+            $ renpy.end_replay()
+            jump emilia_end
+
+        "Break this up":
+            Z "Well, if that's the case, I can't complain."
+            Z "Still, you've had your fun time with her, [A], but that's enough."
+            if emilia_love > emilia_sub:
+                scene d12b-38
+                with dissolve
+            else:
+                scene d12b-19
+                with dissolve
+            Z "Emilia, you can head back to work, now."
+            Z "I heard [W] needs you for dinner preparation anyway."
+            scene black pic
+            stop music fadeout 2
+            with fade
+            "You go out and carry on with your day."
+            $ renpy.end_replay()
+            jump emilia_end
+
+
+
+
+label d12c:
+    if not _in_replay:
+        $ m_d12c = True
+    scene black pic
+    with fade
+    "As you were walking through the hallway, you hear light, splashing footsteps..."
+    scene d12c-1
+    with w33slow
+    A "{i}*humming*{/i}"
+    "[A] happily tiptoes towards her room, covered in a pink towel."
+    "Judging by the noise she makes, she still seems to be somewhat soaked from the bath..."
+    scene d12c-2
+    with fade
+    A "Hmmm... hmm..."
+    scene d12c-3
+    with dissolve
+    A "...?"
+    scene d12c-5
+    with vpunch
+    A "Oh..."
+    A "My brush...I'm sooo clumsy..."
+    scene d12c-6
+    with dissolve
+    "She bends over to pick up her brush..."
+    scene d12c-8
+    with fade
+    "She slowly gets up."    
+    A "{i}*mumbling*{/i} got it..."
+    "She tries to hide it, but you notice her throwing a glance at you while bending over..."
+    menu:
+        "Check her out":
+            Zt "She knows what she's doing..., the little tease."
+            scene d12c-9
+            with dissolve
+            A "Oof... hard to stay covered with this..."
+            "You get an eyeful of her bulging cleavage..."
+            jump d12c10
+            
+        "Don't":
+            Zt "Nice try, girl."
+            jump d12c10
+
+    label d12c10:
+        scene d12c-10
+        with fade
+        "As she gets up, you see water droplets coursing down her legs. She's almost wasting the precious stuff."
+    scene d12c-11
+    with fade
+    A "Sorry, [persistent.dad]..."
+    A "It looks like it slipped out of my hand."
+    scene d12c-12
+    with dissolve
+    A "...I hope you weren't watching..."
+    A "I would be so embarrassed if you saw me like this."
+    scene d12c-21
+    with fade
+    Z "...!"
+    "Despite having watched her grow up over the years, seeing her display herself like this still provokes an awed moment of silence..."
+    scene d12c-20 #commenting
+    with dissolve
+    A "...soo embarrased..."
+    "Your [persistent.da]'s oversized tits are coated in a sheen of water..."
+    scene d12c-15
+    with fade
+    A "Oops... sorry..."
+    scene d12c-18
+    with dissolve
+    A "I hope I didn't put you in an awkward position..." 
+    scene d12c-13
+    with fade
+    "She playfully wraps herself back in the towel."
+    scene d12c-14
+    with dissolve
+    A "I guess I better go to my room now..."
+    menu:
+        "Follow her":
+            Zt "..."
+            jump d12c22
+
+        "Go on with your day":
+            jump d12c_end
+
+    label d12c22:
+        scene black pic
+        stop music fadeout 2
+        with fade
+        "You follow in her footsteps soon after she enters her room..."
+        scene d12c-22
+        play music "audio/music/zeta/deserts of arabia.mp3" fadein 3
+        play sound "audio/sounds/doors/door closed.mp3"
+        with fade
+    pause 1.5
+    Z "..."
+    scene d12c-23
+    with dissolve
+    A "{i}*humming*{/i}"
+    scene d12c-24
+    with dissolve
+    A "Hmm... mhhh..."
+    scene d12c-25
+    with dissolve
+    pause 2
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Zt "[W]... what have you created."
+    else:
+        Zt "[W], you definitely picked the right girl..."
+    scene black pic
+    with fade
+    "You walk up to her..."
+    scene d12c-26
+    with fade
+    A "..."
+    "She looks at you, with a hint of excited apprehension."
+    scene d12c-27
+    with dissolve
+    A "Hey... [persistent.dad]...?"
+    A "How can I... help?"
+    scene d12c-26
+    with dissolve
+    menu:
+        "Pull her over your lap":
+            scene black pic
+            with hpunch
+            A "Waaah-"
+            jump d12c28
+
+        "Skip spanking, go for her ass": 
+            scene black pic
+            with hpunch
+            A "Eeek!-"
+            jump d12c42
+
+    label d12c28:        
+        scene d12c-28x
+        with fade
+        A "[persistent.dad!c]...!"
+    scene d12c-28x-2
+    with dissolve
+    A "Oww..."
+    A "What did I dooo..."
+    scene d12c-29
+    with dissolve
+    "She eeks in a surprised but cutesy voice..."
+    A "I'm still wet... you didn't give me time to dry myself."
+    scene d12c-31
+    with dissolve
+    A "[persistent.dad!c]? Why don't you say anything..."
+    Z "..."
+    scene d12c-31
+    with dissolve
+    "You put your hand around her petite ass, stroking her skin slightly to prepare her for what's to come..."
+    A "[persistent.dad!c], please..."
+    scene d12c-32
+    with dissolve
+    A "Not so rou...-"
+    scene d12c-31x
+    play sound "audio/sounds/actions/smack.mp3"
+    with hpunch
+    A "{i}*whimper*"
+    scene d12c-32x
+    with dissolve
+    pause 1
+    scene d12c-31
+    play sound "audio/sounds/actions/smack.mp3"
+    with hpunch
+    pause 1.3
+    scene d12c-32
+    with dissolve
+    pause 0.8
+    scene d12c-31x
+    play sound "audio/sounds/actions/smack.mp3"
+    with hpunch
+    "You keep spanking your girl as she whimpers, and her breathing becomes more and more ragged..."
+    scene d12c-32x
+    with dissolve
+    A "[persistent.dad!c]..."
+    A "I'm..."
+    scene d12c-31
+    play sound "audio/sounds/actions/smack.mp3"
+    with hpunch
+    A "Ngh...!"
+    A "Please, [persistent.dad]... that's enough..."
+    menu:
+        "Finger her pussy":
+            scene d12c-33
+            with dissolve
+            A "Mh..."
+            scene d12c-34
+            with dissolve
+            "You put your hand on her pussy, circling in slow motion..."
+            A "[persistent.dad!c]... not there... I'm sensi...-"
+            scene d12c-35
+            with dissolve
+            A "Ahh... nhhh..."
+            "Knowing how much your [persistent.da] loves being a tease, you ignore it, and put two fingers straight into her exposed pussy."
+            A "So... mean..."
+            scene d12c-36
+            with dissolve
+            "Your fingers slide in and out of her wet gash, creating a slippery mess..."
+            scene d12c-35
+            with dissolve
+            A "Mhh..."
+            scene d12c-36
+            with dissolve
+            pause 1
+            scene d12c-34
+            with dissolve
+            pause 0.6
+            scene d12c-32
+            with dissolve
+            pause 0.8
+            scene d12c-31
+            play sound "audio/sounds/actions/smack.mp3"
+            with hpunch
+            pause 0.3
+            scene d12c-31x
+            with dissolve
+            A "Ah... mh..."
+            "She reacts to your spanking, poking her ass out towards your hand..."
+            
+            jump d12c42
+
+        "Go straight to sex":
+            label d12c42:
+                scene black pic
+                with fade
+                Z "Get up."
+                scene d12c-42
+                with fade
+            "She playfully gets in position, knowing what's to come..."
+            scene d12c-43
+            with dissolve
+            Z "..."
+            scene d12c-44
+            with dissolve
+            pause 1
+            scene d12c-45
+            with dissolve
+            Zt "Her pussy is soaking and as eager as ever. But today she's going to take it differently."
+            A "Mh... [persistent.dad]...oh!"
+            A "Does it have to be... there..."
+            "You ignore her protests and press on..."
+            Zt "Cute, pretending she doesn't like it..."
+            scene d12c-46
+            with dissolve
+            A "Uww..."
+            "Her cheeks respond to the pressure you apply to them."
+            scene d12c-45
+            with dissolve
+            pause 0.6
+            scene d12c-46
+            with dissolve
+            "The ease with which you surpass her now gaping ring tells you she's been playing with it by herself as well. You could plunge inside her in one push..."
+            "...instead, you decide to enjoy the moment and take your time."
+            scene d12c-47
+            with dissolve
+            A "Mh..."
+            Z "{i}*Mmmh*"
+            Zt "My [persistent.da] is one hell of a slut."
+            A "[persistent.dad!c]... why are you sighing?"
+            scene d12c-48
+            with dissolve
+            "You thrust your hips forward..."
+            scene d12c-49
+            with dissolve
+            A "Mmghh..."
+            scene d12c-46
+            with fade
+            pause 1.2
+            scene d12c-50
+            with dissolve
+            "As you push your dick inside her, you feel her ass gripping it tightly..."
+            scene d12c-51
+            with dissolve
+            A "Mnghrr..."
+            "You keep pushing without paying much attention to her moans..."
+            A "You...hnn...you really want to..."
+            A "...go in all the way, [persistent.dad]?"
+            A "Mhhahh... owww..."
+            show d12c-52-anim
+            with fade
+            A "Ghhh... you're... not saying anything..."
+            "With a few more attempts you're fully inside her and start thrusting in and out of her ass."
+            Z "Fuck, you're tight..."
+            A "...ah...not that...hnn...tight anymore I guess..."
+            A "...you're too big [persistent.dad]..."
+            "She remains playful, stifling a giggle while you keep ramming her."
+            show d12c-53-55-anim
+            with fade
+            hide d12c-52-anim
+            A "[persistent.dad!c]... you're in so deep... oww!"
+            A "Ah... but it's... good..."
+            Z "That will teach you a lesson about teasing me..."
+            A "Hnn...mpffff..."
+            A "...maybe..."
+            A "...but...but...ah!...not the one you think..."
+            "She keeps taunting you even when you're balls deep inside her."
+            Z "Your [persistent.mom] would be proud, seeing what a little... ngh... slut of a [persistent.da] she has..."
+            A "Should we... ngh... call her?"
+            A "Should we tell her to... mh... come and see how you fuck my ass?"
+            A "What... do you think she would... say?"
+            A "{i}*moaning*"
+            A "Maybe tell you to..."
+            A "...fuck me harder?"
+            Z "Be careful [A]...that's a dangerous game you're playing..."
+            Z "Maybe I will call her, so we can both have some fun... elsewhere."
+            Z "You haven't been in the basement... for a while..."
+            "She tries to put on her cutest voice..."
+            A "No, [persistent.dad]! I'm sorry, I'll be a good girl!"
+            A "Mhh..."
+            A "...I will not try to get you to fuck me anymore..."
+            A "...maybe..."
+            menu:
+                "Cum inside her":
+                    scene
+                    show d12c-52-anim
+                    with fade
+                    "You use her hole until finally you're on the edge..."
+                    scene d12c-56
+                    with dissolve
+                    Z "Ngh..."
+                    with hpunch
+                    Z "...!"
+                    with hpunch
+                    A "Mnngh-"
+                    A "{i}*pant*"
+                    A "[persistent.dad!c]... it's so much..."
+                    scene d12c-57
+                    with dissolve
+                    pause 1
+                    "Your cum flows out of her stretched rear."
+                    "Looking at her gaping hole, you remember the time you first took her butt. She can take it much easier now. I guess all this \"exercise\" paid off..."
+                    jump d12c40
+
+                "Cum outside":
+                    scene
+                    show d12c-52-anim
+                    with fade
+                    "Thinking of how you'll spray your cum all over her, you finally get over the edge..."
+                    scene d12c-58
+                    with fade
+                    Z "Ngh-"
+                    scene d12c-59
+                    with vpunch
+                    Z "...! {w=1.5} {nw}"
+                    scene d12c-58
+                    with dissolve
+                    pause 1
+                    scene d12c-59
+                    with vpunch
+                    pause 0.3
+                    scene d12c-60
+                    with dissolve
+                    pause 1.5
+                    scene d12c-62
+                    with dissolve
+                    Z "..."
+                    "You take a satisfied look at [A]'s cum plastered back."
+                    jump d12c40          
+
+        "That is enough":
+            scene d12c-32
+            with dissolve
+            pause 0.8
+            scene d12c-31x
+            play sound "audio/sounds/actions/smack.mp3"
+            with hpunch
+            A "Awk!"
+            Z "Let this be a lesson, young woman."
+            jump d12c_end
+            
+
+label d12c40:            
+    scene d12c-40
+    with dissolve
+    A "..."
+    Aw "[persistent.dad!c]..."
+    "She murmurs quietly, intimate..."
+    Aw "I almost came..."
+    Z "..."
+    Z "Is that so..."
+    show d12c-53-55-anim
+    with fade
+    A "{i}*moaning*"
+    "You continue, giving her what she asked for..."
+    Aw "Thank you, [persistent.dad]... you're... mghh..."
+    Aw "...you're the best... [persistent.dad]... mh..."
+    scene black pic
+    with slowfade
+    "You stretch her out for some more time, before leaving the room, satisfied."
+    "She moves to follow you but her legs don't support her, so she lies on the bed instead, recuperating."
+    jump d12c_end
+            
+            
+label d12c_end:
+    scene black pic
+    stop music fadeout 2
+    with fade
+    "You get up and head out..."
+    $ renpy.end_replay()
+    jump mission_end
+

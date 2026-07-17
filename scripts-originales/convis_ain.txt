@@ -1,0 +1,329 @@
+label ain_conversations:
+    show va1-7
+    with dissolve
+    menu:
+        "Talk about [S]" (important = True) if ain_talk_1 == False:
+            $ daily_ain = True
+            jump a_convi_1
+        "Talk about Rabiah" if ain_talk_2 == False:
+            $ daily_ain = True
+            jump a_convi_2
+
+        "Spend time together" (important = True) if ain_talk_1 == True and m_d9b == False and daily_ain == False:
+            jump d9b
+
+        "Visit the slave market together" (important = True) if ev_d18b.is_active:
+            $ daily_ain = True
+            Z "So... are you ready to go where your [persistent.mom] suggested?"
+            scene va1-7a
+            with dissolve
+            A "You mean the slave market she mentioned?"
+            A "Of course! I will let her know that we're going!"
+            scene black
+            stop music fadeout 3
+            with fade
+            "She jumps up and hurries off."
+            Zt "That went fast..."
+            pause 1
+            "A while later... at the market..."
+            jump d18b
+
+        "Take [A] to the basement" (important = not basement_ain_repeatable_intro, repeatable = basement_ain_repeatable_intro) if ev_ain_basement_intro.is_active or ev_ain_basement_repeat_1.is_active:
+            $ ain_basement = True 
+            Z "[A], I need you to go to the basement. You know the drill."
+            scene va1-7c #TODO rooms with zaharahha and ain
+            with dissolve
+            A "Okay, [persistent.dad]... but is there something I did wrong, again?"
+            scene va1-7cx
+            with dissolve
+            Z "No. You know why. I will see you there soon."
+            scene black
+            stop music fadeout 2
+            with fade
+            queue music "audio/music/background/horror ambience.mp3" fadein 2
+            "You leave the room as she prepares herself..."
+            jump basement_ain
+
+        "Leave":
+            Z "I have to leave for now."
+            scene va1-7i
+            with dissolve
+            A "Alrighty!"
+            jump daily_home
+
+
+
+
+#### Convis #####
+
+
+label a_convi_1:
+    $ ain_talk_1 = True
+    scene va1-7
+    with Dissolve(0.5)
+    A "Can I ask you for a favour?"
+    Z "Of course you can, short round."
+    scene va1-7d
+    with Dissolve(0.5)
+    A "I like it better when {i}you{/i} call me that. [S] is not always nice about it."
+    scene va1-7dx
+    with Dissolve(0.5)
+    Z "You have to admit you are kind of short."
+    scene va1-7d
+    with Dissolve(0.5)
+    A "Yes, and round in some places, I know, I know..."
+    scene va1-7dx
+    with Dissolve(0.5)
+    Z "I'm sorry [A], I was just teasing you..."
+    scene va1-7g
+    with Dissolve(0.5)
+    A "It's ok [persistent.dad], I didn't mean to snap at you."
+    A "I just... I guess I miss you."
+    scene va1-7gx
+    with Dissolve(0.5)
+    Z "What do you mean?"
+    scene va1-7g
+    with Dissolve(0.5)
+    A "We used to talk more, and to play together. Now you only look at me when you need me."
+    scene va1-7gx
+    with Dissolve(0.5)
+    Z "I have been very busy lately."
+    scene va1-7a
+    with Dissolve(0.5)
+    A "Yes, but it's always with [S]. And with her, you also have conversations, you teach her things every day. All I get to do is be pretty and be available."
+    A "I like our games, and they're really fun, but it's a bit.."
+    scene va1-7ax
+    with Dissolve(0.5)
+    Z "Do you feel lonely?"
+    scene va1-7g
+    with Dissolve(0.5)
+    A "That too, yes... especially in the last weeks. I..."
+    A "I get bored, and miss you. [persistent.mom!c] is nice, but..."
+    scene va1-7b
+    with Dissolve(0.5)
+    A "Please, don't tell her this, I don't want to disappoint her."
+    scene va1-7ax
+    with Dissolve(0.5)
+    Z "I understand what you mean, and yes, I guess I have neglected you for a while."
+    scene va1-7g
+    with Dissolve(0.5)
+    A "...I'm sorry [persistent.dad]. I feel useless, but I don't want to be a burden."
+    scene va1-7gx
+    with Dissolve(0.5)
+    Z "Let's make a deal. You are needed by [persistent.mom!c] in these days, and I myself have several things to do..."
+    scene va1-7b
+    with Dissolve(0.5)
+    A "Yes, but..."
+    scene va1-7ax
+    with Dissolve(0.5)
+    Z "Let me finish..."
+    scene va1-7gx
+    with Dissolve(0.5)
+    A "..."
+    Z "When we both have a full day or two where we don't have anything urgent to do, you and I will spend more time together."
+    scene va1-7bx
+    with Dissolve(0.5)
+    Z "I promise that I will make time for us to do something nice that doesn't necessarily involve the things I've wanted from you lately."
+    scene va1-7
+    with Dissolve(0.5)
+    Z "We will spend some quality time together. And [S] or your [persistent.mom] will have nothing to do with it."
+    scene va1-7i
+    with Dissolve(0.5)
+    A "Yes, [persistent.dad]! Thank you!"
+    scene va1-7e
+    with Dissolve(0.5)
+    Z "I love you, little one, I don't want you to think otherwise."
+    scene va1-7i
+    with Dissolve(0.5)
+    A "I know you do, [persistent.dad], but it's nice to hear you say it."
+    A "I will do my best to do all my chores and lessons swiftly, and try not to disappoint you or [persistent.mom] ever again, I promise!"
+    scene va1-7d
+    with Dissolve(0.5)
+    A "I don't even mind when I have to wear the collar anymore. I think I like it."
+    jump ain_conversations
+
+label a_convi_2:
+    $ ain_talk_2 = True
+    scene va1-7i
+    with Dissolve(0.5)
+    A "[persistent.mom!c] told me a story about aunt Rabiah.."
+    scene va1-7ix
+    with Dissolve(0.5)
+    Z "And what story would that be?"
+    scene va1-7i
+    with Dissolve(0.5)
+    A "She says she was your first girlfriend. Is that true, [persistent.dad]?"
+    scene va1-7ix
+    with Dissolve(0.5)
+    if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+        Z "Ah, that story... well, it's not entirely true, but it is true that she was my girlfriend before your mother."
+    else:
+        Z "Ah, that story... well, it's not entirely true, but it is true that she was my girlfriend before [W]."
+    scene va1-7b
+    with Dissolve(0.5)
+    if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+        A "Really? So she could have been my [persistent.mom]?"
+    else:
+        A "Really? So she could have been the one raising me instead?"
+    A "That feels strange to me."
+    scene va1-7ax
+    with Dissolve(0.5)
+    Z "I don't know, [A]... I am not sure we would have worked out, in the end."
+    Z "I'm quite happy with [W], and would not have it any other way."
+    scene va1-7e
+    with Dissolve(0.5)
+    A "You really love her, don't you?"
+    scene va1-7ex
+    with Dissolve(0.5)
+    Z "What is there not to love? She is pretty, smart, loyal, and fiery."
+    scene va1-7e
+    with Dissolve(0.5)
+    A "I can be those things too!"
+    scene va1-7ex
+    with Dissolve(0.5)
+    Z "I know you can, [A]..."
+    scene va1-7a
+    with Dissolve(0.5)
+    A "Would you love me too, [persistent.dad]?"
+    scene va1-7ax
+    with Dissolve(0.5)
+    Z "You know I already do. And you know that I will always be there for you..."
+    scene va1-7i
+    with Dissolve(0.5)
+    A "Will I have to get married to someone too?"
+    scene va1-7ix
+    with Dissolve(0.5)
+    menu:
+        "\"This is the way, in Zeta, for most people.\"":
+            Z "I am not sure yet, but yes, this is the way, in Zeta, for most people."
+            scene va1-7g
+            with Dissolve(0.5)
+            A "What if I don't want to?"
+            scene va1-7gx
+            with Dissolve(0.5)
+            Z "Then you would have to find a way to fend for yourself. Do you think you would be able to?"
+            scene va1-7g
+            with Dissolve(0.5)
+            A "I don't know, [persistent.dad]."
+            scene va1-7gx
+            with Dissolve(0.5)
+            Z "There you go then."
+            scene va1-7e
+            with Dissolve(0.5)
+            A "This is stupid..."
+            scene va1-7ex
+            with Dissolve(0.5)
+            Z "You know that everybody, from the lowest of slaves to the Queen, has to do their part, don't you?"
+            scene va1-7i
+            with Dissolve(0.5)
+            A "Sorry, [persistent.dad]. I will do better, I promise."
+            jump a_convi_2x
+
+        "\"I like having you here with us.\"":
+            Z "I like having you here with us."
+            Z "That should answer your question."
+            scene va1-7f
+            with Dissolve(0.5)
+            A "Yay... then we will talk no more about me being married to some horny kid."
+            scene va1-7fx
+            with Dissolve(0.5)
+            Z "Very true. Let's talk instead about you taking care of me and your [persistent.mom] until we are nothing more than dried husks and old bones."
+            scene va1-7h
+            with Dissolve(0.5)
+            A "Ewww.... Why did you have to make it weird?"
+            scene va1-7hx
+            with Dissolve(0.5)
+            Z "We won't always be in the good shape you've known us to be, you know?"
+            scene va1-7f
+            with Dissolve(0.5)
+            A "I am very happy to ignore what you just said!"
+            jump a_convi_2x
+
+        "\"Don't you want a husband of your own?\"":
+            Z "Don't you want a husband of your own?"
+            scene va1-7e
+            with Dissolve(0.5)
+            A "I don't know... I'm happy here."
+            scene va1-7ex
+            with Dissolve(0.5)
+            Z "I'm happy you are here too, but you might meet someone, some day; someone you like even more than you like being here."
+            scene va1-7a
+            with Dissolve(0.5)
+            A "I don't know about that..."
+            scene va1-7ax
+            with Dissolve(0.5)
+            Z "Neither do I, but if you do, you must promise to tell me."
+            scene va1-7f
+            with Dissolve(0.5)
+            A "So that you can beat him and chase him away?"
+            scene va1-7fx
+            with Dissolve(0.5)
+            Z "You may want me to do that today, but maybe on that day, you will want to leave with him."
+            scene va1-7g
+            with Dissolve(0.5)
+            A "Never!"
+            scene va1-7gx
+            with Dissolve(0.5)
+            Z "You don't know that, dear... Promise me you will tell me, alright?"
+            scene va1-7g
+            with Dissolve(0.5)
+            A "I don't like this promise, but ok... I promise."
+            scene va1-7gx
+            with Dissolve(0.5)
+            Z "When it happens, we will decide together, if this young man that comes looking for you is worthy to be your suitor."
+            scene va1-7h
+            with Dissolve(0.5)
+            A "I bet he won't!"
+            scene va1-7hx
+            with Dissolve(0.5)
+            Z "Well.. if he should not be, we will chase him away together!"
+            jump a_convi_2x
+
+label a_convi_2x:
+    scene va1-7c
+    with Dissolve(0.5)
+    A "I love you [persistent.dad]."
+    scene va1-7cx
+    with Dissolve(0.5)
+    Z "I know..."
+    Z "So, [A], why this interest in Rabiah? Where does it come from?"
+    scene va1-7i
+    with Dissolve(0.5)
+    A "[persistent.mom!c] told me auntie might come visit soon, and I can't remember the last time I saw her."
+    scene va1-7ix
+    with Dissolve(0.5)
+    Z "You're right. Now that I think about it, she has not been here for several years."
+    Z "You were very young the last time she came to visit."
+    scene va1-7a
+    with Dissolve(0.5)
+    A "Doesn't her family live in the city?"
+    scene va1-7ax
+    with Dissolve(0.5)
+    Z "Yes, they do now, but they have lived in a remote village for several years."
+    scene va1-7a
+    with Dissolve(0.5)
+    A "Should we not have met them when they got back to Zeta then? Why didn't we do that?"
+    scene va1-7ax
+    with Dissolve(0.5)
+    Z "That's a good question. One I have not thought about at all."
+    Z "I think there might have been a bit of bad blood between your [persistent.mom] and her sister, in the past; but that should be over and done with now."
+    scene va1-7g
+    with Dissolve(0.5)
+    A "Do you think it's because of the girlfriend thing?"
+    scene va1-7gx
+    with Dissolve(0.5)
+    Z "That could be the reason, but if that's the case, we should let them sort it out between themselves, don't you think?"
+    scene va1-7f
+    with Dissolve(0.5)
+    A "I kinda want to know..."
+    scene va1-7fx
+    with Dissolve(0.5)
+    Z "Young lady, you will not embarrass your [persistent.mom] in front of her older sister."
+    Z "Have I made myself clear?"
+    scene va1-7f
+    with Dissolve(0.5)
+    A "Yes, [persistent.dad], I promise."
+    scene va1-7fx
+    with Dissolve(0.5)
+    Z "Good girl."
+    jump ain_conversations

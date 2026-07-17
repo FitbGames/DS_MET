@@ -1,0 +1,2211 @@
+label main_menu:
+    with None
+    if not persistent.mm21_seen:
+        $ persistent.mm = '0.21'
+        $ persistent.mm21_seen = True
+    scene black pic
+    show mm_bg
+    $ renpy.transition(quickfade)
+    jump main_menu_screen
+
+label start:
+    scene black pic
+    stop music fadeout 3
+    # with slowfade
+    pause 0.5
+    show text "The following content is intended for {color=#a40000}adult{/color} audiences, and is entirely fictional."
+    with Dissolve(2.5)
+    pause 2
+    show text "All characters are over the age of 18. All sexual acts depicted are consensual. The creator does not promote or condone any of the situations depicted in this game."
+    with fade
+    pause 1.5
+    play music "audio/music/background/horror ambience.mp3" fadein 3
+    $ renpy.pause(3.0, hard=True)
+    play sound "audio/sounds/doors/door closed.mp3"
+    $ renpy.pause(2.0, hard=True)
+    play sound "audio/sounds/environment/lights on.mp3"
+    $ renpy.pause(0.67, hard=True)
+    scene i-1
+    $ renpy.pause(2.0, hard=True)
+    scene i-2
+    with Dissolve(0.8)
+    play sound "audio/sounds/actions/wooden steps.mp3"
+    $ renpy.pause(2.0, hard=True)
+    scene i-3
+    with Dissolve(0.6)
+    $ renpy.pause(1.3, hard=True)
+    scene i-4
+    play sound "audio/sounds/objects/chair moving.mp3"
+    with Dissolve(0.6)
+    $ renpy.pause(0.5, hard=True)
+    scene i-5
+    with fade
+    C5 "..."
+    C5 "First time?"
+    menu:
+        "Yes":
+            scene i-6
+            with dissolve
+            C5 "..."
+            C5 "In that case..."
+            scene i-7
+            with dissolve
+            C5 "You need to know a couple of things."
+            C5 "Once you step out of this room, you will be called to take on a specific role."
+            scene i-8
+            with dissolve
+            C5 "Part of your job will be to make decisions. Those decisions and their effects  will range from good to controversial..."
+            C5 "...to bad." 
+            scene i-7
+            with dissolve
+            C5 "Some of those decisions will be important and have consequences; some won't."
+            scene i-9
+            with dissolve
+            C5 "Now that's out of the way..."
+            C5 "Know that out there things will not always be as gritty and depressing as they look in here, don't worry."
+            C5 "At least, not at first..."
+            scene i-7
+            with dissolve
+            C5 "But you do have to tell me if you want to see everything: the blood and gore that is prevalent in the wasteland..."
+            C5 "We can smooth things out for you, bend the universe a little and hide the more violent events."
+            C5 "What do you say?"
+            menu:
+                "I want to live the full experience":
+                    scene i-9
+                    with dissolve
+                    C5 "Alright... You will see the world at its best, but also at its worst."
+                    $ persistent.gore = True
+
+                "Hide the excessive gore and violence":
+                    scene i-9
+                    with dissolve
+                    C5 "Okay. We will change the story a little and hold back the gore and the extreme events as much as possible."
+                    $ persistent.gore = False
+            
+            C5 "And what about some sexual aspects of the game?"
+            C5 "Certain events might give you additional choices to punish your adversaries or reap the rewards of your victories."
+            scene i-8
+            with dissolve
+            C5 "As the saying goes out there, \"might makes right\"."
+            scene i-9
+            with dissolve
+            menu:
+                "I want to have all the options available":
+                    scene i-7
+                    with dissolve
+                    C5 "Fine by me, do whatever you want out there..."
+                    $ persistent.forceplay = True
+                    jump intro_finish
+
+                "Hide the rougher options":
+                    scene i-7
+                    with dissolve
+                    C5 "Okay. We will disable the rougher options for you."
+                    $ persistent.forceplay = False
+                    jump intro_finish
+
+        "No":
+            C5 "..."
+            C5 "Good. We can keep it short then."
+            C5 "Enable or disable bloody or violent events?"
+            menu:
+                "Enable gore":
+                    C5 "You will see the whole thing."
+                    $ persistent.gore = True
+
+                "Disable gore":
+                    C5 "We will spare you from the worst of the world."
+                    $ persistent.gore = False
+
+            C5 "I see..."
+            C5 "And what about rougher sexual options?"  
+            menu:
+                "Enable forceplay":
+                    C5 "We wil provide you with all the options."
+                    $ persistent.forceplay = True
+                    jump intro_finish_2
+
+                "Disable forceplay":
+                    C5 "We will disable the rougher options."
+                    $ persistent.forceplay = False
+                    jump intro_finish_2
+
+label intro_finish:
+    scene i-8
+    with dissolve
+    C5 "That's all from me."
+    scene i-7
+    with dissolve
+    C5 "If I can give you one last bit of advice before I send you out there..."
+    C5 "Keep your ears open, listen to the music and sounds that come your way. It will make this thing more enjoyable."
+    scene i-5
+    with dissolve
+    C5 "Alright, you're ready..."
+    scene i-6
+    with dissolve
+    C5 "Well, no. That's a lie, but it will do for now."
+    C5 "Get out of here, Stalker."
+    jump d1a
+
+label intro_finish_2:
+    scene i-6
+    with dissolve
+    C5 "You're not new, so you know the deal."
+    C5 "Now, get out of here, Stalker. Maybe we will meet again."
+    jump d1a
+
+label d1a:
+    $ m_d1a = True
+    scene black pic
+    play music "audio/music/exploration/main theme.mp3" fadeout 5
+    with slowfade
+    "- Prologue -"
+    "{i}Somewhere in Egypt - Sometime in the future.{/i}"
+    scene d1a-1
+    with slowfade
+    C "{i}Finally... this took way too long.{/i}"
+scene d1a-2
+with dissolve
+C "{i}...Let's see why the old man said this place was so special.{/i}"
+scene d1a-3
+with fade
+C "..."
+scene d1a-4
+with fade
+C "{i}A sculpture of Bastet...{/i}"
+C "{i}The Queen will be very happy to get this.{/i}"
+C "{i}That should earn me a decent reward.{/i}"
+scene d1a-5
+with w33slow
+C "{i}Time to leave...{/i}"
+show d1a-5x-anim
+with slowfade
+C4 "{i}Your mission won't take long, right?{/i}"
+C "{i}It won't.{/i}"
+scene d1a-6
+with slowfade
+C "{i}Just a few days at most. Try to be patient.{/i}"
+scene d1a-4x
+with longflash
+C4 "{i}Seriously... she's such a pain, when you're not around.{/i}"
+scene d1a-4x2
+with dissolve
+C3 "{i}I heard that!{/i}"
+scene d1a-4x3
+with dissolve
+C3 "{i}Come back soon, okay?{/i}"
+stop music fadeout 4
+scene d1a-7
+with longflash
+C "I have found what I came for. Time to head home..."
+scene d1a-9
+play music "audio/music/raiders/broken.mp3" fadein 5
+with fade
+"{i}*distant engine noises*{/i}"
+scene d1a-10
+with fade
+C2 "STEP ON IT GUYS, HE'S ABOUT TO RUN!"
+scene d1a-11
+with Dissolve(0.4)
+C2 "This guy! He really thought he could just pass through our territory unnoticed, didn't he..."
+scene d1a-12
+with Dissolve(0.4)
+C2 "I hope you're ready Hazim!! I'm excited!!"
+Haz "Calm your tits, babe."
+scene d1a-13
+with Dissolve(0.4)
+Haz "We'll be on top of him in a second, so stop busting my balls."
+Haz "They've had enough of a workout last night, right?"
+scene d1a-14
+with Dissolve(0.4)
+C "{i}*laughs*{/i}"
+C "He's not wrong."
+C "I would have slept in a bit though, afterwards, but you had to take me with you..."
+C "Shut up you idiots, we've got a prey."
+scene d1a-18
+play sound "audio/sounds/objects/machete.mp3"
+with fade
+Haz "Look at what we got here... he must be one of those Desert Stalkers."
+Haz "This is turning into a trophy hunt, Asha! Kyra is gonna love me!"
+scene d1a-16
+with Dissolve(0.4)
+Haz "I'm going to enjoy this..."
+scene d1a-17
+with dissolve
+DS "{i}Great... Raider trash.{/i}"
+scene d1a-19
+with Dissolve(0.2)
+As "Soo.. what brings a Desert Stalker into the outskirts of Adira, hmm?!"
+scene d1a-20
+with Dissolve(0.4)
+As "Shouldn't you be back in Zeta, sucking up to your Queen?!"
+As "Or maybe you're bringing her something of value..."
+scene d1a-21
+with Dissolve(0.4)
+As "..something that I want!?"
+scene d1a-22
+with Dissolve(0.4)
+C "So, guys... what's the plan here?"
+scene d1a-23
+with Dissolve(0.4)
+C "Not trying to kill the mood, but I've heard stories, and they aren't pretty."
+scene d1a-24
+with Dissolve(0.4)
+Haz "Who gives a fuck. There's three of us, he's alone."
+Haz "Let's charge this motherfucker and take his shit!"
+scene d1a-25
+with Dissolve(0.4)
+play sound "audio/sounds/actions/running.mp3"
+Haz "COME ON, DICKHEAD!"
+scene d1a-26
+with Dissolve(0.4)
+DS "Two... one...{p=1.5} {nw}"
+scene d1a-27
+play sound "audio/sounds/objects/sword clash 11.mp3"
+with hpunch
+Haz "Wha...{p=1.2} {nw}"
+scene d1a-28
+with Dissolve(0.1)
+Haz "Fu-{p=0.9} {nw}"
+scene black pic
+play sound "audio/sounds/actions/drop.mp3"
+with vpunch
+As "HAZIM, YOU USELESS FUCK!!"
+scene d1a-29
+with fade
+Haz "Shit..."
+scene d1a-30
+with Dissolve(0.4)
+pause 1
+if persistent.gore == True:
+    scene d1a-31
+    play sound "audio/sounds/objects/sword slash.mp3"
+    with vpunch
+else:
+    scene d1a-70x
+    play sound "audio/sounds/objects/sword slash.mp3"
+    with vpunch
+Haz "Aaaahh!!"
+As "YOU'LL PAY FOR THAT!{p=1.5} {nw}"
+scene d1a-32
+play sound "audio/sounds/objects/spear slice.mp3"
+with hpunch
+pause 0.5
+scene d1a-33
+with dissolve
+As "Raaghh-{p=1} {nw}"
+scene d1a-34
+with hpunch
+As "Hgnh-"
+scene d1a-35
+with Dissolve(0.4)
+As "That's my boyfriend, you asshole!"
+scene d1a-38
+with Dissolve(0.4)
+As "I'm going to rip your guts out and eat them in front of you."
+As "And then I will take your car."
+As "Might makes right... that's the Zetan way, isn't it?!"
+if persistent.gore == True:
+    scene d1a-35
+    with Dissolve(0.4)
+else:
+    jump d1a_asha_cs
+menu:
+    "Disarm her":
+        label d1a_asha_cs:
+            $ asha_knocked_out = False
+        scene d1a-37
+        with Dissolve(0.2)
+        As "What are you waiting for, bitch?! Get him!!"
+        scene d1a-36
+        with Dissolve(0.2)
+        pause 0.7
+        scene d1a-39
+        play sound "audio/sounds/actions/punch 1.mp3"
+        with vpunch
+        As "Agh-"
+        scene d1a-40
+        with Dissolve(0.2)
+        As "Mmmgh..."
+        scene d1a-56x
+        play sound "audio/sounds/actions/drop.mp3"
+        with vpunch
+        "She drops..."
+        DS "Stay down or die."
+        scene d1a-49
+        with Dissolve(0.2)
+        C "..."
+        scene d1a-50
+        with Dissolve(0.2)
+        DS "..."
+        menu:
+            "Disarm her":
+                $ asani_alive = True
+                scene d1a-51
+                play sound "audio/sounds/objects/machete.mp3"
+                with Dissolve(0.2)
+                pause 0.8
+                scene d1a-53
+                play sound "audio/sounds/objects/sword in ground.mp3"
+                with hpunch
+                DS "Drop your fucking weapon, right now."
+                C "...!"
+                scene d1a-54
+                with dissolve
+                C "Okay, okay, calm down."
+                C "I wasn't going to attack, I promise."
+                scene d1a-56
+                play sound "audio/sounds/actions/drop 4.mp3"
+                with vpunch
+                if asha_knocked_out == False:
+                    As "What the fuck are you doing Asani?"
+                    As "You fucking coward! I knew it!!"
+                scene d1a-55
+                with dissolve
+                Asa "I'm no threat, see?"
+                DS "One wrong move and you're dead."
+                scene d1a-57x
+                with Dissolve(0.4)
+                if asha_knocked_out == False:
+                    As "You traitor, you're dead, Asani!"
+                scene d1a-58
+                with Dissolve(0.4)
+                Asa "Come on, Asha..."
+                Asa "You and Hazim together couldn't take him and you expect me to try?"
+                scene d1a-60
+                with Dissolve(0.4)
+                Asa "I can make it up to you, if you let me live, please..."
+                "She looks at you, with her unusual blue eyes wide from a mix of excitement and terror, her life in the balance."
+                scene d1a-59
+                with dissolve
+                DS "..."
+                menu:
+                    "Ask to know more":
+                        DS "How do you plan on doing that?"
+                        scene d1a-62
+                        with Dissolve(0.4)
+                        Asa "Oh, I can tell you..."
+                        scene d1a-63
+                        with fade
+                        Asaw "I'm not really into this whole raider thing... I'll just go back to the shack I live in and stay away from them."
+                        DS "And that means what to me?"
+                        Asaw "If you ever decide you need a safe place in the barren lands, come see me. I can offer you hospitality, items, company..."
+                        Asaw "You'll find me south west of Adira,...if you let me live."
+                        scene d1a-57x
+                        with Dissolve(0.4)
+                        Asaw "As for her..."
+                        Asaw "She's the reason I'm out here in the first place..."
+                        Asaw "She's a crazy wildcat, so, be careful."
+                        if asha_knocked_out == False:
+                            As "What the fuck are you two whispering about?!"
+                        scene d1a-61
+                        with Dissolve(0.4)
+                        DS "If I had someone to drive it, I would take your car to punish you for even being here."
+                        DS "Consider this your lucky day."
+                        scene d1a-57x
+                        with Dissolve(0.4)
+                        DS "As for you, take off those claws and hand them over to me."
+                        if asha_knocked_out == False:
+                            As "{i}*sighs*{/i}"
+                        scene d1a-60
+                        with Dissolve(0.4)
+                        Asa "You have my gratitude. See you around, Stalker."
+                        scene black pic
+                        with fade
+                        "A few moments later, Asani starts her car again and rides off into the horizon, and the other girl tosses her claws to the side. "
+                        jump d1a69
+
+
+                    "Grope her ass":
+                        scene d1a-64
+                        with Dissolve(0.4)
+                        DS "I'm not going to say no to that."
+                        Asa "Something told me you weren't going to..."
+                        scene d1a-62
+                        with Dissolve(0.4)
+                        Asa "Let me tell you a secret..."
+                        scene d1a-63
+                        with fade
+                        Asaw "I'm not really into this whole raider thing... I'll just go back to the shack I live in and stay away from them."
+                        DS "And that means what to me?"
+                        Asaw "If you ever decide you need a safe place in the barren lands, come see me. I can offer you hospitality, items, company..."
+                        Asaw "You'll find me south west of Adira."
+                        scene d1a-57x
+                        with Dissolve(0.4)
+                        Asaw "As for her..."
+                        Asaw "She's the reason I'm out here in the first place..."
+                        Asaw "She's a crazy wildcat, so, be careful."
+                        if asha_knocked_out == False:
+                            As "What the fuck are you two whispering about?!"
+                        scene d1a-61
+                        with Dissolve(0.4)
+                        DS "You better live up to your promises."
+                        scene d1a-60
+                        with Dissolve(0.4)
+                        Asa "You have my word. See you around, Stalker."
+                        scene d1a-57x
+                        with Dissolve(0.4)
+                        DS "And you, take off your claws and hand them over."
+                        if asha_knocked_out == False:
+                            As "{i}*sighs*{/i}"
+                        scene black pic
+                        with fade
+                        "Some moments later, Asani starts her car and rides off, whereas the other girl removes her claws and, as instructed, tosses them away."
+                        jump d1a69
+
+            "Kill her" if persistent.gore == True: 
+                $ asani_alive = False
+                scene d1a-51
+                play sound "audio/sounds/objects/machete.mp3"
+                with Dissolve(0.4)
+                pause 0.8
+                if persistent.gore == True:
+                    scene d1a-52
+                    play sound "audio/sounds/objects/sword slash.mp3"
+                    with hpunch
+                    C "..."
+                    scene d1a-68
+                    play sound "audio/sounds/actions/drop 3.mp3"
+                    with vpunch
+                    As "What the fuck, man?!"
+                    scene d1a-65
+                    with Dissolve(0.4)  
+                    pause 0.8
+                    scene d1a-66
+                    with dissolve
+                    pause 0.6
+                    scene d1a-67
+                    play sound "audio/sounds/actions/drop.mp3"
+                    with vpunch
+                else:
+                    scene d1a-56
+                    play sound "audio/sounds/objects/sword slash.mp3"
+                    with hpunch
+                    As "What the fuck, man?!"
+                    scene black pic
+                    play sound "audio/sounds/actions/drop.mp3"
+                    with fade
+                As "Asani?!"
+                scene d1a-57x
+                with Dissolve(0.4)
+                As "Useless bitch..."
+                scene d1a-57
+                with dissolve
+                As "L-look, you don't have to do that to me, okay!"
+                As "I'm sure we can work something out!"
+                DS "Take off your claws and toss them away."
+                scene d1a-57x
+                with dissolve
+                As "...fine."
+                jump d1a69
+
+
+    "Take her out":
+        $ asha_knocked_out = True
+        scene d1a-37
+        with Dissolve(0.2)
+        As "What are you waiting for, Asani?! Get him!!"
+        scene d1a-36
+        with Dissolve(0.2)
+        pause 0.7
+        scene d1a-39
+        play sound "audio/sounds/actions/punch 1.mp3"
+        with vpunch
+        As "Agh-"
+        scene d1a-40
+        with Dissolve(0.2)
+        As "Mmmgh..."
+        scene d1a-41
+        with Dissolve(0.2)
+        DS "Do you like my car?!"
+        scene d1a-42
+        with Dissolve(0.2)
+        DS "Take a closer look, bitch."
+        scene d1a-43
+        play sound "audio/sounds/objects/car bump.mp3"
+        with vpunch
+        pause 0.5
+        scene d1a-44
+        with dissolve
+        As "..."
+        DS "Had enough?!"
+        scene d1a-45
+        with fade
+        As "Hghr..."
+        scene d1a-47
+        with Dissolve(0.4)
+        DSt "She won't be a threat for a while."
+        "*Rustling from behind*"
+        scene d1a-49
+        with Dissolve(0.4)
+        Asa "..."
+        scene d1a-50
+        with Dissolve(0.4)
+        menu:
+            "Disarm her":
+                $ asani_alive = True
+                scene d1a-51
+                play sound "audio/sounds/objects/machete.mp3"
+                with Dissolve(0.2)
+                pause 0.8
+                scene d1a-53
+                play sound "audio/sounds/objects/sword in ground.mp3"
+                with hpunch
+                DS "Drop your fucking weapon, right now!"
+                Asa "...!"
+                scene d1a-54
+                with dissolve
+                if asha_knocked_out == False:
+                    As "What the fuck are you doing Asani?"
+                    As "You fucking coward! I knew it!!"
+                scene d1a-56
+                play sound "audio/sounds/actions/drop 4.mp3"
+                with vpunch
+                Asa "See, no harm done."
+                scene d1a-55
+                with dissolve
+                DS "One wrong move and you're dead."
+                scene d1a-58
+                with Dissolve(0.4)
+                Asa "Don't worry, I'm not even thinking about it."
+                scene d1a-60
+                with Dissolve(0.4)
+                Asa "I can make it up to you, if you let me live, please..."
+                "She looks at you, with her unusual blue eyes wide from a mix of excitement and terror, her life in the balance."
+                scene d1a-59
+                with dissolve
+                DS "..."
+                menu:
+                    "Ask her what her plan is":
+                        DS "How do you plan on doing that?"
+                        scene d1a-62
+                        with Dissolve(0.4)
+                        Asa "Oh, I can tell you that..."
+                        scene d1a-63
+                        with fade
+                        Asaw "I'm not really into this whole raider thing... I'll just go back to the shack I live in and stay away from them."
+                        DS "And that means what to me?"
+                        Asaw "If you ever decide you need a safe place in the barren lands, come see me. I can offer you hospitality, items, company..."
+                        Asaw "You'll find me south west of Adira,...if you let me live."
+                        scene d1a-46
+                        with Dissolve(0.4)
+                        Asaw "And about that murderous hyena you just knocked out..."
+                        Asaw "The things she does to her victims... she had it coming."
+                        Asaw "She's a crazy wildcat, so, be careful."
+                        scene d1a-61
+                        with Dissolve(0.4)
+                        DS "If I see you again, you better not try anything..."
+                        scene d1a-60
+                        with dissolve
+                        Asa "You have my word, and my gratitude."
+                        scene black pic
+                        with fade
+                        "She leaves, riding off into the sunset..."
+                        jump d1a69
+
+                    "Grope her ass":
+                        scene d1a-64
+                        with Dissolve(0.4)
+                        DS "I'm not going to say no to that."
+                        Asa "Something told me you weren't going to..."
+                        scene d1a-62
+                        with Dissolve(0.4)
+                        Asa "Let me tell you a secret..."
+                        scene d1a-63
+                        with fade
+                        Asaw "I'm not really into this whole raider thing... I'll just go back to the shack I live in and stay away from them."
+                        DS "And that means what to me?"
+                        Asaw "If you ever decide you need a safe place in the barren lands, come see me. I can offer you hospitality, items, company..."
+                        Asaw "You'll find me south west of Adira,...if you let me live."
+                        scene d1a-46
+                        with Dissolve(0.4)
+                        Asaw "And about that murderous hyena..."
+                        Asaw "The things she did to her victims... she had it coming."
+                        Asaw "Asha is a freak in need of taming...in a way her limp dick boyfriend never could."
+                        scene d1a-61
+                        with Dissolve(0.4)
+                        DS "If I see you again, you better keep your promises."
+                        scene d1a-60
+                        with dissolve
+                        Asa "Until next time then...Stalker."
+                        scene black pic
+                        with fade
+                        "She leaves, riding off into the sunset..."
+                        jump d1a69
+
+            "Kill her" if persistent.gore == True: 
+                $ asani_alive = False
+                scene d1a-51
+                play sound "audio/sounds/objects/machete.mp3"
+                with Dissolve(0.2)
+                pause 0.8
+                if persistent.gore == True:
+                    scene d1a-52
+                    play sound "audio/sounds/objects/sword slash.mp3"
+                    with hpunch
+                    Asa "...!"
+                    scene d1a-68
+                    play sound "audio/sounds/actions/drop.mp3"
+                    with vpunch
+                    Asa "..."
+                    scene d1a-65
+                    with Dissolve(0.2)
+                    pause 0.8
+                    scene d1a-66
+                    with dissolve
+                    pause 0.6
+                    scene d1a-67
+                    play sound "audio/sounds/actions/drop.mp3"
+                    with vpunch
+                else:
+                    scene d1a-56
+                    play sound "audio/sounds/objects/sword slash.mp3"
+                    with hpunch
+                    Asa "..."
+                    scene black pic
+                    play sound "audio/sounds/actions/drop 3.mp3"
+                    with fade
+                DS "Bitch."
+                jump d1a69
+
+
+label d1a69:
+    scene d1a-69
+    with fade
+    Haz "I... I can't feel my legs..."
+    Haz "Anyone... Hghr..."
+    label re_d1a_asha:
+        if _in_replay:
+            scene d1a-69
+            play music "audio/music/raiders/broken.mp3" fadein 1
+            with fade
+            "How did you treat [As] earlier?"
+            menu:
+                "Tossed her aside":
+                    $ asha_knocked_out = False
+                "Knocked her out" if persistent.gore == True:
+                    $ asha_knocked_out = True
+
+    if asha_knocked_out == False:
+        scene d1a-101
+        with fade
+        DS "..."
+        scene d1a-98
+        with Dissolve(0.4)
+        As "Fuck... my neck..."
+        DS "Take your mask off and come over here."
+        scene d1a-100
+        with Dissolve(0.4)
+        DS "We're going to have a word."
+        scene d1a-99
+        with dissolve
+        Haz "Agh... Asha, don't give up."
+        Haz "Get that motherfucker..."
+        As "..."
+        scene d1a-102
+        with fade
+        Haz "Aghh!!-"
+        Haz "Fucking bitch!?!"
+        if asani_alive == True:
+            As "I'd rather not end up like you."
+        else:
+            As "I rather not end up like Asani."
+        scene d1a-103
+        with fade
+        DS "Now you're making sense."
+        As "..."
+        scene d1a-104
+        with Dissolve(0.4)
+        As "What do you want?"
+        scene d1a-105
+        with dissolve
+        if persistent.forceplay == False:
+            jump d1a105x
+        menu:
+            "Warn her and leave":
+                label d1a105x:
+                    $ d1a_asha_dominated = False
+                DS "You raiders and your little gangs think you're the shit. You're dumb and don't know what you're doing most of the time."
+                DS "Now that reality has caught up with you, you don't look so fearsome. More like a drowned rat; but I am going to let you live."
+                DS "If I catch you again though, that will be your last day."
+                scene d1a-105x
+                with dissolve
+                As "Fine... I get it."
+                scene black pic
+                with slowfade
+                "She gets up and steps to the side..."
+                jump d1a8
+
+            "Let her make up for it":
+                $ d1a_asha_dominated = True
+                DS "You're cute without that mask and the claws."
+                DS "It's time for you to pay the price of defeat and learn a valuable lesson."
+                scene d1a-106
+                with dissolve
+                As "{i}*sighs* Of course.{/i}"
+                scene d1a-107
+                with Dissolve(0.4)
+                DS "I'm sure you know what to do."
+                "{i}*rustling*{/i}"
+                scene d1a-108
+                with dissolve
+                DS "And remember: if your teeth as much as touch me..."
+                As "..."
+                scene d1a-69
+                with Dissolve(0.4)
+                Haz "Asha... hghr... what are you doing!?!"
+                Haz "Get up and kill him!"
+                scene d1a-109
+                with Dissolve(0.4)
+                Haz "Let's fuck him up!!"
+                scene d1a-110
+                with dissolve
+                As "He won, [Haz]. You're dying."
+                As "It's not even a choice, really..."
+                scene d1a-111
+                with Dissolve(0.4)
+                As "{i}*slurp*{/i}"
+                DS "Little girls shouldn't talk with their mouth full."
+                scene d1a-112
+                with Dissolve(0.4)
+                As "..."
+                DS "I still haven't decided if I should kill you, so..."
+                scene d1a-85
+                with Dissolve(0.4)
+                DS "Let me do this..."
+                scene d1a-87
+                with vpunch
+                DS "Ah... yes. In one go."
+                DS "Such a tiny head, yet you took it all."
+                scene d1a-69
+                with Dissolve(0.4)
+                Haz "No!! Asha... you fucking slut!!"
+                Haz "I'm gonna kill you... argh... Stalker!!"
+                show d1a-87-anim
+                with Dissolve(0.4)
+                DS "Damn... she's not too bad at this, you know?"
+                Haz "Fuck... you!!"
+                DS "She just might, but you won't live long enough to watch her do that."
+                DS "You're bleeding out, and this will be the last thing you see."
+                Haz "Hnghr..."
+                DS "You should have learned this lesson well before today."
+                pause 2
+                DS "Enough of this though, it's getting tiresome."
+                DS "It's time to end this."
+                DS "Don't be shy now..."
+                menu:
+                    "Cum inside":
+                        scene d1a-87
+                        with vpunch
+                        DS "Hold still..."
+                        scene d1a-87
+                        with flash
+                        DS "Hgrh..."
+                        scene d1a-87x
+                        with Dissolve(0.4)
+                        pause 1
+                        scene d1a-113
+                        with flash
+                        DS "Fuck...{p=1.5} {nw}"
+                        scene d1a-114
+                        with flash
+                        DS "..."
+                        DS "Well done, girl."
+                        "Under the grime that covers her face, there's just a faint trace of a smile..."
+                        DS "Open your mouth."
+                        scene d1a-115
+                        with dissolve
+                        As "Ah..."
+                        DS "You see that? Your girl can play nice."
+                        Haz "..."
+                        scene d1a-114
+                        with dissolve
+                        DS "I guess that's him done."
+                        DS "As for you, you can go. Take the lesson you learned today and hope we will never meet again."
+                        DS "I won't be this forgiving, next time."
+                        As "Mhm..."
+                        scene black pic
+                        with slowfade
+                        jump d1a8
+
+                    "Cum outside":
+                        DS "Keep going..."
+                        DS "Hghn..."
+                        scene d1a-87x
+                        with Dissolve(0.4)
+                        pause 1
+                        scene d1a-113
+                        with flash
+                        DS "Fuck...{p=1.5} {nw}"
+                        scene d1a-114
+                        with flash
+                        DS "Hgh... look at you."
+                        DS "At least this hides the dirt on your face. Don't Raiders ever wash?"
+                        DS "You see that? Your girl is not so bad."
+                        Haz "..."
+                        DS "I guess that's it for him."
+                        DS "As for you, you can go. Take the lesson you learned today to heart and hope we will never meet again."
+                        DS "I won't be this forgiving, next time."
+                        As "Mhm..."
+                        scene black pic
+                        with slowfade
+                        jump d1a8
+
+
+    if asha_knocked_out == True:
+        scene d1a-70
+        play sound "audio/sounds/objects/sword slash.mp3"
+        with vpunch
+        Haz "Aghaaah!! You fucking bastard!!"
+        Haz "{i}*painful screaming*{/i}"
+        scene d1a-71
+        with Dissolve(0.4)
+        DS "I'm going to borrow your girlfriend for some time."
+        scene d1a-72
+        with Dissolve(0.4)
+        Haz "Fuck... you... if you hurt her... I will...-"
+        scene d1a-73
+        with fade
+        pause 1.5
+        scene d1a-74
+        with Dissolve(0.4)
+        DS "{i}*sighs*{/i}"
+        scene d1a-75
+        with dissolve
+        DS "Let's see what we got here."
+        scene d1a-76
+        with fade
+        As "Ah..."
+        DS "Hm..."
+        DS "Nah, you will be fine. You raiders must be used to a little blood."
+        scene d1a-70x
+        with Dissolve(0.4)
+        Haz "I will... kill you..."
+        scene d1a-76
+        with Dissolve(0.4)
+        if persistent.forceplay == False:
+            jump d1a95
+        menu:
+            "Get the sword and leave":
+                label d1a95:
+                    $ d1a_asha_dominated = False
+                DS "Anyway, we're done here."
+                scene d1a-95
+                play sound "audio/sounds/actions/drop.mp3"
+                with vpunch
+                As "..."
+                scene d1a-70x
+                with fade
+                DS "Time for you to die."
+                Haz "Hghr-"
+                scene d1a-70x-2
+                play sound "audio/sounds/objects/spear slice.mp3"
+                with vpunch
+                Haz "..."
+                jump d1a8
+
+            "Use her":
+                $ d1a_asha_dominated = True
+                DS "Hm... she looks kinda cute without that mask."
+                scene d1a-77
+                with Dissolve(0.4)
+                DS "You probably don't mind if I use your girlfriend for a bit, do you?"
+                Haz "What... hghr... are you..."
+                scene d1a-78
+                with Dissolve(0.4)
+                DS "Let's face it. You should be past caring."
+                DS "It's not like you're going anywhere anyway."
+                scene d1a-79
+                with Dissolve(0.4)
+                Haz "No... Asha... Wake up, you... agh-"
+                Haz "You still have your claws, Asha!!"
+                scene d1a-80
+                with Dissolve(0.4)
+                DS "Pipe down, kid. She's awake."
+                scene d1a-81
+                with Dissolve(0.4)
+                DS "But she won't be following your directions."
+                scene d1a-82
+                with Dissolve(0.4)
+                DS "Alright girl, get to work. Open your mouth."
+                As "..."
+                DS "What did I say..."
+                scene d1a-83
+                play sound "audio/sounds/actions/punch 2.mp3"
+                with hpunch
+                DS "Open. Your. Mouth."
+                scene d1a-84
+                with Dissolve(0.4)
+                As "Ah..."
+                DS "Good. Now..."
+                scene d1a-85
+                with Dissolve(0.4)
+                DS "I'm going enjoy skull-fucking you."
+                scene d1a-87
+                with vpunch
+                DS "Ah..."
+                DS "Damn."
+                DS "Hey, asshole. She's not too bad at this, you know?"
+                scene d1a-70x
+                with Dissolve(0.4)
+                Haz "You bastard... she's mine... nngh..."
+                show d1a-87-anim
+                with Dissolve(0.4)
+                DS "Was, kid. Was. Your story ends today."
+                DS "But take heart. I don't plan to keep her."
+                Haz "Asha... you... agh..."
+                Haz "{i}*Angry screams*{/i}"
+                DS "Hgh... her throat feels great though."
+                menu:
+                    "Cum inside":
+                        scene d1a-87
+                        with vpunch
+                        DS "Hold still, slut."
+                        scene d1a-87
+                        with flash
+                        DS "Hgrh..."
+                        "Her tongue flickers around the shaft for a second..."
+                        scene d1a-87
+                        with flash
+                        As "*gulps*"
+                        scene d1a-87x
+                        with Dissolve(0.4)
+                        pause 1
+                        scene d1a-90x
+                        with flash
+                        DS "Fuck you...{p=1.5} {nw}"
+                        scene d1a-91
+                        with dissolve
+                        DS "Hah..."
+                        DS "I needed that."
+                        DS "You look absolutely disgusting."
+                        DS "Open your mouth."
+                        scene d1a-92
+                        with dissolve
+                        As "Ah..."
+                        DS "Hey, asshole, you see that?"
+                        Haz "..."
+                        scene d1a-91
+                        with dissolve
+                        DS "I guess that's it for him."
+                        DS "What a shame. He should've seen you like this."
+                        As "..."
+                        menu:
+                            "Warn her and leave":
+                                jump d1a_warn
+
+                            "Toss her away and leave":
+                                jump d1a_toss
+
+                            "Hydrate her":
+                                DS "Since we're at it..."
+                                DS "It has been a long day."
+                                DS "Open your mouth again."
+                                scene d1a-92
+                                with dissolve
+                                "She instantly complies, without hesitation..."
+                                As "Ah..."
+                                scene d1a-94
+                                with dissolve
+                                DS "Don't spill a drop."
+                                scene d1a-94x
+                                with dissolve
+                                As "Ah..."
+                                DS "Good girl."
+                                DS "I guess you did learn a lesson today, after all..."
+                                scene d1a-93
+                                with dissolve
+                                As "{i}*gulps*{/i}"
+                                "She faintly smiles..."
+                                menu:
+                                    "Warn her and leave":
+                                        jump d1a_warn
+
+                                    "Toss her away and leave":
+                                        jump d1a_toss
+
+                    "Cum outside":
+                        DS "Keep going, bitch."
+                        scene d1a-87x
+                        with Dissolve(0.4)
+                        pause 1
+                        scene d1a-90x
+                        with flash
+                        DS "Fuck you...{p=1.5} {nw}"
+                        scene d1a-91
+                        with dissolve
+                        DS "Hah..."
+                        DS "I needed that."
+                        DS "You look absolutely disgusting."
+                        DS "Hey, asshole, you see that?"
+                        Haz "..."
+                        DS "I guess that's it for him."
+                        DS "What a shame. He should've seen you like this."
+                        As "..."
+                        menu:
+                            "Warn her and leave":
+                                jump d1a_warn
+
+                            "Toss her away and leave":
+                                jump d1a_toss
+
+                            "Hydrate her":
+                                DS "Since we're at it..."
+                                DS "It has been a long day."
+                                DS "Open your mouth again."
+                                scene d1a-92
+                                with dissolve
+                                "She instantly complies, without hesitation..."
+                                As "Ah..."
+                                scene d1a-94x-2
+                                with dissolve
+                                DS "Don't spill a drop."
+                                scene d1a-94x-3
+                                with dissolve
+                                As "Ah..."
+                                DS "Good girl."
+                                DS "I guess you did learn a lesson today, after all..."
+                                scene d1a-93
+                                with dissolve
+                                As "{i}*gulps*{/i}"
+                                "She faintly smiles..."
+                                menu:
+                                    "Warn her and leave":
+                                        jump d1a_warn
+
+                                    "Toss her away and leave":
+                                        jump d1a_toss
+
+label d1a_warn:
+    DS "You can go now. Consider this a warning and a lesson learned."
+    DS "I won't be as forgiving again."
+    As "Mh..."
+    scene d1a-70x-2
+    play sound "audio/sounds/objects/sword slash.mp3"
+    with Dissolve(0.2)
+    DS "That's mine."
+    jump d1a8
+
+label d1a_toss:
+    DS "I'm done with you."
+    scene d1a-95
+    play sound "audio/sounds/actions/drop.mp3"
+    with vpunch
+    DS "Now get out of my sight."
+    scene d1a-70x-2
+    play sound "audio/sounds/objects/sword slash.mp3"
+    with Dissolve(0.2)
+    DS "That's mine."
+    scene d1a-96
+    with Dissolve(0.4)
+    DS "If I see you again, I'll probably kill you."
+    scene d1a-97
+    with dissolve
+    As "Hn..."
+    jump d1a8
+
+label d1a8:
+    $ renpy.end_replay()
+    scene black pic
+    stop music fadeout 6
+    with slowfade
+    "Finally..."
+    scene d1a-8
+    with fade
+    DSt "I'm getting too old for this shit."
+    DSt "Next time I may not be as lucky..."
+    jump d1b
+
+
+label d1b:
+    $ m_d1b = True
+    scene black pic
+    play sound "audio/sounds/vehicles/car noise.mp3"
+    with slowfade
+"{i}*Driving off*{/i}"
+"Several hours later"
+DS "{i}I wish I could have seen it when the place was still, as it was meant to be..{/i}"
+show d1b-1-anim
+play music "audio/music/decayed/remember.mp3"
+play sound "audio/sounds/environment/bass.wav"
+pause 1.5
+DS "{i}But that was before my time.{/i}"
+DS "{i}All I have, all that remains, are ruins and the stories about the great war.{/i}"
+DS "{i}And even those are mostly gone. All that survives is the memory of the final assault, of the End of Days.{/i}"
+DS "{i}The eternal flames burned into a sky forever marked, a living, shifting memory of the flames of the past...{/i}"
+DS "{i}... the ultimate finger pointed at our folly, by the world itself, to admonish us, perhaps, about the cost of our hubris.{/i}"
+scene d1b-2
+with w33slow
+DS "{i}Decades turned into centuries, and despite everything, like cockroaches, we endured.{/i}"
+DS "{i}And after all those years, somewhere along the path of history; me.{/i}"
+
+$ persistent.player_name = renpy.input(_("My name is "), default=_('Zaton'), length=16, screen='say_with_input', show_who = C, show_post = '...').strip()
+
+Zt "My name is [persistent.player_name], and I am what they call a Desert Stalker. Trained in the city of Zeta and commissioned by Queen Merneith."
+Zt "My task, today, is to hunt for ancient artifacts left undiscovered..."
+Zt "Officially, with the purpose of helping restore our civilisation."
+Zt "...But all the silly statuette is good for is making Zeta, her domain, look pretty."
+Zt "Unlike the pile of rubble that is testing my suspensions right now. Jewel of the Nile it would be, except the river too is but a distant memory."
+Zt "I can't blame the Queen, though. She rules over what is effectively the only place that can be called a city in the entire region."
+Zt "It's the only large city in the region..."
+Zt "Possibly the only place left where there are rules in place for the strong as well as the weak."
+Zt "Sparse rules, to be sure, but they are there."
+scene d1b-2-1
+with w33slow
+Zt "Yes, things are not always fair, and the strong are favoured over the weak..."
+Zt "...but that's nothing compared to the world out here."
+Zt "I can count myself lucky. Not all Stalkers have access to the Palace the way I do, with opportunity to get the better paid commissions..."
+Zt "Even so, I have to follow my own path and am forever on the road, scouring the desert so I can provide for my family."
+Zt "It would be nice if the city hadn't banned ancient technology outright."
+Zt "Instead, I have to make a whole detour for something as simple as getting fuel for my car..."
+scene d1b-3
+play music "audio/music/decayed/haunted.mp3" fadeout 3
+with slowfade
+Zt "Anyway, here we are."
+Zt "The outskirts of Old Cairo."
+Zt "An example of what the rest of the world might look like..."
+Zt "This godforsaken place is no place to live. But humans always find a way."
+Zt "...Or what is left of them."
+Zt "No one knows if it is the pollution or the burned air..."
+Zt "...Or a combination of both."
+Zt "But the people here are different. It's like they turned into living mummies."
+Zt "That is why they call themselves the Decayed."
+Zt "Their untamed will to cling on to whatever little they have made most of them rot from the inside out, in this place that isn't meant for the living."
+Zt "But I know some of this place and its people. And I am known to them."
+Zt "Since no one at home knows or cares to know how to process fuel, these people come in quite handy, crafty as they are."
+Zt "It's nothing but rumors, but it's said the decayed have slaves working at an old oil refinery somewhere in the north."
+Zt "Time to remind them of our agreement and get some of that fuel."
+Zt "But first I have to find them."
+Zt "It should be right down the road, but I also hear noises from the ruins."
+Zt "Not sure if I should investigate it..."
+play music "audio/music/decayed/dead city.mp3" fadeout 3
+$ got_oil = False
+$ mq1 = False
+$ mq2 = False
+$ mq3 = False
+$ mq4 = False
+$ mq5 = False
+
+label choice3_city:
+    if got_oil == True and d1b_kinzi_met == True:
+        jump d1_drive_home
+    else:
+        pass
+show screen toggle_ql
+# scene d1b-3
+# with fade
+queue music ["audio/music/decayed/dead city.mp3"]
+menu:
+    "Walk down the road" if got_oil == False:
+        Zt "Let's follow the road and see where it leads me."
+        scene d1b-3a-0
+        with w33slow
+        Z "Now I remember... there, the building on the right."
+        scene d1b-3a-1
+        with fade
+        Z "The warehouse is always closed..."
+        scene d1b-3a-2
+        with fade
+        Zt "This must be it."
+        Z "Shaqiq... Remember our agreement... the black wall."
+        C "[persistent.player_name!c]? Yes yes... we remember..."
+        C "You filled your tank just a week ago, it's a bit too soo-"
+        Z "This is not a discussion."
+        Z "If you don't keep your end of the bargain, our deal is history."
+        Z "And God have mercy on your pitiful souls if that ever happens."
+        C "Master [persistent.player_name], there is no need to threaten us. We know."
+        C "Give me just a moment..."
+        scene d1b-3a-3
+        with dissolve
+        C "Here... this is all we can spare at the moment..."
+        C "It's hard to come by the..."
+        Z "Spare me your excuses. But this will do for now."
+        scene black pic
+        with fade
+        "{i}You take the fuel can and ready yourself to leave."
+        scene d1b-3a-2
+        with fade
+        C "Goodbye [persistent.player_name], and drive carefully..."
+        C "You don't want to drop into one of the feeding pits, trust me."
+        "{i}Inaudible chatting and laughing"
+        Zt "Creepy bastard."
+        scene black pic
+        with slowfade
+        "You walk back to the car..."
+        scene d1b-3
+        with slowfade
+        $ got_oil = True
+        jump choice3_city
+
+    "Enter the ruins on the right" if ivy_done == False:
+        $ d1b_kinzi_met = True
+        Zt " I should take a look..."
+        scene d1b-3b-0
+        with w33slow
+        C2 "{i}*inaudible chatter*"
+        C2 "Hahaha, I told you I was right, didn't I?"
+        C3 "...Do you know why they look like this?"
+        C2 "I have no idea, and I don't really care."
+        C3 "She looks... unsettling. Now that I see one up close, I am not surprised they are hunted like animals."
+        C2 "Who says they aren't? Some say we are animals too. Outside of Cairo we're hunted too, did you forget?"
+        scene d1b-3b-1
+        with fade
+        C2 "Ah look who we have here. Our old friend [persistent.player_name]."
+        Z "[Ki], what is going on here?"
+        Ki "Brother [Ko] is showing me the elf he caught a few days ago."
+        scene d1b-3b-2
+        with shortfade
+        Ko "Yes, come look. She's... well, see for yourself."
+        Ko "Come, come..."
+        scene d1b-3b-3
+        with dissolve
+        Ko "See? Not a scratch on her, because I caught her half asleep."
+        C2 "And look at her skin, so soft."
+        Z "She is starving."
+        scene d1b-3b-4
+        with dissolve
+        Ko "I know, who cares?"
+        Ko "Everyone here is hungry. Some get to eat; others, like her, get eaten."
+        scene d1b-3b-5
+        with dissolve
+        Z "..."
+        label scene4_ivy:
+        menu:
+            '\"What is that thing around her neck?\"' (question = True) if mq1 == False:
+                Z "What is that thing around her neck?"
+                scene d1b-3b-4
+                with dissolve
+                Ko "Oh that..."
+                Ko "It looks like a collar, right? But it's not a normal collar!"
+                Ko "It's equipped with a sensor that goes off if the wearer moves too far away from the keys [Ki] is holding."
+                scene d1b-3b-5
+                with dissolve
+                Ki "Come dinner time, you'll see how it works."
+
+                $ mq1 = True
+                jump scene4_ivy
+
+            '\"What did you talk about earlier?\"' (question = True) if mq2 == False:
+                Z "What were you talking about just now when you mentioned her looks?"
+                Ko "Her ears! What else?"
+                Ko "They're the whole reason why people call them elves, like a creature from a fairytale!"
+                Ko "Yet here she is, in the flesh."
+                
+                $ mq2 = True
+                jump scene4_ivy
+
+            # '\"Why are her eyes so grey?\"' (question = True) if mq3 == False:
+            #     Z "Why are her eyes so grey?"
+            #     Ko "I don't know. I heard the colour of elven eyes changes according to their mood or something."
+            #     Ki "So, what is she feeling if her eyes are grey?"
+            #     Ko "Who cares?"
+
+            #     $ mq3 = True
+            #     jump scene4_ivy
+
+            "No more questions":
+                Z "What are you going to do to her now?"
+                Ko "Mhhh I think we'll stick to what I planned for her."
+                Ki "[Ko] is right."
+                Ko "Unless you want her for yourself, Stalker. Hrhrhr."
+                Ki "Wait, you're not giving her away just like that are you?"
+                Ko "Of course not [Ki], I'm not stupid..."
+                Ko "Listen Stalker, you know how it works in Old Cairo..."
+                Ko "...and I know why you're here."
+                Ko "You are after our fuel supplies, which means you've been somewhere far enough that whatever you found there must have been worth it."
+                Ko "I'll make you an offer..."
+                Ko "You hand over whatever precious item you found, and I'll hand over this very fine specimen to you."
+                Ko "She will be yours, along with the collar and the keys.. hrhrhr."
+                Zt "It seems I have multiple options."
+                Zt "1. I can make them hand the girl over, one way or another."
+                Zt "The locals won't be happy about this."
+                Zt "2. I can give them the statue of Bastet and buy the elf."
+                Zt "The Queen will not reward me if I show up empty handed."
+                if persistent.gore == True:
+                    Zt "3. I can wash my hands of this and let them finish off the elf."
+                    Zt "But mutants are rare, and her particular kind even more so. I must admit I am curious."
+                $ decayed_event1 = False
+                label ivychoicemenu:
+                    queue music ["audio/music/decayed/dead city.mp3"]
+                    # scene d1b-3b-5
+                    # with dissolve
+                    menu:
+                        "Attack them":
+                            $ saved_ivy = True
+                            $ ki_killed = True
+                            "You have known for a long time that the decayed are cannibals, but having it thrown in your face like this makes your blood boil."
+                            Z "You disgust me. I have seen all kinds of sick shit but this goes too far."
+                            $ mq_m_1.start()
+                            Z "Hand the girl over, I am not making any deals today."
+                            Ko "Whoa, what's gotten into you Master [persistent.player_name]?!"
+                            Ki "Yeah, what the fuck? This is [Ko]'s catch; it's his property!"
+                            Ko "It belongs to me, and if I want to make a snack of it, I fucking will!"
+                            Z "This is not a discussion."
+                            Z "You can choose to give her to me, or I will make you."
+                            Ki "And then what?! Everyone will know you dishonored the agreement!!"
+                            stop music fadeout 2
+                            Z "Oh you're probably right... let me think about that for a second..."
+                            scene black pic
+                            play sound "audio/sounds/objects/machete.mp3"
+                            with shortfade
+                            Z "I'll take that risk."
+                            if persistent.gore == True:
+                                scene d1b-3b-6a-2
+                                play music "audio/music/zone/premonition.mp3"
+                                jump cs6
+                            else:
+                                scene black pic
+                                play music "audio/music/zone/premonition.mp3"
+                                jump cs6
+                            label cs6:
+                                play sound "audio/sounds/objects/sword slash.mp3"
+                                with vpunch
+                                Ko "..!"
+                                Ki "What the fuck [persistent.player_name]?!"
+                                scene black pic
+                                with shortfade
+                                Ki "You're going to regret thi-"
+                            if persistent.gore == True:
+                                scene d1b-3b-6a-3
+                                jump cs9
+                            else:
+                                scene black pic
+                                jump cs9
+                            label cs9:
+                                with hpunch
+                                play sound "audio/sounds/gore/gore3.mp3"
+                            Ki "...hrrrgh!"
+                            scene black pic
+                            with shortfade
+                            play sound "audio/sounds/actions/drop.mp3"
+                            Z "Fucking degenerates."
+                            scene d1b-3b-6a-4
+                            with fade
+                            Z "Hey. Are you okay?"
+                            scene d1b-3b-6a-5
+                            with dissolve
+                            Elf "..."
+                            Z "We don't have much time."
+                            Z "If they see us here, they will find out what happened."
+                            Z "There's a car outside. Get in it, and don't make a sound."
+                            Z "I will take the keys and catch up soon."
+                            Z "The collar can't hurt you. I won't be far."
+                            scene black pic
+                            stop music fadeout 4
+                            with slowfade
+                            "{i}You and the elf leave the ruins and she heads to the car..."
+                            scene d1b-3
+                            with fade
+                            $ decayed_event1 = False
+                            $ saved_ivy = True
+                            $ ivy_done = True
+                            $ ivy_alive = True
+                            $ persistent.met_ivy = True
+                            jump choice3_city
+
+
+                        "Hand over the artifact and free the elf":
+                            Z "Let's make the deal. The girl for this artifact I found."
+                            $ mq_m_1.start()
+                            scene d1b-3b-2
+                            with dissolve
+                            Ki "Now that's a great reminder why the decayed like you [persistent.player_name]! Hrhrhr..."
+                            Ko "Damn it, I was looking forward to a good meal..."
+                            $ renpy.notify(_('\"Bastet\" artifact lost.'))
+                            Ki "Don't be stupid, [Ko]. That artifact is worth many meals, to the right buyer..."
+                            Ko "I'm still hungry though... hrhrhr."
+                            Ko "Why don't you visit us again soon, [persistent.player_name]?"
+                            Ko "We have known you for so long now, and you're a man of your word."
+                            Ko "Next time you come here we will show you around a little...as a sign of trust. Hrhrhr.."
+                            Ki "[persistent.player_name!c], take the keys, the girl will follow you as if her life depends on it... because it-"
+                            Z "Yeah yeah because it does, very funny.. Now, I need to get going. I'll see you around..."
+                            Zt "...you ugly motherfuckers."
+                            $ decayed_event1 = True
+                            $ ivy_done = True
+                            $ ivy_alive = True
+                            $ persistent.met_ivy = True
+                            $ lost_artifact = True
+                            scene black pic
+                            with slowfade
+                            "You take the keys and lead the girl to your car. She'll wait inside."
+                            scene d1b-3
+                            with fade
+                            jump choice3_city
+
+
+                        "Walk away" if persistent.gore == True:
+                            $ kill_ivy = True
+                            $ ivy_done = True
+                            $ decayed_event1 = True
+                            play music "audio/music/decayed/cannibals.mp3" fadeout 1
+                            Z "I don't care about the girl, I'll keep the artifact for myself."
+                            scene d1b-3b-6b-1
+                            with dissolve
+                            Ko "As you wish, Master [persistent.player_name]."
+                            Ko "Not the reaction I expected, but well..."
+                            Ki "Now to the good part... hrhrhr..."
+                            Ko "Yes, finally... I am starving."
+                            scene d1b-3b-4
+                            with dissolve
+                            Elf "..."
+                            Ko "All I need to do... is push this button..."
+                            Ko "...aaand.."
+                            scene d1b-3b-6b-2
+                            play sound "audio/sounds/gore/gut rip.mp3"
+                            with vpunch
+                            pause 0.8
+                            # play sound "audio/sounds/gore/flesh ripped.mp3"
+                            scene d1b-3b-6b-3
+                            with dissolve
+                            pause 1
+                            scene d1b-3b-6b-4x
+                            with dissolve
+                            Ki "Haaaa!! What a mess!!"
+                            Ki "Look she's still twitching."
+                            scene d1b-3b-6b-4
+                            with dissolve
+                            Ko "Hrhrhr! A good catch!"
+                            scene black pic
+                            with shortfade
+                            play sound "audio/sounds/actions/drop.mp3"
+                            pause 2
+                            scene d1b-3b-6b-5
+                            with fade
+                            Ki "I don't think I have had an Elven mutant before."
+                            scene d1b-3b-6b-6x
+                            with fade
+                            Ko "You're a good partner, [persistent.player_name]."
+                            Ko "Why not visit us again sometime in the future..."
+                            Ko "[Ki] and me want to show you around a bit."
+                            scene d1b-3b-6b-6
+                            with dissolve
+                            Ko "Now if you excuse us, we have a meal to prepare, hrhrhr."
+                            scene black pic
+                            stop music fadeout 4
+                            with slowfade
+                            "You take the collar and the keys and head back to your car, a bad taste lingering in your mouth, as you reflect on the repulsive nature of the Decayed."
+                            scene d1b-3
+                            with fade
+                            jump choice3_city
+
+    "Refuel your car and drive home" if got_oil == True:
+        label d1_drive_home:
+            Z "There's nothing left for me to do here..."
+        stop music fadeout 1
+        Z "Time to leave this god forsaken place and go home."
+        scene black pic
+        with slowfade
+        jump d1c
+
+label d1c:
+    $ m_d1c = True
+    play sound "audio/sounds/vehicles/car noise.mp3"
+    play music "audio/music/exploration/spatium.mp3"
+    "{i}Many hours later..."
+    scene d1b-4
+    with slowfade
+    pause
+    scene d1b-5
+    with slowfade
+    pause
+    scene d1c-1
+    play music "audio/music/home/dream town.mp3" fadeout 3
+    with slowfade
+    Zt "Finally... coming home is the greatest reward."
+    Zt "Not many other people I know can afford to build a home of this quality, in a place of their choosing.."
+    Zt "I have worked hard, exploring ruins, scouring many paths. I have built a solid network of contacts and leads, leading to more work and, ultimately, more resources."
+    Zt "It took many years, but finally I'm where I want to be."
+    pause 0.5
+    Zt "It's good to be home."
+    scene d1c-2
+    with fade
+    Z "I'm back! Anyone home?"
+    C "Yes, I'll be right there."
+    # Z "I'm home! Someone open the gate!"
+    scene d1c-3
+    with dissolve
+    play sound "audio/sounds/doors/door shut.mp3"
+    pause 0.5
+    scene d1c-4
+    with dissolve
+    W "Please come in, love."
+    scene black pic
+    with fade
+    "You step through the door in the gate..."
+    scene d1c-5
+    with fade
+    "That would be my wife. Beautiful, loyal, and the woman who truly runs this household."
+    "We have been together for a couple of decades now.."
+    $ persistent.W_name = renpy.input(_("It's good to be home, "), default=_('Zahra'), length=16, screen='say_with_input', show_who = Z, show_post = '.').strip()
+    scene d1c-6
+    with dissolve
+    W "It's been a few days too long."
+    scene d1c-7
+    with dissolve
+    Z "All the more exciting to come back to you."
+    scene d1c-8
+    with fade
+    W "We're always happy to have you back."
+    scene d1c-9
+    with dissolve
+    W "And you don't seem to be hurt this time. You know how to make my day."
+    scene d1c-10
+    with dissolve
+    Z "What about you, is everything alright?"
+    $ persistent.dad = renpy.input(_("And where are the girls? Don't they want to welcome their "), default=renpy.substitute(persistent.dad), length=16, screen='say_with_input', show_who = Z, show_post = '?').strip().lower()
+    if persistent.dad == "":
+            $ persistent.dad = renpy.translate_string(persistent.dad, language = _preferences.language)
+    if persistent.dad == renpy.translate_string("stepdad", language = _preferences.language):
+        Zt "I am their [persistent.dad]. They usually call me dad though."
+        $ persistent.dad = renpy.translate_string("dad", language = _preferences.language)
+        $ persistent.mom = renpy.translate_string("mom", language = _preferences.language)
+        $ persistent.da = renpy.translate_string("stepdaughter", language = _preferences.language)
+    elif persistent.dad == renpy.translate_string("dad", language = _preferences.language):
+        $ persistent.mom = renpy.translate_string("mom", language = _preferences.language)
+        $ persistent.da = renpy.translate_string("daughter", language = _preferences.language)
+    elif persistent.dad == renpy.translate_string("Master", language = _preferences.language):
+        $ persistent.mom = renpy.translate_string("Mistress", language = _preferences.language)
+        $ persistent.da = renpy.translate_string("protege", language = _preferences.language)
+    elif persistent.dad == renpy.translate_string("father", language = _preferences.language):
+        $ persistent.mom = renpy.translate_string("mother", language = _preferences.language)
+        $ persistent.da = renpy.translate_string("daughter", language = _preferences.language)
+        $ renpy.save_persistent()
+    scene d1c-11
+    with dissolve
+    A "Um... hey... guys?"
+    W "..."
+    scene d1c-12
+    with fade
+    "Before [W] was able to respond, another member of your house stepped outside, dressed in an outfit matching a dancer..."
+    scene d1c-13
+    with fade
+    A "Sorry... I am late again..."
+    scene d1c-14
+    with dissolve
+    W "{i}*sigh*{/i} Well, husband... there you have your answer."
+    "Playful pigtails, and prone to causing distress to my wife."
+    scene d1c-15
+    with fade
+    $ persistent.A_name = renpy.input(_("Are you proud, "), default=_('Ain'), length=12, screen='say_with_input', show_who = W, show_post = "?").strip()
+        
+    W "Already an adult, and you still find it entertaining to take your [persistent.mom]'s clothes..."
+    scene d1c-17
+    with fade
+    A "But [persistent.dad] likes it, right? I look just like one of those dancers in the city now."
+    A "You know...like the ones you brought home a couple of times."
+    scene d1c-17x
+    with dissolve
+    A "I know it's [persistent.mom]'s dress..."
+    A "But I think it fits me better."
+    scene d1c-18
+    with dissolve
+    jump d1c_menu
+    
+label d1c_menu:
+    menu:
+        "Tell her off nicely":
+            Z "[A]... listen..."
+            Z "You know you can't do that."
+            Z "If the guards or other people from the city saw you..."
+            scene d1c-18x
+            with dissolve
+            Z "It's not safe enough."
+            Z "That's why you will only wear it when I tell you to, alright?"
+            scene d1c-18x-2
+            with dissolve
+            A "Fine, [persistent.dad]."
+            scene d1c-18x-3
+            with dissolve
+            if ivy_alive == True:
+                Z "Also... there is a girl in the car. She is unconscious."
+                scene d1c-18
+                with dissolve
+                Z "It doesn't look like she is dangerous, but we don't know what her intentions are yet."
+                Z "I need you to escort her into the basement. She's starving. Make sure to bring her a good meal, and make it a large portion too."
+                scene d1c-18x-4
+                with dissolve 
+                A "Okay! I'm on it!"
+                scene d1c-30
+                with dissolve
+                W "Na-ah, I don't think so. Allow me to see about it instead."
+                W "You may see your other [persistent.da], if you wish."
+                scene d1c-31
+                with dissolve
+                W "In the meantime, [A] and I will have a word with each other."
+                scene d1c-32
+                with dissolve
+                W "And about her habit of stealing my dresses..."
+                scene black pic
+                with slowfade
+            $ renpy.end_replay()
+            jump d1_return_home
+
+        "Take a look at her" if d1c_stare == False:
+            $ d1c_stare = True
+            scene d1c-19
+            with dissolve
+            Zt "Holy Merneith..."
+            scene d1c-18
+            with dissolve
+            A "..."
+            jump d1c_menu
+
+        "Scold and grope her":
+            Z "Enough of this."
+            scene d1c-18x
+            with dissolve
+            Z "I told you many times you should not dress like this."
+            scene d1c-18x-5
+            with dissolve
+            A "I know, but-"
+            scene d1c-18x-6
+            with dissolve
+            Z "Shh... I told you what can happen if your dress is too revealing around others."
+            scene d1c-22
+            with dissolve
+            Z "What if a stranger were to visit us and you show yourself on display like this?!"
+            scene d1c-23
+            with dissolve
+            pause 0.5
+            scene d1c-24
+            with dissolve
+            Z "You see how easy it is to do this?!"
+            A "..."
+            scene d1c-25
+            with dissolve
+            Z "Are you allowed to let strangers grope you like this?"
+            scene d1c-26
+            with dissolve
+            A "..."
+            Z "Tell me."
+            scene d1c-27
+            with dissolve
+            A "No... only..."
+            scene d1c-27x
+            with dissolve
+            Z "Only what, [A]?"
+            scene d1c-27x-2
+            with dissolve
+            A "...only if you tell me to."
+            scene d1c-27x-3
+            with dissolve
+            Z "That's right, and from now on you will dress like this outside only if I tell you to."
+            Z "You understand?"
+            scene d1c-28
+            with dissolve
+            A "Yes."
+            scene d1c-23
+            with dissolve
+            Z "Good."
+            scene d1c-22
+            with dissolve
+            A "..."
+            scene d1c-29
+            with dissolve
+            if ivy_alive == True:
+                Z "Now, there is a girl in the car. She is unconscious."
+                Z "It doesn't look like she is dangerous, but we don't know what her intentions are yet."
+                Z "I need you to escort her into the basement. She's starving. Make sure to bring her a good meal, and make it a large portion too."
+                Z "Your [persistent.mom] will take off her collar. It is too dangerous for you to handle."
+                scene d1c-30
+                with dissolve
+                W "Indeed it is. Don't worry, I will see about it."
+                W "You may see your other [persistent.da], if you wish."
+                scene d1c-31
+                with dissolve
+                W "In the meantime, [A] and I will have a word with each other."
+                scene d1c-32
+                with dissolve
+                W "And about her habit of stealing my dresses..."
+                scene black pic
+                with slowfade
+            else:
+                Zt "She knows what she is doing..."
+                W "Take a rest, husband. You may see your other [persistent.da], in her room if you wish."
+                scene d1c-31
+                with dissolve
+                W "In the meantime, [A] and I will have a word with each other."
+                scene d1c-32
+                with dissolve
+                W "And about her habit of stealing my dresses..."
+                scene black pic
+                with slowfade
+
+            $ renpy.end_replay()
+            jump d1_return_home
+
+label d1_return_home:
+    play music "audio/music/home/dream town.mp3" fadeout 2
+    scene home day
+    with slowfade
+    "{i}This is the overview of your estate."
+    "{i}From here you can choose which room to visit next."
+    "{i}As the story progresses, more actions and repeatable events will become available."
+    Zt "I need to visit my older [persistent.da] and tell her about the news."
+    Zt "She will probably be in her room."
+    jump d1_overview
+
+label d1_overview:
+    show home day
+    with Dissolve(1)
+    queue music ["audio/music/home/dream town.mp3"]
+    if not nav_help_seen:
+        call navigation_help from _call_navigation_help
+    call screen nav_menu
+
+label d1e:
+    play music "audio/music/zeta/cleopatra.mp3" fadeout 3 volume 0.5
+    scene d1e-2
+    with w33slow
+    W "...why don't you just do as you're told?"
+    scene d1e-1
+    with dissolve
+    "As you step into the room, you see your [persistent.da] getting a lecture from your wife."
+    "You'd be feeling sorry if it was any other girl, but you know [A]. It's almost like she's doing those things on purpose."
+    scene d1e-3
+    with dissolve
+    W "Girl... You're driving me mad sometimes. One day you'll be punished thoroughly."
+    scene black pic
+    play sound "audio/sounds/doors/door closed.mp3"
+    with fade
+    "You close the door behind you..."
+    scene d1e-4
+    with fade
+    "[A] immediately turns her head over to you, looking at you with a slight smirk."
+    Z "{i}sigh...{/i}"
+    label re_zahra1:
+        scene d1e-4x
+        with fade
+        W "Ah, [persistent.player_name]! You're back."
+        scene d1e-4
+        with fade
+        scene black pic
+        with fade
+        W "..."
+        "She turns around, standing still, and waiting for your call..."
+        A "..."
+        Z "Hm."
+    scene black pic
+    with fade
+    W "Ah... {i}*giggles*"
+    scene d1e-5
+    with fade
+    "[A] watches as you put your arms around your wife's slim waist..."
+    menu:
+        "\"You look great in that dress.\"":
+            Z "You look great in that dress."
+            scene d1e-7
+            with fade
+            "You kiss her passionately, and her lips respond. Looks like she has missed her man as well, if not more..."
+            "{i}*kissing*"
+            scene d1e-8
+            with dissolve
+            Ww "I missed you too. I love you, [persistent.player_name]."
+            scene d1e-6
+            with fade
+            Z "I love you too, [W]."
+            jump d1e6
+
+        "\"The girls in the wasteland are no match for you.\"":
+            Z "The girls in the wasteland are no match for you."
+            Z "No matter how good they are..."
+            scene d1e-7
+            with fade
+            "You kiss her eagerly, and she responds in a passionate and lustful manner..."
+            "{i}*kissing*"
+            scene d1e-8
+            with dissolve
+            Zw "...they don't compare to my girl."
+            scene d1e-6
+            with fade
+            W "..."
+            jump d1e6
+
+        "Push her down":
+            scene d1e-6
+            with fade
+            Z "It's been a week..."
+            Z "You know what you need to do."
+            jump d1e13
+
+
+    label d1e6: 
+        menu:
+            "Send [A] to bed and have some fun with [W]":
+                scene d1e-18
+                with fade
+                Z "[A], me and your [persistent.mom] are going to have some fun."
+                Z "Leave us alone now, will you."
+                Z "Good night [A]."
+                jump d1e23
+
+            "Tell [W] to kneel down":
+                Z "Now, make your husband happy."
+                jump d1e13
+
+            "Call it a night":
+                scene d1e-18
+                with fade
+                Z "[A], you can leave for tonight."
+                Z "And don't forget, your [persistent.mom] always deserves your respect. Got it?"
+                Z "Good night [A]."
+                scene black pic
+                with fade
+                A "Okay, good night [persistent.dad]!"
+                "[W] and you head to bed. You're pretty beat from the long day dealing with the Raiders, so you both cuddle up..."
+                scene sz-1
+                with fade
+                W "I'm glad you're back with us. [A] can be stubborn..."
+                scene sz-1x-2
+                with dissolve
+                Z "I know she can... but I see how you handle her. You're doing just fine."
+                scene sz-1x
+                with dissolve
+                Z "Let's sleep now. Good night, [W]."
+                W "Good night, love..."
+                scene sz-2
+                with dissolve
+                "As [W] rests on your chest, you're getting tired quickly as well..."
+                scene black pic
+                stop music fadeout 2
+                with slowfade
+                $ renpy.end_replay()
+                $ home_intro_seen = True
+                jump day1_end
+                
+
+    label d1e13: # zahra blowjob
+        scene black pic
+        with fade
+        "You unzip your pants as she obediently kneels down on the spot..."
+        scene d1e-9
+        with fade
+        W "Mh..."
+        scene d1e-10
+        with dissolve
+        "She grabs your dick as you rest your hand on her head, then starts slowly kissing it's shaft..."
+        Z "Good girl..."
+        scene d1e-11
+        with dissolve
+        W "{i}*kissing*"
+        "She quietly continues to service you..."
+        scene d1e-16
+        with fade
+        "...intentionally ignoring her [persistent.da], whom she just berated moments ago..."
+        A "..."
+        show d1e-12-anim
+        with fade
+        Z "You're the best, [W]."
+        Z "I'm glad I picked you over your sister."
+        Z "She knew how to ride..."
+        Z "...but she was no match for you."
+        scene d1e-17
+        with fade
+        Z "Hey.. [A]."
+        Z "[A], listen to me."
+        Z "..."
+        "She is visibly focusing on her [persistent.mom] deepthroating you, ignoring your call in the process..."
+        show d1e-18
+        with hpunch
+        Z "[A]!!!"
+        A "...!"
+        Z "We want to be alone now."
+        show d1e-13-anim
+        with fade
+        Z "And about your [persistent.mom], never forget..."
+        Z "...even if she can't talk right now..."
+        W "{i}*cough*"
+        Z "I'm sure she would say that she only wants what is best for you..."
+        W "{i}*slurp*"
+        A "I know, and I love her."
+        scene d1e-18
+        with dissolve
+        Z "Alright then. Goodnight, [A]."
+        scene black pic
+        with fade
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            A "Goodnight [persistent.dad]."
+        else:
+            A "Goodnight!"
+        jump d1e23
+          
+    label d1e23:
+        stop music fadeout 2
+        Z "[W], let's continue on the bed."
+        "You get her up and lay down on the bed..."
+        scene d1e-23
+        play music "audio/music/zeta/prince of egypt.mp3" fadein 5
+        with w33slow
+        Z "Damn... I won't ever get tired of that outfit..."
+        scene black pic
+        with fade
+        "She takes off her clothes..."
+        scene d1e-24
+        with dissolve
+        W "So she's a better ride, hm..?"
+        W "We'll see about that."
+        scene d1e-25
+        with fade
+        W "I'm always happy when my husband comes back, you know."
+        W "No more lonely nights..."
+        scene d1e-26
+        with dissolve
+        Z "Merneith have mercy..."
+        scene d1e-27
+        with dissolve
+        Z "...you are gorgeous."
+        scene d1e-28
+        with dissolve
+        Z "Come here. I've got something for you."
+        W "Hm..."
+        scene black pic
+        with fade
+        "She slowly joins you..."
+        scene sz-23
+        with slowfade
+        pause 1.2
+        scene sz-24
+        with dissolve
+        pause 1.5
+        scene sz-25
+        with dissolve
+        W "Remember back when I still lived with my parents..?"
+        scene sz-26
+        with dissolve
+        Z "Yeah..."
+        scene sz-27
+        with dissolve
+        "She slowly guides your dick inside her..."
+        W "Ahh..."
+        W "...you took me right on the kitchen table... even though we had barely spoken before then."
+        show sz-29-anim
+        with fade
+        "She's riding you, [W]'s hips guiding the speed at a practiced and sensual pace that she knows you are both comfortable with."
+        Z "Yes... I remember it well..."
+        show sz-30-anim
+        with dissolve
+        hide sz-29-anim
+        Z "I knew what I wanted. And I wanted you."
+        "Her wide hips weigh on you as she confidently thrusts up and down..."
+        show sz-31-anim
+        with dissolve
+        hide sz-30-anim
+        "Her full tits are bouncing in front of you..."
+        W "That... ngh... look on her face..."
+        W "When the man she admired took her own sister's virginity."
+        show sz-32-anim
+        with dissolve
+        hide sz-31-anim
+        W "...Just like that."
+        W "I'm going to... ah... it's been a while..."
+        Z "I'm almost there."
+        W "Mhh..."
+        menu:
+            "Cum inside her":
+                Z "You're... doing good. Keep going..."
+                W "Cum inside me, love."
+                scene sz-33
+                with dissolve
+                Z "Mh-"
+                with hpunch
+                Z "...!"
+                with hpunch
+                W "So much..."
+                scene sz-34
+                with dissolve
+                W "...do you want me to get up?"
+                Z "Yeah. Show me more."
+                scene sz-35
+                with dissolve
+                "She slowly gets off you, cum leaking out of her pussy..."
+                scene black pic
+                stop music fadeout 3
+                with slowfade
+                "She eventually cuddles back up to you..."
+                scene sz-3
+                with fade
+                Z "I'm glad to be back, [W]."
+                W "{i}*snoozing*{/i} Me too... Goodnight... love..."
+                scene black pic
+                stop music fadeout 2
+                with slowfade
+                $ renpy.end_replay()
+                $ home_intro_seen = True
+                jump day1_end
+
+            "Cum outside":
+                Z "Ngh- [W], lay down with me."
+                scene black pic
+                with fade
+                "She does as you say..."
+                show sz-16-anim
+                with fade
+                "{i}*slurp*"
+                Zw "There you go..."
+                Zw "I'm ready..."
+                menu:
+                    "Cum inside her mouth":
+                        scene sz-17
+                        with dissolve
+                        Zw "Hnghr...{p=1.5} {nw}"
+                        scene sz-18
+                        with hpunch
+                        Z "...!"
+                        scene sz-19
+                        with hpunch
+                        Z "Mh..."
+                        scene sz-20
+                        with dissolve
+                        Zw "That's my wife..."
+                        scene sz-19
+                        with dissolve
+                        Zw "Don't stop now... Not yet."
+                        W "{i}*sucking*"
+                        scene sz-15
+                        with dissolve
+                        "You enjoy her warm mouth for a little longer, before bringing an end to this moment of intimacy and going back to sleep..."
+                        Zt "It's good to be back..."
+                        scene black pic
+                        stop music fadeout 2
+                        with slowfade
+                        $ renpy.end_replay()
+                        $ home_intro_seen = True
+                        jump day1_end
+
+                    "Tell her to jerk you off":
+                        Zw "That's enough, my dear. Give me your hand, I'm about to come."
+                        scene sz-36
+                        with dissolve
+                        Ww "Mh... like this?"
+                        Zw "Yeah..."
+                        scene sz-37
+                        with dissolve
+                        Ww "Cum for me, husband..."
+                        scene sz-38
+                        with hpunch
+                        Z "Ngh-"
+                        W "Ah..."
+                        scene sz-39
+                        with dissolve
+                        Ww "So much..."
+                        show sz-16-anim
+                        with dissolve
+                        Zw "Now, clean it up..."
+                        Ww "{i}*sucking*"
+                        scene sz-15
+                        with dissolve
+                        "You enjoy her warm mouth for a bit longer, before bringing an end to this moment of intimacy and going back to sleep..."
+                        Zt "It's good to be back..."
+                        scene black pic
+                        stop music fadeout 2
+                        with slowfade
+                        $ renpy.end_replay()
+                        $ home_intro_seen = True
+                        jump day1_end
+
+label d1_shani_bedroom:
+    scene vs1-0
+    with fade
+    #play music "audio/air.mp3" fadeout 2
+    Zt "She left her door open."
+    Zt "She's probably in her bed."
+    scene vs1-1
+    with fade
+    $ persistent.S_name = renpy.input(_("Hey "), default=_('Shani'), length=16, screen='say_with_input', show_who = Z, show_post = '.').strip()
+    $ renpy.save_persistent()
+    scene vs1-2x
+    with dissolve
+    S "[persistent.dad!c]! It's so good to see you back! How was your journey?"
+    scene vs1-2x-2
+    with dissolve
+    Zt "[S], my first [persistent.da]. I would be lying if I said I didn't miss her the most."
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Zt "They say a child always takes after one parent more than the other."
+    Zt "While [A] takes after her [persistent.mom], [S] learned a lot from me. Never too naive, always focused on the important things..."
+    scene vs1-3
+    with fade
+    Z "My trip? Nothing too special..."
+    Z "The tomb did hold something valuable though, and it wasn't guarded very well either..."
+    scene d1d-2
+    with dissolve
+    S "I'm glad it was a quick job. I don't think I could have endured [A] much longer."
+    Z "Don't be like that... You know she's a couple years younger than you."
+    scene d1d-1x
+    with dissolve
+    S "...and if she didn't have her [persistent.dad] to watch over her who knows what she would get herself into..."
+    scene d1d-2
+    with dissolve
+    play music "audio/music/exploration/main theme short.mp3" fadeout 4 volume 0.2
+    Z "Can't argue with that..."
+    Z "Anyway... I wanted to ask you something."
+    Z "You know how I always say that a day will come for you to join me on a tomb raid?"
+    scene d1d-1
+    with dissolve
+    S "You're not serious..."
+    scene d1d-2
+    with dissolve
+    Z "I am. [S], I think the day has come."
+    Z "Do you want to join me on my next trip?"
+    scene d1d-3
+    with vpunch
+    S "{i}*screaming*{/i} YYYEEEEEEEEEEEEEESSSSSSS!!!!!!!!!!!!!!!!"
+    Z "Ouch, could you not be so loud nex-"
+    with vpunch
+    S "Of course I will come with you!!!"
+    scene d1d-4
+    with fade
+    S "I will start preparing right away!"
+    scene d1d-5
+    with dissolve
+    scene d1d-6
+    with fade
+    Zt "I don't think I've ever seen her this excited."
+    scene d1d-7
+    with fade
+    S "Hmmm.. let's see."
+    scene d1d-8
+    with dissolve
+    S "Oh, I know..."
+    scene black pic
+    with fade
+    scene d1d-9
+    play sound "audio/sounds/objects/machete.mp3"
+    with hpunch
+    S "I'll take two!!"
+    S "Two blades, double the fun."
+    Z "Haha, definitely useful against mummies."
+    Z "Hey, look, I have something else for you."
+    scene d1d-10
+    with fade
+    S "Whoa. New stuff!"
+    scene d1d-11
+    with dissolve
+    Z "I found this backpack some time ago."
+    Z "You need an outfit for our missions, and I think you'll like this one."
+    scene d1d-12
+    with dissolve
+    Z "This key is for the chest in your backroom."
+    Z "I stored some additional equipment in it over the years."
+    scene d1d-13
+    with dissolve
+    S "You. Are. The best!!"
+    scene d1d-12
+    with dissolve
+    Z "I'll leave you to try it out. We will head out tomorrow at noon."
+    Z "I need to visit the palace first."
+    Z "Make sure you're ready to go when I'm back."
+    scene black pic
+    with fade
+    "She takes the backpack..."
+    scene d1d-14
+    with fade
+    S "Oh you bet I will be ready."
+    S "Thank you [persistent.dad]. See you soon!"
+    scene d1d-15
+    with dissolve
+    Z "See you soon, [S]."
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    $ shani_visit_intro = True
+    jump d1_overview

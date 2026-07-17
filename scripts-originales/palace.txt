@@ -1,0 +1,1894 @@
+label visit_palace:
+    play music "audio/music/zeta/palace.mp3" fadeout 1 volume 0.7
+    $ renpy.music.set_volume(0.6, delay = 4.0, channel="music")
+    show d13i-13-anim
+    with w33slow
+    pause 1.5
+    if ev_d18c.is_active:
+        jump d18c
+    if ev_d16a.is_active:
+        jump d16a
+    if ev_d16a_aftermath.is_active:
+        jump d16a_aftermath
+    jump palace_throne_menu
+
+
+label palace_throne_menu:
+    scene vp-5
+    with w33slow
+    if throne_first_visit == False:
+        $ throne_first_visit = True
+        play music "audio/music/zeta/palace.mp3" volume 0.7
+        if d13l_thermae_fun == False:
+            Q "So... now that we got that out of the way..."
+        Q "What would you like to help me with, Stalker [persistent.player_name]?"
+        Q "There are multiple things I could use your help with. Some involve a bit more strategy, others are more menial tasks."
+        Q "Amongst other things, I will need your presence during upcoming public hearings. A man of your experience knows wastelanders better than many of my advisors and there are a few disputes that need to be settled."
+    else:
+        Q "Welcome back, [persistent.player_name]."
+        Q "How do you intend to assist me today?"
+    scene vp-6
+    with dissolve
+    menu:
+        # Round 1: Planning work 1, Public hearings
+        # Round 2: Menial work 1
+        # Round 3: Menial work 2 planning work 2
+        # Round 4: Menial work 3
+        "Menial work" if (palace_quarters_1 == False and palace_tasks_counter >= 2) or (palace_bedroom_1 == False and palace_tasks_counter >= 3) or (palace_bedroom_2 == False and palace_tasks_counter >= 5):
+            $ daily_side_mission = True
+            Z "I have time for a simple job."
+            scene vp-5
+            with dissolve
+            if palace_quarters_1 == False:
+                Q "Very well, head to the plaza. My guards will show you what to do."
+            elif palace_bedroom_1 == False:
+                Q "Very well... there are a few things for you to do."
+                Q "I expect you to report to me in my quarters when you're done, okay?"
+            elif palace_bedroom_2 == False:
+                Q "There is only a minor thing to do today, should take no longer than ten minutes."
+                Q "Report to me in my quarters again. I need... your advice on something."
+            scene vp-6
+            play music "audio/music/zeta/sahara desert.mp3" fadeout 3
+            with dissolve
+            if palace_quarters_1 == False:
+                jump palace_quarters_1
+            if palace_bedroom_1 == False:
+                jump palace_bedroom_1
+            if palace_bedroom_2 == False:
+                jump palace_bedroom_2
+
+        "Planning work" if palace_planning_room_1 == False or (palace_planning_room_2 == False and palace_tasks_counter >= 3):
+            $ daily_side_mission = True
+            Z "Let us return to the war room."
+            scene vp-5
+            with dissolve
+            Q "Yes, there is work to be done. Go ahead; I will join you shortly."
+            scene vp-6
+            play music "audio/music/zeta/sahara desert.mp3" fadeout 3
+            with dissolve
+            if palace_planning_room_1 == False:
+                jump palace_planning_room_1
+            if palace_planning_room_2 == False:
+                jump palace_planning_room_2
+            
+        "Public hearings" if palace_throne_room_1 == False:
+            $ daily_side_mission = True
+            Z "I am here to participate in the hearings."
+            scene vp-5
+            with dissolve
+            Q "Very good, we have one scheduled soon."
+            Q "Follow me. It is almost time."
+            scene vp-6
+            play music "audio/music/zeta/palace.mp3" volume 0.5 fadeout 3
+            with dissolve
+            jump palace_throne_room_1
+
+        "Ask about Lirah" if m_d16a == True and sq_l_1.current_step == 12 and lirah_duty_path == True:
+            jump d16a128
+        
+        "Ask about Sharifa" if m_d16a == True and palace_bedroom_3 == False:
+            Z "We were discussing about a certain person of interest last time."
+            scene vp-5
+            with dissolve
+            Q "Indeed, we were. I was hoping you'd ask."
+            Q "If you don't mind, I'll have my guards escort you to the chambers."
+            scene vp-6
+            play music "audio/music/zeta/sahara desert.mp3" fadeout 3
+            with dissolve
+            jump palace_bedroom_3
+
+        "Not today":
+            $ daily_side_mission = True
+            Z "I just came by to notify you that I won't be available today. I have a few other things that I need to do."
+            Z "I will see you another time."
+            scene vp-5
+            with dissolve
+            Q "Well, that wasn't necessary. Anyways... Until next time, Stalker [persistent.player_name]."
+            scene black pic
+            play music "audio/music/zeta/sahara desert.mp3" fadeout 3
+            with fade
+            jump daily_home
+
+label palace_bedroom_1:
+    $ palace_bedroom_1 = True
+    $ palace_tasks_counter += 1
+    scene black pic
+    with w33slow
+    "After completing the required task, you move unchallenged towards the private chambers."
+    "You know that the point of all this ultimately isn't really the work itself..."
+    scene pb-1
+    with w33slow
+    Q "{i}*humming*{/i}"
+    scene pb-2
+    with dissolve
+    Q "..."
+    play sound "audio/sounds/doors/door closed.mp3"
+    pause 0.5
+    scene pb-3
+    with dissolve
+    Q "[persistent.player_name], is that you?"
+    scene black pic
+    with fade
+    "You step inside..."
+    scene pb-4
+    with fade
+    Q "I hope the job wasn't too tedious."
+    scene pb-5
+    with dissolve
+    Z "A dull excuse to be able to speak in private, but an excuse nonetheless."
+    Z "I see you are trying out the skirt [S] was wearing."
+    scene pb-6
+    with dissolve
+    Q "It's... um..."
+    Q "I've had that in my wardrobe well before she did."
+    scene pb-7
+    with dissolve
+    Z "It suits you just as well as it suits her. You will turn many heads."
+    scene pb-5x
+    with dissolve
+    Q "..."
+    scene pb-6
+    with dissolve
+    Q "I am the Queen, [persistent.player_name]... I always turn heads."
+    scene pb-7x
+    with dissolve
+    "She is right, but you sense that your words have struck a chord..."
+    scene pb-8
+    with fade
+    Z "So, tell me... what's on your mind today. You wanted to speak about something."
+    scene pb-9
+    with dissolve
+    Q "{i}*sigh*{/i} Not sure if I need to speak about anything, right now."
+    Q "I am probably just wasting your time today."
+    scene pb-10
+    with dissolve
+    Q "It's one of those days. Elders playing politics and trying to one-up each other and treating me like I'm a stupid doll."
+    Q "...Then there's guards slacking in their duties and people coming to me for a ruling on the dumbest of things..."
+    scene pb-11
+    with dissolve
+    Q "On top of all that, there's nothing that spices up your day better than being almost attacked by some fanatic, mentally deranged citizens whose only point of existence is to worship their {i}dear Queen{/i}."
+    Q "Why do they keep letting these people close to me in the first place?! What are guards for?!"
+    scene pb-12
+    with dissolve
+    Q "It's idiotic. So damn frustrating!"
+    scene pb-15
+    with dissolve
+    "She pauses..."
+    pause 0.3
+    scene pb-15x
+    with dissolve
+    "...before continuing, with a voice like dripping venom..."
+    scene pb-10x
+    with dissolve
+    Q "And half the time these {i}oh so wise Elders{/i} don't even really want my input on things and don't expect me to actually take an interest. Why the hell ask me then in the first place?!!"
+    Q "I've been raised by these fools, and now I am supposed to keep them in line?!"
+    scene pb-11x
+    with hpunch
+    Q "They {i}RAISED{/i} me!! As if it was just a {i}job{/i} to take off the checklist for them, so what are they doing!?"
+    scene pb-15x
+    with dissolve
+    Q "..."
+    pause 1.5
+    scene pb-14
+    with dissolve
+    Q "Screw this..."
+    scene pb-15
+    with dissolve
+    pause 1.4
+    scene pb-18
+    with dissolve
+    Q "..."
+    scene pb-17
+    with dissolve
+    Q "I'm sorry. I know it's hard to respond to that."
+    scene pb-18
+    with dissolve
+    Z "I'm listening. That's why I'm here today."
+    scene pb-15
+    with dissolve
+    Q "..."
+    pause 0.5
+    scene pb-17
+    with dissolve
+    Q "I didn't expect... that it would feel good to let it out."
+    scene pb-18x
+    with dissolve
+    menu:
+        "\"I'm glad you feel better.\"":
+            Z "I'm glad you feel better."
+            Z "I will be here more often from now on. You should make use of that."
+            scene pb-18x-2
+            with dissolve
+            "There is a faint smile behind her expression..."
+            scene pb-18x-3
+            with dissolve
+            Q "I guess..."
+
+        "\"It seems you needed to get this off your chest.\"":
+            Z "It seems you needed to get this off your chest."
+            Z "It doesn't hurt to vent sometimes."
+            scene pb-14
+            with dissolve
+            Q "If only that was possible."
+            Q "You're the first person I could speak to openly... without worrying for my reputation..."
+
+    scene pb-17
+    with dissolve
+    Q "Anyways... thank you... for listening, [persistent.player_name]."
+    Q "I assume your family misses you. If you don't mind, I would like to take a bath by myself, and contemplate things..."
+    scene pb-18x
+    with dissolve
+    Z "Yes, I will see you another time. Try to get some rest for now."
+    scene black pic
+    with fade
+    jump palace_return_home
+
+label palace_bedroom_2:
+    $ palace_bedroom_2 = True
+    $ palace_tasks_counter += 1
+    scene black pic
+    with fade
+    "After quickly completing the task, you head towards the bedroom."
+    scene pb-17
+    with w33slow
+    Q "Hello, [persistent.player_name]..."
+    scene pb-15
+    with dissolve
+    "She looks to one side, frustrated... or maybe, sad?"
+    menu:
+        "\"I know that look. What's wrong?\"":
+            Z "I know that look. What's wrong?"
+            scene 
+
+        "\"What kind of greeting is that supposed to be?\"":
+            Z "What kind of greeting is that supposed to be?"
+            Z "I think you can do better than that."
+            scene pb-16
+            with dissolve
+            Q "..."
+            scene pb-17
+            with dissolve
+            Q "I'm sorry, it's just..."
+            scene pb-18
+            with dissolve
+            Z "Go on, tell me what's wrong. That is why you wanted me here, isn't it?"
+
+    scene pb-20
+    with fade
+    Q "..."
+    "You stand there for a short moment, waiting for her reply..."
+    scene pb-19
+    with dissolve
+    Q "{i}*sigh*{/i}"
+    Q "It's nothing, I shouldn't bother you with it. I have to deal with it and move on."
+    scene pb-20
+    with dissolve
+    Z "..."
+    Z "Fine, scooch over please."
+    scene pb-21
+    with fade
+    Q "What do you mean?"
+    scene pb-22
+    with dissolve
+    Z "Take a few steps back, and sit your pretty booty on the chair."
+    scene black pic
+    with fade
+    "Moments later..."
+    scene pb-23
+    with fade
+    Z "Go on, take a seat."
+    Z "I will sit on the bed and we can talk a bit."
+    scene pb-24
+    with dissolve
+    Q "..."
+    scene pb-25
+    with fade
+    Z "Now, I've got all the time in the world."
+    Z "Last time you were blowing up over...well, life."
+    scene pb-27
+    with fade
+    Z "What is it this time?"
+    Z "What has brought your mood down today? Stress again?"
+    scene pb-26
+    with dissolve
+    Q "Eh, I have been under pressure ever since I became the heir to the previous Queen. I guess I boiled over, the last time you were here."
+    Q "This time it's different."
+    Q "{i}*sigh*{/i} It's about Sharifa."
+    Z "The one you want to feed me my balls?"
+    scene pb-28
+    with dissolve
+    "With a wry smile, the Queen continues."
+    Q "One of my closest advisors has informed me that Sharifa has done a lot of bad things to climb the ranks into her current position. Blackmail was mentioned, and worse."
+    scene pb-28x
+    with dissolve
+    Q "Do you remember that guard that I killed?"
+    Q "He was one of my closest advisors on the field, he was on the shortlist for the position of captain of my personal guard, a position that eventually went to Sharifa."
+    Q "After some interrogations, I found out that [Mi] never in fact preyed on the slave that accused him. He was put in a position that made it look like he did."
+    scene pb-28x-2
+    with dissolve
+    Q "And I executed him... for his mistake and his supposed betrayal of my trust."
+    Q "There were other rumors circulating about him, so I had to do what I had to do, I thought."
+    scene pb-28
+    with dissolve
+    Q "Well, it turns out I was just playing her game all along."
+    Q "She confessed to spreading those rumors to have a better shot at becoming my personal guard herself."
+    Q "She told me she wasn't responsible for the situation that forced my hand, but only for the rumors... And I don't know if I can trust her."
+    Q "She lied to me and maneuvered to get close to me."
+    scene pb-28x-3
+    with dissolve
+    menu:
+        "\"It's hard to find people you can trust in your position.\"":
+            Z "I suppose it's hard to find people you can trust in your position."
+            Z "Everybody that interacts with you has something to gain from your favour, even if it is just your favour."
+            Z "That alone, played in the right way, can be a mighty boon for anybody."
+            scene pb-28x
+            with dissolve
+            Q "Yes, I learned that a long time ago."
+            jump pb28x4
+
+        "\"Maybe her admiration for you is real. Her methods are still wrong.\"":
+            Z "Maybe her admiration for you is real, but her methods...."
+            Z "She strikes me as someone who cares for you. More so than just out of sense of duty or religious devotion."
+            scene pb-28x
+            with dissolve
+            Q "I know..."
+            scene pb-28x
+            with dissolve
+            Q "But I must be able to trust the person who is directly in charge of keeping me alive."
+            jump pb28x4
+
+        "\"I never liked [Sh].\"":
+            Z "I can't say I like the cranky bitch, but she has a solid reputation as a fighter, and her dislike of me, well.. it comes with the territory."
+            scene pb-26
+            with dissolve
+            Q "I understand that, but she can be overprotective to the point of forgetting her place."
+            Q "I am not supposed to tolerate that sort of things."
+            jump pb28x4
+
+        "\"Even so, he didn't deserve to die.\"":
+            Z "Even so, he didn't deserve to die."
+            scene pb-26
+            with dissolve
+            Q "He did not. But the way things went, do you think I could have handled it differently?"
+            Q "The Elders raised me to be ruthless when needed! It is what am I supposed to do."
+            scene pb-28x
+            with dissolve
+            Q "I can show no doubt, or fear. Never."
+            scene pb-28x-3
+            with dissolve
+            "You are reminded of the description [S] gave you of how the young Queen executed a prisoner in front of her."
+            "The glee and sadism she showed make you wonder if she's being honest with herself, today."
+            jump pb28x4
+
+    label pb28x4:
+        scene pb-28x-4
+        with dissolve
+        Q "It doesn't matter anyway. I've been expected to lead my whole life."
+        Q "I have known Sharifa for a long time, and yet I couldn't tell she was deceiving me."
+        scene pb-28x
+        with dissolve
+        Q "What does that say about me? Is it even my position at this point? Or am I just too weak?"
+        Q "Is there anybody who doesn't want something from me?"
+        scene pb-29
+        with dissolve
+        Q "..."
+        "She stares into the void for a few seconds, before gathering herself..."
+        scene black pic
+        with fade
+        "She gets up..."
+        scene pb-30
+        with fade
+        Q "I need a moment."
+        "She turns away from you. You stare at her back. As her shoulders go up and down, she tries to hide her quiet sobs."
+        Q "You should..."
+        Q "...you should leave. I don't know what is... what is going on."
+        scene pb-31
+        with dissolve
+        Q "Mh... {i}*whimpering*{/i}"
+        scene black pic
+        with fade
+        "You get up..."
+        scene pb-33
+        with fade
+        Q "This is pathetic. I'm..."
+        Q "...I'm not acting like myself."
+        scene pb-35
+        with dissolve
+        Q "Just... please keep it to yourself, okay?"
+        Q "I don't want... people cannot be talking about this."
+        Q "The Elders mustn't learn about this weakness..."
+        scene pb-34
+        with dissolve
+        Z "I won't tell anyone."
+        scene pb-36
+        with dissolve
+        Q "You should... come back another time."
+        Q "I will sort this out...-"
+        menu:
+            "Comfort her":
+                $ queen_hugged = True
+                scene pb-37
+                with Dissolve(0.5)
+                Q "...?!"
+                scene pb-38
+                with dissolve
+                Q "[persistent.player_name]?!"
+                scene pb-39
+                with fade
+                "She looks at you with tears in her eyes. Her expression sad and exhausted."
+                Z "Nobody can act strong forever. Sooner or later, we all need someone to pick us up."
+                scene pb-40
+                with dissolve
+                Q "Not me. I'm not supposed to have anyone. I never had a father, or mother."
+                Q "I'm Queen. There is nothing else for me."
+                scene pb-41
+                with dissolve
+                "Her words get stuck in her throat, and she tries to calm herself..."
+                Z "Do you truly think that the Queens before you didn't have friends, relationships, a shoulder to lean on?"
+                Z "I know what I can do."
+                scene pb-42
+                with dissolve
+                pause 0.8
+                scene pb-43
+                with fade
+                Q "...!"
+                "You grab her and pull her in, wrapping your arms around her in a strong hug."
+                scene pb-44
+                with dissolve
+                Q "..."
+                pause 0.5
+                scene pb-45
+                with dissolve
+                "Moments of stunned silence pass, ticking by slowly. Wide-eyed, the Queen forgets the rules for a second, standing frozen."
+                scene pb-46
+                with dissolve
+                pause 2.5
+                scene pb-47
+                with dissolve
+                pause 2
+                scene pb-48
+                with dissolve
+                Q "..."
+                scene pb-49
+                with dissolve
+                pause 2
+                scene pb-50
+                with dissolve
+                Q "{i}*sobbing*"
+                scene pb-51
+                with dissolve
+                "You hold her in a comforting embrace, as she vents her frustration."
+                Q "I'm..."
+                Q "...I'm sorry."
+                Q "I am so tired, [persistent.player_name]..."
+                pause 1
+                "Her words come out haltingly, half sobbing. Now that the barriers are down, you get a rare glimpse at the young woman behind the facade."
+                "There is no authority or poise in her voice now, no commanding demands. Just a young woman in need for someone to hold her and show her with action that they are there for her."
+                "Seconds pass, as you stand there, together, an aging veteran and a young woman in need of a genuine human connection."
+                scene pb-52
+                with dissolve
+                Q "..."
+                "She hugs you tighter..."
+                "You have known the Queen since she ascended to the throne, a few years back, and you have never really felt sympathy for her like you are doing now."
+                "Right now, you are putting yourself in her situation, one of solitude, constant training in preparation for an impossible role, hounded into it by the Elders and the Temple."
+                "As you consider her position, you realise that you would not want such a fate bestowed upon one of your [persistent.da]s."
+                "Then you think about [S] and about how similar your treatment of her in the past years has been, and you are taken by a different flavour of sadness." 
+                Z "Don't be sorry. I am here for you. As for the Queen of Zeta, there's very little that I need from her."
+                Q "{i}*muffled*{/i} Okay..."
+                scene pb-53
+                with slowfade
+                Q "I... I think this is enough."
+                scene pb-54
+                with dissolve
+                Z "Are you feeling better?"
+                scene pb-55
+                with dissolve
+                Q "I am..."
+                Q "But..."
+                scene pb-56
+                with dissolve
+                Z "...but nobody must see us here like this, right?"
+                Q "..."
+                "Even in her private chambers, she must worry about appearing frail and clueless, should a random guard or servant enter the room."
+                "You understand it, and don't take it personally."
+                "You also understand that the liberties you took towards her are potentially a death sentence, should they be witnessed."
+                "Something, you sense, has changed today, in your relationship with the Queen."
+                Z "I understand. Take some rest, young Queen. I will see you another time."
+                Z "I will visit again soon."
+                scene pb-57
+                with dissolve
+                Q "But... [persistent.player_name]..."
+                Q "Thank you for... this."
+                scene pb-58
+                with dissolve
+                pause 1
+                scene black pic
+                with slowfade
+                jump palace_return_home
+                
+            "Keep your distance":
+                Z "It's alright, don't worry."
+                pause 1
+                Q "I..."
+                Q "...I'm sorry. I'm tired lately."
+                scene pb-39
+                with fade
+                Z "Don't apologize, there's a lot of pressure on you. It's best I indeed leave for today."
+                scene pb-40
+                with fade
+                Q "{i}*muffled*{/i} Okay..."
+                scene pb-40x
+                with dissolve
+                Z "And, hey..."
+                scene pb-40x-2
+                with dissolve
+                Z "Didn't think you even had this side of you, miss stern-faced Queen."
+                "You give her a slight smile..."
+                scene pb-40x-3
+                with dissolve
+                Q "Heh, I guess..."
+                Q "It does feel better."
+                scene pb-40x-4
+                with dissolve
+                Z "I will visit you again soon. In the meantime, you should get some rest."
+                pause 1
+                scene black pic
+                with slowfade
+                jump palace_return_home
+
+label palace_bedroom_3:
+    $ palace_bedroom_3 = True
+    scene pb-59
+    play music "audio/music/zeta/sahara desert.mp3" fadeout 3
+    with slowfade
+    Q "..."
+    scene pb-60
+    with fade
+    Q "Hm..."
+    scene pb-61
+    with dissolve
+    Qw "Is this too much...?"
+    scene pb-62
+    with fade
+    pause 0.5
+    play sound "audio/sounds/doors/door closed.mp3"
+    scene pb-63
+    with dissolve
+    Q "..."
+    scene black
+    with fade
+    "You step inside..."
+    scene pb-64
+    with fade
+    Q "Hello, [persistent.player_name]."
+    Q "While we talk, I am figuring out a dress for an upcoming event, if you don't mind."
+    scene pb-65
+    with dissolve
+    Z "Sure... what event are we talking about?"
+    scene pb-66
+    with dissolve
+    Q "The temple is holding an annual celebration of its highest ranking priestesses."
+    Q "Those who have served the most children to the city will get acclaimed by me, the Queen."
+    scene pb-67
+    with dissolve
+    Q "Anyways, I have thought of what to do with [Sh]."
+    Q "Interested in hearing it?"
+    scene pb-68
+    with dissolve
+    Z "I'm all ears."
+    scene black
+    with fade
+    "She turns around..."
+    scene pb-69
+    with fade
+    Q "The last time we talked about her, I..."
+    Q "...was in too much of a bad space to see things more clearly."
+    Q "And yet, even in the moment of insecurity I knew what had to be done in case of treason."
+    scene pb-70
+    with dissolve
+    Q "People, servants, gossip... and so the only course of action is that Sharifa needs to be punished, to be made an example of..."
+    Q "And she has to suffer ten times the pain she has caused."
+    scene pb-71
+    with dissolve
+    Q "I do understand that she did not do these things with the intention of betraying me though, so I will lend her an ear."
+    Q "In the dungeon. And I would like you to be with me. Next to me. So that she truly understands her folly."
+    scene pb-72
+    with dissolve
+    Z "I can imagine she will feel defeated."
+    scene pb-73
+    with dissolve
+    Q "Indeed, she will... hm..."
+    scene pb-74
+    with dissolve
+    "She takes a small pause..."
+    scene pb-75
+    with dissolve
+    Q "And she should feel defeated. After all, she tried to get in my good graces at the cost of loyal servants, loyal people."
+    scene pb-76
+    with dissolve
+    scene pb-77
+    with dissolve
+    Q "Anyways, enough about this. It is for another time and place."
+    Q "Let us focus on another matter..."
+    scene pb-78
+    with dissolve
+    "She takes a small pause, as if she's contemplating her next words..."
+    scene pb-79
+    with fade
+    if queen_flirt == False and d7a_queen_groped == False and d16a_queen_caressed == False and d16a_queen_groped == False:
+        Q "Well then, Stalker. That was about what I wanted to talk about, I think."
+        Q "If there is nothing more that you want, I would say I'll see you next time?"
+        scene pb-80
+        with dissolve
+        Z "Alright. That will be it from my side as well."
+        if sq_q_1.current_step == 2:
+            $ sq_q_1.advance()
+            $ sq_q_1.resolution = _("The Queen and I talked about Sharifa, and that she is planning her revenge on her.")
+        Z "See you next time."
+        scene black pic
+        with fade
+        "Having done your duty, you head out and walk home..."
+        jump mission_end
+    else:
+        label re_pb79:
+            if _in_replay:
+                scene pb-79
+                play music "audio/music/zeta/sahara desert.mp3" fadeout 2
+                with fade
+                "What should the Queen act like?"
+                menu:
+                    "Confident":
+                        $ queen_flirt = True
+                        $ d16a_queen_caressed = True
+                        $ queen_dominant = True
+
+                    "Submissive":
+                        $ queen_flirt = True
+                        $ queen_dominant = False
+                        $ d16a_queen_caressed = False
+
+        Q "So, what do you think? This dress, the temple, reverent mothers..."
+    Q "I personally have my doubts about the top... but... let's hear from my trusted advisor?"
+    scene pb-80
+    with dissolve
+    Z "Hm..."
+    scene pb-81
+    with fade
+    menu:
+        "\"The people will fantasize about you.\"":
+            Z "A slim and young Queen, her toned and healthy figure..."
+            Z "...and all this in front of the temple, next to fertile and lustful women."
+            scene pb-82
+            with dissolve
+            Z "Yes, the people will fantasize about you. And they will regret you're not part of the temple."
+            scene pb-82x
+            with dissolve
+            Q "That is the plan, is it not? Let them admire what they can't get..."
+            Q "...and if I can increase the amount of future soldiers in the process, then I call it successful advertising..."
+            scene pb-82x-2
+            with dissolve
+            Z "That top, however... It could be more revealing. You can show them more."
+            scene pb-83
+            with dissolve
+            Q "Hm...?"
+            scene pb-84
+            with dissolve
+            Q "..."
+            scene pb-85
+            with dissolve
+            Q "I suppose..."
+            Q "Letting them see a little more... it can't hurt, right?"
+            jump pb86
+
+        "\"It's elegant and alluring.\"":
+            Z "It's an elegant and alluring outfit."
+            Z "The people will admire it a lot."
+            Z "The blouse however could change. Its pattern doesn't match well with the rest."
+            scene pb-83
+            with dissolve
+            Q "Hm...?"
+            scene pb-84
+            with dissolve
+            Q "..."
+            scene pb-85
+            with dissolve
+            Q "I suppose... I see where you are coming from..."
+            jump pb86
+
+    label pb86:
+        scene pb-86
+        with dissolve
+        if queen_flirt == True and d16a_queen_caressed == True and queen_dominant == True: #ONLY queen_dominant (Thermae path), flirting, not necessarily sex with shani, and caressed in d16a durin arena
+            scene black pic
+            with fade
+            Q "She walks over to you..."
+            scene pb-88
+            with fade
+            Q "But... what if you're wrong?"
+            scene pb-89
+            with fade
+            Q "You know..."
+            scene pb-90
+            with dissolve
+            Q "...The distance can be deceiving."
+            scene pb-91
+            with dissolve
+            Q "Maybe you want to see from up close...?"
+            scene pb-92
+            with dissolve
+            Q "...Just to be certain..."
+            scene pb-93
+            with dissolve
+            Q "I value your opinion quite a lot, you know..."
+            scene pb-94
+            with dissolve
+            Z "It is surely a nice top..."
+            Q "But maybe you have a point."
+            Q "Ah, we will come back to that later..."
+            scene pb-95
+            with dissolve
+            Q "Now... I have another small concern..."
+            Q "Do you think the dress is too open? I hope any sudden moves do not reveal too much..."
+            scene pb-96
+            with fade
+            Q "...like this for example..."
+            scene pb-97
+            with dissolve
+            Q "We wouldn't want people to see their Queen in such a state..."
+            Q "...right...?"
+            scene pb-98
+            with fade
+            Z "It would certainly be unbecoming of a Queen."
+            Z "What if that skirt falls off, and they would see more?"
+            Q "That would be unfortunate indeed..."
+            Z "...Everyone seeing those legs.."
+            scene pb-99
+            with dissolve
+            Z "...and let their imagination do the rest."
+            Q "...Are you speaking from experience, Stalker...?"
+            scene pb-100
+            with dissolve
+            Z "Is this what would you like me to do?"
+            Z "Maybe I do, maybe I do that and more..."
+            scene pb-100x
+            with dissolve
+            Q "Oh...Uhm.."
+            scene pb-100x-2
+            with dissolve
+            Q "Well, thank you for your advice."
+            Q "You have been of great help..."
+            scene pb-100x-3
+            with dissolve
+            Z "At your service, my Queen."
+            scene black pic
+            with fade
+            "She slowly walks back to the mirror..."
+            scene pb-106
+            with fade
+            Q "Maybe you are right about the top after all..."
+            Q "I should try another one, just to make sure."
+            scene pb-107
+            with dissolve
+            scene pb-108
+            with fade
+            Q "I..."
+            extend "feel a bit exposed..."
+            scene pb-109
+            with dissolve
+            Q "Maybe you should take your leave...?"
+            Q "Or at least not stare..."
+            extend "much?"
+            jump pb_exposed_menu
+
+        else:
+            scene pb-87
+            with fade
+            Z "Sharifa was not the reason why you brought me here, was it."
+            Z "You wanted to show me that dress of yours, and get my reaction."
+            scene pb-101
+            with dissolve
+            Q "Eh? What do you..."
+            scene pb-102
+            with dissolve
+            Z "Don't act like you don't know. Your expression tells me everything."
+            scene pb-103
+            with fade
+            Q "But... I just wanted to show you my dress..."
+            Zt "Little tease..."
+            scene pb-104
+            with fade
+            Q "I don't... know what you're talking about. I will change and look for a different top now."
+            Q "I..."
+            extend "think you should leave now, [persistent.player_name]."
+            scene pb-110
+            with dissolve
+            scene pb-111
+            with dissolve
+            Q "Please... [persistent.player_name]..."
+            Q "You can't see me like this..."
+            scene pb-109
+            with fade
+            Q "The guards will escort you outside the temple..."
+            jump pb_exposed_menu
+
+    label pb_exposed_menu:
+        menu:
+            "Approach her":
+                $ queen_romance = True
+                scene black
+                with fade
+                scene pb-112
+                with fade
+                Z "..."
+                scene pb-113
+                with dissolve
+                "You look at her for a moment, before taking action..."
+                scene pb-114
+                with fade
+                Q "{i}*gasp*{/i}"
+                scene pb-115
+                with dissolve
+                "You stand behind her, gripping her shoulders."
+                "She covers her breasts..."
+                scene pb-116
+                with fade
+                Qw "[persistent.player_name]... what are you doing?"
+                Qw "The guards are right outside!"
+                scene pb-117
+                with dissolve
+                if queen_flirt == True and d16a_queen_caressed == True and queen_dominant == True:
+                    Zw "And I assume they will stay there..."
+                    Zw "Unless you want to call them. You are free to do that."
+                else:
+                    Zw "Quit playing around. It's time to be quiet."
+                scene pb-118
+                with dissolve
+                if queen_flirt == True and d16a_queen_caressed == True and queen_dominant == True:
+                    Zw "They would barge in and drag me outside, or worse."
+                    Zw "All it takes is one word from you..."
+                else:
+                    Zw "I know you don't want me to stop."
+                scene pb-119
+                with dissolve
+                if queen_flirt == True and d16a_queen_caressed == True and queen_dominant == True:
+                    Qw "Mh...?"
+                    Zw "...Well?"
+                else:
+                    Qw "Please... you can't..."
+                scene pb-120
+                with fade
+                Qw "{i}*gasp*{/i}...!"
+                "You lower her arms..."
+                if queen_flirt == True and d16a_queen_caressed == True and queen_dominant == True:
+                    Zw "I thought as much..."
+                scene pb-121
+                with fade
+                Qw "[persistent.player_name]...!"
+                scene pb-122
+                with dissolve
+                if queen_flirt == True and d16a_queen_caressed == True and queen_dominant == True:
+                    Zw "I know what I am doing, trust me."
+                    scene pb-123
+                    with dissolve
+                    Zw "You won't mind if I do my thing, right?"
+                    Qw "I... won't..."
+                else:
+                    Zw "Do what I say, and you will enjoy it. Understand?"
+                    scene pb-123
+                    with dissolve
+                    Q "Y...yes, sir..."
+                    Zw "Good girl."
+                scene pb-124
+                with dissolve
+                "You clip off her dress..."
+                scene pb-125
+                with fade
+                Q "Mh..."
+                scene pb-126
+                with dissolve
+                Zw "If only the people would see this."
+                scene pb-127
+                with dissolve
+                Qw "So... exposing..."
+                scene pb-128
+                with Dissolve(0.3)
+                Qw "Ah..."
+                "You cup her soft but firm breasts, kneading them lustfully..."
+                scene pb-129
+                with dissolve
+                "You keep massaging the young Queen's tits firmly."
+                Qw "Mh... such... rough hands..."
+                scene pb-130
+                with dissolve
+                Qw "Ah..."
+                "You kiss her neck, making her lean into you with soft moans..."
+                scene pb-131
+                with dissolve
+                Qw "Ngh... [persistent.player_name]..."
+                if queen_flirt == True and d16a_queen_caressed == True and queen_dominant == True:
+                    Zw "Do you mind a kiss, young Queen?"
+                else:
+                    Zw "Now, kiss me."
+                scene pb-132
+                with dissolve
+                if d13l_thermae_fun == True:
+                    Qw "Just like... in the...thermae..."
+                else:
+                    Qw "I'm not sure... if we should..."
+                scene pb-133
+                with dissolve
+                Qw "Ngh..."
+                scene pb-134
+                with dissolve
+                Q "{i}*kissing*{/i}"
+                "You take your time gently kissing the young Queen's lips, and flicking her tongue with yours..."
+                scene pb-135
+                with dissolve
+                pause 0.7
+                scene pb-136
+                with dissolve
+                Qw "Nh..."
+                Z "..."
+                scene pb-137
+                with fade
+                Qw "Nh?"
+                Z "Don't touch that."
+                Qw "But..."
+                Z "Follow me."
+                scene black pic
+                with fade
+                scene pb-138
+                with hpunch
+                Qw "Ah...?"
+                Zw "Stay still."
+                scene pb-139
+                with fade
+                Q "{i}*soft breathing*{/i}"
+                "You look at her and see a lustful Queen, detached from responsibility and duty, solely focused on you."
+                "She knows you can make her feel good, if you wanted. Her eyes admire your confidence, your care and your strength."
+                if queen_flirt == True and d16a_queen_caressed == True and queen_dominant == True:
+                    "This is the real deal. Moments ago, she was the strong Queen the man in front of her should admire, fear, even."
+                    "Now... she stands before him exposed, weak... and she admires him."
+                else:
+                    "This is the real deal. She stands in front of a man who, normally, would not even deserve her attention."
+                    "Now... he stands in front of her. An exposed, weak, and small Queen."
+                "Eagerly, she waits for your next step, happy that the time of waiting, watching and edging comes to an end."
+                "...Or does it?"
+                pause 0.8
+                Zw "You are a beautiful young woman, Queen Merneith."
+                scene pb-140
+                with dissolve
+                Zw "And there is one thing left to do."
+                scene pb-141
+                with dissolve
+                "You grab her underwear..."
+                Qw "[persistent.player_name]..."
+                scene pb-142
+                with dissolve
+                "You touch her abdomen gently while slowly removing her underwear... and she reacts, swaying slightly forward."
+                scene pb-143
+                with dissolve
+                Q "Are you sure... you can..."
+                play sound "audio/sounds/objects/cloth rip.mp3"
+                scene pb-144
+                with dissolve
+                Q "Ah...-"
+                scene pb-145
+                with fade
+                "Tossing the ripped panties aside, you look at the naked Queen..."
+                scene pb-146
+                with dissolve
+                Qw "This... is so embarrassing..."
+                "You ignore her pleads, and take your time admiring her. She does not move one bit."
+                scene pb-147
+                with dissolve
+                "The idol of a city of thousands, the Queen, praised by some as a ruler appointed by the gods..."
+                "...is but a petite, young woman, in your hands."
+                scene pb-148
+                with fade
+                Zw "I know you like being admired. Even like this."
+                Q "..."
+                scene pb-149
+                with dissolve
+                Qw "Mh..."
+                Zw "Or maybe... especially like this?"
+                scene pb-150
+                with dissolve
+                Qw "What are you..."
+                scene pb-151
+                with dissolve
+                Qw "Oh..."
+                "You feel her up... and it becomes clear that being exposed like this has an effect on her."
+                scene pb-152
+                with dissolve
+                Qw "Nh...!"
+                "You apply some pressure on her clit, testing out her sensitivities..."
+                scene pb-153
+                with dissolve
+                Q "{i}*soft moaning*{/i}"
+                Qw "This... feeling... ah..."
+                scene pb-154
+                with fade
+                Zw "Thank you for your audience, my Queen."
+                Zw "I think this will have to do, for today."
+                scene pb-155
+                with dissolve
+                Q "Nh...?"
+                scene pb-156
+                with fade
+                Q "What...?"
+                scene pb-157
+                with fade
+                Q "[persistent.player_name]...?"
+                Zw "I am looking forward to your next task. Goodbye, for now."
+                scene black pic
+                with fade
+                scene pb-158
+                with fade
+                "You turn around, and walk towards the door..."
+                if not _in_replay:
+                    if sq_q_1.current_step == 2:
+                        $ sq_q_1.advance()
+                        $ sq_q_1.resolution = _("The Queen invited me to her bedroom to talk about Sharifa... at least, that is what she wanted me to believe.\n\nThe time for cat and mouse play is over, and it is clear that she needs not just my advice, but also my hands... and so I gave her exactly that.")
+                scene pb-159
+                with dissolve
+                Q "But..."
+                scene pb-160
+                with dissolve
+                Q "Why would you... leave now...?"
+                scene pb-161
+                with dissolve
+                Q "{i}*sigh*{/i}"
+                scene black pic
+                stop music fadeout 3
+                with slowfade
+                $ pb_queen_exposed = True
+                $ check_for_achievements()
+                if _in_replay:
+                    $ renpy.end_replay()
+                "You return home."
+                jump daily_home
+
+            "Take your leave":
+                Z "It's best I leave, indeed."
+                if not _in_replay:
+                    if sq_q_1.current_step == 2:
+                        $ sq_q_1.advance()
+                        $ sq_q_1.resolution = _("The Queen invited me to her bedroom to talk about Sharifa... at least, that is what she wanted me to believe.\n\nThe time for cat and mouse play is over, and it is clear that she needs not just my advice, but also my hand. But this is not something I am interested in.")# TODO change this to permanent romance denial (Following steps need to be hidden if romance is false)
+                Q "...?"
+                Q "Y...yes. Maybe... it's for the best."
+                Z "Goodbye for now."
+                scene black pic
+                stop music fadeout 3
+                with slowfade
+                if _in_replay:
+                    $ renpy.end_replay()
+                "You walk out, leave the temple, and head home."
+                jump daily_home
+
+label palace_quarters_1:
+    $ palace_quarters_1 = True
+    $ palace_tasks_counter += 1
+    scene black pic
+    with fade
+    "A while later, as you walk by the Queen's personal chambers, you overhear Sharifa's voice from inside..."
+    scene pq-1
+    with fade
+    Sh "I am sorry it had to come to this, my Queen."
+    Q "If you speak the truth about her... then your decision was right."
+    scene pq-2
+    with dissolve
+    Sh "The council will ultimately decide her fate, but for now, I have placed her in isolation."
+    Sh "Making such shady deals behind your back... I would have never thought."
+    scene pq-4
+    with dissolve
+    Sh "My guards are interrogating her. They will use all necessary means."
+    scene pq-3
+    with dissolve
+    Q "Treachery at this high level is unsettling. I sometimes wonder who else is left to trust."
+    scene pq-5
+    with dissolve
+    Sh "I will keep you updated, my Queen. Thank you for confiding in me."
+    scene pq-6
+    with dissolve
+    Sh "There are always going to be people who doubt your divinity, who doubt you for the youth and inexperience they see in you. It is my task to eradicate those thoughts from our closest ranks."
+    scene pq-7
+    with dissolve
+    Q "..."
+    scene pq-8
+    with dissolve
+    Sh "My Queen, I..."
+    scene pq-9
+    with dissolve
+    Q "That's enough for today, [Sh]."
+    Q "Your efforts deserve a reward, don't you think...?"
+    scene pq-11
+    with dissolve
+    Q "Well, my Captain?"
+    Q "I know how you like to be pampered, so what shall it be?"
+    Q "A day of company with my slaves in the thermae? A visit from my personal masseuse?" 
+    scene pq-10
+    with dissolve
+    Sh "My Queen... You know the only reward I care about."
+    scene pq-11
+    with dissolve
+    scene pq-12
+    with fade
+    "She suddenly touches the Queen, moving forward, ever closer to her..."
+    Sh "Allow me, my Queen."
+    scene pq-13
+    with dissolve
+    Q "Sharifa..."
+    Sh "My Queen, we've known each other for so many years now."
+    scene pq-15
+    with dissolve
+    Sh "I have served the previous Queen diligently, ever since I was around your age."
+    Sh "And ever since you were the gods' chosen to become the high Queen of this city, I..."
+    scene pq-16
+    with dissolve
+    Sh "I stood beside you. Ever steadfast. My loyalty unchallenged."
+    Sh "But during my service, some things became clear to me..."
+    scene pq-17
+    with dissolve
+    Sh "...and that is my deep devotion to you, my Queen."
+    scene pq-14
+    with dissolve
+    Q "Sharifa... I..."
+    Sh "My Queen, my love for you, you know of it."
+    Sh "You have seen the desire in my eyes, I know this."
+    scene pq-18
+    with dissolve
+    Sh "Every day I am with you, ready to shield you from all of those who would leech from you."
+    scene pq-19
+    with dissolve
+    Sh "What use have I for these rewards you offer me..."
+    scene pq-20
+    with dissolve
+    Sh "...when I cannot confess my true desire?"
+    scene pq-21
+    with fade
+    Sh "My Queen. I know my desire is an impossible one. Your purity and everything you stand for, would be blemished."
+    Sh "But I can't continue to serve you, to comfort you in your moments of loneliness or desire, to protect you with my blade, and ignore the truth."
+    Sh "My Queen. I have fallen for you."
+    scene pq-22
+    with dissolve
+    Q "Sharifa... this is..."
+    menu:
+        "See what happens":
+            scene pq-21
+            with dissolve
+            Sh "Allow me the only reward I desire, I beg of you."
+            scene pq-23
+            with dissolve
+            Q "Shar..."
+            Sh "{i}*kissing*{/i}"
+            scene pq-25
+            with dissolve
+            Q "...rifa...?!"
+            Sh "My Queen... forgive me..."
+            scene pq-24
+            with dissolve
+            Sh "{i}*kissing*{/i}"
+            "Sharifa starts kissing the Queen's neck passionately."
+            Zt "By the looks of it, the intimacy between Sharifa and the Queen is not something new, but I guess the Queen was unsettled by the declaration of love.."
+            Zt "Something is off though... the Queen seems conflicted about her."
+            scene pq-26
+            with fade
+            Shw "I know this is wrong, my Queen. You sit on the throne, I can never compare..."
+            Shw "But the touch of your skin, of your divine lips, is..."
+            scene pq-27
+            with dissolve
+            Qw "Sharifa... pull yourself together..."
+            Sh "{i}*kissing*{/i}"
+            scene pq-28
+            with dissolve
+            Qw "Mh..."
+            scene pq-29
+            with dissolve
+            Sh "{i}*kissing*{/i}"
+            Shw "My Queen... let me serve you tonight..."
+            scene pq-30
+            with dissolve
+            Q "..."
+            Shw "I so desire..."
+            scene pq-31
+            with dissolve
+            Qw "Don't say such things, [Sh]..."
+            Sh "{i}*kissing*{/i}"
+            scene pq-32
+            with dissolve
+            Q "Sharifa, enough!"
+            scene pq-33
+            with fade
+            Sh "My Queen, I..."
+            pause 0.7
+            scene pq-34
+            with dissolve
+            Sh "...apologize."
+            scene pq-35
+            with dissolve
+            Sh "I will see myself out. There is nothing more I can say."
+            scene pq-36
+            with dissolve
+            pause 0.5
+            scene black pic
+            with fade
+            "You step aside, waiting for Sharifa to practically storm out, before entering the room..."
+            jump pq40
+
+        "Cut [Sh] off and step inside":
+            $ pq_interrupted = True
+            Z "Ahem..."
+            scene black pic
+            with fade
+            "You walk inside..."
+            scene pq-37
+            with fade
+            Sh "Stalker [persistent.player_name], you are not supposed to be here!"
+            scene pq-38
+            with dissolve
+            "Sharifa's look ranges from unnerved to surprised..."
+            Z "I have finished my task around the palace and wanted to report."
+            Z "I saw that the Queen is not on her own. Or did I interrupt you?"
+            scene pq-39
+            with dissolve
+            Sh "N-no... you did not. My Queen, I will excuse myself."
+            scene black pic
+            with fade
+            "She hurries out. Her voice at the end suggested that your interruption upset her greatly."
+            jump pq40
+    
+    label pq40:
+        if pq_interrupted == True:
+            scene pq-40
+            with fade
+            Z "Looks like I showed up at the wrong time."
+            scene pq-41
+            with dissolve
+            Q "I guess it was nothing. I don't know what exactly that was, but it doesn't matter now."
+            scene pq-40
+            with dissolve
+            Z "Well, I've done that very important task you've asked me to do. That one matters."
+            "You sigh at the idea of doing menial tasks for the palace..."
+            scene pq-43
+            with dissolve
+            Q "Yeah, I'm sorry about that. To be honest, I originally gave you that task to discuss something in here once you're done."
+            Q "But it will have to wait. I don't have the mind for it right now."
+            scene pq-42
+            with dissolve
+            Z "Alright. I will leave you alone then for today. Take care."
+            scene pq-42x
+            with dissolve
+            Q "Thank you for understanding, [persistent.player_name]. Have a good day."
+            scene pq-42
+            with dissolve
+            pause 0.4
+            scene black pic
+            stop music fadeout 3
+            with slowfade
+            jump palace_return_home
+            
+        else:
+            scene pq-40
+            with fade
+            "The Queen is set off, and the situation you just witnessed still irritates her."
+            Z "I have not seen your highest guard this upset before. That's a new one."
+            scene pq-41
+            with dissolve
+            Q "Well it was her own fault. I don't know what just happened, but I sent her out."
+            scene pq-40
+            with dissolve
+            "She looks down, frustration in her eyes, before speaking up again..."
+            scene pq-43
+            with dissolve
+            Q "I'm sorry, [persistent.player_name]. If it's okay with you, I'd rather not speak about it right now."
+            Q "You know... I knew you would come here once you were done with the task. That's why I gave it to you in the first place."
+            scene pq-42
+            with dissolve
+            Z "We can talk another time. I did my work, so I will be leaving."
+            Z "Until next time."
+            scene pq-42x
+            with dissolve
+            Q "Thank you for understanding, [persistent.player_name]. Until next time."
+            scene pq-42
+            with dissolve
+            pause 0.4
+            scene black pic
+            stop music fadeout 3
+            with slowfade
+            jump palace_return_home
+
+label palace_planning_room_1:
+    $ palace_planning_room_1 = True
+    $ palace_tasks_counter += 1
+    scene pp-1
+    with w33slow
+    "You take a few hours to study strategies, troop movements and supply lines, replying to the surprisingly pertinent questions of Queen Merneith..."
+    pause 0.3
+    Q "That's enough for now. I need a break."
+    scene pp-3
+    with fade
+    Q "You should take one as well, [persistent.player_name]."
+    scene pp-4
+    with dissolve
+    scene pp-5
+    with fade
+    Z "{i}*sigh*{/i} This is terribly tedious work..."
+    Q "I know... but your knowledge of the region is greatly appreciated."
+    scene pp-7
+    with dissolve
+    Q "While I'm gone, I can offer you something to relax, if you want."
+    scene pp-6
+    with dissolve
+    Z "What do you have in mind?"
+    scene pp-8
+    with dissolve
+    Q "Guards, send in one of the maidens!"
+    scene pp-9
+    with dissolve
+    scene black pic
+    play sound "audio/sounds/doors/door closed.mp3"
+    scene pp-10
+    with fade
+    Q "This one is at your disposal for a while, Stalker. I am sure you will appreciate her talents."
+    scene pp-11
+    with dissolve
+    "The short girl stands before you, her golden silky attire barely covering her most intimate parts..."
+    scene pp-12
+    with dissolve
+    "The temple mask gives her an anonymity that cannot belie her young age."
+    scene pp-14
+    with fade
+    Q "You should know that she is one my newest servants."
+    Q "Despite her young age however, you will struggle to find someone more dedicated and eager to satisfy the demands of her Queen. Her devotion is exemplary."
+    scene pp-15
+    with fade
+    Q "I will return soon."
+    scene pp-16
+    with dissolve
+    menu:
+        "Take the offer":
+            Z "I appreciate it."
+            scene black pic
+            with fade
+            "The Queen leaves..."
+            label re_pp17:
+                if _in_replay:
+                    menu:
+                        "See first event":
+                            pass
+                        "See second event":
+                            jump re_pp16
+            scene pp-17
+            with fade
+            "The diminutive slave stands before you, waiting for further command..."
+            
+            label pp_menu:
+                if pp_twirl == True:
+                    jump pp21
+                menu:
+                    "\"Give me a twirl.\"" if pp_twirl == False:
+                        $ pp_twirl = True
+                        Z "Turn around for me."
+                        scene pp-18
+                        with fade
+                        Sl "..."
+                        "She twirls around and spreads her arms. She seems to be accustomed to the request..."
+                        Z "..."
+                        Z "Turn around, again."
+                        scene pp-19
+                        with dissolve
+                        pause 0.5
+                        scene pp-20
+                        with fade
+                        "Her olive skin shines in contrast with her golden dress. What a nice sight, you can't help but think..."
+                        jump pp_menu
+                        
+                    "\"Serve me.\"":
+                        label pp21:
+                            Z "Undress and come to me."
+                            scene black pic
+                        with fade
+                        "She does as you say..."
+                        scene pp-21
+                        with fade
+                        Zt "She may be a new servant, but she puts on a great show."
+                        scene pp-22
+                        with dissolve
+                        "She slowly crawls all over you, nimble like a cat. You take the opportunity to feel her up..."
+                        Zt "If all my breaks will be spent like this, then I won't mind doing the work."
+                        scene pp-23
+                        with dissolve
+                        "Her ass is small, but firm, her skin soft to the touch."
+                        "She is patiently waiting for your next signal."
+                        scene pp-24
+                        with fade
+                        Sl "..."
+                        scene pp-25
+                        with dissolve
+                        Z "Hm..."
+                        scene pp-26
+                        with dissolve
+                        Z "Go on, undress me and show me what you can do."
+                        scene black pic
+                        with fade
+                        "She kneels down, takes your pants off, and gets to work..."
+                        scene pp-27-anim
+                        with fade
+                        Sl "{i}*sucking*{/i}"
+                        Z "Good girl."
+                        "She obediently follows your guidance and puts her arms behind her back while tasting your cock, allowing you to fully focus on your pleasure..."
+                        scene pp-27x-anim
+                        with fade
+                        "A small metal band behind the back of her head keeps the mask in place, so you grab the cat ears of the mask, to accompany the bobbing motion of her head."
+                        "After the briefest moment of hesitation, she lets you guide her and set the pace."
+                        Sl "{i}*slurp*{/i}"
+                        scene pp-28-anim
+                        with dissolve
+                        Sl "{i}*sucking*{/i}"
+                        Zt "Got to love yourself some royal slaves. They're trained, quiet and do their job."
+                        "You feel yourself getting closer with each stroke."
+                        Z "Prepare yourself, maiden..."
+                        scene pp-27x-anim
+                        with fade
+                        "You can feel her lips tightening, and her tongue movement getting more sloppy, drowning your dick in saliva."
+                        Zt "She's damn good..."
+                        scene pp-32
+                        with Dissolve(0.3)
+                        Z "Ngh-"
+                        "You pull her head towards your lap, engorging your shaft down her throat..."
+                        with vpunch
+                        Sl "{i}*gulp*{/i}"
+                        with vpunch
+                        Z "Mh..."
+                        Sl "{i}*gulp*{/i}"
+                        scene pp-33
+                        with dissolve
+                        "Cum flows out of her mouth, despite her best attempts to swallow your load..."
+                        scene black pic
+                        with fade
+                        play sound "audio/sounds/doors/door closed.mp3"
+                        scene pp-34
+                        with fade
+                        Q "I see you're having fun."
+                        Z "Yeah... she's a good one. Very talented, as you said."
+                        scene pp-36
+                        with dissolve
+                        Q "Ready to return to work?"
+                        Q "There are still some things I would like your advice on."
+                        scene pp-37
+                        with dissolve
+                        Z "Go ahead, open the next scrolls. I will get dressed and join you."
+                        scene black pic
+                        with fade
+                        if _in_replay:
+                            $ renpy.end_replay()
+                        "You tackle a few more logistic issues the Queen is having, learning more about both the military forces of Zeta and some of the more boring administrative problems."
+                        "Eventually, the Queen dismisses you and you return home, aware that she will still spend a few more hours making deliberations over the resources of the city and how they are allocated."
+                        jump palace_return_home
+
+        "Decline and go back to work.":
+            $ pp_1_slave_denied = True
+            Z "I appreciate it, but I don't need anything today."
+            scene pp-15
+            with dissolve
+            Q "Oh, is that so?"
+            scene pp-15
+            with dissolve
+            if queen_flirt == True or d7a_queen_groped == True:
+                Z "Yeah. I'll wait for a better kind of reward, some other day..."
+            Z "You know what? I say we get back to work instead. Let's get this over with."
+            scene black pic
+            with fade
+            jump palace_return_home
+
+label palace_planning_room_2:
+    $ palace_planning_room_2 = True
+    $ palace_tasks_counter += 1
+    scene pp-1
+    with w33slow
+    "The work is tedious. A mix of reading tables of city resources and staring at maps of the city proper... and you look forward to another break."
+    scene pp-5
+    with fade
+    Z "{i}*sigh*{/i}"
+    Z "Let's take a break, alright?"
+    scene black pic
+    with fade
+    Q "Guards...!"
+    play sound "audio/sounds/doors/door closed.mp3"
+    scene pp-10
+    with fade
+    if pp_1_slave_denied == False:
+        Q "Do you want to have someone to keep you company again?"
+        scene pp-16
+        with dissolve
+        jump pp_2_menu
+    else:
+        Q "Are you interested in her service this time, [persistent.player_name]?"
+        scene pp-16
+        with dissolve
+        jump pp_2_menu
+
+    label pp_2_menu:
+        menu:
+            "Take the offer":
+                label re_pp16:
+                    if _in_replay:
+                        scene pp-16
+                        with fade
+                if pp_1_slave_denied == False:
+                    Z "Leave her here. I'll give the girl something to do."
+                    scene pp-15
+                    with dissolve
+                    Q "Be nice, [persistent.player_name]."
+                    scene black pic
+                    with fade
+                    jump pp29anim
+
+                else:
+                    Z "Fine, you win. Let's see what is so special about this one."
+                    scene pp-15
+                    with dissolve
+                    Q "Enjoy your time with her, [persistent.player_name]."
+                    scene pp-16
+                    with dissolve
+                    jump pp29anim
+
+            "Decline":
+                if pp_1_slave_denied == False:
+                    Z "I'll pass, this time."
+                else:
+                    Z "No, thank you."
+                if queen_flirt == True and d7a_queen_groped == True:
+                    Z "What about the other girl who's standing in front of me, though?"
+                    scene pp-15
+                    with dissolve
+                    Q "Nice try, [persistent.player_name], but we talked about this."
+                    Q "I will take a break regardless now. I will see you in a bit."
+                else:
+                    scene pp-15
+                    with dissolve
+                    Q "As you wish."
+                    Q "I will take a break regardless now. Let's continue working in a while."
+                scene pp-16
+                with dissolve
+                Z "Alright. I will wait here."
+                scene black pic
+                with fade
+                jump palace_return_home
+
+
+    label pp29anim:
+        scene pp-29-anim
+        with w33slow
+        Sl "{i}*sucking*{/i}"
+        Z "Good work, kid. You seem to put even more work into it today."
+        "You enjoy the young woman's sloppy sucking while trying to avoid thinking of the big pile of papers that is still waiting for you."
+        Zt "The only upside from this tedious work is the fact that the Queen seems to open up towards me more."
+        Zt "I think she enjoys having someone like me on her side. I wonder if I am the only Stalker she cooperates with this closely?"
+        Zt "I bet she couldn't resist taking a look at me on her way out..."
+        Sl "{i}*slurp*{/i}"
+        scene pp-28-anim
+        with dissolve
+        Zt "She seems very liberal with the services of her maidens."
+        Zt "I wonder if she's privately thinking about what's happening here."
+        Sl "{i}*sucking*{/i}"
+        scene pp-27x-anim
+        with fade
+        if pp_1_slave_denied == False:
+            Z "Hey, girl. You've gotten even better since last time."
+            Z "Say, I guess you are getting more familiar with me, huh?"
+            Sl "{i}*slurp*{/i} Yesh, mahs... {i}*sucking*{/i}"
+        else:
+            Z "You're not bad at this, for your age. I expected worse."
+        Z "I wonder what you look like under that mask..."
+        Sl "I must not... mh... {i}*slurp*{/i}"
+        Z "I know."
+        play sound "audio/sounds/doors/door closed.mp3"
+        pause 0.7
+        "You hear familiar footsteps approaching. The Queen came back early."
+        scene pp-34
+        with fade
+        if pp_1_slave_denied == False:
+            Q "Having fun again, [persistent.player_name]?"
+        else:
+            Q "I see you are having fun, [persistent.player_name]."
+        Z "I am not finished, yet."
+        scene pp-35
+        with dissolve
+        "She subtly touches your shoulder..."
+        Q "Maybe..."
+        scene pp-36
+        with dissolve
+        Q "There is still work to do. I could send her to the thermae to wait for you, if you want to finish?"
+        scene pp-37
+        with dissolve
+        if queen_flirt == False and d7a_queen_groped == False and not _in_replay:
+            jump pp34
+        else:
+            menu:
+                "Start touching her":
+                    $ pp_touched_queen = True    
+                    Z "No... that won't be necessary."
+                    if queen_submissive == True:
+                        Z "I think I will finish right here, with your help."
+                    else:
+                        Z "I will try to finish right here. Would you care to help?"
+                    scene pp-38
+                    with dissolve
+                    Q "...?"
+                    scene pp-39
+                    with dissolve
+                    Z "She's not bad, you see."
+                    Sl "{i}*slurp*{/i}"
+                    scene pp-40
+                    with dissolve
+                    Z "But there's only so much a girl can do when giving head."
+                    scene pp-41
+                    with dissolve
+                    "You start touching her thighs..."
+                    Qw "[persistent.player_name]..."
+                    if queen_dominant == True:
+                        scene pp-40
+                        with dissolve
+                        Q "[persistent.player_name]... {i}*sigh*{/i}"
+                        scene pp-44
+                        with fade
+                        Q "Maybe looking at me will make it easier..."
+                        scene pp-45
+                        with dissolve
+                        Zt "She really is getting more familiar with me!"
+                        Z "That's a... splendid idea."
+                    else:
+                        scene pp-38
+                        with dissolve
+                        Z "Kneel for a minute, will you."
+                        scene pp-42
+                        with fade
+                        "She does so, with a nervous look in her eyes."
+                        Q "..."
+                        Zt "I expected a protest. I {i}should{/i} have received at least a protest. This is interesting."
+                        scene pp-43
+                        with fade
+                        "You stare deep into her eyes, assertively."
+                        Z "Stay there and watch me, that is all I need from you."
+
+                    scene pp-46
+                    with dissolve
+                    "You guide the slave's head on your dick, but your mind is fully focused on the Queen."
+                    "You feel your excitement growing. The Queen is kneeling down for you, waiting for your release, eyes transfixed on what is unfolding in front of her."
+                    scene pp-47
+                    with dissolve
+                    "Moments pass, only the careful ministrations of the young slave breaking the silence."
+                    "You catch the Queen's eyes slowly roaming over your muscular body, then to your rigid dick, then to the slave, her head firmly guided by your grip."
+                    scene pp-50
+                    with fade
+                    Sl "{i}*licking*{/i}"
+                    "It doesn't matter much that the Queen is not undressed. It matters that she is still, knowing that her look turns you on more and more."
+                    "She seems to wait patiently, unmistakable excitement in her gaze."
+                    scene pp-51
+                    with dissolve
+                    "You look deep into her eyes and they tell you everything you need. Her instinct matches with yours."
+                    scene pp-48
+                    with dissolve
+                    Z "Don't stop."
+                    scene pp-49
+                    with dissolve
+                    Sl "Mh.."
+                    "You pull her head tighter, reaching your climax..."
+                    scene pp-52
+                    with hpunch
+                    pause 0.8
+                    scene pp-53
+                    with hpunch
+                    Z "Mgh-"
+                    scene pp-54
+                    with dissolve
+                    Z "..."
+                    "The slave's lips tilt your dick to the right, your cum landing on the Queen's breast and shoulder."
+                    "You know that your grip on the maiden's head may have had something to do with that outcome, and you didn't do anything to prevent it..."
+                    scene pp-55
+                    with dissolve
+                    Q "..."
+                    "Something scandalous just occurred, you realise, in the afterglow of your orgasm, bringing you back to a sober reality."
+                    "Something that the Queen could not possibly be subjected to. Something she can never publicly allow to be known."
+                    "And yet it happened, and she is silent. Her stare towards you betrays a jumble of different emotions."
+                    Z "Thank you for your assistance."
+                    Z "It's best you clean up, my Queen. And then... we can continue our work."
+                    if _in_replay:
+                        $ renpy.end_replay()
+                    jump palace_return_home
+
+                "Just finish":
+                    label pp34:
+                        Z "No need. I'm about to finish. Give me a moment."
+                    scene pp-34
+                    with dissolve
+                    Sl "Ngh-"
+                    Z "Keep it down, girl."
+                    Sl "{i}*licking*{/i}"
+                    Z "Yeah. Like that..."
+                    Q "...[persistent.player_name]..."
+                    scene pp-36
+                    with dissolve
+                    Qw "I can't be standing next to a Stalker and watch him cum into a slave, [persistent.player_name]."
+                    Qw "Imagine if the guards saw us..."
+                    scene pp-37
+                    with dissolve
+                    if d13l_thermae_fun == True:
+                        if queen_submissive == True:
+                            Zw "Imagine they saw us when you had my cum all over your body."
+                            scene pp-38
+                            with dissolve
+                            Q "..."
+                            Zw "You looked fantastic, by the way."
+                        else:
+                            Zw "You're no stranger to watching me, though."
+                            scene pp-38
+                            with dissolve
+                            Q "..."
+                            Zw "Last time my [persistent.da] was in your slave's spot, remember?"
+                    else:
+                        if queen_submissive == True:
+                            Z "I'm sure you can make an exception."
+                        else:
+                            Z "I am sure they can be...persuaded to be silent, if needed..."
+                            scene pp-38
+                            with dissolve
+                    scene pp-27x-anim
+                    with fade
+                    Z "Back to it..."
+                    "The thought of the Queen observing the events seems to trigger you."
+                    "The slave relaxes her throat even more for you, and you quickly reach climax..."
+                    scene pp-31
+                    with dissolve
+                    Z "Ngh..."
+                    with vpunch
+                    Sl "{i}*slurp*{/i}"
+                    with vpunch
+                    Sl "{i}*gulp*{/i}"
+                    Q "..."
+                    with vpunch
+                    Qw "I can... hear her gulping."
+                    Qw "Are you sure she can breathe...?"
+                    scene pp-32
+                    with dissolve
+                    Z "That was good."
+                    Sl "{i}*cough*{/i}"
+                    Z "Clean me up, and then you'll be free to go, slave."
+                    scene pp-39
+                    with dissolve
+                    "The maiden does as she is told, and after she's done cleaning your shaft, you get up and head back to work."
+                    scene black pic
+                    with fade
+                    if _in_replay:
+                        $ renpy.end_replay()
+                    jump palace_return_home
+
+label palace_throne_room_1:
+    $ palace_throne_room_1 = True
+    $ palace_tasks_counter += 1
+    scene pt-1
+    with fade
+    Q "Guards... Let the people in."
+    scene pt-2
+    with dissolve
+    scene pt-3
+    with fade
+    "You stand to the side as the visitors approach the throne..."
+    scene pt-4
+    with dissolve
+    Q "Huntsmen of the Karnak hills. We welcome you to our halls." 
+    WL "My Queen, we thank you for granting us audience. We have travelled a long way and left our home tribe on pilgrimage to this Holy City. To be in your presence, sat on the golden throne is our greatest honour."
+    scene pt-5
+    with dissolve
+    Q "Have you brought the customary tribute?"
+    WL "Yes, my Queen. We have brought with us five of our children to swear loyalty to the temple."
+    WL "Knowing that they are safe here in the City, ready to serve you loyally, fills us with pride."
+    Q "If they acquit themselves well, you will see them become proud citizens of Zeta."
+    Q "A small price to pay, an honour even, in exchange for extending our protecting hand over the hills of Karnak."
+    Q "Let it be known that your tribe will be under the protection of the city of Zeta."
+    WL "Thank you my Queen. In exchange we will pay tribute and protect your borders."
+    WL "To that effect, I must inform you that... we have been ambushed by Hathor's sphinxions. We barely managed to fend them off."
+    Q "How... how is this possible? Have you run into a lair?"
+    Q "Where was this?"
+    scene pt-6
+    with fade
+    WL "Not too far off from the walls of the city, my Queen. I... suspect a new lair was nearby. As we were setting up our camp, we could hear faint humming in the distance, but we paid it no mind, so close to the City."
+    WL "None of us had faced them before, so we were unprepared. When the humming got suddenly louder, it was too late."
+    WL "Some of us got dragged away before we had a chance to react."
+    WL "My sister was wounded also, similar cuts to the ones you can see in my face."
+    WL "She humbly begs for assistance from the Temple."
+    scene pt-7
+    with dissolve
+    Q "We shall see about that."
+    Q "We appreciate that you are alive, and that your tribe has decided to serve the throne."
+    scene pt-9
+    with fade
+    Q "Now, go. You may eat and drink and rest until the morning. Your children will come greet you for one last time, before you return home."
+    Q "Our caravans will make sure to reach out to your village in the coming months, as agreed, to establish a proper trade agreement."
+    Q "You are dismissed, huntsmen."
+    scene pt-10
+    with dissolve
+    WL "Thank you, my Queen."
+    scene black pic
+    with fade
+    "You walk over to the throne as the guests leave..."
+    scene pt-11
+    with fade
+    Q "So... what do you think? It's not that complicated, is it?"
+    scene pt-12
+    with dissolve
+    menu:
+        "\"You get straight to the point, that's for sure.\"":
+            Z "You get straight to the point, that's for sure."
+            Z "Reminds me of the first times I took part in a hearing."
+            scene pt-14
+            with dissolve
+            Q "Yes, somewhat. Except this one doesn't have the same consequences."
+            jump pt15
+
+        "\"You could show a bit more empathy.\"":
+            Z "Well... these people have gone through tough times."
+            Z "Man's left with huge scars, and his sister is probably worse off."
+            scene pt-13
+            with dissolve
+            Z "I don't think it's wrong to show more empathy here."
+            scene pt-11
+            with dissolve
+            Q "If I concerned myself for every injury my soldiers or servants endure during their missions, I would not be able to sleep at night."
+            scene pt-16
+            with dissolve
+            Q "...but, I will consider what you said."
+            jump pt15
+
+    label pt15:
+        scene pt-15
+        with dissolve
+        Q "If you want, you can assist me in future hearings?"
+        scene pt-16
+        with dissolve
+        Q "I thought it would be beneficial to have you around, should there be more controversial cases coming up."
+        scene pt-18
+        with dissolve
+        Zt "Having a say in royal court hearings... I won't say no to that."
+        Z "Fine by me. Let me know when there are some more ambiguous hearings coming up."
+        scene pt-17
+        with dissolve
+        Q "I will. Until then, there are other things to do around here. So... I sadly have to ask you to leave."
+        scene pt-18
+        with dissolve
+        Z "Until next time, then."
+        scene black pic
+        with fade
+        jump palace_return_home
+
+label palace_return_home:
+    scene black pic
+    stop music fadeout 2
+    with fade
+    if palace_tasks_counter == 6 and sq_q_1.current_step == 1:
+        $ sq_q_1.advance()
+        $ sq_q_1.resolution = _("I have gotten to know the Queen a bit better, by helping her out when she asked me to, even if the tasks were not to my liking. I understand some of her difficulties now, and I am sure that similar future opportunities will help me get closer to her.")
+    "You return home after finishing your task..."
+    jump daily_home

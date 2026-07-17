@@ -1,0 +1,1472 @@
+image d1a-5x-anim = Movie(play="Days/Day1/SceneA/d1a-5x-anim.webm", start_image = "Days/Day1/SceneA/d1a-5x-2.png", image = "Days/Day1/SceneA/d1a-5x-end.png", loop = False)
+image d1a-87-anim = Movie(play="Days/Day1/SceneA/d1a-87-anim.webm", start_image = "Days/Day1/SceneA/d1a-87x-2.png", loop = True)
+image d1b-1-anim = Movie(play="Days/Day1/SceneB/d1b-1-anim.webm", start_image = "Days/Day1/SceneB/d1b-1x.png", loop = True)
+image d5b-19x-anim = Movie(play="Days/Day5/SceneB/d5b-19x-9-anim.webm", start_image = "Days/Day5/SceneB/d5b-19x-10.png", loop = False)
+image d5f-104-105-anim = Movie(play="Days/Day5/SceneF/d5f-104-105-anim.webm", image = "Days/Day5/SceneF/d5f-106.png", loop = False)
+image d5f-110-anim = Movie(play="Days/Day5/SceneF/d5f-110-anim.webm", image = "Days/Day5/SceneF/d5f-111.png", loop = False)
+image has-8-anim = Movie(play="Home/Harem/ain shani/has-8-anim.webm", loop = True)
+image bf-52-anim = Movie(play="Home/basement/fairy/bf-52-anim.webm", start_image = "Home/basement/fairy/bf-52x.png", loop = True)
+image bf-22-anim = Movie(play="Home/basement/fairy/bf-22-anim.webm", start_image = "Home/basement/fairy/bf-22x.png", loop = True)
+#0.07
+image d7a-92-anim = Movie(play="Days/Day7/SceneA/d7a-92-anim.webm", start_image = "Days/Day7/SceneA/d7a-91.png", loop = False, keep_last_frame = True)
+image d7a-98-anim = Movie(play="Days/Day7/SceneA/d7a-98-anim.webm", loop = False, keep_last_frame = True)
+image d7a-99-anim = Movie(play="Days/Day7/SceneA/d7a-99-anim.webm", start_image = "Days/Day7/SceneA/d7a-99x.png", loop = False)
+image d7a-193-anim = Movie(play="Days/Day7/SceneA/d7a-193-anim.webm", start_image = "Days/Day7/SceneA/d7a-193x.png", loop = True)
+image d7a-194-anim = Movie(play="Days/Day7/SceneA/d7a-194-anim.webm", start_image = "Days/Day7/SceneA/d7a-194x.png", loop = True)
+image d7a-199-anim = Movie(play="Days/Day7/SceneA/d7a-199-anim.webm", start_image = "Days/Day7/SceneA/d7a-199x.png", loop = True)
+image d7a-200-anim = Movie(play="Days/Day7/SceneA/d7a-200-anim.webm", start_image = "Days/Day7/SceneA/d7a-199x-2.png", loop = True)
+#0.08
+image d8b-114-anim = Movie(play="Days/Day8/SceneB/d8b-114-anim.webm", start_image = "Days/Day8/SceneB/d8b-114x-3.png", loop = False)
+image d8b-128-anim = Movie(play="Days/Day8/SceneB/d8b-128-anim.webm", start_image = "Days/Day8/SceneB/d8b-128x.png", loop = False)
+image d8a-293-anim = Movie(play="Days/Day8/SceneA/d8a-293-anim.webm", start_image = "Days/Day8/SceneA/d8a-293x.png", loop = True)
+image d8a-293x-anim = Movie(play="Days/Day8/SceneA/d8a-293x-anim.webm", start_image = "Days/Day8/SceneA/d8a-293x-2.png", loop = True)
+image d8c-6-anim = Movie(play="Days/Day8/SceneC/d8c-6-anim.webm", start_image = "Days/Day8/SceneC/d8c-6x.png", loop = False)
+image d8c-29-anim = Movie(play="Days/Day8/SceneC/d8c-29-anim.webm", start_image = "Days/Day8/SceneC/d8c-29x.png", loop = True)
+image d8c-32-anim = Movie(play="Days/Day8/SceneC/d8c-32-anim.webm", start_image = "Days/Day8/SceneC/d8c-32x.png", loop = True)
+image d8c-40-anim = Movie(play="Days/Day8/SceneC/d8c-40-anim.webm", start_image = "Days/Day8/SceneC/d8c-40x.png", loop = True)
+image sz-14-anim = Movie(play="Home/Rooms/Zahra/sleep/sz-14-anim.webm", loop = True)
+image sz-16-anim = Movie(play="Home/Rooms/Zahra/sleep/sz-16-anim.webm", loop = True)
+image d9m1 = Movie(play="Days/Day9/xmenu/d9m1.webm", start_image = "Days/Day9/xmenu/d9m1x.png", loop = True)
+#0.09
+image bf-143-anim = Movie(play="Home/basement/fairy/bf-143-anim.webm", start_image = "Home/basement/fairy/bf-143x.png", loop = True)
+image d9b-6-anim = Movie(play="Days/Day9/SceneB/d9b-6-anim.webm", start_image = "Days/Day9/SceneB/d9b-6x.png", loop = False)
+image d9b-37-anim = Movie(play="Days/Day9/SceneB/d9b-37-anim.webm", start_image = "Days/Day9/SceneB/d9b-37x.png", loop = True)
+image d9c-32-anim = Movie(play="Days/Day9/SceneC/d9c-32-anim.webm", start_image = "Days/Day9/SceneC/d9c-32x.png", loop = False)
+image d9c-34-anim = Movie(play="Days/Day9/SceneC/d9c-34-anim.webm", start_image = "Days/Day9/SceneC/d9c-34x.png", loop = True)
+image d9c-36-anim = Movie(play="Days/Day9/SceneC/d9c-36-anim.webm", start_image = "Days/Day9/SceneC/d9c-36x-2.png", loop = True)
+image hez-32-anim = Movie(play="Home/Harem/emilia zahra/hez-32-anim.webm", loop = True)
+image hez-33-anim = Movie(play="Home/Harem/emilia zahra/hez-33-anim.webm", loop = True)
+image hez-34-anim = Movie(play="Home/Harem/emilia zahra/hez-34-anim.webm", loop = True)
+image hez-42-anim = Movie(play="Home/Harem/emilia zahra/hez-42-anim.webm", loop = True)
+#0.10
+image d10m1 = Movie(play="Days/Day10/xmenu/d10m1.webm", start_image = "Days/Day10/xmenu/d10m1x.png", loop = True)
+image vm-8-anim = Movie(play="world/mutants/main/vm-8-anim.webm", loop = False)
+image vm-10x-1-anim = Movie(play="World/Mutants/Main/vm-10x-1-anim.webm", loop = False)
+image vm-10x-2-anim = Movie(play="World/Mutants/Main/vm-10x-2-anim.webm", loop = False)
+image d10a-62-anim = Movie(play="Days/Day10/SceneA/d10a-62-anim.webm", start_image = "Days/Day10/SceneA/d10a-62x.png", loop = False)
+image d10a-78-anim = Movie(play="Days/Day10/SceneA/d10a-78-anim.webm", start_image = "Days/Day10/SceneA/d10a-78x.png", loop = False)
+image d10a-178-anim = Movie(play="Days/Day10/SceneA/d10a-178-anim.webm", start_image = "Days/Day10/SceneA/d10a-178x.png", loop = False)
+image d10a-220-anim = Movie(play="Days/Day10/SceneA/d10a-220-anim.webm", start_image = "Days/Day10/SceneA/d10a-220x-3.png", loop = True)
+image d10a-220x-anim = Movie(play="Days/Day10/SceneA/d10a-220x-anim.webm", start_image = "Days/Day10/SceneA/d10a-220x-4.png", loop = True)
+image d10a-220x-2-anim = Movie(play="Days/Day10/SceneA/d10a-220x-2-anim.webm", start_image = "Days/Day10/SceneA/d10a-220x-5.png", loop = True)
+image d10a-237-anim = Movie(play="Days/Day10/SceneA/d10a-237-anim.webm", start_image = "Days/Day10/SceneA/d10a-237x.png", loop = False)
+image d10a-247-anim = Movie(play="Days/Day10/SceneA/d10a-247-anim.webm", start_image = "Days/Day10/SceneA/d10a-247x.png", loop = False)
+image d10a-248-anim = Movie(play="Days/Day10/SceneA/d10a-248-anim.webm", start_image = "Days/Day10/SceneA/d10a-248x.png", loop = False)
+image d10a-249-anim = Movie(play="Days/Day10/SceneA/d10a-249-anim.webm", start_image = "Days/Day10/SceneA/d10a-249x.png", loop = False)
+image d10b-17-anim = Movie(play="Days/Day10/SceneB/d10b-17-anim.webm", start_image = "Days/Day10/SceneB/d10b-17x-2.png", image="Days/Day10/SceneB/d10b-17x.png", loop = False)
+image d10b-18-anim = Movie(play="Days/Day10/SceneB/d10b-18-anim.webm", start_image = "Days/Day10/SceneB/d10b-18x.png", loop = True)
+image d10b-163-anim = Movie(play="Days/Day10/SceneB/d10b-163-anim.webm", start_image = "Days/Day10/SceneB/d10b-163x.png", loop = False)
+image d10b-173-anim = Movie(play="Days/Day10/SceneB/d10b-173-anim.webm", start_image = "Days/Day10/SceneB/d10b-173x.png", loop = False)
+image d10b-174-anim = Movie(play="Days/Day10/SceneB/d10b-174-anim.webm", start_image = "Days/Day10/SceneB/d10b-174x.png", loop = False)
+image d10b-175-anim = Movie(play="Days/Day10/SceneB/d10b-175-anim.webm", start_image = "Days/Day10/SceneB/d10b-175x.png", loop = False)
+image d10b-176-anim = Movie(play="Days/Day10/SceneB/d10b-176-anim.webm", start_image = "Days/Day10/SceneB/d10b-176x.png", loop = False)
+image d10b-177-anim = Movie(play="Days/Day10/SceneB/d10b-177-anim.webm", start_image = "Days/Day10/SceneB/d10b-177x.png", loop = True)
+image d10b-178-anim = Movie(play="Days/Day10/SceneB/d10b-178-anim.webm", start_image = "Days/Day10/SceneB/d10b-178x.png", loop = False)
+# image d10b-179-anim = Movie(play="Days/Day10/SceneB/d10b-179-anim.webm", start_image = "Days/Day10/SceneB/d10b-179x.png", loop = False)
+image d10b-180-anim = Movie(play="Days/Day10/SceneB/d10b-180-anim.webm", start_image = "Days/Day10/SceneB/d10b-180x.png", loop = False)
+image d10b-181-anim = Movie(play="Days/Day10/SceneB/d10b-181-anim.webm", start_image = "Days/Day10/SceneB/d10b-181x.png", loop = False)
+image d10b-182-anim = Movie(play="Days/Day10/SceneB/d10b-182-anim.webm", start_image = "Days/Day10/SceneB/d10b-182x.png", loop = False)
+image d10b-183-anim = Movie(play="Days/Day10/SceneB/d10b-183-anim.webm", start_image = "Days/Day10/SceneB/d10b-183x.png", loop = False)
+image d10b-184-anim = Movie(play="Days/Day10/SceneB/d10b-184-anim.webm", start_image = "Days/Day10/SceneB/d10b-184x.png", loop = False)
+image d10b-185-anim = Movie(play="Days/Day10/SceneB/d10b-185-anim.webm", start_image = "Days/Day10/SceneB/d10b-185x.png", loop = False)
+image d10b-186-anim = Movie(play="Days/Day10/SceneB/d10b-186-anim.webm", start_image = "Days/Day10/SceneB/d10b-186x.png", loop = False)
+image d10b-187-anim = Movie(play="Days/Day10/SceneB/d10b-187-anim.webm", start_image = "Days/Day10/SceneB/d10b-187x.png", loop = False)
+image d10b-188-anim = Movie(play="Days/Day10/SceneB/d10b-188-anim.webm", start_image = "Days/Day10/SceneB/d10b-188x-2.png", loop = False)
+image d10b-206-anim = Movie(play="Days/Day10/SceneB/d10b-206-anim.webm", start_image = "Days/Day10/SceneB/d10b-206x.png", loop = False)
+image d10b-208-anim = Movie(play="Days/Day10/SceneB/d10b-208-anim.webm", start_image = "Days/Day10/SceneB/d10b-208x.png", loop = True)
+image d10b-211-anim = Movie(play="Days/Day10/SceneB/d10b-211-anim.webm", start_image = "Days/Day10/SceneB/d10b-211x.png", loop = True)
+image d10b-212-anim = Movie(play="Days/Day10/SceneB/d10b-212-anim.webm", start_image = "Days/Day10/SceneB/d10b-212x.png", loop = True)
+image d10b-273-anim = Movie(play="Days/Day10/SceneB/d10b-273-anim.webm", loop = True)
+image d10b-273x-anim = Movie(play="Days/Day10/SceneB/d10b-273x-anim.webm", loop = True)
+image d10b-297-anim = Movie(play="Days/Day10/SceneB/d10b-297-anim.webm", start_image = "Days/Day10/SceneB/d10b-297x.png", loop = False)
+image d10b-298-anim = Movie(play="Days/Day10/SceneB/d10b-298-anim.webm", start_image = "Days/Day10/SceneB/d10b-298x.png", loop = False)
+image d10b-299-anim = Movie(play="Days/Day10/SceneB/d10b-299-anim.webm", start_image = "Days/Day10/SceneB/d10b-299x.png", loop = False)
+image d10b-300-anim = Movie(play="Days/Day10/SceneB/d10b-300-anim.webm", start_image = "Days/Day10/SceneB/d10b-300x.png", loop = False)
+image d10b-301-anim = Movie(play="Days/Day10/SceneB/d10b-301-anim.webm", start_image = "Days/Day10/SceneB/d10b-301x.png", loop = False)
+image d10b-302-anim = Movie(play="Days/Day10/SceneB/d10b-302-anim.webm", start_image = "Days/Day10/SceneB/d10b-302x.png", loop = False)
+image d10b-303-anim = Movie(play="Days/Day10/SceneB/d10b-303-anim.webm", start_image = "Days/Day10/SceneB/d10b-303x.png", loop = False)
+image d10b-304-anim = Movie(play="Days/Day10/SceneB/d10b-304-anim.webm", start_image = "Days/Day10/SceneB/d10b-304x.png", loop = False)
+image d10b-305-anim = Movie(play="Days/Day10/SceneB/d10b-305-anim.webm", start_image = "Days/Day10/SceneB/d10b-305x.png", loop = False)
+image d10b-306-anim = Movie(play="Days/Day10/SceneB/d10b-306-anim.webm", start_image = "Days/Day10/SceneB/d10b-306x.png", loop = False)
+image d10b-raid-1-anim = Movie(play="Days/Day10/SceneB/d10b-raid-1-anim.webm", start_image = "Days/Day10/SceneB/d10b-raid-1x.png", loop = False)
+image d10b-raid-2-anim = Movie(play="Days/Day10/SceneB/d10b-raid-2-anim.webm", start_image = "Days/Day10/SceneB/d10b-raid-2x.png", loop = False)
+image d10c-1-anim = Movie(play="Days/Day10/SceneC/d10c-1-anim.webm", start_image = "Days/Day10/SceneC/d10c-1x-2.png", image="Days/Day10/SceneC/d10c-1x.png", loop = False)
+image d10c-7-anim = Movie(play="Days/Day10/SceneC/d10c-7-anim.webm", start_image = "Days/Day10/SceneC/d10c-7x-2.png", loop = False)
+image sa-14-anim-bundle = Movie(play="Home/Rooms/Ain/sleep/sa-14-anim-bundle.webm", loop = True)
+image sa-14x-anim-bundle = Movie(play="Home/Rooms/Ain/sleep/sa-14x-anim-bundle.webm", loop = True)
+#0.11
+image d11m1 = Movie(play="Days/Day11/xmenu/d11m1.webm", loop = True)
+image d11a-14-20-anim = Movie(play="Days/Day11/SceneA/d11a-14-20-anim.webm", start_image = "Days/Day11/SceneA/d11a-14-20x.png", image="Days/black pic.png", loop = False)
+image d11a-24-27-anim = Movie(play="Days/Day11/SceneA/d11a-24-27-anim.webm", start_image = "Days/Day11/SceneA/d11a-24-27x.png", image="Days/Day11/SceneA/d11a-29.png", loop = False)
+image d11a-76-anim = Movie(play="Days/Day11/SceneA/d11a-76-anim.webm", start_image = "Days/Day11/SceneA/d11a-76x-2.png", image="Days/Day11/SceneA/d11a-76x.png", loop = False)
+image d11a-77-anim = Movie(play="Days/Day11/SceneA/d11a-77-anim.webm", start_image = "Days/Day11/SceneA/d11a-77x-2.png", image="Days/Day11/SceneA/d11a-77x.png", loop = False)
+image d11a-78-anim = Movie(play="Days/Day11/SceneA/d11a-78-anim.webm", start_image = "Days/Day11/SceneA/d11a-78x-2.png", image="Days/Day11/SceneA/d11a-78x.png", loop = False)
+image d11a-79-anim = Movie(play="Days/Day11/SceneA/d11a-79-anim.webm", start_image = "Days/Day11/SceneA/d11a-79x-2.png", image="Days/Day11/SceneA/d11a-79x.png", loop = False)
+image d11a-91-anim = Movie(play="Days/Day11/SceneA/d11a-91-anim.webm", start_image = "Days/Day11/SceneA/d11a-91x.png", loop = True)
+image d11b-32-33-anim = Movie(play="Days/Day11/SceneB/d11b-32-33-anim.webm", start_image = "Days/Day11/SceneB/d11b-32-33x.png", image="Days/Day11/SceneB/d11b-33x.png", loop = False)
+image d11b-38-anim = Movie(play="Days/Day11/SceneB/d11b-38-anim.webm", start_image = "Days/Day11/SceneB/d11b-38x-2.png", image="Days/Day11/SceneB/d11b-38x.png", loop = False)
+image d11b-76-anim = Movie(play="Days/Day11/SceneB/d11b-76-anim.webm", start_image = "Days/Day11/SceneB/d11b-76x.png", loop = False)
+image d11b-76-78-anim = Movie(play="Days/Day11/SceneB/d11b-76-78-anim.webm", start_image = "Days/Day11/SceneB/d11b-76-78x.png", image="Days/Day11/SceneB/d11b-82.png", loop = False)
+image d11b-77-anim = Movie(play="Days/Day11/SceneB/d11b-77-anim.webm", start_image = "Days/Day11/SceneB/d11b-77x.png", loop = True)
+image d11b-99x-anim = Movie(play="Days/Day11/SceneB/d11b-99x-anim.webm", start_image = "Days/Day11/SceneB/d11b-99x-3.png", image="Days/Day11/SceneB/d11b-99x-2.png", loop = False)
+image d11b-103-anim = Movie(play="Days/Day11/SceneB/d11b-103-anim.webm", start_image = "Days/Day11/SceneB/d11b-103x.png", loop = True)
+image d11c-41-anim = Movie(play="Days/Day11/SceneC/d11c-41-anim.webm", start_image = "Days/Day11/SceneC/d11c-41x.png", image="Days/Day11/SceneC/d11c-41x-4.png", loop = False)
+image d11c-41x-anim = Movie(play="Days/Day11/SceneC/d11c-41x-anim.webm", start_image = "Days/Day11/SceneC/d11c-41x-2.png", image="Days/Day11/SceneC/d11c-41x-5.png", loop = False)
+image d11c-41x-2-anim = Movie(play="Days/Day11/SceneC/d11c-41x-2-anim.webm", start_image = "Days/Day11/SceneC/d11c-41x-3.png", loop = True)
+image d11c-41x-3-anim = Movie(play="Days/Day11/SceneC/d11c-41x-3-anim.webm", start_image = "Days/Day11/SceneC/d11c-41x-3x.png", loop = True)
+image d11c-41x-8-anim = Movie(play="Days/Day11/SceneC/d11c-41x-8-anim.webm", start_image = "Days/Day11/SceneC/d11c-41x-8x.png", loop = True)
+image d11c-41x-9-anim = Movie(play="Days/Day11/SceneC/d11c-41x-9-anim.webm", start_image = "Days/Day11/SceneC/d11c-41x-9x.png", loop = True)
+image d11c-41x-11-anim = Movie(play="Days/Day11/SceneC/d11c-41x-11-anim.webm", start_image = "Days/Day11/SceneC/d11c-41x-11x.png", loop = True)
+image d11c-41x-11a-anim = Movie(play="Days/Day11/SceneC/d11c-41x-11a-anim.webm", start_image = "Days/Day11/SceneC/d11c-41x-11ax.png", loop = True)
+image d11c-41x-11b-anim = Movie(play="Days/Day11/SceneC/d11c-41x-11b-anim.webm", start_image = "Days/Day11/SceneC/d11c-41x-11bx.png", loop = True)
+image d11c-41x-11c-anim = Movie(play="Days/Day11/SceneC/d11c-41x-11c-anim.webm", start_image = "Days/Day11/SceneC/d11c-41x-11cx.png", loop = True)
+image d11c-41x-21-anim = Movie(play="Days/Day11/SceneC/d11c-41x-21-anim.webm", start_image = "Days/Day11/SceneC/d11c-41x-21x.png", loop = True)
+image d11c-68-anim = Movie(play="Days/Day11/SceneC/d11c-68-anim.webm", start_image = "Days/Day11/SceneC/d11c-68x.png", image="Days/black pic.png",  loop = False)
+image d11d-29x-anim = Movie(play="Days/Day11/SceneD/d11d-29x-anim.webm", start_image = "Days/Day11/SceneD/d11d-29x-2.png", loop = True)
+image d11d-29x-2-anim = Movie(play="Days/Day11/SceneD/d11d-29x-2-anim.webm", start_image = "Days/Day11/SceneD/d11d-29x-4.png", loop = True)
+image d11d-29x-3-anim = Movie(play="Days/Day11/SceneD/d11d-29x-3-anim.webm", start_image = "Days/Day11/SceneD/d11d-29x-5.png", loop = True)
+image d11e-191-anim = Movie(play="Days/Day11/SceneE/d11e-191-anim.webm", start_image = "Days/Day11/SceneE/d11e-191x.png", loop = True)
+image d11e-192-anim = Movie(play="Days/Day11/SceneE/d11e-192-anim.webm", start_image = "Days/Day11/SceneE/d11e-192x.png", loop = True)
+image d11e-231x-2-anim = Movie(play="Days/Day11/SceneE/d11e-231x-2-anim.webm", start_image = "Days/Day11/SceneE/d11e-231x-2x.png", loop = True)
+image d11e-231x-3-anim = Movie(play="Days/Day11/SceneE/d11e-231x-3-anim.webm", start_image = "Days/Day11/SceneE/d11e-231x-3x.png", loop = True)
+image haz-8-anim = Movie(play="Home/Harem/ain zahra/haz-8-anim.webm", image="Home/Harem/ain zahra/haz-8x.png", loop = False)
+image haz-9-anim = Movie(play="Home/Harem/ain zahra/haz-9-anim.webm", image="Home/Harem/ain zahra/haz-9x.png", loop = False)
+image haz-30x-anim = Movie(play="Home/Harem/ain zahra/haz-30x-anim.webm", loop = True)
+image haz-30x-2-anim = Movie(play="Home/Harem/ain zahra/haz-30x-2-anim.webm", loop = True)
+image haz-30x-3-anim = Movie(play="Home/Harem/ain zahra/haz-30x-3-anim.webm", loop = True)
+image haz-30x-4-anim = Movie(play="Home/Harem/ain zahra/haz-30x-4-anim.webm", loop = True)
+image haz-30x-5-anim = Movie(play="Home/Harem/ain zahra/haz-30x-5-anim.webm", loop = True)
+image sz-28-anim = Movie(play="Home/Rooms/Zahra/Sleep/sz-28-anim.webm", loop = True)
+image sz-29-anim = Movie(play="Home/Rooms/Zahra/Sleep/sz-29-anim.webm", loop = True)
+image sz-30-anim = Movie(play="Home/Rooms/Zahra/Sleep/sz-30-anim.webm", loop = True)
+image sz-31-anim = Movie(play="Home/Rooms/Zahra/Sleep/sz-31-anim.webm", loop = True)
+image sz-32-anim = Movie(play="Home/Rooms/Zahra/Sleep/sz-32-anim.webm", loop = True)
+# 0.12
+image d12m1 = Movie(play="Days/Day12/xmenu/d12mm.webm", loop = True)
+image d12a-62-anim = Movie(play="Days/Day12/SceneA/d12a-62-anim.webm", loop = True)
+image d12a-62x-anim = Movie(play="Days/Day12/SceneA/d12a-62x-anim.webm", loop = True)
+image d12a-62x-2-anim = Movie(play="Days/Day12/SceneA/d12a-62x-2-anim.webm", loop = True)
+image d12a-62x-3-anim = Movie(play="Days/Day12/SceneA/d12a-62x-3-anim.webm", loop = True)
+image d12a-62x-4-anim = Movie(play="Days/Day12/SceneA/d12a-62x-4-anim.webm", loop = True)
+image d12c-52-anim = Movie(play="Days/Day12/SceneC/d12c-52-anim.webm", loop = True)
+image d12c-53-55-anim = Movie(play="Days/Day12/SceneC/d12c-53-55-anim.webm", loop = True)
+image he-10-anim = Movie(play="Home/Harem/emilia/he-10-anim.webm", loop = True)
+image he-11-anim = Movie(play="Home/Harem/emilia/he-11-anim.webm", loop = True)
+image he-12-anim = Movie(play="Home/Harem/emilia/he-12-anim.webm", loop = True)
+image he-13-anim = Movie(play="Home/Harem/emilia/he-13-anim.webm", loop = True)
+image he-14-anim = Movie(play="Home/Harem/emilia/he-14-anim.webm", loop = True)
+image he-21-anim = Movie(play="Home/Harem/emilia/he-21-anim.webm", loop = True)
+image he-21x-anim = Movie(play="Home/Harem/emilia/he-21x-anim.webm", loop = True)
+image he-22-anim = Movie(play="Home/Harem/emilia/he-22-anim.webm", loop = True)
+image he-22x-anim = Movie(play="Home/Harem/emilia/he-22x-anim.webm", loop = True)
+image he-23-anim = Movie(play="Home/Harem/emilia/he-23-anim.webm", loop = True)
+image he-23x-anim = Movie(play="Home/Harem/emilia/he-23x-anim.webm", loop = True)
+image he-24-anim = Movie(play="Home/Harem/emilia/he-24-anim.webm", loop = True)
+image he-24x-anim = Movie(play="Home/Harem/emilia/he-24x-anim.webm", loop = True)
+image hz-9-anim = Movie(play="Home/Harem/zahra/hz-9-anim.webm", loop = True)
+image hz-9x-anim = Movie(play="Home/Harem/zahra/hz-9x-anim.webm", loop = True)
+image hz-10-anim = Movie(play="Home/Harem/zahra/hz-10-anim.webm", loop = True)
+image hz-11-anim = Movie(play="Home/Harem/zahra/hz-11-anim.webm", loop = True)
+image hz-11x-anim = Movie(play="Home/Harem/zahra/hz-11x-anim.webm", loop = True)
+image hz-12-anim = Movie(play="Home/Harem/zahra/hz-12-anim.webm", loop = True)
+image hz-12x-anim = Movie(play="Home/Harem/zahra/hz-12x-anim.webm", loop = True)
+image hz-13-anim = Movie(play="Home/Harem/zahra/hz-13-anim.webm", loop = True)
+image hz-13x-anim = Movie(play="Home/Harem/zahra/hz-13x-anim.webm", loop = True)
+image vfn-160-anim = Movie(play="World/Family/Rooms/Nadia/vfn-160-anim.webm", loop = True)
+image vfn-161-anim = Movie(play="World/Family/Rooms/Nadia/vfn-161-anim.webm", loop = True)
+image vfn-162-anim = Movie(play="World/Family/Rooms/Nadia/vfn-162-anim.webm", loop = True)
+image vfn-167-anim = Movie(play="World/Family/Rooms/Nadia/vfn-167-anim.webm", loop = True)
+image vfn-168-anim = Movie(play="World/Family/Rooms/Nadia/vfn-168-anim.webm", loop = True)
+image vfn-168x-anim = Movie(play="World/Family/Rooms/Nadia/vfn-168x-anim.webm", loop = True)
+image vfn-169-anim = Movie(play="World/Family/Rooms/Nadia/vfn-169-anim.webm", loop = True)
+image vfn-169x-anim = Movie(play="World/Family/Rooms/Nadia/vfn-169x-anim.webm", loop = True)
+image vfn-170-anim = Movie(play="World/Family/Rooms/Nadia/vfn-170-anim.webm", loop = True)
+image vfn-215-anim = Movie(play="World/Family/Rooms/Nadia/vfn-215-anim.webm", loop = True)
+image vfn-216-anim = Movie(play="World/Family/Rooms/Nadia/vfn-216-anim.webm", loop = True)
+image vfn-217-anim = Movie(play="World/Family/Rooms/Nadia/vfn-217-anim.webm", loop = True)
+image vfn-218-anim = Movie(play="World/Family/Rooms/Nadia/vfn-218-anim.webm", loop = True)
+image vfn-228-anim = Movie(play="World/Family/Rooms/Nadia/vfn-228-anim.webm", loop = True)
+image vfn-229-anim = Movie(play="World/Family/Rooms/Nadia/vfn-229-anim.webm", loop = True)
+image vfn-230-anim = Movie(play="World/Family/Rooms/Nadia/vfn-230-anim.webm", loop = True)
+image vfn-231-anim = Movie(play="World/Family/Rooms/Nadia/vfn-231-anim.webm", loop = True)
+image vfn-232-anim = Movie(play="World/Family/Rooms/Nadia/vfn-232-anim.webm", loop = True)
+image vfn-233-anim = Movie(play="World/Family/Rooms/Nadia/vfn-233-anim.webm", loop = True)
+image vfn-234-anim = Movie(play="World/Family/Rooms/Nadia/vfn-234-anim.webm", loop = True)
+image vfn-235-anim = Movie(play="World/Family/Rooms/Nadia/vfn-235-anim.webm", loop = True)
+image vfn-235x-anim = Movie(play="World/Family/Rooms/Nadia/vfn-235x-anim.webm", loop = True)
+image vfn-236-anim = Movie(play="World/Family/Rooms/Nadia/vfn-236-anim.webm", loop = True)
+image vfn-237-anim = Movie(play="World/Family/Rooms/Nadia/vfn-237-anim.webm", loop = True)
+image vfn-238-anim = Movie(play="World/Family/Rooms/Nadia/vfn-238-anim.webm", loop = True)
+# 0.13
+image d13a-7-8-anim = Movie(play="Days/Day13/SceneA/d13a-7-8-anim.webm", image = "Days/Day13/SceneA/d13a-8x.png", loop = False)
+image d13a-9-10-anim = Movie(play="Days/Day13/SceneA/d13a-9-10-anim.webm", image = "Days/Day13/SceneA/d13a-10x.png", loop = False)
+image d13a-106-107-anim = Movie(play="Days/Day13/SceneA/d13a-106-107-anim.webm", image = "Days/Day13/SceneA/d13a-107x.png", loop = False)
+image d13a-116-126-anim = Movie(play="Days/Day13/SceneA/d13a-116-126-anim.webm", loop = False)
+image d13a-129-131-anim = Movie(play="Days/Day13/SceneA/d13a-129-131-anim.webm", start_image = "Days/Day13/SceneA/d13a-129x.png", image = "Days/Day13/SceneA/d13a-131.png", loop = False)
+image d13a-169-anim = Movie(play="Days/Day13/SceneA/d13a-169-anim.webm", loop = False)
+image d13a-171-173-anim = Movie(play="Days/Day13/SceneA/d13a-171-173-anim.webm", start_image = "Days/Day13/SceneA/d13a-171.png", image = "Days/black pic.png", loop = False)
+image d13a-174-anim = Movie(play="Days/Day13/SceneA/d13a-174-anim.webm", start_image = "Days/Day13/SceneA/d13a-174.png", loop = False)
+image d13a-175-anim = Movie(play="Days/Day13/SceneA/d13a-175-anim.webm", start_image = "Days/Day13/SceneA/d13a-174x.png", loop = False)
+image d13a-175x-4-anim = Movie(play="Days/Day13/SceneA/d13a-175x-4-anim.webm", image="Days/Day13/SceneA/d13a-175x-5.png", loop = False)
+image d13a-176-anim = Movie(play="Days/Day13/SceneA/d13a-176-anim.webm", loop = False)
+image d13a-176x-2-anim = Movie(play="Days/Day13/SceneA/d13a-176x-2-anim.webm", loop = False)
+image d13a-177-182-anim = Movie(play="Days/Day13/SceneA/d13a-177-182-anim.webm", start_image = "Days/Day13/SceneA/d13a-177x.png", loop = True)
+image d13a-183-anim = Movie(play="Days/Day13/SceneA/d13a-183-anim.webm", loop = False)
+image d13a-183x-anim = Movie(play="Days/Day13/SceneA/d13a-183x-anim.webm", loop = True)
+image d13a-184-187-anim = Movie(play="Days/Day13/SceneA/d13a-184-187-anim.webm", start_image = "Days/Day13/SceneA/d13a-184.png", loop = False)
+image d13a-188-anim = Movie(play="Days/Day13/SceneA/d13a-188-anim.webm", image="Days/Day13/SceneA/d13a-188x.png", loop = False)
+image d13a-191-anim = Movie(play="Days/Day13/SceneA/d13a-191-anim.webm", image="Days/Day13/SceneA/d13a-191x.png", loop = False)
+image d13a-206-anim = Movie(play="Days/Day13/SceneA/d13a-206-anim.webm", loop = False)
+image d13a-209-anim = Movie(play="Days/Day13/SceneA/d13a-209-anim.webm", loop = False)
+image d13a-210-anim = Movie(play="Days/Day13/SceneA/d13a-210-anim.webm", loop = False)
+image d13a-213-anim = Movie(play="Days/Day13/SceneA/d13a-213-anim.webm", loop = True)
+image d13d-20-anim = Movie(play="Days/Day13/SceneD/d13d-20-anim.webm", start_image = "Days/Day13/SceneD/d13d-20x.png", image = "Days/Day13/SceneD/d13d-20x-2.png", loop = False)
+image d13j-7-anim = Movie(play="Days/Day13/SceneJ/d13j-7-anim.webm", image = "Days/Day13/SceneJ/d13j-7x.png",  loop = False)
+image d13j-34-anim = Movie(play="Days/Day13/SceneJ/d13j-34-anim.webm", loop = False)
+image d13j-34x-anim = Movie(play="Days/Day13/SceneJ/d13j-34x-anim.webm", loop = False)
+image d13j-39-anim = Movie(play="Days/Day13/SceneJ/d13j-39-anim.webm", loop = True)
+image d13j-39x-anim = Movie(play="Days/Day13/SceneJ/d13j-39x-anim.webm", loop = False)
+image d13j-40-anim = Movie(play="Days/Day13/SceneJ/d13j-40-anim.webm", loop = True)
+image d13j-44-anim = Movie(play="Days/Day13/SceneJ/d13j-44-anim.webm", loop = True)
+image d13h-24-anim = Movie(play="Days/Day13/SceneH/d13h-24-anim.webm", start_image = "Days/Day13/SceneH/d13h-23x.png", loop = True)
+image d13h-24x-anim = Movie(play="Days/Day13/SceneH/d13h-24x-anim.webm", start_image = "Days/Day13/SceneH/d13h-23x-2.png", loop = True)
+image d13h-25-anim = Movie(play="Days/Day13/SceneH/d13h-25-anim.webm", start_image = "Days/Day13/SceneH/d13h-23x-3.png", loop = True)
+image d13h-26-anim = Movie(play="Days/Day13/SceneH/d13h-26-anim.webm", start_image = "Days/Day13/SceneH/d13h-23x-4.png", loop = True)
+image d13h-27-anim = Movie(play="Days/Day13/SceneH/d13h-27-anim.webm", start_image = "Days/Day13/SceneH/d13h-23x-5.png", loop = True)
+image d13i-12-anim = Movie(play="Days/Day13/SceneI/d13i-12-anim.webm", loop = False)
+image d13i-13-anim = Movie(play="Days/Day13/SceneI/d13i-13-anim.webm", loop = False)
+image d13i-13-anim = Movie(play="Days/Day13/SceneI/d13i-13-anim.webm", loop = False)
+image d13l-83-anim = Movie(play="Days/Day13/SceneL/d13l-83-anim.webm", loop = True)
+image d13l-120-anim = Movie(play="Days/Day13/SceneL/d13l-120-anim.webm", start_image = "Days/Day13/SceneL/d13l-120.png", image = "Days/Day13/SceneL/d13l-120x.png", loop = False)
+image d13l-219-anim = Movie(play="Days/Day13/SceneL/d13l-219-anim.webm", start_image = "Days/Day13/SceneL/d13l-219.png", loop = True)
+image d13l-220-anim = Movie(play="Days/Day13/SceneL/d13l-220-anim.webm", loop = True)
+image d13l-238-anim = Movie(play="Days/Day13/SceneL/d13l-238-anim.webm", start_image = "Days/Day13/SceneL/d13l-238.png", loop = True)
+image d13m1 = Movie(play="Days/Day13/xmenu/d13mm.webm", loop = True)
+# 0.14
+image d14a-102-anim = Movie(play="Days/Day14/SceneA/d14a-102-anim.webm", loop = True)
+image d14a-180-anim = Movie(play="Days/Day14/SceneA/d14a-180-anim.webm", image = "Days/Day14/SceneA/d14a-180x.png", loop = False)
+image d14a-181-anim = Movie(play="Days/Day14/SceneA/d14a-181-anim.webm", image = "Days/Day14/SceneA/d14a-181x.png", start_image = "Days/Day14/SceneA/d14a-181x-2.png", loop = False)
+image d14a-181x-anim = Movie(play="Days/Day14/SceneA/d14a-181x-anim.webm", image = "Days/Day14/SceneA/d14a-181x.png", loop = False)
+image d14a-182-anim = Movie(play="Days/Day14/SceneA/d14a-182-anim.webm", image = "Days/Day14/SceneA/d14a-182x.png", start_image = "Days/Day14/SceneA/d14a-182x-2.png", loop = False)
+image d14a-183-anim = Movie(play="Days/Day14/SceneA/d14a-183-anim.webm", image = "Days/Day14/SceneA/d14a-183x.png", loop = False)
+image d14a-187-anim = Movie(play="Days/Day14/SceneA/d14a-187-anim.webm", loop = True)
+image d14a-187x-anim = Movie(play="Days/Day14/SceneA/d14a-187x-anim.webm", loop = True)
+image d14a-187x-2-anim = Movie(play="Days/Day14/SceneA/d14a-187x-2-anim.webm", loop = True)
+image d14a-187x-3-anim = Movie(play="Days/Day14/SceneA/d14a-187x-3-anim.webm", loop = True)
+image d14a-188-anim = Movie(play="Days/Day14/SceneA/d14a-188-anim.webm", loop = True)
+image d14a-189-anim = Movie(play="Days/Day14/SceneA/d14a-189-anim.webm", loop = True)
+image d14a-189x-anim = Movie(play="Days/Day14/SceneA/d14a-189x-anim.webm", loop = True)
+image d14a-189x-2-anim = Movie(play="Days/Day14/SceneA/d14a-189x-2-anim.webm", loop = True)
+image d14a-189x-3-anim = Movie(play="Days/Day14/SceneA/d14a-189x-3-anim.webm", loop = True)
+image d14a-190-anim = Movie(play="Days/Day14/SceneA/d14a-190-anim.webm", loop = True)
+image d14a-208-anim = Movie(play="Days/Day14/SceneA/d14a-208-anim.webm", loop = True)
+image d14a-209-anim = Movie(play="Days/Day14/SceneA/d14a-209-anim.webm", loop = True)
+image d14a-210-anim = Movie(play="Days/Day14/SceneA/d14a-210-anim.webm", loop = True)
+image d14a-223-anim = Movie(play="Days/Day14/SceneA/d14a-223-anim.webm", loop = True)
+image d14a-230-anim = Movie(play="Days/Day14/SceneA/d14a-230-anim.webm", loop = True)
+image d14a-231-anim = Movie(play="Days/Day14/SceneA/d14a-231-anim.webm", loop = True)
+image d14a-232-anim = Movie(play="Days/Day14/SceneA/d14a-232-anim.webm", loop = True)
+image d14a-250-anim = Movie(play="Days/Day14/SceneA/d14a-250-anim.webm", loop = True)
+image d14a-251-anim = Movie(play="Days/Day14/SceneA/d14a-251-anim.webm", loop = True)
+image d14a-251x-anim = Movie(play="Days/Day14/SceneA/d14a-251x-anim.webm", loop = True)
+image d14a-251x-2-anim = Movie(play="Days/Day14/SceneA/d14a-251x-2-anim.webm", loop = True)
+image d14b-91x-3-anim = Movie(play="Days/Day14/SceneB/d14b-91x-3-anim.webm", loop = True)
+image d14c-1-anim = Movie(play="Days/Day14/SceneC/d14c-1-anim.webm", start_image = "Days/Day14/SceneC/d14c-1x.png", image = "Days/Day14/SceneC/d14c-1x-2.png", loop = False)
+image d14c-2-anim = Movie(play="Days/Day14/SceneC/d14c-2-anim.webm", start_image = "Days/Day14/SceneC/d14c-2x.png", image = "Days/Day14/SceneC/d14c-2x-2.png", loop = False)
+image d14c-10-anim = Movie(play="Days/Day14/SceneC/d14c-10-anim.webm", image = "Days/Day14/SceneC/d14c-10x.png", loop = False)
+image hef-31-anim = Movie(play="Home/Harem/emilia fairy/hef-31-anim.webm", loop = True)
+image pp-27-anim = Movie(play="World/Palace/Planning Room/pp-27-anim.webm", loop = True)
+image pp-27x-anim = Movie(play="World/Palace/Planning Room/pp-27x-anim.webm", loop = True)
+image pp-28-anim = Movie(play="World/Palace/Planning Room/pp-28-anim.webm", loop = True)
+image pp-29-anim = Movie(play="World/Palace/Planning Room/pp-29-anim.webm", loop = True)
+image rt-1-anim = Movie(play="World/Raiders/Throne/rt-1-anim.webm", start_image = "World/Raiders/Throne/rt-1x-4.png", loop = True)
+image rst-35-anim = Movie(play="World/Raiders/Settlement/Trailer/rst-35-anim.webm", loop = True)
+image rst-62-anim = Movie(play="World/Raiders/Settlement/Trailer/rst-62-anim.webm", loop = True)
+image rst-63-anim = Movie(play="World/Raiders/Settlement/Trailer/rst-63-anim.webm", loop = True)
+image rst-64-anim = Movie(play="World/Raiders/Settlement/Trailer/rst-64-anim.webm", loop = True)
+image rst-64x-anim = Movie(play="World/Raiders/Settlement/Trailer/rst-64x-anim.webm", loop = True)
+image d14f-11-anim = Movie(play="Days/Day14/SceneF/d14f-11-anim.webm", image = "Days/Day14/SceneF/d14f-11x.png", loop = False)
+image d14f-39-95-anim = Movie(play="Days/Day14/SceneF/d14f-39-95-anim.webm", loop = False, keep_last_frame = True)
+image d14f-39-95x-anim = Movie(play="Days/Day14/SceneF/d14f-39-95x-anim.webm", loop = False, keep_last_frame = True)
+image d14m1 = Movie(play="Days/Day14/xmenu/d14mm.webm", loop = True)
+
+#0.15
+image d15m1 = Movie(play="Days/Day15/xmenu/d15mm.webm", loop = True)
+image d15a-131-anim = Movie(play="Days/Day15/SceneA/d15a-131-anim.webm", start_image = "Days/Day15/SceneA/d15a-131x.png", image = "Days/Day15/SceneA/d15a-131x-2.png", loop = True)
+image d15a-184-anim = Movie(play="Days/Day15/SceneA/d15a-184-anim.webm", start_image = "Days/Day15/SceneA/d15a-184.png", loop = True)
+image d15c-3-anim = Movie(play="Days/Day15/SceneC/d15c-3-anim.webm", loop = True)
+image ss-16-anim = Movie(play="Home/Rooms/Shani/Sleep/ss-16-anim.webm", start_image = "Home/Rooms/Shani/Sleep/ss-15.png", image = "Home/Rooms/Shani/Sleep/ss-17.png", loop = False)
+image ss-23-anim = Movie(play="Home/Rooms/Shani/Sleep/ss-23-anim.webm", start_image = "Home/Rooms/Shani/Sleep/ss-23.png", image = "Home/Rooms/Shani/Sleep/ss-23x.png", loop = False)
+image ss-25-anim = Movie(play="Home/Rooms/Shani/Sleep/ss-25-anim.webm", start_image = "Home/Rooms/Shani/Sleep/ss-25.png", image = "Home/Rooms/Shani/Sleep/ss-25x.png", loop = True)
+image ss-25x-anim = Movie(play="Home/Rooms/Shani/Sleep/ss-25x-anim.webm", loop = True)
+image ss-25x-2-anim = Movie(play="Home/Rooms/Shani/Sleep/ss-25x-2-anim.webm", loop = True)
+image ss-52-anim = Movie(play="Home/Rooms/Shani/Sleep/ss-52-anim.webm", start_image = "Home/Rooms/Shani/Sleep/ss-52.png", image = "Home/Rooms/Shani/Sleep/ss-52x.png", loop = True)
+image bf-313-anim = Movie(play="Home/Basement/Fairy/bf-313-anim.webm", loop = False)
+
+#### 0.16
+image d16a-71-anim = Movie(play="Days/Day16/SceneA/d16a-71-anim.webm", start_image = "Days/Day16/SceneA/d16a-71x.png", loop = False)
+image d16a-245x-10-anim = Movie(play="Days/Day16/SceneA/d16a-245x-10-anim.webm", loop = True)
+image d16a-245x-11-anim = Movie(play="Days/Day16/SceneA/d16a-245x-11-anim.webm", loop = True)
+image d16a-245x-12-anim = Movie(play="Days/Day16/SceneA/d16a-245x-12-anim.webm", loop = True)
+image d16a-245x-13-anim = Movie(play="Days/Day16/SceneA/d16a-245x-13-anim.webm", loop = True)
+image d16a-226-anim = Movie(play="Days/Day16/SceneA/d16a-226-anim.webm", loop = True)
+image d16a-227-anim = Movie(play="Days/Day16/SceneA/d16a-227-anim.webm", loop = True)
+image d16a-363-anim = Movie(play="Days/Day16/SceneA/d16a-363-anim.webm", image = "Days/Day16/SceneA/d16a-363x-2.png", loop = False)
+image d16a-401-anim = Movie(play="Days/Day16/SceneA/d16a-401-anim.webm", loop = True)
+image d16a-410-anim = Movie(play="Days/Day16/SceneA/d16a-410-anim.webm", image = "Days/Day16/SceneA/d16a-410x-2.png", loop = False)
+image d16a-410x-anim = Movie(play="Days/Day16/SceneA/d16a-410x-anim.webm", image = "Days/Day16/SceneA/d16a-410x-3.png", loop = False)
+image d16a-416-anim = Movie(play="Days/Day16/SceneA/d16a-416-anim.webm", loop = True)
+image d16a-417-418-anim = Movie(play="Days/Day16/SceneA/d16a-417-418-anim.webm", loop = True)
+image d16a-419-anim = Movie(play="Days/Day16/SceneA/d16a-419-anim.webm", loop = True)
+image d16a-420-anim = Movie(play="Days/Day16/SceneA/d16a-420-anim.webm", loop = True)
+image d16a-420x-anim = Movie(play="Days/Day16/SceneA/d16a-420x-anim.webm", loop = True)
+image d16a-32-anim = Movie(play="Days/Day16/SceneA/d16a-32-anim.webm", loop = True)
+image d16b-48-anim = Movie(play="Days/Day16/SceneB/d16b-48-anim.webm", loop = True)
+image d16b-49-anim = Movie(play="Days/Day16/SceneB/d16b-49-anim.webm", loop = True)
+image d16b-49x-2-anim = Movie(play="Days/Day16/SceneB/d16b-49x-2-anim.webm", loop = True)
+image d16b-49x-3-anim = Movie(play="Days/Day16/SceneB/d16b-49x-3-anim.webm", loop = True)
+image d16b-143-anim = Movie(play="Days/Day16/SceneB/d16b-143-anim.webm", loop = True)
+image d16b-147-anim = Movie(play="Days/Day16/SceneB/d16b-147-anim.webm", loop = True)
+image d16b-148-anim = Movie(play="Days/Day16/SceneB/d16b-148-anim.webm", loop = True)
+image d16b-149-anim = Movie(play="Days/Day16/SceneB/d16b-149-anim.webm", loop = True)
+image d16b-150-anim = Movie(play="Days/Day16/SceneB/d16b-150-anim.webm", loop = True)
+image d16c-275-anim = Movie(play="Days/Day16/SceneC/d16c-275-anim.webm", loop = True)
+image d16c-276-anim = Movie(play="Days/Day16/SceneC/d16c-276-anim.webm", loop = True)
+image d16c-277-anim = Movie(play="Days/Day16/SceneC/d16c-277-anim.webm", loop = True)
+image d16m1 = Movie(play="Days/Day16/xmenu/d16mm.webm", loop = True)
+image wz-10-anim = Movie(play="Home/Rooms/Zahra/Wakeup/wz-10-anim.webm", loop = True)
+image wz-11-anim = Movie(play="Home/Rooms/Zahra/Wakeup/wz-11-anim.webm", loop = True)
+image wz-12-anim = Movie(play="Home/Rooms/Zahra/Wakeup/wz-12-anim.webm", loop = True)
+image ke-1-anim = Movie(play="Home/Kitchen/Emilia/ke-1-anim.webm", loop = True)
+image ke-3-anim = Movie(play="Home/Kitchen/Emilia/ke-3-anim.webm", loop = True)
+image vst-6-anim = Movie(play="Home/Rooms/Shani/Training/vst-6-anim.webm", loop = True)
+image vst-7-anim = Movie(play="Home/Rooms/Shani/Training/vst-7-anim.webm", loop = True)
+image vst-8-anim = Movie(play="Home/Rooms/Shani/Training/vst-8-anim.webm", loop = True)
+image vst-9-anim = Movie(play="Home/Rooms/Shani/Training/vst-9-anim.webm", loop = True)
+image vst-9x-anim = Movie(play="Home/Rooms/Shani/Training/vst-9x-anim.webm", loop = True)
+
+### 0.17
+image d17m1 = Movie(play="Days/Day17/xmenu/d17mm.webm", loop = True)
+image d17a-39-41x-anim = Movie(play="Days/Day17/SceneA/d17a-39-41x-anim.webm", start_image = 'Days/Day17/SceneA/d17a-39-41x-anim-start.png', image = 'Days/Day17/SceneA/d17a-39-41x-anim-end.png', loop = False)
+image d17a-197-anim = Movie(play="Days/Day17/SceneA/d17a-197-anim.webm", start_image = 'Days/Day17/SceneA/d17a-197-anim-start.png', image = 'Days/Day17/SceneA/d17a-197-anim-end.png', loop = False)
+image d17a-365-366-anim = Movie(play="Days/Day17/SceneA/d17a-365-366-anim.webm", start_image = 'Days/Day17/SceneA/d17a-365-366-anim-start.png', image = 'Days/Day17/SceneA/d17a-365-366-anim-end.png', loop = False)
+image d17a-380-381-anim = Movie(play="Days/Day17/SceneA/d17a-380-381-anim.webm", start_image = 'Days/Day17/SceneA/d17a-380-381-anim-start.png', image = 'Days/Day17/SceneA/d17a-380-381-anim-end.png', loop = False)
+image d17a-384x-anim = Movie(play="Days/Day17/SceneA/d17a-384x-anim.webm", start_image = 'Days/Day17/SceneA/d17a-384x-anim-start.png', image = 'Days/Day17/SceneA/d17a-384x-anim-end.png', loop = False)
+image d17a-384x-3-anim = Movie(play="Days/Day17/SceneA/d17a-384x-3-anim.webm", start_image = 'Days/Day17/SceneA/d17a-384x-3-anim-start.png', image = 'Days/Day17/SceneA/d17a-384x-3-anim-end.png', loop = False)
+image d17a-384x-5-anim = Movie(play="Days/Day17/SceneA/d17a-384x-5-anim.webm", start_image = 'Days/Day17/SceneA/d17a-384x-5-anim-start.png', image = 'Days/Day17/SceneA/d17a-384x-5-anim-end.png', loop = False)
+image d17a-396-anim = Movie(play="Days/Day17/SceneA/d17a-396-anim.webm", start_image = 'Days/Day17/SceneA/d17a-396-anim-start.png', image = 'Days/Day17/SceneA/d17a-396-anim-end.png', loop = False)
+image d17a-404-anim = Movie(play="Days/Day17/SceneA/d17a-404-anim.webm", start_image = 'Days/Day17/SceneA/d17a-404-anim-start.png', image = 'Days/Day17/SceneA/d17a-404-anim-end.png', loop = False)
+image d17a-408-anim = Movie(play="Days/Day17/SceneA/d17a-408-anim.webm", start_image = 'Days/Day17/SceneA/d17a-408-anim-start.png', image = 'Days/Day17/SceneA/d17a-408-anim-end.png', loop = False)
+image d17a-410-anim = Movie(play="Days/Day17/SceneA/d17a-410-anim.webm", start_image = 'Days/Day17/SceneA/d17a-410-anim-start.png', image = 'Days/Day17/SceneA/d17a-410-anim-end.png', loop = False)
+image d17a-412-anim = Movie(play="Days/Day17/SceneA/d17a-412-anim.webm", start_image = 'Days/Day17/SceneA/d17a-412-anim-start.png', image = 'Days/Day17/SceneA/d17a-412-anim-end.png', loop = False)
+image d17a-415-416-anim = Movie(play="Days/Day17/SceneA/d17a-415-416-anim.webm", start_image = 'Days/Day17/SceneA/d17a-415-416-anim-start.png', image = 'Days/Day17/SceneA/d17a-415-416-anim-end.png', loop = False)
+image d17a-420-421-anim = Movie(play="Days/Day17/SceneA/d17a-420-421-anim.webm", start_image = 'Days/Day17/SceneA/d17a-420-421-anim-start.png', image = 'Days/Day17/SceneA/d17a-420-421-anim-end.png', loop = False)
+image d17a-425-426-anim = Movie(play="Days/Day17/SceneA/d17a-425-426-anim.webm", start_image = 'Days/Day17/SceneA/d17a-425-426-anim-start.png', image = 'Days/Day17/SceneA/d17a-425-426-anim-end.png', loop = False)
+image d17a-439-anim = Movie(play="Days/Day17/SceneA/d17a-439-anim.webm", start_image = 'Days/Day17/SceneA/d17a-439-anim-start.png', image = 'Days/Day17/SceneA/d17a-439-anim-end.png', loop = False)
+image d17a-442-443-anim = Movie(play="Days/Day17/SceneA/d17a-442-443-anim.webm", start_image = 'Days/Day17/SceneA/d17a-442-443-anim-start.png', image = 'Days/Day17/SceneA/d17a-442-443-anim-end.png', loop = False)
+image d17a-453-anim = Movie(play="Days/Day17/SceneA/d17a-453-anim.webm", start_image = 'Days/Day17/SceneA/d17a-453-anim-start.png', image = 'Days/Day17/SceneA/d17a-453-anim-end.png', loop = False)
+image d17a-454-anim = Movie(play="Days/Day17/SceneA/d17a-454-anim.webm", start_image = 'Days/Day17/SceneA/d17a-454-anim-start.png', image = 'Days/Day17/SceneA/d17a-454-anim-end.png', loop = False)
+image d17a-464-492-anim = Movie(play="Days/Day17/SceneA/d17a-464-492-anim.webm", start_image = 'Days/Day17/SceneA/d17a-464-492-anim-start.png', image = 'Days/Day17/SceneA/d17a-464-492-anim-end.png', loop = False)
+image d17a-506-487-anim = Movie(play="Days/Day17/SceneA/d17a-506-487-anim.webm", start_image = 'Days/Day17/SceneA/d17a-506-487-anim-start.png', image = 'Days/Day17/SceneA/d17a-506-487-anim-end.png', loop = False)
+image d17a-491-507-anim = Movie(play="Days/Day17/SceneA/d17a-491-507-anim.webm", start_image = 'Days/Day17/SceneA/d17a-491-507-anim-start.png', image = 'Days/Day17/SceneA/d17a-491-507-anim-end.png', loop = False)
+image d17a-521-465-anim = Movie(play="Days/Day17/SceneA/d17a-521-465-anim.webm", start_image = 'Days/Day17/SceneA/d17a-521-465-anim-start.png', image = 'Days/Day17/SceneA/d17a-521-465-anim-end.png', loop = False)
+image d17a-481-485-anim = Movie(play="Days/Day17/SceneA/d17a-481-485-anim.webm", start_image = 'Days/Day17/SceneA/d17a-481-485-anim-start.png', image = 'Days/Day17/SceneA/d17a-481-485-anim-end.png', loop = False)
+image d17a-570-572-anim = Movie(play="Days/Day17/SceneA/d17a-570-572-anim.webm", start_image = 'Days/Day17/SceneA/d17a-570-572-anim-start.png', image = 'Days/Day17/SceneA/d17a-570-572-anim-end.png', loop = False)
+image d17a-649-655-anim = Movie(play="Days/Day17/SceneA/d17a-649-655-anim.webm", start_image = 'Days/Day17/SceneA/d17a-649-655-anim-start.png', image = 'Days/Day17/SceneA/d17a-649-655-anim-end.png', loop = False)
+image d17a-652-659-anim = Movie(play="Days/Day17/SceneA/d17a-652-659-anim.webm", start_image = 'Days/Day17/SceneA/d17a-652-659-anim-start.png', image = 'Days/Day17/SceneA/d17a-652-659-anim-end.png', loop = False)
+image d17a-485-anim = Movie(play="Days/Day17/SceneA/d17a-485-anim.webm", start_image = 'Days/Day17/SceneA/d17a-485-anim-start.png', image ="Days/Day17/SceneA/d17a-485-anim-end.png", loop = True)
+
+#0.18
+image d18m1 = Movie(play="Days/Day18/xmenu/d18m1.webm", loop = True)
+image d18b-64-anim = Movie(play="Days/Day18/SceneB/d18b-64-anim.webm", loop = False, keep_last_frame = True)
+image d18b-65-anim = Movie(play="Days/Day18/SceneB/d18b-65-anim.webm", loop = True)
+image d18b-64-65-anim = Movie(play="Days/Day18/SceneB/d18b-64-65-anim.webm", loop = False, keep_last_frame = True)
+image d18b-320-anim = Movie(play="Days/Day18/SceneB/d18b-320-anim.webm", loop = True)
+image d18b-343-anim = Movie(play="Days/Day18/SceneB/d18b-343-anim.webm", loop = False, keep_last_frame = True)
+image d18b-344-anim = Movie(play="Days/Day18/SceneB/d18b-344-anim.webm", loop = True)
+image d18b-357-anim = Movie(play="Days/Day18/SceneB/d18b-357-anim.webm", loop = True)
+image d18b-358-anim = Movie(play="Days/Day18/SceneB/d18b-358-anim.webm", loop = True)
+image d18b-366-anim = Movie(play="Days/Day18/SceneB/d18b-366-anim.webm", loop = True)
+image d18b-367-anim = Movie(play="Days/Day18/SceneB/d18b-367-anim.webm", loop = True)
+image d18b-368-anim = Movie(play="Days/Day18/SceneB/d18b-368-anim.webm", loop = True)
+image d18d-82-anim = Movie(play="Days/Day18/SceneD/d18d-82-anim.webm", loop = False, keep_last_frame = True)
+image d18d-83-anim = Movie(play="Days/Day18/SceneD/d18d-83-anim.webm", loop = True)
+image d18d-115-anim = Movie(play="Days/Day18/SceneD/d18d-115-anim.webm", loop = True)
+image d18d-134-anim = Movie(play="Days/Day18/SceneD/d18d-134-anim.webm", loop = True)
+image d18f-116x-26-anim = Movie(play="Days/Day18/SceneF/d18f-116x-26-anim.webm", loop = False, keep_last_frame = True)
+image d18f-151-anim = Movie(play="Days/Day18/SceneF/d18f-151-anim.webm", loop = False, keep_last_frame = True)
+image d18f-151x-anim = Movie(play="Days/Day18/SceneF/d18f-151x-anim.webm", loop = False, keep_last_frame = True)
+image d18f-157-anim = Movie(play="Days/Day18/SceneF/d18f-157-anim.webm", loop = True)
+image d18f-157x-anim = Movie(play="Days/Day18/SceneF/d18f-157x-anim.webm", loop = True)
+image d18f-158-anim = Movie(play="Days/Day18/SceneF/d18f-158-anim.webm", loop = True)
+image d18f-158x-anim = Movie(play="Days/Day18/SceneF/d18f-158x-anim.webm", loop = True)
+image d18f-159-anim = Movie(play="Days/Day18/SceneF/d18f-159-anim.webm", loop = True)
+image d18f-189-anim = Movie(play="Days/Day18/SceneF/d18f-189-anim.webm", loop = True)
+image d18f-189x-anim = Movie(play="Days/Day18/SceneF/d18f-189x-anim.webm", loop = True)
+image d18f-191-anim = Movie(play="Days/Day18/SceneF/d18f-191-anim.webm", loop = True)
+image d18f-191x-anim = Movie(play="Days/Day18/SceneF/d18f-191x-anim.webm", loop = True)
+image d18g-23-anim = Movie(play="Days/Day18/SceneG/d18g-23-anim.webm", loop = True)
+image d18g-24-anim = Movie(play="Days/Day18/SceneG/d18g-24-anim.webm", loop = True)
+image d18g-24x-anim = Movie(play="Days/Day18/SceneG/d18g-24x-anim.webm", loop = True)
+image d18g-24x-2-anim = Movie(play="Days/Day18/SceneG/d18g-24x-2-anim.webm", loop = True)
+image d18g-60-anim = Movie(play="Days/Day18/SceneG/d18g-60-anim.webm", loop = True)
+image d18g-61-anim = Movie(play="Days/Day18/SceneG/d18g-61-anim.webm", loop = True)
+
+#0.19
+image d19m1 = Movie(play="Days/Day19/xmenu/d19m1.webm", loop = True)
+image d1e-12-anim = Movie(play="Days/Day1/SceneE/d1e-12-anim.webm", loop = True)
+image d1e-13-anim = Movie(play="Days/Day1/SceneE/d1e-13-anim.webm", loop = True)
+image d17a-66-anim = Movie(play="Days/Day17/SceneA/d17a-66-anim.webm", loop = True)
+image d19b-99-anim = Movie(play="Days/Day19/SceneB/d19b-99-anim.webm", loop = False, keep_last_frame = True)
+image d19d-7-anim = Movie(play="Days/Day19/SceneD/d19d-7-anim.webm", loop = False, keep_last_frame = True)
+image d19d-14-anim = Movie(play="Days/Day19/SceneD/d19d-14-anim.webm", loop = False, keep_last_frame = True)
+image d19d-19-anim = Movie(play="Days/Day19/SceneD/d19d-19-anim.webm", loop = False, keep_last_frame = True)
+image d19d-20-anim = Movie(play="Days/Day19/SceneD/d19d-20-anim.webm", loop = False, keep_last_frame = True)
+image d19d-21-anim = Movie(play="Days/Day19/SceneD/d19d-21-anim.webm", loop = False, keep_last_frame = True)
+image d19d-22-anim = Movie(play="Days/Day19/SceneD/d19d-22-anim.webm", loop = False, keep_last_frame = True)
+image d19d-33x-anim = Movie(play="Days/Day19/SceneD/d19d-33x-anim.webm", loop = False, keep_last_frame = True)
+image d19d-33x-2-anim = Movie(play="Days/Day19/SceneD/d19d-33x-2-anim.webm", loop = False, keep_last_frame = True)
+image d19d-19-33x-anim = Movie(play="Days/Day19/SceneD/d19d-19-33x-anim.webm", loop = False, keep_last_frame = True)
+image d19d-34-anim = Movie(play="Days/Day19/SceneD/d19d-34-anim.webm", loop = False, keep_last_frame = True)
+image d19d-95-anim = Movie(play="Days/Day19/SceneD/d19d-95-anim.webm", loop = False, keep_last_frame = True)
+image d19e-36-anim = Movie(play="Days/Day19/SceneE/d19e-36-anim.webm", loop = False, keep_last_frame = True)
+image d19f-154-anim = Movie(play="Days/Day19/SceneF/d19f-154-anim.webm", loop = False, keep_last_frame = True)
+image d19f-162-anim = Movie(play="Days/Day19/SceneF/d19f-162-anim.webm", loop = True)
+image d19f-163-anim = Movie(play="Days/Day19/SceneF/d19f-163-anim.webm", loop = True)
+image d19f-164-anim = Movie(play="Days/Day19/SceneF/d19f-164-anim.webm", loop = True)
+image d19f-186-anim = Movie(play="Days/Day19/SceneF/d19f-186-anim.webm", loop = True)
+image d19f-187-anim = Movie(play="Days/Day19/SceneF/d19f-187-anim.webm", loop = True)
+image d19f-188-anim = Movie(play="Days/Day19/SceneF/d19f-188-anim.webm", loop = True)
+image d19f-189-anim = Movie(play="Days/Day19/SceneF/d19f-189-anim.webm", loop = True)
+image d19f-259-anim = Movie(play="Days/Day19/SceneF/d19f-259-anim.webm", loop = True)
+image d19f-260-anim = Movie(play="Days/Day19/SceneF/d19f-260-anim.webm", loop = True)
+image d19f-261-anim = Movie(play="Days/Day19/SceneF/d19f-261-anim.webm", loop = True)
+image d19f-262-anim = Movie(play="Days/Day19/SceneF/d19f-262-anim.webm", loop = True)
+image d19f-263-anim = Movie(play="Days/Day19/SceneF/d19f-263-anim.webm", loop = True)
+image d19f-285x-28-anim = Movie(play="Days/Day19/SceneF/d19f-285x-28-anim.webm", loop = True)
+image d19f-285x-32-anim = Movie(play="Days/Day19/SceneF/d19f-285x-32-anim.webm", loop = True)
+image d19f-305-anim = Movie(play="Days/Day19/SceneF/d19f-305-anim.webm", loop = False, keep_last_frame = True)
+image d19f-306-anim = Movie(play="Days/Day19/SceneF/d19f-306-anim.webm", loop = True)
+image d19f-307-anim = Movie(play="Days/Day19/SceneF/d19f-307-anim.webm", loop = True)
+image d19f-308-anim = Movie(play="Days/Day19/SceneF/d19f-308-anim.webm", loop = True)
+image d19f-334-anim = Movie(play="Days/Day19/SceneF/d19f-334-anim.webm", loop = True)
+image d19f-335-anim = Movie(play="Days/Day19/SceneF/d19f-335-anim.webm", loop = True)
+image d19f-336-anim = Movie(play="Days/Day19/SceneF/d19f-336-anim.webm", loop = True)
+image d19f-336x-23-anim = Movie(play="Days/Day19/SceneF/d19f-336x-23-anim.webm", loop = False, keep_last_frame = True)
+image d19f-336x-25-anim = Movie(play="Days/Day19/SceneF/d19f-336x-25-anim.webm", loop = False, keep_last_frame = True)
+image d19f-336x-26-anim = Movie(play="Days/Day19/SceneF/d19f-336x-26-anim.webm", loop = False, keep_last_frame = True)
+image d19f-336x-27-anim = Movie(play="Days/Day19/SceneF/d19f-336x-27-anim.webm", loop = False, keep_last_frame = True)
+image d19f-336x-29-anim = Movie(play="Days/Day19/SceneF/d19f-336x-29-anim.webm", loop = False, keep_last_frame = True)
+image d19f-349-anim = Movie(play="Days/Day19/SceneF/d19f-349-anim.webm", loop = False, keep_last_frame = True)
+image d19f-349-anim = Movie(play="Days/Day19/SceneF/d19f-349-anim.webm", loop = False, keep_last_frame = True)
+image d19f-350-anim = Movie(play="Days/Day19/SceneF/d19f-350-anim.webm", loop = False, keep_last_frame = True)
+image d19f-351-anim = Movie(play="Days/Day19/SceneF/d19f-351-anim.webm", loop = False, keep_last_frame = True)
+image d19f-365-anim = Movie(play="Days/Day19/SceneF/d19f-365-anim.webm", loop = False, keep_last_frame = True)
+image d19f-366-anim = Movie(play="Days/Day19/SceneF/d19f-366-anim.webm", loop = False, keep_last_frame = True)
+image d19f-367-anim = Movie(play="Days/Day19/SceneF/d19f-367-anim.webm", loop = False, keep_last_frame = True)
+image d19f-370-anim = Movie(play="Days/Day19/SceneF/d19f-370-anim.webm", loop = False, keep_last_frame = True)
+image d19g-34-anim = Movie(play="Days/Day19/SceneG/d19g-34-anim.webm", loop = True)
+image d19g-35-anim = Movie(play="Days/Day19/SceneG/d19g-35-anim.webm", loop = True)
+image d19g-36-anim = Movie(play="Days/Day19/SceneG/d19g-36-anim.webm", loop = True)
+image d19g-40-anim = Movie(play="Days/Day19/SceneG/d19g-40-anim.webm", loop = True)
+image d19g-41-anim = Movie(play="Days/Day19/SceneG/d19g-41-anim.webm", loop = True)
+image rr-49-anim = Movie(play="World/Raiders/Raid/rr-49-anim.webm", loop = False, keep_last_frame = True)
+image rr-50-anim = Movie(play="World/Raiders/Raid/rr-50-anim.webm", loop = True)
+image rr-51-anim = Movie(play="World/Raiders/Raid/rr-51-anim.webm", loop = True)
+
+#0.20
+image d20m1 = Movie(play="Days/Day20/xmenu/d20m1.webm", loop = True)
+image d20m2 = Movie(play="Days/Day20/xmenu/d20m2.webm", loop = True)
+image d20m3 = Movie(play="Days/Day20/xmenu/d20m3.webm", loop = True)
+image d20m4 = Movie(play="Days/Day20/xmenu/d20m4.webm", loop = True)
+image d3a-23-anim = Movie(play="Days/Day3/SceneA/d3a-23-anim.webm", loop = True)
+image d3a-24-anim = Movie(play="Days/Day3/SceneA/d3a-24-anim.webm", loop = True)
+image d3a-33-anim = Movie(play="Days/Day3/SceneA/d3a-33-anim.webm", loop = True)
+image d20a-1-anim = Movie(play="Days/Day20/SceneA/d20a-1-anim.webm", loop = False, keep_last_frame = True)
+image d20a-116-anim = Movie(play="Days/Day20/SceneA/d20a-116-anim.webm", loop = False, keep_last_frame = True)
+image d20a-117-anim = Movie(play="Days/Day20/SceneA/d20a-117-anim.webm", loop = True)
+image d20a-118-anim = Movie(play="Days/Day20/SceneA/d20a-118-anim.webm", loop = True)
+image d20a-119-anim = Movie(play="Days/Day20/SceneA/d20a-119-anim.webm", loop = True)
+image d20a-120-anim = Movie(play="Days/Day20/SceneA/d20a-120-anim.webm", loop = True)
+image d20a-120x-anim = Movie(play="Days/Day20/SceneA/d20a-120x-anim.webm", loop = True)
+image d20a-132-anim = Movie(play="Days/Day20/SceneA/d20a-132-anim.webm", loop = False, keep_last_frame = True)
+image d20a-168-anim = Movie(play="Days/Day20/SceneA/d20a-168-anim.webm", loop = False, keep_last_frame = True)
+image d20a-170-anim = Movie(play="Days/Day20/SceneA/d20a-170-anim.webm", loop = True)
+image d20a-171-anim = Movie(play="Days/Day20/SceneA/d20a-171-anim.webm", loop = True)
+image d20a-172-anim = Movie(play="Days/Day20/SceneA/d20a-172-anim.webm", loop = True)
+image d20a-173-anim = Movie(play="Days/Day20/SceneA/d20a-173-anim.webm", loop = True)
+image d20a-199-anim = Movie(play="Days/Day20/SceneA/d20a-199-anim.webm", loop = True)
+image d20a-200-anim = Movie(play="Days/Day20/SceneA/d20a-200-anim.webm", loop = True)
+image d20a-201-anim = Movie(play="Days/Day20/SceneA/d20a-201-anim.webm", loop = True)
+image d20a-202-anim = Movie(play="Days/Day20/SceneA/d20a-202-anim.webm", loop = True)
+image d20a-203-anim = Movie(play="Days/Day20/SceneA/d20a-203-anim.webm", loop = True)
+image d20a-224-anim = Movie(play="Days/Day20/SceneA/d20a-224-anim.webm", loop = False, keep_last_frame = True)
+image d20a-225-anim = Movie(play="Days/Day20/SceneA/d20a-225-anim.webm", loop = True)
+image d20a-226-anim = Movie(play="Days/Day20/SceneA/d20a-226-anim.webm", loop = True)
+image d20a-227-anim = Movie(play="Days/Day20/SceneA/d20a-227-anim.webm", loop = True)
+image d20a-228-anim = Movie(play="Days/Day20/SceneA/d20a-228-anim.webm", loop = True)
+image d20a-248-anim = Movie(play="Days/Day20/SceneA/d20a-248-anim.webm", loop = False, keep_last_frame = True)
+image d20a-249-anim = Movie(play="Days/Day20/SceneA/d20a-249-anim.webm", loop = False, keep_last_frame = True)
+image d20a-250-anim = Movie(play="Days/Day20/SceneA/d20a-250-anim.webm", loop = False, keep_last_frame = True)
+image d20a-268-anim = Movie(play="Days/Day20/SceneA/d20a-268-anim.webm", loop = False, keep_last_frame = True)
+image d20a-269-anim = Movie(play="Days/Day20/SceneA/d20a-269-anim.webm", loop = False, keep_last_frame = True)
+image d20a-279-anim = Movie(play="Days/Day20/SceneA/d20a-279-anim.webm", loop = False, keep_last_frame = True)
+image d20a-282-anim = Movie(play="Days/Day20/SceneA/d20a-282-anim.webm", loop = False, keep_last_frame = True)
+image d20a-286-anim = Movie(play="Days/Day20/SceneA/d20a-286-anim.webm", loop = False, keep_last_frame = True)
+image d20a-343-anim = Movie(play="Days/Day20/SceneA/d20a-343-anim.webm", loop = False, keep_last_frame = True)
+image d20a-366-anim = Movie(play="Days/Day20/SceneA/d20a-366-anim.webm", loop = False, keep_last_frame = True)
+image d20a-376-anim = Movie(play="Days/Day20/SceneA/d20a-376-anim.webm", loop = False, keep_last_frame = True)
+image d20a-392-anim = Movie(play="Days/Day20/SceneA/d20a-392-anim.webm", loop = False, keep_last_frame = True)
+image d20a-399-anim = Movie(play="Days/Day20/SceneA/d20a-399-anim.webm", loop = False, keep_last_frame = True)
+image d20a-400-anim = Movie(play="Days/Day20/SceneA/d20a-400-anim.webm", loop = False, keep_last_frame = True)
+image d20a-401-anim = Movie(play="Days/Day20/SceneA/d20a-401-anim.webm", loop = False, keep_last_frame = True)
+image d20a-402-anim = Movie(play="Days/Day20/SceneA/d20a-402-anim.webm", loop = False, keep_last_frame = True)
+image d20a-403-anim = Movie(play="Days/Day20/SceneA/d20a-403-anim.webm", loop = False, keep_last_frame = True)
+image d20a-404-anim = Movie(play="Days/Day20/SceneA/d20a-404-anim.webm", loop = False, keep_last_frame = True)
+image d20a-405-anim = Movie(play="Days/Day20/SceneA/d20a-405-anim.webm", loop = False, keep_last_frame = True)
+image d20a-406-anim = Movie(play="Days/Day20/SceneA/d20a-406-anim.webm", loop = False, keep_last_frame = True)
+image d20a-407-anim = Movie(play="Days/Day20/SceneA/d20a-407-anim.webm", loop = False, keep_last_frame = True)
+image d20a-408-anim = Movie(play="Days/Day20/SceneA/d20a-408-anim.webm", loop = False, keep_last_frame = True)
+image d20a-409-anim = Movie(play="Days/Day20/SceneA/d20a-409-anim.webm", loop = False, keep_last_frame = True)
+image d20a-410-anim = Movie(play="Days/Day20/SceneA/d20a-410-anim.webm", loop = False, keep_last_frame = True)
+image d20a-411-anim = Movie(play="Days/Day20/SceneA/d20a-411-anim.webm", loop = False, keep_last_frame = True)
+image d20a-412-anim = Movie(play="Days/Day20/SceneA/d20a-412-anim.webm", loop = False, keep_last_frame = True)
+image d20a-400-d20b-3-anim = Movie(play="Days/Day20/SceneA/d20a-400-d20b-3-anim.webm", loop = False, keep_last_frame = True)
+image d20b-1-anim = Movie(play="Days/Day20/SceneB/d20b-1-anim.webm", loop = False, keep_last_frame = True)
+image d20b-2-anim = Movie(play="Days/Day20/SceneB/d20b-2-anim.webm", loop = False, keep_last_frame = True)
+image d20b-3-anim = Movie(play="Days/Day20/SceneB/d20b-3-anim.webm", loop = False, keep_last_frame = True)
+image d20b-10-anim = Movie(play="Days/Day20/SceneB/d20b-10-anim.webm", loop = False, keep_last_frame = True)
+image d20b-24-anim = Movie(play="Days/Day20/SceneB/d20b-24-anim.webm", loop = False, keep_last_frame = True)
+image d20b-120-anim = Movie(play="Days/Day20/SceneB/d20b-120-anim.webm", loop = False, keep_last_frame = True)
+image d20b-121-anim = Movie(play="Days/Day20/SceneB/d20b-121-anim.webm", loop = False, keep_last_frame = True)
+image d20b-122-125-anim = Movie(play="Days/Day20/SceneB/d20b-122-125-anim.webm", loop = False, keep_last_frame = True)
+image d20b-174-anim = Movie(play="Days/Day20/SceneB/d20b-174-anim.webm", loop = False, keep_last_frame = True)
+image d20b-175-anim = Movie(play="Days/Day20/SceneB/d20b-175-anim.webm", loop = False, keep_last_frame = True)
+image d20b-210-anim = Movie(play="Days/Day20/SceneB/d20b-210-anim.webm", loop = False, keep_last_frame = True)
+image d20c-127-anim = Movie(play="Days/Day20/SceneC/d20c-127-anim.webm", loop = True)
+image d20c-128-anim = Movie(play="Days/Day20/SceneC/d20c-128-anim.webm", loop = True)
+image d20c-129-anim = Movie(play="Days/Day20/SceneC/d20c-129-anim.webm", loop = True)
+image d20d-69-anim = Movie(play="Days/Day20/SceneD/d20d-69-anim.webm", loop = True)
+image d20d-70-anim = Movie(play="Days/Day20/SceneD/d20d-70-anim.webm", loop = True)
+image d20d-71-anim = Movie(play="Days/Day20/SceneD/d20d-71-anim.webm", loop = True)
+image d20d-72-anim = Movie(play="Days/Day20/SceneD/d20d-72-anim.webm", loop = True)
+image ti-24-anim = Movie(play="World/Temple/Isra/ti-24-anim.webm", loop = True)
+image ti-25-anim = Movie(play="World/Temple/Isra/ti-25-anim.webm", loop = True)
+image ti-26-anim = Movie(play="World/Temple/Isra/ti-26-anim.webm", loop = True)
+image ti-27-anim = Movie(play="World/Temple/Isra/ti-27-anim.webm", loop = True)
+image ti-36-anim = Movie(play="World/Temple/Isra/ti-36-anim.webm", loop = True)
+image ti-37-anim = Movie(play="World/Temple/Isra/ti-37-anim.webm", loop = True)
+image ti-38-anim = Movie(play="World/Temple/Isra/ti-38-anim.webm", loop = True)
+image ti-39-anim = Movie(play="World/Temple/Isra/ti-39-anim.webm", loop = True)
+image tm-1-anim = Movie(play="World/Temple/Main/tm-1-anim.webm", loop = False, keep_last_frame = True)
+image tm-13-anim = Movie(play="World/Temple/Main/tm-13-anim.webm", loop = False, keep_last_frame = True)
+image tm-29-anim = Movie(play="World/Temple/Main/tm-29-anim.webm", loop = False, keep_last_frame = True)
+image tm-30-anim = Movie(play="World/Temple/Main/tm-30-anim.webm", loop = False, keep_last_frame = True)
+image tm-31-anim = Movie(play="World/Temple/Main/tm-31-anim.webm", loop = False, keep_last_frame = True)
+image tm-34-anim = Movie(play="World/Temple/Main/tm-34-anim.webm", loop = False, keep_last_frame = True)
+
+
+#0.21
+image d21m1 = Movie(play="Days/Day21/xmenu/d21m1.webm", loop = True)
+image d21m2 = Movie(play="Days/Day21/xmenu/d21m2.webm", loop = True)
+image d21a-1-anim = Movie(play="Days/Day21/SceneA/d21a-1-anim.webm", loop = False, keep_last_frame = True)
+image d21a-2-anim = Movie(play="Days/Day21/SceneA/d21a-2-anim.webm", loop = False, keep_last_frame = True)
+image d21a-3-anim = Movie(play="Days/Day21/SceneA/d21a-3-anim.webm", loop = False, keep_last_frame = True)
+image d21a-12-anim = Movie(play="Days/Day21/SceneA/d21a-12-anim.webm", loop = False, keep_last_frame = True)
+image d21a-12x-12-anim = Movie(play="Days/Day21/SceneA/d21a-12x-12-anim.webm", loop = True)
+image d21a-12x-12x-anim = Movie(play="Days/Day21/SceneA/d21a-12x-12x-anim.webm", loop = True)
+image d21a-32-40-anim = Movie(play="Days/Day21/SceneA/d21a-32-40-anim.webm", loop = False, keep_last_frame = True)
+image d21a-75-76-anim = Movie(play="Days/Day21/SceneA/d21a-75-76-anim.webm", loop = False, keep_last_frame = True)
+image d21a-78-anim = Movie(play="Days/Day21/SceneA/d21a-78-anim.webm", loop = False, keep_last_frame = True)
+image d21a-92-anim = Movie(play="Days/Day21/SceneA/d21a-92-anim.webm", loop = False, keep_last_frame = True)
+image d21a-107-anim = Movie(play="Days/Day21/SceneA/d21a-107-anim.webm", loop = False, keep_last_frame = True)
+image d21a-112x-38-anim = Movie(play="Days/Day21/SceneA/d21a-112x-38-anim.webm", loop = False, keep_last_frame = True)
+image d21a-112x-40-40x-anim = Movie(play="Days/Day21/SceneA/d21a-112x-40-40x-anim.webm", loop = False, keep_last_frame = True)
+image d21a-112x-42-anim = Movie(play="Days/Day21/SceneA/d21a-112x-42-anim.webm", loop = False, keep_last_frame = True)
+image d21a-125-anim = Movie(play="Days/Day21/SceneA/d21a-125-anim.webm", loop = False, keep_last_frame = True)
+image d21a-171x-171x-7-anim = Movie(play="Days/Day21/SceneA/d21a-171x-171x-7-anim.webm", loop = False, keep_last_frame = True)
+image d21b-1-3-anim = Movie(play="Days/Day21/SceneB/d21b-1-3-anim.webm", loop = False, keep_last_frame = True)
+image d21b-64-65-anim = Movie(play="Days/Day21/SceneB/d21b-64-65-anim.webm", loop = False, keep_last_frame = True)
+image d21b-66-anim = Movie(play="Days/Day21/SceneB/d21b-66-anim.webm", loop = True)
+image d21b-127-anim = Movie(play="Days/Day21/SceneB/d21b-127-anim.webm", loop = True)
+image d21b-128-anim = Movie(play="Days/Day21/SceneB/d21b-128-anim.webm", loop = False, keep_last_frame = True)
+image d21b-129-anim = Movie(play="Days/Day21/SceneB/d21b-129-anim.webm", loop = True)
+image d21b-130-anim = Movie(play="Days/Day21/SceneB/d21b-130-anim.webm", loop = True)
+image d21b-131-anim = Movie(play="Days/Day21/SceneB/d21b-131-anim.webm", loop = True)
+image d21b-151-anim = Movie(play="Days/Day21/SceneB/d21b-151-anim.webm", loop = True)
+image d21b-152-anim = Movie(play="Days/Day21/SceneB/d21b-152-anim.webm", loop = True)
+image d21b-153-anim = Movie(play="Days/Day21/SceneB/d21b-153-anim.webm", loop = True)
+image d21b-178-179-anim = Movie(play="Days/Day21/SceneB/d21b-178-179-anim.webm", loop = False, keep_last_frame = True)
+image d21b-181-anim = Movie(play="Days/Day21/SceneB/d21b-181-anim.webm", loop = True)
+image d21b-182-anim = Movie(play="Days/Day21/SceneB/d21b-182-anim.webm", loop = True)
+image d21b-183-anim = Movie(play="Days/Day21/SceneB/d21b-183-anim.webm", loop = True)
+image d21b-227-anim = Movie(play="Days/Day21/SceneB/d21b-227-anim.webm", loop = True)
+image d21b-228-anim = Movie(play="Days/Day21/SceneB/d21b-228-anim.webm", loop = True)
+image d21b-229-anim = Movie(play="Days/Day21/SceneB/d21b-229-anim.webm", loop = True)
+image d21b-230-anim = Movie(play="Days/Day21/SceneB/d21b-230-anim.webm", loop = True)
+image d21b-231-anim = Movie(play="Days/Day21/SceneB/d21b-231-anim.webm", loop = True)
+image d21b-263-anim = Movie(play="Days/Day21/SceneB/d21b-263-anim.webm", loop = False, keep_last_frame = True)
+image d21b-264-anim = Movie(play="Days/Day21/SceneB/d21b-264-anim.webm", loop = True)
+image d21b-265-anim = Movie(play="Days/Day21/SceneB/d21b-265-anim.webm", loop = True)
+image d21b-266-anim = Movie(play="Days/Day21/SceneB/d21b-266-anim.webm", loop = True)
+image d21b-290-anim = Movie(play="Days/Day21/SceneB/d21b-290-anim.webm", loop = True)
+image d21b-291-anim = Movie(play="Days/Day21/SceneB/d21b-291-anim.webm", loop = True)
+image d21b-292-anim = Movie(play="Days/Day21/SceneB/d21b-292-anim.webm", loop = True)
+image d21b-293-anim = Movie(play="Days/Day21/SceneB/d21b-293-anim.webm", loop = True)
+image d21b-294-anim = Movie(play="Days/Day21/SceneB/d21b-294-anim.webm", loop = True)
+image d21b-323-anim = Movie(play="Days/Day21/SceneB/d21b-323-anim.webm", loop = True)
+image d21b-323x-anim = Movie(play="Days/Day21/SceneB/d21b-323x-anim.webm", loop = True)
+image d21b-324-anim = Movie(play="Days/Day21/SceneB/d21b-324-anim.webm", loop = True)
+image d21b-325-anim = Movie(play="Days/Day21/SceneB/d21b-325-anim.webm", loop = True)
+image d21b-325x-anim = Movie(play="Days/Day21/SceneB/d21b-325x-anim.webm", loop = True)
+image d21b-325x-2-anim = Movie(play="Days/Day21/SceneB/d21b-325x-2-anim.webm", loop = True)
+image d21b-325x-3-anim = Movie(play="Days/Day21/SceneB/d21b-325x-3-anim.webm", loop = True)
+image d21b-325x-4-anim = Movie(play="Days/Day21/SceneB/d21b-325x-4-anim.webm", loop = True)
+image d21b-357-anim = Movie(play="Days/Day21/SceneB/d21b-357-anim.webm", loop = False, keep_last_frame = True)
+image d21b-375-anim = Movie(play="Days/Day21/SceneB/d21b-375-anim.webm", loop = False, keep_last_frame = True)
+image d21b-383-anim = Movie(play="Days/Day21/SceneB/d21b-383-anim.webm", loop = True)
+image d21b-384-anim = Movie(play="Days/Day21/SceneB/d21b-384-anim.webm", loop = True)
+image d21b-385-anim = Movie(play="Days/Day21/SceneB/d21b-385-anim.webm", loop = True)
+image d21b-386-anim = Movie(play="Days/Day21/SceneB/d21b-386-anim.webm", loop = True)
+image d21b-432-anim = Movie(play="Days/Day21/SceneB/d21b-432-anim.webm", loop = False, keep_last_frame = True)
+image d21b-454-anim = Movie(play="Days/Day21/SceneB/d21b-454-anim.webm", loop = False, keep_last_frame = True)
+image hs-39-anim = Movie(play="Home/Harem/Shani/hs-39-anim.webm", loop = True)
+image hs-39x-anim = Movie(play="Home/Harem/Shani/hs-39x-anim.webm", loop = True)
+image hs-40-anim = Movie(play="Home/Harem/Shani/hs-40-anim.webm", loop = True)
+image hs-41-anim = Movie(play="Home/Harem/Shani/hs-41-anim.webm", loop = True)
+image ke-15x-anim = Movie(play="Home/Kitchen/Emilia/ke-15x-anim.webm", loop = True)
+image ke-15x-2-anim = Movie(play="Home/Kitchen/Emilia/ke-15x-2-anim.webm", loop = True)
+image ke-15x-3-anim = Movie(play="Home/Kitchen/Emilia/ke-15x-3-anim.webm", loop = True)
+image kf-20-anim = Movie(play="Home/Kitchen/Fairy/kf-20-anim.webm", loop = True)
+image kf-20x-anim = Movie(play="Home/Kitchen/Fairy/kf-20x-anim.webm", loop = True)
+image kf-20x-2-anim = Movie(play="Home/Kitchen/Fairy/kf-20x-2-anim.webm", loop = True)
+image kk-101-anim = Movie(play="Home/Kitchen/Kateryna/kk-101-anim.webm", loop = True)
+image la-12-anim = Movie(play="Home/Library/Archaeologists/la-12-anim.webm", loop = True)
+image la-13-anim = Movie(play="Home/Library/Archaeologists/la-13-anim.webm", loop = True)
+image tj-33-anim = Movie(play="World/Temple/Jamila/tj-33-anim.webm", loop = False, keep_last_frame = True)
+image tj-35-anim = Movie(play="World/Temple/Jamila/tj-35-anim.webm", loop = True)
+image tj-36-anim = Movie(play="World/Temple/Jamila/tj-36-anim.webm", loop = True)
+image tj-37-anim = Movie(play="World/Temple/Jamila/tj-37-anim.webm", loop = True)
+image vst-107-anim = Movie(play="Home/Rooms/Shani/Training/vst-107-anim.webm", loop = True)
+image vst-108-anim = Movie(play="Home/Rooms/Shani/Training/vst-108-anim.webm", loop = True)
+image vst-109-anim = Movie(play="Home/Rooms/Shani/Training/vst-109-anim.webm", loop = True)
+image ba-73-anim = Movie(play="Home/Basement/Ain/ba-73-anim.webm", loop = True)
+image ba-74-anim = Movie(play="Home/Basement/Ain/ba-74-anim.webm", loop = True)
+image ba-75-anim = Movie(play="Home/Basement/Ain/ba-75-anim.webm", loop = True)
+image ba-76-anim = Movie(play="Home/Basement/Ain/ba-76-anim.webm", loop = True)
+
+#####
+image vst-65-anim = Movie(play="Home/Rooms/Shani/Training/vst-65-anim.webm", start_image = 'Home/Rooms/Shani/Training/vst-65-anim-start.png', loop = True)
+image vst-65x-anim = Movie(play="Home/Rooms/Shani/Training/vst-65x-anim.webm", start_image = 'Home/Rooms/Shani/Training/vst-65x-anim-start.png', loop = True)
+image vst-65x-2-anim = Movie(play="Home/Rooms/Shani/Training/vst-65x-2-anim.webm", loop = True)
+image ml-39-anim = Movie(play="world/mutants/lab/ml-39-anim.webm", start_image = 'world/mutants/lab/ml-39-anim-start.png', loop = True)
+image ml-40-anim = Movie(play="world/mutants/lab/ml-40-anim.webm", start_image = 'world/mutants/lab/ml-40-anim-start.png', loop = True)
+image ml-41-anim = Movie(play="world/mutants/lab/ml-41-anim.webm", start_image = 'world/mutants/lab/ml-41-anim-start.png', loop = True)
+image ml-58-anim = Movie(play="world/mutants/lab/ml-58-anim.webm", start_image = 'world/mutants/lab/ml-58-anim-start.png', loop = True)
+image ml-60-anim = Movie(play="world/mutants/lab/ml-60-anim.webm", start_image = 'world/mutants/lab/ml-60-anim-start.png', loop = True)
+image ml-61-anim = Movie(play="world/mutants/lab/ml-61-anim.webm", start_image = 'world/mutants/lab/ml-61-anim-start.png', loop = True)
+image ml-62-anim = Movie(play="world/mutants/lab/ml-62-anim.webm", start_image = 'world/mutants/lab/ml-62-anim-start.png', loop = True)
+image ml-63-anim = Movie(play="world/mutants/lab/ml-63-anim.webm", start_image = 'world/mutants/lab/ml-63-anim-start.png', loop = True)
+image ml-122-anim = Movie(play="world/mutants/lab/ml-122-anim.webm", start_image = 'world/mutants/lab/ml-122-anim-start.png', loop = True)
+image ml-123-anim = Movie(play="world/mutants/lab/ml-123-anim.webm", start_image = 'world/mutants/lab/ml-123-anim-start.png', loop = True)
+image ml-124-anim = Movie(play="world/mutants/lab/ml-124-anim.webm", start_image = 'world/mutants/lab/ml-124-anim-start.png', loop = True)
+image ml-125-anim = Movie(play="world/mutants/lab/ml-125-anim.webm", start_image = 'world/mutants/lab/ml-125-anim-start.png', loop = True)
+image ml-151-anim = Movie(play="world/mutants/lab/ml-151-anim.webm", start_image = 'world/mutants/lab/ml-151-anim-start.png', loop = True)
+image ml-152-anim = Movie(play="world/mutants/lab/ml-152-anim.webm", start_image = 'world/mutants/lab/ml-152-anim-start.png', loop = True)
+image ml-153-anim = Movie(play="world/mutants/lab/ml-153-anim.webm", start_image = 'world/mutants/lab/ml-153-anim-start.png', loop = True)
+image vi-13-anim = Movie(play="home/visit/igor/vi-13-anim.webm", start_image = 'home/visit/igor/vi-13-anim-start.png', loop = True)
+image vi-14-anim = Movie(play="home/visit/igor/vi-14-anim.webm", start_image = 'home/visit/igor/vi-14-anim-start.png', loop = True)
+image vi-15-anim = Movie(play="home/visit/igor/vi-15-anim.webm", start_image = 'home/visit/igor/vi-15-anim-start.png', loop = True)
+image d2e-23-25-anim = Movie(play="Days/Day2/SceneE/d2e-23-25-anim.webm", start_image = 'Days/Day2/SceneE/d2e-23-25-anim-start.png', image = 'Days/Day2/SceneE/d2e-23-25-anim-end.png', loop = False)
+image d2f-39-anim = Movie(play="Days/Day2/SceneF/d2f-39-anim.webm", start_image = 'Days/Day2/SceneF/d2f-39-anim-start.png', loop = True)
+image d2f-41-anim = Movie(play="Days/Day2/SceneF/d2f-41-anim.webm", start_image = 'Days/Day2/SceneF/d2f-41-anim-start.png', loop = True)
+image d3c-7-anim = Movie(play="Days/Day3/SceneC/d3c-7-anim.webm", start_image = 'Days/Day3/SceneC/d3c-7-anim-start.png', loop = False, keep_last_frame = True)
+image d3c-52-anim = Movie(play="Days/Day3/SceneC/d3c-52-anim.webm", start_image = 'Days/Day3/SceneC/d3c-52-anim-start.png', image = 'Days/Day3/SceneC/d3c-52-anim-end.png', loop = False)
+image d4a-12-anim = Movie(play="Days/Day4/SceneA/d4a-12-anim.webm", start_image = 'Days/Day4/SceneA/d4a-12-anim-start.png', loop = True)
+image d4a-13-anim = Movie(play="Days/Day4/SceneA/d4a-13-anim.webm", start_image = 'Days/Day4/SceneA/d4a-13-anim-start.png', loop = True)
+image d4a-19-anim = Movie(play="Days/Day4/SceneA/d4a-19-anim.webm", start_image = 'Days/Day4/SceneA/d4a-19-anim-start.png', loop = True)
+image d4a-20-anim = Movie(play="Days/Day4/SceneA/d4a-20-anim.webm", start_image = 'Days/Day4/SceneA/d4a-20-anim-start.png', loop = True)
+image d4a-20x-anim = Movie(play="Days/Day4/SceneA/d4a-20x-anim.webm", start_image = 'Days/Day4/SceneA/d4a-20x-anim-start.png', loop = True)
+image d5c-142-144-anim = Movie(play="Days/Day5/SceneC/d5c-142-144-anim.webm", start_image = 'Days/Day5/SceneC/d5c-142-144-anim-start.png', loop = True)
+image d5b-19x-9-anim = Movie(play="Days/Day5/SceneB/d5b-19x-9-anim.webm", start_image = 'Days/Day5/SceneB/d5b-19x-9-anim-start.png', image = 'Days/Day5/SceneB/d5b-19x-9-anim-end.png', loop = False)
+image d5c-36-38-anim = Movie(play="Days/Day5/SceneC/d5c-36-38-anim.webm", start_image = 'Days/Day5/SceneC/d5c-36-38-anim-start.png', image = 'Days/Day5/SceneC/d5c-36-38-anim-end.png', loop = False)
+image d5c-41-anim = Movie(play="Days/Day5/SceneC/d5c-41-anim.webm", start_image = 'Days/Day5/SceneC/d5c-41-anim-start.png', image = 'Days/Day5/SceneC/d5c-41-anim-end.png', loop = False)
+image d5c-44-45-anim = Movie(play="Days/Day5/SceneC/d5c-44-45-anim.webm", start_image = 'Days/Day5/SceneC/d5c-44-45-anim-start.png', image = 'Days/Day5/SceneC/d5c-44-45-anim-end.png', loop = False)
+image d5c-72-73-anim = Movie(play="Days/Day5/SceneC/d5c-72-73-anim.webm", start_image = 'Days/Day5/SceneC/d5c-72-73-anim-start.png', image = 'Days/Day5/SceneC/d5c-72-73-anim-end.png', loop = False)
+image d5c-142-144-anim = Movie(play="Days/Day5/SceneC/d5c-142-144-anim.webm", start_image = 'Days/Day5/SceneC/d5c-142-144-anim-start.png', loop = True)
+image d5c-209-anim = Movie(play="Days/Day5/SceneC/d5c-209-anim.webm", start_image = 'Days/Day5/SceneC/d5c-209-anim-start.png', loop = True)
+image d5c-210-anim = Movie(play="Days/Day5/SceneC/d5c-210-anim.webm", start_image = 'Days/Day5/SceneC/d5c-210-anim-start.png', loop = True)
+image d5c-211-anim = Movie(play="Days/Day5/SceneC/d5c-211-anim.webm", start_image = 'Days/Day5/SceneC/d5c-211-anim-start.png', loop = True)
+image d5c-212-anim = Movie(play="Days/Day5/SceneC/d5c-212-anim.webm", start_image = 'Days/Day5/SceneC/d5c-212-anim-start.png', loop = True)
+image d5c-257-anim = Movie(play="Days/Day5/SceneC/d5c-257-anim.webm", start_image = 'Days/Day5/SceneC/d5c-257-anim-start.png', loop = True)
+image d5c-258-anim = Movie(play="Days/Day5/SceneC/d5c-258-anim.webm", start_image = 'Days/Day5/SceneC/d5c-258-anim-start.png', loop = True)
+image d5c-259-anim = Movie(play="Days/Day5/SceneC/d5c-259-anim.webm", start_image = 'Days/Day5/SceneC/d5c-259-anim-start.png', loop = True)
+image d5d-67-69-anim = Movie(play="Days/Day5/SceneD/d5d-67-69-anim.webm", start_image = 'Days/Day5/SceneD/d5d-67-69-anim-start.png', image = 'Days/Day5/SceneD/d5d-67-69-anim-end.png', loop = False)
+image d5e-20-anim = Movie(play="Days/Day5/SceneE/d5e-20-anim.webm", start_image = 'Days/Day5/SceneE/d5e-20-anim-start.png', loop = True)
+image d5e-21-anim = Movie(play="Days/Day5/SceneE/d5e-21-anim.webm", start_image = 'Days/Day5/SceneE/d5e-21-anim-start.png', loop = True)
+image d5e-21x-anim = Movie(play="Days/Day5/SceneE/d5e-21x-anim.webm", start_image = 'Days/Day5/SceneE/d5e-21x-anim-start.png', loop = True)
+
+#### Generic
+image wm-bg-anim = Movie(play="World/World Map/wm-bg-anim.webm", start_image = "World/World Map/wm-bg-anim-1x.png", loop = True)
+image mm-nav-bg = Movie(play="gui/main_menu/mm_nav_bg.webm", side_mask = True, loop = True)
+image no-anims = "gui/notifications/no-anims.png"
+
+transform pan_up:
+    yalign 1.0
+    easein 3.2 yalign 0.0
+
+transform zoom_out:
+    zoom 1.0
+    xalign 0.5
+    yalign 0.5
+    linear 2.0 zoom 0.98
+
+##### Image ATLs #####
+image input_caret:
+    "gui/caret/caret_full.png" with dissolve
+    pause 0.7
+    "gui/caret/caret_empty.png" with dissolve
+    pause 0.3
+    repeat
+
+image d18b-64-65x-anim:
+    "d18b-64-65-anim"
+    pause 12
+    block:
+        "d18b-65-anim"
+        pause 9.5
+        repeat
+
+image d15c-137x-3:
+    "d15c-135"
+    pause 0.1
+    "d15c-136" with Dissolve(0.8) 
+    pause 2
+    "d15c-137" with Dissolve(0.8)
+    pause 0.8
+    "d15c-137x" with Dissolve(0.8)
+    pause 0.8
+    "d15c-137x-2" with Dissolve(0.8)
+    pause 0.8
+    
+image d15c-135x:
+    "black pic"
+    "d15c-135" with Dissolve(2)
+    
+image d15c-123x-4:
+    "d15c-137x-2"
+    pause 0.1
+    "d15c-123" with Dissolve(0.8)
+    pause 0.8
+    "d15c-123x" with Dissolve(0.8)
+    pause 0.8
+    "d15c-123x-2" with Dissolve(0.8)
+    pause 0.8
+    "d15c-123x-3" with Dissolve(0.8)
+
+image d15c-126x-4:
+    "d15c-125"
+    pause 0.1
+    "d15c-122" with Dissolve(1)
+    pause 1
+    "d15c-126" with Dissolve(0.8)
+    pause 0.8
+    "d15c-126x" with Dissolve(0.8)
+    pause 0.8
+    "d15c-126x-2" with Dissolve(0.8)
+    pause 0.8
+    "d15c-126x-3" with Dissolve(0.8)
+
+
+image d15c-129x-4:
+    "d15c-128"
+    pause 0.1
+    "d15c-122" with Dissolve(1)
+    pause 1
+    "d15c-129" with Dissolve(0.8)
+    pause 0.8
+    "d15c-129x" with Dissolve(0.8)
+    pause 0.8
+    "d15c-129x-2" with Dissolve(0.8)
+    pause 0.8
+    "d15c-129x-3" with Dissolve(0.8)
+
+image d15c-132x-8:
+    "d15c-131"
+    pause 0.1
+    "d15c-122" with Dissolve(1)
+    pause 1
+    "d15c-132" with Dissolve(0.35)
+    pause 0.35
+    "d15c-132x" with Dissolve(0.35)
+    pause 0.35
+    "d15c-132x-2" with Dissolve(0.35)
+    pause 0.35
+    "d15c-132x-3" with Dissolve(0.35)
+    pause 0.35
+    "d15c-132x-4" with Dissolve(0.35)
+    pause 0.35
+    "d15c-132x-5" with Dissolve(0.35)
+    pause 0.35
+    "d15c-132x-6" with Dissolve(0.35)
+    pause 0.35
+    "d15c-132x-7" with Dissolve(0.35)
+
+image d15c-138x:
+    "black pic"
+    "d15c-122"
+    pause 0.1
+    "d15c-138" with Dissolve(2)
+
+image d13a-92-93:
+    "d13a-92" with fade
+    block:
+        pause 0.5
+        "d13a-93" with Dissolve(0.1)
+        pause 0.1
+        "d13a-92" with Dissolve(0.1)
+        pause 0.7
+        "d13a-93" with Dissolve(0.1)
+        pause 0.1
+        "d13a-92" with Dissolve(0.1)
+        repeat
+
+image d13j-6x:
+    block:
+        "d13j-6"
+        pause 0.8
+        "black pic"
+        pause 0.15
+        "d13j-6"
+        pause 1.7
+        "black pic"
+        pause 0.1
+        "d13j-6"
+        pause 0.15
+        "black pic"
+        pause 0.2
+        repeat
+
+image d13j-5x:
+    block:
+        "d13j-5"
+        pause 0.8
+        "black pic"
+        pause 0.15
+        "d13j-5"
+        pause 1.7
+        "black pic"
+        pause 0.1
+        "d13j-5"
+        pause 0.15
+        "black pic"
+        pause 0.2
+        repeat
+
+image d13j-3-4:
+    block:
+        "d13j-3"
+        pause 0.8
+        "d13j-4"
+        pause 0.15
+        "d13j-3"
+        pause 1.7
+        "d13j-4"
+        pause 0.1
+        "d13j-3"
+        pause 0.15
+        "d13j-4"
+        pause 0.2
+        repeat
+        
+
+image d13a-183x:
+    block:
+        "d13a-183x-anim"
+        pause 1.666
+        function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/actions/punch 1.mp3")
+        repeat
+
+image d13a-183x-2:
+    block:
+        function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/gore/punch blood.mp3")
+        "d13a-183x-anim"
+        pause 1.666
+        function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/actions/punch 1.mp3")
+        "d13a-183x-anim"
+        pause 1.666
+        function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/gore/bone crack.mp3")
+        "d13a-183x-anim"
+        pause 1.666
+        repeat
+
+image d13a-116-120-anim:
+    block:
+        "d13a-116-anim" with dissolve
+        pause 3.0
+        "d13a-117-anim" with dissolve
+        pause 3.0
+        "d13a-118-anim" with dissolve
+        pause 3.0
+        "d13a-119-anim" with dissolve
+        pause 3.0
+        "d13a-120-anim" with dissolve
+        pause 3.0
+        repeat
+
+
+
+image d11b-16-anim:
+    block:
+        "d11b-16" with Dissolve(0.1)
+        pause 0.3
+        "d11b-15" with Dissolve(0.1)
+        pause 1
+        "d11b-16" with Dissolve(0.1)
+        pause 0.3
+        "d11b-15" with Dissolve(0.1)
+        repeat
+
+image d21a-12-anim-atl:
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    
+    pause 0.7
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer beep.mp3")
+
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 0.13
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    
+    pause 0.7
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer beep.mp3")
+
+    pause 1
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    pause 1
+
+image d11a-48x-atl:
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-2"
+    pause 0.1
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-3"
+    pause 0.1
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-4"
+    pause 0.1
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-5"
+    pause 0.1
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-6"
+    pause 0.1
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-7"
+    pause 0.1
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-8"
+    pause 0.1
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-9"
+    pause 0.1
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-10"
+    pause 0.1
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-11"
+    pause 0.1
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-12"
+    pause 1.5
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-13"
+    pause 1
+    "d11a-48x-14"
+    pause 0.5
+    "d11a-48x-15"
+    pause 0.5
+    "d11a-48x-16"
+    pause 0.5
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer beep.mp3")
+    "d11a-48x-17"
+    pause 1.5
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-18"
+    pause 1
+    "d11a-48x-19"
+    pause 0.5
+    "d11a-48x-20"
+    pause 0.5
+    "d11a-48x-21"
+    pause 0.5
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer beep.mp3")
+    "d11a-48x-22"
+    pause 1
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/objects/computer press.mp3")
+    "d11a-48x-23"
+    pause 1
+
+image d10a-189-191-atl:
+    "d10a-190" with Dissolve(0.1)
+    pause 0.3
+    "d10a-189" with Dissolve(0.1)
+    pause 0.8
+    "d10a-190" with Dissolve(0.1)
+    pause 0.1
+    "d10a-189" with Dissolve(0.1)
+    pause 0.2
+    "d10a-190" with Dissolve(0.1)
+    pause 0.3
+    "d10a-189" with Dissolve(0.1)
+    repeat
+
+image d10a-36-37-atl:
+    "d10a-37" with Dissolve(0.1)
+    pause 0.6
+    "d10a-36" with Dissolve(0.1)
+    pause 1.2
+    "d10a-37" with Dissolve(0.1)
+    pause 0.4
+    "d10a-36" with Dissolve(0.1)
+    pause 1.2
+    "d10a-37" with Dissolve(0.1)
+    pause 0.3
+    "d10a-36" with Dissolve(0.1)
+    repeat
+
+image d8a-317-atl:
+    contains:
+        "d8a-317x-2"
+        xpos -1100
+        parallel:
+            zoom 1.0
+            linear 10 zoom 0.965
+    contains:
+        "d8a-317x"
+        parallel:
+            zoom 0.55
+            linear 10 zoom 0.53
+
+image d8a-309-atl:
+    contains:
+        "d8a-309x-2"
+        xpos -1000
+        linear 61.0 xpos -1763
+    contains:
+        "d8a-309x"
+
+##### Main menu ATL animations #####
+image mm_bg = ConditionSwitch(
+    "persistent.mm == '0.21B'", 'd21mm_b',
+    "persistent.mm == '0.21A'", 'd21mm_a',
+    "persistent.mm == '0.21'", 'd21mm_a',
+    "persistent.mm == '0.20B'", 'd20mm_b',
+    "persistent.mm == '0.20A'", 'd20mm_a',
+    "persistent.mm == '0.20'", 'd20mm_a',
+    "persistent.mm == '0.19'", 'd19mm',
+    "persistent.mm == '0.18'", 'd18mm',
+    "persistent.mm == '0.17'", 'd17mm',
+    "persistent.mm == '0.16'", 'd16mm',
+    "persistent.mm == '0.15'", 'd15mm',
+    "persistent.mm == '0.14'", 'd14mm',
+    "persistent.mm == '0.13'", 'd13mm',
+    "persistent.mm == '0.12'", 'd12mm',
+    "persistent.mm == '0.11'", 'd11mm',
+    "persistent.mm == '0.10'", 'd10mm',
+    "persistent.mm == '0.09'", 'd9mm',
+    "persistent.mm == '0.08'", 'd8mm',
+    "persistent.mm == '0.07'", "d7mm",
+    "persistent.mm == '0.06'", 'd6mm',
+    "persistent.mm == '0.05'", "d5mm",
+    "persistent.mm == '0.04'", 'd4mm',
+    "persistent.mm == '0.03'", "d3mm",
+    "persistent.mm == '0.02'", 'd2mm',
+    "persistent.mm == '0.01'", "d1mm",
+    True, 'd9mm')
+
+
+
+image d20mm_random:
+    choice:
+        block:
+            'd20m1'
+            pause 17
+            repeat
+    choice:
+        block:
+            'd20m2'
+            pause 17
+            repeat
+    choice:
+        block:
+            'd20m3'
+            pause 17
+            repeat
+
+image d21mm_b:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = renpy.random.choice(["music/exploration/rain all around.mp3"]), fadein = 2)
+    "d21m2" with slowfade
+    pause 17
+
+image d21mm_a:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'stop', channel = "music", fadeout = 1)
+    "d21m1" with slowfade
+    pause 17
+
+image d20mm_b:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "music/mutants/digital decay long.mp3", fadein = 2)
+    "d20m4" with slowfade
+    pause 17
+
+image d20mm_a:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "music/decayed/biohazard.mp3", fadein = 2)
+    # function atl_play_music(action = 'play', channel = "music", file = "music/decayed/biohazard.mp3", fadein = 2)
+    "d20mm_random" with slowfade
+    pause 17
+
+image d19mm_1:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "music/zone/shock no intro.mp3", fadein = 2)
+    "d19f-351-anim" with slowfade
+    pause 17
+
+image d19mm_2:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "music/zone/shock no intro.mp3", fadein = 2)
+    "d19f-365-anim" with slowfade
+    pause 17
+
+image d19mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "music/zeta/mirage of three.mp3", fadein = 2)
+    "d19m1" with slowfade
+    pause 17
+
+image d18mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "music/zeta/khopesh loop.mp3", fadein = 2)
+    "d18m1" with slowfade
+    pause 17
+
+image d17mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "music/mutants/chilis theme.mp3", fadein = 2)
+    "d17m1" with slowfade
+    pause 17
+
+image d16mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/exploration/main theme.mp3", fadein = 2)
+    "d16m1" with slowfade
+    pause 17
+
+image d15mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/exploration/past and present.mp3", fadein = 2)
+    "d15m1" with slowfade
+    pause 17
+
+image d14mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'stop', channel = "music", fadeout = 1)
+    "d14m1" with slowfade
+    pause 17
+
+image d13mm:
+    function atl_play_music(action = 'stop', channel = "music")
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/environment/desert wind.mp3", fadein = 1, volume = 4.0)
+    "d13m1" with slowfade
+    pause 7
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 60)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/playlists/ave maria guitar.mp3", fadein = 20)
+    pause 20
+
+image d12mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/zeta/deserts of arabia.mp3", fadein = 2)
+    "d12m1" with slowfade
+    pause 17
+
+image d11mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/zone/silent fields.mp3", fadein = 2)
+    "d11m1" with slowfade
+    pause 20
+
+image d10mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/raiders/dominance.mp3", fadein = 2)
+    "d10m1" with slowfade
+    pause 20
+
+image d9mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/zeta/authority.mp3", fadein = 2)
+    "d9m1" with slowfade
+    pause 8
+
+image d8mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/zone/there and back again.mp3", fadein = 1)
+    "d1a-5x-anim" with slowfade
+    pause 15 #10.2
+    "d1a-5x-end"
+    pause 0.3
+    "images/Days/black pic.png" with Dissolve(0.3)
+    pause 1.2
+    "images/Days/Day8/SceneA/d8a-78.png" with slowfade
+    pause 8.15
+    "images/Days/Day8/SceneB/d8b-28.png" with slowfade
+    pause 8.15
+    "images/Days/Day8/SceneB/d8b-87.png" with slowfade
+    pause 8.9
+    "images/Days/Day8/SceneB/d8b-73.png" with slowfade
+    pause 7.9
+    "images/Days/Day8/SceneB/d8b-145.png" with slowfade
+    pause 7.8
+    "images/Days/Day8/SceneA/d8a-23.png" with slowfade
+    pause 10.8
+    "d8a-309-atl" with slowfade4
+    pause 20.0
+
+image d7mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/zeta/war music continued.mp3", fadein = 4)
+    "images/Days/Day7/SceneA/d7a-98.png"
+    pause 4.476
+    block:
+        "images/Days/Day7/xmenu/menu7-3.png" with Dissolve(0.15)
+        pause 0.38
+        "images/Days/Day7/xmenu/menu7-6.png" with Dissolve(0.15)
+        pause 0.45
+        "images/Days/Day7/SceneA/d7a-98.png" with Dissolve(0.2)
+        pause 3.97
+        "images/Days/Day7/xmenu/menu7-7.png" with Dissolve(0.15)
+        pause 0.38
+        "images/Days/Day7/xmenu/menu7-1.png" with Dissolve(0.15)
+        pause 0.45
+        "images/Days/Day7/SceneA/d7a-98.png" with Dissolve(0.2)
+        pause 3.97
+        "images/Days/Day7/xmenu/menu7-4.png" with Dissolve(0.15)
+        pause 0.38
+        "images/Days/Day7/xmenu/menu7-5.png" with Dissolve(0.15)
+        pause 0.45
+        "images/Days/Day7/SceneA/d7a-98.png" with Dissolve(0.2)
+        pause 3.97
+        "images/Days/Day7/xmenu/menu7-2.png" with Dissolve(0.15)
+        pause 0.38
+        "images/Days/Day7/xmenu/menu7-8.png" with Dissolve(0.15)
+        pause 0.45
+        "images/Days/Day7/SceneA/d7a-98.png" with Dissolve(0.2)
+        pause 3.97
+        "images/Days/Day7/xmenu/menu7-9.png" with Dissolve(0.15)
+        pause 0.38
+        "images/Days/Day7/xmenu/menu7-10.png" with Dissolve(0.15)
+        pause 0.45
+        "images/Days/Day7/SceneA/d7a-98.png" with Dissolve(0.2)
+        pause 3.97
+        repeat
+
+image d6mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/exploration/spatium.mp3")
+    "images/Days/Day6/SceneB/d6b-1.png"
+    pause 10
+    "images/Days/Day6/SceneB/d6b-6.png" with w33slow
+    pause 10
+    "images/Days/Day6/SceneB/d6b-5.png" with w33slow
+    pause 10
+    "images/Days/Day6/SceneB/d6b-7.png" with w33slow
+    pause 5
+    function atl_play_music(action = 'play', channel = "sound", file = "audio/sounds/environment/reverse.mp3")
+    function atl_play_music(action = 'stop', channel = "music", fadeout = 7)
+    pause 7.85
+    "images/Days/black pic.png"
+    pause 2
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/exploration/main theme.mp3", fadein = 4)
+    "images/Days/Day6/xmenu/menu6-1.png" with slowfade3
+
+image d5mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/mutants/the stalker.mp3")
+    "images/Days/Day5/xmenu/menu3.png"
+    pause 1
+    "images/Days/Day5/xmenu/menu2.png" with Dissolve(2)
+    pause 3
+    "images/Days/Day5/xmenu/menu3.png" with Dissolve(3)
+    pause 3.5
+    "images/Days/Day5/xmenu/menu4.png" with wipeleft
+    pause 4.3
+    "images/Days/Day5/xmenu/menu5.png" with wipeleft
+    pause 4.3
+    "images/Days/Day5/xmenu/menu9.png" with wipeleft
+    pause 4.25
+    "images/Days/Day5/xmenu/menu12.png"
+    pause 0.135
+    "images/Days/Day5/xmenu/menu8.png"
+    pause 0.135
+    "images/Days/Day5/xmenu/menu6.png"
+    pause 0.135
+    "images/Days/Day5/xmenu/menu10.png"
+    pause 0.135
+    "images/Days/Day5/xmenu/menu7.png"
+    pause 3.9
+    "images/Days/Day5/xmenu/menu13.png" with wipeleft
+    pause 3.9
+    "images/Days/Day5/xmenu/menu11.png"
+    pause 0.135
+    "images/Days/Day5/xmenu/menu14.png"
+    pause 0.135
+    "images/Days/Day5/xmenu/menu15.png"
+    pause 0.135
+    "images/Days/Day5/xmenu/menu16.png"
+    pause 0.135
+    "images/Days/Day5/xmenu/menu6.png"
+    pause 3.5
+    "images/Days/Day5/xmenu/menu3.png" with wiperight
+    pause 3
+    block:
+        "images/Days/Day5/xmenu/menu2.png" with Dissolve(3)
+        pause 5
+        "images/Days/Day5/xmenu/menu1.png" with Dissolve(3)
+        pause 5
+        "images/Days/Day5/xmenu/menu2.png" with Dissolve(3)
+        pause 5
+        "images/Days/Day5/xmenu/menu3.png" with Dissolve(3)
+        pause 5
+        "images/Days/Day5/xmenu/menu2.png" with Dissolve(3)
+        pause 5
+        "images/Days/Day5/xmenu/menu1.png" with Dissolve(3)
+        pause 5
+        repeat
+
+image d4mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/zeta/city music long.mp3", fadein = 2)
+    block:
+        "images/Days/Day4/xmenu/d4m1.jpg" with Dissolve(3.0)
+        pause 10.0
+        "images/Days/Day4/xmenu/d4m2.jpg" with Dissolve(3.0)
+        pause 10.0
+        "images/Days/Day4/xmenu/d4m3.jpg" with Dissolve(3.0)
+        pause 10.0
+        "images/Days/Day4/xmenu/d4m4.jpg" with Dissolve(3.0)
+        pause 10.0
+        repeat
+
+image d3mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/decayed/the traveller.mp3", fadein = 2)
+    "images/Days/Day3/xmenu/d3m1.jpg"
+
+image d2mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/exploration/wasteland intro.mp3", fadein = 2)
+    "images/Days/Day2/xmenu/d2m1.jpg"
+
+image d1mm:
+    function atl_play_music(action = 'stop', channel = "sound", fadeout = 1)
+    function atl_play_music(action = 'play', channel = "music", file = "audio/music/exploration/old theme.mp3", fadein = 2)
+    "images/Days/Day1/xmenu/d1m1.jpg"

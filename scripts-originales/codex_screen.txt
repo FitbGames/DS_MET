@@ -1,0 +1,134 @@
+init 1 python:
+    def is_read(c):
+        for entry in (e for e in persistent.codex_entries if e.category == c):
+            if entry.discovered and entry.read is False:
+                return False
+        return True
+
+style codex_text is text:
+    color "#352f24"
+    font "gui/fonts/Artifex.otf"
+
+style side_codex_scrollbar is vscrollbar:
+    unscrollable 'hide'
+    ymaximum 680
+    bar_vertical True
+    bar_resizing False
+    base_bar "gui/scrollbar/codex_scrollbar.png"
+    thumb "gui/scrollbar/codex_scrollbar_marker.png"
+
+transform codex_fade:
+    alpha 0.0
+    ypos -1100
+    on show:
+        parallel:
+            easein 1.0 ypos 0
+        parallel:
+            easeout 1.0 alpha 1.0
+
+
+screen codex():
+    modal True
+    default cat = 'People'
+    default header = ''
+    default content = ''
+    default img = None
+    default vp_y = ui.adjustment()
+    $ ce = [i for i in persistent.codex_entries if i.title.startswith('[')] + sorted([i for i in persistent.codex_entries if i.discovered is True and not i.title.startswith('[')], key=lambda i: i.title) + [i for i in persistent.codex_entries if i.discovered is False]
+    frame padding(0,0) pos (0, 0) at codex_fade:
+        background 'gui/codex/codex_bg.png'
+        imagebutton xcenter 1860 ycenter 55 padding(0,0) at nav_button_state :
+            idle 'gui/codex/codex_close_btn.png'
+            action Return()
+
+        vbox:
+            spacing 0
+            hbox:
+                xfill True
+                frame padding(0,0) background None:
+                    ysize 177
+                    button xpos 175 ypos 0 padding(0,0) xsize 212 ysize 112:
+                        idle_background 'gui/codex/people_btn_idle.png'
+                        hover_background 'gui/codex/people_btn_hover.png'
+                        selected_background 'gui/codex/people_btn_hover.png'
+                        if not is_read('People'):
+                            add 'gui/codex/category_unread_marker.png' xoffset -47
+                        action SetScreenVariable('cat', 'People')
+                    button xpos 437 ypos 0 padding(0,0) xsize 202 ysize 112:
+                        idle_background 'gui/codex/places_btn_idle.png'
+                        hover_background 'gui/codex/places_btn_hover.png'
+                        selected_background 'gui/codex/places_btn_hover.png'
+                        if not is_read('Places'):
+                            add 'gui/codex/category_unread_marker.png' xoffset -57
+                        action SetScreenVariable('cat', 'Places')
+                    button xpos 689 ypos 0 padding(0,0) xsize 258 ysize 112:
+                        idle_background 'gui/codex/customs_btn_idle.png'
+                        hover_background 'gui/codex/customs_btn_hover.png'
+                        selected_background 'gui/codex/customs_btn_hover.png'
+                        if not is_read('Customs'):
+                            add 'gui/codex/category_unread_marker.png' xoffset -1
+                        action SetScreenVariable('cat', 'Customs')
+                    button xpos 997 ypos 0 padding(0,0) xsize 194 ysize 112:
+                        idle_background 'gui/codex/notes_btn_idle.png'
+                        hover_background 'gui/codex/notes_btn_hover.png'
+                        selected_background 'gui/codex/notes_btn_hover.png'
+                        if not is_read('Notes'):
+                            add 'gui/codex/category_unread_marker.png' xoffset -65
+                        action SetScreenVariable('cat', 'Notes')
+
+
+
+            hbox:
+                ypos 39
+                vbox:
+                    xminimum 350
+                    vpgrid id "sidebar":
+                        ysize 790
+                        cols 1
+                        draggable True
+                        mousewheel True
+                        xpos 75
+                        spacing 10
+                        for item in ce:
+                            if item.category == cat:
+                                button padding(0,0) xsize 350 ysize 97:
+                                    idle_background 'gui/codex/button_idle.png'
+                                    hover_background 'gui/codex/button_hover.png'
+                                    selected_background 'gui/codex/button_hover.png'
+                                    insensitive_background 'gui/codex/button_idle.png'
+                                    sensitive item.discovered == True
+                                    selected header == item.header
+                                    if item.discovered:
+                                        text "%s"%(renpy.translate_string(item.title, language = _preferences.language)) xalign 0.5 yalign 0.5 size item.font_size style 'codex_text'
+                                    else:
+                                        text "???" xalign 0.5 yalign 0.5 size item.font_size style 'codex_text'
+                                    if not item.read and item.discovered:
+                                        add 'gui/codex/button_unread_marker.png'
+                                    action [SetScreenVariable('header', item.header), SetScreenVariable('content', item.content), SetScreenVariable('img', item.img), Function(item.mark_read), Function(vp_y.change, 0)]
+
+                vbox:
+                    xpos 217
+                    xsize 810
+                    vbox:
+                        xfill True
+                        ysize 60
+                        text [header] xalign 0.5 size 40 style 'codex_text'
+                    side ("c r"):
+                        area (0,0,810,680)
+                        viewport id "content":
+                            yadjustment vp_y
+                            ysize 690
+                            mousewheel True
+                            draggable "touch"
+                            has vbox
+                            for idx, c in enumerate(content):
+                                text "%s"%(renpy.translate_string(c, language = _preferences.language).lstrip()) style 'codex_text' size 30
+                                if idx < len(content) - 1:
+                                    vbox:
+                                        ysize 45
+                                        xfill True
+                                        text "{image=gui/codex/entry_divider.png}" xalign 0.5
+                        vbar value YScrollValue("content") style "side_codex_scrollbar"
+                vbox:
+                    xpos 250
+                    add img

@@ -1,0 +1,691 @@
+style ic_button_button:
+    activate_sound "audio/sounds/objects/computer press.mp3"
+    ysize 30
+    xsize 500
+    keyboard_focus True
+    focus_mask None
+    padding (25, 0, 0, 0)
+
+style ic_button_text:
+    font "gui/fonts/CutiveMono-Regular.ttf"
+    color "#3bd136"
+    outlines [ (2, "#41de3c22", 0, 0), (1, "#41de3c22", 0, 0),  (1, "#41de3c22", 0, 0) ]
+    size 25
+    yalign 0.3
+
+style ic_text:
+    font "gui/fonts/CutiveMono-Regular.ttf"
+    color "#3bd136"
+    outlines [ (2, "#41de3c22", 0, 0), (1, "#41de3c22", 0, 0),  (1, "#41de3c22", 0, 0) ]
+    size 22
+
+style ic_button_button:
+    variant "mobile"
+    activate_sound "audio/sounds/objects/computer press.mp3"
+    ysize 40
+    xsize 500
+    keyboard_focus True
+    focus_mask None
+    padding (25, 0, 0, 0)
+
+style ic_button_text:
+    variant "mobile"
+    font "gui/fonts/CutiveMono-Regular.ttf"
+    color "#3bd136"
+    outlines [ (2, "#41de3c22", 0, 0), (1, "#41de3c22", 0, 0),  (1, "#41de3c22", 0, 0) ]
+    size 40
+    yalign 0.3
+
+style ic_text:
+    variant "mobile"
+    font "gui/fonts/CutiveMono-Regular.ttf"
+    color "#3bd136"
+    outlines [ (2, "#41de3c22", 0, 0), (1, "#41de3c22", 0, 0),  (1, "#41de3c22", 0, 0) ]
+    size 40
+
+style ic_scrollbar is vscrollbar:
+    xpos 20
+    unscrollable 'hide'
+    ymaximum 480
+    bar_vertical True
+    bar_resizing False
+    base_bar "gui/scrollbar/ic_scrollbar.png"
+    thumb "gui/scrollbar/ic_scrollbar_marker.png"
+
+style bc_text:
+    font "gui/fonts/CutiveMono-Regular.ttf"
+    color "#5794c3"
+    outlines [ (2, "#0091ff11", 0, 0), (1, "#0091ff11", 0, 0),  (1, "#0091ff11", 0, 0) ]
+    size 22
+
+style ic_scrollbar is vscrollbar:
+    xpos 20
+    unscrollable 'hide'
+    ymaximum 440
+    bar_vertical True
+    bar_resizing False
+    base_bar "gui/scrollbar/bc_scrollbar.png"
+    thumb "gui/scrollbar/bc_scrollbar_marker.png"
+
+#### PC variant of computer screen ####
+screen ivy_comp():
+    default current_index = None
+    default vp_y = ui.adjustment()
+    frame background "gui/computer/computer_bg.png" padding (0,0,0,0)
+    vbox spacing 5:
+        xpos 560
+        ypos 320
+        if ivy_comp_menu == "main":
+            button style_prefix "ic_button":
+                hover_background 'gui/computer/cs_btn_hover.png'
+                text _("Read Entries")
+                action SetVariable('ivy_comp_menu', 'entries')
+            button style_prefix "ic_button":
+                hover_background 'gui/computer/cs_btn_hover.png'
+                sensitive False
+                text _("New Entry")
+                action NullAction()
+
+        if ivy_comp_menu == "entries":
+            for i, e in enumerate(ic_diary_entries):
+                button style_prefix "ic_button":
+                    hover_background 'gui/computer/cs_btn_hover.png'
+                    sensitive not e.get('locked')
+                    if e.get('locked') == True:
+                        text _("Access Denied")
+                        action NullAction()
+                    elif e.get('locked') == False:
+                        text "%s.%s"%(i+1, renpy.substitute(e.get('title')))
+                        action [SetVariable('ivy_comp_menu', 'entry'), SetScreenVariable('current_index', i)]
+
+        if ivy_comp_menu == "entry":
+            side ("c r"):
+                area (0,0,820,480)
+                vbox:
+                    text "=== [renpy.substitute(ic_diary_entries[current_index].get('title'))] ===" style "ic_text"
+                    viewport id "ic_content":
+                        yadjustment vp_y
+                        ysize 460
+                        mousewheel True
+                        draggable True
+                        arrowkeys True
+                        has vbox
+                        text renpy.substitute(ic_diary_entries[current_index].get('content')) style "ic_text"
+                vbar value YScrollValue("ic_content") style "ic_scrollbar"
+
+    button style_prefix "ic_button":
+        xpos 560
+        ypos 810
+        hover_background 'gui/computer/cs_btn_hover.png'
+        if ivy_comp_menu == "main":
+            text _("Shutdown")
+            action Return()
+        elif ivy_comp_menu == "entries":
+            text _("Go Back")
+            action SetVariable('ivy_comp_menu', 'main')
+        elif ivy_comp_menu == "entry":
+            text _("Go Back")
+            action [SetVariable('ivy_comp_menu', 'entries'), Function(vp_y.change, 0), Return(None), Call('entry_discussion', current_index, from_current = True)]
+    add "gui/computer/computer_overlay.png"
+
+#### Android variant of computer screen ####
+screen ivy_comp():
+    variant "mobile"
+    default current_index = None
+    default vp_y = ui.adjustment()
+    frame background "gui/computer/computer_bg.png" padding (0,0,0,0)
+    vbox spacing 5:
+        xpos 560
+        ypos 320
+        if ivy_comp_menu == "main":
+            button style_prefix "ic_button":
+                hover_background 'gui/computer/cs_btn_hover.png'
+                text _("Read Entries")
+                action SetVariable('ivy_comp_menu', 'entries')
+            button style_prefix "ic_button":
+                hover_background 'gui/computer/cs_btn_hover.png'
+                sensitive False
+                text _("New Entry")
+                action NullAction()
+
+        if ivy_comp_menu == "entries":
+            side ("c r"):
+                area (0,0,820,480)
+                viewport id "ic_buttons":
+                    mousewheel True
+                    draggable True
+                    arrowkeys True
+                    vbox:
+                        spacing 5
+                        for i, e in enumerate(ic_diary_entries):
+                            button style_prefix "ic_button":
+                                hover_background 'gui/computer/cs_btn_hover.png'
+                                sensitive not e.get('locked')
+                                if e.get('locked') == True:
+                                    text _("Access Denied")
+                                    action NullAction()
+                                elif e.get('locked') == False:
+                                    text "%s.%s"%(i+1, renpy.substitute(e.get('title')))
+                                    action [SetVariable('ivy_comp_menu', 'entry'), SetScreenVariable('current_index', i)]
+                vbar value YScrollValue("ic_buttons") style "ic_scrollbar"
+
+        if ivy_comp_menu == "entry":
+            side ("c r"):
+                area (0,0,820,470)
+                vbox:
+                    text "=== [renpy.substitute(ic_diary_entries[current_index].get('title'))] ===" style "ic_text"
+                    viewport id "ic_content":
+                        yadjustment vp_y
+                        ysize 460
+                        mousewheel True
+                        draggable True
+                        arrowkeys True
+                        has vbox
+                        text renpy.substitute(ic_diary_entries[current_index].get('content')) style "ic_text"
+                vbar value YScrollValue("ic_content") style "ic_scrollbar"
+
+    button style_prefix "ic_button":
+        xpos 560
+        ypos 810
+        hover_background 'gui/computer/cs_btn_hover.png'
+        if ivy_comp_menu == "main":
+            text _("Shutdown")
+            action Return()
+        elif ivy_comp_menu == "entries":
+            text _("Go Back")
+            action SetVariable('ivy_comp_menu', 'main')
+        elif ivy_comp_menu == "entry":
+            text _("Go Back")
+            action [SetVariable('ivy_comp_menu', 'entries'), Function(vp_y.change, 0), Return(None), Call('entry_discussion', current_index, from_current = True)]
+    add "gui/computer/computer_overlay.png"
+
+label entry_discussion(entry):
+    if renpy.variant('mobile'):
+        show d11a-48x-menu-small
+    else:
+        show d11a-48x-menu
+    # Indices start from 0
+    if entry == 0:
+        Z "Sonmi... that is the name of your friend, the one you mentioned to me, isn't it? Does she live here with you?"
+        I "Yes. We've known each other for so long now..."
+        Z "The place you described... I can't imagine such a place to exist in Old Cairo. The city is deserted, and all I've ever seen are the Decayed."
+        Z "How long ago were you living in that place?"
+        I "It's... I can't remember, exactly."
+        Z "The next entry is locked.. and one other, too."
+        I "Yes. I'm... not ready to go there yet. Some things happened that are... difficult for me to revisit. Please read the other ones, for now."
+    if entry == 2:
+        Z "So you were living in a tower in Old Cairo similar to the one in the desert. A bunker, old technology, shelter... And something happened to you two."
+        I "Yes... as I said, I'd rather not...-"
+        Z "I get it. I don't need to know for now."
+    if entry == 4:
+        Z "She seemed to be interested in researching things?"
+        I "Yes. She was the most curious of our group, back then. She could never know enough of what happened before her time."
+    if entry == 5:
+        Z "I was wondering how such a place exists. The sky, the air, everything so close to the city..."
+        I "It's unusual, yes. For us back then, it was a miracle."
+        Z "You have been living here since then?"
+        I "Yes. For all this time..."
+    if entry == 6:
+        I "I... don't know why I wrote this down. It's just emotional ranting."
+        Z "You put the device away after that. But for how long?"
+        I "For a long time. We just carried on."
+    if entry == 7:
+        scene d11a-52
+        with fade
+        Z "What you are writing here... about Zeta, and the decayed..."
+        Z "As long as I can remember, Zeta has been as big as it is. And the decayed have only recently started to grow in numbers."
+        Z "But you... were there, before they grew? When Zeta was still merely a city in a desert, and not the small empire that it is now?"
+        scene d11a-52x-2
+        with dissolve
+        I "..."
+        Z "[I]. How old are you?"
+        scene d11a-54
+        with dissolve
+        I "..."
+        scene d11a-53
+        with dissolve
+        I "We used to compare our lives to a normal human lifespan..."
+        I "...It's safe to assume I have lived a number of your lifespans, [persistent.player_name]. At some point, I stopped counting."
+        scene d11a-54
+        with dissolve
+        Z "..."
+        Z "I see now why you didn't say anything all this time. Why Fangs didn't hear you speak."
+        scene d11a-54x
+        I "..."
+        Zt "I knew that elves can grow old... but to see the evidence in front of me..."
+        Zt "To think that this girl has lived on this planet for more than a century puts things in perspective."
+        scene d11a-54
+        with dissolve
+        Zt "How would I behave if I was that old? I am not even half her age, and yet I have accumulated all these experiences over the years... some that never left me."
+        scene d11a-53
+        with dissolve
+        I "You can... keep reading, if you want."
+        scene d11a-54
+        with dissolve
+        Z "Yes... Right."
+        if renpy.variant('mobile'):
+            scene d11a-48x-menu-small
+        else:
+            scene d11a-48x-menu
+        with fade
+    if entry == 8:
+        I "I still wonder if it was the right choice, sometimes."
+        Z "She didn't want to experience it again, whatever it was."
+        I "She never needed to live there. But maybe she wanted to prevent it, anyways."
+        Z "Did you ever tell her that you still led Fangs to the bunker?"
+        I "Yes, I did."
+    if entry == 9:
+        Z "That sounds just like Fangs. Trying to fight fire with fire."
+        I "For better or worse."
+        Z "I had to tell her that her plans to confront Zeta are futile."
+        I "I know... I was listening."
+        if d5b_fangs_gentle == True or d5b_fangs_rough == True: #d5 variables
+            I "...and I saw her first interrogation of you before, as well."
+            Z "You saw everything?"
+            I "..."
+            I "{i}*chuckles*{/i} Yes."
+    if entry == 10:
+        I "Sonmi had the right concern after all."
+        Z "Seems she did. It is what I told Fangs as well, before deciding to help her further."
+        I "She needed that reminder."
+    if entry == 11:
+        Z "Yuna? Is that your real name?"
+        I "Yes... I guess. Before everything happened, back then."
+        scene d11a-52
+        with fade
+        Z "Your family called you like that. Were you raised with that name?"
+        scene d11a-51
+        with dissolve
+        I "That's... another story. But yes, everyone in the tower called me that. Sonmi does to this day."
+        I "Fangs gave me another name, because of my eyes. And then everyone started calling me that, including you."
+        scene d11a-52
+        with dissolve
+        menu:
+            "\"It's a very pretty name.\"":
+                $ ivy_name = "Yuna"
+                Z "It's a very pretty name. Yuna."
+                Z "I'm calling you by that name."
+                scene d11a-51x
+                with dissolve
+                I "Thank you... I like it too."
+                # CALLS HER YUNA
+            "\"It's a nice name, but I prefer Ivy.\"":
+                Z "It's a nice name. But I prefer Ivy."
+                scene d11a-51x
+                with dissolve
+                I "It's 25\% shorter, I guess."
+                Z "You're not wrong there."
+                # CALLS HER IVY
+        scene d11a-52x
+        with dissolve
+        Z "So this... mistake of yours, getting captured. All that because you wanted to reconnect with her?"
+        scene d11a-51
+        with dissolve
+        I "I didn't want to lose her... these expeditions into the zones. I see it in her face. She is not well."
+        I "I wanted to head back to the tower, knowing it was guarded. I never made that mistake before. I don't know what got into me."
+        scene d11a-52x
+        with dissolve
+        Z "You kept it together for decades, [I]. Don't forget that."
+        scene d11a-52x-2
+        I "..."
+        if renpy.variant('mobile'):
+            scene d11a-48x-menu-small
+        else:
+            scene d11a-48x-menu
+        with dissolve
+        pause 1.5
+        I "[persistent.player_name]?"
+        Z "Yes?"
+        I "Why did you put me in a dungeon, back when you rescued me from those decayed?"
+        scene d11a-49
+        with dissolve
+        menu:
+            "\"I needed to make sure you wouldn't harm my family.\"":
+                Z "I needed to make sure you wouldn't harm my family."
+                Z "I'm not saying it was needed, knowing you now. But still... the wasteland breeds all kinds of people."
+                scene d11a-50
+                with dissolve
+                I "I see..."
+                if renpy.variant('mobile'):
+                    scene d11a-48x-menu-small
+                else:
+                    scene d11a-48x-menu
+                with fade
+
+            "\"I did not trust you at first.\"":
+                Z "I did not trust you at first. The wasteland is a rough place, and I did not want to take any risks."
+                Z "So I put you in the safest place in our home, to keep you away from my family."
+                I "..."
+                scene d11a-50
+                with dissolve
+                I "I hope I am more trustworthy, now."
+                scene d11a-49x
+                with dissolve
+                Z "You are."
+                if renpy.variant('mobile'):
+                    scene d11a-48x-menu-small
+                else:
+                    scene d11a-48x-menu
+                with fade
+
+            "\"I didn't have a real plan. Keeping you as a slave was an option.\"":
+                $ d11a_ivy_slave_argument = True
+                Z "Truth be told, I had no real plan for you yet. I guess the traditional thing would have been to keep you as a slave."
+                scene d11a-53
+                with dissolve
+                I "You keep... slaves?"
+                scene d11a-54
+                with dissolve
+                Z "It's not the worst of fates, with a thoughtful master..."
+                Z "Servants, slaves... the name is immaterial. In the end, plenty of people find comfort in a role of servitude."
+                Z "In the right situation, its an easier life than having to struggle for survival on their own, like you do."
+                scene d11a-53
+                with dissolve
+                I "You would have kept me locked up because I am different?"
+                scene d11a-54
+                with dissolve
+                Z "That doesn't have anything to do with it."
+                Z "Your kind are often hunted on sight, and at best mistreated. You've seen it yourself. But I can't and won't justify my thoughts."
+                if renpy.variant('mobile'):
+                    scene d11a-48x-menu-small
+                else:
+                    scene d11a-48x-menu
+                with fade
+
+    if entry == 12:
+        I "I did not yet write down the results..."
+        Z "But your gamble didn't fail."
+        I "I heard when you confronted her the second time. Thank you for opening her eyes about your city's strength."
+        Z "You must hate Zetans as much as the decayed, because they both hunt your kind. And yet, you're not vengeful."
+        I "I don't hate Zetans... for a long time, I always wanted to be part of what you have. Having a place you can call home... living in a culture, however good or bad some aspects of it are."
+        I "But the years passed, and I know I will never be a part of it. At least, as long as mutants don't have any influence in Zeta, or over it."
+        I "I know it can be hard to break out of some prejudices, and I don't blame all of the people living there. Only those who are cruel about it."
+    return
+
+
+default ic_diary_entries = [
+{"title": _("New device"), "locked": False, "content": _("""This device was given to me by Aloi earlier today. He explained the gist of how to use it and what it can do and, well.. I had no idea this was possible. It's battery powered, and can store as much text as I could possibly think of and more. No more scribbling my thoughts and notes on salvaged pieces of paper and parchment! Performing my duties of recording the events that occur to us will be so much easier. I asked if I could also put my private thoughts and diary on the device and Aloi said he had no issues with that. I should try to learn more about it and find out if it has other functions and abilities.
+
+Life in the tower could not be better than it is now. We have managed to cultivate and grow a few more seeds into vegetables we didn't have available until now.
+Sonmi however is restless. She wants to leave this place when we have completed our work here. I don't really see this having an end at all, let alone anytime soon. Even so, I indulge her in her desire for privacy as we climb the tall ruins, in search for a quiet corner to ourselves.
+I don't know what she enjoys so much about sitting up high and looking down at the city. It's a place of ruin and carnage, but from up there she seems unbothered by it. Me, I can't forget. Even from above, my mind's eye goes to the grime, the details of abject ruin and devastation.
+She thinks one day we will rebuild all this and find places where the mist doesn't reach.
+
+It falls to me to remind her of the other dangers.
+Aloi warns everybody whenever he can about the attacks, the enemies that surround us... but she doesn't listen to him.
+As the desert settlement grows into something more, so does the threat to our kind, and she would like to ignore that too.
+The desert folks are rash and brutal, and more than a little violent when they meet one of us.
+There's other problems too; people who don't seem to fit in with the desert people, and who instead choose to explore the city. Multiple times now, we've seen them go in the dead zone, the forbidden part of old Cairo.
+We know it's a deadly place, yet they enter it almost naked, unprotected and without a mask. Sonmi would have loved to speak to them, to ask their motives, to understand why they brave the devastation the dead place brings to their bodies.
+I have had to keep her from approaching them. We cannot trust them. Too many of us have been attacked already.
+
+I know that I should be ready to protect her, but sometimes I wish I did not have to do that from herself.""")}, #TODO make yuna less naive with tech
+{"title": _('High-rise'), "locked": True, "content": _("""""")},
+{"title": _('Mercy'), "locked": False, "content": _("""A small mercy, finally...
+Sonmi has not spoken a word since it happened. I haven't either, come to think of it.
+I think we, each in our own way, have found some measure of comfort in the silence.
+But we're here finally. We found the bunker in the desert. The instructions on how to open the entrance to this place, and how to find it at all, were a bit unclear but in the end we managed.
+The Tower to access it is similar to our previous refuge, but the... I think the word this device uses is bunker... the bunker seems to be better protected, more inaccessible.
+Will we find a new way, now that it's only the two of us?
+I have so many doubts, so many things to fear, now that we're alone.
+For a little while, however, we can rest, protected.""")},
+{"title": _("What I saw"), "locked": True, "content": _("""""")},
+{"title": _('Routine'), "locked": False, "content": _("""We have spent weeks here now. In a way it feels like home, and there are enough supplies stored here since, I am still not sure when, really. On the other hand, it's too similar a place to our last home. Every wall and every device bring back bad memories...
+I have managed to hunt a little. There are still a few wild animals roaming even this wasteland of a desert... but I can't risk exposing myself.
+Yesterday Sonmi spoke for the first time since...
+She thanked me for saving her. We hugged for a long time and cried. Then we talked deep into the night, both our voices cracking with the drought of months of being unused and staying quiet.
+After a while, it felt odd to me, so I mostly listened as Sonmi continued to talk. We remembered the others. Then we talked about this place, made at least an inkling of a plan on what to do next.
+Sonmi seems to be wanting to research something. She has found a few more of these devices, just like the one I am using right now... they store fractured and piecemeal information, and she is trying to make some sense of it; see if there is anything worth salvaging or learning.
+""")},
+{"title": _('New beginning'), "locked": False, "content": _("""As I read my previous entries in the device, I realise much has happened over the last months.
+We are still sporadically using the bunker, but we have moved away.
+Right now I am writing under an altogether tepid sun, something I would not have thought existed, yet here we are.
+We found a settlement hidden away at the base of the mountains, in a small valley leading to this underground place. It's cool enough, the ruins are dilapidated but not to the point where we couldn't patch together a good shelter.. and, more importantly, we have found water! Clean water, from underground!
+The skyline seems to somehow always offer a bit of light here, and the air is sufficiently clean, even though we are still within walking distance of the settlements.
+I have much more to write, but the battery is running low, so I must cut this short.
+I should remember to talk about the new seeds Sonmi is trying to grow here.
+Maybe a run to the bunker is necessary, shortly... if nothing else, to recharge this device.
+I wish the others were still with us, to share both the load and the joy of a new beginning.
+""")},
+{"title": _('Images'), "locked": False, "content": _("""It's been months since my last entry. I wish I was still in that frame of mind, still that positive.
+Truth is that the anguish, the struggle for survival is taking its toll. Sonmi is as closed off to me as she's ever been, but I have not been doing much better myself. Each of us died a little that night. I sometimes hear her cry in her sleep and nothing calms her down. I have lost count of the nights I myself have spent lying sleepless.
+The images of... we have changed. We are damaged, but not yet broken.
+As long as I have life in me, I will not allow either of us to give up. I promise!
+We have, or scavenge or hunt what we can to survive, but the spirit of renewal, of rebuilding has all but died...
+I should do away with this stupid machine. What good is it, when there's nothing really worth recording anyway?
+""")},
+{"title": _('{b}Fangs{/b}'), "locked": False, "content": _("""It has been a long time since I last wrote. The bad memories this thing holds have kept me away from it for years, decades.
+Isolation is our salvation, but also our trap. Sometimes months go by without either of us uttering a word.
+We communicate by touch, by looks, nods. What is there to talk about anyway?
+Sometimes Sonmi will do something, I guess childish is a better word than stupid. It's like she's intentionally putting herself in danger. Like she wants this to be over.
+Meanwhile, I occasionally exit our little bubble of two, to find supplies, forage, explore our perimeter.
+Before either of us really took notice, the city that I was so afraid of years ago has grown into something bigger, more organized. They call the city Zeta, their inhabitants are Zetans. They grew an army, a small city state, if you will.
+In a way they are doing what we were supposed to do, what we were trying to do, before the others...died. I had to stop for a minute there, but I have decided it's no use hiding behind the words. They are dead. Have been for decades now.
+What we could have done is no more.
+
+Even now, the city of Cairo, and even the dead place at its heart, see new people coming and going. What was once the place where we hoped to rebuild, where our family..., is now nothing but an outpost of the "decayed". Decayed... that's what these people we saw back in the day are now called. If anything, those who walk around there now are even worse. More organised, more brutal, more violent and sadistic.. uncaring of anything but sating their occasional hunger. If they were ever human, they have mostly forgotten that. They are damaged in the flesh and in the spirit.
+To them, other people are just food, and if they have the numbers, they will attack on sight. I almost fell prey to them a few times. I have had to learn to run fast, to hide, to fight smart.
+
+Aloi used to say that time is the speed at which the past disappears, but... is it true?
+I sometimes wish it would truly disappear, but it never does. Not really.
+We are still only surviving. We are still facing the same dangers as decades ago. We still have the occasional sleepless night in which no comfort seems to exist, not even with one another.
+
+I had pretty much put this device to rest forever, but something has happened over the last weeks.
+I have discovered more of our kind. The Zetans have coined a name for us: mutants. Sonmi says it's really an old name, and that it's accurate.
+
+Anyway, it seems that some of our kind have managed to band together, under the leadership of one of their own number; a blonde woman. I don't know her name, if she ever had one beyond what they call her: Fangs. I guess it's appropriate and that it speaks to her nature, and not just her body.
+These "new" mutants truly are like children, next to Sonmi and me... their blood has coursed through the generations, manifesting as a curse every so many births. I am not sure any of them might be able to have children on their own. Fangs told me that most of them have "normal" mothers, or have no memories of their mothers at all, born into slavery or culled at the earliest sign of mutation.
+
+I don't speak to them. It feels...wrong. They ask questions to which I don't hold the answers, or the answers to which are too painful to speak for me, or too painful for them to be confronted with. I brought them food, so they tolerate me and accept that I will not get close to them.
+
+I do not want any of them to be the next Lunai. I could not bear it, nor could Sonmi.
+She wants even less to do with them than I do, but I can't help being at least a little curious.
+If possible, I would see them somewhere safe, protected.
+I have been meaning to ask Sonmi if we could give them access to the bunker. She, predictably, is against it.
+""")},
+{"title": _('Isolation'), "locked": False, "content": _("""My last entry was from months ago and Sonmi has still not changed her mind.
+The new group of our kin are suffering. They have no safe place, no real refuge other than trying to stay out of sight. A few of them have been lost to the Decayed, a few have been captured and brought to Zeta.
+I can see the fury in Fangs. She seems a willing leader, but she's out of her depth.
+More and more I find myself bringing food to them and taking risks to procure it.
+On the other hand, Sonmi has taken to traveling towards Zones, as they are called in Zeta. Those places are... troubling.
+She however tells me she sees things in them that give her purpose.
+I am afraid that the years are starting to take a toll on our relationship. We have grown apart, isolating somewhat from one another.
+I am running ragged, trying to both be there for her and keep her safe, and trying to lend a hand to the new mutants.
+If Sonmi really doesn't relent, I fear I will have to go behind her back and just let Fangs and her little group find shelter in the Bunker, whether Sonmi likes it or not.
+""")},
+{"title": _('Young ones'), "locked": False, "content": _("""There seems to be fight in the hearts of these young ones. Since I led them to the bunker, they have tried to organise themselves, and are starting to making it into their home. They are taking calculated risks, so far, but are showing courage and initiative to levels that we lacked back in our days at the old base. Had we had a few of these kin with us, maybe we would not have been overrun and we would still be in Cairo. I guess that these new ones have the advantage of experience on their side.
+For all his years, for all our collective resilience, Aloi nor any of us had any real experience or sense of the danger that was expecting us. The Decayed were a relatively new thing. Them and the short lived humans were few enough to not pose a threat..until they weren't.
+Fangs and her people...they were born in this and to this. Some have trained in the ways of fighting, some just learned by living in Zeta, most have at least a passing understanding of the rules that govern the world today.
+Sonmi and me? We had to learn things bit by bit, blow by blow, spying from afar, or trying to come up with ways around problems all on our own. As smart as Sonmi can be, a whole city will always find solutions faster than any of us can individually. Fangs seems to understand this.
+Even through my reservation, she seems to sense my...thoughts, about what she's trying to accomplish..
+I guess she's too grateful for having a home, to really try and confront me about it.
+""")},
+{"title": _('Radicalized'), "locked": False, "content": _("""Fangs becomes more and more radical as time passes. My intention was not to set up a small army, but now she openly talks about killing people to gain territory? I am concerned about this.
+They have been in the Bunker for a while now, running drills and conducting small raids, stealing from the occasional settlement or caravan. I think that so far they have been able to pass for Raiders, and people have not caught on, but that could change at any time.
+All I can see is history repeating itself. They have been almost completely isolated for a while now, very few of the group actually leaving the Bunker. I feel they might be losing touch with what the world, what Zetans are really like.
+Fangs is building them up into a frenzy, but she's losing sense of what she's up against.
+
+I should find a way to open her eyes.
+
+I wish Sonmi would agree to...to do something... anything!
+Maybe she could help them see.
+""")},
+{"title": _('Close to death'), "locked": False, "content": _("""That was close. I have not been that close to death in forever.
+I made a mistake.
+I went to try and access our old home. I wanted to find a way to shake Sonmi, get something of a reaction out of her after all these years. I figured I would go find some of her old belongings, and bring them to her.
+Maybe that would have shaken something loose.
+
+I was desperately tired, but even so, letting them catch me in my sleep was stupid. Stupid Yuna!
+Once they had me in irons, I was paralised by fear. All I could think of was the night we lost our family, even though it was so long ago.
+
+Even as I write this, I can't stop shaking, the tears won't stop falling.
+The only reason I got away was that I found an opening.
+An opening I would not have found if not for him...
+They called him a Stalker. Sonmi might have mentioned something similar to me... I should ask her about it.
+He brought me to his house and put me in a dungeon. I don't even know why he did that, really. To capture me, or to protect his family?
+Either way, I got a lucky break and the opening materialised in front of me, in the form of a key.
+His [persistent.da] left it nearby enough for me to reach it and free myself.
+
+Once free, I was still mostly naked, but didn't dare risk waking anybody up in the house, so I ran away. I ended up getting right at the doors of Zeta, where I'd been only a handful of times before, at night, much like this time.
+I managed to steal something to eat and to find my way to the Palace. Now that I was in Zeta I wanted to make the most of it. Over the years there have been indications that the queens of that place were hoarding items of technological and historical value. I did find the access to the very rooms in which those items were stored.
+There was very little on display, and much that was stored away in ways that I could not explore without causing a scene, so I grabbed what I could. I got lucky in that amongst other things I found these clothes and this body armour that I am wearing.
+I can't tell if they are just very stretchy or if they were just ideally cut to my size, but I am not complaining.
+Going from being near death to safe and sound at home was enough emotion for one night.
+I climbed up on the roof of one of the taller buildings and fell asleep again. No Decayed this time.
+By the time I woke up, guards were patrolling all over the place. I guess my nightly visit didn't go unnoticed after all.
+
+Before I managed to crawl away, out of the city, I happened upon the same man who, sort of, saved me that night.
+Aside from the role he played delivering me from the Decayed, he strikes me as a complex individual, but not an uncaring one, despite being a Zetan. Maybe because he's a Stalker, or maybe it's just him... but he might be what I need, so I left him a message.
+""")},
+{"title": _('A gamble'), "locked": False, "content": _("""
+I have, once again, followed my gut instinct and I have led him to the Bunker. It's a huge gamble, but one that seems to be paying off. I think he might just be able to talk some sense into Fangs.
+
+
+""")}
+]
+
+############
+## Ivy computer screen copy for d21 with only one entry
+screen ivy_comp_2():
+    default current_index = None
+    default vp_y = ui.adjustment()
+    frame background "gui/computer/computer_bg.png" padding (0,0,0,0)
+    vbox spacing 5:
+        xpos 560
+        ypos 320
+        $ title = _("=== High-rise ===")
+        $ content = _("Sonmi and I were back on the old high-rise again, today. Yes, it was yet another place Sonmi was forbidden to go. But this became our place, and Sonmi was always happiest when she was up there.\nPerhaps it was because she can overlook the city from there? Or because it gave her the opportunity to take off her gas mask? Maybe both...\nShe had been even more upbeat than usual lately... which meant I had to watch over her even more closely.")
+
+        side ("c r"):
+            area (0,0,820,480)
+            vbox:
+                text renpy.substitute(title) style "ic_text"
+                viewport id "ic_content":
+                    yadjustment vp_y
+                    ysize 460
+                    mousewheel True
+                    draggable True
+                    arrowkeys True
+                    has vbox
+                    text renpy.substitute(content) style "ic_text"
+            vbar value YScrollValue("ic_content") style "ic_scrollbar"
+
+    button style_prefix "ic_button":
+        xpos 560
+        ypos 810
+        hover_background 'gui/computer/cs_btn_hover.png'
+        text _("Continue")
+        action [Return(), Jump('d21a12')]
+    
+    add "gui/computer/computer_overlay.png"
+
+
+## Bunker computer for d21
+screen bunker_computer():
+    default current_index = None
+    default bc_comp_menu = 'entries'
+    default vp_y = ui.adjustment()
+    frame background "gui/computer/bunker_computer_bg.png" padding (0,0,0,0)
+    add "gui/computer/bunker_computer_overlay.png"
+    text _('ARCHIVE TERMINAL\nID: DX-4A98 // FIELD UNIT // STORAGE CLASS: DEGRADED') style "bc_text" size 20 xpos 615 ypos 260
+    vbox spacing 5:
+        xpos 610
+        ypos 340
+        if bc_comp_menu == "entries":
+            for i, e in enumerate(bc_entries):
+                button style_prefix "ic_button":
+                    hover_background 'gui/computer/bc_btn_hover.png'
+                    text "%s.%s"%(i+1, renpy.substitute(e.get('title'))) style "bc_text"
+                    action [SetScreenVariable('bc_comp_menu', 'entry'), SetScreenVariable('current_index', i)]
+
+        if bc_comp_menu == "entry":
+            side ("c r"):
+                area (5,0,650,340)
+                vbox:
+                    viewport id "bc_content":
+                        yadjustment vp_y
+                        ysize 340
+                        mousewheel True
+                        draggable True
+                        arrowkeys True
+                        has vbox
+                        text renpy.substitute(bc_entries[current_index].get('content')) style "bc_text"
+                vbar value YScrollValue("bc_content") style "ic_scrollbar"
+
+    button style_prefix "ic_button":
+        xpos 615
+        ypos 710
+        if bc_comp_menu == "entries":
+            text _("Shutdown") style "bc_text"
+            hover_background 'gui/computer/bc_btn_hover.png'
+            action NullAction()
+
+        elif bc_comp_menu == "entry":
+            text _("Go Back")  style "bc_text"
+            hover_background 'gui/computer/bc_btn_hover.png'
+            action [SetScreenVariable('bc_comp_menu', 'entries'), Function(vp_y.change, 0)]
+
+    if bc_comp_menu == "entry" and current_index == 2:
+        button style_prefix "ic_button":
+            xpos 615
+            ypos 675
+            text _("Continue") style "bc_text"
+            hover_background 'gui/computer/bc_btn_hover.png'
+            action Return()
+   
+    add "gui/computer/bunker_computer_overlay_2.png"
+
+screen bunker_computer_2():
+    frame background "gui/computer/bunker_computer_bg_2.png" padding (0,0,0,0)
+    default text_1 = _("""
+#\> Message ready to load...
+#\> Screen detachable...
+""")
+    default text_2 = _("> Tap here to open")
+    vbox spacing 10:
+        xpos 920
+        ypos 150
+        text renpy.substitute(text_1) at comp_rotate style "bc_text" size 18
+    vbox spacing 10:
+        xpos 940
+        ypos 390   
+        text renpy.substitute(text_2) at comp_rotate style "bc_text" size 18
+
+    add "gui/computer/bunker_computer_bg_2_overlay.png"
+
+transform comp_rotate:
+    rotate -5
+
+define bc_entries = [
+{"title": _("Mankind's advancements"), 
+"content": _("""It seems that after more than three hundred thousand years of evolution, they have finally reached their full potential.
+First, they built immunity against disease.
+Rid themselves of genetic defects, UV-sensitivities, and a host of other similar anomalies.
+
+They re-engineered the human genome, curating and designing their offspring from the very first instances of life.
+Then they created us; a perfected version of humankind. They looked at their gods and fictional paragons and created us in their image. 
+To become them.
+
+And because their thirst was not sated, they chose to invent the ultimate weapon to reach that goal. And now, true eternity is reached, and gods we became.
+Ultimately, they condemned us and themselves to the underworld, to become Hades, never to see the light of day.
+
+Welcome to the afterlife.""")},
+{"title": _("Weekly routine"), 
+"content": _("""We have fixed the greenhouse and the lamps for it. It took some work, but we repurposed a few glass panels from an old office. 
+I expect that we will soon be able to cultivate a few vegetables again, and add them to our diet of tins and pastes.
+
+Sweet Lunai has been doing the dishes for a week now, and I should really help her, but she doesn't seem to mind.
+Then again, she doesn't like doing the floors, and I don't mind too much, so maybe this arrangement works for both.
+
+I caught her singing last night. It was a simple song, but she really seems to have a talent for it, and even draws happiness from it.
+As I continue cataloguing the books and records, I could maybe look out for anything about singing, or any music records. 
+It's odd that we haven't found any. People used to like music.
+
+I want to ask Aloi if maybe I can join the next exploration.""")},
+{"title": _("{b}My message to Sonmi{/b}"), 
+"content": _("""I trust you to show this to her, when the time is right.
+You have been her best friend, from the moment you joined our little community, and have seen her grow up.
+You know what is best for her, when to show her this, if I cannot. 
+
+I have a similar recording saved for Lunai.""")}
+]

@@ -1,0 +1,262 @@
+# ZAHRA
+
+# AIN
+label vai_1:
+    scene black pic
+    with fade
+    pause 0.5
+    scene vai-1
+    with vpunch
+    A "Boo...!"
+    scene vai-2
+    with dissolve
+    Z "{i}*chuckles*{/i} Hey short one."
+    Z "Wanted to surprise me, huh?"
+    scene vai-1
+    with dissolve
+    A "Come, let's hop on the bed!"
+    jump vai_bridge
+
+label vai_2:
+    scene vai-3
+    with fade
+    A "I know it's difficult... we don't really speak the language the same way it's written, too."
+    scene vai-4
+    with dissolve
+    Ka "Really? {i}*sigh*{/i} I miss home language very much..."
+    Ka "I will take a break for now, I think."
+    scene vai-5
+    with dissolve
+    Ka "Oh, it's [persistent.player_name]!"
+    Ka "You want to speak with [A], yes? I will leave."
+    jump vai_bridge
+
+label vai_3:
+    scene vai-6
+    with fade
+    S "There's no way you're serious."
+    A "I'm not joking, sister..."
+    scene vai-7
+    with dissolve
+    S "You're telling me you washed my sword with soap because it looked dirty."
+    S "Have you ever heard of something called rust?"
+    scene vai-8
+    with dissolve
+    A "Look, of course I knew. I mean... I didn't. But!"
+    scene vai-9
+    with dissolve
+    S "Next time you're cleaning my room, please... {i}*sigh*{/i}"
+    S "[A], I appreciate it. Just stay away from... sharp things, okay?"
+    S "Anyways, that's all I wanted to ask. [persistent.dad!c] is here for you. I'll see you later."
+    jump vai_bridge
+
+label vai_4: #TODO cynical from here, until 7 included
+    scene vai-12
+    with fade
+    S "You know, sometimes I wonder... If we weren't sisters, would we be friends?"
+    scene vai-12x
+    with dissolve
+    A "That's a tough question. I think you're tolerable, for a big sis..."
+    scene vai-13 #TODO make her cocky
+    with dissolve
+    S "Such high praise. I think you deserve extra rough brushing for that one."
+    scene vai-15
+    play sound "audio/sounds/doors/door closed.mp3"
+    with dissolve
+    Z "Hey girls, don't worry, take your time. I'll come back in a few."
+    jump vai_bridge
+
+label vai_5:
+    scene vai-14
+    with fade
+    A "Thanks, [S], I owe you one. My hair has been all fuzzy today."
+    scene vai-13
+    with dissolve
+    S "I was always a bit jealous of my little sister's hair... but me, and pigtails just wouldn't work."
+    scene vai-15
+    play sound "audio/sounds/doors/door closed.mp3"
+    with dissolve
+    Z "Hey girls... [A], got a few minutes? You can finish up first, I'll be back."
+    jump vai_bridge
+
+label vai_6:
+    scene vai-16
+    with fade
+    W "...that's not bad, either. By the gods... my little Queen of a [persistent.da] is all grown up now."
+    scene vai-18
+    with dissolve
+    A "I don't know, [persistent.mom]... it kind of makes me look old."
+    scene vai-19
+    with dissolve
+    W "Not at all... with a body like that underneath, you will have men drooling in anticipation."
+    jump vai_bridge
+
+label vai_7:
+    scene vai-17
+    with fade
+    W "Mh... I just had to see it again. And next time, I might just devour you instead."
+    scene vai-19
+    with dissolve
+    W "You do look like one tasty meal. {i}*sigh*{/i} I am one proud [persistent.mom], today."
+    with dissolve
+    jump vai_bridge
+
+
+label vai_bridge:
+    scene va1-7i
+    with fade
+    A "What's up, [persistent.dad]!"
+    scene va1-7
+    with dissolve
+    jump ain_conversations
+
+# SHANI
+label vsi_1:
+    scene vsi-1
+    with fade
+    S "Have you seen how that boy in the city stared at you?"
+    scene vsi-4
+    with dissolve
+    A "Yeah... so young though. Around my age, if not younger?"
+    A "I think the look I gave him scared him off, though."
+    scene vsi-5
+    with dissolve
+    S "{i}*chuckles*{/i} You gave him the stare of death."
+    scene vsi-2
+    with dissolve
+    S "Anyways, want to hang outside later? After dinner, I mean."
+    scene vsi-3
+    with dissolve
+    A "Yup, why not! See you later!"
+    scene vs1-12
+    with fade
+    jump shani_conversations
+
+label vsi_2: #TODO cynical from here to vsi-4
+    scene vsi-6
+    S "..."
+    Zt "She's meditating again?"
+    scene vsi-9
+    with dissolve
+    Z "Hey, my favourite warrior."
+    scene vsi-10
+    with dissolve
+    S "Hmm..."
+    scene vsi-11
+    with fade
+    S "Oh, hey [persistent.dad]. I think I dozed off, give me a minute."
+    scene vs1-12
+    with fade
+    jump shani_conversations
+
+label vsi_3:
+    "As you enter her room, you hear [S] whispering incorrible words, most likely meditating prayers."
+    scene vsi-8
+    with dissolve
+    "Seeing how she did not respond to your footsteps, you decide to come back in a few, to not disturb her focus." #TODO cynical bad timeline. talk to me about it
+    scene vs1-12
+    with fade
+    jump shani_conversations
+
+label vsi_4:
+    scene vsi-12
+    with fade
+    E "{i}*humming*{/i}"
+    scene vsi-13
+    with dissolve
+    S "Can you make sure to wipe the corners under the ceiling? I can barely reach it, thank you!"
+    scene vsi-14
+    with dissolve
+    E "But... I am not much taller than you, my lady."
+    scene vsi-15
+    with dissolve
+    S "That's okay, just stack the chairs or something."
+    scene vs1-12
+    with fade
+    jump shani_conversations
+
+label vsi_5:
+    scene vsi-13
+    with fade
+    E "{i}*humming*{/i}"
+    scene vsi-16
+    with Dissolve(0.3)
+    E "Oh...! Almost fell down..."
+    scene vsi-12
+    with dissolve
+    Ew "Silly chair. I should tell lady [W] that this room is a mess...!"
+    scene vs1-12
+    with fade
+    jump shani_conversations
+
+
+# ZAHRA
+
+label vzi_1: #TODO cynical this until the end
+    scene vzi-1
+    with fade
+    Ww "Mh... Let's see how this one will fit..."
+    scene vzi-2
+    with dissolve
+    Ww "Such a chore... it better be worth it..."
+    scene vzi-3
+    with fade
+    W "Oh, hello, husband? Have you been spying on me?"
+    W "Tell me, what do you think of this one?"
+    scene vzi-4 #TODO close mouth
+    with dissolve
+    Z "It's excellent. I could see you ruling the household in this one."
+    scene black pic
+    with fade
+    jump zahra_conversations
+
+label vzi_2:
+    scene vzi-2x
+    with fade
+    Ww "Hm... I don't think I can visit the market without an escort, in this one..."
+    scene vzi-3
+    with dissolve
+    W "Hello there, my love. I was just trying this dress again."
+    W "Let me switch back, and then I am all yours."
+    scene vzi-4
+    with dissolve
+    scene black pic
+    with fade
+    jump zahra_conversations
+
+label vzi_3:
+    scene vzi-5
+    with fade
+    Z "More lingerie? I could see you wearing this in the city."
+    scene vzi-8
+    with dissolve
+    W "Of course you can. But can you also protect me from ill-minded strangers...?"
+    if persistent.sharing == True:
+        Z "I always can... that doesn't mean I always will."
+    else:
+        Z "Of course. Why would I let those legs wander anywhere else?"
+    scene black pic
+    with fade
+    jump zahra_conversations #TODO fix for beta
+
+label vzi_4:
+    scene vzi-6
+    with fade
+    Ww "Mh... I wonder if he likes it..."
+    play sound "audio/sounds/doors/door closed.mp3"
+    scene vzi-7
+    with dissolve
+    Z "Hello, wife."
+    scene vzi-8
+    with dissolve
+    W "Hello, husband. I was just thinking of you. Stay outside for a moment, please?"
+    scene vzi-9
+    with dissolve
+    Z "As you wish."
+    scene black pic
+    with fade
+    jump zahra_conversations
+
+# KITCHEN
+
+# HAREM

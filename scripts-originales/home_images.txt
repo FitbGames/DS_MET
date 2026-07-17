@@ -1,0 +1,23 @@
+image home_sky_bg = TransitionConditionSwitch(Dissolve(1, alpha=True),
+    "daytime == 'day'", 'home_day_sky',
+    "daytime == 'afternoon'", "home_evening_sky",
+    "daytime == 'night'", 'home_night_sky')
+
+image home_front = TransitionConditionSwitch(Dissolve(1, alpha=True),
+    "daytime == 'day' and shani_zone_returned == True", 'home_day_front_1',
+    "daytime == 'day' and shani_zone_returned == False", 'home_day_front_1x',
+    "daytime == 'afternoon' and shani_zone_returned == True", "home_evening_front_1",
+    "daytime == 'afternoon' and shani_zone_returned == False", "home_evening_front_1x",
+    "daytime == 'night' and shani_zone_returned == True", 'home_night_front_1',
+    "daytime == 'night' and shani_zone_returned == False", 'home_night_front_1x')
+
+
+image home day:
+    contains:
+        "home_sky_bg"
+        ypos -50
+        xpos 0
+        linear 180.0 xpos -3840
+        repeat
+    contains:
+        "home_front"

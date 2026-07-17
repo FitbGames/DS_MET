@@ -1,0 +1,98 @@
+init python:
+    def get_checkpoint(channel):
+        if not renpy.music.is_playing() or preferences.get_mute('music'):
+            pass
+        else:
+            x = renpy.music.get_pos() + renpy.random.randint(2, 5)
+            if channel is None:
+                pass
+            if channel == 'ch1':
+                renpy.store.rst1 = x
+            if channel == 'ch2':
+                renpy.store.rst2 = x
+            if channel == 'ch3':
+                renpy.store.rst3 = x
+        return
+
+    def custom_start(x, f):
+        renpy.music.stop()
+        renpy.music.play('<from %f loop 0>%s'%(x, f))
+        return
+
+default rst1 = 0
+default rst2 = 0
+default rst3 = 0
+default current_channel = None
+
+label radio:
+    scene d10c-54x
+    with fade
+    label radio_overview:
+        call screen bunker_radio
+
+
+screen bunker_radio():
+    add "d10c-54x"
+    tag nav_menu
+    $ tooltip = GetTooltip()
+    ##############################
+    frame background None padding(0,0):
+        xfill True
+        imagebutton xcenter 80 ycenter 1000 at nav_button_state:
+            tooltip "Go back"
+            focus_mask True
+            auto 'gui/nav_menu/nav_zone_room_%s.png'
+            action Jump('bunker_overview')
+
+        imagebutton xcenter 196 ycenter 1000 at nav_button_state:
+            tooltip "Turn off"
+            focus_mask True
+            sensitive current_channel is not None
+            auto 'gui/radio/btn_turn_off_%s.png'
+            if current_channel is not None:
+                action [Function(get_checkpoint, current_channel), SetVariable('current_channel', None), Stop(channel='music'), Play(channel='sound', file='audio/sounds/objects/radio off.mp3'), Jump('turn_off_radio')]
+            else:
+                action NullAction()
+
+        imagebutton xpos 703 ypos 300:
+            tooltip "Station 1"
+            sensitive current_channel != 'ch1'
+            idle 'gui/radio/btn_st1_idle.png'
+            hover 'gui/radio/btn_st1_hover.png'
+            selected_idle 'gui/radio/btn_st1_hover.png'
+            action [Function(get_checkpoint, current_channel), SetVariable('current_channel', 'ch1'), Call('change_station', rst1, 'audio/music/playlists/bunker blues.mp3', from_current = True)]
+
+        imagebutton xpos 704 ypos 408:
+            tooltip "Station 2"
+            sensitive current_channel != 'ch2'
+            idle 'gui/radio/btn_st2_idle.png'
+            hover 'gui/radio/btn_st2_hover.png'
+            selected_idle 'gui/radio/btn_st2_hover.png'
+            action [Function(get_checkpoint, current_channel), SetVariable('current_channel', 'ch2'), Call('change_station', rst2, 'audio/music/playlists/resurrection.mp3', from_current = True)]
+
+        imagebutton xpos 709 ypos 506:
+            tooltip "Station 3"
+            sensitive current_channel != 'ch3'
+            idle 'gui/radio/btn_st3_idle.png'
+            hover 'gui/radio/btn_st3_hover.png'
+            selected_idle 'gui/radio/btn_st3_hover.png'
+            action [Function(get_checkpoint, current_channel), SetVariable('current_channel', 'ch3'), Call('change_station', rst3, 'audio/music/playlists/the adolescent.mp3', from_current = True)]
+
+    if tooltip:
+        frame style_prefix "notify" at tt_trans:
+            text [tooltip] xalign 0.5
+
+
+label turn_off_radio:
+    show d10c-54x-2 with dissolve
+    pause 1.0
+    scene d10c-54x with dissolve
+    jump radio_overview
+
+label change_station(x, f):
+    show d10c-54x-2 with dissolve
+    play music '<to 1.5>audio/sounds/objects/radio tuning.mp3'
+    pause 1.0
+    scene d10c-54x with dissolve
+    $ custom_start(x, f)
+    return

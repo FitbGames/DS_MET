@@ -1,0 +1,310 @@
+label shani_conversations:
+    show vs1-12
+    with dissolve
+    menu:
+        "Bring her the news" (important = True) if ev_d19b.is_active:
+            $ daily_shani = True
+            jump d19b
+
+        "Ready up for the adventure" (important = True) if ev_d19c.is_active:
+            jump d19c
+
+        "Talk about Ivy" if faction_mutants == True and shani_talk_1 == False:
+            $ daily_shani = True
+            jump s_convi_1
+
+        "Talk about the Queen's Palace" if m_d5b == True and shani_talk_2 == False:
+            $ daily_shani = True
+            jump s_convi_2
+
+        "Workout together" (important = True) if m_d4c == True and shani_workout_repeat == False:
+            $ daily_shani = True
+            jump shani_workout
+            
+        "Workout again" (repeatable = True) if m_d4c == True and shani_workout_repeat == True:
+            $ daily_shani = True
+            jump shani_workout
+
+        "Practice fighting" (important = True) if m_d15b == True and shani_practice == False:
+            $ daily_shani = True
+            jump shani_practice
+
+        "Practice fighting" (repeatable = True) if m_d15b == True and shani_practice == True:
+            $ daily_shani = True
+            jump shani_practice
+
+        "Leave":
+            Z "I have to leave for now."
+            scene vs1-14i
+            with dissolve
+            S "Okay!"
+            jump daily_home
+
+###### Convis ########
+
+label s_convi_1:
+    $ shani_talk_1 = True
+    Z "About the elf..."
+    scene vs1-14i
+    with Dissolve(0.5)
+    S "Oh right, what happened to her?"
+    S "You stayed away a full day, and you left for the desert without much equipment."
+    S "Did you find out what she wanted from you?"
+    scene vs1-14ix
+    with Dissolve(0.5)
+    Z "Yes, I followed her to a place where other mutants have come together."
+    scene vs1-14ax
+    with Dissolve(0.5)
+    Z "You should have seen it!"
+    Z "It was like a place out of time."
+    scene vs1-14a
+    with Dissolve(0.5)
+    S "What do you mean?"
+    scene vs1-14ax
+    with Dissolve(0.5)
+    Z "It's a bunker unlike any place I've scoured in many years of explorations."
+    Z "Fully functional, as far as I can tell, run by some source of energy that I had no idea still existed."
+    scene vs1-14j
+    with Dissolve(0.5)
+    S "I don't get it..."
+    scene vs1-14jx
+    with Dissolve(0.5)
+    Z "This was technology from before the End of Days."
+    Z "They weren't really fully in control of it and I'm not sure everything worked as it should, because frankly, nobody alive knows what half the machines I saw even are meant to do."
+    Z "But there were more working machines and examples of antique technology being used as everyday tools than I have ever seen in one single place."
+    scene vs1-14a
+    with Dissolve(0.5)
+    S "Is that something you should report to the [Q]?"
+    scene vs1-14ax
+    with Dissolve(0.5)
+    Z "No, for now I think it is best that she doesn't know about it. I want to find out more, before I decide what to do with this information."
+    scene vs1-14
+    with Dissolve(0.5)
+    S "I trust you, [persistent.dad]. I'm sure you know what's best."
+    scene vs1-14ix
+    with Dissolve(0.5)
+    Z "I hope I do, [S]. For now, do not tell anyone what I have seen. Especially not [Q]."
+    scene vs1-14j
+    with Dissolve(0.5)
+    S "I won't. But what about the girl?"
+    scene vs1-14jx
+    with Dissolve(0.5)
+    Z "They call her Ivy, and she's a mystery alright; to them too, apparently."
+    scene vs1-14j
+    with Dissolve(0.5)
+    S "Them, you mean the other mutants? What are they like?"
+    scene vs1-14jx
+    with Dissolve(0.5)
+    Z "Yes, they too know little about her."
+    Z "As for them... they're, interesting."
+    menu:
+        "\"They have a reason for what they do.\"":
+            $ shani_help += 1
+            Z "Let's be honest, they have a reason for what they do."
+            Z "Zeta enslaves their kind, the decayed have them for dinner..."
+            Z "It was only a matter of time before they banded together."
+            Z "Their leader is very fierce about her goals."
+            Z "And she doesn't rule out violence."
+            scene vs1-14ax
+            with Dissolve(0.5)
+            Z "Maybe she can be convinced that Zeta can change..."
+            scene vs1-14a
+            with Dissolve(0.5)
+            S "You think it can?"
+            S "Didn't Zeta always enslave mutants?"
+            scene vs1-14ax
+            with Dissolve(0.5)
+            Z "I am not a historian, but I can't imagine it was always like this."
+            Z "What I know is that if we ignore this problem, it might one day be at our doorstep."
+            Z "And then it will be too late."
+            jump shani_conversations
+
+        "\"They're a sexy bunch, I'll give them that.\"":
+            Z "They're a sexy bunch, I'll give them that."
+            scene vs1-14j
+            with Dissolve(0.5)
+            S "Ugh, [persistent.dad]. Why!?!"
+            scene vs1-14jx
+            with Dissolve(0.5)
+            Z "Come now, [S], you know me..."
+            S "..."
+            Z "Don't be mad, princess, you know I care about my family above all."
+            scene vs1-14d
+            with Dissolve(0.5)
+            S "Nice try, [persistent.dad]."
+            jump shani_conversations
+
+        "\"They're extremists and potentially dangerous.":
+            $ shani_self += 1
+            Z "They're quite the extremists... I had a conversation with their leader."
+            Z "And she basically threatened the safety of the House, should I tell the Queen about their location."
+            scene vs1-14j
+            with Dissolve(0.5)
+            S "What do you mean? Do they even know where to find us?"
+            scene vs1-14jx
+            with Dissolve(0.5)
+            Z "They do. You're forgetting I brought Ivy right into our basement."
+            scene vs1-14a
+            with Dissolve(0.5)
+            S "Uff... lovely."
+            scene vs1-14ax
+            with Dissolve(0.5)
+            Z "To be fair, mutants don't have it easy, you know that."
+            Z "Until Zeta stops enslaving them and treating them like they do now, they won't stop fighting for change."
+            Z "But the methods... I'm not sure what to make of them."
+            scene vs1-14j
+            with Dissolve(0.5)
+            S "Can violence change things, though? Zeta has the largest number of warriors under its banner."
+            scene vs1-14jx
+            with Dissolve(0.5)
+            Z "I don't know yet. They have some high quality military armor for sure."
+            Z "Their bunker might contain some surprises, or maybe the surprise is the mutants themselves."
+            Z "Who knows, they might have powers beyond good hearing and eyes that change colour."
+            scene vs1-14e
+            with Dissolve(0.5)
+            S "Eyes that change colour? Are you serious?"
+            scene vs1-14ex
+            with Dissolve(0.5)
+            Z "I thought you'd noticed. It's a thing Ivy does. I'm not sure if any other mutant can do the same though."
+            scene vs1-14ix
+            with Dissolve(0.5)
+            Z "Anyway, maybe they don't mean us specifically any harm, especially if I play along and have a chance to find out more... But it's something to be mindful of."
+            jump shani_conversations
+
+label s_convi_2:
+    $ shani_talk_2 = True
+    Z "So... what happened at the Queen's palace?"
+    scene vs1-14k
+    with Dissolve(0.5)
+    S "It was... something else."
+    scene vs1-14kx
+    with Dissolve(0.5)
+    Z "How do you mean?"
+    scene vs1-14i
+    with Dissolve(0.5)
+    S "She received me in the thermae instead of the throne room..."
+    scene vs1-14ix
+    with Dissolve(0.5)
+    Z "They are impressive, aren't they?"
+    scene vs1-14i
+    with Dissolve(0.5)
+    S "They are, very much so."
+    S "We didn't stay long, however..."
+    S "I know you didn't see everything, but do you remember that boy who wanted to kidnap [A]?"
+    scene vs1-14ix
+    with Dissolve(0.5)
+    Z "Of course. If it wasn't for the guards, he'd long be cut into pieces."
+    scene vs1-14kx
+    with Dissolve(0.5)
+    S "..."
+    if shani_help >= shani_self:
+        scene vs1-14e
+        with Dissolve(0.5)
+    if shani_self > shani_help:
+        scene vs1-14l
+        with Dissolve(0.5)
+    S "That's pretty much what happened..."
+    if shani_help >= shani_self:
+        scene vs1-14ex
+        with Dissolve(0.5)
+    if shani_self > shani_help:
+        scene vs1-14cx
+        with Dissolve(0.5)
+    Z "What do you mean?"
+    scene vs1-14l
+    with Dissolve(0.5)
+    S "[Q] prepared a private execution, setting him up and cutting him up with a knife."
+    scene vs1-14k
+    with Dissolve(0.5)
+    S "She seemed to enjoy the moment very much..."
+    scene vs1-14lx
+    with Dissolve(0.5)
+    Z "I have noticed that she seems to enjoy testing the boundaries of her power."
+    Z "I am starting to think she might be a bit too young and unrestrained for the important position she holds in Zeta."
+    scene vs1-14l
+    with Dissolve(0.5)
+    S "She said that her people need to know what happens to criminals like him to feel safe."
+    if shani_perspective == True:
+        if d5d_deserved_torture == False:
+            scene vs1-14l
+            with Dissolve(0.5)
+            S "But even if he threatened [A] like that..."
+            scene vs1-14k
+            with Dissolve(0.5)
+            S "I love her, and I would always protect her."
+            scene vs1-14l
+            with Dissolve(0.5)
+            S "But torturing him like she did..."
+            S "That's not the right thing, you know?"
+            scene vs1-14lx
+            with Dissolve(0.5)
+            Z "Our old Queen, the one who ruled before Merneith, would have agreed with you."
+        if d5d_deserved_torture == True:
+            scene vs1-14j
+            with Dissolve(0.5)
+            S "But it's not just that."
+            S "He did deserve it."
+            S "He almost killed my sister, for what? Fame? Wealth?"
+            S "He deserved everything she did to him."
+        if d5b_queen_kissed_shani == True:
+            scene vs1-14k
+            with Dissolve(0.5)
+            S "Anyways..."
+            S "When she was stabbing his face over and over again..."
+            S "...she asked me how it is when you are in combat."
+            S "And whether or not I..."
+            S "...liked the thrill of it."
+            scene vs1-14a
+            with Dissolve(0.5)
+            S "...promise you don't judge me, okay?"
+            scene vs1-14ax
+            with Dissolve(0.5)
+            Z "Promise."
+            scene vs1-14k
+            with Dissolve(0.5)
+            S "We... somehow... started making out."
+            S "I don't know why, but something in that situation just... drew me to her."
+            scene vs1-14ix
+            with Dissolve(0.5)
+            Z "[Q] is a pretty woman; I don't think less of you for it."
+            Z "I can tell you that whenever I come home after a fight, the excitement takes a while to subside. Your [persistent.mom] knows this well."
+            Z "Violence makes the blood boil, and excitement takes many forms and finds many releases."
+            S "..."
+            Z "These things happen. There is no shame in them."
+            scene vs1-14i
+            with Dissolve(0.5)
+            S "I wonder if she genuinely likes me, or if that was just an act of hers."
+            scene vs1-14ix
+            with Dissolve(0.5)
+            Z "I imagine she is a lonely woman on top of that pyramid."
+            Z "Maybe she sees a potential friend in you?"
+            scene vs1-14e
+            with Dissolve(0.5)
+            S "Maybe... I guess I will find out."
+        jump shani_conversations
+
+    if shani_perspective == False:
+        if shani_help >= shani_self:
+            scene vs1-14l
+            with Dissolve(0.5)
+            S "But even if he threatened [A]..."
+            scene vs1-14k
+            with Dissolve(0.5)
+            S "I love her, and I would always protect her."
+            scene vs1-14l
+            with Dissolve(0.5)
+            S "But torturing him like that..."
+            S "That's not right, you know?"
+            scene vs1-14lx
+            with Dissolve(0.5)
+            Z "Our old Queen, the one who ruled before Merneith, would have agreed with you."
+            jump shani_conversations
+        if shani_self > shani_help:
+            scene vs1-14j
+            with Dissolve(0.5)
+            S "But it is not only that."
+            S "He did deserve it."
+            S "He almost killed my sister, for what? Fame? Wealth?"
+            S "He deserved everything she did to him."
+            jump shani_conversations
+

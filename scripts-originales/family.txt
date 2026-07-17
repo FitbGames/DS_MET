@@ -1,0 +1,3716 @@
+label vf_overview:
+    show vf-54
+    queue music "audio/music/home/desert blues.mp3" fadein 3
+    with fade
+    if vf_dinner_part_2 == True and vf_dinner_part_3 == False:
+        jump vf_dinner
+    call screen rabiah_menu()
+
+label nadia_menu:
+    $ family_limit += 1
+    $ daily_nadia = True
+    if nadia_introduction == False:
+        $ nadia_introduction = True
+        jump nadia_convi_1
+    if nadia_introduction == True:
+        if nadia_part_2 == False and omar_convi_2 == True:
+            $ nadia_part_2 = True
+            jump nadia_convi_2
+        elif nadia_part_2 == True and nadia_part_3 == False:
+            $ nadia_part_3 = True
+            jump nadia_convi_3
+
+label rabiah_menu:
+    $ family_limit += 1
+    $ daily_rabiah = True
+    if rabiah_introduction == False:
+        $ rabiah_introduction = True
+        jump rabiah_convi_1
+    if rabiah_introduction == True:
+        if nadia_part_3 == True and rabiah_part_2 == False:
+            $ rabiah_part_2 = True
+            jump rabiah_convi_2
+
+label omar_menu:
+    $ family_limit += 1
+    $ daily_omar = True
+    if omar_introduction == False:
+        $ omar_introduction = True
+        jump omar_convi_1
+    elif rabiah_part_2 == True and omar_part_3 == False:
+        $ omar_part_3 = True
+        jump omar_convi_3
+    else:
+        scene vfo-6
+        with fade
+        W "Hey there, husband."
+        W "{i}*kissing*"
+        scene vfo-9
+        with dissolve
+        Z "..."
+        scene vfo-10
+        with dissolve
+        menu:
+            "Grope her": # PART 2
+                jump omar_convi_2
+
+            "Resume talking":
+                $ omar_convi_2 = True
+                scene vfo-14
+                with dissolve
+                Z "Don't let me stop you, you were saying...?"
+                scene vfo-13
+                with dissolve
+                Om "Oh, right, so I was saying..."
+                scene black pic
+                with fade
+                jump end_scene_omar
+        
+
+label nadia_convi_3: # 3nd EVENT
+    scene vfn-1
+    with fade
+    Na "Hmm..."
+    Z "What's up, kid."
+    scene vfn-6
+    with fade
+    Na "Hey, uncle. What's up? Do you want to sit with me?"
+    scene black pic
+    with fade
+    "You do just that. She quickly follows..."
+    scene vfn-28
+    with fade
+    Z "So what are you up to, today?"
+    Na "I was thinking that you need to tell me the next part of my mom's story."
+    Z "I see, but where do I pick up?"
+    scene vfn-30
+    with dissolve
+    Na "Well, you told me how you and auntie first met. But how did you two really connect?"
+    Na "Why not continue there?"
+    scene vfn-31
+    with dissolve
+    Z "I see. Hm... we did see each other for some weeks on and off, mostly when I was visiting Rabiah herself."
+    Z "Sometimes she joined us, sometimes she was there when we had dinner with her mom."
+    Z "But... there was this one time where we got closer than usual."
+    menu:
+        "\"Your mom and I were having some fun together, when...\"":
+            jump vfn_167
+        "\"Your mom and I were just about to finish having some fun in her room...\"":
+            Z "It was a nice day outside, and your mom was eager to go out and enjoy some time together."
+            Z "I got there before the girls were ready to go, so Rabiah had decided to have some fun before going out."
+            jump vfn_193
+            
+
+    label vfn_167:
+        if not _in_replay:
+            Z "It was a nice day outside, and your mom was eager to go out and enjoy some time together."
+        scene vfn-168x
+        if _in_replay:
+            with fade
+        else:
+            with longflash
+        $ vfn_rabiah_sex = True
+        Z "She suggested we could have some fun together before we would go out."
+        Na "You guys were having a quickie? {i}*giggles*"
+        show vfn-168-anim
+        with dissolve
+        Z "Quickie is an understatement. She was riding me like a tiger."
+        Z "She had an appetite for sex, back then, and liked to be on top too."
+        Na "Wow. I can't imagine my mom being so assertive... Except with me."
+        show vfn-167-anim
+        with dissolve
+        hide vfn-168-anim
+        Yra "Ah... yes... [persistent.player_name]..."
+        Z "She was such a fierce wildcat. She took what she wanted, and I loved how forthcoming she was."
+        Z "She bounced on top of me, and didn't care if her family could hear how much she was enjoying it."
+        show vfn-169-anim
+        with dissolve
+        hide vfn-167-anim
+        Na "That's hot. I kinda wish I could see her like that at least once."
+        Yra "Mh... nhn..."
+        Z "She still has that arrogant look about her. I can't imagine her not knowing how to take what she wants anymore, but people do change."
+        show vfn-170-anim
+        with dissolve
+        hide vfn-169-anim
+        Na "So you guys were fucking, but you were running out of time?"
+        scene vfn-172
+        with fade
+        Z "In a way. We had only so much daylight left, and that's what your aunt came to tell us."
+        scene vfn-173
+        with dissolve
+        Na "She just walked in on you? Wow. I mean, I guess that's normal, if you're not living with an old turd like my stepdad..."
+        Z "Pretty much, yeah. It wasn't even the first time she saw us. I think you're starting to learn that things are a bit more relaxed in Zeta, in that regard."
+        scene vfn-174
+        with dissolve
+        Yw "...!"
+        scene vfn-175
+        with dissolve
+        Yra "Mmm... ah... I'm so close...!"
+        Z "It's not like that was stopping your mother anyway. She was having a good time, and would not have let even the sun stop her..."
+        scene vfn-176
+        with dissolve
+        Yra "Hah... hah..."
+        Yw "Rabiah? It's getting late, if we still want to go out."
+        Yra "Yeah... just... a minute. Sit down a bit, sis... ah..."
+        scene vfn-177
+        with fade
+        Z "So she just sat down and waited."
+        Na "Hard to imagine auntie being that obedient."
+        Z "Oh, she can be, in the right circumstances."
+        scene vfn-178
+        with dissolve
+        Z "Back then however, she had less malice... but I do think she knew what she was doing, even then."
+        scene vfn-179
+        with dissolve
+        Na "It's like... they have switched roles now. Auntie seems so much more confident."
+        Na "...But I bet mom was a cool big sister to have."
+        scene vfn-180
+        with dissolve
+        Z "I think she was, If a little mean. I think your mother enjoyed having her as an audience, when we were fucking."
+        Z "More than once, she almost made her stay and watch, as if she was staking a claim. I think she got off on being watched as well."
+        Yra "One... mh... moment..."
+        scene vfn-181
+        with dissolve
+        Yra "Nh... coming... fuck me, [persistent.player_name]..."
+        Na "So she liked being on top? I guess I should explore that option too. Maybe I take after her.{i}*giggles*"
+        scene vfn-186
+        with fade
+        Yra "Mh... ngh..."
+        Z "I can't comment on that."
+        scene vfn-187
+        with dissolve
+        Na "Not {i}yet{/i}, you mean."
+        Z "Ah, is that how it is..."
+        scene vfn-188
+        with dissolve
+        Na "Why not? As long as we're not too loud.{i}*giggles*"
+        scene vfn-182
+        with dissolve
+        Z "I do expect you do better than your mother back then, though."
+        Na "What do you mean?"
+        scene vfn-183
+        with dissolve
+        Z "Well, you see, the issue, on that particular occasion, and several other times, was that..."
+        Yra "Mh..."
+        Yz "So... close..."
+        scene vfn-184
+        with dissolve
+        Yra "Aaaahhhh...!!!"
+        scene vfn-185
+        with dissolve
+        Yra "Hah... ngh..."
+        Yra "So... good...!!"
+        scene vfn-185x
+        with dissolve
+        Z "Your mother was bored quickly, and her patience ran dry even faster. Whenever your mother was finished..."
+        scene vfn-189
+        with fade
+        Yra "Haa... that was good."
+        Z "...she would just get up, even if I was not."
+        if _in_replay:
+            scene black pic
+            with fade
+            $ renpy.end_replay()
+        Na "Whaaat?"
+        scene vfn-190
+        with dissolve
+        Yz "Rabiah! What the fuck? I was so close!"
+        Yra "Yeah, but you heard [W]. We should get out soon."
+        Yw "..."
+        scene vfn-191
+        with dissolve
+        Yz "{i}*grumbling*"
+        Yra "Mhh... sorry for keeping you waiting, sister. I'll go get ready."
+        Yra "I'll go clean up and get dressed."
+        Yw "..."
+        Na "She really left you hanging? I'd never do that."
+        Z "I guess you're more considerate. Or maybe I'm more assertive now than I was back then."
+        Na "That, or... because I know men won't come back to you if they fear the curse of blue balls. {i}*giggles*"
+        scene vfn-194
+        with dissolve
+        Yra "Don't look at me like that. I'll be quick, I promise."
+        Yra "Sorry for making you wait, sis."
+        scene black pic
+        stop music fadeout 2
+        with fade
+        Z "And so she just left me there, and that was that."
+        Na "But you said this is where you first connected with auntie?"
+        play music "audio/music/home/dream town.mp3" fadeout 2       
+        Z "Patience..."
+        scene vfn-195
+        with hpunch
+        Yz "Hgn-! Fuck!!"
+        Z "I was upset, of course."
+        scene vfn-197
+        with dissolve
+        Z "...and when I looked over to [W], I could tell she was embarrassed enough about the situation to look away."
+        jump vfn196
+        
+        label vfn_193:
+            Z "That day, again, we were having sex but, when [W] came knocking, your mother got up just before I was finished."
+            play music "audio/music/home/dream town.mp3" fadeout 2            
+            Z "Rabiah left me hanging right when I was about to cum. She had enough, so she left and told her sister that she would get dressed for the night out."
+            scene vfn-197x-3
+            with longflash
+            Z "Her sister was in the room, and I was dropped like a hot potato, with my dick at full mast, waving in the breeze...I was furious." 
+            scene vfn-197
+            with dissolve
+
+        label vfn196:
+            Yw "..."
+            Z "We weren't really friends, so she didn't dare say anything, but she didn't leave the bed either."
+        scene vfn-196
+        with dissolve
+        Z "...she just sat there for a while, visibly embarrassed more about the situation than my nakedness."
+        Na "Maybe she didn't want to speak up about her sister?"
+        Z "Could be."
+        scene vfn-198
+        with fade
+        Z "But that day I had pretty much had it with your mother."
+        Z "She had left me hanging one time too many, and while there are guys who are into this, I am not the type. I never was, not even then."
+        scene vfn-199
+        with dissolve
+        Yz "...again. Right when I was about to finish..."
+        Z "I just let my anger speak and poured my frustration out on [W]. In hindsight, it was dumb. This was Rabiah's little sister and I should not have talked behind her back to her."
+        Yz "...what woman does that? Does that seem like something a caring person would do? She wants to be my girlfriend but all she does is take."
+        Yz "She does it like it's the most normal thing!"
+        scene vfn-200
+        with dissolve
+        Z "I complained a bit more about Rabiah, bringing up other instances where I hadn't been happy with her behaviour."
+        Z "I don't think I expected a response, especially from this sheltered, quiet girl who looked up to her sister."
+        scene vfn-202
+        with dissolve
+        Z "But then, just when I was taking a breath between sentences, she cut me off and said in a calm and soothing tone..."
+        scene vfn-201
+        with dissolve
+        Yw "It's not right what she did."
+        pause 1
+        Yw "...I would have let you finish."
+        scene vfn-202
+        with dissolve
+        Yw "..."
+        scene vfn-203
+        with dissolve
+        Yz "..."
+        Na "Wow."
+        Z "Yeah. I didn't say a word after that."
+        Z "I was thinking about what she said, but also how she said it..."
+        menu:
+            "\"...and I was still hard up.\"":
+                $ vfn_zahra_blowjob = True
+                Z "...and I was still hard up."
+                jump vfn205
+
+            "\"...but I didn't want to take advantage of her.\"":
+                Z "...but I didn't want to take advantage of her."
+                jump vfn223x23
+
+
+
+        label vfn205:   
+            scene vfn-205
+            with dissolve
+            Z "So I turned around to her, in silence. Looking at her."
+            Z "She had this... neutral expression. But a confident one."
+            Z "It's like she had weighed her words deliberately."
+            Na "That doesn't sound like the wallflower you have described. That sounds... confident, yeah."
+            Na "So what did you do then?"
+            scene vfn-204
+            with dissolve
+            Z "Well... I was standing there, naked. With an unsolved problem."
+            Z "She didn't break eye contact with me once. Neither did I."
+            scene vfn-206
+            with fade
+            Z "I went over to her, standing right in front of her. She kept staring at me."
+            Z "Waiting in silence..."
+            scene vfn-207
+            with dissolve
+            Z "...even as my dick was almost brushing against her chest."
+            Na "I wonder what she was thinking..."
+            scene vfn-208
+            with dissolve
+            Z "I stood before her for a moment. She still waited for me to do or say anything."
+            Z "For whatever reason, her calm gave me the confidence to do what I did next."
+            Z "I knew I was standing before her because I wanted something from her..."
+            menu:
+                "\"...so I asked her if she wanted to help me out instead.\"":
+                    Z "...so I sat down next to her..."
+                    jump vfn223x8
+
+                "\"...and I decided right then that I would take it.\"":
+                    Z "...and I decided right then that I would take it."
+                    jump vfn209
+
+        label vfn223x8:
+            scene vfn-223x-8
+            with fade
+            Z "...and asked her if she wants to help me out instead."
+            scene vfn-223x-12
+            with dissolve
+            Yw "I..."
+            scene vfn-223x-13
+            with dissolve
+            Yw "...could do that."
+            scene vfn-223x-8
+            with dissolve
+            Na "Whoa... {i}*giggles*{/i} Just like that?"
+            Z "Just like that."
+            scene vfn-223x-9
+            with fade
+            Z "Your aunt was very mature for her age, and ultimately, she made her choice as well."
+            Z "It was as if she had read the situation from the start."
+            Z "So I sat down and placed my arm around her waist, as we got closer..."
+            Na "Did she just... start like that?"
+            scene vfn-223x-10
+            with dissolve
+            Z "She was a little hesitant. It may even have been the first time she did such a thing."
+            Z "But helping out your sister's boyfriend is not really something dramatic at the end of the day, or so I told myself."
+            scene vfn-223x-11
+            with dissolve
+            Na "...And she wanted to find out how it feels. The dick, I mean."
+            Z "Speaking from experience, huh?"
+            Na "You bet!"
+            scene vfn-223x-13
+            with dissolve
+            Z "Her touch was delicate, but still seemed to know what she was doing."
+            scene vfn-223x-14
+            with dissolve
+            Z "As I looked down at her breasts leaning on my arm, she kept stroking me, and I felt her breath upon my face."
+            scene vfn-223x-15
+            with dissolve
+            Z "She was oddly calm, her full lips exhaling deep long breaths that felt warm on my skin."
+            scene vfn-223x-16
+            with dissolve
+            Z "She seemed to be concentrating on what she was doing, her expression serious and focused, staring at my manhood."
+            scene vfn-223x-17
+            with dissolve
+            Z "Once she found a steady rhythm, she looked at me instead."
+            scene vfn-223x-18
+            with dissolve
+            Z "I think she smiled, but I was too focused on her eyes, as she was staring into me, like she was studying me."
+            scene vfn-223x-20
+            with dissolve
+            Z "She must have felt I was ready to cum, because she shifted her hand."
+            scene vfn-223x-21
+            with dissolve
+            Z "I exploded right past her fingers, as she was pointing my manhood to the side."
+            scene vfn-223x-22
+            with dissolve
+            Z "As I was coming down from the high of my orgasm..."
+            scene vfn-223x-16
+            with dissolve
+            Z "She looked down again..."
+            scene vfn-223x-16
+            with dissolve
+            Yw "I can clean that up for you."
+            Z "...and a few seconds later, Rabiah came into the room..."
+            jump vfn125
+
+        label vfn209:
+            scene vfn-209
+            with hpunch
+            Z "I grabbed the back of her head, firmly. She didn't object, and kept looking at me."
+            scene vfn-210
+            with dissolve
+            Z "I had made up my mind, and would make her do what her sibling should have done instead."
+            scene vfn-211
+            with dissolve
+            Z "I grabbed her head..."
+            scene vfn-211x
+            with dissolve
+            Z "...and made her suck me off."
+            Na "Mh... shit. That's hot."
+            scene vfn-212
+            with dissolve
+            Z "I didn't know what was going through her mind in that moment, but I didn't care."
+            scene vfn-213
+            with dissolve
+            Z "I pushed her down on my dick, and she let me guide her on it."
+            show vfn-215-anim
+            with Dissolve(0.2)
+            pause 2
+            Yw "..."
+            Z "I remember how surprised I was by her surrender to me..."
+            Na "So you were her first? Was she any good?"
+            show vfn-218-anim
+            with dissolve
+            hide vfn-215-anim
+            Z "She was surprisingly good, actually. Maybe spying on her big sister had taught her what to do, or maybe she was just a natural."
+            Z "She had no gag reflex to speak of. It was all so smooth."
+            Z "Your mother was good, don't get me wrong, but this was somehow different."
+            show vfn-216-anim
+            with dissolve
+            hide vfn-218-anim
+            Na "I'll say. You barely knew her, and the first real connection was your dick in her throat... Not even a kiss before that? {i}*laughs*"
+            Na "You're definitely weird."
+            Z "Yeah, I mean... wasn't the most romantic way to start our relationship."
+            Z "But somehow it didn't hurt it either. We're still here all these years later."
+            show vfn-215-anim
+            with dissolve
+            hide vfn-216-anim
+            Na "I can't say the same for mom... I wish I'd at least met my own dad."
+            Na "You'd be a cool dad for sure, uncle."
+            Z "You're cute."
+            show vfn-217-anim
+            with dissolve
+            hide vfn-215-anim
+            Na "I'm serious! I'm jealous of [A] and [S]. My cousins get to have such a cool [persistent.dad], they can have fun every day."
+            Na "Meanwhile, my stepdad... {i}*sigh*"
+            Z "Come now, you don't have it so bad. You're young, pretty, have a handsome uncle..."
+            Na "I know, right? Anyway, what happened next?"
+            Z "Well, eventually your mother came back, all dressed up..."
+            play sound "audio/sounds/doors/door closed.mp3"
+            jump vfn125
+
+        label vfn125:
+            scene vfn-215
+            with fade
+            Yra "Alright, sis. I'm ready to-"
+            scene vfn-216
+            with dissolve
+            Yra "...go."
+            scene vfn-217
+            with dissolve
+            Na "Poor mom! I mean... she did bring it upon herself..."
+            Z "I don't think she expected that to happen. But, the way she had left me hanging, I was past caring."
+            scene vfn-218
+            with dissolve
+            Yw "{i}*cough*"
+            Z "I really wanted to get my rocks off, and coming down her sister's throat just as she came back into the room was just a random thing..."
+            Yz "Ngh-"
+            scene vfn-219
+            with dissolve
+            Yz "Ahh... fuck... so good..."
+            Yz "I needed that so bad."
+            scene vfn-220
+            with dissolve
+            Z "As you can imagine, your mother wasn't too happy about it."
+            Na "She was jealous?"
+            Z "No, that was not it. She was born and raised in this city, she knew how things go and was in favour of everybody having a good time."
+            Z "I think it was genuine affection and worry towards her sister."
+            Z "Maybe it was the first time she really looked at her as a sexual being."
+            scene vfn-221
+            with fade
+            Yz "Mh... don't stop yet, please, [W]. This feels so nice."
+            Yw "{i}*slurp*"
+            Yra "What are you doing, [persistent.player_name]?!"
+            scene vfn-222
+            with dissolve
+            Yra "She's barely an adult! Seriously?!"
+            Yra "With all the options out there, you had to use my sister like a common servant?"
+            Yra "She doesn't know the first thing about relationships and you shove a dick in her face? For fucks sake!"
+            scene vfn-223
+            with dissolve
+            Yz "She knows enough not to leave a man stiff and to finish what she started!"
+            scene vfn-222x
+            with dissolve
+            Yra "Whatever... she's still my little sister. This is just not cool."
+            scene vfn-222x-2
+            with dissolve
+            Yra "I hope for your sake this doesn't mean you won't be ready for me, in the future."
+            if _in_replay:
+                scene black pic
+                with fade
+                $ renpy.end_replay()
+            scene vfn-222x-3
+            with dissolve
+            Na "So... uh... she wanted to protect auntie, I guess?"
+            scene vfn-222x-4
+            with Dissolve(2.0)
+            Z "Yeah. She figured her sister deserved her first experiences to be good ones, and she figured this probably wasn't one."
+            Na "But you're telling me she didn't mind sharing you with her?"
+            Z "As long as I was ready when she was in the mood, she didn't care if I slept around in general."
+            Z "But this was still her sister, so it was a delicate situation."
+            Na "But then, why did you break up? Couldn't you just have a three-way relationship or something?"
+            jump vfn224
+
+        label vfn223x23: # non porn alternative
+            scene vfn-205
+            with dissolve
+            Z "I took a step back from her..."
+            scene vfn-196
+            with dissolve
+            Z "I laid back again,  as [W] was looking away."
+            Yz "What do you think, [W]? Am I being unreasonable?"
+            scene vfn-197x
+            with dissolve
+            Yw "I think she wasn't very caring, just now."
+            Yw "A good partner would not leave her loved one like that, without giving him satisfaction."
+            scene vfn-197
+            with dissolve
+            Yz "Right? You see my point?"
+            scene vfn-197x
+            with dissolve
+            Yw "However, she is not your wife."
+            Yw "You're not committed to each other."
+            scene vfn-197
+            with dissolve
+            Yz "That is true, but she is my girlfriend."
+            Yz "Many of my friends would lose it if their partners behave like that."
+            scene vfn-197x
+            with dissolve
+            Yw "Yes, and if you pulled out too soon, she would probably be furious too."
+            scene vfn-197
+            with dissolve
+            Yz "You said you wouldn't have left me blueballed..."
+            scene vfn-197x
+            with dissolve
+            Yw "I did, and I meant it. If you were my man, you would not have to fear that from me."
+            scene vfn-197
+            with dissolve
+            Yz "Maybe I should have waited a little in choosing which sister to date."
+            scene vfn-197x-2
+            with dissolve
+            Yw "Now you're just assuming I would choose you too."
+            Yw "A bold assumption to make. Maybe I am not that interested, you know? I am not sure if I would like to be with a man who lets his girlfriend treat him like that."
+            scene vfn-197
+            with dissolve
+            Z "She giggled, half joking on me maybe being soft with her sister."
+            Na "Was she really joking?"
+            Z "I am pretty sure, but you can ask her, if she even remembers... all I can tell you is that over the years I have appreciated how strong her discipline is."
+            Z "She expects it from herself and from those who she leads... and she does have a mean streak as well, in these things."
+            Na "That's...hot."
+            Z "Yes... well... anyway, that's when your mother came back into the room."
+            scene vfn-215
+            with fade
+            Yra "Alright, sis. I'm ready to go, what about you?"
+            scene vfn-215x
+            with dissolve
+            scene vfn-215x-2
+            with Dissolve(2.0)
+            "And with that we pretty much left."
+            Na "So what happened next? What was the reason you eventually broke up?!"
+            jump vfn224
+
+        label vfn224:
+            scene vfn-31
+            play music "audio/music/home/desert blues.mp3" fadeout 3
+            with longflash
+            Z "Too many questions. That's a story for another time."
+            if nadia_fingered == True or nadia_sex == True:
+                scene vfn-30
+                with dissolve
+                Na "Okay... but..."
+                scene vfn-31
+                with dissolve
+                Z "But?"
+                label re_vfn224:
+                    scene vfn-224
+                    with fade
+                Z "What are you doing there?"
+                Na "Nothing... I was just curious... about the whole being on top thing."
+                scene vfn-226
+                with fade
+                Z "You think you might like it, like your mother, huh?"
+                Na "Yeah..."
+                "As you lower her top and flick her nipple, she lets out a soft whimper."
+                scene vfn-225
+                with dissolve
+                Na "I definitely want to try it, now..."
+                "Her self-confidence is enticing, and you stare in to her eyes as she moves her hands over your crotch."
+                scene vfn-227
+                with dissolve
+                Z "You were not exactly quiet last time."
+                Z "What if your parents hear us?"
+                Na "It's okay, they won't. I'll be quiet today..."
+                scene black pic
+                with dissolve
+                Na "Mh... fuck..."
+                "As she climbs on top of you, your shaft enters her but she stops herself from sliding down it entirely, and instead wiggles her butt, playing with the tip of your dick."
+                "The circular motions of her hips stimulate your glans as it brushes against the inside of her labia. You can't help but wonder who taught her that trick."
+                show vfn-228-anim
+                with slowfade
+                "You grab her waist, feeling the slim but toned abdomen underneath your fingers."
+                Z "*grunt*"
+                "After a few more seconds of her playing with the tip of your manhood, you push her down towards your pelvis."
+                show vfn-229-anim
+                with dissolve
+                hide vfn-228-anim
+                "Now that she is entirely claimed by your manhood, Nadia resumes gyrating, making your entire cock wet with her juices."
+                Na "Oh... this is gooood."
+                "Her voice resembles more a low guttural growl than the clear timbre you are used from her, as she purrs in her excitement."
+                # show vfn-230-anim
+                # with dissolve
+                "She arches her back, her tits rising as she bobs up and down on you. Her eyes narrow for a second, as she stares at you, lost for words in her excitement."
+                Z "You're a dirty little slut, Nadia... you can't stop yourself, can you?"
+                Na "Mnghh... no..."
+                show vfn-232-anim
+                with dissolve
+                hide vfn-229-anim
+                Na "No... I want you to... oh!"
+                Z "Tell me... "
+                Na "Fuck!... Fuck me... please..."
+                show vfn-231-anim
+                with dissolve
+                hide vfn-232-anim
+                if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                    Na "Ah... uncle..."
+                else:
+                    Na "Ah..."
+                Na "Can you... take the lead...?"
+                Na "I need it so much..."
+                Z "If that's what you want..."
+                Na "Fuck me... hard."
+                scene black pic
+                with fade
+                "You flip her over, burying her face in the mattress as you enter her again, from behind, her hole dripping with your precum and her juices..."
+                Z "So you want me to fuck you hard? To be rough?"
+                Na "Ye-...Eeh!"
+                show vfn-235x-anim
+                with w33slow
+                "You don't wait for her reply to form completely, and thrust into her with deep strokes."
+                "Her voice is muffled by the bed linen, as she replies."
+                Na "Please..."
+                Z "You really are a slut..."
+                Na "{i}*muffled*{/i} Mghh... fuck! Yes! Yess!"
+                "Her voice may be muffled, but she's loud enough to entice you into pushing harder still, punishing her pussy with all your strength."
+                Na "Graah!"
+                Z "Tell me! What are you?"
+                Na "I love this. I love what you're doing... ah!"
+                Z "What are you?"
+                Naw "I'm a slut! Oh...Gods... yes!"
+                Z "Again!"
+                Na "I am a slut! I am {i}your{/i} slut..."
+                "She purrs while you continue hammering her..."
+                pause 1
+                if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                    Na "Is that... ngh... how you... fuck your daughters...?"
+                    "You don't stop fucking her..."
+                    Na "They're... ah... so lucky..."
+                    pause 1.5
+                    Na "Mh..."
+                    "She buries her head into the mattress, murmuring her next sentences..."
+                    Naw "I wish... you were my... nh... real..."
+                    pause 1.5
+                    Na "...Daddy."
+                else:
+                    pause 1.5
+                    Na "...Daddy."
+                "Hearing those words, you start fucking her even harder."
+                Na "Nghh...!"
+                Na "That's a bit ro-"
+                "You sharply thrust yourself into her wet pussy."
+                Na "-...ooh!"
+                Z "That's what you get for teasing me."
+                Z "And from the sound of it you like it, don't you?"
+                "You forcefully thrust again."
+                Z "I asked you a question, slut."
+                Na "Fu...uhh...fuck! Yes! I love it!"
+                "You sense her pussy starting to clench..."
+                Z "Oh no... we're not done yet. You don't get to come until I say so."
+                show vfn-236-anim
+                with dissolve
+                hide vfn-235x-anim
+                "As you change the pace working a slower, steady rhythm, more controlled but still driving yourself deep inside her, you tell her softly."
+                Z "You said that well... you're a slut, and when I want you, you are mine."
+                "She whimpers, surrendering to your pounding, her hands grasping at the blankets underneath her, as you lift up her left leg, that she moves almost in a spasm."
+                show vfn-237-anim
+                with dissolve
+                hide vfn-236-anim
+                "As you pound Nadia into the bed, your thumb brushes against her buttcrack, stroking randomly right over her puckered hole."
+                Na "Wha-... oh...go-."
+                Z "Take my dick, little slut... take it!"
+                scene black pic
+                with fade
+                "You take a second as you change position again, going back to sitting on the bed, your back leaning to the wooden headboard."
+                "Nadia quickly crawls back atop you, ready to mount your dick again, unwilling to stop."
+                scene vfn-241
+                with fade
+                Z "You're a wild one, but you're a good fuck, girl."
+                Na "Nh... t-thanks..."
+                scene vfn-242
+                with dissolve
+                Z "If only your mother could see... how much you really take after her."
+                Z "There would be... much fewer issues between the two of you."
+                Na "Nh... I wish... sometimes... oh, just fuck me!"
+                scene vfn-243
+                play sound "audio/sounds/doors/door closed.mp3"
+                with fade
+                Na "Does that... feel good? I won't stop... unlike her... ah!"
+                scene vfn-244
+                with dissolve
+                Ra "..."
+                scene vfn-245
+                with dissolve
+                Raw "What on earth..."
+                Ra "Really, [persistent.player_name]? Really?"
+                scene vfn-246
+                with dissolve
+                Ra "Nadia! [persistent.player_name]!!"
+                scene vfn-247
+                with dissolve
+                Na "Nh... yeah...?"
+                scene vfn-248
+                with hpunch
+                Na "Oh- it's... it's not..."
+                Zt "Uhm... it totally is..."
+                Na "We were... talking about you... and then..."
+                scene vfn-249
+                with dissolve
+                Ra "I should've known you two were up to something..."
+                scene vfn-250
+                with dissolve
+                Ra "You were always unhinged, [persistent.player_name]. But to fuck my daughter, of all people, under my own roof..."
+                Ra "You're despicable. Stop this!"
+                Z "No, Rabiah, I don't think I will."
+                scene vfn-251
+                with dissolve
+                Ra "I wonder what Omar would think about you doing it in his own house, Nadia."
+                Na "But mom... oh, gods. You're always so angry. I'm just trying to have some fun-"
+                scene vfn-252
+                with dissolve
+                Ra "You two were so loud, it's a miracle Omar hasn't heard anything."
+                Ra "I've seen enough. If my husband learns about this, I don't know what he will do."
+                scene vfn-253
+                with fade
+                Na "Nh... please, mom..."
+                scene vfn-254
+                with vpunch
+                Na "Ah...!"
+                scene vfn-255
+                with vpunch
+                "You grab her throat, and pull Nadia back, one hand squeezing her tit, roughly..."
+                Z "You really have not changed a bit, Rabiah."
+                scene vfn-257
+                with dissolve
+                Z "Even now, decades later, you still try to give me blue balls."
+                Z "Guess what..."
+                scene vfn-258
+                with fade
+                Z "Neither your sister..."
+                "You see her angry expression but talk right through it"
+                scene vfn-259
+                with dissolve
+                Z "Nor Nadia are like you."
+                scene vfn-260
+                with dissolve
+                Na "Nh...!"
+                "The girl comes, her legs clenching up and a shiver running through her shoulderblades, against your chest."
+                scene vfn-261
+                with dissolve
+                Na "Ahn...gods!"
+                "You keep speaking as she shakes a little, in the aftermath of her climax."
+                scene vfn-256
+                with dissolve
+                Z "Your daughter is just enjoying her youth, and I am giving her a bit of attention, unlike you."
+                Z "And as you can see, she's much more considerate than you ever were at her age."
+                scene vfn-262
+                with dissolve
+                Z "She at least lets me..."
+                "With a grunt, you lift Nadia up to extract your manhood from her gushing pussy, as you sense your own orgasm approach."
+                scene vfn-263
+                with dissolve
+                pause 1.5
+                scene vfn-264
+                with vpunch
+                Z "Ngh-"
+                scene vfn-265
+                with dissolve
+                Z "Ahhh!... She lets me cum in peace, without leaving the room halfway through."
+                scene vfn-249
+                with dissolve
+                Z "Let's give her a few moments to clean herself, before we return to the table."
+                Z "Unless you really want your husband to find out that his precious stepdaughter is not the little lamb he thinks she is."
+                scene vfn-250
+                with dissolve
+                Ra "{i}*grumbling*"
+                Ra "You're the worst. We will discuss this later..."
+                play sound "audio/sounds/doors/door slam.mp3"
+                scene vfn-260x
+                with hpunch
+                "She storms out..."
+                scene black pic
+                with fade
+                $ renpy.end_replay()
+                "Eventually, you follow her back to the living room..."
+                jump vf_overview
+
+            else:
+                scene vfn-30
+                with dissolve
+                Na "Alright, I guess I'll wait for a better time..."
+                scene vfn-31
+                with fade
+                Ra "Nadia! [persistent.player_name]! Dinner's ready!"
+                Z "You heard her. Let's go."
+                jump end_scene_nadia                
+
+label nadia_convi_2: # 1st EVENT
+    scene black pic
+    with fade
+    Na "{i}*humming*"
+    scene vfn-74
+    with fade
+    Na "Mh... not too sure about this..."
+    Na "...and what should I wear the stockings with?"
+    scene vfn-73
+    play sound "audio/sounds/doors/door closed.mp3"
+    with fade
+    Z "What's up kid? Hiding from family meetings again?"
+    scene vfn-75
+    with dissolve
+    Na "Hey uncle. Nah, I'm just trying on some clothes. I was going to join you later."
+    scene vfn-76
+    with fade
+    Z "Trying a new look, huh?"
+    Na "Yeah, but I just can't decide. And it's not like mom or Omar would help me..."
+    Na "{i}*sigh*{/i} \"Nadia don't wear this, Nadia this looks irresponsible\"..."
+    Na "I can already hear them ruining it in my mind."
+    Z "Your mother has always had good taste. That's all I can say."
+    scene vfn-77
+    with dissolve
+    Na "I know she has a good eye. But we're... different. You see how she dresses, all proper like an old matron with a stick up her butt."
+    Z "Back when we were young, she would model for me, and ask my opinion."
+    scene vfn-78
+    with fade
+    Na "Really? That's cool! Would you do that for me too?"
+    scene vfn-79
+    with dissolve
+    Z "Sure, show me what you've got. We have some time yet, before dinner."
+    scene vfn-82
+    with dissolve
+    Na "Okay, let's start with this one then. What do you think?"
+    Na "You can take your time looking closer."
+    scene vfn-83
+    with fade
+    Z "Hm... let's see."
+    "There's some trepidation in her glances towards you, as she strikes a pose..."
+    scene vfn-84
+    with dissolve
+    "You inspect her dress..."
+    Na "I do like the dark green. Understated, and versatile."
+    "The top is a see-through delicate mesh that reveals more than a hint of her perky cleavage."
+    Z "And here I was thinking that that skirt looks brown."
+    Na "Stick to fighting, uncle..."
+    "No doubt, Omar would not approve of this, if he saw his stepdaughter walking down the streets of Zeta in it."
+    "It exposes her toned abs. You can tell Nadia has reason to be confident in her appearance."
+    scene vfn-85
+    with dissolve
+    "The short skirt is complemented by stockings, wrapping her legs tightly."
+    Na "So, what do you think? How do I look?"
+    label vfn_dress_one:
+        menu:
+            "Tell her to show you the back." if vfn_d1_a1 == False:
+                $ vfn_d1_a1 = True
+                Z "Turn around. I need to see you from the back."
+                Na "As you wish, uncle."
+                "...You notice she's putting on an affected, playfully cute voice."
+                scene vfn-86
+                with fade
+                Z "Hm..."
+                "She wiggles slightly in front of you..."
+                Na "You know you're supposed to be looking at the outfit, right?"
+                Z "Yeah, I know."
+                jump vfn_dress_one
+
+            "Tell her to come closer" if vfn_d1_a2 == False and nadia_sex == True:
+                $ vfn_d1_a2 = True
+                Z "Come closer, I need to feel the fabric."
+                Na "Do you now, hmm?"
+                scene vfn-87
+                with fade
+                "She steps closer as you raise your hands..."
+                Na "{i}*giggles*"
+                scene vfn-88
+                with fade
+                Na "Uncle, you're not really touching the fabric..."
+                Z "..."
+                scene vfn-89
+                with dissolve
+                Na "This outfit has another advantage. It's very easy to take off."
+                Z "I know."
+                Na "Just, don't damage the stockings, please?"
+                scene vfn-90
+                with dissolve
+                "As your fingers reache under the skirt, you can feel the tight muscles of her legs and bottom..."
+                Z "Hm..."
+                scene vfn-91
+                with dissolve
+                "She lays a hand on your shoulder, for balance, as your hands push and prod at her..."
+                Z "One more moment. I need to focus here."
+                scene vfn-92
+                with fade
+                Z "..."
+                scene vfn-93
+                with dissolve
+                "Looking at her top from this distance, there's a hint of her nipples poking at the fabric."
+                "People regularly walk around in Zeta in various states of dress and undress, but you do not doubt that many a head would turn at the sight of this young beauty."
+                "As you evaluate, she raises her voice in a sheepish tone..."
+                scene vfn-94
+                with dissolve
+                Naw "Uncle... I do have many other outfits to go through, you know...?"
+                Z "Alright then, let's move on."
+                scene vfn-85    
+                with dissolve
+                jump vfn_dress_one
+
+            "Judge the dress":
+                Z "I'll tell you what I think..."
+                scene vfn-84
+                with dissolve
+                menu:
+                    "\"I like the colors.\"":
+                        Z "You look pretty, I like the colors."
+                        Z "It's a little short, which shows your body off."
+                        scene vfn-83
+                        with dissolve
+                        Z "You seem to favour these kinds of looks, that leave little to the imagination."
+                        scene vfn-82
+                        with dissolve
+                        Na "They're hot though, right?"
+                        Na "But that's also why I know for sure that Omar and mom wouldn't like me wearing this."
+                        scene black pic
+                        with fade
+                        Na "Anyway, moving on...!"
+                        jump vfn80
+
+                    "\"It's sexy. You'd be turning heads, in the streets.\"":
+                        Z "It's sexy. You'd be turning many heads, in the streets."
+                        Z "If you went out with friends, you'd probably be at the center of their attention."
+                        if nadia_sex == True:
+                            Z "You certainly got mine, last time we met in public."
+                            scene vfn-82
+                            with dissolve
+                            Na "Oh yes... I did, didn't I?"
+                            Na "About my friends... they're all about this and they are already checking out anything that moves, myself included, I don't think they'd care."
+                        else:
+                            scene vfn-82
+                            with dissolve
+                            Na "They're already checking me out as well, I don't think they'd care."
+                        Na "At least they're honest about it, unlike Omar, who thinks I don't notice him staring at me even as he tells me I shouldn't go dressed like this..."
+                        scene black pic
+                        with fade
+                        Na "Anyway, next one!"
+                        jump vfn80
+
+                    "\"I'd be very tempted to rip that top off of you.\"":
+                        Z "I'd be very tempted to rip that top off of you."
+                        Z "And take you somewhere private."
+                        scene vfn-83x
+                        with dissolve
+                        Na "You would drag your niece into a dark alley to fuck her?"
+                        Na "Even in front of her friends...?"
+                        if nadia_sex == True:
+                            scene vfn-82
+                            with dissolve
+                            Na "It's almost exactly what happened..."
+                            Na "Except for the friends part... I think they'd be very jealous."
+                        if nadia_sex == False:
+                            Na "Then why didn't you do it last time around?"
+                        scene black pic
+                        with fade
+                        Na "Anyway, next one!"
+                        jump vfn80
+
+                    "\"It could be better.\"":
+                        Z "To be honest, it could be better."
+                        scene vfn-83x
+                        with dissolve
+                        Na "Really, how?"
+                        scene vfn-83
+                        with dissolve
+                        menu:
+                            "\"It's too skimpy.\"":
+                                Z "It's too skimpy. People would pounce on you like hungry dogs."
+                                scene vfn-82
+                                with dissolve
+                                Na "Even if I was walking hand in hand with my uncle...?"
+                                Na "People would admire him and his beautiful niece, don't you think?"
+                                scene black pic
+                                with fade
+                                Na "Anyway, next one!"
+                                jump vfn80
+
+                            "\"It's not revealing enough.\"":
+                                Z "You are good looking and you clearly put effort in staying in shape."
+                                Z "There's no shame in being even more revealing."
+                                scene vfn-82
+                                with dissolve
+                                Na "I see. But what if they took me for one of those public servants I've seen around...?"
+                                scene black pic
+                                with fade
+                                Na "Anyway, next one!"
+                                jump vfn80
+
+    label vfn80:
+    scene black pic
+    with fade
+    "She excitedly hurries over to her chest..."
+    #which is fecking empty
+    scene vfn-80
+    with fade
+    Na "Mom and Omar never seem to care about these things... if it was up to them, I'd walk around in a fully covering robe..."
+    Na "Now... what should I start with, hm..."
+    scene vfn-81
+    with dissolve
+    Na "There... let's continue with something special... {i}*giggles*"
+    scene vfn-95
+    with fade
+    # if da = daughter, then she should say, uncle. if not, then we leave it out.
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Na "You don't mind if I change right here, uncle?"
+    else:
+        Na "You don't mind if I change right here?"
+    Na "I'm too lazy to get the separé."
+    scene vfn-96
+    with fade
+    Z "You know me."
+    Na "I know, you're relaxed!"
+    if nadia_sex == True:
+        jump vfn80_check
+    else:
+        menu:
+            "Check her out":
+                jump vfn80_check
+
+            "Don't":
+                "You wait..."
+                Na "Almost done..."
+                jump vfn99
+
+    label vfn80_check:
+        scene vfn-97
+        with dissolve
+        "You take a look at her firm, peachy ass..."
+        Na "Almost done..."
+        scene vfn-98
+        with dissolve
+        "Seeing her lithe, smooth legs in front of you, you're reminded of her mother, back when she was Nadia's age."
+        "You'd stare at her while she was getting dressed, much like you're doing now."
+        Na "[persistent.player_name]... you're so quiet. Are you getting an eyeful...?"
+        "...she says in her most sultry tone yet."
+        Z "..."
+        Na "Hm... no answer is also an answer, I guess. {i}*giggles*"
+        jump vfn99
+
+    label vfn99:
+        scene vfn-99
+        with fade
+        Na "Alright; done!"
+        Na "I bet you remember this one."
+        scene vfn-100
+        with dissolve
+        Na "Someone else wore it before me..."
+        Na "...and I'm told that you were there to see it."
+        scene vfn-101
+        with fade
+        Z "This is..."
+        scene vfn-102
+        with dissolve
+        Z "...your mother's..."
+        Z "Turn around, kid."
+        scene vfn-103
+        with fade
+        "She turns around, facing you with a proud and confident look."
+        "As a flash of recognition travels across your face, you realise that Nadia was intentionally trying to get a reaction from you. "
+        "She knew what she was doing, as the dress you haven't seen in a few decades brings many memories rushing back."
+        scene vfn-104 #fix pic legs
+        with dissolve
+        "...Rabiah's old dress, the one she wore when you both were still in your teenage years, now worn by her daughter."
+        "And it fits her perfectly."
+        Na "{i}*giggles*{/i} You're supposed to say something, about now..."
+        Z "Yeah. Hold still for a moment..."
+        scene vfn-105
+        with dissolve
+        Z "I have not seen that dress in a long, long time."
+        Na "No wonder... mom has gained so much weight, I think her ass alone would rip this dress in two. {i}*laughs*"
+        scene vfn-106
+        with dissolve
+        Na "So... ready to give me your opinion?"
+        Na "What should I do? What do you think of it?"
+        play sound "audio/sounds/doors/door closed.mp3"
+        scene vfn-107
+        with dissolve
+        Na "Huh...?"
+        Om "Nadia? [persistent.player_name]?"
+        scene vfn-108
+        with fade
+        Om "Hey guys, I was looking for you-"
+        scene vfn-109
+        with dissolve
+        Om "N-Nadia! What are you wearing? This isn't really appropriate!"
+        scene vfn-110
+        with fade
+        Na "It's... not even that revealing. I was just trying on some old outfits and needed uncle's opinion..."
+        scene vfn-111
+        with dissolve
+        Om "Where did you get this from, sweety? I will have to have a chat with the trader who sold you this!"
+        Om "What will people think if they see you in a dress like that? They'll think you're someone's concubine!"
+        scene vfn-112
+        with dissolve
+        Om "You know I love you, but you really should stop going out wearing such kind of clothes."
+        Om "I mean, this dress... look at your chest, and the straps... are you even wearing underwear?"
+        "As you listen to Omar prattle on, you look at Nadia, stood there with the bored expression of someone about to walk away, you insert yourself in the conversation as delicately as you can."
+        Z "Look... uh... Omar."
+        scene vfn-113
+        with dissolve
+        Z "This is actually her mother's dress, from when she was about Nadia's age. She wanted to show it to me, for old times sake."
+        Z "You know, she was just trying on some outfits. Just having a bit of fun."
+        Z "Look, I have an idea."
+        scene vfn-114
+        with dissolve
+        Z "Why don't you join us. She wanted my opinion, now we can both give her some sensible advice."
+        Om "I guess I could, if you'd... like me to?"
+        scene black pic
+        with fade
+        "You push the chair towards him. He sits down."
+        scene vfn-117
+        with w33slow
+        Z "See Nadia? Now you have two men helping you."
+        scene vfn-115
+        with fade
+        Na "Okay then, I guess we can continue?"
+        "Nadia grins mischievously. You're not entirely certain what you have set in motion, but she seems to have a plan."
+        Na "Take a look again, guys. Tell me what you think, and yes, I am wearing undies"
+        scene vfn-116
+        with dissolve
+        Z "Hm..."
+        Na "And Omar, don't judge before you look closer, please?"
+        Na "I promise you I'd never wear this outside."
+        Om "Okay... I can try, sweetie."
+        Na "Uncle, you start first. What do you think?"
+        menu:
+            "\"It's cute and suits you well.\"":
+                scene vfn-115
+                with dissolve
+                Z "It's cute and suits you well."
+                Z "Just like when your mom wore it, in her days."
+                Om "My wife really was different back then. If she wore this now..."
+                Z "She was, indeed, and, in my opinion, that's not such a bad thing as you make it sound."
+                Z "Today, Zetan girls her age are used to wearing much more revealing things."
+                scene vfn-117x
+                with dissolve
+                Om "I guess you're right about that... but I am still not a fan, to be honest. Sorry, sweetie."
+                Na "Yeah, whatever."
+                jump vfn118
+
+            "\"It's hot, you look like a proper hottie.\"":
+                scene vfn-115
+                with dissolve 
+                Z "Just like when your mother wore it, it shows just the right amount of skin to make any red-blooded man want to look closer."
+                Z "Just the right side of provocative without being openly slutty."
+                scene vfn-117x
+                with dissolve
+                Om "[persistent.player_name]! How can you say that?! No, this is too much! Nadia, take it off!"
+                Z "I believe, Omar, that getting her to take it off is entirely the purpose of this dress, but we're not supposed to say that."
+                Om "I didn't mean..."
+                Z "I know, I know... don't mind me."
+                scene vfn-117
+                with dissolve
+                Na "Mmmmh...Anyway, point taken."
+                jump vfn118
+
+
+            "\"I like it, but it's strange. It makes me think of your mother.\"":
+                "As you look at Nadia, a sense of unease takes you for a few seconds. Then you shake your head to clear your mind and reply to her."
+                Z "I like the dress, don't get me wrong, but... it's weird seeing you wear it. To me this dress inevitably reminds me of your mother."
+                Z "I also think the colours suited her better than they work for you."
+                scene vfn-115
+                with dissolve 
+                Na "Everybody is a critic..."
+                Z "You specifically asked me in here for that, didn't you?"
+                scene vfn-117x
+                with dissolve
+                Na "Yes... Sure, {i}that's{/i} what I asked you in the room for."
+                Om "Well, {i}I{/i} think... "
+                Na "Save it... I am taking it off."
+                jump vfn118
+
+        label vfn118:
+            scene vfn-118
+            with dissolve
+            Na "I will try something different on now. Could you close your eyes as I change?"
+            Na "You wouldn't want to embarrass me, after all..."
+            "As the dress starts peeling off, held aloft by her hands cupping her breasts, Nadia looks at you directly, with hungry eyes tinted by mischievousness..."
+            scene vfn-119
+            with hpunch
+            Om "Oh, yes, of course!"
+            Om "Let me know when you're done. I won't look."
+            Na "Thank you, Omar."
+            scene vfn-120
+            with fade
+            Na "Okay... I'm undressed. Please keep your eyes closed..."
+            "She gazes at you with a sly expression..."
+            menu:
+                "\"Damn...\"":
+                    $ nadia_flirt = True
+                    Z "Damn..."
+                    Om "Damn? Why damn? What's wrong?"
+                    Z "Uh, nothing..."
+                    scene vfn-121
+                    with dissolve
+                    Z "...You better hurry up, Nadia. I don't like to wait."
+                    Na "Yeah... I am doing my best."
+                    scene vfn-122
+                    with dissolve
+                    Zt "The way she just stands there..."
+                    Zt "Slim, athletic and with such a wild head of hair... if sirens were real, she could be one of them."
+                    scene vfn-123
+                    with dissolve
+                    Zt "Her ass... I didn't think she could improve on her mother's best features, but here we are."
+                    Z "You really like to take your time, huh..."
+                    Na "Yeah. Sorry, uncle."
+                    jump vfn124
+
+                "\"Come on [Na], get dressed.\"":
+                    Z "Come on [Na], get dressed. We don't have all day."
+                    "You throw the look of a disappointed dad at her."
+                    scene vfn-120x
+                    with dissolve
+                    Na "Aww... Ok, uncle."
+                    Zt "Nice try, girl."
+                    scene black pic
+                    with fade
+                    "She breaks eye contact and finishes dressing up..."
+                    jump vfn129
+            
+            
+        label vfn124:
+            scene vfn-124
+            with dissolve
+            Na "Now that I think of it, I think there's something wrong with my clothes."
+            Na "Omar, uncle, give me one more minute, I can't seem to put this on correctly..."
+            scene black pic
+            with fade
+            "She sways over to you..."
+            scene vfn-125
+            with fade
+            "...and leans into your arms."
+            Om "Alright, sweetie. I still have my eyes closed, take your time."
+            scene vfn-126
+            with dissolve
+            Na "You're so considerate, Omar..."
+            "You quietly suck on the young girl's breasts as you put your hands on her ass."
+            scene vfn-127
+            with dissolve
+            Z "I... also don't mind. Take your time."
+            Na "Okay..."
+            scene vfn-128
+            with dissolve
+            "With Omar dutifully covering his eyes, you enjoy his stepdaughter's body for another moment, before surrendering to the circumstances."
+            Na "Alright... I'll be done in a second..."
+            scene black pic
+            with fade
+            "As you let go of her, she hurries up and puts the new outfit on in a flash."
+
+        label vfn129:
+            Na "Okay, you can open your eyes, now."
+            scene vfn-129
+            with w33slow
+            Om "Uh, Nadia... what is this?"
+            Na "This is a special one. I got this from a local slavetrader."
+            scene vfn-130
+            with dissolve
+            Na "But don't worry, {i}*giggles*{/i}, he wasn't inappropriate to me, mostly."
+            Na "Nothing happened!"
+            scene vfn-131
+            with fade
+            Z "I know this outfit."
+            "She looks at you with a sensual look."
+            "Her carefully composed demeanour can't hide her underlying excitement from the risks she just took in front of her stepfather..."
+            "...but Omar, thankfully, seems oblivious to this."
+            scene vfn-132 #clipping
+            with dissolve
+            "The dress is known by all who wander through Zeta, as it is worn by many of the slaves and servants, independent from the social status or wealth of their masters."
+            "Much like a collar bearing the mark of a family, this dress is recognised as signifying the status of its wearer, which in a way grants them a certain level of dignity."
+            scene vfn-133
+            with dissolve
+            Z "No wonder you had to get this one from a slavetrader, {i}*laughs*."
+            if nadia_sex == False and nadia_flirt == False:
+                jump vfn134
+            else:
+                scene vfn-131
+                with dissolve 
+                menu:
+                    "\"You look cute in it.\"":
+                        Z "You do look cute in it, really."
+                        Z "If not for what the dress represents, the way it's tailored to you makes it look like a proper outfit, fit for a date."
+                        scene vfn-131x
+                        with dissolve
+                        Na "Maybe I will be, soon...?"
+                        scene vfn-131
+                        with dissolve
+                        jump vfn134
+
+                    "\"You look quite attractive.\"":
+                        Z "You look quite attractive."
+                        Om "You're her uncle, [persistent.player_name]."
+                        if nadia_sex == True:
+                            Z "You don't have to remind me of that. I am acutely aware of it..."
+                        Z "I'm just saying, if I was a boy her age, I'd date her."
+                        scene vfn-131x
+                        with dissolve
+                        Na "But what if I told a boy my age that I was more interested in mature men...?"
+                        scene vfn-131
+                        with dissolve
+                        jump vfn134
+
+                    "\"I'd take you as my slave.\"":
+                        Z "You do look like you need someone to tell you what to do."
+                        Z "I'd take you as my slave for sure."
+                        scene vfn-131x
+                        with dissolve
+                        Na "Would I have to wear a collar, too...?"
+                        scene vfn-131
+                        with dissolve
+                        Z "Maybe..."
+                        Om "[persistent.player_name]!"
+                        jump vfn134
+
+    label vfn134:
+        scene vfn-135
+        with dissolve
+        Om "What is this?! Nadia!"
+        Na "Omar, this one is just a jok-"
+        scene vfn-134
+        with dissolve
+        Om "No, Nadia. This is inappropriate. You are no slave, you are a free woman."
+        Om "Why would you dress up like some of the filth out there?"
+        Om "And then these comments!"
+        Om "I could get somewhat used to the last dress, but this one is absolutely insulting."
+        Om "Take it off, please."
+        menu:
+            "Go along with Nadia's joke":
+                Z "{i}*laughs*{/i} I don't know, Omar. I think you underestimate the power of suggestion certain things carry."
+                scene vfn-136
+                with dissolve
+                Z "Nadia, listen. A good slave should kneel, not stand there like she owns the place."
+                scene black pic
+                with hpunch
+                "She almost immediately falls to her knees..."
+                scene vfn-137
+                with fade
+                Na "Yes, Master? How can I serve you today?"
+                Na "I promise I will do everything you ask of me!"
+                scene vfn-138
+                with dissolve
+                Z "{i}*chuckles*{/i} Nice, not bad."
+                Om "Nadia!! [persistent.player_name]!!"
+                scene vfn-139
+                with dissolve
+                Om "This is not funny. Get up! Or I will tell your mother!"
+                scene vfn-140
+                with fade
+                Na "Relax, Omar. You can't even take a joke. As if I would ever kneel in front of just anyone."
+                Na "Only the man I choose, would be making me kneel."
+                Om "Nadia... I don't want to hear it!"
+                Na "Anyway, next dress! Eyes closed again!"
+                jump vfn145
+
+            "Tell her to change":
+                scene vfn-136
+                with dissolve
+                Z "Alright, we had our fun. Show us your next outfit."
+                scene vfn-140
+                with dissolve
+                Na "Fine, but I think the joke was pretty good. It would definitely never happen in real life though. Ever!"
+                Na "Anyway, next dress! Eyes closed!"
+                jump vfn145
+
+    label vfn145:
+        scene vfn-145
+        with fade
+        Na "Alright, almost done."
+        Na "Oh, wait..."
+        "Once again, she puts on a sultry tone..."
+        scene vfn-142
+        with dissolve
+        Na "I forgot the bra..."
+        "She looks at you..."
+        Z "Shit."
+        scene vfn-143
+        with dissolve
+        "Your eyes are transfixed on the young girl..."
+        if nadia_sex == False and nadia_flirt == False:
+            Zt "This girl won't stop..."
+        else:
+            Zt "That's the hottest thing I've seen today."
+        scene vfn-144
+        with dissolve
+        "She changed into a sultry violet night dress made out of silk, with matching undergarments."
+        "You know damn well Omar will have a field day complaining about it."
+        scene black pic
+        with fade
+        "She puts on the bra and turns to Omar..."
+        Na "Open your eyes, what do you think?"
+        scene vfn-146
+        with fade
+        Om "...!"
+        Om "It's inappropriate, but since it is a night dress..."
+        Om "It looks... good on you..."
+        if nadia_sex == False and nadia_flirt == False:
+            jump vfn147
+        else:
+            menu:
+                "\"I agree. I want to feel it.\"":
+                    label re_vfn145:
+                        scene vfn-147
+                        if _in_replay:
+                            with fade
+                        else:
+                            with dissolve
+                    Z "I agree. The fabric looks soft. I want to feel it."
+                    Om "Feel it?"
+                    scene vfn-148
+                    with dissolve
+                    Z "Yeah, I love silk, it reminds me of my wife's skin."
+                    scene vfn-149
+                    with fade
+                    Na "Okay, but be careful with your hands! The garment is new..."
+                    Z "Yeah, sure."
+                    Om "But..."
+                    scene vfn-151
+                    with dissolve
+                    Z "Don't worry, brother. I know how important Nadia is to you."
+                    Z "I'm just curious to see what the money of a wealthy merchant such as yourself can pay for."
+                    "With Omar's sight partially obscured by the bedframe and Nadia's stance, you feel bold enough to touch her inner thigh, caressing it gently."
+                    scene vfn-150
+                    with dissolve
+                    "Her leg feels as soft as you expect, even remember it to be and, under your touch, a shiver courses through Nadia, who writhes in anticipation..."
+                    Na "Oh no, wait I..."
+                    scene vfn-152
+                    with hpunch
+                    Na "...!"
+                    Om "Nadia! What's happening?"
+                    "She stumbles into your arms, leaning forward your hand still between her legs."
+                    "...She's a pretty good actor."
+                    scene vfn-153
+                    with dissolve
+                    Z "I got you. Are you feeling alright?"
+                    Na "Yeah, thanks uncle... {i}*pant*"
+                    scene vfn-154
+                    with dissolve
+                    Z "Are your legs cramping up?"
+                    Na "Mh... I don't know..."
+                    scene vfn-155
+                    with dissolve
+                    Naw "This whole thing has made me very wet, uncle..."
+                    Zw "So you're saying you're very sensitive down there?"
+                    scene vfn-156
+                    with dissolve
+                    Na "Hn..."
+                    Om "Nadia, should I call your mother? Are you in pain?"
+                    scene vfn-157
+                    with dissolve
+                    Na "Ah..."
+                    "She purrs into your ear..."
+                    Na "No... I think..."
+                    scene vfn-158
+                    with dissolve
+                    Na "...I think I am fine..."
+                    "She clearly enjoys your fingers touching her clit..."
+                    Z "You should get up. This is getting inappropriate, Nadia."
+                    Na "I know... {i}*sigh*"
+                    scene vfn-159
+                    with fade
+                    Naw "Stay for a while longer, please?"
+                    menu:
+                        "Send Omar out":
+                            if not _in_replay:
+                                $ nadia_fingered = True
+                            scene vfn-151
+                            with dissolve
+                            Z "Alright, I've got enough of this whole dress up thing. Shall we join the others, Omar?"
+                            Om "Okay, sure."
+                            Z "You can go ahead, I need to collect my things and will join you in a few."
+                            Z "I think the keys dropped behind Nadia's bed or something."
+                            Om "Okay, see you in a few!"
+                            jump vfn160
+
+                        "Leave with Omar":
+                            Z "Omar, what do you think, I think Nadia needs to rest a bit after moving around so much."
+                            Z "Want to join the others?"
+                            Om "Okay, sure."
+                            Naw "Meany..."
+                            scene black pic
+                            with slowfade
+                            $ renpy.end_replay()
+                            "Later, at the dinner table..."
+                            jump end_scene_nadia 
+
+                "\"I've seen enough. Let's go join the others.\"":
+                    label vfn147:
+                        scene vfn-147
+                        with dissolve
+                        Z "Alright, I've got enough of this whole dress up thing. Let's go join the others, Omar."
+                        Om "Okay, sure."
+                        scene black pic
+                        with slowfade
+                        "Later, at the dinner table..."
+                        jump end_scene_nadia 
+
+        label vfn160:
+            scene black pic
+            with slowfade
+            "He leaves..."
+            show vfn-160-anim
+            with quickfade
+            Na "{i}*muffled*{/i} Mhhh... ahh..."
+            Na "I... ah..."
+            show vfn-161-anim
+            with dissolve
+            hide vfn-160-anim
+            Z "It seems like my sweet not-so-innocent niece needed that badly."
+            Na "Yeess... I still can't believe... he... nh... didn't catch us..."
+            show vfn-162-anim
+            with dissolve
+            hide vfn-161-anim
+            Z "Maybe he saw how I was touching you, and enjoyed it?"
+            Na "No... ah... I can't see how this..."
+            scene vfn-163
+            with dissolve
+            Na "Nh..."
+            Z "They're probably waiting for us. You should cum soon, kid."
+            Z "I don't think you want your mother to find out what we're doing."
+            "The wet noises of your finger fucking her fill the room, and your words and you ramping up the pace seem to bring her over the edge..."
+            scene vfn-164
+            with dissolve
+            Na "Ah... fuuuu..."
+            scene vfn-165
+            with dissolve
+            Na "Nghhhh--!!!"
+            scene vfn-166
+            with dissolve
+            Na "Haahhh...!!"
+            "She cums violently..."
+            scene vfn-163
+            with dissolve
+            Na "{i}*pants*"
+            Naw "Thank you, uncle... I... that..."
+            Zw "Always here for my niece. You should get dressed, now. Come on, let's get up."
+            scene black pic
+            with slowfade
+            $ renpy.end_replay()
+            "Later, at the dinner table..."
+            jump end_scene_nadia 
+
+label nadia_convi_1:
+    Z "Nadia should be in her room."
+    scene vfn-2
+    with fade
+    Na "{i}*humming*"
+    scene vfn-3
+    with dissolve
+    Na "Hmm..."
+    play sound "audio/sounds/doors/door knocking 2.mp3"
+    Z "Nadia? It's me."
+    scene vfn-4
+    with dissolve
+    Na "Uncle? Come in..."
+    scene vfn-1
+    play sound "audio/sounds/doors/wooden door.mp3"
+    with fade
+    Z "So this is your room. Interesting..."
+    scene vfn-6
+    with Dissolve(0.8)
+    Na "Heyy, yep\s, it's my personal space."
+    Na "The twins are in the next room. I guess Mother will have to feed the little goblins again, later tonight."
+    Na "I didn't know babies pooped that much."
+    scene vfn-5
+    with dissolve
+    Na "How's the evening going? Is dinner ready yet?"
+    Z "Not yet, no. I'm just here to see how you're doing..."
+    scene vfn-7
+    with fade
+    Na "Getting tired of Omar's stories, huh?"
+    scene vfn-8
+    with dissolve
+    menu:
+        "\"You can say that out loud.\"":
+            Z "You can say that out loud."
+            Z "The way he's blabbering on, you'd think he doesn't get to talk much, with either you or your mother."
+            scene vfn-12
+            with dissolve
+            "You move towards the bed..."
+            scene vfn-13
+            with fade
+            Na "I know. He doesn't."
+            Na "I try to avoid him, to be honest."
+            scene vfn-14
+            with fade
+            jump vfn14
+
+        "\"Nice dress, are you going to become a priestess now?\"":
+            Z "Nice dress, are you going to become a priestess now?"
+            scene vfn-10
+            with dissolve
+            Na "Oh, this?"
+            Na "{i}*giggles*{/i} No, I don't think I would be a good fit for that role."
+            Na "I just saw it at the market and it looked comfortable, so I bought it."
+            # scene vfn-11
+            # with dissolve
+            Na "You think people would confuse me for one of them, if they saw me with this?"
+            Z "Why wouldn't they? Sometimes the looks do make the woman, and this is very close to their traditional garb."
+            Na "Fair point, I guess..."
+            scene vfn-9
+            with dissolve
+            Na "I think I'll keep it, anyway."
+            scene vfn-12
+            with dissolve
+            "You move towards the bed..."
+            scene vfn-13
+            with fade
+            Na "{i}*sigh*"
+            scene vfn-14
+            with fade
+            Z "What's the problem?"
+            jump vfn14
+
+    label vfn14:
+        Na "Sorry for taking off last time. I'm not like that usually."
+        Na "It's just that those comments made me uncomfortable."
+        scene vfn-15
+        with dissolve
+        Na "It's enough that he exhausts mom already. Me? I want him to back off."
+        scene vfn-16
+        with dissolve
+        Z "Because he expects you to do chores, too?"
+        scene vfn-15
+        with dissolve
+        Na "I would do them, but it's how he goes about it that bugs me. It's not like he couldn't afford to buy some help, servants..."
+        Na "But I guess he's too much of a cheapskate. So he's all manipulative towards mom and me, instead of flat out asking us to do things..."
+        Na "He just tries to guilt us into things..."
+        scene black pic
+        with fade
+        "She comes closer..."
+        scene vfn-18
+        with fade
+        Na "Anyway, enough about him."
+        Na "Do you know what I always wondered?"
+        scene vfn-19
+        with dissolve
+        Z "What would that be?"
+        scene black pic
+        with fade
+        "She climbs on the bed..."
+        scene vfn-28
+        with fade
+        if nadia_sex == True:
+            Na "Now that I know first hand why they liked you..."
+        Na "I always wondered why you chose auntie over my mother."
+        Na "I know she wasn't as stuck up as she is now, so what was it?"
+        if nadia_sex == True:
+            scene vfn-29
+            with dissolve
+        else:
+            scene vfn-31
+            with dissolve
+        Z "You want to hear the full story, huh?"
+        if nadia_sex == False:
+            scene vfn-30
+            with dissolve
+        Na "Yes."
+        if nadia_sex == True:
+            scene vfn-30
+            with dissolve
+        Na "Will you tell me what happened?"
+        scene vfn-31
+        with Dissolve(0.5)
+        stop music fadeout 3
+        Z "Well, I guess we should start at the very beginning."
+        Z "I first met your aunt on a bright summer day..."
+        scene vfn-31x
+        play music "audio/music/home/music box september.mp3" fadein 10
+        with longflash
+        Z "Your mother and I had been together for a few months, and I had never really seen her sister until that point."
+        scene vfn-32
+        play sound "audio/sounds/environment/desert wind.mp3" fadein 1
+        with Dissolve(2.5)
+        Z "I guess there just hadn't been an occasion for it."
+        Z "I was in the middle of my training to become a Zetan Stalker, and after my lessons and training, I would meet up with your mother."
+        scene vfn-33
+        with dissolve
+        Z "That day however was a little different."
+        Z "[W]'s birthday had been just a few days prior, and since she had been a bit sheltered until then, she didn't have a great many friends to celebrate with."
+        Z "So Rabiah had kept her company and asked me to let her tag along, so she wouldn't be on her own."
+        scene vfn-34
+        with dissolve
+        Z "I agreed, of course, and eventually we met at one of our usual spots, just outside the city."
+        Z "I found them waiting for me, together, talking amongst themselves."
+        Z "[W] eventually, much later, told me what they talked about..."
+        scene vfn-35
+        stop sound fadeout 3
+        with dissolve
+        Yra "I don't know, [W]... I really like him, but..."
+        Yra "I'm not sure if this Stalker thing is the best idea."
+        Yra "Once he starts going on missions or looking for treasures... Who knows how long he will be gone..."
+        scene vfn-37
+        with dissolve
+        Yra "And don't get me started on how dangerous it is. He could die any time he goes out there."
+        scene vfn-36
+        with dissolve
+        Yw "I don't know... from what you tell me, he really wants to do this, and he's a good student."
+        scene vfn-38
+        with dissolve
+        Yra "I know. But there are other ways for a man to earn gold, you know what I mean?"
+        Yra "He could become a Queen's guard, do his shift and come home. They are well provided for."
+        Yw "..."
+        scene vfn-39
+        with dissolve
+        Na "So my mom never liked that you became a Stalker?"
+        Z "I don't think she disliked it as a concept. But she was always impatient."
+        Z "She didn't like that I would be gone, potentially for days at a time."
+        Z "Anyway, where was I..."
+        Yz "Rabiah? Are you here?"
+        Yra "We're here, sweetie!"
+        scene vfn-40
+        with fade
+        Yra "Look who finally made it..."
+        Yz "I came as fast as I could. [Zo] never lets me leave on time."
+        scene vfn-41
+        with dissolve
+        Yra "Have you thought of everything?"
+        scene vfn-42
+        with dissolve
+        Yz "Of course, why would I forget?"
+        menu:
+            "Give her a quick kiss":
+                Yz "Come here."
+                scene vfn-48
+                with dissolve
+                Yra "{i}*kissing*"
+                Yz "It's good to see you."
+                jump vfn49
+
+            "Make out with her":
+                Yz "Now greet me properly."
+                scene vfn-43
+                with dissolve
+                Yra "{i}*kissing*"
+                scene vfn-44
+                with dissolve
+                Yra "Mhm..."
+                scene vfn-45
+                with dissolve
+                Yz "You look great in this dress."
+                Yra "Well thank you... I can feel that you like it. {i}*giggles*"
+                Na "I could never imagine mom saying that nowadays."
+                Na "Did she look different, too?"
+                Z "She did indeed. She had a fine figure, slender... an amazing body."
+                scene vfn-46
+                with dissolve
+                Z "And that ass... man I considered myself a lucky guy, with good reason."
+                scene vfn-47
+                with dissolve
+                Yw "..."
+                if nadia_sex == True:
+                    scene vfn-47x
+                    with Dissolve(2.0)
+                    Na "So..."
+                    scene vfn-23
+                    with slowfade
+                    Na "What do you think..."
+                    scene vfn-22
+                    with dissolve
+                    Na "Do I take after my mom or not...?"
+                    scene vfn-24
+                    with dissolve
+                    Z "Hm..."
+                    scene vfn-21
+                    with dissolve
+                    Z "I can see the similarities..."
+                    scene vfn-20
+                    with dissolve
+                    Z "But you resemble her in other ways, too."
+                    scene vfn-24
+                    with dissolve
+                    Z "Your mother could be a real tease if she wanted."
+                    scene vfn-25
+                    with dissolve
+                    Na "Oh, I remember you saying that last time before we got... distracted."
+                    scene vfn-26
+                    with dissolve
+                    Na "{i}*chuckles*"
+                    Z "...and you know I'm right."
+                    scene vfn-27
+                    with dissolve
+                    Na "Don't let me stop you. You were saying..."
+                    scene vfn-26
+                    with dissolve
+                    Z "Hm, where was I..."
+                    scene vfn-49x
+                    with slowfade
+                    pause 0.3
+                    scene vfn-49
+                    with Dissolve(2.0)
+                jump vfn49
+
+            "Greet [W]":
+                jump vfn49
+
+    label vfn49:
+        Yz "So you brought your sister, like you said."
+        scene vfn-50
+        with dissolve
+        Yra "Yeah, I figured it can't hurt her to get out of the house for once."
+        Yra "She's quite shy, I hope you don't mind."
+        scene vfn-50x
+        with dissolve
+        menu:
+            "Kiss her hand":
+                scene vfn-51
+                with dissolve
+                Yz "I don't mind one bit."
+                scene vfn-52
+                with dissolve
+                Yz "{i}*kiss*"
+                scene vfn-53
+                with dissolve
+                Yz "Nice to meet you too, [W]."
+                jump vfn54
+
+            "Don't do it":
+                jump vfn54
+
+    label vfn54:
+        scene vfn-54
+        with fade
+        Yz "Rabiah asked me to bring some food."
+        Yz "I hope you're hungry."
+        scene vfn-55
+        with dissolve
+        Yw "That's nice of you."
+        Yw "I hope it was not too expensive."
+        Yz "Don't worry about it."
+        scene vfn-56
+        with dissolve
+        menu:
+            "\"Happy birthday.\"":
+                Yz "Happy birthday, by the way."
+                Yz "Have you made any plans now that you're effectively an adult?"
+                scene vfn-57
+                with dissolve
+                Yw "Thank you and... no, not really."
+                Yw "I'm still looking to find something tha-"
+                jump vfn58
+
+            "\"You look very pretty in that dress.\"":
+                Yz "You look very pretty in that dress."
+                scene vfn-57
+                with dissolve
+                Yw "Thank you. Mother gifted it to me on my birthda-."
+                jump vfn58
+
+    label vfn58:
+        scene vfn-58
+        with dissolve
+        Yra "I was right, I looked again and those two guards are totally making out, beards and all!"
+        Yra "Anyway, are you going to make some room for your girlfriend?"
+        scene vfn-59
+        with dissolve
+        Yra "Or would you like me to cuddle up to my little sister instead, hm...?"
+        scene vfn-61
+        with dissolve
+        menu:
+            "\"There's always room for you.\"":
+                Yz "There's always room for you."
+                scene vfn-60
+                with dissolve
+                Yra "So kind of you."
+                jump vfn62
+
+            "\"And what will I get in return?\"":
+                Yz "And what will I get in return?"
+                scene vfn-60
+                with dissolve
+                Yra "You get a cute girl sitting between your legs, how does that sound?"
+                jump vfn62
+
+            "\"You and your sister? I'd like to see that.\"":
+                Yz "You and your sister? I'd like to see that."
+                scene vfn-60
+                with dissolve
+                Yra "You would, wouldn't you?"
+                jump vfn62
+
+    label vfn62:
+    scene vfn-62
+    with fade
+    Yz "So have you been waiting for long?"
+    Yra "Eh, not that long. We were talking..."
+    Yz "You did? What was it about?"
+    scene vfn-63
+    with dissolve
+    Yw "I was just curious about what you're learning."
+    Yw "Rabiah says you will be away on adventures a lot?"
+    scene vfn-64
+    with dissolve
+    Yz "Not sure how it will go, but yes, there are not many of us, and the Queen always has tasks for a good Stalker."
+    Yz "It's a great way to see more than just the city. I can't wait to get out there and explore what is left of the old world."
+    scene vfn-62
+    with dissolve
+    Yra "As long as you return home in one piece..."
+    Yz "Of course I will. As for home, have you thought of my idea?"
+    scene vfn-65
+    with dissolve
+    Yra "The house?"
+    Yz "Yes. We could get one just outside the city."
+    Yz "I could get a servant so you don't have to worry about housekeeping."
+    scene vfn-66
+    with dissolve
+    Yra "Look at him, [W], already planning for his retirement."
+    scene vfn-66x
+    with dissolve
+    Yra "We're barely starting out, [persistent.player_name]."
+    Yra "But let's say you did get yourself a servant..."
+    Yra "Then I would be the one who has to supervise her, because you would not be around."
+    scene vfn-66x-2
+    with dissolve
+    Yz "That doesn't sound too bad."
+    scene vfn-66x-3
+    with dissolve
+    Yra "Meh... All this work for what, adventure? Fame?"
+    scene vfn-67
+    with dissolve
+    Yra "[persistent.player_name], instead of talking about settling down already..."
+    Yra "How about we go visit the Temple tomorrow?"
+    Yra "We could have a bit of fun with one of those women..."
+    Yra "What do you think?"
+    Yz "Yeah, I guess... I'm not sure that's how it works at the Temple though."
+    Yw "..."
+    scene vfn-67x
+    with Dissolve(2.0)
+    Z "On that day we kept looking at each other."
+    Z "I don't know why... maybe because I knew that she understood me even without truly knowing me yet."
+    Na "Auntie has her special ways with people... the way she looks at them..."
+    Na "Super hot, if you ask me."
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Na "In your place I would totally have wanted her to be my girlfriend."
+        Z "{i}*laughs*{/i} You weren't even born back then, and you're doing your mother a disservice. She wasn't as bad as you make her out to be. Still isn't."
+        Na "Yeah yeah..."
+    scene vfn-30
+    stop music fadeout 3
+    with longflash
+    Na "So that's how you met her. What happened then?"
+    jump end_scene_nadia
+
+label rabiah_convi_2: # 4th EVENT
+    scene vfr-32
+    play music "audio/music/home/dream town.mp3" fadeout 2
+    with slowfade
+    Z "Back to doing chores? I thought this was always too boring for you."
+    Ra "..."
+    scene vfr-33
+    with dissolve
+    if nadia_sex == True or nadia_fingered == True:
+        Z "Omar is busy talking to your sister. You wanted to discuss things? I'm here now."
+        Z "You do seem to have some issues with your daughter."
+        scene vfr-34
+        with dissolve
+        Ra "I... have issues?!"
+        scene vfr-35
+        with hpunch
+        with fade
+        Raw "Tell me, what is there that I don't know yet?! Did my former boyfriend also take my daughter's virginity?! Out with it!"
+        Raw "If I tell this to Omar, our whole family is ruined!"
+        scene vfr-38
+        with dissolve
+        Z "You really have forgotten how things work around here, if you think this will ruin your family."
+        Z "Why should it? You know your daughter is finding her way."
+        scene vfr-37
+        with dissolve
+        Ra "Oh, then I guess I should thank you for fucking my daughter?!"
+        Ra "You forget Omar is not from here. He will cause a scene, maybe even leave me, us."
+        Ra "We have two babies together. This can't be happening now."
+        scene vfr-38
+        with dissolve
+        Z "Don't try to tell me that Omar has the stones to leave someone like you."
+        Z "And you really think Nadia wasn't already experimenting on her own? She wasn't a virgin when I took her."
+        scene vfr-36
+        with dissolve
+        Ra "Still, she should be with boys her own age, not being preyed upon by her uncle."
+        Ra "Don't you have enough women to keep your cock busy?"
+        scene vfr-38
+        with dissolve
+        Z "Your daughter has learned a lesson that you seem to have forgotten."
+        scene vfr-37x
+        with dissolve
+        Z "She saw something she wanted, and took it. She made all the right moves to let me know exactly what she wanted from me."
+        Z "Much like you used to do. She's not so different, you know?"
+        scene vfr-37
+        with dissolve
+        Ra "Well, she has it easy. Wait until she learns to bear the consequences."
+        scene vfr-38
+        with dissolve
+        Z "Is that not how we all learn?"
+        scene vfr-37x
+        with dissolve
+        Z "You have changed, Rabiah, and not for the better. You look as hot as ever, but you have lost yourself, over the years."
+        scene vfr-37
+        with dissolve
+        Ra "You really know how to make me mad, [persistent.player_name]."
+        scene vfr-37x
+        with dissolve
+        Z "I don't think it's me you're really mad at."
+        play sound "audio/sounds/doors/door closed.mp3"
+        "You hear the door open, and Rabiah's husband stepping in..."
+        Om "Hey, honey? How are you two holding up, heh."
+        scene vfr-43
+        with fade
+        Ra "I'm fine... as always. What is it?"
+        Om "Oh, uh... just looking for a drink."
+        scene vfr-46
+        with dissolve
+        Zw "If you haven't noticed, Omar keeps staring at anything that moves, even if he doesn't realise it. Is he adapting faster than you?"
+        scene vfr-44
+        with dissolve
+        Raw "You should leave now, before he notices..."
+        scene vfr-45
+        with dissolve
+        Raw "I don't know what you expect me to do, but I am not going to throw my life away just because you tell me to."
+        scene vfr-46
+        with dissolve
+        Zw "That's how it is, then... a shame."
+        Om "Everything okay, you two?"
+        scene vfr-47
+        with dissolve
+        Z "Yeah. I'll be joining you soon. I just needed to tell your wife something."
+        scene black pic
+        with fade
+        "...and with that, you leave."
+        jump end_scene_rabiah
+
+    else:
+        Z "You seem to be a bit unfocused today. Is something going on?"
+        Z "Is it about Omar? Maybe the fact he's more than eager to talk to [W] lately?"
+        play sound "audio/sounds/doors/door closed.mp3"
+        "You hear the door open, and Rabiah's husband stepping in..."
+        Om "Hey, honey? How are you two holding up, heh."
+        scene vfr-43
+        with fade
+        Ra "I'm fine... as always. What is it?"
+        Om "Oh, uh... just looking for a drink."
+        scene vfr-46
+        with dissolve
+        "You whisper something to her, trying to tease her about your mutual history..."
+        Zw "I didn't think you'd get used to your sister stealing your men's attention."
+        scene vfr-44
+        with dissolve
+        Raw "How funny, asshole..."
+        scene vfr-45
+        with dissolve
+        Raw "But no, I am not planning on sitting by idly. It might soon be time for a little payback."
+        scene vfr-46
+        with dissolve
+        Zw "Now that sounds interesting..."
+        Om "Everything okay, you two?"
+        scene vfr-47
+        with dissolve
+        Z "Yeah. I'll be joining you soon. I just needed to tell your wife something."
+        scene black pic
+        with fade
+        "...and with that, you leave."
+        jump end_scene_rabiah
+
+label rabiah_convi_1:
+    Zt "Let's see how Rabiah is doing in the kitchen."
+    scene vfr-1
+    with fade
+    pause 1.5
+    scene vfr-2
+    with dissolve
+    Zt "This doesn't look bad at all."
+    scene vfr-3
+    with dissolve
+    Ra "Nghr..."
+    scene vfr-4
+    with dissolve
+    Zt "She seems to be stressed out."
+    scene vfr-6
+    with dissolve
+    Ra "Dinner is not yet ready, [persistent.player_name]."
+    Ra "You can come back in ten minutes."
+    Z "I was just wondering how you're doing."
+    scene vfr-5
+    with dissolve
+    Z "You seem to be preparing a feast."
+    Ra "Yeah, that's what good hosts do, I guess."
+    scene vfr-7
+    with fade
+    Ra "..."
+    Z "You're stressed out."
+    scene vfr-8
+    with dissolve
+    Ra "Tell me something I don't know."
+    Ra "That's what happens when your husband spends the time staring at your sister instead of helping out."
+    scene vfr-9
+    with dissolve
+    "You place your hand on her neck. She's very tense."
+    scene vfr-10
+    with dissolve
+    Ra "What are you doing, [persistent.player_name]."
+    Ra "If Omar sees this, you won't step a foot in here ever again."
+    menu:
+        "\"I'm just helping you relax\"":
+            Z "I'm just helping you relax."
+            scene vfr-10x
+            with dissolve
+            Ra "You know that's not how he will see it..."
+            menu:
+                "End the massage":
+                    scene vfr-11
+                    with dissolve
+                    Z "Fine. Do you feel better?"
+                    Ra "I do, yes..."
+                    scene black pic
+                    with fade
+                    "You let go of her..."
+                    jump vfr19x
+
+                "Play on her jealousy":
+                    scene vfr-9
+                    with dissolve
+                    Z "Have you seen the way he looks at [W]?"
+                    Z "He's having fun talking with her, while you're stuck here, missing out."
+                    scene vfr-10x-2
+                    with dissolve
+                    Ra "What should he do instead... give her a massage, as well?"
+                    Z "The least he could do is help you out a little."
+                    Z "You always hated chores."
+                    Ra "[W] does it without your help too. You don't seem to have a problem with that."
+                    Z "You were never like your sister."
+                    Ra "Too bad, isn't it?"
+                    Z "Why would it be. I always liked that about you."
+                    scene vfr-11
+                    with dissolve
+                    Ra "..."
+                    Z "I'm just wondering what made you change your mind?"
+                    scene vfr-12
+                    with dissolve
+                    Z "Did Omar really convince you that this is what you want to do?"
+                    scene vfr-16
+                    with dissolve
+                    Ra "People change, [persistent.player_name]. We were barely adults back then."
+                    Ra "I have my responsibilities now, like he has his."
+                    scene vfr-18
+                    with dissolve
+                    Z "Well then, why are you so stressed at the family gathering? Clearly something is not sitting well with you."
+                    Ra "We actually had a servant, back in the village. She would have been a great help today. Omar is dragging his feet finding a new one."
+                    scene vfr-12
+                    with dissolve
+                    Ra "Omar could come in any moment, [persistent.player_name]..."
+                    menu:
+                        "Let go of her":
+                            scene vfr-11
+                            with dissolve
+                            Z "Do you feel better?"
+                            Ra "I do, yes..."
+                            scene black pic
+                            with fade
+                            "You let go of her..."
+                            jump vfr19x
+
+                        "Keep going":
+                            scene vfr-13
+                            with dissolve
+                            "You keep massaging her regardless..."
+                            Ra "[persistent.player_name]..."
+                            jump vfr19
+
+        "\"Don't act like we never touched each other.\"":
+            Z "I'm just helping you relax. Don't act like we never touched each other."
+            Ra "[persistent.player_name], we're not together anymore."
+            Ra "You're being inappropriate."
+            scene vfr-15
+            with dissolve
+            Z "You act like I'm about to undress you."
+            Ra "It's enough for him, and you know it."
+            scene vfr-12
+            with dissolve
+            "You keep massaging her firmly..."
+            menu:
+                "Be empathic":
+                    Z "You don't seem to be enjoying doing all this."
+                    scene vfr-14
+                    with dissolve
+                    Ra "Why... because I am stressed?"
+                    menu:
+                        "\"I see how you're looking at Omar.\"":
+                            scene vfr-13
+                            with dissolve
+                            Z "I see how you're looking at Omar."
+                            Z "You're frustrated and bored."
+                            Z "You were never the patient type. He annoys you."
+                            scene vfr-16
+                            with dissolve
+                            Ra "He has his moments... that's how marriages go."
+                            Ra "At least he's not... touching other people's women."
+                            scene vfr-17
+                            with dissolve
+                            Ra "Mh..."
+                            "You keep massaging her..."
+                            Z "The way you two behave, I'm not sure that he touches anything."
+                            scene vfr-18
+                            with dissolve
+                            Z "We haven't talked at all since you moved back to the city."
+                            Z "I think we should catch up properly, one of these days."
+                            Ra "..."
+                            jump vfr19
+
+                        "\"You always hated household chores.\"":
+                            scene vfr-13
+                            with dissolve
+                            Z "You always hated doing chores or taking care of the household."
+                            Z "Why isn't he pitching in, or have you changed that much?"
+                            scene vfr-16
+                            with dissolve
+                            Ra "That's how it works, he runs his trading business, I take care of the house and the children."
+                            Ra "Not everyone can just take off into the sunset, [persistent.player_name]."
+                            scene vfr-17
+                            with dissolve
+                            Ra "..."
+                            "your hands dig into her, as your massage continues..."
+                            Z "I wonder if this is what young Rabiah was hoping for her future self."
+                            scene vfr-18
+                            with dissolve
+                            Z "We haven't had a chance to reconnect since you moved back to Zeta. We should catch up on old times."
+                            Z "Who knows, maybe the Rabiah I knew is still somewhere to be found."
+                            Ra "..."
+                            jump vfr19
+
+                "Be direct":
+                    Z "You have changed, Rabiah."
+                    scene vfr-14
+                    with dissolve
+                    Ra "What does that mean..."
+                    menu:
+                        "\"You've become boring.\"":
+                            scene vfr-13
+                            with dissolve
+                            Z "To be honest... you've become boring."
+                            Z "You used to speak up more, be the life of any gathering and ignore chores like they were a plague."
+                            Z "And here you are, less the lady of a House, and more a common housewife."
+                            scene vfr-18
+                            with dissolve
+                            Z "What happened to the old Rabiah?"
+                            Z "Enthusiastic, spontaneous, cocky..."
+                            Z "What happened?"
+                            scene vfr-16
+                            with dissolve
+                            Ra "People change, [persistent.player_name]."
+                            Ra "You will have noticed that the house is currently out of a servant, so..."
+                            Ra "I have to take care of things, just like your wife does."
+                            scene vfr-17
+                            with dissolve
+                            Ra "Mh..."
+                            "You massage her more thoroughly..."
+                            Z "You were never like your sister."
+                            jump vfr19
+
+                        "\"You've become a stuck up bitch.\"":
+                            scene vfr-13
+                            with dissolve
+                            Z "Remember that we always used to give it straight to each other?"
+                            Z "I can't shake the feeling that you've become a stuck up bitch."
+                            scene vfr-16x
+                            with dissolve
+                            Ra "And you've always been an asshole, [persistent.player_name]."
+                            Ra "You barely see me anyway."
+                            scene vfr-17
+                            with dissolve
+                            Ra "..."
+                            "You massage her more strongly..."
+                            Z "I have had a look at your face since I set foot here."
+                            scene vfr-18
+                            with dissolve
+                            Z "You were never good at hiding how you feel."
+                            Z "All I can see, right now, is that you hate your life."
+
+    label vfr19:
+        scene vfr-19
+        play sound "audio/sounds/doors/door closed.mp3"
+        with fade
+        Om "..."
+        scene vfr-21
+        with dissolve
+        Z "See, that helps, doesn't it?"
+        Ra "..."
+        scene vfr-20
+        with dissolve
+        Om "..."
+        scene vfr-22
+        with dissolve
+        Om "Ra...biah?"
+        scene vfr-23
+        with dissolve
+        Om "What are you doing?"
+        scene vfr-24
+        with dissolve
+        pause 1
+        scene vfr-25
+        with vpunch
+        Ra "..."
+        scene vfr-26
+        with Dissolve(0.8)
+        Ra "I..."
+        Ra "Omar?"
+        Ra "I wasn't..."
+        scene vfr-27
+        with dissolve
+        Z "Relax, Omar."
+        Z "Rabiah had a cramp. I just helped her out."
+        scene vfr-28
+        with dissolve
+        Z "She seems to be overworked."
+        Z "She needed a hand."
+        scene black pic
+        with fade
+        "You walk over to him..."
+        scene vfr-29
+        with fade
+        Z "Now that you're here, you should take over."
+        scene vfr-30
+        with fade
+        "You head towards the door..."
+        Om "D-do you need anything, sweetie?"
+        Ra "No, I'm fine. I just had a cramp, like he said. It's gone now."
+        jump end_scene_rabiah
+
+    label vfr19x:
+    scene vfr-19
+    play sound "audio/sounds/doors/door closed.mp3"
+    with fade
+    Om "Sweetheart?"
+    scene vfr-23
+    with dissolve
+    Om "I wanted to ask how dinner is going?"
+    scene vfr-22
+    with dissolve
+    jump end_scene_rabiah
+
+label omar_convi_3: # 5th EVENT Zahra is tricking Omar into oggling her top to bottom. The frustrated Rabiah, who last time had a convo about her bad lifestyle, catches omar.
+    # she rages at him while zahra celebrates her tricky victory. Rabiah says she is holding back her good outfits for the conservative omar, while he keeps staring.
+    Om "...{i}*laughs*{/i} No way, he did?"
+    W "Yup. It's true."
+    scene vfo-2
+    with fade
+    W "I wouldn't have thought so, but that's what happened."
+    scene vfo-6
+    with dissolve
+    Z "Hey, girl."
+    W "Hey..."
+    W "{i}*kissing*"
+    scene vfo-11
+    with dissolve
+    Om "..."
+    Z "Omar."
+    scene vfo-14
+    with dissolve
+    Z "Let's take a seat..."
+    scene vfo-13
+    with dissolve
+    Om "S-sure. Why not?"
+    scene black pic
+    with fade
+    "You make yourselves comfortable..."
+    scene vfo-33
+    with fade
+    Om "Anyway, I was saying, I am thinking of expanding in a new market and maybe I could have use for a man with your talents... and I..."
+    scene vfo-34
+    with dissolve
+    "[W] seems intent on following the conversation closely..."
+    scene vfo-35
+    with dissolve
+    if rabiah_part_2 == True:
+        Ww "You and my sister had an argument earlier."
+        Ww "Should I worry about it?"
+        scene vfo-36
+        with dissolve
+        Zw "Well. She caught me and Nadia together..."
+        scene vfo-36x #mouth open flirty
+        with dissolve
+        Ww "I see. That's why she left the room so flustered. It makes sense, now."
+        scene vfo-36
+        with dissolve
+        Zw "You think she's going to tell Omar?"
+        scene vfo-36x
+        with dissolve
+        Ww "What I think, is that he's a hypocrite who should learn not to use two measures."
+        Ww "And no, I don't think she'll be telling him. Actually..."
+    else:
+        Ww "Do you think Rabiah realises how her husband behaves?"
+        Ww "I mean, he's a bit of a hypocrite, isn't he?"
+        scene vfo-36
+        with dissolve
+        Zw "Well... Any man with eyes would look at you admiringly."
+        scene vfo-36x
+        with dissolve
+        Ww "Well, of course, but that same man should not try and chastise his own wife the way Omar does."
+        scene vfo-36
+        with dissolve
+        Zw "So you think she hasn't noticed?"
+        scene vfo-36x
+        with dissolve
+        Ww "Maybe; or maybe she's just trying to ignore it."
+    scene vfo-35
+    with dissolve
+    Ww "Let me try something..."
+    scene black pic
+    with fade
+    "She gets up..."
+    scene vfo-37
+    with fade
+    W "I'm getting another round of drinks. Do you want anything?"
+    Om "Oh, uh..."
+    Z "Not me, thank you."
+    scene vfo-39
+    with dissolve
+    Om "Sure, why not. Thank you, [W]!"
+    W "I will be right back. Don't have too much fun without me..."
+    scene black pic
+    with fade
+    "A short while later..."
+    scene vfo-40
+    with fade
+    W "You ordered a drink?"
+    scene vfo-41
+    with dissolve
+    Om "Heh, yes. How do I deserve to be served by guests in my own house?"
+    scene vfo-42
+    with dissolve
+    W "Oh, nonsense, you are family."
+    scene vfo-43
+    with fade
+    W "And, you know..."
+    scene vfo-44
+    with dissolve
+    W "...we look after our family, in these parts..."
+    "Omar has never been this close to [W]. He can't avoid staring at the chest that's swaying right in front of him."
+    "...his mind going back to her sultry voice as she spoke about family."
+    scene vfo-45
+    with dissolve
+    "When she offered him the glass, he ignored it, staring instead at her beautiful body, his eyes darting around to check if he was in the clear."
+    "With his wife in the kitchen, and [persistent.player_name]'s view obscured by [W] herself, he used every precious second to take in the sight of his sister-in-law's body."
+    "...And then the spell broke."
+    scene vfo-46
+    with dissolve
+    with hpunch
+    "The glass almost slips out of [W]'s hand..."
+    scene vfo-47
+    with dissolve
+    Om "[W]! Why...! My top!"
+    W "Oh, dear. The glass... it slipped. I am so terribly sorry."
+    Om "It's... okay, I guess. Thank you anyway."
+    Om "Maybe we should... have a toast? You got yourself one, too?"
+    scene vfo-49
+    with dissolve
+    W "Oh, no, I'm good, thanks."
+    W "I didn't bring it for me."
+    scene vfo-50
+    with dissolve
+    W "...but your wife wanted one."
+    stop music fadeout 1
+    Om "Wait, wha...-"
+    scene vfo-55x
+    play sound "audio/sounds/environment/bomb 1.mp3"        
+    with fade
+    pause 3
+    Om "Oh..."
+    scene vfo-51
+    play music "audio/music/home/desert blues.mp3" fadein 3
+    with fade
+    W "Hey husband."
+    Z "Hey wife."
+    Zw "Did you have fun getting the poor little man in trouble?"
+    scene vfo-52
+    with fade
+    "Arguing can be heard in the background..."
+    Ra "Care to explain to me why you were oggling her like a bunch of hungry sandrats spotting a chicken?!"
+    Om "I... look, she was standing-"
+    Ra "Save it! You told me just this morning that a chain bra would be too skimpy, and now I catch you drooling over my sister's tits! You hypocrite!"
+    Zw "You're evil..."
+    scene vfo-52x #open mouth
+    with fade
+    Ww "I wouldn't call it evil."
+    Ww "I think my big sister should focus on where her problems really are, so I pointed her at it..."
+    if rabiah_part_2 == True:
+        Ww "...and, if it just happens to distract her from worrying about her daughter, then so be it."
+    scene vfo-54
+    with dissolve
+    Zw "You're still devious. I knew there was a reason I keep you around."
+    Ww "Don't you ever forget it."
+    scene black pic
+    with fade
+    "Judging by Rabiah's reaction, it looks as if the events of the day indeed brought to light several issues that were bubbling under the surface."
+    "It will be interesting to see where this leads..."
+    jump vf_dinner
+
+label omar_convi_2:
+    $ omar_convi_2 = True
+    Zt "..."
+    scene vfo-16
+    with dissolve
+    pause 0.6
+    scene vfo-17
+    with dissolve
+    pause 0.7
+    scene vfo-18
+    with dissolve
+    pause 0.7
+    scene vfo-19
+    with dissolve
+    W "..."
+    scene vfo-15
+    with dissolve
+    Om "..."
+    scene vfo-12
+    with dissolve
+    Om "Eh, I-I'm not sure if this is appropriate..."
+    scene vfo-14
+    with dissolve
+    Z "Why not? Does my wife not seem happy?"
+    scene vfo-13
+    with dissolve
+    Om "N-no, no, that isn't..."
+    scene vfo-12
+    with dissolve
+    Om "But shouldn't you do this in private..."
+    scene vfo-19
+    with dissolve
+    Z "You really are new to this city, aren't you?"
+    scene vfo-18
+    with dissolve
+    Z "I'm just appreciating my wife, that's all I'm doing."
+    menu:
+        "Show her off more":
+            scene vfo-20
+            with fade
+            "You turn her around"
+            W "Mh..."
+            scene vfo-21
+            with dissolve
+            Z "Let's be honest, you have been staring at her every time you have met her."
+            Om "Well... you..."
+            scene vfo-22
+            with dissolve
+            Om "I'm not against that but... right here? Like that? Is she not...?"
+            menu:
+                "Let [W] answer":
+                    scene vfo-25
+                    with dissolve
+                    W "...why would I be against it...?"
+                    W "I like when he appreciates me."
+                    scene vfo-21
+                    with dissolve
+                    W "Nh..."
+                    "You keep fondling her..."
+                    Om "Even in front of others?"
+                    W "Mh?"
+                    scene vfo-30
+                    with dissolve
+                    W "Why would I dislike the attention...?"
+                    W "You seem to enjoy the view too."
+                    W "Could it be that you are interested in me?"
+                    scene vfo-31
+                    with dissolve
+                    Om "I... I'm loyal to my wife..."
+                    scene vfo-26
+                    with dissolve
+                    Z "I think he likes you a lot, [W]..."
+                    scene vfo-25
+                    with dissolve
+                    Ww "Let him dream, then..."
+                    scene vfo-22
+                    with dissolve
+                    jump vfo17
+
+                "\"Shes my wife.\"":
+                    Z "She's my wife. I touch her whenever I please."
+                    scene vfo-23
+                    with dissolve
+                    Z "I could take her whenever I want, and she would never complain."
+                    scene vfo-26
+                    with dissolve
+                    Z "That's part of why she's the best woman I could ever have."
+                    W "..."
+                    Om "But... even in the city? Does no one object?"
+                    menu:
+                        "\"That's how things work around here.\"":
+                            scene vfo-27
+                            with dissolve
+                            Z "That's how things work around here."
+                            Z "Why would anyone be against a woman as beautiful as her showing herself off?"
+                            Z "You are not the only person who admires her and is intrigued. Let people be intrigued, if they so please."
+                            scene vfo-28
+                            with dissolve
+                            Om "..."
+                            Z "It doesn't look like your wife is as interested, though."
+                            scene vfo-29
+                            with dissolve
+                            Z "Loving your wife like that, and her loving you back."
+                            Zw "Not a bad thing at all."
+                            scene vfo-30
+                            with dissolve
+                            W "I know that as her man you might not want to hear this, Omar..."
+                            W "But my sister was a bigger flirt than me, back before she met you..."
+                            scene vfo-31
+                            with dissolve
+                            Om "What... do you mean by that?"
+                            Om "With whom?"
+                            scene vfo-25
+                            with dissolve
+                            W "You know that before we became a couple, [persistent.player_name] had my sister."
+                            W "She was not shy about wanting sex often, and the place did not matter. She was quite aggressive, too..."
+                            scene vfo-26
+                            with dissolve
+                            Z "She was feisty."
+                            Z "Turn around now, [W]."
+                            scene black pic
+                            with fade
+                            "She slowly rotates allowing you to fix her clothes..."
+                            scene vfo-17
+                            with dissolve
+                            pause 1
+                            scene vfo-16
+                            with dissolve
+                            Z "Why don't you finish telling me your story, Omar?"
+                            Om "O-Oh, ok..."
+                            scene vfo-13
+                            with dissolve
+                            Om "So when I left that place..."
+                            scene black pic
+                            with fade
+                            jump end_scene_omar
+
+                        "\"She's mine, why would they complain?\"":
+                            scene vfo-27
+                            with dissolve
+                            Z "She's my woman, why would they complain?"
+                            Z "No one interferes with that what belongs to another. That's how it works..."
+                            scene vfo-28
+                            with dissolve
+                            Om "..."
+                            Z "It doesn't seem like you have the same say over your relationship, though..."
+                            scene vfo-29
+                            with dissolve
+                            Z "You never touch your wife in public, do you?"
+                            scene vfo-24
+                            with dissolve
+                            Om "Not... not like this, no..."
+                            scene vfo-25
+                            with dissolve
+                            W "Maybe..."
+                            menu:
+                                "Hear her out":
+                                    W "Maybe she doesn't let you do it...?"
+                                    W "Is that what it is...?"
+                                    scene vfo-26
+                                    with dissolve
+                                    Z "I think you're being very inquisitive now, [W]. We don't want to make him uncomfortable."
+                                    jump vfo17
+
+                                "Don't let her speak":
+                                    Z "Shh..."
+                                    scene vfo-24
+                                    with dissolve
+                                    Z "You don't need to talk now."
+                                    scene vfo-26
+                                    with dissolve
+                                    Z "You see Omar, this is how it works here."
+                                    Z "She accepts her role, as everyone else does."
+                                    Z "There is a natural order, there are laws, and there are things we do for love of one another."
+                                    Z "It is a matter of finding the right balance, and I am blessed, because [W] and I are in perfect unison in these matters."
+                                    jump vfo17
+
+
+        "Stop what you're doing and resume talking":
+            scene vfo-17
+            with dissolve
+            Z "Anyway..."
+            scene vfo-16
+            with dissolve
+            Z "What were you talking about again?"
+            scene vfo-13
+            with dissolve
+            Om "Oh, well... I was saying..."
+            jump end_scene_omar
+
+    label vfo17:
+        Z "Turn back around, [W], will you?"
+        scene black pic
+        with fade
+        "She turns around and you fix her clothes..."
+        scene vfo-17
+        with dissolve
+        pause 1
+        scene vfo-16
+        with dissolve
+        Z "Why don't you pick up where you left off, Omar?"
+        Om "O-Oh, ok..."
+        scene vfo-13
+        with dissolve
+        Om "So when I left that place..."
+        scene black pic
+        with fade
+        jump end_scene_omar
+
+label omar_convi_1:
+    scene vfo-1
+    with dissolve
+    Om "...so yeah, that's that basically."
+    W "Impressive. You seem to move about a lot?"
+    Om "As of late, it tends to be someone who works for me, but yes, I do get around."
+    scene vfo-2
+    with fade
+    W "[persistent.player_name] has also come around a lot."
+    W "I was never really the type for it, to be honest."
+    W "Yes, you see places, sure..."
+    scene vfo-3
+    with dissolve
+    W "...but I am more of a homebody."
+    W "Especially since we got our two girls... someone has to keep them in check at least a little, whilst my husband is away..."
+    scene vfo-4
+    with dissolve
+    Z "[W!c] is being modest.  She's doing an excellent job. I could not be happier with how she leads the House."
+    scene vfo-5
+    with dissolve
+    Z "Let me take that glass."
+    scene vfo-6
+    with dissolve
+    W "{i}*kissing*"
+    scene vfo-7
+    with dissolve
+    Om "..."
+    scene vfo-8
+    with dissolve
+    W "{i}*kissing*"
+    scene vfo-9
+    with dissolve
+    Z "...?"
+    scene vfo-11
+    with dissolve
+    Om "..."
+    Zt "Of course..."
+    Zt "He is so entranced by [W] that he doesn't even notice how blatantly he is staring at her."
+    Zt "You'd think that with Rabiah and Nadia around the house he would not be lacking eyecandy."
+    scene vfo-10x
+    with dissolve
+    Zt "Then again, the way she shows off her goods would distract a blind man."
+    "{i}*kissing*"
+    scene vfo-10x-4
+    with dissolve
+    W "That was... unexpected..."
+    scene vfo-11
+    with dissolve
+    menu:
+        "\"Ahem...\"":
+            Z "Ahem..."
+            scene vfo-12
+            with Dissolve(0.5)
+            Om "Ahh, uh."
+            Om "I..."
+            scene vfo-13
+            with dissolve
+            Om "Where was I, hehe..."
+            menu:
+                "\"You were talking about...\"":
+                    scene vfo-14
+                    with dissolve
+                    Z "You were telling us how you beat your competitors"
+                    scene vfo-13
+                    with dissolve
+                    Om "Oh yes, so as I told [W] earlier,..."
+                    jump end_scene_omar
+
+                "\"Can't look away?\"":
+                    scene vfo-14
+                    with dissolve
+                    Z "Can't look away?"
+                    scene vfo-12
+                    with dissolve
+                    Om "I... I didn't mean to..."
+                    scene vfo-14
+                    with dissolve
+                    menu:
+                        "\"Do you not look at your own wife the same way?\"":
+                            Z "Do you not look at your own wife the same way?"
+                            Z "Be honest."
+                            scene vfo-13
+                            with dissolve
+                            Om "Uhh, well, that's a weird question to ask, hehe."
+                            Om "Rabiah doesn't exactly dress provocatively anymore, you know..."
+                            scene vfo-10x-2
+                            with dissolve
+                            W "She used to... back in the day..."
+                            W "...long before she met you, I think."
+                            scene vfo-13
+                            with dissolve
+                            Om "Heh, time change people, I guess?"
+                            Om "Anyway, where was I..."
+                            jump end_scene_omar
+
+                        "\"She's a fine looking woman, isn't she?\"":
+                            Z "She's a fine looking woman, isn't she?"
+                            scene vfo-13
+                            with dissolve
+                            Om "Heh, ehm... Y-you could say that."
+                            Om "She seems very obedient, too."
+                            scene vfo-14
+                            with dissolve
+                            menu:
+                                "\"Loyal and obedient.\"":
+                                    Z "Loyal and obedient. She would do anything I asked of her, anywhere."
+                                    scene vfo-12
+                                    with dissolve
+                                    Om "Anywhere, even?"
+                                    Om "That is really..."
+                                    scene vfo-13
+                                    with dissolve
+                                    Om "Anyway, heh, where was I..."
+                                    jump end_scene_omar
+
+                                "\"She can be fierce if needed, too.\"":
+                                    Z "She can be fierce if needed, too."
+                                    Z "Any member of House [persistent.player_name!c] will tell you, should you ask when you come visit."
+                                    scene vfo-13
+                                    with dissolve
+                                    Om "I... believe that."
+                                    Om "Anyway, where was I..."
+                                    jump end_scene_omar
+
+                        "\"I can't blame you, but keep your hands to yourself.\"":
+                            Z "I can't blame you. As long as you keep your hands to yourself, you can look all you want."
+                            scene vfo-13
+                            with dissolve
+                            Om "Heh, o-of course, [persistent.player_name]. I wouldn't think of doing anything to her."
+                            scene vfo-14
+                            with dissolve
+                            Z "So, tell me, what were you talking about again..."
+                            jump end_scene_omar
+
+        "\"Enjoying the view?\"":
+            Z "Are you enjoying the view?"
+            scene vfo-12
+            with dissolve
+            Om "I-I... I'm sorry, I didn't mean to."
+            scene vfo-14
+            with dissolve
+            menu:
+                "\"You complained about her dress. What changed?\"":
+                    Z "You complained about her dress earlier."
+                    Z "Now you can't keep your eyes off her. What changed?"
+                    scene vfo-12
+                    with dissolve
+                    Om "I... didn't complain about her dress, I don't think."
+                    Om "I was just wondering, because it's kind of new to me."
+                    Zt "A liar too, great."
+                    scene vfo-14
+                    with dissolve
+                    menu:
+                        "\"Pretty hypocritical, don't you think?\"":
+                            Z "Pretty hypocritical, don't you think?"
+                            Z "Saying my wife shows off too much, only to then stare at her tits?"
+                            scene vfo-13
+                            with dissolve
+                            Om "Heh, let's not argue on such a nice day. I didn't want to offend you, [persistent.player_name]."
+                            Om "Let's just go forget about this and go back to our conversation, shall we?"
+                            jump end_scene_omar
+
+                        "\"Is that the reason why your wife dresses so modestly?\"":
+                            Z "Is that the reason why your wife dresses so modestly?"
+                            scene vfo-12
+                            with dissolve
+                            Om "Oh, that's... I don't think she would like not to."
+                            scene vfo-13
+                            with dissolve
+                            Om "And I'm not sure I would like her not to either, heh..."
+                            scene vfo-10x-2
+                            with dissolve
+                            W "She used to dress much differently... back in the day..."
+                            W "...long before you came around."
+                            scene vfo-13
+                            with dissolve
+                            Om "Heh, I guess she changed her tastes, then. That happens, over time."
+                            Om "Anyway, as I was saying just now..."
+                            jump end_scene_omar
+
+                "\"I can't blame you. Just keep your hands to yourself.\"":
+                    Z "I can't blame you. As long as you keep your hands to yourself, we won't have a problem."
+                    scene vfo-13
+                    with dissolve
+                    Om "Heh, o-of course, [persistent.player_name]. Why would you think I would do anything to her..."
+                    scene vfo-14
+                    with dissolve
+                    Z "So, tell me, what were you talking about again..."
+                    jump end_scene_omar
+
+        "\"Stop staring at my wife.\"":
+            Z "Stop staring at my wife."
+            scene vfo-12
+            with Dissolve(0.5)
+            Om "Oh, I... I didn't mean-"
+            Z "Do you want me to tell your wife that you can't keep your eyes off my wifes chest?"
+            scene vfo-14
+            with dissolve
+            Om "{i}*gulp*"
+            Z "The way you talked about [W]'s dress choices earlier, you shouldn't be so excited about seeing her anyway."
+            scene vfo-13
+            with dissolve
+            Om "I-I didn't really criticize her dress, I was just wondering. That is all, heh."
+            Zt "Nice try, liar."
+            scene vfo-10x-2
+            with dissolve
+            W "My sister doesn't look bad either, I've not seen you looking at her like that though."
+            W "That's a bit weird, to be honest..."
+            scene vfo-13
+            with dissolve
+            Om "That... has nothing to do with it..."
+            Om "Anyway, let's not argue, what was I talking about before..."
+            jump end_scene_omar
+
+label visit_family:
+    if family_introduction == True:
+        scene vf-4
+        play music "audio/music/home/desert blues.mp3" fadeout 2
+        with slowfade
+        Om "Nice to see you two again! Make yourselves at home. {p=2.5} {nw}"
+        jump vf_overview
+    if family_introduction == False:
+        $ family_introduction = True
+        scene vz1-1
+        play music "audio/music/home/dream town.mp3" fadeout 2
+        with slowfade
+        W "Hey husband."
+        Z "Hey wife."
+        scene vz1-3
+        with dissolve
+        Z "What do you think of visiting your sister today?"
+        scene vz1-4
+        with dissolve
+        W "Why not. I'm interested how they settled in."
+        scene vz1-2
+        with dissolve
+        W "I will dress up properly. Meet you outside?"
+        scene vz1-3
+        with dissolve
+        Z "Deal."
+        scene black pic
+        stop music fadeout 2
+        with slowfade
+        "You both get ready and eventually head out. After the usual 30 minute walk you arrive in Zeta."
+        "From that point, it's only a few more minutes before you reach the residential area of the city."
+        "Eventually..."
+        scene vf-1
+        play music "audio/music/home/whiskey.mp3" fadein 3
+        with slowfade
+        Om "Nice to see you both! Thank you for visiting our little home!"
+        scene vf-4
+        with dissolve
+        Om "It's great that we finally get to have a nice little family gathering."
+        Om "Nadia isn't here yet, she's probably in her room, still dressing up. You know how it is, haha."
+        scene vf-2
+        with dissolve
+        Om "Talking about dressing up, [persistent.player_name], your wife looks fantastic, as always."
+        Om "Really nice dress too!"
+        scene vf-3
+        with dissolve
+        W "Thanks, Omar..."
+        scene vf-5
+        with dissolve
+        menu:
+            "Praise her":
+                Z "She knows what to wear to make a head turn for sure, she always did."
+                scene vf-6
+                with dissolve
+                Om "I don't disagree, haha. That's the look of a confident woman!"
+                Om "Reminds me a bit of my stepdaughter, if you ask me. This liberal and upfront atti-"
+                scene vf-8
+                with dissolve
+                Ra "Husband, why don't you invite our guests to make themselves at home?"
+                Ra "After walking all the way here, I'm sure they will want to take a seat..."
+                scene vf-7
+                with dissolve
+                Om "O-of course, Rabiah. [W], [persistent.player_name], follow me please."
+                jump vf9
+
+            "Don't comment":
+                Om "So, I'm sure you're tired of walking."
+                scene vf-7
+                with dissolve
+                Om "Follow me, we have prepared some refreshments too."
+                jump vf9
+
+    label vf9:
+    scene vf-9
+    with fade
+    Om "Please, take a seat. I'm sure we have many stories to share."
+    Z "..."
+    Z "Don't mind me, but the table in between..."
+    Om "Yes? What about it?"
+    scene vf-10
+    with dissolve
+    Z "I'm sure you don't mind if I move it away, right?"
+    Z "I would like to sit next to my wife."
+    scene vf-11
+    with dissolve
+    Om "Heh, sure. I didn't think about that, I guess."
+    Om "Make yourselves at home!"
+    scene vf-12
+    with dissolve
+    Z "I appreciate it."
+    Zt "...and the water. Who needs beer after all..."
+    scene black pic
+    with fade
+    "You and [W] sit down..."
+    scene vf-13
+    with fade
+    Z "So Omar, I'm curious..."
+    scene vf-14
+    with dissolve
+    Z "How has business been these years, and why decide to move to Zeta after all this time?"
+    scene vf-15
+    with dissolve
+    Om "Business could not go better."
+    Om "I have managed to gain exclusive rights to certain essential goods and..."
+    "He goes on..."
+    Om "I have been able to basically neutralise the competition by..."
+    "He keeps going on..."
+    Om "It was a hard fought battle, but finally, if you want to buy a lentil or a date, now you must..."
+    scene vf-16
+    with dissolve
+    Om "Oh, and chickpeas...did I tell you how I cornered the market on..."
+    "...and going..."
+    Om "Old Werkas thought he was crafty but..."
+    "...you've lost track of time..."
+    Om "So you could say I had outgrown the village. I mean, I was always the most prominent merchant there, but I needed a new challenge."
+    scene vf-17
+    with dissolve
+    Om "Moving here, back to where Rabiah came from, seemed the logical next step."
+    Om "The merchants guilds here are not going to know what hit them when..."
+    scene vf-18
+    with dissolve
+    Ww "...does he ever stop?"
+    Zw "You tell me..."
+    scene vf-19
+    play sound "audio/sounds/doors/door shut.mp3"
+    with dissolve
+    Na "Mom? Omar? Are they here yet?"
+    scene vf-20
+    with fade
+    Na "Really mom?"
+    scene vf-21
+    with dissolve
+    Na "You could at least have told me that they arrived."
+    scene vf-22
+    with dissolve
+    "She walks up to all of you..."
+    scene vf-23
+    with fade
+    Na "Sorry auntie, I'm sure you know what a bad hair day is."
+    scene vf-23x
+    with dissolve
+    W "What are you saying, Nadia. You look great."
+    scene vf-24
+    with dissolve
+    Na "It's nice to see you again."
+    scene vf-25
+    with dissolve
+    "{i}*kissing*"
+    scene vf-26
+    with dissolve
+    Om "Heh, I..."
+    scene vf-27
+    with dissolve
+    Om "You didn't tell me that your sister and Nadia were..."
+    scene vf-28
+    with fade
+    Na "Urgh Omar, stop being weird, I was just greeting my aunt."
+    Na "Seriously..."
+    scene vf-29
+    with dissolve
+    Na "Anyway, don't mind him, [W]..."
+    scene vf-30
+    with fade
+    Na "Hey uncle! How's it going?"
+    Z "Can't complain, and you?"
+    scene vf-31
+    with dissolve
+    Na "Not bad either."
+    Na "Mind if I sit next to you?"
+    scene vf-32
+    with dissolve
+    Z "Not at all."
+    scene black pic
+    with fade
+    "She takes a seat..."
+    scene vf-33
+    with fade
+    Na "I'm sure I interrupted you, Omar. Sorry about that."
+    scene vf-34
+    with dissolve
+    Om "Oh, that's fine. I'm glad you're here, finally."
+    Om "So, where was I..."
+    "He keeps talking about the same topic..."
+    scene vf-35
+    with dissolve
+    "...for what seems like an eternity."
+    Zt "I regret asking..."
+    scene vf-36
+    with dissolve
+    Zt "...but at least I'm in good company."
+    scene vf-38
+    with dissolve
+    Z "..."
+    scene vf-39
+    with dissolve
+    Zw "You look stunning. Omar is losing his mind over you."
+    Zw "He commented on you last time already."
+    scene vf-40
+    with dissolve
+    Ww "As if his opinion could matter to me. Is he that insecure though?"
+    scene vf-41
+    with slowfade
+    Ra "..."
+    "He keeps talking..."
+    scene vf-42
+    with dissolve
+    Om "Anyway, so then I went-"
+    Ra "Husband..."
+    scene vf-43
+    with dissolve
+    Om "Yes, dear?"
+    Ra "I'm sure you don't mind if I head to the kitchen."
+    Ra "Dinner needs to be prepared."
+    scene vf-44
+    with dissolve
+    Om "Oh, hah, of course. Feel free."
+    scene vf-45
+    with dissolve
+    Om "Make sure to not salt the soup too much this time, hehe."
+    scene vf-46
+    with dissolve
+    Om "Such a good wife, always thinking about her duties."
+    Om "Maybe you want to help her out, Nadia?"
+    Om "It would not be wrong for you to help your parents out, don't you think?"
+    scene vf-47
+    with dissolve
+    Na "Hnnn, very funny Omar..."
+    scene vf-48
+    with Dissolve(0.3)
+    Na "No. I don't think I will."
+    scene black pic
+    with fade
+    "She gets up..."
+    scene vf-49
+    with fade
+    Na "Aaand that's enough for me for today, I'm sorry but I've got to go."
+    scene vf-50
+    with dissolve
+    Na "It was nice listening to {i}you{/i} for a change..."
+    scene vf-51
+    with fade
+    Om "Don't mind Nadia, she's always running about, lately."
+    scene vf-52
+    with dissolve
+    Om "That leaves us three, I guess!"
+    Na "{i}*sigh*"
+    scene black pic
+    with fade
+    "Nadia briskly leaves the room."
+    stop music fadeout 5
+    "The conversation eventually shifts, and you find yourself looking around the room, while Omar is talking to [W]."
+    scene vf-37
+    with slowfade
+    Zt "It's no accident he left that chest open."
+    Zt "...The guy loves to show off whenever he can."
+    Zt "The way Nadia and Rabiah reacted to his remarks, there doesn't seem to be much harmony in this family."
+    scene vf-54
+    play music "audio/music/home/desert blues.mp3" fadein 5
+    with dissolve
+    Zt "Poor [W]. Hanging in there so I can take a break."
+    Zt "Let's hope the food will be good at least. I can't remember the last time Rabiah cooked for me."
+    if sq_rn_1.current_step == 1:
+        $ sq_rn_1.advance()
+    jump vf_overview
+
+label end_scene_rabiah:
+    if rabiah_part_2 == True:
+        Ra "You can let everyone know dinner is ready. I'm done here."
+        scene black pic
+        with fade
+        "You came together for dinner, spending most of it in awkward silence, and then went home..."
+        jump mission_end
+    if family_limit == 2:
+        Ra "You can let everyone know dinner is ready. I'm done here."
+        jump vf_end
+    else:
+        Ra "You can go back to the living room, Omar. I am still preparing dinner."
+        scene black pic
+        with fade
+        "You head back to the living room. Omar follows soon after."
+        jump vf_overview
+
+label end_scene_nadia:
+    if family_limit == 2:
+        play sound "audio/sounds/doors/door knocking 2.mp3"
+        Om "Nadia? [persistent.player_name]?"
+        scene vfn-68
+        play music "audio/music/home/desert blues.mp3" fadein 5
+        play sound "audio/sounds/doors/door closed.mp3"
+        with fade
+        Na "What is it, Omar?"
+        Om "Your mother wants to let you know that dinner is..."
+        scene vfn-69
+        with dissolve
+        Om "Wait, what are you wearing!?"
+        scene vfn-70
+        with dissolve
+        Na "{i}*sigh*{/i} I'm just showing my dress to uncle."
+        scene vfn-71
+        with dissolve
+        Na "I'm not wearing it outside, ok? Calm down, already!"
+        Na "Give us a few minutes and we will join you."
+        scene vfn-72
+        with dissolve
+        Om "Okay honey."
+        scene vfn-30
+        play sound "audio/sounds/doors/door closed.mp3"
+        with slowfade
+        Na "We can continue this next time, okay?"
+        scene vfn-31
+        with dissolve
+        Z "Sure..."
+        Z "I'm hungry, let's see what your mom prepared."
+        jump vf_end
+    elif nadia_part_2 == True:
+        jump vf_dinner
+    else:
+        scene vfn-31
+        with dissolve
+        Z "Whoa, I think that was enough for today. The others are probably wondering where I am."
+        Z "Let's continue this next time, okay?"
+        scene vfn-30
+        with dissolve
+        Na "Alright, you win."
+        Na "See you at the dinner table, uncle."
+        scene black pic
+        with fade
+        "You head back to the living room, where Omar and [W] are still talking."
+        jump vf_overview
+
+label end_scene_omar:
+    if family_limit == 2:
+        scene vfo-15x
+        with dissolve
+        Ra "Everyone? Dinner is ready!"
+        Ra "And Omar, please let Nadia know, will you?"
+        scene vfo-15x-2
+        with dissolve
+        Om "Yes, of course sweetheart."
+        jump vf_end
+    else:
+        scene black pic
+        "You continue the conversation for a while, before deciding to let your wife take over again..."
+        jump vf_overview
+
+label vf_dinner: # 2nd, 6th and 7th EVENTS     # NOTE: This splits up the different dinner scenes, instead of sorting them to the rabiah button.
+    if vf_dinner_part_2 == True: # 7th EVENT
+        $ vf_dinner_part_3 = True
+        $ vf_dinner_part_3_day = day
+        scene black pic
+        with fade
+        "Nothing special is happening during your stay, except for Rabiah being tense and quiet."
+        "You start wondering if they resolved their issues from your last visit. And just then, the family dinner starts..."
+        scene vfr-74
+        with fade
+        Om "My wife said she is coming back in a second. I think we can surely start eating. Enjoy!"
+        play sound "audio/sounds/doors/door closed.mp3"
+        "You hear the door to the dining room open..."
+        Ra "How nice of you to wait for me, husband..."
+        scene vfr-75
+        with dissolve
+        "Rabiah walks into the room, and stands in the entrance for a second, wordlesly, until she is sure to have everybody's attention."  
+        scene vfr-77
+        with dissolve
+        Ra "I'm back." #more?
+        scene vfr-78
+        with dissolve
+        "The change in her wardrobe is immediately noticeable. as she is showing considerably more skin."
+        scene vfr-79
+        with dissolve
+        Na "M-mom...?"
+        Om "Rabiah! What is the meaning of this?"
+        scene vfr-80
+        with fade
+        Na "Are you alright, mom?"
+        "Nadia looks at her mother with a hint of worry on her otherwise excited expression."
+        scene vfr-82
+        with dissolve
+        Ra "Never better, Nadia. Never better..."
+        scene vfr-81
+        with dissolve
+        "Rabiah smiles at her daughter. Something in her posture seems to have shifted, along with the change of clothing."
+        scene black pic
+        with fade
+        "Ignoring her husband, Rabiah sits down at the table, in her new clothes, a satisfied expression on her face."
+        scene vfr-84
+        with fade
+        Ra "[W], your last visit taught me something that I had forgotten."
+        Ra "It reminded me of my past and who I was before..."
+        scene vfr-85
+        with dissolve
+        W "What do you mean?"
+        scene vfr-84
+        with dissolve
+        Ra "Well, Omar and I have been talking about things."
+        Ra "{i}We{/i} came to the conclusion that I'm not really happy, and really haven't been for a while."
+        Ra "Following his demands... I mean, of course, our {i}rules{/i}... was fine where we used to live, but here it just makes us stand out, and not in a good way."
+        scene vfr-86
+        with dissolve
+        Ra "But more than that, it's just the general situation. Like Nadia being forced to sneak around to have a bit of a life."
+        Om "Eh... Rabiah..."
+        "The man seems to bristle at the mention of Nadia ignoring his authority, but is quickly shushed by Rabiah."
+        Ra "Let me finish, Omar!"
+        scene vfr-87
+        with dissolve
+        Om "Uh..."
+        "He laughs nervously, trying to hide his embarrassment..."
+        scene vfr-85
+        with dissolve
+        W "I think I understand what you mean, sister. Omar certainly seems to be a bit stiff, a bit set in his ways maybe."
+        scene vfr-55
+        with dissolve
+        Ra "Yes, well, it's a little hypocritical of him to ask us to be reserved and modest, and then stare at your tits half the time you're here."
+        scene vfr-88
+        with dissolve
+        W "Well, yeah, he does have wandering eyes. Doesn't he?"
+        scene vfr-89
+        with dissolve
+        "She smirks slighty..."
+        Naw "Interesting stuff, isn't it..."
+        scene vfr-83
+        with dissolve
+        "They continue chatting..."
+        W "Remember when we were younger and you were bringing guys home all the time? That would really have given him something to look at."
+        Ra "Eh, as you said, we were young."
+        W "More or less around Nadia's age... time flies, doesn't it? Makes you wonder if she's anything like you were."
+        Na "Are you asking me if I am bringing boys home? No! That's a headache I can do without." #Nadia looks at Zahra
+        W "Boys, girls, that's really not for me to say..."
+        if nadia_sex == True or nadia_fingered == True:
+            scene vfr-54
+            with dissolve
+            Na "Well, in any case I don't {i}bring{/i} them here..."
+            scene vfr-53
+            with dissolve
+            "Nadia can't help but stare at you for quite some time, to which [W] can't help but laugh."
+        else:
+            Na "Well, in any case I don't {i}bring{/i} them here..."
+        scene vfr-84
+        with dissolve
+        Ra "Anyway, we were having some difficulties, lately, even in our intimacy... but I expect that that will all change if we broaden our minds a little."
+        Ra "And Omar agrees with me, of course."
+        scene vfr-87
+        with dissolve
+        "Omar doesn't seem to be at ease in the situation, which isn't really a surprise to you, as Rabiah makes sure that he can't get a word in the conversation."
+        scene vfr-86
+        with dissolve
+        "With something akin to resignation, Omar nods demurely."
+        Om "Yes, of course! I think it's..."
+        "With a little smirk, [W] speaks up again, interrupting him."
+        scene vfr-88
+        with dissolve
+        W "Well, I am happy to see that my big sister is finding her old self again."
+        W "Who knows, maybe the new outfit is just the beginning of a new take on life. I can't wait to see where this will lead you."
+        scene vfr-89
+        with dissolve
+        scene black pic
+        with fade
+        "Eventually, you prepare to go home."
+        scene vfo-56
+        with slowfade
+        Om "Well, this has been a nice dinner."
+        scene vfo-57
+        with dissolve
+        W "Yes, it was nice... an interesting evening."
+        scene vfo-58
+        with dissolve
+        Om "Interesting?"
+        W "Surprising, then... I did not expect my big sister to come out of her shell all of a sudden."
+        scene vfo-59
+        with dissolve
+        Om "Oh, that... yes. I see. Well, she-..."
+        scene vfo-60
+        with dissolve
+        "Omar's voice fizzles out when [W] shifts her posture, raising her shoulders just a little, and moving her weight from one leg to the other."
+        scene vfo-61
+        with dissolve
+        W "She looks great, more so than her more... conservative clothes could possibly reveal. You are a very lucky man."
+        Omw "Uh-hmm, yes... very lucky."
+        "Omar is zoning out at the sight in front of him, again. He looks at [W] both confused and excited."
+        scene vfo-62
+        with dissolve
+        W "So really, I loved it. Seems that you cooked the meat extra spicy as well, sister."
+        Ra "Hm..."
+        scene vfo-63
+        with dissolve
+        pause 2
+        scene vfo-64
+        with dissolve
+        Ra "..."
+        "She looks disappointed..."
+        scene vfo-65
+        with dissolve
+        Ra "I guess the meal wasn't the only thing that he's impressed with..."
+        scene black pic
+        with fade
+        "Meanwhile, next to them..."
+        scene vfo-68
+        with w33slow
+        Na "Well, tonight was full of surprises, after all."
+        Na "I figured it might turn out to be a boring dinner, but apparently my mother had other plans. That's so unlike her..."
+        #"A wave of displeasure washes over Rabiah's expression, as she follows her daughter with a hint of disapproval."
+        scene vfo-69
+        with dissolve
+        Z "I'm sure you did your part to motivate her."
+        scene vfo-68
+        with dissolve
+        if nadia_sex == True or nadia_fingered == True:
+            Na "I am pretty sure it wasn't just me {i}*giggles*{/i}."       
+            Na "But yeah, I'm glad anyway, she's awesome now."
+        Na "If nothing else, it means I won't have to go around her back anymore. We have been talking, lately..."
+        Na "I do wonder though, if she truly wants to go back to her old way of life..."
+        scene vfo-69
+        with dissolve
+        if nadia_sex == True or nadia_fingered == True:
+            scene vfo-70
+            with fade
+            "She leans against you..."
+            scene vfo-71
+            with dissolve
+            Na "And who will she set her eyes on, if she decides she wants to have a little fun?"
+            scene vfo-72
+            with fade
+            Z "Don't tell me you're afraid of a little competition."
+            "As your mouth opens in a cheeky grin, Nadia cuts your provocation short."
+            scene vfo-73
+            with dissolve
+            "As she moves forward again, moving her face close to yours, she whispers in a sultry tone..."
+            Naw "Do you {i}really{/i} think it's a competition?"
+            scene vfo-74
+            with dissolve
+            "She leans into you, closing the distance even more."
+            scene vfo-75
+            with dissolve
+            "Her lips part, slowly..."
+            scene vfo-76
+            with dissolve
+            "{i}*kissing*"
+            Na "Mh..."
+            Z "..."
+            "Nadia kisses you passionately, as Omar seems to be still distracted by the sight in front of him."
+            "Someone else however is watching..."
+            scene vfo-66
+            with fade
+            "Standing next to her sister, Rabiah has noticed the intimate moment between her daughter and you."
+            Ra "Nadia...!"
+            scene vfo-74
+            with fade
+            pause 0.3
+            scene vfo-73
+            with dissolve
+            pause 0.4
+            Ra "Nadia... stop that..."
+            scene vfo-77
+            with dissolve
+            Na "{i}*sigh*{/i}"
+            Na "Mom... I'm just saying goodbye..."
+            scene vfo-66
+            with fade
+            "For a second, it looks like Rabiah is about to launch in a tirade aimed at Nadia, or possibly yourself..."
+            scene vfo-67
+            with dissolve
+            Ra "Just...{i}*sigh*{/i} just don't be so blatant."
+            $ sq_rn_1.advance()
+            $ sq_rn_1.resolution = _("Things have certainly taken an interesting turn in those past few visits.\nRabiah seems to be becoming more relaxed and open and even Nadia is starting to be more daring in public.\nTime will tell where this will lead.")
+            scene black pic
+            with fade
+            "It has been an interesting turn of events today, and you wonder where it will lead..."
+            "After you wave each other goodbye, you take the road back home."
+            jump mission_end
+        
+        else:
+            $ sq_rn_1.advance()
+            $ sq_rn_1.resolution = _("Things have certainly taken an interesting turn in those past few visits.\nRabiah seems to be becoming more relaxed and open and Nadia seems all too happy with this.\nTime will tell where this will lead.")
+            scene black pic
+            with fade
+            "It has been an interesting turn of events today, and you wonder where it will lead..."
+            "After you wave each other goodbye, you take the road back home."
+            jump mission_end
+        
+    if omar_part_3 == True: #6h EVENT
+        $ vf_dinner_part_2 = True
+        scene vfr-49
+        with fade
+        " The dinner was quite awkward, but you and [W] didn't really care, as the tense drama in the air was entertaining enough."
+        "You both sensed that your sister-in-law and her husband had things to discuss once this was over."
+        "Knowing this, you didn't take too much time, and then promptly left. Omar put on a friendly face, while the frustration was visible at Rabiah's."
+        "However, that frustration was not really directed at you..."
+        scene black pic
+        play music "audio/music/home/dream town.mp3" fadeout 2
+        with slowfade
+        "Meanwhile, at Rabiah's place..."
+        scene vfr-62
+        with w33slow
+        Om "Darling. You did a great job today on the dinner."
+        Om "Are you alright?"
+        scene vfr-64
+        with dissolve
+        Ra "I'm fine."
+        scene vfr-63
+        with dissolve
+        Om "You don't sound fi-"
+        scene vfr-65
+        with dissolve
+        Ra "Since when do you care?"
+        "Rabiah's voice drips in venom as she berates her husband."
+        scene vfr-66
+        with dissolve
+        Om "Don't say that."
+        scene vfr-67
+        with dissolve
+        Om "You know I love you..."
+        scene vfr-68
+        with dissolve
+        Om "Why don't you leave the dishes for tomorrow? We could go to bed, take a bottle of wine with us."
+        Om "When the babies are fed, we can have a little fun ourselves. I have been neglecting you, lately."
+        scene vfr-69
+        with dissolve
+        Om "I could give you a massage..."
+        scene vfr-70
+        with vpunch
+        Om "Wha-"
+        scene vfr-71
+        with fade
+        Ra "Don't pretend you're excited because of me, Omar."
+        Ra "I've been looking, you know?"
+        Ra "I saw how you were looking at [W] earlier."
+        scene vfr-72
+        with dissolve
+        Om "No... I..."
+        Ra "No what, you weren't looking? I am lying?"
+        scene vfr-72x
+        with dissolve
+        Om "But Rabiah, she was shoving her chest practically in my face!"
+        Om "I couldn't do anything about it!"
+        scene vfr-73
+        with dissolve
+        Ra "So my sister is a slut and you are innocent?"
+        Om "Well... ye-, no! I mean..."
+        scene vfr-72x-2
+        with dissolve
+        "A stunned Omar realises that there is no way for him to win this argument, so he lets Rabiah have her say."
+        scene vfr-71x
+        with dissolve
+        Ra "I am really tired of you telling me how to live, how to dress, what to do and where to go, and then not giving me anything in exchange."
+        Ra "Maybe you're right and my sister {i}is{/i} a slut, but at least she has a life, she has her own voice. She has a man who fucks her properly."
+        Omw "Rabiah..."
+        scene vfr-71x-2
+        with dissolve
+        Ra "You forget I know that first hand..."
+        Ra "I told you about how he was my boyfriend before [W] took him for herself, took him from me, didn't I?"
+        Omw "I haven't forg-"
+        scene vfr-71x-3
+        with hpunch
+        Ra "I know you haven't!!!"
+        scene vfr-73
+        with fade
+        Ra "Have I told you what we would get up to together!?"
+        Ra "How he was always ready... ready to take me whenever and wherever I wanted?"
+        Om "..."
+        Ra "You didn't know that, about your wife, did you? Yes, Omar, I had a life once!"
+        Ra "I wasn't just a pretty thing for you to parade around on the market, and then lock up at home to do your chores, wash your dirty socks."
+        Om "But Rabiah..."
+        Ra "Before I married you, I would not be shamed into hiding. I would walk proud, my head held high, and if men or women wanted to look, I would have no shame!"
+        Ra "No shame of showing the goods the gods blessed me with for all to see, instead of draping myself in layers of clothing, only for you to unpack whenever you remember or can be bothered to."
+        scene vfr-72
+        with fade
+        "Omar tries again, but can't get a word in as Rabiah, for once, tells him exactly how she feels."
+        Om "Rabiah, I..."
+        scene vfr-72x
+        with hpunch
+        Ra "And don't think I don't see that you're trying to put Nadia in the same situation. Let her live a little!"
+        Ra "Actually... Let me live a little too! You claim that you love me, right? Well, then things have to change around here."
+        Ra "We are not in your village anymore, and it's time you started to behave like the citizen you aspired to be."
+        scene vfr-72x-2
+        with dissolve
+        pause 2
+        Om "..."
+        scene vfr-72x
+        with dissolve
+        Om "What would you have me do?"
+        scene vfr-71x
+        with dissolve
+        Ra "What can I do, he asks..."
+        scene vfr-71
+        with dissolve
+        Ra "For one, stop sticking your nose in Nadia's business. Let her be with the friends she's making."
+        Ra "I don't want her to feel like an outsider because her parents don't let her go for a second."
+        scene vfr-73
+        with dissolve
+        Ra "Did you know she's climbing out the windows, at night, like a street rat?"
+        Ra "She shouldn't have to!"
+        Ra "What good is your money, if nobody can enjoy it?"
+        Om "I buy you the finest clothes, the finest art and furniture..."
+        Ra "Have I asked you to?"
+        Ra "Who is it even for? My oh so scandalous sister is the first real guest we've had since we moved here!"
+        Om "..."
+        scene black pic
+        with slowfade
+        "Chastised, Omar is stunned into silence, as his wife continues to unleash on him for another while..."
+        jump mission_end
+
+    if nadia_part_2 == True and omar_part_3 == False: # 2nd EVENT      The first diner scene will show a miserable and frustrated rabiah that is looking jealously at the harmony of Zahra and MC.
+        $ vf_dinner_part_1 = True
+        scene vfr-49
+        play music "audio/music/home/dream town.mp3" fadeout 3
+        with w33slow
+        W "Thank you for inviting us, Rabiah."
+        scene vfr-50
+        with dissolve
+        Ra "Yes, you're welcome..."
+        "Her tone is dull and unmotivated, if not frustrated..."
+        scene vfr-51
+        with dissolve
+        Zt "Man... her miserable look is more than obvious..."
+        Zt "This... is quite awkward."
+        scene vfr-49
+        with dissolve
+        "Trying to distract her, [W] looks around, observing the porcelain plates and cups..."
+        W "These look so crisp and new. I didn't know we had recovered the skills to make things of this quality."
+        Om "Oh, I don't know if we have. These are antiques actually. It took a lot of money to convince the owner to sell them to me."
+        scene vfr-56
+        with dissolve
+        Ra "Yes, we're very lucky!"
+        "Her tone seems to suggest anything but what her words manifest."
+        scene vfr-57
+        with dissolve
+        Ra "So... very... lucky..."
+        scene vfr-58
+        with dissolve
+        Ra "..."
+        pause 1
+        scene vfr-59
+        with dissolve
+        Ra "{i}*sigh*{/i} Anyway..."
+        scene vfr-60
+        with dissolve
+        "[W] looks at her older sister with a hint of worry in her eyes."
+        scene black pic
+        with dissolve
+        Ra "Let's not wait for the food to get cold..."
+        pause 1
+        "The rest of the dinner is formal and there's not a lot of small talk made. Eventually, you call it a night."
+        jump mission_end
+    
+
+label vf_end:
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    if omar_introduction == True and omar_convi_2 == True and rabiah_introduction == True and nadia_introduction == True and sq_rn_1.current_step == 2:
+        $ sq_rn_1.advance()
+        $ sq_rn_1.resolution = _('There is not much else to talk about for now. I should give it some time.')
+    "You continued to eat dinner together. Not much later, [W] and you called it a day and said your goodbyes."
+    if family_second_visit == False:
+        $ family_second_visit = True
+    jump mission_end

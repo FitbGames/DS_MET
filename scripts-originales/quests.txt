@@ -1,0 +1,224 @@
+init python:
+    class Quest(object):
+        def __init__(self, name = None, id = None, type = None, active = False, completed = False, objectives = [], current_step = None, resolution = None, tracked = False):
+            self.name = name
+            self.id = id
+            self.type = type
+            self.active = active
+            self.completed = completed
+            self.objectives = objectives
+            self.current_step = current_step
+            self.resolution = resolution
+            self.tracked = tracked
+            self.refresh_objectives()
+            quests.append(self)
+
+
+        def refresh_objectives(self):
+            self.objectives = []
+            for obj in quest_objectives:
+                if self.id == obj.parent:
+                    self.objectives.append(obj)
+
+        def start(self, s = 1):
+            if not self.active:
+                self.active = True
+                if self.current_step is None:
+                    self.current_step = s
+                renpy.notify(_('Quest "{}" started.'.format(self.name)))
+
+        def advance(self):
+            if self.current_step is None or self.current_step > len(self.objectives) + 1:
+                pass
+            else:
+                self.current_step += 1
+                renpy.notify(_('Quest "{}" updated.'.format(self.name)))
+
+        def go_to_step(self, s):
+            if self.current_step is None or s > len(self.objectives) + 1:
+                pass
+            else:
+                self.current_step = s
+                renpy.notify(_('Quest "{}" updated.'.format(self.name)))
+
+        def complete(self):
+            self.completed = True
+            self.active = False
+            renpy.notify(_('Quest "{}" completed.'.format(self.name)))
+
+        def fail(self):
+            self.completed = True
+            self.active = False
+            renpy.notify(_('Quest "{}" failed.'.format(self.name)))
+
+        @property
+        def is_tracked(self):
+            return self.tracked
+
+    class Objective(object):
+        def __init__(self, name = None, parent = None, quest_step = None, description = '', condition = True, disabled = False, unavailable_message = ''):
+            self.name = name
+            self.parent = parent
+            self.quest_step = quest_step
+            self.description = description
+            self.condition = condition
+            self.disabled = disabled
+            self.unavailable_message = unavailable_message
+            self.add_to_list()
+
+        @property
+        def is_available(self):
+            return eval(str(self.condition))
+
+        @property
+        def is_disabled(self):
+            return eval(str(self.disabled))
+
+        def add_to_list(self):
+            quest_objectives.append(self)
+
+
+#########################################
+# Quest naming convention : <type>_<location>_<increment>
+# Types:
+#   mq : Main Quest
+#   sq : Side Quest
+# Locations:
+#   z : Zeta
+#   m : Mutants
+#   d : Decayed
+#   r : Raiders
+# Example : We are different' is named as mq_m_1, since it's the first main quest for the Mutants
+#########################################
+
+default quests = []
+define quest_objectives = []
+
+##### MAIN QUESTS #####
+### Her Majesty - Main Story (of Zeta) + Queen Character progression
+default mq_z_1 = Quest(name = _('Her majesty'), id = 'mq_z_1', type = 'Main')
+define mq_z_1o1 = Objective(name = _('Travel to the outskirts of Old Cairo'), parent = 'mq_z_1', quest_step = 1, description = _('The Queen gave me the task of stopping decayed raids on Zeta\'s caravans. [S] and I should head to Old Cairo and get the job done.')) # Travel to the outskirts of Old Cairo, event: d3c (d3c)
+define mq_z_1o2 = Objective(name = _('Report to the Queen'), parent = 'mq_z_1', quest_step = 2, condition = 'ev_d4d.is_active', unavailable_message = 'Wait for some time', description = _('The local decayed leader promised to stop the raids. I should head back to Zeta.')) # Report to the Queen, event: d4g
+define mq_z_1o3a = Objective(name = _('Prepare [S] for her adventure'), parent = 'mq_z_1', disabled = 'queen_submissive', quest_step = 3, condition = 'ev_d7a.is_active', unavailable_message = 'Progress other quests', description = _('After my report, the Queen still doesn\'t take me seriously. I have spoken my mind; let\'s hope she understands that respect goes both ways.')) # To make a point, event: d7a
+define mq_z_1o3b = Objective(name = _('Prepare [S] for her adventure'), parent = 'mq_z_1', disabled = 'queen_dominant', quest_step = 4, condition = 'ev_d7a.is_active', unavailable_message = 'Progress other quests', description = _('I reported to the Queen. After she disrespected me again, I gave her a piece of my mind. She better measure her words in the future.')) # To make a point, event: d7a
+define mq_z_1o4 = Objective(name = _('Accompany [S] to the Zone'), parent = 'mq_z_1', quest_step = 5, condition = 'ev_d8a.is_active', unavailable_message = _('Wait for [S] to finish preparations'), description = _('[S] is ready to head out. I should go to her room to get everything ready.')) # Accompany [S] to the Zone, event: d8a
+define mq_z_1o5 = Objective(name = _("Wait for [S]'s return from the Zone"), parent = 'mq_z_1', quest_step = 6, description = _('[S] is on her own now. I need to wait for her return before I can provide the Queen with an update.')) # Wait for [S]\'s return from the Zone, event: d13a
+define mq_z_1o6 = Objective(name = _('Spend time with [S]'), parent = 'mq_z_1', quest_step = 7, description =  _("[S] has safely returned. Before we discuss about the Queen's matters, I should spend some time with her.\nFor one, [W] is preparing a celebration in the living room.\nThen, I should approach [S] in her room and spend some time with her alone.")) # Spend time with [S], event: d13xx
+define mq_z_1o7 = Objective(name = _('Meet [S] in the library'), parent = 'mq_z_1', quest_step = 8, description = _('[S] has recovered a little from her trip by now. I can now meet with her in the library to discuss what she found out about the Queen\'s scout.')) # Meet [S] in the library, event: d13xx
+define mq_z_1o8 = Objective(name = _('Visit the palace'), parent = 'mq_z_1', quest_step = 9, condition = 'ev_d13i.is_active', unavailable_message = 'Wait for a few days or progress "Friends in low places"', description = _('It turns out the Scout was a traitor in disguise who was in possession of an ancient document, written by one of the founding elders of Zeta. Not only that, but he was also accompanied by members of his tribe, which almost got [S] killed. I should head to the palace with her to report these findings to the Queen.')) # Visit the palace, event: d13i
+define mq_z_1o9 = Objective(name = _('Talk with [S]'), parent = 'mq_z_1', quest_step = 10, condition = 'ev_d15b.is_active', unavailable_message = 'Wait for a bit', description = _('I could use a little rest on the balcony.')) # Talk with [S], event: d15b
+define mq_z_1o10 = Objective(name = _('Return to the palace'), parent = 'mq_z_1', quest_step = 11, condition ='ev_d13l.is_active', unavailable_message = 'Rest for a bit', description = _('I have discussed the findings with the Queen. She told [S] and me that she will personally look into the hideout of the Elder who wrote the testament. She then invited us for a personal meeting in the thermae, to discuss other matters.')) # Return to the palace, event: d13l
+# Resolution after the talk with the queen: The Queen did not have any updates yet about the deceased Elder's hideout. However, she invited me to visit the palace more often from now on to help her with some of her personal matters. She even granted me and my household access to the royal grounds!
+
+### Main Story (of Zeta) Part 2 
+default mq_z_2 = Quest(name = _('History or heresy'), id = 'mq_z_2', type = 'Main')
+define mq_z_2o1 = Objective(name = _("Talk to [S]"), parent = 'mq_z_2', quest_step = 1, description = _('Queen Merneith reportedly completed her research on Elder Paris, one of the founding fathers of Zeta. She told me to bring [S] along on my next quest.'))
+define mq_z_2o2 = Objective(name = _("Talk to [S] again"), parent = 'mq_z_2', quest_step = 2, condition = 'ev_d19c.is_active', unavailable_message = 'Wait for a bit', description = _('[S] has completed her visit with her teacher, Mandisa, to learn how to use her crossbow, and is now ready to visit the Queen together with me.'))
+define mq_z_2o3 = Objective(name = _("Search for the hideout"), parent = 'mq_z_2', quest_step = 3, description = _('The Queen has presented us with some documents describing the last known locations of that long dead Elder\nNow it is on us to find his secret hideout and uncover whatever secrets he was hiding for all these centuries.'))
+
+### Till death do us part - Main Story (of Decayed) + Abrax Character progression
+default mq_d_1 = Quest(name = _('Till death do us part'), id = 'mq_d_1', type = 'Main')
+define mq_d_1o1 = Objective(name = _('Discuss the map with [S].'), parent = 'mq_d_1', quest_step = 1, condition = 'ev_d7a.is_active', unavailable_message = 'Do other things', description = _("I took the map from Abrax. It's too precious a tool to refuse it, despite any reservations I may have about him."))
+define mq_d_1o2 = Objective(name = _('Accompany [S] to the Zone'), parent = 'mq_d_1', quest_step = 2, condition = 'ev_d8a.is_active', unavailable_message = _('Wait for [S] to finish preparations'), description = _("[S] is ready to head out. I should go to her room to get everything ready."))
+define mq_d_1o3 = Objective(name = _("Wait for [S]'s return from the Zone"), parent = 'mq_d_1', quest_step = 3, description = _("[S] is on her way to the Zone. I need to wait for her return to find out what those blueprints are all about."))
+define mq_d_1o4 = Objective(name = _('Spend time with [S]'), parent = 'mq_d_1', quest_step = 4, description = _("[S] has safely returned. Before we discuss about what she found in the Zone, I should spend some time with her.\nFor one, [W] is preparing a celebration in the living room.\nThen, I should approach [S] in her room and spend some time with her alone."))
+define mq_d_1o5 = Objective(name = _('Meet [S] in the library'), parent = 'mq_d_1', quest_step = 5, description = _("[S] has recovered a little from her trip by now. I can now meet with her in the library to discuss what she brought from the Zone."))
+define mq_d_1o6 = Objective(name = _('Travel to Old Cairo'), parent = 'mq_d_1', quest_step = 6, condition = 'ev_d14c.is_active', unavailable_message = 'Progress "Her Majesty"', description = _("The time has come to visit my old Master Zosar again, and hope I finally get some answers."))
+# Resolution after the talk with Shani: {S} and I discussed the glowing object she found in the underground of the old factory. We agreed that I will head to Abrax next without carrying it, making sure that I hold my cards close.
+
+default mq_r_1 = Quest(name = _('Friends in low places'), id = 'mq_r_1', type = 'Main')
+define mq_r_1o1 = Objective(name = _('See her in the basement'), parent = 'mq_r_1', quest_step = 1, description = _('We outran the storm and I brought the raider home. [W] is looking after her in the basement. Could she be related to the last one I saw?'))
+define mq_r_1o2 = Objective(name = _('Meet her again in the basement'), parent = 'mq_r_1', quest_step = 2, condition = 'ev_d5c.is_active', unavailable_message = _('Wait for some time'), description = _("Maybe I should trust her and head to Adira"))
+define mq_r_1o3 = Objective(name = _('Check your car'), parent = 'mq_r_1', quest_step = 3, condition = 'ev_d6b_a.is_active or ev_d6b_b.is_active', unavailable_message = 'Progress other quests for now', description = _("Kyra has given me directions to find someone that can lead me to a new car. I marked the place down on the map."))
+define mq_r_1o4 = Objective(name = _('Progress "Her Majesty" quest'), parent = 'mq_r_1', quest_step = 4, description = _("I found a new car. More than that actually.. And what a car it is!"))
+define mq_r_1o5 = Objective(name = _('Travel to the settlement.'), parent = 'mq_r_1', quest_step = 5, condition = 'ev_d10b.is_active', unavailable_message = 'Wait for some time', description = "")
+
+default mq_r_2 = Quest(name = _('Pride and prejudice'), id = 'mq_r_2', type = 'Main')
+define mq_r_2o1 = Objective(name = _('Talk to the workers'), parent = 'mq_r_2', quest_step = 1, description = _("I convinced Kyra to wait before attacking. Now I need to find a way to preserve the settlement even after the attack.\nThis way the trade route will stay up and running, as the Queen requested."))
+define mq_r_2o2 = Objective(name = _('Return to the settlement'), parent = 'mq_r_2', quest_step = 2, condition = 'ev_d11c.is_active', unavailable_message = 'Wait for a bit', description = _(""))
+define mq_r_2o3 = Objective(name = _('Visit the settlement'), parent = 'mq_r_2', quest_step = 3, condition = 'ev_d14e.is_active', unavailable_message = 'Wait for a bit', description = _("I should see what's going on in my new wasteland settlement."))
+define mq_r_2o4 = Objective(name = _('Talk to Kyra'), parent = 'mq_r_2', quest_step = 4, condition = 'ev_d14f_part_1.is_active', unavailable_message = 'Wait for a bit',  description = _("Something happened at the gates. I should talk to Kyra about it."))
+define mq_r_2o5 = Objective(name = _('Visit Kyra again'), parent = 'mq_r_2', quest_step = 5, condition = 'ev_d14f_part_2.is_active', unavailable_message = 'Wait for a bit',  description = _("Something happened at the gates. I should talk to Kyra about it."))
+
+default mq_m_1 = Quest(name = _('We are different'), id = 'mq_m_1', type = 'Main')
+define mq_m_1o1 = Objective(name = _('Let her rest'), parent = 'mq_m_1', quest_step = 1, description = _("I just went through a lot of effort for this girl. Let's hope she's worth it."))
+define mq_m_1o2 = Objective(name = _('Go see the Queen. The elf can wait.'), parent = 'mq_m_1', quest_step = 2, description = _('The elf left the basement. At least she seemed to enjoy the food.'))
+define mq_m_1o3 = Objective(name = _('Visit the market'), parent = 'mq_m_1', quest_step = 3, description = _('First she runs away and now she wants to see me?')) #TODO we need to add a step (paz)
+define mq_m_1o4 = Objective(name = _('Hang out with [W]'), parent = 'mq_m_1', quest_step = 4, condition = 'ev_d5b.is_active', unavailable_message = 'Do other things first', description = _("The elf was nowhere to be found, and all I encountered was a desperate girl evading her consequences. I might as well leave it be, and spend time with my wife on the terrace."))
+define mq_m_1o5 = Objective(name = _('Revisit the bunker'), parent = 'mq_m_1', quest_step = 5, condition = 'ev_d8b.is_active', unavailable_message = 'Do other things first', description = _("Last time I visited, Fangs mentioned that she might need my help. I should head over there for a status update."))
+
+default mq_m_2 = Quest(name = _('Extension of politics'), id = 'mq_m_2', type = 'Main')
+define mq_m_2o1 = Objective(name = _('Find allies for the mutants'), parent = 'mq_m_2', quest_step = 1, condition = 'ev_d8b76.is_active or ev_d10a.is_active or ev_d17a_part_1.is_active or ev_d17a_part_2.is_active', unavailable_message = 'Wait for a bit', description = [_("Fangs and I discussed that the mutants need to grow their influence in the region. I can help them on their missions to find more allies for them. However, I should carefully consider who should join their ranks.")])
+
+##### SIDE QUESTS #####
+# SLAVES
+default sq_e_1 = Quest(name = _('The Nordling'), id = 'sq_e_1', type = 'Side')
+define sq_e_1o1 = Objective(name = _('Visit the dining room'), parent = 'sq_e_1', quest_step = 1, description = _("Queen Merneith gifted me with a housemaid. I should see if she's settled in and make it official."))
+define sq_e_1o2 = Objective(name = _('Visit the servants quarters'), parent = 'sq_e_1', quest_step = 2, condition = 'ev_d4e.is_active', unavailable_message = 'Wait for some time', description = _("She seems a good girl. She's taking her duties to heart."))
+define sq_e_1o3 = Objective(name = _("Visit Emilia in her room"), parent = 'sq_e_1', quest_step = 3, condition = 'ev_d7b.is_active', unavailable_message = 'Wait for some time', description = _("I wonder if I can find out more about Emilia as a person. I may talk to her in her new room."))
+define sq_e_1o4 = Objective(name = _('Check on Emilia'), parent = 'sq_e_1', quest_step = 4, condition = 'ev_d12b.is_active or ev_d18a.is_active or ev_d18d.is_active', unavailable_message = 'Wait for some time', description = _("I am curious about how she's adapting to the everyday life of the house. I should check up on her.\n(Events [emilia_counter]/3)"))
+
+
+default sq_f_1 = Quest(name = _('Broken'), id = 'sq_f_1', type = 'Side')
+define sq_f_1o1a = Objective(name = _('Time to pay her a visit'), parent = 'sq_f_1', quest_step = 1, disabled = 'ki_killed', description = _("The trader in Old Cairo begged me to buy the slave off her to rescue her. I should check in on her in the basement."))
+define sq_f_1o1b = Objective(name = _('Time to pay her a visit'), parent = 'sq_f_1', quest_step = 2, disabled = 'ki_killed == False', description = _("Kinzi and Kosey squared our dealings by giving me a slave. I should get to know her better."))
+define sq_f_1o2 = Objective(name = _('Keep interacting with her'), parent = 'sq_f_1', quest_step = 3, description = _("The new girl, Fairy, is showing to be more problematic than I thought. I am trying to figure out what to do with her. For the time being, she's in the basement. I should interact with her more."))
+define sq_f_1o4 = Objective(name = _('Visit her in the basement'), parent = 'sq_f_1', quest_step = 4, description = _("I had several interactions with her by now. I am curious to see how that affected her."))
+define sq_f_1o5 = Objective(name = _('Wait for a few days'), parent = 'sq_f_1', quest_step = 5, description = _("Fairy has been finding her past self slowly. I should wait for [W] while she takes care of her."))
+define sq_f_1o6 = Objective(name = _('Visit the living room'), parent = 'sq_f_1', quest_step = 6, description = _("[W] told me that Fairy is ready. I should go meet them in the living room."))
+
+# OTHER
+default sq_i_1 =  Quest(name = _('Old souls'), id = 'sq_i_1', type = 'Side')
+define sq_i_1o1 = Objective(name = _('Talk to [I]'), parent = 'sq_i_1', quest_step = 1, description = _("Ivy told me that she is concerned about her friend. I should speak to her in the mutant bunker to find out more about it."))
+define sq_i_1o2 = Objective(name = _("Visit [I] again"), parent = 'sq_i_1', quest_step = 2, condition = 'ev_d15c.is_active', unavailable_message = _('Wait for some time'), description = _("I have to admit that the elf I saved in old Cairo keeps staying in my mind.\nI should visit her again and see if that friend she talked about returned by now.\nI should drive directly to her hideout this time."))
+define sq_i_1o3 = Objective(name = _("Visit [I] once more"), parent = 'sq_i_1', quest_step = 3, condition = 'ev_d21a.is_active', unavailable_message = _('Progress the Mutants questline'), description = _("Despite our recent success with Pepper's tribe, [I]'s problem with her reclusive, white haired friend, Sonmi, remains unsolved.\nHas she returned to her hideout, yet? I have to head out there, and see for myself.\nIf I can find them both, I will follow up on my promise to bring them to that old tower deep within Old Cairo and try to help Sonmi find some closure."))
+define sq_i_1o4 = Objective(name = _("Visit [I] at night"), parent = 'sq_i_1', quest_step = 4, condition = 'ev_d21b.is_active', unavailable_message = _('Wait at least four days'), description = _("After the recent events in Old Cairo, Sonmi disappeared into the Zone - or Wyrm, as she calls it, again.\nAfter completing my daily tasks, I should head out to check on [I] again.\nWe have become closer recently, so perhaps I can provide some company or distraction as she awaits for her return."))
+
+default sq_q_1 = Quest(name = _('Courting the Crown'), id = 'sq_q_1', type = 'Side')
+define sq_q_1o1 = Objective(name = _("Visit the palace"), parent = 'sq_q_1', quest_step = 1, condition = 'daily_side_mission == False', unavailable_message = 'Rest for today', description = _("The Queen invited me to assist her in her duties. Strategic sessions, bureaucracy and court hearings. And during all of this, I get to spend more time with Queen Merneith. I should use the opportunity and see where it leads to."))
+define sq_q_1o2 = Objective(name = _("Visit the palace again"), parent = 'sq_q_1', quest_step = 2, condition = 'ev_d16a.is_active or ev_palace_bedroom_3.is_active', unavailable_message = _('Rest for today'), description = _("Helping the Queen has made her warm up to me a bit, I should keep attending the palace and see if she has anything else for me.\nI also haven't seen Talia in some time. I wonder if she will be on guard duty today..."))
+define sq_q_1o3 = Objective(name = _("Visit the palace again"), parent = 'sq_q_1', quest_step = 3, condition = 'ev_d18c.is_active', unavailable_message = _('Rest for today'), disabled = 'queen_romance == False', description = _("The Queen invited me to her bedroom to talk about Sharifa... at least, that is what she wanted me to believe.\n\nIt is clear at this point that she needs not just my advice, but also my hand... and so I gave her exactly that. My next visit will reveal her thoughts on my actions, I guess."))
+define sq_q_1o4 = Objective(name = _("Wait for a few days"), parent = 'sq_q_1', quest_step = 4, disabled = 'queen_romance == False', description = _("I did not see that coming. The Queen did not seem to take the little bedroom incident well, and her frustration with me was obvious. Hopefully this will blow over."))
+
+
+default sq_l_1 = Quest(name = _('Freedom or duty'), id = 'sq_l_1', type = 'Side')
+define sq_l_1o1 = Objective(name = _("Talk to Lirah"), parent = 'sq_l_1', quest_step = 1, description = _("Lirah's outburst was unexpected. I should go and talk to her about it."))
+define sq_l_1o2 = Objective(name = _("Give Lirah some time"), parent = 'sq_l_1', quest_step = 2, disabled = 'lirah_duty_path', description = _("She told me she needs some time to think. I wonder if she will be there when I told her."))
+define sq_l_1o3 = Objective(name = _("Meet Lirah at the city gates"), parent = 'sq_l_1', quest_step = 3, disabled = 'lirah_duty_path', description = _("See if Lirah decided to meet with you."))
+define sq_l_1o4 = Objective(name = _("Wait for a few days"), parent = 'sq_l_1', quest_step = 4, disabled = 'lirah_duty_path', description = _("I can check up on her in a few days, after she has settled in her scavenger camp."))
+define sq_l_1o5 = Objective(name = _("Check up on her"), parent = 'sq_l_1', quest_step = 5, disabled = 'lirah_duty_path', description = _("I can now drive to the Oasis, where Lirah works as a scavenger."))
+define sq_l_1o6 = Objective(name = _("Wait for a few days"), parent = 'sq_l_1', quest_step = 6, disabled = 'lirah_duty_path', description = _("Lirah is not in the best shape, but she wants to keep going. Giving her my blade for self defense is all I can do at this point."))
+define sq_l_1o7 = Objective(name = _("Head to the market"), parent = 'sq_l_1', quest_step = 7, disabled = 'lirah_duty_path', description = _("There is always something to buy in the market. Time to head to the city gates."))
+define sq_l_1o8 = Objective(name = _("Wait for a few days"), parent = 'sq_l_1', quest_step = 8, disabled = 'lirah_duty_path', description = _("Lirah had a rough week out there in the wastes, and she was attacked by one of her fellow scavengers. I recommended Talia to help her out, and she told me to wait a few days before seeing them again."))
+define sq_l_1o9 = Objective(name = _("Meet Talia at the market"), parent = 'sq_l_1', quest_step = 9, disabled = 'lirah_duty_path', description = _("Talia told me to visit them at the market. I wonder how Lirah is doing?"))
+define sq_l_1o10 = Objective(name = _("Meet Talia again"), parent = 'sq_l_1', quest_step = 10, disabled = 'lirah_duty_path', description = _("After spending the night with Lirah, I may visit the palace again to tell her about it."))
+define sq_l_1o11 = Objective(name = _("Wait until tomorrow"), parent = 'sq_l_1', quest_step = 11, disabled = 'lirah_freedom_path', description = _("While I understood Lirah's curiosity for the wasteland, I did convince her to focus on her duty as a guard.\n\nBut this outburst will not be without consequences, I am sure. I should wait and see how it pans out."))
+define sq_l_1o12 = Objective(name = _("Talk to the Queen"), parent = 'sq_l_1', quest_step = 12, disabled = 'lirah_freedom_path', description = _("The Queen has told me she plans to properly punish Lirah for her disobedience. I may head to the palace to find out more."))
+define sq_l_1o13 = Objective(name = _("Wait until tomorrow"), parent = 'sq_l_1', quest_step = 13, disabled = 'lirah_freedom_path', description = _("The Queen's has found a way to get through to Lirah, setting her straight. It will be interesting to see Talia and Lirah together, tomorrow."))
+define sq_l_1o14 = Objective(name = _("Talk to Talia"), parent = 'sq_l_1', quest_step = 14, condition = 'ev_d16a_aftermath.is_active', unavailable_message = _('Wait for some time'), description = _("I can head to the palace to see the two guards together once more. This time with a hopefully more obedient Lirah."))
+
+default sq_rn_1 =  Quest(name = _('All in the family'), id = 'sq_rn_1', type = 'Side')
+define sq_rn_1o1 = Objective(name = _("Visit Rabiah's house"), parent = 'sq_rn_1', quest_step = 1, condition = 'ev_rabiah_nadia_chain.is_active', unavailable_message = _('Wait for some time'), description = _("Meeting Rabiah and her family at the market after so much time was a pleasant surprise. I can pay them a visit to see how they settled in."))
+define sq_rn_1o2 = Objective(name = _("Spend some time with them"), parent = 'sq_rn_1', quest_step = 2, condition = 'ev_rabiah_nadia_chain.is_active', unavailable_message = _('Wait for some time'), description = _("They have been quite welcoming. Maybe I'll visit them from time to time to get to know them better."))
+define sq_rn_1o3 = Objective(name = _("Visit Rabiah's house again"), parent = 'sq_rn_1', quest_step = 3, condition = 'ev_rabiah_nadia_chain.is_active', unavailable_message = _('Wait for some time'), description = _("It's always nice to see my wife and her sister spending time together again. And Rabiah's family has been quite welcoming."))
+define sq_rn_1o5 = Objective(name = _("Visit [A] in her room"), parent = 'sq_rn_1', quest_step = 4, condition = 'ev_d15a.is_active', unavailable_message = 'Wait for a few days', description = _("It has been some days, and I wonder whatever happened after Rabiah's little conflict with Omar at the dinner table.\nEither way, I have nothing planned for today, so maybe I can hang out with [A] a little."))
+#
+
+default sq_k_1 = Quest(name = _('Will curiosity kill the Kat?'), id = 'sq_k_1', type = 'Side')
+define sq_k_1o1 = Objective(name = _('Invite Igor and Kateryna to your place'), parent = 'sq_k_1', condition = 'ev_d5e.is_active', unavailable_message = 'Wait for a couple of days', quest_step = 1, description = _("Meeting Igor at the market reminded me of our old friendship. His niece seems friendly too."))
+define sq_k_1o2 = Objective(name = _("Wait for her to visit you"), parent = 'sq_k_1', quest_step = 2, description = _("Kateryna said she wanted to see the city and asked me to accompany her there.\n\nI should wait for her."))
+define sq_k_1o3 = Objective(name = _('Have a meal in the dining room.'), parent = 'sq_k_1', quest_step = 3, condition = 'ev_k11.is_active', unavailable_message = _('Wait for some time'), description = _("Kateryna is an interesting girl. Let's see when she decides to contact me again.\n Optional: See what your wife has to say about her."))
+define sq_k_1o4 = Objective(name = _('Talk to [W] in the kitchen.'), parent = 'sq_k_1', quest_step = 4, condition = 'ev_d11e.is_active', unavailable_message = _('Wait for some time'), description = _("I'm sure Kateryna has already planned our next get-together.\nI should talk to [W] in the kitchen, maybe they arranged something."))
+define sq_k_1o5 = Objective(name = _('Wait for Kateryna to visit you.'), parent = 'sq_k_1', quest_step = 5, description = _("I am now waiting for Kateryna to move in. She should be knocking on my gate eventually."))
+define sq_k_1o6 = Objective(name = _('Visit the living room'), parent = 'sq_k_1', quest_step = 6, description = _("Kateryna's introduction has been quite lovely and she is excited to become a part of my household. She is probably taking her time getting familiarized with the house. [W] asked me to see her in the living room for more."))
+define sq_k_1o7 = Objective(name = _('Talk to [W]'), parent = 'sq_k_1', quest_step = 7, condition = 'ev_d16b_intro.is_active', unavailable_message = _('Wait for some time'), description = _("Now that Kateryna has settled in a bit, I might want to invite Igor so he can check up on his niece. Maybe he will bring his new girlfriend along, too?"))
+
+default sq_a_1 = Quest(name = _("Center of attention"), id = 'sq_a_1', type = 'Side') 
+define sq_a_1o1 = Objective(name = _('Take [A] to the market'), parent = 'sq_a_1', condition = 'ev_d18b.is_active', unavailable_message = _('Wait for a bit'), quest_step = 1, description = _("[A] has been contemplating about her future for a while now, but it is also evident that she is more interested into the sensual aspects of life than into learning an actual craft.\n\n[W] suggested that the local slave market should be an interesting opportunity to learn more about [A]'s... preferences."))
+
+
+
+
+
+
+

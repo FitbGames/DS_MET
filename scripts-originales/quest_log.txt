@@ -1,0 +1,179 @@
+style quest_log_header is text:
+    color "#ddd"
+    font "gui/fonts/TrajanPro-Regular.ttf"
+    size 30
+
+style quest_log_title is text:
+    color "#ccc"
+    font "gui/fonts/TrajanPro-Regular.ttf"
+    size 22
+    xoffset 25
+    yalign 0.6
+
+style quest_log_text is text:
+    color "#ccc"
+    font "gui/fonts/TrajanPro-Regular.ttf"
+    size 16
+
+style quest_log_objective is text:
+    color "#ccc"
+    font "gui/fonts/TrajanPro-Regular.ttf"
+    size 18
+    yalign 0.5
+
+
+style quest_log_track_info is text:
+    color "#ccc"
+    font "gui/fonts/TrajanPro-Regular.ttf"
+    size 13
+
+transform slide:
+    xoffset -1000
+    on show:
+        alpha 0.0
+        easein .5 alpha 1.0 xoffset 0
+    on hide:
+        easeout .5 alpha 1.0 xoffset -1000
+
+screen toggle_ql():
+    frame background None:
+        imagebutton xcenter 40 ycenter 40:
+            focus_mask True
+            idle 'gui/quest_log/btn_questlog_idle.png'
+            hover 'gui/quest_log/btn_questlog_hover.png'
+            action ToggleScreen("quest_log")
+
+init python:
+    def get_quest_objective(quest):
+        # return f'{quest.current_step}, {len(quest.objectives)}'
+        if quest.current_step == (len(quest.objectives) + 1) or quest.completed:
+            if quest.resolution:
+                return quest.resolution
+            else:
+                return ''
+        elif not quest.objectives[quest.current_step - 1].is_available and quest.resolution:
+            return quest.resolution
+        else:
+            try:
+                return quest.objectives[quest.current_step - 1].description
+            except:
+                return f'Error: Quest step {quest.current_step} is out of bounds.'
+
+transform tt_rotate:
+    yalign 0.4
+    xalign 0.5
+    rotate -90
+
+screen quest_log():
+    modal True
+    default active_log = None
+    default desc = ''
+    frame padding(0,0) at slide:
+        background 'gui/quest_log/questlog_bg.png'
+        vbox:
+            xpos 40
+            ypos 40
+            xsize 544
+            ysize 1000
+            spacing 40
+            viewport:
+                xfill True
+                draggable True
+                mousewheel True
+                vbox spacing 30:
+                    for cat in [_('Main'), _('Side')]:
+                        vbox:
+                            spacing 5
+                            hbox:
+                                ysize 60
+                                xalign 0.5
+                                text _("[cat!t] Quests") style 'quest_log_header' bold True
+                            for quest in quests:
+                                if quest.active and quest.type == cat:
+                                    vbox:
+                                        fixed:
+                                            xsize 455
+                                            ysize 90
+                                            button margin(0, 0):
+                                                xsize 455
+                                                ysize 81
+                                                idle_background "gui/quest_log/quest_header_idle.png"
+                                                hover_background "gui/quest_log/quest_header_active.png"
+                                                selected_background "gui/quest_log/quest_header_active.png"
+                                                selected active_log == quest.id
+                                                text "[quest.name!t]" style 'quest_log_title'
+                                                action [ToggleScreenVariable('active_log', quest.id, None), SetScreenVariable('desc', get_quest_objective(quest))]
+                                            button:
+                                                xsize 28
+                                                ysize 89
+                                                xpos 400
+                                                if quest.tracked:
+                                                    text _("Tracked") style 'quest_log_track_info' at tt_rotate 
+                                                else:
+                                                    text _("Track") style 'quest_log_track_info' at tt_rotate 
+                                                idle_background "gui/quest_log/quest_track_idle.png"
+                                                hover_background "gui/quest_log/quest_track_hover.png"
+                                                selected_background "gui/quest_log/quest_track_hover.png"
+                                                action ToggleField(quest, 'tracked', true_value=True, false_value=False)
+                                        if active_log is quest.id:
+                                            hbox:
+                                                xsize 400
+                                                xalign 0.5
+                                                if isinstance(desc, str):
+                                                    text renpy.substitute(desc) style 'quest_log_text'
+                                                elif isinstance(desc, list):
+                                                    vbox spacing 10:
+                                                        for di in desc:
+                                                            text renpy.substitute(di) style 'quest_log_text'
+                                            hbox:
+                                                ysize 25
+                                                text "{image=gui/quest_log/questlog_description_separator.png}" xalign 0.5 yalign 0.5 size 3
+                                            vbox:
+                                                xsize 400
+                                                xalign 0.5
+                                                for o in quest.objectives:
+                                                    if not o.is_disabled:
+                                                        if quest.current_step > o.quest_step and active_log == o.parent:
+                                                            hbox ysize 25:
+                                                                hbox:
+                                                                    text "{image=gui/quest_log/completed_task_bullet.png} " style 'quest_log_objective'
+                                                                    text "{s}[renpy.substitute(o.name)]{/s}" style 'quest_log_objective'
+                                                    if quest.current_step == o.quest_step and active_log == o.parent:
+                                                        if o.is_available:
+                                                            hbox ysize 25:
+                                                                text "{image=gui/quest_log/active_task_bullet.png} [renpy.substitute(o.name)]" style 'quest_log_objective'
+                                                        else:
+                                                            hbox ysize 25:
+                                                                text "{image=gui/quest_log/active_task_bullet.png} [renpy.substitute(o.unavailable_message)]" style 'quest_log_objective'
+                                                if quest.current_step == (len(quest.objectives) + 1):
+                                                    text "{image=gui/quest_log/active_task_bullet.png} [renpy.substitute('To be continued...')]" style 'quest_log_objective'
+                                                null height 20 #Objective list bottom margin
+                    vbox:
+                        spacing 10
+                        hbox:
+                            ysize 60
+                            xalign 0.5
+                            text _("Completed Quests") style 'quest_log_header' bold True
+                        for quest in quests:
+                            if quest.completed:
+                                button margin(0, 0):
+                                    xsize 455
+                                    ysize 81
+                                    idle_background "gui/quest_log/quest_header_idle.png"
+                                    hover_background "gui/quest_log/quest_header_active.png"
+                                    selected_background "gui/quest_log/quest_header_active.png"
+                                    selected active_log == quest.id
+                                    text "[quest.name!t]" style 'quest_log_title'
+                                    action [ToggleScreenVariable('active_log', quest.id, None), SetScreenVariable('desc', get_quest_objective(quest))]
+                                if active_log is quest.id:
+                                    hbox:
+                                        xsize 400
+                                        xalign 0.5
+                                        if isinstance(desc, str):
+                                            text renpy.substitute(desc) style 'quest_log_text'
+                                        elif isinstance(desc, list):
+                                            vbox spacing 10:
+                                                for di in desc:
+                                                    text renpy.substitute(di) style 'quest_log_text'
+
+    use toggle_ql

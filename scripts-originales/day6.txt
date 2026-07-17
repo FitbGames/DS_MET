@@ -1,0 +1,1993 @@
+label d6a:
+    $ daily_main_mission = True
+    $ m_d6a = True
+    $ d6a_day = day
+    scene black pic
+    play music "audio/music/home/dream town.mp3" fadeout 3
+    with slowfade
+    play sound "audio/sounds/doors/door knocking.mp3"
+    Zt "Who is that?"
+    scene d6a-2
+    with fade
+    Z "I'm coming..."
+    scene d6a-3
+    with dissolve
+    Z "Oh, hello [Ka]."
+    scene d6a-4x
+    with dissolve
+    Z "You... look stunning, today."
+    scene d6a-3
+    with dissolve
+    Z "How can I help you?"
+    scene d6a-4
+    with dissolve
+    Ka "Hello again, Stalker [persistent.player_name]..."
+    Ka "I ask if you can show city today, maybe?"
+    scene d6a-3
+    with dissolve
+    Z "I haven't forgotten my promise. I guess it's your lucky day. "
+    Z "Please, come inside and go to the kitchen while I grab my things."
+    if emilia_joined == True:
+        Z "I will let Emilia know you're here."
+        Z "She will get you some refreshments. I bet you're not yet used to the heat of the desert."
+        jump d6a5
+    if emilia_joined == False:
+        Z "I will let [W] know you're here."
+        Z "She will take care of you. Walking under the desert sun is never easy for newcomers."
+        jump d6a5
+
+label d6a5:
+    scene black pic
+    play music "audio/music/zeta/city music.mp3" fadeout 4
+    with slowfade
+    "When you're ready, you and [Ka] head to the city center..."
+    scene d6a-5
+    with slowfade
+    Ci "Have you heard the news?"
+    Ci "Queen Merneith is said to have used her dragon to execute a prisoner."
+    Ci "Some say the dragon's fire was so bright, it caused the cursed storm!"
+    scene d6a-6
+    with dissolve
+    C "Do you think that's true?"
+    scene d6a-5
+    with dissolve
+    C2 "I don't know... but if anyone can summon a dragon or a storm, it's our Queen."
+    C2 "I wish I could see the dragon with my own eyes one day."
+    C2 "It must be a magnificent creature!"
+    scene d6a-6
+    with dissolve
+    C "Let us pray to the gods that it will never leave our side!"
+    scene d6a-7
+    with fade
+    Z "You have been here before, right?"
+    Ka "No... sadly no."
+    Ka "Is very big place..!"
+    Ka "What is place for?"
+    scene d6a-8
+    with fade
+    Z "You could call this square the heart of the city."
+    Z "Go straight ahead, and you will enter the Queen's Palace."
+    Z "Unlike the market, not everyone is allowed to enter this plaza."
+    Ka "I see..."
+    scene d6a-9
+    with fade
+    Ka "Is so open here. Such a big place."
+    Ka "It is beautiful..."
+    scene d6a-10
+    with dissolve
+    scene d6a-11
+    with fade
+    Ka "It feel very safe here."
+    Ka "At home, we have small villages..."
+    Ka "...many bandit hide in the wood outside the walls."
+    scene d6a-12
+    with dissolve
+    Z "The lands outside of Zeta are very dangerous."
+    Z "But inside these walls, you are safe; this place is protected."
+    Z "You can be sure about that."
+    "You hear distant chatter..."
+    label re_d6a13:
+        scene d6a-13
+        with fade
+    Ci "{i}*distant mumbling*"
+    Ka "A happy couple!"
+    scene d6a-11
+    with fade
+    Ka "And she is pregnant..."
+    scene d6a-12
+    with dissolve
+    Z "She is..."
+    Z "But they are not a couple..."
+    scene d6a-14
+    with fade
+    Ci "Blessings upon you, Revered Mother..."
+    Ci "How long before a new Child of Zeta joins us?"
+    scene d6a-15x
+    with dissolve
+    C2 "About six weeks, I think."
+    scene d6a-15
+    with dissolve
+    Ci "Thank you for your service."
+    scene d6a-16
+    with fade
+    Ka "I don't understand..."
+    Z "She's a Vessel of Zeta, a Priestess of the Temple."
+    scene d6a-12
+    with fade
+    Z "When a young woman joins the service of the temple, her first thirty years are dedicated to raising the Children of Zeta."
+    Z "During that time, she is known as a Vessel, because through her, the people of Zeta grow, with the blessing of the gods."
+    scene d6a-11
+    with dissolve
+    Ka "You know her?"
+    Ka "She carries your baby?"
+    scene d6a-12
+    with dissolve
+    Z "I know her, in a way, we do not use names, ..."
+    menu:
+        "\"...and this time it's mine.\"":
+            $ jamila_baby = True
+            Z "...and yes, this time I believe it's mine."
+            jump d6a7
+        "\"...but it's not mine.\"":
+            $ jamila_baby = False
+            Z "...but it's not mine."
+            Z "I have not served in too long a time for that to be the case."
+            jump d6a7
+
+label d6a7:
+    scene d6a-17
+    with fade
+    if jamila_baby == True:
+        Rm "Well, if it isn't my last companion! Blessings upon you, Stalker..."
+        Rm "Is that a new concubine I see by your side?"
+        Rm "Last time we met, I seem to remember a different woman by your side."
+        Z "That was my wife, [W], Revered Mother, and she still is."
+        Z "This is [Ka], she's my friend's nie-"
+        Z "She travelled here from the lands in the far north."
+        scene d6a-23
+        with dissolve
+        Rm "Hm..."
+        scene d6a-22
+        with dissolve
+        Rm "So you pursue more exotic companions, I see..."
+        Rm "Well, my dear, the Temple always appreciates it when a Stalker decides to serve."
+        Rm "So, keep it in mind... this one is coming soon..."
+        Rm "And my next partner has not yet been decided upon..."
+        scene d6a-23
+        with dissolve
+        jump d6a22
+
+    if jamila_baby == False:
+        Rm "What do we have here, a Stalker and his concubine?"
+        Rm "I don't like to make assumptions..."
+        Rm "...but she looks a little frail, to be bearing your children, or your advances."
+        Z "This is Kateryna. She's not my c-"
+        Z "..."
+        Z "She is not from here, [Rm]."
+        scene d6a-21
+        with dissolve
+        Rm "Hmm... is that so..."
+        Rm "Well then, Stalker... I don't remember seeing your face amongst those who offer to serve the Temple, not in any recent years at least."
+        Rm "This Child is coming soon, and I would remind you of the needs of the city."
+        Rm "I would like for you to be one of the men to offer your seed for the next one."
+        Rm "Many families in Zeta could use the blessing of a strong baby."
+        Rm "What do you think?"
+        scene d6a-23
+        with dissolve
+        jump d6a22
+
+label d6a22:
+    menu:
+        "\"Maybe...\"":
+            $ jamila_maybe = True
+            Z "Hmm... maybe."
+            scene d6a-24
+            with dissolve
+            if jamila_baby == True:
+                Z "Let's see how this one is doing, first..."
+            else:
+                Z "Let me take a good look at you first, Revered Mother..."
+            Rm "Of course, Stalker..."
+            scene d6a-25
+            with fade
+            "You grab her top..."
+            if jamila_baby == True:
+                Rm "...the baby is doing very well already."
+            else:
+                Rm "...you will not be disappointed."
+            scene d6a-25x
+            with dissolve
+            "{i}*You pull her top down..."
+            scene d6a-25x-2
+            with fade
+            "You take her large breasts into your hand, feeling her up casually..."
+            scene d6a-25x-3
+            with dissolve
+            Rm "Do you like them?"
+            if jamila_baby == True:
+                Z "I always do."
+            else:
+                Z "I do..."
+            scene d6a-26
+            with dissolve
+            Rm "They were busy feeding many people. However, I did not have to use them today yet."
+            scene d6a-26x
+            with dissolve
+            Z "Hm..."
+            scene black pic
+            with fade
+            "You turn her around, and pull her into you..."
+            scene d6a-27
+            with fade
+            Z "..."
+            Z "You really do have a body made for breeding..."
+            scene d6a-27x
+            with dissolve
+            Rm "Twenty three children and not a single incident."
+            Rm "Not even when the triplets came..."
+            Z "Hmm..."
+            scene d6a-28
+            with dissolve
+            Ka "You... touch her in public..."
+            if jamila_baby == True:
+                Rm "Oh girl, you really are not from around here, are you...?"
+                scene d6a-29
+                with dissolve
+                Rm "All your man is doing is checking that the baby and I are healthy."
+                Rm "Nothing wrong with that... in public or otherwise."
+                scene d6a-30x
+                with dissolve
+                Rm "This will be a Child of Zeta. We vessels serve the city, not one man."
+            else:
+                Rm "Oh girl, you really are not from around these lands, are you..."
+                scene d6a-29
+                with dissolve
+                Rm "All your man is doing is verifying that I am healthy and strong, and can offer him a good time for his service."
+                scene d6a-30x
+                with dissolve
+                Rm "Nothing wrong with that... In public or otherwise."
+            scene d6a-30x-2
+            with dissolve
+            Ka "..."
+            scene d6a-31
+            with dissolve
+            Z "Your children will never go hungry, that is for certain..."
+            scene d6a-32
+            with dissolve
+            "You squeeze her breast, and milk squishes and oozes out..."
+            scene d6a-32x
+            with dissolve
+            Ka "You have milk...?"
+            Rm "Of course. The baby is coming soon."
+            scene d6a-32x-2
+            with dissolve
+            "You squeeze again..."
+            scene d6a-33
+            with dissolve
+            Ka "I do not know much about this..."
+            scene d6a-34
+            with dissolve
+            Rm "Oh... you sweet thing."
+            scene d6a-35
+            with dissolve
+            Rm "Would you like to taste it..?"
+            scene d6a-35x
+            with dissolve
+            Ka "T-taste...?"
+            scene d6a-35x-2
+            with dissolve
+            menu:
+                "Encourage her":
+                    $ katerynamilk = True
+                    Z "Go ahead if you want."
+                    Rm "Listen to your man..."
+                    scene d6a-35x
+                    with dissolve
+                    Ka "Okay."
+                    scene d6a-35x-2
+                    with dissolve
+                    jump d6a36
+
+                "Discourage her":
+                    $ katerynamilk = False
+                    Z "If you don't want to, you don't have to."
+                    scene d6a-35x
+                    with dissolve
+                    Ka "Maybe... some other time."
+                    scene d6a-30x-2
+                    with dissolve
+                    Z "I will think about your offer."
+                    Z "But we should move on now, [Rm]."
+                    scene d6a-30x
+                    with dissolve
+                    Rm "As you wish, Stalker."
+                    scene black pic
+                    with fade
+                    "You let go of her..."
+                    scene d6a-26
+                    with fade
+                    Rm "I should leave, too."
+                    Rm "If you change your mind, you know where to find me..."
+                    scene d6a-26x
+                    with dissolve
+                    Z "I do..."
+                    $ renpy.end_replay()
+                    jump d6a42
+
+        "\"Not interested.\"":
+            if jamila_baby == True:
+                $ jamila_maybe = False
+                Z "Thank you, [Rm], but I want to show Kateryna around, not think about children, today."
+                Z "We might pay you a visit once you have delivered the baby."
+                scene d6a-22
+                with dissolve
+                Rm "I understand..."
+                scene d6a-11
+                with fade
+                Ka "Stalker [persistent.player_name], can we head home soon?"
+                scene d6a-12
+                with dissolve
+                Z "Of course, [Ka]."
+                Z "We will head back in a moment."
+                Rm "I should leave, too."
+                scene d6a-26
+                with fade
+                Rm "If you change your mind, you know where to find me..."
+                scene d6a-26x
+                with dissolve
+                $ renpy.end_replay()
+                jump d6a42
+
+            if jamila_baby == False:
+                $ jamila_maybe = False
+                Z "Thank you for the offer, but I am not interested."
+                Z "I'm sure the Temple does not lack volunteers to serve, [Rm]."
+                Z "Maybe we will see each other again once your pregnancy is over..."
+                scene d6a-22
+                with dissolve
+                Rm "Hmm, you want to see how I look when I'm not with a child, is that it?"
+                Rm "Serving the Temple is about more than a quick romp, you know, Stalker?"
+                scene d6a-11
+                with fade
+                Ka "Stalker [persistent.player_name], can we head home soon?"
+                scene d6a-12
+                with dissolve
+                Z "Of course, [Ka]."
+                Z "We will head back in a moment."
+                Rm "I should leave, too."
+                scene d6a-26
+                with fade
+                Rm "If you change your mind, you know where to find me..."
+                scene d6a-26x
+                with dissolve
+                $ renpy.end_replay()
+                jump d6a42
+
+label d6a36:
+    scene d6a-36
+    with fade
+    Rm "Come on, don't be shy..."
+    scene d6a-36x
+    with dissolve
+    Ka "Okay..."
+    scene d6a-37
+    with fade
+    Ka "I only need to suck, yes...?"
+    scene d6a-38
+    with dissolve
+    Ka "{i}*sucking*"
+    Rm "See... it's nice, isn't it?"
+    scene d6a-38x
+    with dissolve
+    Rm "That's a fine little woman you have here, Stalker."
+    scene d6a-38x-2
+    with dissolve
+    Ka "Mh..."
+    Z "She seems to like the taste..."
+    scene d6a-38x-3
+    with dissolve
+    Rm "There is a reason why a vessel's milk is popular."
+    Rm "We choose our food carefully, to encourage more and better milk."
+    scene d6a-39
+    with dissolve
+    Rm "Sometimes, when we really have excess, we can even sell it."
+    Rm "You know how popular we are in the taverns..."
+    scene d6a-39x
+    with dissolve
+    Rm "Oh my... someone is hungry, today..."
+    scene d6a-39x-2
+    with dissolve
+    Ka "Nhh... this is very sweet."
+    Ka "Thank you."
+    scene d6a-40
+    with dissolve
+    Ka "Ah..."
+    Rm "Oh honey, it's my pleasure and duty to share the blessing."
+    scene d6a-41
+    with dissolve
+    Rm "I will have to leave now though."
+    Z "We should get going as well..."
+    scene black pic
+    with fade
+    "{i}Kateryna gets up and you get ready to leave..."
+    scene black pic
+    with fade
+    "She turns around..."
+    $ renpy.end_replay()
+    scene d6a-26
+    with fade
+    if jamila_baby == True:
+        Rm "You should think about my offer..."
+        Rm "This little one will be seeing the Sun in a matter of weeks."
+        Rm "After that, I can be at your service again..."
+        scene d6a-26x
+        with dissolve
+        Z "I will think about it."
+        scene d6a-26
+        with dissolve
+        Rm "Blessings upon you both..."
+        scene d6a-26x
+        with dissolve
+        jump d6a42
+    else:
+        Rm "You should think about my offer..."
+        Rm "This little one will be seeing the Sun in a matter of weeks."
+        Rm "But after that, I can be at your service, Stalker..."
+        scene d6a-26x
+        with dissolve
+        Z "I will think about it."
+        Z "I'm sure we will meet again."
+        scene d6a-26
+        with dissolve
+        Rm "I'm sure we will..."
+        scene d6a-26x
+        with dissolve
+        jump d6a42
+
+label d6a42:
+    scene d6a-11
+    with slowfade
+    Ka "She is very experienced with making babies..."
+    Ka "There are more women like her?"
+    scene d6a-12
+    with dissolve
+    Z "There are, yes, though not many."
+    Z "Do you want to head home?"
+    scene d6a-11
+    with dissolve
+    Ka "Yes, we can go back."
+    Ka "But now I am more curious than before..."
+    Ka "Many thoughts..."
+    scene d6a-12
+    with dissolve
+    scene black pic
+    with slowfade
+    "{i}You and Kateryna head back to [Ig]'s place nearby the market."
+    scene d6a-42
+    with slowfade
+    Ka "Thank you for today, Stalker [persistent.player_name]."
+    Ka "It was very interesting to see city with you. Maybe we can do again, soon."
+    scene d6a-43
+    with dissolve
+    Z "Maybe we can, yes."
+    scene d6a-42
+    with dissolve
+    Ka "Do you want come inside? Uncle [Ig] maybe prepared dinner now?"
+    scene d6a-43
+    with dissolve
+    Z "I can stay for a while, sure."
+    Z "I haven't visited his home in a long time... curious to see this home bar he keeps telling me about."
+    scene d6a-44
+    with dissolve
+    Ka "Okay! Come inside!"
+    scene d6a-44x
+    with dissolve
+    scene d6a-45
+    with fade
+    "She waits for you at the door..."
+    scene d6a-46
+    with fade
+    "She waits for you to come close, not letting her eyes off you..."
+    scene d6a-47
+    with dissolve
+    "...and then comes closer, and hesitatingly, yet sincerely..."
+    scene d6a-49
+    with fade
+    Ka "Mh..."
+    "...kisses you on your cheek."
+    scene d6a-48
+    with dissolve
+    Ka "..."
+    scene black pic
+    with fade
+    "{i}You get inside and Kateryna leads you to her uncle's dining room..."
+    scene d6a-50
+    with w33slow
+    Ig "Well, haha, look who is here!"
+    scene d6a-51
+    with dissolve
+    Ka "We are back, uncle!"
+    Ig "Oh, princess! Come say hello."
+    scene d6a-52
+    with dissolve
+    Ig "How was it? Did [persistent.player_name] show you around?"
+    scene d6a-52x
+    with dissolve
+    Ka "He did, Uncle. He showed sights, and Plaza, and we met a Priestess!"
+    scene d6a-53
+    with fade
+    Ka "I asked Stalker [persistent.player_name] to come to dinner. Is okay?"
+    scene d6a-54x
+    with dissolve
+    Z "Feel free to say no, Igor. I am not imposing..."
+    scene d6a-54
+    with dissolve
+    Ig "What are you saying, [persistent.player_name]?!"
+    Ig "You are always welcome."
+    Ig "Dinner is almost ready, have seat."
+    scene d6a-54
+    with dissolve
+    scene black pic
+    with fade
+    "Igor, Kateryna and you sit down and share a meal..."
+    scene d6a-58
+    with fade
+    "You feast on the delicious stew, while Igor starts his stories about his latest adventures..."
+    scene d6a-57
+    with fade
+    Ig "...and then I told her; pretty woman, no need to apologize."
+    scene d6a-55
+    with dissolve
+    Ig "And then I saw it!"
+    Ka "What did you see?"
+    Ig "Her smile, pretty as rising sun."
+    Ig "Like yours, princess, haha!"
+    Ka "You only say that to get in her bed, haha."
+    Ig "No no no, young woman, you know this is not me!"
+    scene d6a-59x-2
+    with dissolve
+    Ka "No lying, uncle!"
+    scene d6a-59
+    with dissolve
+    Z "I'm pretty sure he means it, I have known him for long enough."
+    scene d6a-59x
+    with dissolve
+    Z "Hey! Let's drink to that!"
+    Z "The old man found a new girlfriend, finally!"
+    scene d6a-59x-2
+    with dissolve
+    Ka "Pust' ty budesh' schastliv do kontsa svoikh dney!"
+    scene d6a-59x
+    with dissolve
+    Z "Shereve!"
+    Ig "Za tvoe schast'e!"
+    scene d6a-56
+    with dissolve
+    Ig "{i}*slurp*{/i}"
+    Z "Pace yourself, old friend!"
+    Ka "I try to tell him always..."
+    Z "{i}*laughs*"
+    scene black pic
+    stop music fadeout 4
+    with slowfade
+    "{i}You talk and drink, and have a good time."
+    "{i}Eventually, Kateryna thanks [Ig] for the dinner and excuses herself."
+    scene d6a-60
+    play music "audio/music/home/dream town.mp3" fadeout 3
+    with fade
+    Ig "[persistent.player_name!c], I tell you, we are become lightweight."
+    Ig "Three beer and we are full..."
+    Z "You speak the truth, my friend. Time passes faster now..."
+    Z "I should get back home soon."
+    Z "I had a good time, as always."
+    scene d6a-61
+    with fade
+    Ig "You are friend, and honoured guest."
+    Ig "Before you go, I want to tell you something."
+    scene d6a-63
+    with dissolve
+    Ig "Early today, Kateryna could not stop talking about you."
+    scene d6a-62x
+    with dissolve
+    Ig "She seems very taken by you, haha."
+    scene d6a-62x-2
+    with dissolve
+    Z "She is very... interested in our culture here, yes."
+    scene d6a-62
+    with dissolve
+    Ig "Don't hide behind words, my friend."
+    Ig "I know her well; and I know you."
+    Ig "She is girl who likes new things."
+    scene d6a-62
+    with dissolve
+    Ig "But she is also scared of world, she wants secure home."
+    Ig "I don't know if she told you, but her home village..."
+    scene d6a-61
+    with dissolve
+    Ig "...is not very safe there."
+    Ig "She has not much to return to, maybe nothing."
+    scene d6a-63x-2
+    with dissolve
+    Ig "I am not always around, [persistent.player_name]."
+    Ig "I am trader. She can not come with me always. And I want her to have good man, not one who treats her badly."
+    Ig "So..."
+    scene d6a-61
+    with dissolve
+    Ig "I think she likes you."
+    Ig "If she wants to make life with you, I am not against."
+    Ig "You are good man and I trust you."
+    scene d6a-63
+    with dissolve
+    Ig "She is young, and exploring world."
+    Ig "Maybe she will forget tomorrow, and find other interest.."
+    Ig "But I think not, so... what to do?"
+    Ig "I know it is big ask. You don't have to reply now."
+    scene d6a-63x
+    with dissolve
+    menu:
+        "\"I will remember that, [Ig].\"":
+            Z "I will remember that, [Ig]."
+            Z "I understand your worries about her future."
+            Z "I have a big household already."
+            Z "But if she should truly desire to live with me and my family, I will give it some thought."
+            scene d6a-63x-4
+            with dissolve
+            Ig "Thank you, old friend."
+            Ig "I made promise to her mother, that I will see her happy and safe."
+            scene d6a-63x-5
+            with dissolve
+            jump d6a64
+        "\"I like her, but we should see what she wants.\"":
+            Z "She's a nice girl, I like her."
+            Z "We should see what she truly wants."
+            Z "Maybe she just feels unsafe at the moment and looks up to me for some reassurance."
+            scene d6a-62
+            with dissolve
+            Ig "Let me say thing I noticed."
+            Ig "She never likes boys her age."
+            Ig "I made promise to mother, that I will see her happy and safe."
+            scene d6a-61x
+            with dissolve
+            jump d6a64
+        "\"If she wants to join my household, she will have to work for it.\"":
+            Z "She's cute, and I like her."
+            Z "But you know I already have a family, and if she wants to join the household..."
+            Z "...I'm afraid she will have to work for it, like other servants."
+            Z "But we will see about that."
+            scene d6a-62x
+            with dissolve
+            Ig "I am sure this will be no problem."
+            Ig "She is always very diligent in house."
+            scene d6a-62
+            with dissolve
+            Ig "I made promise to her mother, that I will see her happy and safe."
+            Ig "If serving you will make her happy, I know you will protect her."
+            scene d6a-61x
+            with dissolve
+            jump d6a64
+
+label d6a64:
+    scene black pic
+    with fade
+    "{i}You get up and ready to leave..."
+    scene d6a-64
+    with fade
+    Z "Thank you for the dinner."
+    Z "I will say goodbye to [Ka] and head out."
+    scene d6a-65
+    with dissolve
+    Ig "You do so; will see you again soon, I'm sure."
+    scene d6a-66
+    with dissolve
+    Z "Until then, take care out there."
+    scene black pic
+    with fade
+    "You head to her room..."
+    scene d6a-67
+    with fade
+    Z "[Ka]? Are you in here?"
+    Z "I am leaving and wanted to say goodbye."
+    scene d6a-68
+    with dissolve
+    Z "Hey... Is everything okay?"
+    Ka "Yes, Stalker [persistent.player_name]..."
+    scene d6a-69
+    with fade
+    pause 0.2
+    scene d6a-70
+    with dissolve
+    Z "What's wrong?"
+    Z "You can tell me."
+    scene d6a-71
+    with fade
+    Ka "The woman before..."
+    Ka "She looked pretty, yes?"
+    scene d6a-71x
+    with dissolve
+    Z "Very, yes..."
+    scene d6a-72
+    with dissolve
+    Ka "She said I don't have body like her..."
+    Ka "You think she is right...?"
+    Ka "You think I am pretty, Stalker [persistent.player_name]?"
+    menu:
+        "Show her that she is":
+            $ kateryna_romance = True #ADDED IN 0.09!!!
+            scene d6a-71x
+            with dissolve
+            Z "I do think so."
+            Z "You are a very pretty woman, on the inside and out."
+            Ka "And..."
+            scene d6a-71
+            with dissolve
+            Ka "...can I do what the priestess does, too...?"
+            Ka "Make... many babies?"
+            menu:
+                "Encourage her":
+                    $ kat_babywish = True
+                    scene d6a-74
+                    with fade
+                    Z "I don't see why not."
+                    scene d6a-75
+                    with dissolve
+                    Z "You may not have her proportions, or ample bosom..."
+                    scene d6a-75x
+                    with dissolve
+                    Z "But you are a young and healthy woman...."
+                    scene d6a-75x-2
+                    with dissolve
+                    Ka "Mh..."
+                    Z "If that is what you want, I see nothing that could stop you."
+                    scene d6a-75x-3
+                    with dissolve
+                    Z "So what if you're a bit slimmer than the Priestess... Many women are."
+                    scene d6a-75x-4
+                    with dissolve
+                    Z "You will discover that childbearing changes a woman's body."
+                    scene d6a-76
+                    with fade
+                    Z "Who is to say how your body will react when the time comes?"
+                    scene d6a-77
+                    with dissolve
+                    Ka "It must... feel nice..."
+                    Z "What do you mean?"
+                    Ka "Making a life, and feeling it grow inside you."
+                    scene d6a-78
+                    with fade
+                    Z "Maybe you will find out one day..."
+                    scene d6a-79
+                    with dissolve
+                    Ka "Also the making...of love."
+                    Ka "I would like to know more. I have seen the animals... and others in my family."
+                    scene d6a-78
+                    with dissolve
+                    Z "Hm..."
+                    scene d6a-80
+                    with fade
+                    Z "Your day will come, Kateryna..."
+                    scene d6a-81
+                    with dissolve
+                    Ka "...mnh."
+                    Z "...I am sure of it."
+                    jump d6a78
+
+                "Steer her away from pregnancy":
+                    scene d6a-74
+                    with fade
+                    Z "I see no reason why you should not be able to bear children, even now."
+                    scene d6a-75
+                    with dissolve
+                    Z "...but you can always consider having them later."
+                    Ka "Later... yes..."
+                    scene d6a-75x
+                    with dissolve
+                    Z "With a body like yours..."
+                    scene d6a-75x-2
+                    with dissolve
+                    "You slowly, and sensually roam around her breasts..."
+                    scene d6a-75x-3
+                    with dissolve
+                    Ka "Mh..."
+                    scene d6a-75x-4
+                    with dissolve
+                    "...uncovering her loose dress little by little..."
+                    scene d6a-76
+                    with fade
+                    Z "...and such pretty lips..."
+                    scene d6a-77
+                    with dissolve
+                    Ka "Hah..."
+                    Z "...you can, if you want to, explore life to the fullest, before settling down with someone worthy and having his children."
+                    Ka "I want to... experience it."
+                    Z "You have never before...?"
+                    Ka "No..."
+                    scene d6a-78
+                    with fade
+                    Z "Hm..."
+                    Z "Maybe you will one day."
+                    scene d6a-80
+                    with dissolve
+                    Ka "One day..."
+                    scene d6a-81
+                    with dissolve
+                    Ka "Ah..."
+                    Z "One day."
+                    jump d6a78
+
+        "Talk your way out of this":
+            $ kateryna_romance = False
+            scene d6a-74
+            with fade
+            Z "You are a very pretty woman, [Ka]."
+            Z "Don't let the words of the Priestess bother you."
+            scene d6a-76
+            with dissolve
+            Z "There are many men, and women too, who would give everything to see your smile every day, trust me."
+            Ka "..."
+            scene d6a-78
+            with dissolve
+            Z "I have to leave now."
+            scene d6a-79
+            with dissolve
+            Ka "We see each other soon?"
+            scene d6a-78
+            with dissolve
+            Z "We can, yes."
+            $ sq_k_1.advance()
+            $ sq_k_1.resolution = _("Kateryna is an interesting girl. I want to understand her better. Maybe I should invite her to our place again.")
+            scene d6a-79
+            with dissolve
+            Ka "Thank you for today, Stalker [persistent.player_name]."
+            scene d6a-78
+            with dissolve
+            Z "You don't have to call me Stalker next time we meet, okay?"
+            Z "Bye for now, [Ka]."
+            scene d6a-79
+            with dissolve
+            Ka "Okay... Bye, [persistent.player_name]..."
+            scene d6a-78
+            with dissolve
+            scene black pic
+            with fade
+            "{i}You head home..."
+            jump daily_home
+
+label d6a78:
+    scene d6a-78
+    with fade
+    Z "I have to leave you now, sweet [Ka]."
+    scene d6a-79
+    with dissolve
+    Ka "Can we... meet again soon, Stalker [persistent.player_name]?"
+    scene d6a-78
+    with dissolve
+    Z "We can, yes."
+    $ sq_k_1.advance()
+    $ sq_k_1.resolution = _("Kateryna is an interesting girl. I want to understand her better. Maybe I should invite her to our place again.")
+    Z "You don't have to call me Stalker every time."
+    Z "Next time we meet; [persistent.player_name] will do."
+    Z "Bye for now, [Ka]."
+    scene d6a-79
+    with dissolve
+    Ka "Okay... Bye, [persistent.player_name]..."
+    scene d6a-78
+    with dissolve
+    scene black
+    with fade
+    "{i}You head home..."
+    jump daily_home
+
+label d6b1:
+    $ daily_main_mission = True
+    $ m_d6b = True
+    $ d6b_visited_asani_day = day
+    if faction_raiders == True:
+        Zt "I guess it's time to check the map [Ky] gave me and figure out where that car is..."
+        scene d6b-1
+        with slowfade
+        if asani_alive == False:
+            Zt "Southwest of Adira... hmm..."
+            scene d6b-2
+            with fade
+            Zt "Should be a couple of hours ride from here."
+            Zt "In the barren lands, just a little away from the riverbed."
+            Zt "Whoever manages to survive out there must be tough."
+            jump d6b31
+        else:
+            Zt "Southwest of Adira... hmm..."
+            Zt "That's a rotten place to live in, so far out in the desert, removed from everything."
+            scene d6b-2
+            with fade
+            Zt "Should be a 45 minute ride from here, to find this girl... Asani, she said."
+            Zt "In the barren lands, just a little away from the riverbed."
+            Zt "I wonder how she survives out there."
+            scene black pic
+            with fade
+            play sound "audio/sounds/vehicles/car door.mp3"
+            Z "Well..."
+            scene d6b-3
+            with fade
+            play sound "audio/sounds/vehicles/car noise.mp3"
+            Z "...time to find out."
+            scene d6b-4
+            play music "audio/music/exploration/spatium.mp3" fadeout 3
+            with w33slow
+            pause
+            scene d6b-5
+            with w33slow
+            pause
+            scene d6b-6
+            with w33slow
+            "{i}A while later..."
+            scene d6b-7
+            with w33slow
+            Zt "This should be the place..."
+            scene d6b-8
+            with w33slow
+            Zt "No activity, no sounds or signs of life..."
+            scene d6b-9
+            with fade
+            Zt "...but you can never be too sure."
+            scene d6b-10
+            with fade
+            Z "..."
+            scene d6b-11
+            with fade
+            play sound "audio/sounds/doors/door knocking.mp3"
+            Z "Anyone home?!"
+            Z "I won't ask again!"
+            C "Who is it!?"
+            C "You knocked on the wrong door, buddy..."
+            scene d6b-13
+            with dissolve
+            C "Let's see who wants to..."
+            scene d6b-14
+            play music "audio/music/home/dream town.mp3" fadeout 4
+            with dissolve
+            C "..."
+            Z "{i}You{/i} are [Asa]?"
+            Asa "So we meet again..."
+            $ persistent.met_asani = True
+            scene d6b-15
+            with dissolve
+            Asa "I expected many things when I got up this morning."
+            Asa "You were not one of them."
+            menu:
+                "\"I need your help with something.\"":
+                    Z "I need your help with something."
+                    scene d6b-16
+                    with dissolve
+                    Asa "After you spared my life?"
+                    Asa "{i}*chuckles*{/i} Of course, come inside."
+                    jump d6b18
+
+                "\"You owe me your life.\"":
+                    Z "I spared your life, remember?"
+                    Z "I need you to do something for me now."
+                    Asa "Sure... come inside."
+                    jump d6b18
+
+    elif kyra_rescued == False or d5c_kyra_sold_off == True:
+        play music "audio/music/exploration/spatium.mp3" fadeout 3
+        scene d6a-1
+        with fade
+        play sound "audio/sounds/doors/door knocking.mp3"
+        Z "Yes... yes... coming..."
+        scene d6b-153
+        with dissolve
+        Ig "[persistent.player_name!c]? Do you have time for an old friend?"
+        Z "Igor, my friend."
+        Ig "Well met, [persistent.player_name]. I have something you will be interested in."
+        Z "Do tell. Do you want to come inside?"
+        scene d6b-154
+        with fade
+        Ig "Thank you, but no. My men and women wait for me."
+        Z "Suit yourself. So... what do you have for me?"
+        Ig "I am coming home from supply run. I travel new route, or so it seems. Dunes have shifted a lot, with wind."
+        Ig "I saw dunes have revealed old scavenge outpost, and I think of my friend [persistent.player_name]."
+        Z "And you want me to take a look at it. But why not do it yourself?"
+        scene d6b-155
+        with fade
+        Ig "I saw it in distance. I carry fruit today."
+        Ig "Not good idea to stay in sun if you want to sell it fresh."
+        Z "So... you want me to do the actual hard work...?"
+        Ig "You have comfy car. You want I lend you camel, so you learn about hard work?"
+        Z "Ha, no thank you! I'll go have a look and see if there's anything valuable."
+        Ig "Good. If you find good stuff, remember that you have good friend who is merchant, yes?"
+        Z "As always, Igor, you will get your cut for sure, in goods or coin."
+        Ig "Good friend. Now I go. My camels get restless. If camels get restless, my men get restless. If my men get restless, they protest, and I don't sleep well. I get..."
+        scene d6b-153
+        with fade
+        Z "Restless, I get it. Your wit is so sharp you'll cut yourself, one of these days. Go home, before your melons go to waste."
+        Ig "Always same story! Igor makes good joke, but friend [persistent.player_name] is sourpuss and does not appreciate. [persistent.player_name] will not get any of my melons."
+        Z "How shall I possibly survive without melons?"
+        Ig "You shall survive melonless."
+        Z "With a heavy heart. See you soon, [Ig]."
+        Ig "Until next time, [persistent.player_name]."
+        scene d6b-1
+        with slowfade
+        Zt "That's not far away. About a few hours from here."
+        Z "Alright then."
+        scene black pic
+        with fade
+        play sound "audio/sounds/vehicles/car door.mp3"
+        Z "Well..."
+        scene d6b-3
+        with fade
+        play sound "audio/sounds/vehicles/car noise.mp3"
+        Z "...time to find out what Igor actually saw."
+        scene d6b-4
+        play music "audio/music/exploration/spatium.mp3" fadeout 3
+        with w33slow
+        pause
+        scene d6b-5
+        with w33slow
+        pause
+        scene d6b-6
+        with w33slow
+        "{i}A while later..."
+        scene d6b-7
+        if asani_alive == False:
+            Zt "I'm going in the right direction, I know that much."
+            "{i}You scour the dunes, coasting alongside what used to be the expanded riverbed of the Sacred Nile, before the river dried up."
+            jump d6b31
+        Zt "I'm going in the right direction, I know that much."
+        "{i}You scour the dunes, coasting alongside what used to be the expanded riverbed of the Sacred Nile, before the river dried up. Before you find the place your friend Igor has told you about, you bump into what looks like a small shack."
+        "{i}Not many people can survive out here on their own. You decide to have a closer look."
+        scene d6b-8
+        with w33slow
+        Zt "No activity, no sounds or signs of life..."
+        scene d6b-9
+        with w33slow
+        Zt "...but you can never be too sure."
+        scene d6b-10
+        with w33slow
+        Z "..."
+        scene d6b-11
+        with fade
+        play sound "audio/sounds/doors/door knocking.mp3"
+        Z "Anyone home?!"
+        Z "I won't ask again!"
+        C "Who is it!?"
+        C "You knocked on the wrong door, buddy..."
+        scene d6b-13
+        with dissolve
+        C "Let's see who wants to..."
+        scene d6b-14
+        play music "audio/music/home/dream town.mp3" fadeout 4
+        with dissolve
+        C "..."
+        Z "You!"
+        C "So we meet again..."
+        scene d6b-15
+        with dissolve
+        C "I expected many things, when I got up this morning."
+        C "But you were not one of them."
+
+label d6b18:
+    scene d6b-18
+    with dissolve
+    if kyra_rescued == False or d5c_kyra_sold_off == True:
+        Z "You never told me your name."
+        C "You never asked."
+        Z "I had no reason to then, but... let's start over."
+        Z "My name is [persistent.player_name]."
+        Asa "I am Asani."
+    Asa "Have a seat, Stalker."
+    Asa "You remember I told you I would cut ties with the Raiders, right?"
+    Asa "Well, with it comes a... simpler life... but I'm doing better now."
+    scene d6b-18x
+    with dissolve
+    Asa "Anyway... let's talk."
+    Z "..."
+    scene d6b-19
+    with dissolve
+    Asa "Now..."
+    scene d6b-20
+    with dissolve
+    Asa "To what exactly do I owe the pleasure of meeting you again, hm?"
+    Z "Sit with me and I will tell you."
+    scene black pic
+    with fade
+    if kyra_rescued == False or d5c_kyra_sold_off == True:
+        scene d6b-26
+        with dissolve
+        Z "I've been given a lead to some potential findings by a business associate of mine."
+        Z "I am on my way there now, and I had no idea anyone actually could live here indefinitely."
+        Asa "Well, you're not wrong. It's not easy, but this is where I am, especially since our last encounter."
+        scene d6b-25
+        with dissolve
+        Asa "But don't worry, I'm not blaming you for this."
+        scene d6b-24
+        with dissolve
+        Z "You've been alone for days now."
+        Z "Where do you get your supplies from?"
+        scene d6b-23
+        with dissolve
+        Z "I don't know of anyone growing anything in these barren lands."
+        Asa "Oh, it has just been a couple of days."
+        Asa "Scavengers and traders occasionally pass by and trade food, you know."
+        scene d6b-24x
+        with dissolve
+        Z "What are they trading it for though?"
+        Asa "Oh, you know, I didn't start out here yesterday. I have a few more valuable items hidden here and there."
+        Asa "The raiders didn't seem to mind me taking my share of what they had in their base..."
+        Asa "Anyway, enough with the questions honey."
+        scene d6b-25
+        with dissolve
+        Asa "I do remember what I promised you during our first encounter..."
+        Zt "Merneith be blessed..."
+        scene d6b-26
+        with dissolve
+        Asa "How about you go follow your lead and find whatever treasure you think is buried in these dunes..."
+        Asa "And when you come back, you and I take some time for ourselves..."
+        Asa "If you get it done quickly, you don't have to camp out in the desert."
+        scene d6b-29
+        with dissolve
+        Asa "It's quite lonely out there... And it gets lonely here too..."
+        scene d6b-27
+        with dissolve
+        Asa "I really am grateful for you getting me out of that crew, and I will make sure to treat you like a king once you return."
+        scene d6b-29
+        with dissolve
+        Asa "What do you say?"
+        scene d6b-28
+        with dissolve
+        menu:
+            "\"We will have a lot of fun.\"":
+                $ d6b_asani_sex = True
+                Z "I say we will have a lot of fun together."
+                scene d6b-25
+                with dissolve
+                Z "I've been looking forward to play with these tits since I got here..."
+                scene d6b-29
+                with dissolve
+                Asa "And you will, I promise..."
+                Asa "Go on your way, Stalker, I will be waiting..."
+                jump d6b31
+
+            "\"We will see.\"":
+                $ d6b_asani_sex = True
+                Z "We will see..."
+                Z "First I want to complete this job, find whatever is out there to find."
+                scene d6b-29
+                with dissolve
+                Asa "You really like to make a woman beg, don't you?"
+                Asa "See you later, Stalker."
+                jump d6b31
+
+            "\"I'm in a hurry.\"":
+                Z "I want this done quickly."
+                Z "I'm just looking to score something to loot. Finding your place was a happy accident."
+                Z "If I can make it before sundown, I won't need your hospitality."
+                Z "But we will see how it goes..."
+                scene d6b-29
+                with dissolve
+                Asa "Hmm.. what a shame..."
+                scene d6b-22
+                with dissolve
+                Asa "You should go follow your lead then."
+                Z "Thank you, I will."
+                jump d6b31
+
+
+
+    else:
+        "{i}You repeat Kyra's words, and her assurance that Asani should know the location of the hidden car."
+        scene d6b-21
+        with fade
+        Asa "Well... she is not wrong."
+        Asa "I could lead you to the location."
+        scene d6b-22x
+        with dissolve
+        Z "How long have you known about this?"
+        Z "And tell me, why didn't you go and take it for yourself?"
+        scene d6b-22
+        with dissolve
+        Asa "I discovered it not long ago."
+        Asa "I bumped into the place about a day before Asha kinda forced me into a raiding tour that ended up crossing your path."
+        scene d6b-21
+        with dissolve
+        Asa "It's several containers and shacks, piled up in the sand, some buried, and some in the open."
+        Asa "I imagine it was a scavenger base of some sort. What happened to them, I don't know."
+        Asa "Anyway, all I saw was a bunch of containers and half repaired vehicles..."
+        scene d6b-22x
+        with dissolve
+        Z "Containers? And you didn't open them?"
+        scene d6b-22
+        with dissolve
+        Asa "I did open a couple... there was one that was looking promising, but it didn't start up."
+        Asa "...and it was getting quite dark out there."
+        scene d6b-21
+        with dissolve
+        Asa "I don' t have to tell you that the desert can become a bad place at night..."
+        scene d6b-22
+        with dissolve
+        Asa "I made the mistake of talking about it to Kyra, before leaving for the raid."
+        Asa "Of course that meant that my chances of keeping it for myself were pretty much gone."
+        Asa "I'm actually surprised..."
+        Asa "What have you done for her, that she would give it up to you?"
+        scene d6b-22x
+        with dissolve
+        Z "Let's just say she owes me... A lot."
+        Z "..."
+        scene d6b-24
+        with dissolve
+        Z "You've been alone for days now."
+        Z "Where do you get your supplies from?"
+        scene d6b-23
+        with dissolve
+        Z "I can't remember anyone growing anything in these barren lands."
+        Asa "Oh, it has just been a couple of days."
+        Asa "Scavengers and traders occasionally pass by and trade food, you know."
+        scene d6b-24x
+        with dissolve
+        Z "What are they trading it for though?"
+        Asa "Oh, you know, I didn't start out here yesterday. I have a few more valuable items hidden here and there."
+        Asa "The raiders didn't seem to mind me taking my share of what they had in their base..."
+        Asa "Anyway, enough with the questions honey."
+        scene d6b-25
+        with dissolve
+        Asa "I do remember what I promised you during our first encounter..."
+        Zt "Merneith be blessed..."
+        scene d6b-26
+        with dissolve
+        Asa "How about you go get your car..."
+        Asa "And when you come back, you and I take some time for ourselves..."
+        Asa "If you get it done quickly, you don't have to camp out in the desert."
+        scene d6b-29
+        with dissolve
+        Asa "It's quite lonely out there... And it gets lonely here too..."
+        scene d6b-27
+        with dissolve
+        Asa "I really am grateful for you getting me out of that crew, and I will make sure to treat you like a king once you return."
+        scene d6b-29
+        with dissolve
+        Asa "What do you say?"
+        scene d6b-28
+        with dissolve
+        menu:
+            "\"We will have a lot of fun.\"":
+                $ d6b_asani_sex = True
+                Z "I say we will have a lot of fun together."
+                scene d6b-25
+                with dissolve
+                Z "I've been looking forward to play with these tits since I got here..."
+                scene d6b-29
+                with dissolve
+                Asa "And you will, I promise..."
+                Asa "Go on your way, Stalker, I will be waiting..."
+                jump d6b31
+
+            "\"We will see.\"":
+                $ d6b_asani_sex = True
+                Z "We will see..."
+                Z "I will go get the car first."
+                scene d6b-29
+                with dissolve
+                Asa "You really like to make a woman beg, don't you?"
+                Asa "See you later, Stalker."
+                jump d6b31
+
+            "\"I'm in a hurry.\"":
+                Z "I want this done quickly."
+                Z "I just came here to get the car."
+                Z "If I can make it before sundown, I won't need your hospitality."
+                Z "But we will see how it goes..."
+                scene d6b-29
+                with dissolve
+                Asa "Hmm.. what a shame..."
+                scene d6b-22
+                with dissolve
+                Asa "You should go get the car then."
+                Z "Thank you, I will."
+                jump d6b31
+
+label d6b31:
+    scene black pic
+    play music "audio/music/background/blessed.mp3" fadeout 4
+    with slowfade
+    "{i}Some time later..."
+    scene d6b-31
+    play sound "audio/sounds/vehicles/car arrive.mp3"
+    with fade
+    pause 0.4
+    scene d6b-32
+    with Dissolve(1.0)
+    Zt "This should be the place."
+    "You approach the large, desolated area. Metal shacks, scrap and spare parts fill the place."
+    scene d6b-34x
+    with fade
+    "Whoever lived or took shelter here must have built a small community. The presence of palm trees suggests this place once stood atop an oasis, seemingly long gone."
+    "What became of them -whether the scavengers fled or perished- remains a mystery."
+    "But not an unusual one. Out here, deep in the desert, lives vanish as swiftly as the wind sweeps away the sand."
+    scene d6b-33
+    with fade
+    if kyra_rescued == True:
+        Zt "The car I'm looking for should be in one of those containers."
+        scene black pic
+        with fade
+    play sound "audio/sounds/vehicles/car door.mp3"
+    pause 0.5
+    scene d6b-34
+    with fade
+    Zt "Let's see... two..."
+    scene d6b-35
+    with dissolve
+    Zt "Three..."
+    scene d6b-36
+    with dissolve
+    Zt "And one already open."
+    scene d6b-37
+    with w33slow
+    Zt "Let's check this one first..."
+    if kyra_rescued == False or d5c_kyra_sold_off == True:
+        Zt "It would be nice if Igor's lead brought us something valuable..."
+    scene black pic
+    with fade
+    play sound "audio/sounds/objects/container.mp3"
+    pause 0.3
+    scene d6b-38
+    with fade
+    Zt "The sands of time and... well... the sand, seem to have done some fatal damage to this car. A pity."
+    scene d6b-39
+    with dissolve
+    Zt "How about that container..."
+    scene black pic
+    with fade
+    Zt "These doors are heavy..."
+    scene d6b-40
+    play sound "audio/sounds/doors/sheet metal door.mp3"
+    with fade
+    Zt "..."
+    scene d6b-41
+    with dissolve
+    play sound "audio/sounds/environment/discovery.mp3"
+    Zt "..."
+    Zt "I must be dreaming..."
+    scene black pic
+    play sound "audio/sounds/doors/sliding door.mp3"
+    with slowfade
+    "{i}You open the container doors..."
+    scene d6b-42
+    with fade
+    Z "I have to be the luckiest fucking man in the world."
+    Zt "How do we get you out of there..."
+    scene d6b-43
+    play sound "audio/sounds/vehicles/car start.mp3"
+    with slowfade
+    "{i}You connect the cars with a chain and slowly pull the pickup out of the half sunken container."
+    "{i}You don't remember ever hearing of a car that wasn't a ragtag collection of parts of at least half a dozen other cars, let alone seeing one."
+    scene d6b-45
+    with dissolve
+    "{i}It must've been sealed tight for all this time."
+    "{i}Sure, there's a lot of rust, but it still looks great."
+    scene black pic
+    with fade
+    "{i}You came prepared with tools and years of experience building and then patching up your old ride."
+    "{i}You toss away the old battery and use the one from your car."
+    play music "audio/sounds/environment/desert wind.mp3" fadeout 3
+    scene d6b-46
+    with slowfade
+    Z "I would've dragged you back home, but..."
+    Z "Maybe it's better you get your final rest out here."
+    Z "We have gone through so much, you and me."
+    Z "Rest in peace, old friend..."
+    scene d6b-47
+    with dissolve
+    Z "..."
+    scene d6b-48
+    play music "audio/music/exploration/main theme short.mp3" fadeout 3
+    with fade
+    Z "You have sat in the dark, waiting to get on the road for long enough..."
+    Z "Let's see how you fare in the dunes, shall we...?"
+    scene black pic
+    with fade
+    play sound "audio/sounds/vehicles/engine start.mp3"
+    pause 2
+    scene d6b-49
+    with w33slow
+    "{i}With a soft rumble that sounds like a magical melody to your ears, the engine starts..."
+    play sound "audio/sounds/vehicles/engine drive.mp3"
+    pause 0.5
+    scene d6b-50
+    with dissolve
+    Zt "I wonder how long these windows will last..."
+    scene d6b-51
+    with w33slow
+    stop sound fadeout 4
+    if asani_alive == True and d6b_asani_sex == True:
+        jump d6b53
+    else:
+        jump d6b52
+
+label d6b53:
+    "{i}You eventually get back to Asani's shack..."
+    scene black pic
+    with w33slow
+    play sound "audio/sounds/doors/wooden door.mp3"
+    Z "I'm back, and yes, I found it."
+    scene d6b-53
+    with fade
+    Z "Hello?"
+    scene d6b-54
+    with dissolve
+    Zt "Where is she?"
+    scene d6b-55
+    play sound "audio/sounds/actions/wooden steps.mp3"
+    with fade
+    Z "These are Zetan coins..."
+    play sound "audio/sounds/doors/door shut.mp3"
+    label re_d6b53:
+        Asa "Well look at you..."
+    Asa "I'm gone for just a few minutes and that's when you decide to show up?"
+    scene d6b-56
+    with dissolve
+    Z "Oh my..."
+    scene d6b-56x
+    with dissolve
+    Asa "I see that you've found a working car... and your way back to me."
+    scene d6b-57
+    with dissolve
+    Asa "Are you here to claim your second prize of the day?"
+    scene d6b-58
+    with dissolve
+    pause 1
+    scene d6b-59
+    with dissolve
+    pause 1
+    scene d6b-60
+    with dissolve
+    Asaw "{i}I'm all yours, as promised..."
+    scene d6b-61
+    with dissolve
+    "{i}..."
+    scene d6b-62
+    with dissolve
+    Asaw "Hmm..."
+    scene d6b-63
+    with dissolve
+    Asaw "Are you trying to decide if you like my tits or my ass more?"
+    scene d6b-64
+    with dissolve
+    Asaw "Mmmh...such a firm grip..."
+    scene d6b-60
+    with dissolve
+    Asaw "I have to tell you a secret."
+    if d1a_asha_dominated == True:
+        Asaw "When you let me go, during the raid..."
+        Asaw "I saw how you fucked Asha's throat after you defeated her."
+        Asaw "I saw the bliss in her eyes..."
+        Asaw "...and now, I think I want to find out for myself what that was about."
+    if d1a_asha_dominated == False:
+        Asaw "When you let me go, during the raid..."
+        Asaw "I'll just say you made an impression on me.."
+        Asaw "Have a man like you teach all that raider filth what they deserve, it was exciting..."
+    scene d6b-64
+    with dissolve
+    Zw "Your skin is soft, yet you are strong..."
+    scene d6b-65
+    with dissolve
+    Zw "The priestesses in Zeta are looking for women like you."
+    Zw "Have you thought of that...? starting anew, in a place where they would revere you."
+    scene d6b-66
+    with dissolve
+    Asaw "Where do you think I was born? I'm one of the Children of Zeta. More Raiders than you'd think come from the City."
+    Asaw "The Temple doesn't always place children in loving families. Or sometimes, it's the child that's just not suited for the life in Zeta."
+    Asaw "That was my case."
+    Asaw "I know where I belong, honey. Don't talk to me about the Temple."
+    Asaw "I'm better off by myself."
+    Asaw "Now... have a seat..."
+    scene d6b-67
+    with fade
+    Z "Your body is stunning..."
+    scene d6b-68
+    with dissolve
+    Asa "Your's isn't bad either..."
+    scene d6b-69
+    with dissolve
+    Zt "Fuck..."
+    scene d6b-70
+    with dissolve
+    Asa "Mmhh... look at you..."
+    scene d6b-71
+    with dissolve
+    Asa "Such a strong man..."
+    Asa "Let me take care of you."
+    scene d6b-72
+    with Dissolve(1.0)
+    pause 0.5
+    scene d6b-73
+    with Dissolve(1.0)
+    pause 0.5
+    scene d6b-74
+    with Dissolve(1.0)
+    pause 0.5
+    scene d6b-75
+    with Dissolve(1.0)
+    pause 0.5
+    scene d6b-76
+    with dissolve
+    Z "So soft..."
+    Asa "Does your wife treat you like that, too?"
+    scene d6b-77
+    with dissolve
+    Z "She does everything for me; this and more."
+    scene d6b-78
+    with dissolve
+    Asa "Is that so..."
+    Asa "{i}*mmmngh*"
+    scene d6b-79
+    with dissolve
+    Asa "Hmm... I was just thinking about all the girls in Adira..."
+    scene d6b-80
+    with dissolve
+    Asa "...what they wouldn't do to get their hands on this thing."
+    scene d6b-81
+    with dissolve
+    Asa "..."
+    Z "Wow..."
+    scene d6b-82
+    with dissolve
+    Asa "Are you ready for more...?"
+    Z "..."
+    scene black pic
+    with fade
+    pause 1
+    scene d6b-83
+    with vpunch
+    Asa "Haa..."
+    Z "You don't have to ask me twice."
+    scene d6b-84
+    with dissolve
+    Asa "Oh..."
+    scene d6b-85
+    with fade
+    Asa "I can... take more..."
+    Asa "Haaa..."
+    Zt "This woman... I'm all the way in..."
+    Asa "Hmmm..."
+    Asa "Yes..."
+    scene d6b-89
+    with dissolve
+    "{i}You keep going for some time..."
+    "{i}For a short while, your excitement allows you to forget the world outside of this little refuge..."
+    scene d6b-90
+    with dissolve
+    Asa "Haa..."
+    scene d6b-85
+    with fade
+    Z "I'm close..."
+    Asa "Let it all out, old man..."
+    menu: #TODO Go over the scene + add animations
+        "Cum inside her":
+            scene d6b-91
+            with fade
+            Asa "Cum inside me, I want it..."
+            Z "Ngh..."
+            with hpunch
+            "Spurred on by her deep and sensual voice, you reach your climax and inundate her womb with your semen."
+            with hpunch
+            Z "Fuck..."
+            Asa "Mh..."
+            with hpunch
+            Asa "That's a lot..."
+            scene d6b-91x
+            with dissolve
+            Z "Fuck..."
+            Z "You're something else..."
+            pause 0.5
+            scene d6b-96
+            with vpunch
+            Asa "Ah, what are you..."
+            Z "I'm not done yet..."
+            scene d6b-97
+            with fade
+            Asa "Oh my... you're really ..."
+            "You stare at her bubbly black ass... you're still horny, and want to have a bit more fun."
+            scene d6b-98
+            play sound "audio/sounds/actions/smack.mp3"
+            with vpunch
+            Z "I'm going to fill your slutty ass, too."
+            Asa "Mh..."
+            scene d6b-100
+            with dissolve
+            Asa "Go ahead, stud... take my ass..."
+            scene d6b-101
+            with dissolve
+            Asa "Ah..."
+            "You penetrate her roughly, your manhood slick with juices entering her with ease..."
+            with vpunch
+            Asa "Ohh...!"
+            "You climax, and release the remainder of your cum inside her stretched hole."
+            with vpunch
+            Z "Ngh..."
+            Asa "Such a... mh... strong man..."
+
+        "Cum outside":
+            scene d6b-85
+            with dissolve
+            pause 0.7
+            scene d6b-92
+            with dissolve
+            Z "Hngh..."
+            scene d6b-93
+            with flash
+            pause 0.5
+            scene d6b-94
+            with dissolve
+            Asa "I can feel it, warm on my skin..."
+            scene d6b-95
+            with dissolve
+            Z "It's a work of art..."
+            Asa "Smart-ass."
+    $ renpy.end_replay()
+    jump d6b103
+
+label d6b103:
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    Asa "Hmm... that was exciting."
+    scene d6b-26
+    with fade
+    Asa "Why don't you stay for the night...?"
+    Asa "We could get to know each other a little better, before the day ends."
+    scene d6b-28
+    with dissolve
+    menu:
+        "Stay the night and chat":
+            Zt "It is getting late, I might as well..."
+            Z "Alright, but tomorrow morning I'll have to leave."
+            scene black pic
+            with slowfade
+            "{i}You and Asani eventually go bed together..."
+            "{i}You spend some time talking about each other's lives."
+            scene d6b-108x
+            play sound "audio/sounds/environment/desert wind.mp3" fadein 3
+            with slowfade
+            Asaw "I like you, [persistent.player_name]."
+            Asaw "It is... unfortunate, that we have met so late in life."
+            Zw "What do you mean?"
+            Asaw "I... don't know. It's just, the older you get, the harder it becomes to change who you are..."
+            Asaw "If we had met earlier, maybe 20 years ago, when I was a different person, who knows..."
+            stop sound fadeout 6
+            play music "audio/music/background/gymnopedie.mp3" fadein 3
+            Zw "Who knows indeed."
+            Zw "Were you ever the homely type, willing to wait patiently for the return home of her man?"
+            Asaw "There was a time when that life might have suited me, yes, but no more."
+            Zw "I understand."
+            Asaw "The darkness helps."
+            Zw "What do you mean?"
+            Asaw "It hides, but also liberates, and reveals."
+            Zw "..."
+            Asaw "That came out wrong."
+            Asaw "What I mean is that lying here like this, when the only light is that of the stars peeking through the holes in my roof, it's easier to be myself, to be at peace."
+            Asaw "I hope that tomorrow, when you ride away, you will remember me like this: happy and relaxed, removed from the hustle of fighting for survival."
+            Zw "I promise you that. Then again, it's never too late to try something new, to try to change yourself or your circumstances."
+            Asaw "We both have some years on our backs, you more so than me, so don't lie to me. Tell me, how often have you changed in your life?"
+            Asaw "Have you not always been [persistent.player_name] the Desert Stalker, stalwart warrior of Zeta?"
+            Zw "You got me there. My life has been adventurous, sure, but pretty linear and consistent, in a way. I guess I'm lucky, all considered."
+            Asaw "All this effort that goes into surviving, trying to live through the day... It rarely gives me pause, time to look back, you know? Do you ever look back?"
+            Zw "I try to look forward to the challenges of the next day, but I am fortunate I am surrounded by reasons to slow down, occasionally."
+            "{i}Despite connecting with this woman differently than how you usually relate to those you lay with for a fleeting night, you sense a distance, a deeper well of thoughts and sadness."
+            "{i}In her embrace, you feel as if she is shielding you from her deeper thoughts, and before you close your eyes, a moment of sadness catches you."
+            "{i}You want to, but you know better than to ask, and you take contentment in lying there, together."
+            "{i}That night, you feel safe; more at ease than you usually do, when you spend time out in the wasteland, away from home."
+            "{i}Nothing but the howling winds scouring the barren lands, a small hut, and a woman lying next to you."
+            scene black pic
+            with slowfade
+            "{i}After some time, you fall asleep."
+            Z "..."
+            "{i}Waking up again, you feel strangely exhausted, as if you barely slept at all."
+            "{i}You notice how dark it is outside, and sense it must still be deep in the night..."
+            "{i}But... where is Asani?"
+            scene d6b-103
+            with slowfade
+            "{i}You hear faint noises outside..."
+            Z "Asani?"
+            scene black pic
+            with fade
+            "{i}You dress up..."
+            scene d6b-104
+            with fade
+            pause 1.5
+            scene black pic
+            with slowfade
+            play sound "audio/sounds/doors/door shut.mp3"
+            scene d6b-105
+            with slowfade
+            Z "Asani?"
+            scene d6b-106
+            with dissolve
+            Z "Why are you out here this late?"
+            scene d6b-108
+            with dissolve
+            Asa "I was looking at this car, [persistent.player_name]."
+            scene d6b-109
+            with dissolve
+            Asa "It's almost a relic of an era we can only dream about, yet people will look at it as a tool, look at these perfect windows and envy you, nothing more."
+            Asa "Hell, it's a good thing for you that the Queen has banished technology from the city, or she'd probably requisition this car for her personal use."
+            Asa "You'd be the talk of the city, if you rolled into Adira aboard this."
+            if kyra_rescued==True:
+                Z "We'll see about that when it happens again."
+                Asa "You've actually been there and made it out alive?"
+                Z "How else did you think I got the directions to find you?"
+                Asa "You're going to have to tell me what the story is between you and Kyra!"
+                Z "Come back to bed, and I will..."
+            else:
+                Z "Stranger things have happened, I'm sure..."
+                Asa "They'd probably steal every part of it, or fight each others to claim it."
+                Z "Let's hope for the latter.... Now come back inside. Let's go back to bed."
+                Asa "Yes daddy!"
+                Z "Smart-ass."
+            play music "audio/music/exploration/spatium.mp3" fadeout 5
+            
+
+        "Go to sleep":
+            Z "This was a long day, and it ended nicely, but I do need to sleep now."
+            scene d6b-27
+            with dissolve
+            Asa "I would have liked to talk a bit more, but sure. Rest, if you want. You did give me a great time, after all."
+            Asa "I still have a few things to do."
+            scene d6b-28
+            with dissolve
+            Z "I will leave you to it. I am sorry for not helping, but I really am shutting down."
+            scene d6b-26
+            with dissolve
+            Asa "Well then... make yourself comfortable. I will join you in a bit."
+            scene d6b-28
+            with dissolve
+
+    scene black pic
+    with slowfade
+    "{i}The following morning..."
+    scene d6b-21
+    with dissolve
+    Asa "Last night was interesting."
+    scene d6b-22x
+    with Dissolve(0.33)
+    Z "It was indeed. We should do it again."
+    scene d6b-22
+    with Dissolve(0.33)
+    Asa "Do you plan on coming in this direction again soon?"
+    scene d6b-22x
+    with Dissolve(0.33)
+    Z "Hard to say, Stalkers go where there's profit, adventure or a mission to accomplish."
+    scene d6b-22
+    with Dissolve(0.33)
+    Asa "Well, see that you find a reason."
+    Asa "Even in a remote place as this, I get visitors, traders, bedouins... but I could use a friend instead."
+    scene d6b-23
+    with Dissolve(0.33)
+    Asa "...And I hear things, occasionally."
+    scene d6b-22x
+    with Dissolve(0.33)
+    Z "You hear things?"
+    scene d6b-22
+    with Dissolve(0.33)
+    Asa "Raiders and others, still swing by now and then. The occasional juicy bit of news could be interesting for types like you... Stalkers, but also Zetans."
+    scene d6b-22x
+    with Dissolve(0.33)
+    Z "Anything in particular on your mind?"
+    scene d6b-22
+    with Dissolve(0.33)
+    Asa "Only that you should be careful."
+    Asa "Raiders are all stockpiling resources and trying to be more organised in their efforts to control the region."
+    Asa "They tell me it's in response to the fact that the Decayed from Old Cairo are also expanding their influence."
+    Asa "Apparently they too are getting more organised by the day."
+    Asa "This could all come to a head, and if it becomes an all out war, Zeta will have to pick sides or be swept up, either during the war or by the victor."
+    scene d6b-22x
+    with Dissolve(0.33)
+    Zt "My own recent experiences with the various factions support some of this. Asani is actually well informed, for a straggler."
+    Z "I've heard similar stories. Will you be safe, out here?"
+    scene d6b-22
+    with Dissolve(0.33)
+    Asa "I told you, I still have people who look after me. I'm a good listener, I guess."
+    Asa "I have my ways."
+    scene d6b-22x
+    with Dissolve(0.33)
+    Z "Even so, be safe, Asani... Friends are hard to come by, and who knows.. maybe that's something we could both learn to be, in time..."
+    scene d6b-22
+    with Dissolve(0.33)
+    Asa "I have no intention of dying, [persistent.player_name]."
+    scene d6b-22x
+    with Dissolve(0.33)
+    Z "Who knows, I might have some business with you in the future."
+    scene d6b-22
+    with Dissolve(0.33)
+    Asa "Well, don't be a stranger then... Friend."
+    Asa "Now go, your family will be worried sick."
+    scene d6b-22x
+    with Dissolve(0.33)
+    Zt "She's not wrong."
+    # play sound "audio/sounds/vehicles/engine drive.mp3"
+    scene black pic
+    with slowfade
+    if d6b_asani_sex == False:
+        scene d6b-52
+        Zt "Time to go home. This is a great find, and I can't wait to show it to [S]."
+        if kyra_rescued == False or d5c_kyra_sold_off == True:
+            Zt "I really do owe Igor a big gift."
+        if asani_alive == True:
+                Zt "I guess I can always go see her some other time, now that I know where she lives."
+    jump d6b52
+
+
+label d6b52:
+    play music "audio/music/home/dream town.mp3" fadeout 4
+    "{i}You head back on your way home..."
+    scene d6b-52
+    with slowfade
+    "{i}Eventually, you arrive..."
+    scene d6b-141x
+    with fade
+    W "That's not the sound of your [persistent.dad]'s car. Let me go check first."
+    A "Be careful [persistent.mom]."
+    W "[persistent.player_name!c], is that you?"
+    scene d6b-142x
+    play sound "audio/sounds/vehicles/car door open.mp3"
+    with dissolve
+    Z "Yes, [W], it's me. You can come out."
+    Z "In fact, come see what I have found in the desert!"
+    if kyra_rescued == False or d5c_kyra_sold_off == True:
+        Z "This time, Igor has truly outdone himself."
+    else:
+        Z "The Raiders have come through on their end of the deal."
+    scene d6b-142x-2
+    with fade
+    if kyra_rescued == False or d5c_kyra_sold_off == True:
+        W "So this is what you found following Igor's lead?"
+    else:
+        W "So that Kyra girl spoke the truth... is this the car she bartered for her freedom?"
+    scene d6b-142x-3
+    with dissolve
+    Z "Yes it is. An actual vehicle dating back to the times before the End of Days."
+    Z "It took me a while to get it running again, but as you can see, it works. "
+    scene d6b-142x-4
+    with dissolve
+    A "Can I see it too?"
+    Z "Of course [A], come closer."
+    scene d6b-142x-5
+    with dissolve
+    A "Wow! What a beast! It's so big!"
+    Z "Yes, that's what s-" #she said!
+    W "..."
+    Z "Never mind."
+    scene black pic
+    with fade
+    "{i}As she was out all this time, you and [S] eventually meet in the evening."
+    "{i}You tell her everything that happened..."
+    jump d6b150
+
+label d6b150:
+    scene d6b-151
+    with slowfade
+    if d6b_asani_sex == True:
+        S "So... do you think what she said is true?"
+        S "I mean... do you think the city could stand up for itself?"
+    if kyra_rescued == True and d6b_asani_sex == False:
+        S "About that girl Kyra... since she's a raider..."
+        S "How strong are they anyway?"
+        S "I've heard some concerns from people in the city that if they would attack, we would be in trouble."
+        S "You think they have a point?"
+    if kyra_rescued == False or d5c_kyra_sold_off == True:
+        S "When I was in the city today, someone heard that we were in Old Cairo."
+        S "He asked me whether or not the decayed were strong, and what would happen if they attack."
+        S "I wonder... do you think Zeta is really safe at this point?"
+        S "Just curious..."
+    scene d6b-150
+    with dissolve
+    menu:
+        "\"The Queen's army is strong enough.\"":
+            $ d6b_zeta_strong = True
+            Z "The Queen's army is strong enough."
+            Z "What I've seen in Old Cairo... they are organized."
+            Z "And I am not sure how much the Raiders are expanding yet."
+            Z "But Zeta has existed for 400 years. Even if Asani was right, this won't be the first insurrection or even open war it faces."
+            Z "The city endures, always."
+            scene d6b-152
+            with dissolve
+            S "Let us hope for the best."
+            if shani_help >= shani_self:
+                S "I don't want this place to become unsafe."
+                S "So a strong Zeta is probably our best chance of survival."
+                scene d6b-150
+                with dissolve
+                Z "I have been around a lot, and the Sacred City gives people hope and courage. It has resources most other factions lack completely."
+                Z "Should it come to it, we may even have to abandon our house and find refuge within the city itself. But that is a worst case scenario."
+                Z "Should that woman even be right. She's lied on several other things, and her view on this matter may be tainted by her own experience."
+            if shani_self > shani_help:
+                S "If the worst should happen, we should consider moving away."
+                S "There are other places where we can build up again."
+                scene d6b-150
+                with dissolve
+                Z "I doubt it would be so easy..."
+                jump d6b151
+
+
+        "\"The Queen should look for allies.\"":
+            $ d6b_zeta_allies = True
+            Z "From what I have seen in Old Cairo, they are expanding quite fast."
+            Z "I'm not sure about other factions, but I don't think Zeta can hold up on its own, not this time."
+            Z "We have an army, but no technology."
+            Z "I think the Queen should look for allies."
+            scene d6b-152
+            with dissolve
+            if shani_help >= shani_self:
+                S "But with whom?"
+                if faction_mutants == True:
+                    S "Maybe the mutants you told me about?"
+                    S "I don't know what Zeta has against mutants anyway."
+                    S "They're just people, like us."
+                    S "If the Queen would tolerate them inside the city, I'm sure they could find common causes."
+                    S "Imagine what a force Zeta would be with them on our side!"
+                    scene d6b-150
+                    with dissolve
+                    Z "Maybe... But the culture of rejecting technology goes back for centuries, and prejudice against mutants is strong."
+                if faction_mutants == False:
+                    scene d6b-150
+                    with dissolve
+                    Z "If I only knew..."
+                    jump d6b151
+            if shani_self > shani_help:
+                S "Maybe there is a way to make peace with the decayed?"
+                S "I mean... sure, they are cannibals..."
+                S "But as long as Zeta doesn't sacrifice their own, right?"
+                S "The same goes for the raiders."
+                S "Maybe the Queen should look to combine forces with them..."
+                S "Zeta would be unstoppable!"
+                scene d6b-150
+                with dissolve
+                Z "I'm not sure if Zetans would tolerate decayed or raiders in their city..."
+                jump d6b151
+
+        "\"All kingdoms fall eventually.\"":
+            $ d6b_zeta_weak = True
+            Z "Zeta has been around for centuries."
+            Z "But from what I've seen, the decayed know how to use old technology to advance their goals."
+            Z "They are making strides in recovering the old ways of life."
+            Z "This means they are rediscovering old technology and means of combat."
+            Z "Sticking to swords and our rigid culture might not work, in the long run."
+            Z "It could very well be that Zeta will one day be conquered."
+            scene d6b-152
+            with dissolve
+            if shani_help >= shani_self:
+                S "Let us hope that will never happen."
+                S "I can't think of any culture that offers more than what we have now."
+                S "I don't know how those mutants you talked about see society..."
+                S "But a decayed-ruled Egypt... a nightmare."
+                scene d6b-150
+                with dissolve
+                Z "All we can do is wait and see..."
+                Z "Bide our time and jump to it when opportunity presents itself and a clear path forwards is forged."
+                jump d6b151
+            if shani_self > shani_help:
+                S "Even if that happens, we will find a way."
+                S "Zeta is not the end all be all."
+                S "I'm sure we could come up on top even if the city was overrun by raiders."
+                if faction_raiders == True:
+                    scene d6b-151
+                    with dissolve
+                    S "And from what I heard, you already started climbing their ranks!"
+                scene d6b-150
+                with dissolve
+                Z "Ha, let us wait and see, young woman."
+                jump d6b151
+
+label d6b151:
+    scene d6b-151
+    with dissolve
+    S "So... want to tell me how this new ride of yours works?"
+    if mq_r_1.active:
+        $ mq_r_1.advance()
+    scene d6b-150
+    with dissolve
+    Z "You bet. But your [persistent.mom] should be done with the evening meal soon, so let's be quick."
+    scene black pic
+    with slowfade
+    "{i}You show [S] the new car in detail."
+    "{i}Later after dinner, you eventually head to sleep."
+    scene black pic
+    with slowfade
+    jump daily_wakeup

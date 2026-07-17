@@ -1,0 +1,1940 @@
+label d4c:
+    $ daily_shani = True
+    $ m_d4c = True
+    scene d4c-1
+    with slowfade
+    S "Hmm..."
+    Z "..."
+    scene d4c-2
+    with fade
+    S "Nhh... {i}*stretching*{/i}"
+    scene d4c-3
+    with fade
+    Z "Staying fit, huh?"
+    scene d4c-4
+    with fade
+    S "Hey... yes sir."
+    S "Did you need something, or can I finish my workout?"
+    scene d4c-4x
+    Z "Don't worry about me; keep going."
+    scene d4c-5
+    with fade
+    S "So... how did the meeting go?"
+    Z "Yeah, about that..."
+    scene d4c-6
+    with fade
+    Z "That woman is something else, let me tell you...."
+    scene d4c-7
+    with fade
+    S "That tells me everything I need to know..."
+    Z "Haha... yeah, well..."
+    scene d4c-8
+    with fade
+    Z "Let's say she is quite vocal and defensive about her royal status."
+    Z "...Anyway. I told her that we managed to convince their leader to stop raiding our caravans,"
+    scene d4c-9
+    with fade
+    Z "...right when we heard the sirens."
+    S "Hnn..."
+    S "Yes... and then?"
+    Z "She acknowledged that the storm hitting right then was an unfortunate occurrence."
+    scene d4c-10
+    with fade
+    Z "But she also..."
+    Z "..."
+    scene d4c-11
+    with hpunch
+    S "Oh... no no no.. please not cramps!"
+    scene d4c-11x
+    with dissolve
+    S "Walk it off, walk it off..."
+    scene d4c-12
+    with fade
+    S "Whew... I'm done."
+    S "You stopped explaining what happened then?"
+    scene d4c-13
+    with dissolve
+    Z "..."
+    menu:
+        "Compliment her":
+            $ d4c_shani_compliment = True
+            Z "I.. no..."
+            Z "I just got distracted."
+            Z "You look great."
+            scene d4c-12
+            with dissolve
+            S "You think?"
+            scene black pic
+            with fade
+            "She gets up quickly..."
+            scene d4c-14
+            with fade
+            S "I mean... You tell me..."
+            S "What do you think?"
+            scene d4c-15
+            with dissolve
+            S "I know [A] is something else, but I think I'm not doing too bad either."
+            Zt "We shouldn't... talk about this..."
+            S "I don't have her wide hips though."
+            S "So in that sense...-"
+            scene d4c-15x
+            with dissolve
+            Z "No, you're fine. I mean you look very nice."
+            Z "Sorry, you know I shouldn't do this."
+            scene d4c-16
+            with fade
+            Z "You're becoming a real Stalker.. Fighting fit too."
+            Z "..."
+            Zt "I shouldn't be looking at her like this."
+            Z "Our mission was a success by the way. The Queen will want to see you soon."
+            Z "So we should be prepared for that. See you later, honey."
+            scene black pic
+            with fade
+            Zt "You fucking idiot [persistent.player_name]!"
+            Zt "Why is talking to her always so complicated?!?"
+            Zt "If I really want her to become the Stalker she could be, I should not allow her to be claimed."
+            Zt "She can not be taken by you, [persistent.player_name]."
+            Zt "Stop thinking with your heart or dick, just for once."
+            Zt "..."
+            $ renpy.end_replay()
+            scene black pic
+            with slowfade
+            jump daily_home
+
+        "Continue where you stopped":
+            Z "No, it's just..."
+            Z "I got a bit distracted."
+            Z "The Queen also said that today, new caravans have reached Zeta unimpeded, once the storm settled."
+            Z "So it seems to have worked out."
+            scene d4c-12
+            with dissolve
+            S "That's very good to hear."
+            S "It seems our mission was a success then."
+            scene d4c-13
+            with dissolve
+            Z "Yes.. oh, and another thing..."
+            Z "The Queen wants to see you."
+            scene d4c-12x
+            with hpunch
+            S "What?!"
+            S "Why?!"
+            scene d4c-12x-2
+            with dissolve
+            Z "I don't know. She said that she wants to see you, since you're my novice."
+            scene d4c-12x-3
+            with dissolve
+            S "...Now I'm nervous."
+            scene d4c-12x-4
+            with dissolve
+            Z "And I am curious. But we'll see. Her argument does make sense."
+            Z "You're being trained as a Desert Stalker, not a common foot soldier."
+            Z "Just be yourself and remember your lessons. She's not much older than you after all."
+            Z "I'm sure you'll be fine."
+            scene d4c-13
+            with dissolve
+            Z "I'm heading out now, [S]."
+            Z "Catch you later, alright?"
+            scene d4c-12
+            with dissolve
+            S "Sure [persistent.dad]. Speak soon."
+            $ renpy.end_replay()
+            jump daily_home
+
+        
+
+label d4e:
+    $ m_d4e = True
+    Zt "[E] should be here any second now..."
+    scene d4e-1
+    with slowfade
+    "As you enter the room, you see Emilia looking around..."
+    if d2c_refused_emilia == False and second_offer_emilia == False:
+        Z "Hello [E]. I understand you have finished emptying the spare room upstairs?"
+        scene d4e-2
+        with fade
+        E "Yes [mas], as you ordered."
+        scene d4e-3
+        with dissolve
+        Z "Very well. I know [W] has informed you about our little surprise for [A]."
+        Z "This means the builders will be able to do up the room with the new furniture."
+        Z "And that this room becomes available, so I want you to have it."
+        scene d4e-3x
+        with dissolve
+        E "Master, come again?"
+        E "I don't understand?"
+        scene d4e-3x-2
+        with dissolve
+        Z "It's simple, Emilia. This is your room now."
+        Z "I'm serious."
+    else:
+        Z "There you are, [E]."
+        scene d4e-2
+        with fade
+        E "Hello, [mas], I have prepared the guestroom as you instructed."
+        scene d4e-3
+        with dissolve
+        Z "About that. I wasn't being truthful with you."
+        Z "You see, this room is meant for you."
+        scene d4e-3x
+        with dissolve
+        E "[mas]..."
+        E "If this is some kind of joke, I would understand..."
+        scene d4e-3x-2
+        with dissolve
+        Z "This is not a joke, [E]."
+        Z "[W] and I have agreed that now that [A]'s room is being prepared, her old room should serve a new purpose."
+        scene d4e-6
+        with dissolve
+        Z "What better use than to give you a measure of comfort? We have the room for it and you're doing a good job."
+        E "I..."
+    scene d4e-7x
+    with dissolve
+    E "Thank you, [mas]."
+    E "I have never..."
+    E "[Q]'s palace was beautiful, and I was treated fairly well there..."
+    E "But my own room... I could've never considered it possible..."
+    E "Thank you so much."
+    scene d4e-8
+    with dissolve
+    menu:
+        "\"You deserve it.\"":
+            $ emilia_love += 1
+            Z "You deserve it."
+            Z "I knew you were a good servant the day you came here."
+            Z "[W] also trusts you."
+            scene d4e-4
+            with dissolve
+            Z "So you deserve your own room."
+            Z "There is one other issue, however."
+            Z "[W] will give you your own collar soon."
+            Z "We need to make sure people know that you are our servant."
+            scene d4e-5
+            with dissolve
+            E "I will gladly wear it, [mas]."
+            scene d4e-4
+            with dissolve
+            Z "Good."
+            Z "I will go now."
+            Z "It's almost time for dinner, don't make my wife wait too long."
+            scene d4e-5
+            with dissolve
+            E "Yes, [mas]."
+            E "Thank you."
+            E "I will do my best to earn my place."
+
+        "\"We expect you to do your work.\"":
+            $ emilia_love += 1
+            Z "[W] and I decided that you can keep [A]'s old room."
+            Z "A good maid deserves her own space."
+            Z "It is also important for the image of a household that all its members are well cared for."
+            Z "However, we expect you to do your work in return."
+            Z "You will also have to wear a collar from now on. [W] will have it made for you."
+            Z "Finally, if I tell you to serve me or my guests when they come to visit, you will do so."
+            scene d4e-7x
+            with dissolve
+            E "I will, [mas]. Without hesitation."
+            scene d4e-4
+            with dissolve
+            Z "I believe you. [W] only told me good things about you."
+            Z "I will go now."
+            Z "It's almost time for dinner, so you better not make my wife wait too long."
+            E "Yes, [mas]."
+            scene d4e-7
+            with dissolve
+            "She bows before you..."
+            scene d4e-7x
+            with dissolve
+            E "I am thankful for the opportunity you give me."
+            E "If you need anything, I am here to serve."
+
+        "\"Do not get complacent...\"":
+            $ emilia_sub += 1
+            Z "That was my wife's idea."
+            Z "She knows that it is important for the image of a household to have well cared for servants."
+            Z "But I advise you to not get complacent about your new room."
+            scene d4e-8
+            with dissolve
+            Z "You are still our servant and will do whatever I, your mistress or my [persistent.da]s say."
+            Z "And you will serve our guests, when and how I tell you to."
+            Z "Furthermore, your mistress will give you a collar, soon."
+            Z "Wear it at all times. Especially when you leave the house."
+            Z "Understood?"
+            scene d4e-7x
+            with dissolve
+            E "Yes, [mas]."
+            E "I will do everything you say."
+            E "Thank you for your kindness, [mas]."
+            scene d4e-7
+            with dissolve
+            "She bows before you..."
+            scene d4e-7x
+            with dissolve
+            Z "I will head out again."
+            Z "It's almost time for dinner. Don't make my wife wait for you."
+    if sq_e_1.current_step == 2:
+        $ sq_e_1.advance()
+    scene black pic
+    with slowfade
+    jump daily_home
+
+label d4a:
+    $ m_d4a = True
+    scene black pic
+    with fade
+    "As you enter the basement, your wife approaches you on her way out..."
+    scene d4a-1
+    with fade
+    W "Hey, husband... I am just about done."
+    W "Whatever made her pass out, must have exhausted her a lot. She has not woken up since you brought her."
+    scene d4a-3x
+    with dissolve
+    W "Other than that... she seems to be healthy. No visible wounds anywhere. I scrubbed her clean to make sure."
+    W "That collar attached on her neck is... interesting."
+    W "The key for it can be used from a distance. All you need to do is press the forward end of it and..."
+    pause 0.5
+    "You nod, indicating you're familiar with the result, and she doesn't finish her sentence..."
+    Z "That's helpful. I was wondering why you hadn't put her in the cage yet."
+    W "Yes, well, I am sure that whoever put the collar on her explained the consequences, to keep her in line."
+    scene d4a-2x-2
+    with dissolve
+    W "I shall leave the rest to you. Enjoy your time, my love."
+    scene d4a-2x
+    with dissolve
+    Z "Thank you, [W]."
+    scene d4a-3
+    with fade
+    if persistent.forceplay == False:
+        Z "Hey.. it's time to wake up."
+        jump d4a_kyra_woke_up
+    else:
+        Zt "Hm... so what to do now..."
+    menu:
+        "Wake her up":
+            Z "Hey.. it's time to wake up."
+            scene black pic
+            with fade
+            play sound "audio/sounds/actions/slap.mp3"
+            "You slap her on the thigh..."
+            Z "Hey, wake up."
+            scene d4a-47
+            with vpunch
+            Ky "Huh... where am I?"
+            scene d4a-49
+            with fade
+            Ky "Who the fuck are you?"
+            jump d4a_kyra_woke_up
+
+        "Play with her for a bit":
+            $ d4a_kyra_blowjob = True
+            label re_d4a3:
+                if _in_replay:
+                    scene d4a-3
+                    with fade
+            Zt "Mh..."
+            Zt "Knocked out she said..."
+            scene black pic
+            with fade
+            "{i}*rustling*"
+            scene d4a-4
+            with fade
+            "You take off your pants, moving towards her face..."
+            scene d4a-5
+            with dissolve
+            Z "Let's see how far you're really gone."
+            scene d4a-6
+            with dissolve
+            Ky "..."
+            "You stuff your dick between her loose lips..."
+            scene d4a-7
+            with dissolve
+            pause 0.6
+            scene d4a-8
+            with dissolve
+            "...and uncover her breast."
+            scene d4a-9
+            with fade
+            Zt "She's quite pretty... curves in all the right places, and that pale skin..."
+            scene d4a-10
+            with dissolve
+            Zt "She reminds me of... Mmh. That raider who led the ambush had similar features."
+            scene d4a-11
+            with dissolve
+            Zt "...they do look quite similar."
+            scene d4a-12-anim
+            with fade
+            "You start fucking her mouth..."
+            Zt "Let's see if she's really asleep..."
+            Ky "Ngh..."
+            Z "{i}*sigh*{/i} I won't be able to push deep into her throat from this position."
+            scene d4a-13-anim
+            with dissolve
+            Zt "I wonder what's her role in her tribe...."
+            "You keep casually pushing in and out of her skull, a coating of drool slowly dripping from the side of her mouth..."
+            scene d4a-12-anim
+            with fade
+            Zt "Mh... I won't get far with this."
+            Z "Well, at least we know she's not faking it..."
+            scene d4a-14
+            with dissolve
+            "Despite being in the middle of a sexual act, you can't help but make some observations."
+            "You can tell she's athletic, a strong physique, and obviously well fed, so she's probably a leader."
+            scene d4a-14x
+            with dissolve
+            Z "This feels..."
+            "The woman remains unresponsive despite your actions, which pushes you to..."
+            menu:
+                "Undress and fuck her":
+                    $ d4a_kyra_fucked = True
+                    Zt "Fuck it, why not..."
+                    scene black pic
+                    with fade
+                    "{i}You undress her..."
+                    scene d4a-15
+                    with vpunch
+                    Ky "..."
+                    Zt "Not bad..."
+                    scene d4a-16
+                    with dissolve
+                    Ky "{i}*snoring*"
+                    Zt "Well, that's a blow to the ego. She's straight up sleeping..."
+                    scene d4a-17
+                    with fade
+                    Z "Still pretty exciting for me though."
+                    scene d4a-18
+                    with fade
+                    Zt "Good thing the body knows how to respond, she's nice and wet."
+                    scene d4a-19
+                    with dissolve
+                    "You enter her with ease..."
+                    scene d4a-19-anim
+                    with Dissolve(0.1)
+                    Z "Mh..."
+                    Z "Clearly not a virgin."
+                    scene d4a-20-anim
+                    with dissolve
+                    "You start fucking her, squelching noises filling the room as you build a rhythm punctuated by the sound of your bodies slapping against each other..."
+                    Z "I wonder what your story is... I'll be sure to ask."
+                    Z "Something tells me that you're going to be a challenge to deal with, later..."
+                    Z "Well... more fun for me."
+                    scene d4a-21
+                    with dissolve
+                    Ky "Mh..."
+                    scene d4a-21x
+                    with dissolve
+                    Ky "Wha..."
+                    Zt "Now she wakes up...?"
+                    jump d4a22
+
+                "Wake her up":
+                    Zt "Time to wake her up."
+                    scene black pic
+                    with fade
+                    if _in_replay:
+                        $ renpy.end_replay()
+                    "You dress her up again..."
+                    play sound "audio/sounds/actions/smack.mp3"
+                    "...and give her thigh a good slap..."
+                    Z "Hey, wake up."
+                    scene d4a-47
+                    with vpunch
+                    Ky "Huh... where am I?"
+                    scene d4a-49
+                    with fade
+                    Ky "Who the fuck are you?"
+                    jump d4a_kyra_woke_up
+
+
+
+    label d4a22:
+        scene d4a-22
+        with fade
+        RF "Why do I..."
+        scene d4a-23
+        with vpunch
+        RF "What the fuck?!"
+        RF "Where am I?! And why are you fucking me?!"
+        scene d4a-23x
+        with dissolve
+        Z "Don't mind me, I'll just finish what I started."
+        Z "But feel free to participate, it makes it more fun for both of us.."
+        scene d4a-24
+        with vpunch
+        RF "Ah...! You bastard..."
+        RF "That's... fucking big..."
+        scene d4a-25
+        with dissolve
+        RF "Hnn..."
+        Z "Not used to it? I thought all you sluts did in the raider camps was lay on your back and take it?!"
+        scene d4a-26
+        with vpunch
+        RF "Ah... Fuck you!"
+        RF "I don't have to..."
+        RF "Hah..."
+        "You feel your climax building up..."
+        scene d4a-27
+        with dissolve
+        Z "Tell me where you want it..."
+        RF "Fuck, I don't care. Not like you're going to... ngh... listen to me anyway..."
+        Z "...you're right. I won't."
+        menu:
+            "Cum inside her":
+                Z "Spread your legs."
+                scene d4a-28
+                with dissolve
+                Ky "You're... gonna..."
+                Z "I am..."
+                scene d4a-29
+                with vpunch
+                Ky "Ah... fuck you..."
+                Z "Ngh-"
+                with vpunch
+                "You unleash rope after rope of your sticky cum inside her..."
+                Ky "...using me like that... you piece of shit..."
+                with vpunch
+                Z "Fuck... that was, unusual..."
+                Ky "Ah... you're still..."
+                scene d4a-31
+                with dissolve
+                Ky "Fuck... that's hot..."
+                "Your cum is oozing out..."
+                scene d4a-29
+                with vpunch
+                Ky "Ngh... asshole..."
+                scene d4a-32
+                with dissolve
+                "Your semen flows freely out of the woman's pussy..."
+                scene d4a-29
+                with vpunch
+                Ky "Ah...!"
+                with vpunch
+                Ky "Nghh..."
+                Zt "She's cumming too... what a slut."
+                scene d4a-29
+                with vpunch
+                Ky "Ah..."
+                scene d4a-30
+                with dissolve
+                Ky "{i}*pant*{/i}"
+                Ky "You... got me there... bastard..."
+                "You stay inside her creamed pussy for a moment longer..."
+                scene black pic
+                with fade
+                "...finally pulling out, and stepping back."
+                Z "Here... your clothes."
+                scene black pic
+                with fade
+                "{i}You both get dressed."
+                $ renpy.end_replay()
+                jump d4a_kyra_woke_up
+
+            "Cum all over her":
+                Zt "I will mark this raider slut..."
+                scene d4a-33
+                with fade
+                Ky "What are you..."
+                scene d4a-34
+                with hpunch
+                Z "Ngh..."
+                scene d4a-35
+                with dissolve
+                Ky "{i}*sigh*{/i}"
+                scene d4a-36
+                with hpunch
+                Z "Fuck..."
+                scene d4a-37
+                with dissolve
+                Z "Mh... that was good..."
+                scene d4a-38
+                with fade
+                RF "Congratulations, dickhead... Now at least help me clean myself."
+                scene d4a-39
+                with dissolve
+                Z "You wish."
+                "She gives you a wry glare..."
+                scene d4a-40
+                with dissolve
+                Ky "Yeah... I do..."
+                scene d4a-41
+                with dissolve
+                Ky "You know what else I wish?"
+                scene d4a-42
+                with Dissolve(0.1)
+                Ky "My fucking clothes!"
+                scene black
+                play sound "audio/sounds/actions/drop 4.mp3"
+                with vpunch
+                Z "...!"
+                "She kicks you, causing you to fall on the floor..."
+                $ renpy.end_replay()
+                scene d4a-43
+                with fade
+                RF "{i}*sigh*{/i}... feels like I woke up from a coma."
+                RF "There are worse ways to wake up from one, I guess."
+                scene d4a-44
+                with dissolve
+                RF "I thought I was going to be chopped up and served on a plate..."
+                scene d4a-45
+                with dissolve
+                RF "This outcome seems better..."
+                scene d4a-46
+                with dissolve
+                "Ngh..."
+                "You pick yourself up, massaging your leg where she kicked you..."
+                scene d4a-47
+                with dissolve
+                RF "So... who the fuck are you anyway?"
+                jump d4a_kyra_woke_up
+
+    label d4a_kyra_woke_up:
+        scene d4a-48
+        with fade
+        Z "I'm [persistent.player_name], a Stalker. You're in my basement."
+        Z "My [persistent.da] and I found you ready to be cut to pieces in Old Cairo, and decided to take you from the decayed."
+        Z "You're in Zetan territory now."
+        scene d4a-49x-13
+        with dissolve
+        RF "Just my luck... a fucking Stalker..."
+        scene d4a-49x-14
+        with dissolve
+        scene black
+        with fade
+        "She stands up..."
+        scene d4a-50
+        with dissolve
+        RF "{i}*sigh*{/i}... and on top of that, you put a shotgun collar around my neck!"
+        Z "Simple precaution, so that you'll think twice about your next move."
+        scene d4a-51
+        with dissolve
+        RF "Hah... I guess I don't get to scratch your eyes out, after all..."
+        if d4a_kyra_fucked == True:
+            scene d4a-52
+            with dissolve
+            RF "You're still a nutter for not waking me up before you put a dick in me."
+            scene d4a-53
+            with dissolve
+            Z "Would that have made a difference?"
+            scene d4a-52
+            with dissolve
+            RF "No, it wouldn't have..."
+            scene d4a-51
+            with dissolve
+            RF "I'm not stupid. You got a freaking collar around my neck..."
+            RF "...and I'm not exactly in a position of power here."
+            scene d4a-51x
+            with dissolve
+            RF "Then again. Hadn't had a good fuck in ages, so I might have actually enjoyed it."
+            scene d4a-51x-2
+            with dissolve
+            RF "But thats not the point!"
+            RF "Why did you bother taking me from those scabs?!"
+            scene d4a-51x-3
+            with dissolve
+            Z "I'm not sure. Instinct, business, a nice piece of fuckmeat? Take your pick."
+        else:
+            scene d4a-51x-2
+            with dissolve
+            RF "Still... why bother rescuing me from those scabs?!"
+            scene d4a-51x-3
+            with dissolve
+            Z "I'm not sure. Instinct, business... Take your pick."
+        Z "All I know is that when I took a closer look, you reminded me of another raider I met recently."
+        scene d4a-51x-4
+        with fade
+        Z "She ambushed me not long ago. Well... tried to."
+        Z "She looked a bit like you, same skin tone, similar pigtails."
+        scene d4a-51x-5
+        with vpunch
+        RF "Wait, you're fucking with me, right?!"
+        RF "You met Asha?!"
+        scene d4a-51x-6
+        with dissolve
+        Z "So you know her?"
+        scene d4a-52
+        with dissolve
+        RF "{i}*chuckles*{/i} Fuck yeah I do..."
+        scene d4a-53
+        with dissolve
+        scene black pic
+        with fade
+        "She sits down again..."
+        scene d4a-49x
+        with dissolve
+        RF "She's my little sister, you bastard."
+        scene d4a-49x-2
+        with dissolve
+        RF "She took out a group for a patrol in the desert while I went for a raid on the decayed."
+        scene d4a-49x-3
+        with dissolve
+        RF "Worst decision of my life apparently..."
+        scene d4a-49x-5
+        with dissolve
+        RF "Don't tell me you killed her?!"
+        scene d4a-49x-6
+        with dissolve
+        if asani_alive == False:
+            Z "Nope.. only her boyfriend and that other chick."
+            scene d4a-49
+            with dissolve
+            RF "Good to hear..."
+        else:
+            Z "Nah. I let the two chicks go."
+            Z "Your sister's boyfriend on the other hand met the business end of my sword."
+            scene d4a-49
+            with dissolve
+            RF "Fuck that guy anyway... I'm glad you didn't do my sister in."
+        scene d4a-49x-7
+        with dissolve
+        RF "Hazim was dead from the neck up anyway. So, no big loss here."
+        scene d4a-49x-3
+        with dissolve
+        RF "Asha should be back home again by now..."
+        RF "She probably thinks I died in Old Cairo."
+        scene d4a-49x-5
+        with dissolve
+        RF "Look, I don't know if she can even keep things under control there, without me."
+        RF "She's batshit crazy and violent, which is always good in Adira, but I was the one doing the deep thinking."
+        RF "In short: I have to get back to Adira as soon as possible!"
+        scene d4a-49x-8
+        with dissolve
+        RF "I would say who do I have to blow to get a ride, but we're kinda past that, aren't we?"
+        scene d4a-49x-9
+        with dissolve
+        RF "You can call me Kyra. So... You had your fun, will you help me get home?"
+        scene d4a-49x-10
+        with dissolve
+        if d4a_kyra_fucked == True:
+            Z "Nice try, girl. A bit late to put the flirty moves on me though."
+        else:
+            Z "Nice try, girl."
+        Z "I have questions. You better answer them."
+        menu d4a_kyra_question_menu:
+            "\"What's your role in Adira?\"" (question = True) if d4a_kyra_question_1 == False:
+                $ d4a_kyra_question_1 = True
+                scene d4a-49x-8
+                with dissolve
+                Ky "I'm glad you asked!"
+                scene d4a-49x-7
+                with dissolve
+                Ky "My role is to... well... how do I explain it..."
+                Ky "Leading my gang..."
+                Ky "Murdering people..."
+                Ky "Earning respect..."
+                scene d4a-49x-8
+                with dissolve
+                Ky "Going on raids..."
+                scene d4a-49x-7
+                with dissolve
+                Ky "Driving fast cars..."
+                Ky "Having the time of my life..."
+                Ky "Occasionally almost getting killed..."
+                Ky "Captured..."
+                Ky "Being rescued..."
+                scene d4a-49x-9
+                with dissolve
+                if d4a_kyra_fucked == True:
+                    Ky "...and a lot of fucking in the process."
+                else:
+                    Ky "That's about it."
+                scene d4a-49x-10
+                with dissolve
+                jump d4a_kyra_question_menu
+
+            "\"What's your sisters role?\"" (question = True) if d4a_kyra_question_2 == False:
+                $ d4a_kyra_question_2 = True
+                Z "What's your sisters role?"
+                scene d4a-49x-9
+                with dissolve
+                Ky "How about I show you when we get there, hm?"
+                scene d4a-49x-10
+                with dissolve
+                Z "..."
+                jump d4a_kyra_question_menu
+
+            "\"What's with your eyes?\"" (question = True) if d4a_kyra_question_3 == False:
+                $ d4a_kyra_question_3 = True
+                Z "What's with your eyes? How are they so bloodshot?"
+                scene d4a-49x-8
+                with dissolve
+                Ky "Well, you know... breathing in toxic gas is just so much fun!"
+                scene d4a-49x-5
+                with dissolve
+                Ky "I'm obviously joking."
+                scene d4a-49x-3
+                with dissolve
+                Ky "...It could also be the drugs."
+                scene d4a-49x-4
+                with dissolve
+                jump d4a_kyra_question_menu
+
+            "\"Why should I help you?\"":
+                Z "Why should I help you?"
+                scene d4a-49x-8
+                with dissolve
+                Ky "Because I can be the best fuck in your life...?"
+                scene d4a-49x-5
+                with dissolve
+                Ky "Seriously, though. You have a car, don't you? That's how you got me out of Cairo."
+                scene d4a-49x
+                with dissolve
+
+            "\"I could just sell you off.\"":
+                Z "I think I'm going to sell you on the slave market instead."
+                scene d4a-49x-9
+                with dissolve
+                Ky "Right..."
+                scene d4a-49x-10
+                with dissolve
+                Ky "..."
+                pause 1.2
+                scene d4a-49x-11
+                with dissolve
+                Ky "Wait, you're serious?!"
+                Ky "Come on, no one would want me."
+                scene d4a-49
+                with dissolve
+                Ky "Look, I'm not stupid. You won't just ruin your reputation helping out a raider, I get it."
+                scene d4a-49x-8
+                with dissolve
+                Ky "What if I made it worth your while instead?"
+                scene d4a-49x
+                with dissolve
+                Ky "You have a car, don't you? That's how you got me out of Cairo."
+
+        $ mq_r_1.advance()
+        Ky "What if I got you a new one in return?!"
+        scene d4a-49x-7
+        with dissolve
+        Ky "Well, almost new. Anyway, pretty fucking new!"
+        scene d4a-49x-10
+        with dissolve
+        Z "And why would I believe you? The last guys who trusted you ended up as a dish for the decayed."
+        scene d4a-49x-8
+        with dissolve
+        Ky "Because I'm an honest raider who never lies!"
+        scene d4a-49x-9
+        with dissolve
+        Ky "You obviously can't, smartass."
+        scene d4a-49x-5
+        with dissolve
+        Ky "But I promise, I am actually not lying, this time. Is trusting me a risk for you? Yes.. but for such a prize, it's worth it!"
+        scene d4a-48
+        with dissolve
+        Z "..."
+        scene d4a-49
+        with dissolve              
+        Ky "Look, I want my freedom back, and if that means cooperating with someone from the city, so be it."
+        Ky "I was going to keep that find for myself, but my life and freedom are worth more to me."
+        scene d4a-49x-9
+        with dissolve
+        Ky "I'm a leader with my people. What [Ky] says, goes. They know I keep my word, and you should too."
+        scene d4a-49x-10
+        with dissolve
+        Z "..."
+        Z "I will think about it."
+        scene d4a-49
+        with dissolve              
+        Ky "Yeah yeah, go have a think while I'm making myself comfortable in this cell, with a collar around my neck..."
+        scene d4a-48
+        with dissolve              
+        scene black pic
+        with fade
+        "You leave the basement..."
+        show home day
+        stop music fadeout 3
+        queue music "audio/music/home/dream town.mp3" fadein 3
+        with fade
+        Zt "I could easily just sell her off and be done with her."
+        Zt "There is always someone who could use a maniac like her. As fodder for the arena perhaps."
+        Zt "Maybe I can get more out of her though."
+        Zt "Having contact with a leader in Adira could help me collect information the Queen would be interested in..."
+        Zt "I could also use the opportunity to see what Adira has to offer instead. It's not like the Queen is my only client, after all."
+        Zt "I'm not sure if I can trust her, or what I should expect, but she might be my ticket to keeping that door open."
+        Zt "The decayed are shady guys at best, but most raiders are straight up psychopaths."
+        Zt "She seems to be a leader though, and smart... so... can I trust her?"
+        Zt "I should think about it carefully, and come back to her another day..."
+        jump daily_home
+
+label d4d:
+    $ m_d4d = True
+    $ daily_main_mission = True
+    Zt "I think it's time I go to the palace and deliver my report to the Queen."
+    play music "audio/music/zeta/palace.mp3" fadeout 3
+    scene black pic
+    with fade
+    "Some time later..."
+    scene d4d-1
+    with fade
+    Zt "It looks like the new guard is not at her post..."
+    Zt "What was her name again..."
+    scene d4d-2
+    with fade
+    Z "Hey [Ta], what happened to the-"
+    Ta "Stop where you are, Stalker." with hpunch
+    Ta "Don't move!"
+    scene d4d-3
+    with fade
+    Ta "I know why you're here!"
+    Ta "If you want to see the Queen, you must first get past me!"
+    menu:
+        "Say nothing":
+            Z "..."
+            scene d4d-4x
+            with Dissolve(0.2)
+            Ta "..."
+            scene d4d-4x-2
+            with dissolve
+            Ta "State your reasons for being here!"
+            scene d4d-4x-3
+            with dissolve
+            Ta "{i}*laughs*"
+            scene d4d-3
+            with Dissolve(0.2)
+            Ta "What took you so long?!"
+            Z "I was occupie-"
+            Ta "Yeah, whatever. Come here."
+            scene d4d-7
+            with hpunch
+            Z "..."
+            menu:
+                "\"Make out\"":
+                    jump d4d_talia_kissing
+                    
+                "\"Don't make out\"":
+                    $ d4d_talia_denied = True
+                    Z "Try harder next time."
+                    Ta "You big jerk!"
+                    Ta "Do you make all your girls beg for it?"
+                    Ta "Try treating the Queen like that."
+                    Ta "I bet she wouldn't play along."
+                    Ta "Now go... before I do something I shouldn't do."
+                    $ renpy.end_replay()
+                    jump d4g
+
+        "\"What?\"":
+            Z "What?"
+            scene d4d-4x
+            with dissolve
+            Ta "..."
+            scene d4d-4x-2
+            with Dissolve(0.2)
+            Ta "Seriously?"
+            Ta "Can't I have a little roleplay?"
+            Ta "You pinhead..."
+            Z "Who are you calling pinhead!"
+            Ta "Come here..."
+            scene d4d-7
+            with hpunch
+            Z "..."
+            menu:
+                "Make out":
+                    jump d4d_talia_kissing
+
+                "Don't make out":
+                    $ d4d_talia_denied = True
+                    Z "Try harder next time."
+                    Ta "You giant jerk!"
+                    Ta "Do you make all your girls beg for it?"
+                    Ta "I bet you don't treat the Queen like that."
+                    Ta "She wouldn't play along like I do."
+                    Ta "Now go... before you get me into trouble."
+                    $ renpy.end_replay()
+                    jump d4g
+                    
+        "Defeat her":
+            Z "..."
+            $ d4d_talia_defeated = True
+            scene d4d-4
+            with fade
+            Ta "I'm warning you!"
+            Ta "Don't come any closer!"
+            scene d4d-5
+            with fade
+            Ta "I'm going to stri-"
+            scene d4d-6
+            play sound "audio/sounds/objects/machete.mp3"
+            with hpunch
+            Ta "Ahh..."
+            scene d4d-9
+            play sound "audio/sounds/objects/sword drop.mp3"
+            Ta "Ngh..."
+            Z "..."
+            scene d4d-7
+            with fade
+            Ta "You enjoy breaking a woman's will, don't you?"
+            Z "..."
+            Ta "It has been too long since I felt you."
+            menu:
+                "Make out":
+                    jump d4d_talia_kissing
+                    
+                "Don't make out":
+                    $ d4d_talia_denied = True
+                    scene d4d-7
+                    with hpunch
+                    Z "Try harder next time."
+                    Ta "You giant jerk!"
+                    Ta "Do you make all your girls beg for it?"
+                    Ta "Try treating the Queen like that."
+                    Ta "I bet she wouldn't play along, if you tried.."
+                    Ta "Now go... before you get me into trouble."
+                    $ renpy.end_replay()
+                    jump d4g
+
+label d4d_talia_kissing:
+    scene d4d-10
+    with fade
+    Ta "{i}*kissing*"
+    scene d4d-11
+    with fade
+    Ta "Hn..."
+    menu:
+        "Push her down":
+            scene d4d-8
+            with fade
+            Z "Do your job."
+            Ta "[Li] will be back soon..."
+            Z "Stop talking, you've been begging for it."
+            scene d4d-12
+            with fade
+            pause
+            scene d4d-13
+            with fade
+            Li "{i}*whispering*{/i} Really..."
+            scene d4d-15
+            with fade
+            Li "..."
+            scene d4d-16-anim
+            with fade
+            Z "Remind me why you're my favourite guard..."
+            scene d4d-17
+            with Dissolve(0.8)
+            scene d4d-18
+            with Dissolve(0.8)
+            scene d4d-17
+            with Dissolve(0.8)
+            scene d4d-16-anim
+            with Dissolve(0.8)
+            Ta "{i}*muffled* I think she will see us any mo-"
+            scene d4d-17
+            with Dissolve(0.8)
+            Z "Shh... shut it."
+            scene d4d-18
+            with Dissolve(0.8)
+            Z "I don't see your problem."
+            Z "Even if she did find out..."
+            Z "...You would still be doing this."
+            scene d4d-17
+            with Dissolve(0.8)
+            scene d4d-16-anim
+            with Dissolve(0.8)
+            Z "Your last trainee joined you, eventually."
+            scene d4d-17
+            with Dissolve(0.8)
+            scene d4d-18
+            with Dissolve(0.8)
+            Z "Maybe she will too, who knows..."
+            scene d4d-17
+            with Dissolve(0.8)
+            scene d4d-16-anim
+            with Dissolve(0.8)
+            scene d4d-19
+            with Dissolve(1.2)
+            menu d4d_keep_going:
+                "Keep going":
+                    scene d4d-17
+                    with Dissolve(0.8)
+                    scene d4d-18
+                    with Dissolve(0.8)
+                    scene d4d-17
+                    with Dissolve(0.8)
+                    scene d4d-16-anim
+                    with Dissolve(0.8)
+                    scene d4d-17
+                    with Dissolve(0.8)
+                    scene d4d-18
+                    with Dissolve(0.8)
+                    scene d4d-17
+                    with Dissolve(0.8)
+                    scene d4d-18
+                    with Dissolve(0.8)
+                    scene d4d-17
+                    with Dissolve(0.8)
+                    scene d4d-16-anim
+                    with Dissolve(0.8)
+                    jump d4d_keep_going
+
+                "Finish":
+                    Z "Hng..."
+                    scene d4d-20
+                    with flash
+                    scene d4d-21
+                    with Dissolve(1.0)
+                    Z "Ahh, yes."
+                    menu:
+                        "Compliment her":
+                            Z "That was great, thank you."
+                            Ta "...Happy... to.. serve..."
+                            Z "Sorry to leave you now."
+                            Z "Next time I will return the favor, maybe."
+                            $ renpy.end_replay()
+                            jump d4g
+                            
+                        "Humiliate her":
+                            Z "Always a pleasure to use such an esteemed member of the guard."
+                            Z "I really should knock you up as long as you're still fertile."
+                            Z "The next generation of guards has to come from somewhere, after all."
+                            Ta "...please.. do..."
+                            Z "Clean yourself up, guard... I have to go now. The Queen is waiting."
+                            $ renpy.end_replay()
+                            jump d4g
+
+        "Move on":
+            scene d4d-12
+            with fade
+            pause
+            scene d4d-13
+            with fade
+            Li "{i}*whispering*{/i} Really...?"
+            scene d4d-14
+            with fade
+            Li "..."
+            scene d4d-8
+            with fade
+            if d4d_talia_defeated == True:
+                Ta "Next time you won't just get away with a kiss... Now go, see our Queen, Stalker."
+            else:
+                Ta "Tell me when I can come over to your place again."
+                Z "I will let you know, [Ta]."
+                Ta "Alright then... just make sure to be less of a cold fish, next time..."
+                Ta "You can't always wait for a girl to beg for it.. Now, go take care of our Queen, will you."
+            $ renpy.end_replay()
+            jump d4g
+
+label d4g:
+    play music "audio/music/zeta/prince of egypt.mp3" fadeout 3
+    $ m_d4g = True
+    scene black pic
+    with slowfade
+    "Soon after..."
+    scene vp-2
+    with slowfade
+    "You hear muffled voices through the door..."
+    Q "What a good little slave you are..."
+    Sl "Thank you, my Queen."
+    Zt "Ah shit, here we go again..."
+    scene black pic
+    with fade
+    "You step inside..."
+    scene d4g-1
+    with fade
+    Q "Look who it is..."
+    Q "One of my loyal Stalkers! Come in!"
+    scene d4g-2
+    with dissolve
+    Q "What was your name again..."
+    "...she says mockingly..."
+    Q "I guess I should've prepared a little better, oh well..."
+    scene d4g-6
+    with dissolve
+    Q "Slaves, leave me alone."
+    Q "We'll continue this later..."
+    scene d4g-5
+    with dissolve
+    Sl "Yes, my Queen."
+    scene d4g-3
+    with dissolve
+    Q "Well...? Where are your manners?"
+    Q "I think I made myself clear last time."
+    scene d4g-4
+    with dissolve
+    if d2c_queen_disrespected == True:
+        Zt "This again..."
+    else:
+        Z "..."
+    scene d4g-7
+    with fade
+    "You kneel..."
+    Q "Now, report on your mission."
+    scene d4g-8
+    with fade
+    Z "My [persistent.da] and I found the place you mentioned."
+    Q "So you took her with you. Interesting..."
+    Z "The decayed set camp in an old warehouse. We managed to speak to their leader."
+    Z "They were fighting a group of raiders... and both sides lost."
+    Z "Nothing we found in that building will pose any threat to future caravans. I can assure you of this."
+    scene d4g-9
+    with dissolve
+    Z "However, as soon as we left the building, we saw a holy storm approaching."
+    Z "We had to run for our lives before it would destroy our vehicle and kill us."
+    Z "It was a close call."
+    scene d4g-10
+    with dissolve
+    Q "A Stalker who runs with his tail between his legs from a sand storm..."
+    Q "If I hadn't seen it for myself, I would say you're over-exaggerating."
+    scene d4g-13
+    with dissolve
+    Q "So, I guess your mission was a success after all."
+    Q "I am sure that if you mentioned that you were there on my behalf, it would have scared them anyway..."
+    Q "After all, who wants to get in a fight with the Queen of Zeta herself, right...?!"
+    scene d4g-14
+    with dissolve
+    Z "..."
+    scene d4g-12
+    with dissolve
+    Q "Now... on a different matter...."
+    scene d4g-11
+    with dissolve
+    Q "I want to speak to your [persistent.da]."
+    Zt "...?!"
+    scene d4g-15
+    with fade
+    "She walks down the stairs..."
+    Q "When the time is ripe, I shall send guards to summon her."
+    Q "Don't worry yourself, Stalker. I shall not take her away from you..."
+    Q "...it will just be a friendly talk between us."
+    Q "If she is to become an elite member in my ranks, I should get to know and evaluate her."
+    scene d4g-16
+    with fade
+    Q "Now... Let me think about your reward..."
+    scene d4g-17
+    with dissolve
+    Q "Hmm..."
+    "She takes her time before answering, to the point that you wonder whether she is actually thinking about it or is rather leaving you hanging for her own enjoyment..."
+    scene d4g-18
+    with dissolve
+    Q "I will grant you the privilege of access to my personal thermae for a day."
+    Q "You will be attended to by my slaves during your stay."
+    scene d4g-19
+    with dissolve
+    Q "...and you know what they say about royal slaves, Stalker..."
+    Q "Their \"assistance\" goes a long way."
+    scene d4g-20
+    with fade
+    Q "Now, if you mean to accept my offer, there is only one little thing I do need you to do..."
+    scene d4g-21
+    with dissolve
+    Q "...You know what that is."
+    scene d4g-22
+    with dissolve
+    if d2c_queen_disrespected == True:
+        Q "A second chance..."
+        Zt "Again, she treats me like a common servant..."
+    else:
+        Q "Much like last time.."
+        Z "..."
+    menu:
+        "Kiss her hand":
+            $ queen_dominant = True
+            scene d4g-23
+            with dissolve
+            Z "I know what I need to do, yes."
+            scene d4g-24
+            with dissolve
+            Q "What are you..."
+            scene d4g-25
+            with hpunch
+            Q "Whaa?!!"
+            "{i}You pull her a little towards you..."
+            scene d4g-26
+            with dissolve
+            Z "I accept your reward..."
+            Z "But I think we both know that I am much more than a servant to you."
+            Z "You very well know my name, and I deserve to be treated with a little more respect, don't you think?"
+            scene d4g-28
+            with dissolve
+            Z "After all, I risk my life for you every time you call on my services."
+            Q "I...uh..."
+            scene d4g-29
+            with dissolve
+            Q "...never denied that..."
+            scene d4g-30
+            with dissolve
+            "{i}You kiss her hand slowly..."
+            Q "You are... one of my most experienced men, after all."
+            scene d4g-28
+            with dissolve
+            Q "Very well..."
+            scene d4g-27
+            with dissolve
+            Q "As long as you stay loyal to me, you will be treated fairly."
+            Qw "Now, unhand me, before my guards punish your indiscretion..."
+            scene d4g-26
+            with dissolve
+            Z "As you wish."
+            scene d4g-32
+            with fade
+            Q "Thank you for your visit..."
+            Q "...Stalker [persistent.player_name]."
+            Q "I will let you know when I have a new mission for you."
+            scene d4g-31
+            with dissolve
+            Z "Until next time, then."
+            if not _in_replay:
+                $ mq_z_1.go_to_step(3)
+            scene black pic
+            with slowfade
+            "{i}You leave the temple..."
+            jump d4h
+
+        "Lose your temper":
+            $ queen_submissive = True
+            scene d4g-33
+            with dissolve
+            Z "That's enough."
+            scene d4g-34
+            with dissolve
+            Q "...?"
+            scene d4g-35
+            with dissolve
+            "You stand up..."
+            Q "What on earth-"
+            scene d4g-36
+            with hpunch
+            Q "Agh-!"
+            G "What is he...?!"
+            scene d4g-37
+            with dissolve
+            G "Hey! Stop it right now, Stalker!"
+            scene d4g-38
+            with dissolve
+            "Your tone is unmistakably aggressive and laced with mockery..."
+            Z "With all due respect, my Queen..."
+            Z "I will no longer tolerate you belittling me or my service."
+            Q "Ngh-"
+            Z "You are well aware of my name. I have been serving as a Desert Stalker for decades, since before you ascended to the throne."
+            Z "I am loyal to my home, to Zeta, and to the throne."
+            Z "But I will not stand to be disrespected by a girl half my age, even if she happens to be the Queen."
+            scene d4g-39
+            with dissolve
+            Q "Hngh... G-guards...-"
+            Z "Have I made myself clear?!"
+            scene d4g-39x
+            with dissolve
+            "{i}She subtly starts to nod..."
+            G "Have you lost your mind?!"
+            G "Grab him!"
+            scene black pic
+            with fade
+            "{i}A guard forcefully grabs you and drags you away..."
+            scene d4g-40
+            with fade
+            Q "I-I didn't expect this."
+            Q "Get him out of here..."
+            if not _in_replay:
+                $ mq_z_1.go_to_step(4)
+            scene black pic
+            with fade
+            "{i}You are forced to leave the temple..."
+            jump d4h
+
+label d4h:
+    scene black pic
+    play music "audio/music/zeta/city music.mp3" fadeout 3
+    if queen_submissive == True:
+        Zt "Well.. That had to be said."
+        Zt "She may be a Queen, but her childish antics have to stop."
+    elif queen_dominant == True:
+        Zt "Play the long game, [persistent.player_name]."
+    scene vp-3
+    with fade
+    if queen_submissive == True:
+        Zt "She should be glad I'm working for her at all..."
+        Zt "...not every Stalker does. Certainly not as gladly or efficiently as I do."
+    elif queen_dominant == True:
+        Zt "She likes to play tough... I guess being the Queen is a lonely job."
+    scene vp-4
+    with fade
+    stop music fadeout 3
+    Z "Time to go home..."
+    scene black pic
+    with slowfade
+    if ivy_alive == True:
+        show screen cutscene_marker
+        "{i}Meanwhile...{w=1.0}{nw}"
+        play music "audio/music/mutants/too late.mp3"
+        scene d4h-1
+        with slowentry2
+        $ renpy.pause(3, hard=True)
+        scene d4h-2
+        with slowfade3
+        pause 3
+        scene d4h-3
+        with slowfade3
+        pause 3
+        scene d4h-4
+        with dissolve
+        pause 3
+        scene d4h-5
+        with Dissolve(1.2)
+        $ renpy.pause(2, hard=True)
+        if d3b_mutant_saved == True:
+            $ mq_m_1.advance()
+            scene d4h-6
+            with Dissolve(1.1)
+        if d3b_mutant_saved == False:
+            $ mq_m_1.fail()
+            scene d4h-4
+            with Dissolve(1.1)
+        pause 3
+        hide screen cutscene_marker
+        scene black pic
+        stop music fadeout 5
+        with slowfade3
+    jump daily_home
+
+label d4b:
+    $ m_d4b = True
+    $ daily_main_mission = True
+    play music "audio/music/home/dream town.mp3" fadeout 3
+    scene d4b-1
+    with slowfade
+    Z "...just my luck."
+    scene d4b-2
+    with fade
+    Zt "This damn storm showing up out of nowhere, right when I'm on a mission on direct orders from the Queen herself."
+    Zt "Almost ruined it..."
+    Zt "And now the car is paying the price."
+    scene d4b-3
+    with fade
+    Zt "[S] must've gotten scared shitless too."
+    Zt "Damn it..."
+    Z "..."
+    scene d4b-4
+    with fade
+    Z "Hey [W]... {i}*sighs*"
+    W "Hey love... Are you mad at the engine, the sand, or is this still about the mission?"
+    Z "The day started out so well.."
+    scene d4b-5
+    with fade
+    W "I understand that..."
+    W "But you must put it in the past now. The wind and the sand will not be tied to the wants of men."
+    W "You told me the Queen understood and accepted your explanation."
+    Z "Well, she had some strong words to say, yesterday."
+    W "What matters most, you and [S] are alive."
+    Z "Yes... you're right.{i} *sighs*"
+    Z "Thank you, [W]."
+    W "So... how about my handsome husband takes the rest of the day off and escorts his women to the market?"
+    W "You know the girls would like it."
+    W "And I too would like to spend the day with my man."
+    Z "I guess..."
+    Z "I could use a break, yes."
+    Z "And I guess the builders will be a disturbance anyway."
+    W "Yes, I can see them coming."
+
+    scene d4b-5x
+    with dissolve
+    Z "I will let the girls know that we will head out soon."
+    W "Thank you. I will go get changed."
+    W "See you in a bit."
+    scene black pic
+    with fade
+    "{i}Soon after..."
+    scene d4b-6
+    with fade
+    A "I'm serious, [S]..."
+    S "Yeah yeah, of course..."
+    A "No, for real!! I am getting fatter."
+    S "You are being ridiculous."
+    A "..."
+    scene d4b-8
+    A "Maybe it's because I'm too short."
+    S "That might be it."
+    A "Meanie..."
+    A "[S]?"
+    S "Yes?"
+    if emilia_joined == True:
+        A "What do you think of [E]?"
+        S "She's nice... a little too nice for my taste."
+        A "I know right..."
+        A "She agrees to everything..."
+        A "And I mean e v e r y t h i n g."
+        A "She even kneels on command!"
+        S "..."
+        S "Well, yes...I mean, she has to."
+        A "Yes..."
+        A "Yes she has to."
+        A "{i}*sigh...*"
+    scene d4b-9
+    with dissolve
+    A "Say... do you think guys like short girls like me?"
+    if emilia_joined == True:
+        S "That's a sudden change of topic..."
+    S "If you must know..."
+    scene d4b-6
+    with fade
+    S "I think you're a little too obsessed with attention, [A]."
+    A "I'm not..."
+    scene d4b-7
+    with fade
+    A "I just like how people look at me."
+    S "{i}*sigh...*"
+    scene d4b-10
+    with fade
+    S "Hey [persistent.dad]..."
+    Z "Hey you two."
+    scene d4b-11
+    with hpunch
+    A "Hi [persistent.dad]!!"
+    S "Wahh! [A]!"
+    scene d4b-12
+    A "Did [persistent.mom] ask you about taking us to the market?"
+    scene d4b-14
+    Z "Yes, I came here to tell you just that."
+    Z "You girls should get ready."
+    A "You deserve a hug for that..."
+    scene d4b-13
+    S "There she goes again..."
+    S "Seeking your attention like a child."
+    Z "..."
+    scene d4b-15
+    S "I don't think she'd last a week without your hands on her..."
+    scene d4b-19
+    A "What of it, huh?"
+    A "I like being with [persistent.dad], what's your problem?"
+    $ aingroperoni = False
+    menu:
+        "Grope her":
+            scene d4b-18
+            $ aingroperoni = True
+            A "Hn..."
+            A "...and I think he likes to see me too."
+            scene d4b-17
+            S "I wasn't talking about that..."
+            S "And stop suggesting he likes you more..."
+            scene d4b-16
+            A "I wasn't suggesting anything, sis..."
+            A "But I think I'm not the one who has an issue here."
+
+        "Don't grope her":
+            scene d4b-16
+            S "That's not what I was talking about..."
+            S "I like to be with him too."
+            S "But do you see me jumping around making a fuss everytime I see him?!"
+            A "Can't I just be happy?!"
+            S "..."
+            A "I think it's not me who has a problem with attention."
+
+    A "Maybe you're the one who needs more attention from boys..."
+    scene d4b-20
+    S "Argh! You're insufferable!"
+    S "One day you will regret acting like this."
+    menu:
+        "Let her leave":
+            if aingroperoni == True:
+                scene d4b-24x
+            if aingroperoni == False:
+                scene d4b-24
+            with fade
+            play music "audio/music/zeta/city music long.mp3" fadeout 3
+            S "I'm going to my room."
+            S "I'll get ready, [persistent.dad]. Call me when it's time, okay?"
+            Z "I will, don't stress yourself."
+            A "See you soon, sister..."
+            S "..."
+            if aingroperoni == True:
+                scene d4b-25x
+            if aingroperoni == False:
+                scene d4b-25
+            with fade
+            Z "You should get ready as well, [A]."
+            A "Of course, [persistent.dad]."
+
+        "Stop her":
+            scene d4b-21
+            Z "[S]..."
+            scene d4b-22
+            S "I can't stand her sometimes."
+            scene d4b-23x
+            with dissolve
+            Z "..."
+            "{i}You look at her with a warm smile"
+            scene d4b-23x-2
+            with Dissolve(1.2)
+            scene d4b-23x-3
+            with Dissolve(1.2)
+            S "..."
+            scene d4b-23x-4
+            with Dissolve(1.2)
+            A "Hey, uh.. [persistent.dad]?"
+            play music "audio/music/zeta/city music long.mp3" fadeout 3
+            Z "[S], go get changed, okay? We will leave in a while."
+            if aingroperoni == True:
+                scene d4b-24x
+            if aingroperoni == False:
+                scene d4b-24
+            with fade
+            S "Yes... I will get ready. "
+            S "Give me a shout when it's time, please, [persistent.dad]."
+            A "See you soon, sister..."
+            S "..."
+            if aingroperoni == True:
+                scene d4b-25x
+            if aingroperoni == False:
+                scene d4b-25
+            with fade
+            Z "You should get ready as well, [A], but before you do, go see if you can help your mother getting ready."
+            A "Of course, [persistent.dad]."
+            $ renpy.end_replay()
+            jump d4b26
+
+label d4b26:
+    scene black pic
+    with slowfade
+    scene d4b-26
+    with fade
+    Z "Here we are ladies."
+    Z "Don't spend all the gold I've given you at once."
+    Z "...And stay away from shady people, okay?"
+    A "Yeah yeah..."
+    S "Got it."
+    scene d4b-33
+    with fade
+    W "Let's go, husband."
+    scene d4b-27
+    with fade
+    tra "Quality baskets!"
+    tra "The finest in all of Zeta!"
+    tra "[Q] herself buys her baskets from us!"
+    scene d4b-32
+    with fade
+    S "I just love it here."
+    scene d4b-28
+    with fade
+    S "All the different things..."
+    scene d4b-30
+    with fade
+    S "People come from all around Zeta and beyond, to sell their goods."
+    S "So many different cultures!"
+    scene d4b-32
+    with fade
+    A "Did they move the jeweler's stall?"
+    scene d4b-31
+    with fade
+    A "I want to check if they have anything nice."
+    scene d4b-29
+    with fade
+    A "Let me guess, you want to check out the blacksmith again?"
+    S "Yes... I will be with you in a minute, okay?"
+    A "Alright sis.."
+    A "Don't buy all the swords..."
+    A "You already have so many."
+    A "It's not like you can use more than two at a time anyway, and you don't want to scare away all the boys."
+    S "Oh stop it!"
+    queue music ["audio/music/zeta/city music 2.mp3"] loop
+    scene d4b-34
+    with fade
+    W "Hello [Ig], nice to see you."
+    "{i}The man standing behind the counter starts speaking in a thick slavic accent..."
+    Ig "Good day Lady [W]. Always pleasure to meet you."
+    Ig "You look very pretty, as always."
+    W "Thank you."
+    scene d4b-35
+    with dissolve
+    Ig "Hello old friend."
+    Z "[Ig], how are you doing?"
+    Ig "Ah you know, nothing new. How you say, same as old?"
+    Zt "[Ig] has been a good friend for many years."
+    Zt "For a lowly merchant, he is well connected here in Zeta and far beyond its borders."
+    Zt "A good man with an honest heart."
+    Ig "As you can see, we have fresh supply of fruit."
+    scene d4b-34
+    with dissolve
+    W "Your produce looks delicious."
+    W "I always wanted to ask, where do you grow all this?"
+    Ig "I have good connections to different regions."
+    Ig "My family farm overseas, too."
+    Ig "But trade with Old Bari is more difficult lately, so, food more expensive."
+    W "Why is that?"
+    Ig "I don't know for sure, Lady [W]."
+    Ig "Is not problems of storm, like here, but different things."
+    scene d4b-36
+    with dissolve
+    Zt "This fruit look delicious ind-"
+    scene d4b-37
+    with dissolve
+    Zt "...indeed."
+    Z "Hey, [Ig], I didn't know you have a daughter."
+    Ig "Haha, no no. She is not daughter."
+    Ig "This is [Ka], my niece."
+    Ig "I always promised her to take to Egypt when she is adult."
+    Ig "Had to break her little heart for years."
+    Z "That's a dangerous journey for her to accompany you on."
+    Ig "Yes, but can [Ig] break promise to favourite niece? No."
+    Ig "She is very shy, but curious like little mouse, haha."
+    Ig "You see, when she was small kid, uncle [Ig] told her stories about mighty Desert Stalkers in Egypt."
+    Ig "Now, she finally meet one. See, [Ka]? This is Desert Stalker [persistent.player_name], friend of uncle [Ig]!"
+    $ sq_k_1.start()
+    Z "I see!"
+    Z "Nice to meet you, [Ka]."
+    scene d4b-37x
+    with dissolve
+    Ka "..."
+    scene black pic
+    with fade
+    "{i}Meanwhile..."
+    scene d4b-38
+    with fade
+    S "Hello Lady [Ma]. Long time no see."
+    scene d4b-39
+    with fade
+    Ma "..."
+    scene d4b-40
+    with dissolve
+    Ma "A long time indeed, [S]."
+    Ma "You really are growing into a fine young Lady."
+    Ma "You have filled out nicely, since I last saw you."
+    S "Thank you very much, [Ma]. You are looking as elegant as ever."
+    scene d4b-41
+    with fade
+    Ma "So... how is my former student doing?"
+    label d4b_mandisa_talk:
+        if d4b_q1 == True and d4b_q2 == True and d4b_q3 == True:
+            jump d4b_mandisa_talk_continue
+        else:
+            menu:
+                "\"I'm doing very well.\"" if d4b_q1 == False:
+                    $ d4b_q1 = True
+                    S "I am doing very well, thank you for asking."
+                    Ma "I am glad to hear that, [S]."
+                    jump d4b_mandisa_talk
+
+                "Talk about her lessons." if d4b_q2 == False:
+                    $ d4b_q2 = True
+                    S "I have not had to use your advanced lessons yet, so far. I have been lucky."
+                    scene d4b-41x
+                    with dissolve
+                    Ma "Lucky indeed, not to have found yourself in such need."
+                    Ma "I trust you are taking good care of my little toys?"
+                    scene d4b-41
+                    with dissolve
+                    S "Yes Lady [Ma], I apply your teachings on how to keep my weapons in good order daily."
+                    Ma "Good."
+                    jump d4b_mandisa_talk
+
+                "Talk about fighting." if d4b_q3 == False:
+                    $ d4b_q3 = True
+                    S "My [persistent.dad] has actually started to take me along on his adventures.."
+                    scene d4b-41x
+                    with dissolve
+                    Ma "Has he, really? I am sure you have made him proud."
+                    scene d4b-41
+                    with dissolve
+                    S "Well, it has been touch and go in a few moments, but I am still here."
+                    jump d4b_mandisa_talk
+
+                "Continue":
+                    label d4b_mandisa_talk_continue:
+                        S "I've even fought against mummies for the first time."
+                    Ma "That's impressive. Maybe we should meet, one of these days, for a refresher lesson..."
+                    Ma "...so you can tell me more about these adventures..."
+
+    scene d4b-41x-2
+    Sl "Pardon me, Mistress. The workers ask if they can go on their lunch break now."
+    scene d4b-41x
+    Ma "You dog! Don't you see I'm talking to a valued customer?! Get lost!"
+    S "Lady [Ma], don't let me hold you up."
+    scene d4b-41x-3
+    with dissolve
+    Ma "Nonsense... these slaves can wait a few minutes!"
+    "{i}Meanwhile..."
+    scene d4b-38x
+    with fade
+    A "Where have they hidden that jeweler's stall..."
+    scene black pic
+    with fade
+    C3 "Jewels, young Lady? They're just around the corner, this way!"
+    scene d4b-43
+    with fade
+    A "...and who are you?"
+    C3 "Just the assistant of the jeweler!"
+    C3 "I couldn't help but hear you."
+    A "...so, where is it?"
+    C3 "Oh, we are almost there, young Lady!"
+    C3 "Do you see that woman over there?"
+    scene d4b-42
+    with fade
+    C3 "That's my boss. She's the trader you're looking for."
+    scene d4b-43
+    with fade
+    C3 "You're so pretty... you will find what you desire, I am sure."
+    C3 "Else I wouldn't have brought you here."
+    A "I don't see any jewelry though."
+    scene d4b-44
+    with fade
+    C3 "Well, you see-"
+    scene d4b-45
+    with vpunch
+    A "Hands off, boy..."
+    A "The only man who can touch me is my [persistent.dad]."
+    A "And you don't want to mess with him."
+    A "So you keep your hands to yourself."
+    scene d4b-46
+    with fade
+    A "So.. I ask again. The jewelry you promised, where is it."
+    C3 "Oh, we don't keep our wares out in the open. Too many thieves."
+    scene d4b-47
+    C3 "My boss will be with you in a second."
+    scene d4b-48
+    A "I'm not sure about this."
+    A "Past vendors had at least a stall open."
+    A "You also don't look like a trader at a-"
+    scene black pic
+    play sound "audio/sounds/objects/machete.mp3"
+    stop music
+    A "...!"
+    C3 "Okay enough of this! Come here!"
+    C3 "You stupid cow!"
+    scene d4b-49
+    with hpunch
+    play music "audio/music/zeta/delta.mp3"
+    C3 "Now be quiet or I'll gut you like a chicken."
+    A "What are you...!"
+    C3 "I've got some friends who will pay lots of money for someone like you."
+    C3 "But if you want to be alive for that, shut it."
+    A "No, please..."
+    with vpunch
+    A "[S]!!!"
+    scene d4b-41x-4
+    S "Did you hear that?!"
+    Ma "Yes, was that your sister?"
+    scene d4b-41x-5
+    S "Sorry Lady [Ma]..."
+    S "I will bring this back!"
+    scene d4b-50
+    C3 "You fucking idiot, what did I say?!"
+    C3 "If you make another sound, I'll fucking end you!!"
+    A "{i}*whimpering*"
+    scene black pic
+    with fade
+    "{i}Moments later..."
+    scene d4b-51
+    with fade
+    S "..."
+    C3 "What's taking so long?!"
+    C3 "She's struggling a lot, I can't keep her quiet for much longer."
+    scene d4b-52
+    St "{i}[A]..!"
+    C2 "Give me a second..."
+    C2 "I'm checking if the coast is clear."
+    St "{i}So there's two of them..."
+    C3 "I picked this fucking spot for a reason! There's nobody around!"
+    C3 "Stick to the fucking plan and get me those ropes!"
+    St "{i}I have to get closer..."
+    scene d4b-53
+    C2 "I've got them, just don't let go of the little bitch."
+    scene d4b-54
+    with vpunch
+    C3 "Aaahh!!"
+    C3 "This fucking whore is biting!"
+    C2 "Keep quiet idiot!"
+    C3 "I should have cut her straight away!"
+    St "{i}That's my opening!"
+    scene d4b-55
+    with hpunch
+    C2 "Hn...?!"
+    menu:
+        "Execute her" if persistent.gore == True:
+            $ shani_killed_thug_girl = True
+            if shani_help == 2:
+                S "{i}*whispering*{/i} You left me no choice."
+            if shani_self == 2:
+                S "..."
+            if shani_help >= 1 and shani_self >= 1:
+                S "{i}*whispering*{/i} Goodnight."
+            scene d4b-56x
+            play sound "audio/sounds/gore/knife stab.mp3"
+            with dissolve
+            C2 "{i}*muffled*{/i} Hnngh.."
+            scene d4b-56x-2
+            C2 "{i}*muffled*{/i} ngh.."
+            St "{i}She's still moving..."
+            scene d4b-56x-3
+            play sound "audio/sounds/gore/gore3.mp3"
+            with vpunch
+            pause
+            scene d4b-56x-4
+            play sound "audio/sounds/gore/gore4.mp3"
+            with dissolve
+            St "What a mess..."
+
+        "Knock her out":
+            if shani_help == 2:
+                S "{i}*whispering*{/i} You missed a spot."
+            if shani_self == 2:
+                S "{i}*whispering*{/i} Hey, turn around."
+            if shani_help >= 1 and shani_self >= 1:
+                S "{i}*whispering*{/i} Time to count some sheep, bitch!"
+            scene d4b-56x-4
+            play sound "audio/sounds/actions/punch 1.mp3"
+            with vpunch
+            C2 "..!"
+            scene d4b-56x-5
+            with dissolve
+            St "{i}She's out."
+
+    scene black pic
+    play sound "audio/sounds/actions/drop.mp3"
+    C3 "Hey, we're exposed here..."
+    C3 "Get me the rope and sack right now, or I'll just kill her and be done with it."
+    S "That would be your last mistake."
+    C3 "Wha...?"
+    scene d4b-57
+    with fade
+    S "Let her go."
+    C3 "What did you do to my friend?!"
+    if shani_killed_thug_girl == True:
+        S "She's dead."
+        S "And you're next, if you don't run away now."
+        S "You know the punishment for a crime like this."
+    elif shani_killed_thug_girl == False:
+        S "She will not be able to help you anymore."
+        S "Whatever your plan was, it failed."
+        S "Run away, because death is the only alternative."
+    C3 "No, no no no."
+    C3 "It wasn't supposed to go this way!"
+    if shani_killed_thug_girl == False:
+        C3 "I-If you kill my friend, I will take out yours!"
+        A "{i}*muffled*{/i} No, [S]!"
+        S "Don't be stupid. You still have a chance to make it out alive."
+        scene d4b-58
+        with dissolve
+        G "..."
+        S "Get lost now, or die...Slowly, if you hurt her."
+    elif shani_killed_thug_girl == True:
+        C3 "Y-You will pay for this!"
+        A "{i}*whimpers*"
+        S "What the fuck are you doing?!"
+        scene d4b-58
+        with dissolve
+        G "..."
+        S "You're not going to see the end of today, if you don't surrender now!"
+        S "Be smart...what do you think will happen once you don't have her as a human shield anymore?"
+    C3 "I will not..."
+    scene d4b-59
+    with dissolve
+    C3 "Y-you s-stay away...!"
+    C3 "I...-"
+    scene d4b-60
+    play sound "audio/sounds/actions/punch 3.mp3"
+    stop music
+    with hpunch
+    C3 "..."
+    scene black pic
+    play sound "audio/sounds/actions/drop.mp3"
+    G "A kidnapping in the middle of the day! Such arrogance!"
+    A "[S]!"
+    play music "audio/music/home/dream town.mp3" fadein 3
+    scene d4b-61
+    with fade
+    A "I'm sorry, I really didn't know..."
+    S "It's alright, [A]."
+    S "You're safe now. Let's go and look for [persistent.dad], he's probably wondering what all the commotion is about."
+    A "Thank you so much [S]."
+    A "I was not serious earlier, thank you for being so strong."
+    S "..."
+    scene black pic
+    with fade
+    "{i}You and [W] rejoin with the others and travel back home."
+    "{i}Along the way [S] and [A] explain what has occurred."
+    "{i}You and [W] agree that it is best to let everybody calm down before deciding on what to do about it."
+    jump daily_home

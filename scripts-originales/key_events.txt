@@ -1,0 +1,91 @@
+label mission_end:
+    play music "audio/music/home/dream town.mp3" fadeout 2
+    jump daily_home
+
+label sh_decide:
+    "{color=#eaf50e}Do you want to enable sharing options?{/color}
+    \n
+    \nHint: If enabled, sharing your girls will always remain optional and you will still be able to pick your path of preference."
+    menu:
+        "Yes, enable sharing options":
+            "Sharing options enabled."
+            $ persistent.sharing = True
+        "No, hide all sharing options":
+            "Sharing options disabled."
+            $ persistent.sharing = False
+    return
+
+label game_over_decide:
+    "{color=#eaf50e}Do you want to enable game over scenes?{/color}\n
+    Hint: If enabled, you can watch the scene aftermath by clicking continue. Game over scenes may include sexual content of any kind."
+    menu:
+        "Yes, enable enable game over scenes":
+            "Game over scenes enabled."
+            $ persistent.game_over = True
+        "No, hide all game over scenes":
+            "Game over scenes disabled."
+            $ persistent.game_over = False
+    return
+
+label emilia_end:
+    if sq_e_1.current_step == 4 and m_d12b == True and m_d18a == True and m_d18d == True:
+        $ sq_e_1.advance()
+        $ sq_e_1.resolution = _("I am curious about how she's adapting to the everyday life of the house. I should check up on her.\n(Events [emilia_counter]/3)\n(To be continued)")
+    jump mission_end
+
+
+label splashscreen:
+    return
+
+label worldmap:
+    scene wm-bg-anim
+    play music "audio/music/exploration/spatium.mp3" fadeout 2
+    with w33slow
+    if world_map_introduction == False:
+        $ world_map_introduction = True
+        "{i}This is the world map."
+        "{i}The distance between the locations has been scaled down to show a miniature map of all points of interests."
+        "{i}As the story progresses, more quests and events will become available to visit."
+        "{i}You can find the location you want to visit by hovering over its building and clicking once."
+    call screen world_map
+
+label pov_change(t=t):
+    scene pov_transition
+    stop music fadeout 2
+    with w33slow
+    pause 1.0
+    window hide
+    jump expression t
+
+label update_end:
+    hide screen quest_log
+    scene black pic
+    stop music fadeout 2
+    play music_1 "audio/sounds/environment/desert wind.mp3" volume 1.5 fadein 2
+    with fade
+    pause 1
+
+    $ sel = renpy.random.randint(0, len(eoc_screens) - 1)
+    show expression eoc_screens[sel][0]
+    $ renpy.music.play(eoc_screens[sel][1], fadein = 3)
+
+
+    with w33slow
+    pause 1
+    stop music_1 fadeout 3
+    if not build.release_channel == "SteamEA":
+        "{color=#eaf50e}You have reached the end of non repeatable content for this version. You can always revisit repeatable events, like those in the living room, or try different story paths."
+        "{color=#eaf50e}The next update is actively being worked on. If you want to support the development of the game and get weekly previews and devlogs you can visit our {a=https://www.patreon.com/desertstalker}Patreon{/a} or {a=https://subscribestar.adult/desert-stalker}SubscribeStar{/a}."
+        "{color=#eaf50e}Thank you for playing! You will now return to the home overview."
+    else:
+        "{color=#eaf50e}You have reached the end of non repeatable content for this version. You can always revisit repeatable events, like those in the living room, or try different story paths."
+        "{color=#eaf50e}The next update is actively being worked on. You can always join our community on {a=https://discord.gg/xp2acCyZF5}Discord{/a} and keep up with the latest news."
+        "{color=#eaf50e}Thank you for playing! You will now return to the home overview."
+    window hide
+    pause 2
+    scene black pic
+    stop music fadeout 2.5
+    with slowfade
+    jump mission_end
+
+

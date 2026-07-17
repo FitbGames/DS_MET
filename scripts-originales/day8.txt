@@ -1,0 +1,3572 @@
+label d8a:
+    "{color=#eaf50e}This next event will progress the plot and make [S] unavailable for some time. Do you wish to proceed?"
+    menu:
+        "Yes":
+            pass
+        "No":
+            jump daily_home
+    $ shani_zone = True
+    $ shani_zone_departure_day = day
+    $ daily_main_mission = True
+    $ m_d8a = True
+    Z "[S] is training with Mandisa for the last time."
+    Z "I should prepare everything for when she comes back."
+    if shani_perspective == False:
+        scene black pic
+        with slowfade
+        jump d8a20
+    if shani_perspective == True:
+        # play music "audio/music/exploration/spatium.mp3" fadeout 3
+        scene d8a-1x
+        with wiperight
+        Ma "Stay focused, [S]."
+        scene d8a-1
+        with wiperight
+        Ma "Remember: there are no safe places in a Zone, you need to be alert at all times."
+        scene d8a-2
+        with slowfade
+        Ma "If you don't feel ready, you can always wait for the next one to appear."
+        scene d8a-3
+        with dissolve
+        S "I have trained long enough..."
+        scene d8a-4
+        with dissolve
+        Ma "And that means what exactly?"
+        Ma "Some people spend a lifetime to understand how a Zone works."
+        Ma "What makes you ready, [S]?!"
+        S "..."
+        scene d8a-5
+        with hpunch
+        pause 0.7
+        scene d8a-6
+        with Dissolve(0.08)
+        S "I don't need to understand how they work, Lady Mandisa."
+        S "To put it in your words:"
+        S "\"We cannot truly conquer a Zone, so we must act on our instincts.\""
+        scene d8a-7
+        with dissolve
+        Ma "So you remember..."
+        Ma "It has been a long time since I said that to you."
+        scene d8a-8
+        with fade
+        S "I remember. You also told me you were going to train my instincts."
+        S "This is it."
+        S "I think I am ready for it; as ready as I will ever be."
+        scene d8a-9
+        with dissolve
+        Ma "And you are, [S]."
+        Ma "You have been an excellent student, and I am proud of you."
+        scene d8a-10
+        with dissolve
+        S "Thank you, Lady Mandisa."
+        scene d8a-11
+        with dissolve
+        Ma "Before you go, let me remind you of a few things."
+        scene d8a-12
+        with dissolve
+        Ma "I have trained you for many years, since you were young."
+        Ma "You fight well, you are intelligent, and I am confident that you will know when to take a fight and when to retreat."
+        scene d8a-13
+        with dissolve
+        Ma "But you also have grown up to be an attractive young woman."
+        Ma "The men and women you will face will not be oblivious of that fact."
+        Ma "I must remind you that in this world, all the spoils go to the victor, and that submission in defeat is a given."
+        scene d8a-13x
+        with dissolve
+        Ma "It is good that you're not shy about your looks, but it is a double edged sword. You can use it to your advantage, as a tool of distraction."
+        Ma "...but there will be times where your beauty will be an added motivation for your opponents."
+        Ma "Conquering you will taste better to them than defeating a random fighter."
+        Ma "Your father made that mistake too, once."
+        scene d8a-14
+        with dissolve
+        Ma "So don't let it come to it. If the situation demands it, let them think you are surrendering, and wait for a better opportunity to strike."
+        scene d8a-16
+        with dissolve
+        Ma "Should they see the opportunity, they will jump at the chance of winning a trophy, and not just surviving a fight."
+        S "I will keep that in mind, thank you."
+        scene d8a-17
+        with fade
+        Ma "Good, but there is one last, important thing you need to remember."
+        scene d8a-18
+        with dissolve
+        Ma "The most dangerous threats you will encounter in the Zone are those you can neither fight nor kill. Know when to run, and that there is no shame in it."
+        Ma "Best of luck, [S]. I will see you again."
+        scene d8a-19
+        with dissolve
+        S "Goodbye, Lady Mandisa. Thank you for everything."
+        scene black pic
+        with slowfade
+        "As [S] is heading home, you and [W] are preparing the equipment needed."
+        jump d8a20
+
+label d8a20:
+    "Unexpectedly, Igor comes over to help with your preparations."
+    "As you describe the route you intend to take, he reveals to you the existence of an oasis that happens to be very close to the new zone."
+    "It's a trading post, he says, and considered neutral ground by all who visit it."
+    scene d8a-20
+    with slowfade
+    A "That's a lot of stuff..."
+    scene d8a-21
+    with dissolve
+    W "And it is all needed."
+    scene d8a-22
+    with dissolve
+    W "You never know what will happen, so you have to prepare for the worst, and then some more."
+    scene d8a-23
+    with dissolve
+    W "They're going to stay at an oasis overnight, so they need the tents."
+    W "Does [S] have everything she needs in her backpack?"
+    scene d8a-24
+    with fade
+    Z "She does. I thought of all the necessary gear."
+    Z "Let us hope the Zone offers a safe place to sleep though."
+    scene d8a-25
+    with dissolve
+    Ig "There is good chance she will find shelter."
+    Ig "My caravans have avoided the place in past, more now that Zone is there."
+    Ig "But it is industrial area, should offer some safe corners."
+    Ig "And if you rest at oasis, you have short way to Zone in morning."
+    scene d8a-26
+    with dissolve
+    W "Are you sure it's safe there, Igor?"
+    W "What if there are bandits in the oasis?"
+    scene d8a-27
+    with dissolve
+    Ig "I assure you, Lady [W], Oasis is one of safest places in these lands."
+    Ig "People will welcome them; hospitality law applies to all, in desert."
+    play music "audio/music/exploration/was this the end.mp3" fadeout 3
+    S "What's going on here?"
+    scene d8a-28
+    with dissolve
+    S "I didn't know I was moving out?"
+    scene d8a-29
+    play sound "audio/sounds/vehicles/car door.mp3"
+    with dissolve
+    A "There you are, [S]!"
+    scene d8a-30
+    with fade
+    A "[persistent.dad!c] and everybody else has been preparing for your journey for hours!"
+    scene d8a-31
+    with dissolve
+    S "And what do you do up there, [A]?"
+    S "It's just a trip, I will be back in a week or so."
+    scene d8a-32
+    with fade
+    S "[persistent.dad!c], I don't know why everyone is here, but I am here now, we can leave."
+    scene d8a-33
+    with dissolve
+    Z "Loading everything took a while; no need to rush things now."
+    scene d8a-34
+    with dissolve
+    S "Igor, you're here too? Can I ask what for?"
+    scene d8a-35
+    with dissolve
+    Ig "I heard you leave soon, so I was curious if I can help."
+    Ig "So I discussed route with your [persistent.dad]."
+    scene d8a-36
+    with dissolve
+    S "So that means you are done, right?"
+    S "Do you have anything else to discuss?"
+    scene d8a-37
+    with dissolve
+    Ig "No, I do not."
+    scene d8a-38
+    with dissolve
+    Ig "..."
+    scene d8a-39
+    with dissolve
+    pause 0.3
+    scene d8a-38
+    with dissolve
+    "With a nod of appreciation and a little frown at [S]'s attitude, you thank your friend for his help."
+    scene d8a-37
+    with dissolve
+    Ig "Best wishes on your journey, Lady [S]. I know this is hard time coming."
+    scene d8a-40
+    with fade
+    S "..."
+    scene d8a-41
+    with dissolve
+    S "I am ready to head out."
+    scene d8a-42
+    with fade
+    S "Is my backpack in there too?"
+    W "[S]..."
+    scene d8a-43
+    with dissolve
+    S "[persistent.mom!c], I think you helped enough."
+    scene d8a-44
+    with dissolve
+    S "So, are we ready now or what?"
+    scene d8a-45
+    with vpunch
+    W "[S], enough!!!"
+    S "..."
+    scene d8a-46
+    with dissolve
+    W "..."
+    scene d8a-47
+    with dissolve
+    W "Look at me..."
+    scene d8a-48
+    with dissolve
+    W "..."
+    scene black pic
+    with fade
+    "She moves in closer..."
+    scene d8a-49
+    with fade
+    W "You will tell me what your problem is, and you will do it now!"
+    scene d8a-50
+    with dissolve
+    S "It's not me who has a problem."
+    S "I just want to go on this mission, and everyone here is treating it like I'm moving out or going to die."
+    scene d8a-51
+    with dissolve
+    W "Do you think [A] wants her sister to move out?!"
+    W "And do you think that is why Igor took the time to try to help out, because he doesn't want to see you anymore?!"
+    W "Is that how you treat those who help you, by lashing out? Speak to me, my girl."
+    scene d8a-52
+    with dissolve
+    S "No, [persistent.mom]..."
+    W "Then what is it?!"
+    scene d8a-53
+    with dissolve
+    S "I don't know, [persistent.mom]."
+    S "I'm sorry, I just don't want all this attention."
+    S "I want to go and focus, but having everyone fussing around me..."
+    scene d8a-54
+    with dissolve
+    S "We are not saying goodbye, so let's not treat it like a last family gathering."
+    S "I will be gone a few days, weeks maybe, and I know the risks, but please let me go quietly."
+    scene d8a-54x
+    with dissolve
+    W "[S]..."
+    S "..."
+    scene d8a-55
+    with dissolve
+    W "Baby, come here."
+    scene d8a-56
+    with dissolve
+    Ww "All will be good, this should not be a sad day."
+    Ww "And you are right; you will come back soon."
+    Ww "We prepared everything, so, are you ready to head out?"
+    scene d8a-57
+    with dissolve
+    S "Mhm..."
+    scene black pic
+    with fade
+    "A few minutes later..."
+    scene d8a-58
+    with dissolve
+    A "I know you got this, [S]."
+    A "Once you're back, you have to tell me everything."
+    scene d8a-59
+    with dissolve
+    S "Thank you, [A]. And I will."
+    S "I know I have not always treated you well."
+    S "We should do more things together once I'm back."
+    scene d8a-61
+    with dissolve
+    A "That would be cool. Let's do that!"
+    scene d8a-62
+    with dissolve
+    W "So... time to go?"
+    scene black pic
+    stop music fadeout 4
+    with slowfade
+    "You head out into the desert together."
+    "It soon becomes obvious that [S] is understandably nervous. Thinking ahead, you hope that spending a last night together before the challenge really starts will give her time to compose her mind."
+    scene d8a-63
+    play music "audio/sounds/vehicles/car driving inside.mp3" fadein 5
+    with slowfade
+    Z "If Igor is correct, we shouldn't be far away now."
+    Z "Who knows, maybe the place will be empty, maybe not."
+    Z "Based on his description, there are worse places to spend the night."
+    scene d8a-64
+    with slowfade
+    Z "..."
+    scene d8a-65
+    with dissolve
+    Z "Maybe, if we find someone, they will have interesting stories to tell. You never know."
+    Z "If they travel this route often, they've maybe seen others heading there too. That would be good to know in advance."
+    Z "Who knows, maybe we will even meet a Stalker from the outside."
+    scene d8a-66
+    with dissolve
+    pause 1
+    scene d8a-67
+    with dissolve
+    Z "..."
+    Z "Everything will work out, I promise."
+    scene d8a-68
+    with dissolve
+    S "..."
+    scene d8a-69
+    with dissolve
+    Z "I know it will."
+    scene black pic
+    show screen cutscene_marker
+    stop music fadeout 4
+    with slowfade
+    pause 1.5
+    play music "audio/music/zone/zone looming.mp3" fadein 3
+    pause 0.5
+    scene d8a-70
+    with w33slow
+    pause 2
+    Z "...and here we are.{p=4} {nw}"
+    scene d8a-74
+    with slowfade
+    pause 2
+    Z "The Zone is really not far from here.{p=4} {nw}"
+    scene d8a-71
+    with slowfade
+    Z "Do you want to set up the camp?{p=4} {nw}"
+    S "Okay...{p=3} {nw}"
+    scene d8a-73
+    with w33slow
+    pause 3.5
+    scene d8a-79x
+    with Dissolve(0.5)
+    pause 3.7
+    play sound "audio/sounds/environment/zone emission.mp3"
+    scene d8a-78
+    with Dissolve(1.0)
+    pause 1.3
+    scene d8a-74
+    with slowfade
+    pause 0.5
+    scene d8a-74x
+    with Dissolve(4)
+    scene d8a-75
+    with flash
+    pause 2
+    scene d8a-74x
+    with Dissolve(4.0)
+    pause 1
+    scene d8a-78x
+    with Dissolve(1.5)
+    pause 2
+    scene d8a-79
+    with Dissolve(0.6)
+    pause 3
+    scene d8a-80
+    with w33slow
+    C2 "...{p=1.5} {nw}"
+    scene d8a-81
+    with dissolve
+    C2 "Hey, Heka; you think those folks could use some company?{p=4} {nw}"
+    scene d8a-82
+    with dissolve
+    C3 "I suppose. Ask them!{p=3} {nw}"
+    scene d8a-83
+    with fade
+    C2 "Hey! You two!{p=3} {nw}"
+    C2 "You look a bit lost over there, why don't you join us for the evening?{p=4.5} {nw}"
+    scene d8a-84
+    stop music fadeout 13
+    with dissolve
+    Z "What do you think? I say it won't hurt to be friendly.{p=4} {nw}"
+    scene d8a-85
+    with dissolve
+    Z "Come, let's pay them a visit.{p=4} {nw}"
+    scene black pic
+    hide screen cutscene_marker
+    with slowfade
+    "You and [S] introduce yourselves to the other travellers in the oasis. You settle down and break bread together."
+    "As Igor predicted, they turn out to be traders leading a small caravan through the desert..."
+    scene d8a-92
+    play music "audio/music/exploration/main theme short.mp3" fadein 5
+    with slowfade
+    He "...yeah, your friend Igor was right, this has long been a neutral place, where people come together to shake some of the sand off their boots, in peace."
+    scene d8a-91
+    with dissolve
+    He "Eventually we all decided to set up a permanent camp here."
+    He "Caravans go in and out, and so far the agreement stands, even with other, less peaceful, folk."
+    scene d8a-90
+    with dissolve
+    S "That's pretty cool."
+    scene d8a-93
+    with dissolve
+    He "Eva and I travel this route quite frequently, and we really can't complain."
+    He "Granted, now that that unsettling Zone appeared, I expect fewer people to come this way..."
+    He "...which might actually work in favour of those who do."
+    He "And with two Stalkers in my camp, I'm definitely not going to worry for our safety tonight."
+    scene d8a-96
+    with dissolve
+    Jaz "So, I'm guessing you two are going to head out there tomorrow morning?"
+    scene d8a-97
+    with dissolve
+    S "Yeah, sort of..."
+    S "I will be the only one going."
+    scene d8a-98
+    with dissolve
+    Jaz "Oh..."
+    Jaz "But... I don't understand?"
+    scene d8a-99
+    with dissolve
+    Ev "It's a long standing tradition, in Zeta, for new Stalkers to face their first Zone on their own."
+    scene d8a-100
+    with dissolve
+    Ev "I've only heard stories, but they say that even though the first visit is very dangerous to an inexperienced Stalker, it's also the most personal one, never to be forgotten."
+    scene d8a-95
+    with dissolve
+    He "Now, what do you think, [persistent.player_name]? I say we try to put the fears of tomorrow out of our minds and enjoy the evening."
+    scene d8a-94
+    with dissolve
+    Z "I'm not against that, what do you have in mind?"
+    scene d8a-102
+    with dissolve
+    He "Oh, I know something we can do."
+    scene d8a-101
+    with dissolve
+    Jaz "I hope you'll go easy on yourself this time, [He]."
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    "Some time later..."
+    scene d8a-103
+    play music "audio/music/exploration/hashish.mp3" fadein 15
+    with w33slow
+    Jaz "..."
+    Jaz "...you have gone too far, again..."
+    Z "...Is he always this generous, when he loads the pipe?"
+    Jaz "Yep... yep."
+    scene d8a-105
+    with dissolve
+    Jaz "That last one hit me in a different way."
+    scene d8a-104
+    with dissolve
+    He "You've got to enjoy the moment, Jazmin..."
+    He "...damn, I'm good."
+    scene d8a-106
+    with dissolve
+    Zt "Whoa..."
+    scene d8a-107
+    with dissolve
+    Zt "That was strong stuff..."
+    scene d8a-108
+    with dissolve
+    Z "Hey, you okay?"
+    Ev "{i}*chuckles*{/i} is she sleeping?"
+    scene d8a-109
+    with dissolve
+    Ev "Hey, [S], the evening is not over yet!"
+    Ev "If you're sleeping just tell us!"
+    if shani_perspective == True:
+        scene d8a-112
+        play sound "audio/sounds/environment/waves.mp3" fadein 3
+        $ renpy.music.set_volume(0.3, channel="music")
+        with longflash
+        S "Mmhm..."
+        scene d8a-113
+        with dissolve
+        S "..."
+        scene d8a-109
+        with longflash
+        Ev "She must've had a long day. Should we let her rest?"
+        stop sound fadeout 3
+        $ renpy.music.set_volume(1, channel="music")
+    if shani_perspective == False:
+        S "Mmhm..."
+        Ev "She must've had a long day. Should we let her rest?"
+    scene d8a-110
+    with dissolve
+    S "...?"
+    scene d8a-111
+    with dissolve
+    S "N-no no... I'm fine, I'm here."
+    scene d8a-116
+    with dissolve
+    Ev "I would say I'm sorry for [He]'s doing, but I think maybe you needed that one."
+    scene d8a-117
+    with dissolve
+    He "Hey... hey... look..."
+    scene d8a-118
+    with dissolve
+    He "I didn't want to knock anyone out, okay."
+    He "I may have overdone it... a little bit... again... I admit that."
+    scene d8a-119
+    with dissolve
+    Jaz "Hgrh...!"
+    scene d8a-120
+    with dissolve
+    Jaz "Guys..."
+    scene d8a-121
+    with dissolve
+    Jaz "...as nice as this was, I should call it a night."
+    scene d8a-121x
+    with dissolve
+    Ev "Aww... Jazmin..."
+    Ev "...I can't blame you though."
+    scene d8a-122
+    with fade
+    Jaz "It was nice meeting you two. See you back in Zeta, maybe."
+    Z "Good night Jazmin, take care."
+    scene black pic
+    with fade
+    "She leaves the tent..."
+    scene d8a-125
+    with fade
+    S "She seems like a nice person."
+    scene d8a-126
+    with dissolve
+    Ev "Jazmin? Oh yes."
+    Ev "She's the nicest girl you'll ever find in these lands."
+    Ev "She is not from Zeta, and you can tell."
+    menu:
+        "Look down":
+            $ d8a_looked_at_shani = True
+            scene d8a-127
+            with dissolve
+            Z "..."
+            S "How so?"
+            Ev "Well, she never attempts to put herself above others... is always trying to learn something new."
+            Ev "To be honest, sometimes I wonder how she survives in these harsh lands."
+            if shani_help >= shani_self:
+                S "It's an uncommon mindset, I agree."
+            if shani_self > shani_help:
+                S "Maybe people just underestimate her?"
+                Ev "Could be..."
+            "You feel someone looking at you..."
+            scene d8a-123
+            with dissolve
+            Ev "..."
+            "Although everyone is still somewhat buzzed, her expression tells you she has something on her mind."
+            scene d8a-124
+            with dissolve
+            Ev "Anyway... what do you guys think of stretching your legs a little?"
+            scene d8a-118
+            with dissolve
+            He "You've had worse ideas, babe... I should consider it..."
+            scene d8a-128
+            with dissolve
+            Z "I'm going to get up for a bit, too."
+            Z "It will help me regain feeling in my legs again, I should think."
+            scene d8a-129
+            with dissolve
+            S "{i}*laughs*{/i} I think you will need them eventually, yes."
+            scene d8a-130
+            with dissolve
+            Z "Alright, let's get up."
+            jump d8a131
+
+        "Don't":
+            scene d8a-90
+            with dissolve
+            S "How so?"
+            scene d8a-91
+            with dissolve
+            Ev "Well, she never attempts to put herself above others... is always trying to learn something new."
+            Ev "To be honest, sometimes I wonder how she survives in these lands."
+            scene d8a-90
+            with dissolve
+            S "That is very remarkable, I agree."
+            scene d8a-124
+            with dissolve
+            Ev "Anyway... what do you guys think of stretching your legs a little?"
+            scene d8a-118
+            He "You've had worse ideas, babe... I should consider it..."
+            scene d8a-128
+            with dissolve
+            Z "Not a bad idea."
+            Z "It will help me regain feeling in my legs again, I should think."
+            scene d8a-129
+            with dissolve
+            S "{i}*laughs*{/i} I think you will need them eventually, yes."
+            scene d8a-130
+            with dissolve
+            Z "Alright, let's get up."
+            jump d8a131
+
+label d8a131:
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    "Eventually..."
+    scene d8a-131
+    play music "audio/sounds/environment/desert wind.mp3" fadein 5
+    with slowfade
+    if shani_perspective == True:
+        S "She's beautiful."
+        scene d8a-132
+        with dissolve
+        He "We had two more, but they were too old for the trek, so we traded them away."
+        He "Since then, we've been looking for an opportunity to acquire a few more."
+        scene d8a-133
+        with dissolve
+        He "Too many places are affected by pollution and scarcity though, which makes breeding them in sufficient numbers a challenge."
+        scene d8a-134
+        with dissolve
+        S "At least we still have the car... even though we can't use it in the city."
+        scene d8a-135
+        with fade
+        He "So... how are you feeling now?"
+        He "You looked a bit down when you arrived here."
+        He "I hope that we took away a bit of your anxiety over tomorrow?"
+        scene d8a-137
+        with dissolve
+        S "Yes, thank you. I had a good time."
+        scene d8a-138
+        with dissolve
+        He "I know little about the Zones and the so called emissions that happen inside there."
+        He "A Stalker once told me that those moments are often preceded by signs, and identifying the signs can save your life."
+        He "Maybe you knew this already. If not, I offer you this knowledge, on your journey."
+        scene d8a-137
+        with dissolve
+        S "Your gift of knowledge is appreciated. I thank you."
+        scene d8a-138
+        with dissolve
+        He "You are schooled in the proper ways of the desert. Your [persistent.dad] taught you well."
+        scene d8a-139
+        with dissolve
+        S "Anyway... it's not really the zone itself that worries me, to be honest."
+        S "I am supposed to head to the Zone with nothing else on my mind, but that's not how I feel..."
+        S "...it feels that I am leaving behind unfinished things, that's all."
+        scene d8a-140
+        with dissolve
+        He "I totally get that. I mean, at least I think I do."
+        He "I haven't talked to many Stalkers about their tasks, but I did have one friend..."
+        He "She was a scavenger, you know, collecting scraps from ancient ruins and all."
+        scene d8a-136
+        with dissolve
+        He "She always had big plans for the  future, and always kept putting them on hold, telling me she would pursue them after her next trip."
+        scene d8a-135
+        with dissolve
+        He "But one day she told me: \"This will be it. After the next big trip, I will put aside all of this and focus on the things I always wanted to do.\""
+        scene d8a-135x
+        with dissolve
+        He "Well... long story short, she never came back from that trip."
+        He "She got ambushed by raiders, whilst exploring one of those broken down planes."
+        He "Only one member of her crew made it back."
+        He "So... everything she worked for, all those things she wanted to do, they are gone, lost in the wind."
+        scene d8a-136
+        with dissolve
+        He "Now, don't get me wrong. I'm not saying that you won't come back."
+        He "But if there is something you want to do or say before you head towards the unknown, my suggestion is to get that over with. Deal with those things."
+        scene d8a-135
+        with dissolve
+        He "We must travel light, in the desert. Regrets are often a load that lies heavy on the heart."
+        scene d8a-139
+        with dissolve
+        S "Thank you again, [He]. Your gift of wisdom is also appreciated. I will consider your words."
+        scene d8a-141
+        with dissolve
+        S "..."
+    scene d8a-142
+    with slowfade
+    if d8a_looked_at_shani == True:
+        Ev "So, [persistent.player_name], I'm curious. What is going on between you two?"
+        scene d8a-143
+        with dissolve
+        Z "{i}*laughs*{/i} What do you mean?"
+        scene d8a-144
+        with dissolve
+        Ev "You know what I'm talking about. You and your [persistent.da]."
+        Ev "I saw the way you look at her. A woman knows these things."
+        Ev "You don't seem to be the shy type, so why are you hesitating?"
+        menu:
+            "\"She has not finished her training yet, which is why I have always have tried to restrain myself.\"":
+                $ shani_romance = True
+                scene d8a-145
+                with dissolve
+                Z "You have seen her. She {i}is{/i} easy on the eyes."
+                Z "But she has not finished her training yet, which is why I have always made an effort to restrain myself."
+                Ev "That's how it works for all Zetan Stalkers, isn't it?"
+                Z "Yes, it usually is, for the good ones. And I like to think I am very good."
+                scene d8a-143x
+                with fade
+                Ev "Well then..."
+                scene d8a-143x-2
+                with dissolve
+                Ev "She has a great mentor, and an even better [persistent.dad]."
+                Ev "And I'm sure she knows that."
+                scene d8a-143x-3
+                with dissolve
+                Z "Thanks, [Ev]."
+                jump d8a143x4
+            "\"She's a pretty girl, but she should go her own way.\"":
+                scene d8a-145
+                with dissolve
+                $ shani_romance = False
+                Z "She's a pretty girl, but she should find her own way."
+                scene d8a-143x
+                with fade
+                Ev "Well then..."
+                scene d8a-143x-2
+                with dissolve
+                Ev "She has a great mentor, and an even better [persistent.dad]."
+                Ev "And I'm sure she knows that."
+                scene d8a-143x-3
+                with dissolve
+                Z "Thanks, [Ev]."
+                jump d8a143x4
+
+    if d8a_looked_at_shani == False:
+        Ev "So, [persistent.player_name], I'm curious."
+        Ev "Is there anything more going on between you two?"
+        scene d8a-143
+        with dissolve
+        Z "What makes you ask?"
+        Ev "Things seemed a little tense between the two of you, tonight."
+        scene d8a-144
+        with dissolve
+        Ev "I'm just asking. She's your [persistent.da], you go on adventures together and all. Such things breed closeness."
+        Ev "I'm going everywhere with [He], and I could never imagine not sharing my bed with him."
+        Ev "You seem confident enough to have no problem getting along with girls?"
+        Z "{i}*laughs*{/i} Not a bad guess."
+        Ev "See, I knew it. So what's the story?"
+        scene d8a-146
+        with dissolve
+        Ev "Looking at her, she must've been the most popular girl in school."
+        Ev "Are you not interested? That's not what I thought I would see in a Zetan Stalker, of all people."
+        menu:
+            "\"Of course I am interested, but until today, we have focused on her training.\"":
+                scene d8a-145
+                with dissolve
+                Z "Of course I am interested, but we have focused on her training before all else, until today."
+                if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                    Z "That's what I've promised myself since she told me she wanted to follow in my footsteps."
+                else:
+                    Z "That's what I've promised myself since the day we adopted her, just like my mentor did for me."
+                Ev "That's how it works for all Zetan Stalkers, isn't it?"
+                Z "Yes."
+                scene d8a-146
+                with dissolve
+                Ev "And what if she wanted more from you too?"
+                menu:
+                    "\"We will talk about it, eventually.\"":
+                        $ shani_romance = True
+                        Z "We will talk about it, eventually."
+                        scene d8a-143x
+                        with fade
+                        Ev "Well then..."
+                        scene d8a-143x-2
+                        with dissolve
+                        Ev "She has a great mentor, and an even better [persistent.dad]."
+                        Ev "And I'm sure she knows that."
+                        scene d8a-143x-3
+                        with dissolve
+                        Z "Thank you, [Ev]."
+                        jump d8a143x4
+                    "\"It's not what I want for her.\"":
+                        $ shani_romance = False
+                        Z "It's not what I want for her."
+                        Z "I know she is sometimes disappointed that I am so strict with her, but that's how it must be."
+                        Z "And I will always support her, but she's going to find her own way, and that's a good thing."
+                        scene d8a-143x
+                        with fade
+                        Ev "Well then..."
+                        scene d8a-143x-2
+                        with dissolve
+                        Ev "It's nice to have a supportive [persistent.dad]."
+                        Ev "She's very lucky, and I'm sure she knows that."
+                        scene d8a-143x-3
+                        with dissolve
+                        Z "Thank you, [Ev]."
+                        jump d8a143x4
+
+            "\"She will go her own way.\"":
+                $ shani_romance = False
+                scene d8a-145
+                with dissolve
+                Z "She will go her own way. My wife and I support her."
+                scene d8a-143x
+                with fade
+                Ev "Well then..."
+                scene d8a-143x-2
+                with dissolve
+                Ev "It's nice to have a supportive [persistent.dad]."
+                Ev "She's very lucky, and I'm sure she knows that."
+                scene d8a-143x-3
+                with dissolve
+                Z "Thank you, [Ev]."
+                jump d8a143x4
+
+label d8a143x4:
+    scene d8a-143x-4
+    with slowfade
+    Zt "It's getting late. I should call it a night."
+    scene d8a-147
+    with slowfade
+    Z "[S], I'll be in the tent."
+    scene d8a-148
+    with dissolve
+    S "Alright, [persistent.dad]."
+    S "I'll join you soon."
+    scene black pic
+    with slowfade
+    "You say goodbye to the others and head back to the tent..."
+    scene d8a-149
+    with slowfade
+    Zt "[S] seems much more relaxed now."
+    scene d8a-150
+    with fade
+    Zt "It's been an emotionally exhausting day; not only for her."
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    "Once you have made yourself comfortable, you hear steps approaching, outside the tent."
+    scene d8a-151
+    play music "audio/music/home/music box september.mp3" fadein 10
+    with w33slow
+    S "Knock, knock!"
+    Z "You may come inside."
+    scene d8a-152
+    with dissolve
+    S "Really, may I? {i}*laughs*{/i}"
+    scene d8a-153
+    with fade
+    S "It's warm in here."
+    Z "It is."
+    scene d8a-154
+    with fade
+    S "Let me put that there..."
+    scene d8a-155
+    with dissolve
+    S "I see you didn't wait even a minute to get undressed."
+    Z "You know I don't like to sleep in a shirt."
+    scene d8a-156
+    with dissolve
+    S "Eh, I know... like me with pants, right?"
+    scene d8a-157
+    with dissolve
+    Z "Ha! Well... enjoy the comfort, now you still have the option."
+    S "You're saying I can't walk around in my underwear in the zone?"
+    Z "{i}*laughs*"
+    scene d8a-161
+    with fade
+    S "..."
+    scene d8a-158
+    with dissolve
+    S "..."
+    Z "Is something wrong?"
+    S "Hmm..."
+    scene d8a-159
+    with dissolve
+    S "I'm just thinking..."
+    scene d8a-160
+    with dissolve
+    S "Right! I forgot the blanket!"
+    scene black pic
+    with fade
+    "It takes [S] a minute, before she comes back..."
+    scene d8a-162
+    with fade
+    S "Got it."
+    scene d8a-163
+    with slowfade
+    Z "Good idea. We don't want to catch a cold when the fire goes out."
+    S "Yup."
+    scene d8a-164
+    with dissolve
+    S "It's kind of like back when I was little, remember?"
+    scene d8a-165
+    with dissolve
+    Z "I do."
+    if shani_romance == True:
+        scene d8a-166
+        with dissolve
+        Z "And once in bed, I would always say..."
+        scene d8a-166x
+        with dissolve
+        Z "It's a big day tomorrow. Time to sleep."
+    if shani_romance == False:
+        scene d8a-166x
+        with dissolve
+        Z "And I used to stroke your cheek and tell you..."
+        Z "It's a big day tomorrow. Time to sleep."
+    scene d8a-167
+    with dissolve
+    S "And I would always fall asleep on the spot."
+    scene d8a-168
+    with dissolve
+    Z "{i}*chuckles*{/i} You would."
+    Z "Want to try it again?"
+    scene black pic
+    stop music fadeout 5
+    with slowfade
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        S "Goodnight, [persistent.dad]."
+    else:
+        S "Goodnight!"
+    Z "Goodnight, [S]."
+    stop music fadeout 5
+    if shani_perspective == True:
+        scene d8a-169
+        with slowfade
+        S "..."
+        scene d8a-136x
+        with dissolve
+        He "{i}But if there is something you want to do or say before you head towards the unknown, my suggestion is to get that over with. Deal with those things."
+        scene d8a-171
+        with dissolve
+        St "{i}Thank you, [He]. I will consider your words."
+        scene d8a-172
+        with dissolve
+        S "..."
+        scene black pic
+        with slowfade
+    Sw "[persistent.dad!c]?"
+    Sw "Are you sleeping already?"
+    scene d8a-173
+    if shani_romance == True:
+        play music "audio/music/exploration/transient.mp3" fadein 20
+    if shani_romance == False:
+        play music "audio/music/exploration/was this the end.mp3" fadein 5
+    with slowfade
+    Z "...Hm?"
+    Z "No... I just dozed off... a bit."
+    scene d8a-178
+    with dissolve
+    S "..."
+    menu:
+        "\"What's wrong?\"":
+            Z "What's wrong?"
+            scene d8a-176x
+            with dissolve
+            S "Nothing, really..."
+            S "It's more that..."
+            scene d8a-175x
+            with dissolve
+            S "Earlier, outside, while you were talking with [Ev], I had a short talk with [He]."            
+            jump d8a174
+
+        "\"Can't sleep?\"":
+            Z "Can't you sleep?"
+            scene d8a-185
+            with dissolve
+            S "It's not that I can't sleep."
+            S "I just don't want to; not yet."
+            scene d8a-175x
+            with dissolve
+            S "So... earlier, outside, while you were talking with [Ev], I had a short talk with [He]."
+            jump d8a174
+
+        "\"Did I forget your bedtime story?\"":
+            Z "Did I forget your bedtime story?"
+            scene d8a-175
+            with dissolve
+            S "Ha... no, I think I don't need those anymore."
+            scene d8a-177
+            with dissolve
+            S "No, it's something else..."
+            scene d8a-175x
+            with dissolve
+            S "Earlier, outside, while you were talking with [Ev], I had a short talk with [He]."
+            jump d8a174
+
+label d8a174:
+    S "...and as we were talking about the Zone and everything, he said that it's best to not leave behind unfinished business before I go..."
+    S "...because you never know if you come back after all."
+    scene d8a-178
+    with dissolve
+    Z "What do you mean? You will come back, I am sure. What did he tell you?"
+    scene d8a-179
+    with dissolve
+    S "..."
+    scene d8a-176x
+    with dissolve
+    S "[persistent.dad!c], this whole day I was not worried about the Zone, or that I might not come back."
+    S "You taught me that I should face my challenges with a clear mind, so that I am not distracted."
+    scene d8a-175x
+    with dissolve
+    S "But if there are still things you want to do or say before you head into a place you don't know you will ever come back from..."
+    scene d8a-178
+    with dissolve
+    Z "...then you will be distracted; it's inevitable, really."
+    S "..."
+    scene d8a-177
+    with dissolve
+    S "I don't know if you remember the other day, when we were on the balcony..."
+    S "We were talking about what I know and don't know, what plans I have..."
+    scene d8a-174
+    with dissolve
+    S "...I was telling you that there are a few things that are clear to me, even if I wasn't leaving just yet."
+    scene d8a-180
+    with Dissolve(2.5)
+    S "...that I know what I don't want to lose."
+    if shani_romance == False:
+        scene d8a-181
+        with dissolve
+        S "...and that is our family."
+        scene d8a-182
+        with dissolve
+        S "I agree that I should forge my own path as a Stalker, but I don't want this to mean that I am leaving all of you behind."
+        S "The same way you have taught me about being a Stalker, [persistent.mom] has always taught us that family is important and that we should value it."
+        scene d8a-182x
+        with dissolve
+        S "I love being a part of that. When I return from the Zone, will you let me stay?"
+        scene d8a-182x-3
+        with dissolve
+        Z "[S]... I will never send you away from me, from us. Stalker or not Stalker, you are family. [W] is right."
+        Z "Have I ever made you feel unwelcome or told you that once you became a Stalker you were on your own?"
+        scene d8a-182
+        with dissolve
+        S "Well, no. I just assumed..."
+        scene d8a-182x-3
+        with dissolve
+        Z "I should have been more clear about that then. Our family is and will always have a place for you, wherever your path may lead after this."
+        scene d8a-182x
+        with dissolve
+        S "Thank you, [persistent.dad]. That takes a weight off my shoulders."
+        scene black pic
+        with fade
+        "Reassured, [S] settles into your embrace, finding comfort in it, as you share a tender moment."
+        scene d8a-303x
+        with fade
+        Z "I am glad we cleared that up. Let's sleep now."
+        scene d8a-304
+        with dissolve
+        Z "You have a big day ahead of you tomorr.."
+        scene d8a-305
+        with dissolve
+        Z "Aannd she's gone."
+        "Her soft breathing slows down as sleep overtakes her."
+        jump d8a305x
+    if shani_romance == True:
+        scene d8a-181
+        with dissolve
+        S "...and that is us."
+        scene d8a-182
+        with dissolve
+        S "And I don't just mean our journeys, or studying and preparing together..."
+        S "I mean everything, as a whole."
+        S "I do like being alone sometimes, and I am looking forward to what's to come tomorrow."
+        scene d8a-182x
+        with dissolve
+        S "But I also don't want the time we spend together to end, and no Zone is going to change that."
+        scene d8a-182x-2
+        with dissolve
+        S "..."
+        scene d8a-182
+        with dissolve
+        S "If anything... I want more of it."
+        scene d8a-182x-3
+        with dissolve
+        Z "[S]..."
+        Z "I promise you, I am not going anywhere."
+        Z "We can go on more journeys together once you're back, and you can show me what you have learned."
+        scene d8a-183
+        play music "audio/music/exploration/arabian nights.mp3" fadeout 4
+        with Dissolve(1.5)
+        label re_d8a174:
+            if _in_replay:
+                play music "audio/music/exploration/arabian nights.mp3" fadein 4
+                scene d8a-183
+            S "You..."
+        S "You don't listen..."
+        Z "I do listen, really."
+        scene d8a-184
+        with dissolve
+        Z "I'm glad you got this off your chest."
+        scene d8a-184x
+        with dissolve
+        Z "But now you should focus on-"
+        scene d8a-183x
+        with dissolve
+        S "I. Don't. Care."
+        scene d8a-187
+        with hpunch
+        Z "...!"
+        S "..."
+        scene d8a-190
+        with dissolve
+        "{i}*kissing*"
+        scene d8a-188
+        with dissolve
+        Zt "This feeling..."
+        scene d8a-191
+        with dissolve
+        Zt "All the tension built up over the years, fading away... this easily? So simple?"
+        scene d8a-193
+        with dissolve
+        S "Mh..."
+        scene d8a-194
+        with dissolve
+        "{i}You gently stroke her cheek..."
+        scene d8a-195
+        with dissolve
+        S "..."
+        scene d8a-196
+        with dissolve
+        pause 2
+        "Her faint smile can't hide a glimmer of insecurity, as a shiver courses through her..."
+        menu:
+            "\"I have always forced myself away from this.\"":
+                Zw "For years, I have held back on this."
+                scene d8a-197
+                with dissolve
+                Sw "Don't you think I know?"
+                jump d8a193
+
+            "\"You are beautiful.\"":
+                Zw "You are so beautiful."
+                scene d8a-200
+                with dissolve
+                pause 1.5
+                scene d8a-201
+                with dissolve
+                S "..."
+                jump d8a193
+
+            "Pull her towards you":
+                scene d8a-198
+                with dissolve
+                Sw "Hn..?"
+                Zw "Come back here, I'm not done yet."
+                scene d8a-199
+                with dissolve
+                Sw "Yes..."
+                jump d8a193
+
+
+
+
+
+label d8a193:
+    scene d8a-193
+    with dissolve
+    S "Mh..."
+    scene d8a-195x
+    with dissolve
+    Zt "Her kisses are so full of passion."
+    Zt "Now that we're here, I almost can't think why we hesitated so long, why I didn't..."
+    scene d8a-195x-2
+    with dissolve
+    Zt "...And she wants more, but should we?"
+    scene d8a-202
+    with dissolve
+    Zt "Who am I kidding... I too want more. I want it all."
+    scene d8a-203
+    with dissolve
+    S "Hnn..."
+    "She kisses you even more passionately..."
+    scene d8a-204
+    with dissolve
+    S "..."
+    scene d8a-205
+    with dissolve
+    Zw "Do you want to lay on your back?"
+    scene d8a-206
+    with dissolve
+    Sw "Yes, please."
+    scene d8a-208
+    with w33slow
+    Sw "I think the fire is going out..."
+    Zw "That's okay, we still have your light. I want to see this."
+    scene d8a-207
+    with dissolve
+    "Gently, you let go of her."
+    scene d8a-209
+    with dissolve
+    pause 0.7
+    scene d8a-210
+    with dissolve
+    S "..."
+    scene d8a-211
+    with dissolve
+    "{i}*kissing*"
+    scene d8a-212
+    with dissolve
+    pause 1
+    scene d8a-213
+    with Dissolve(1.5)
+    pause 1
+    scene d8a-214
+    with Dissolve(1.5)
+    S "Nh..."
+    jump shanikissmenu
+
+label shanikissmenu:
+    scene d8a-215
+    with dissolve
+    menu:
+        "Caress her neck" if shani_kiss_menu1 == False:
+            $ shani_kiss_menu1 = True
+            scene d8a-216
+            with dissolve
+            pause 1
+            scene d8a-217
+            with dissolve
+            S "Ah..."
+            scene d8a-218
+            with dissolve
+            "You gently kiss her neck, nibbling playfully at her skin."
+            scene d8a-219
+            with dissolve
+            S "This... feels good..."
+            scene d8a-220
+            with dissolve
+            S "{i}*giggles*"
+            scene d8a-217
+            with dissolve
+            "{i}*kissing*"
+            if shani_kiss_menu1 == True and shani_kiss_menu2 == True:
+                jump d8a224
+            else:
+                jump shanikissmenu
+
+        "Join hands" if shani_kiss_menu2 == False:
+            $ shani_kiss_menu2 = True
+            scene d8a-221
+            with dissolve
+            pause 1
+            scene d8a-222
+            with Dissolve(1.0)
+            "She grabs your hand firmly..."
+            scene d8a-223
+            with dissolve
+            "{i}*kissing*"
+            if shani_kiss_menu1 == True and shani_kiss_menu2 == True:
+                jump d8a224
+            else:
+                jump shanikissmenu
+
+        "Continue" if shani_kiss_menu1 == True or shani_kiss_menu2 == True:
+            jump d8a224
+
+label d8a224:
+    scene d8a-224
+    with dissolve
+    "You interrupt the kiss and look at her..."
+    scene d8a-225
+    with dissolve
+    "Her breathing is ragged..."
+    menu:
+        "\"You were right, I didn't really listen.\"":
+            Zw "You were right, [S]."
+            Zw "I wasn't listening, not really."
+            scene d8a-226
+            with dissolve
+            Zw "But I'm going to make up for it."
+            scene d8a-227
+            with dissolve
+            Sw "I would like that..."
+            jump d8a231
+
+        "\"You're in trouble now.\"":
+            scene d8a-228
+            with dissolve
+            Zw "You're in trouble now."
+            scene d8a-229
+            with dissolve
+            Zw "There is no coming back from this, you know?"
+            scene d8a-230
+            with dissolve
+            Sw "Will it be like with [persistent.mom] and [A]...?"
+            "You look her deep into the eyes and slowly nod..."
+            jump d8a231
+
+
+
+label d8a231:
+    scene d8a-231
+    with dissolve
+    Z "..."
+    scene d8a-233
+    with dissolve
+    "You grab the straps of her top."
+    scene d8a-232
+    with dissolve
+    "{i}*kissing*"
+    scene d8a-233
+    with dissolve
+    pause 1
+    scene d8a-234
+    with dissolve
+    Zt "She has grown up so much..."
+    scene d8a-236
+    with dissolve
+    Zt "...and has become a cunning, fierce, and attractive woman."
+    scene d8a-237
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Zt "Both my [persistent.da]s have developed well."
+        Zt "They take a lot after their [persistent.mom]."
+        scene d8a-238
+        with dissolve
+        Zt "...but [S] has something no other girl has."
+        Zt "Something that made me hold back all these years."
+    else:
+        Zt "Both [S] and [A] have developed well since we adopted them."
+        Zt "Whoever her revered mother was, she blessed them with the bodies of angels."
+        scene d8a-238
+        with dissolve
+        Zt "But [S] especially has a quality, a strength that I have never encountered before."
+        Zt "Holding back all these years was the only way how I knew to nurture that strength. Will it have been for nothing?"
+    scene d8a-239
+    with dissolve
+    "You pull down her top..."
+    scene d8a-240
+    with Dissolve(0.7)
+    pause
+    scene d8a-241
+    with Dissolve(0.7)
+    Zw "Blessed Merneith..."
+    S "{i}*giggles*"
+    scene d8a-242
+    with dissolve
+    "You lean in for a passionate kiss..."
+    scene d8a-243
+    with Dissolve(0.7)
+    Sw "Hn..."
+    scene d8a-244
+    with dissolve
+    "You can sense the uncertainty in her movements."
+    scene d8a-245
+    with dissolve
+    Zt "Her sister may have bigger breasts, but hers are amazingly firm yet still soft."
+    scene d8a-246
+    with dissolve
+    Sw "Hn..."
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Sw "[persistent.dad!c]... you are... strong..."
+    else:
+        Sw "You are... strong..."
+    scene d8a-247
+    with dissolve
+    "{i}*kissing*"
+    scene d8a-248
+    with dissolve
+    "Her moans increase in intensity..."
+    scene d8a-249
+    with dissolve
+    Zw "[S], take your top off..."
+    scene black pic
+    with slowfade
+    "She does as you say..."
+    scene d8a-250
+    with w33slow
+    Zw "Lay back and relax."
+    scene d8a-251
+    with dissolve
+    "You start kissing and inching your way down..."
+    scene d8a-252
+    with fade
+    pause
+    scene d8a-253
+    with fade
+    pause
+    scene d8a-255
+    with fade
+    pause
+    scene d8a-256
+    with fade
+    pause
+    scene d8a-256x
+    with dissolve
+    Sw "Nh..."
+    scene d8a-257
+    with dissolve
+    "You keep kissing her thighs..."
+    scene d8a-258
+    with Dissolve(0.8)
+    Sw "Ah..."
+    scene d8a-259
+    with fade
+    Zw "I'm going to take it off."
+    Sw "Yes! Please..."
+    scene d8a-260
+    with fade
+    Sw "Nh..."
+    scene d8a-261
+    with dissolve
+    pause
+    scene d8a-261x
+    with dissolve
+    "You start pleasuring her..."
+    scene d8a-262
+    with fade
+    "She moans quietly, enjoying your attention."
+    scene d8a-263
+    with dissolve
+    Sw "Hmm..."
+    scene d8a-264
+    with dissolve
+    pause 1
+    scene d8a-265
+    with Dissolve(0.7)
+    "You keep servicing her for a while..."
+    scene d8a-266
+    with dissolve
+    Sw "Hn..."
+    scene d8a-267
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Sw "[persistent.dad!c]... come to me..."
+    else:
+        Sw "Can you... come to me..."
+    scene black pic
+    with slowfade
+    Sw "Can you... can you take these off?"
+    scene d8a-268
+    with w33slow
+    pause 1
+    scene d8a-269
+    with dissolve
+    "{i}*kissing*{/i}"
+    scene d8a-270
+    with dissolve
+    Sw "It's the first time I'm touching it, isn't it...?"
+    scene d8a-270x
+    with dissolve
+    Zw "Well, not the first time ever... You did occasionally intervene when [A] was... entertaining me."
+    scene d8a-270x-2
+    with dissolve
+    Sw "{i}*giggles*{/i} That doesn't count, you perv!"
+    scene d8a-271
+    with dissolve
+    "{i}*kissing*"
+    scene d8a-272
+    with dissolve
+    "She slowly strokes your dick..."
+    Sw "No, that doesn't count. This is different."
+    scene d8a-273
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Sw "I think I'm ready, [persistent.dad]..."
+    else:
+        Sw "I think I'm ready..."
+    scene d8a-274
+    with dissolve
+    Sw "...but I want to take it slowly; can we?"
+    Zw "I though that you had...?"
+    scene d8a-275
+    with dissolve
+    Sw "I was never interested in the boys in school..."
+    Sw "...only ever hung out with the girls."
+    scene d8a-276
+    with dissolve
+    Sw "That made them no less interested but..."
+    Sw "...I always wanted to eat at home, remember?"
+    scene d8a-269
+    with dissolve
+    "She kisses you once more..."
+    scene d8a-269x
+    with dissolve
+    Zw "Take your time."
+    scene d8a-278
+    with w33slow
+    Sw "You know what I'm thinking...?"
+    Zw "Hm?"
+    scene d8a-279
+    with dissolve
+    Sw "The Zone might not be the biggest challenge after all..."
+    Zw "You're the Queen of inappropriate jokes, [S]."
+    scene d8a-280
+    with dissolve
+    Sw "I can't help myself, I guess..."
+    scene d8a-281
+    with dissolve
+    Sw "Oh..."
+    scene d8a-282
+    with dissolve
+    "You slowly penetrate her..."
+    scene d8a-283
+    with dissolve
+    pause 1.5
+    scene d8a-284
+    with Dissolve(1.5)
+    Zt "She's so tight..."
+    scene d8a-285
+    with dissolve
+    S "Mh..."
+    if persistent.gore == True:
+        scene d8a-286
+        with dissolve
+    Zw "It is done, now..."
+    scene d8a-287
+    with dissolve
+    Sw "Mh... I can..."
+    if persistent.gore == True:
+        scene d8a-288
+        with dissolve
+        Sw "Ngh..."
+    scene d8a-289
+    with dissolve
+    pause 1
+    scene d8a-290
+    with Dissolve(0.7)
+    Sw "Ah..."
+    Zw "Wow..."
+    scene d8a-291
+    with dissolve
+    "{i}*kissing*"
+    Zt "She took all of it..."
+    show d8a-293-anim
+    with dissolve
+    "She starts slowly grinding on you, with circular motions..."
+    Zt "This feels amazing. She's a natural."
+    Zt "I guess the countless dancing lessons with her [persistent.mom] were worth it."
+    Zw "[S], you're perfect."
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Sw "You feel so good, [persistent.dad]..."
+    else:
+        Sw "You feel so good..."
+    show d8a-293x-anim
+    with dissolve
+    hide d8a-293-anim
+    Sw "Do you..."
+    Sw "Nh..."
+    Sw "...want us to cum together?"
+    Zw "Yes! Keep going, sweetheart. Don't stop now."
+    Zt "This feels amazing..."
+    Zt "But the Zone is not the place for a pregnant woman..."
+    scene d8a-290
+    with dissolve
+    pause 0.5
+    scene d8a-289
+    with dissolve
+    pause 0.6
+    scene d8a-296
+    with fade
+    Z "Hghr..."
+    scene d8a-297
+    with flash
+    Z "...!"
+    scene d8a-295
+    with dissolve
+    S "Haa..."
+    "You both climax together..."
+    scene d8a-298
+    with flash
+    Z "..."
+    scene d8a-299
+    with dissolve
+    S "{i}*pant*"
+    Sw "Thank you."
+    scene d8a-300
+    with dissolve
+    pause 1
+    scene black pic
+    stop music fadeout 6
+    with slowfade
+    $ renpy.end_replay()
+    pause 1
+    scene d8a-301
+    with slowfade
+    Sw "I am glad I waited for this, [persistent.dad]."
+    Zw "If only I had listened sooner..."
+    scene d8a-302
+    with dissolve
+    Sw "Don't say that. You had good reasons, and now... now it's done."
+    $ check_for_achievements()
+    Sw "Once I'm back, we can catch up... on everything, not just this."
+    scene d8a-303
+    with dissolve
+    Zw "That is right."
+    Zw "The first thing we're going to do once you're back is celebrate, with the whole House."
+    scene d8a-303x
+    with dissolve
+    S "..."
+    Zw "And then we will go out to celebrate again, just the two of us, this time."
+    scene d8a-304
+    with dissolve
+    Zw "Do you remember that restaurant near the market?"
+    scene d8a-305
+    with dissolve
+    Zw "That's exactly where we will..."
+    Zw "[S]?"
+    S "..."
+    Zt "She's done it again, she had her bedtime moment and she's checked out."
+    Zt "No matter... It was a long and special day."
+    Zt "Wow..."
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    if shani_perspective == True:
+        jump d8a114
+    if shani_perspective == False:
+        jump d8a305x
+
+
+label d8a114:
+    scene d8a-113
+    play music "audio/sounds/environment/waves.mp3" fadein 10
+    with slowfade
+    pause 4
+    scene d8a-114
+    with Dissolve(1.5)
+    pause 1
+    play music_1 "audio/sounds/environment/storm quiet.mp3" fadein 3
+    pause 1
+    play sound "audio/sounds/environment/thunder 1.mp3"
+    pause 3
+    scene d8a-115
+    with Dissolve(2)
+    pause 3
+    scene black pic
+    stop sound fadeout 1
+    stop music fadeout 1
+    stop music_1 fadeout 1
+    with quickfade
+    Z "[S]?"
+    Z "It's time to get up..."
+    jump d8a305x
+
+
+label d8a305x:
+    pause 2
+    scene d8a-305x
+    play music "audio/sounds/environment/desert wind.mp3" fadein 5
+    with slowfade
+    Z "So, this is it."
+    S "This is it."
+    scene d8a-305x-2
+    with dissolve
+    Z "Remember to always find a shelter well before nightfall, it's easy to get lost in such a place."
+    scene d8a-305x-3
+    with dissolve
+    S "I will try, don't worry about it."
+    scene d8a-305x-4
+    with dissolve
+    Z "I won't."
+    Z "Alright then..."
+    scene d8a-305x-3
+    with dissolve
+    if shani_romance == True:
+        S "Hey, before I head out..."
+        scene d8a-305x-8
+        with dissolve
+        S "One more time."
+        scene d8a-305x-5
+        with dissolve
+        S "{i}*kissing*"
+        scene d8a-305x-7
+        with dissolve
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            S "See you soon, [persistent.dad]..."
+        else:
+            S "See you soon..."
+        scene d8a-305x-6
+        with dissolve
+        Z "See you soon, Stalker."
+        scene black pic
+        stop music fadeout 3
+        with slowfade
+        "You head back home."
+        jump d8a309
+
+    else:
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            S "See you soon, [persistent.dad]..."
+        else:
+            S "See you soon..."
+        scene d8a-305x-4
+        with dissolve
+        Z "See you soon, Stalker."
+        scene black pic
+        stop music fadeout 3
+        with slowfade
+        "You head back home."
+        jump d8a309
+
+label d8a309:
+    pause 4
+    show screen cutscene_marker
+    play music "audio/music/zone/there and back again.mp3"
+    play sound "audio/sounds/environment/desert wind.mp3"
+    pause 4
+    scene d8a-309-atl
+    with Dissolve(5)
+    pause 5
+    scene d8a-310
+    with slowfade
+    S "Almost there...{p=4} {nw}"
+    scene d8a-307
+    with Dissolve(1.5)
+    pause 6.5
+    scene d8a-306
+    with Dissolve(1.5)
+    pause 2.5
+    stop music fadeout 3
+    pause 0.5
+    $ renpy.music.set_volume(1, channel="music_3")
+    play music_1 "audio/sounds/environment/zone emission close.mp3"
+    play music_3 "audio/music/zone/zone theme short.mp3" fadein 20
+    pause 1.5
+    scene d8a-308
+    play music_2 "audio/sounds/actions/running.mp3"
+    with dissolve
+    pause 1.5
+    scene d8a-311
+    with dissolve
+    pause 2
+    scene d8a-312
+    with dissolve
+    pause 1.5
+    scene d8a-313
+    with Dissolve(6)
+    pause 4
+    scene d8a-313x
+    with intenseflash
+    pause 0.8
+    scene d8a-314
+    with dissolve
+    pause 1.5
+    scene d8a-315
+    with dissolve
+    pause 1.5
+    scene d8a-316
+    with dissolve
+    pause 1.5
+    scene d8a-316x
+    with dissolve
+    Sw "...It looks like you can't wait either.{p=4.2} {nw}"
+    scene d8a-317-atl
+    with Dissolve(0.2)
+    pause 5.915
+    scene black pic
+    with Dissolve(0.05)
+    hide screen cutscene_marker
+    pause 2
+    $ mq_z_1.advance()
+    $ mq_z_1.resolution = _("[S] is on her own now. I need to wait for her return before I can provide the Queen with an update.")
+    pause 3
+    $ mq_d_1.advance()
+    $ mq_d_1.resolution = _("[S] is on her way to the Zone. I need to wait for her return to find out what those blueprints are all about.")
+    pause 3
+    jump mission_end
+
+label d8b:
+    $ m_d8b_part_1 = True
+    Z "I haven't heard back from Fangs yet. Let's see what they're up to."
+    Z "I hope I remember where the tower was located..."
+    play sound "audio/sounds/vehicles/engine start and driving.mp3"
+    scene d8b-1
+    with slowfade
+    pause 3
+    scene vm-1
+    stop sound fadeout 3
+    with w33slow
+    Zt "There you are..."
+    play music "audio/music/background/cave background.mp3" fadeout 2
+    play sound "audio/sounds/doors/sliding door.mp3"
+    scene black pic
+    with slowfade
+    "You remember how to access the entrance to the cave and head inside..."
+    scene d8b-2
+    with slowfade
+    pause 2
+    scene d8b-3
+    with slowfade
+    Zt "Great..."
+    Zt "I have no idea what the code to open the gate is."
+    Z "Hello? Anyone here?"
+    "Nothing happens."
+    scene d8b-4
+    with dissolve
+    Z "{i}*sighs*"
+    scene d8b-5
+    with fade
+    Zt "That must be one of those elevating platforms..."
+    scene d8b-6
+    with dissolve
+    Zt "Maybe I can get their attention some other way."
+    scene d8b-7
+    with fade
+    Zt "I wonder where this door leads to."
+    scene d8b-8
+    with fade
+    Zt "Let's see what happens if I pull this lever..."
+    stop music fadeout 1
+    play sound "audio/sounds/doors/heavy door.mp3"
+    "The door behind you opens..."
+    C "Enemy or friend. Curious."
+    play music "audio/music/mutants/mutant hive.mp3" fadein 10
+    C "Speak or die. Certain."
+    "The voice came from right behind you. Although you identify the person behind you as female, it sounded like two or more voices spoke at the same time."
+    "Its surprisingly commanding and alienating tone making you uncomfortable..."
+    scene d8b-9
+    with dissolve
+    pause 1
+    scene d8b-10
+    with dissolve
+    Mu "..."
+    menu:
+        "\"I'm here to speak with Fangs.\"":
+            $ hivegirl_neutral = True
+            Z "My name is [persistent.player_name], I'm here to speak with Fangs."
+            Z "She wanted to see me again."
+            Mu "..."
+            scene d8b-11
+            with dissolve
+            "She looks startled..."
+            Mu "We know you. Two-sided. Precarious."
+            scene d8b-12
+            with dissolve
+            Mu "Follow us. Close by."
+            Mu "We bring you inside, then keep guard."
+            jump d8b17
+
+        "\"I didn't expect someone that cute when I heard that voice.\"":
+            $ hivegirl_cute = True
+            Z "I didn't expect someone that cute when I heard that voice."
+            scene d8b-16
+            with dissolve
+            Mu "Cute, we are..."
+            Mu "Mate with us you want. Evident."
+            scene d8b-12
+            with dissolve
+            Mu "Not one of them. Conscious."
+            Mu "No interest we have."
+            scene d8b-17
+            with dissolve
+            Mu "We know you. Orders given. Need to come with us."
+            Mu "We bring you inside, then keep guard."
+            jump d8b17
+
+        "\"You are very unsettling.\"":
+            $ hivegirl_truth = True
+            Z "Can you be less unsettling?"
+            scene d8b-11
+            with dissolve
+            stop music fadeout 1.5
+            Mu "We... unsettling..."
+            scene d8b-13
+            play sound "audio/sounds/environment/disturbed.mp3"
+            with vpunch
+            play music "audio/music/mutants/mutant hive disturbed.mp3"
+            Mu "We are different."
+            Mu "Not unsettling here, they promised."
+            Mu "Guarding this place. Safe. Accepted."
+            scene d8b-14
+            with dissolve
+            Mu "We take eyes for revenge. Do not want to."
+            scene d8b-14x
+            with dissolve
+            Z "..."
+            scene d8b-15
+            with dissolve
+            Mu "But we know you. Order to let you pass."
+            Mu "You follow us. No more words."
+            Mu "We bring you inside, then keep guard."
+            jump d8b17
+
+label d8b17:
+    scene black pic
+    stop music fadeout 6
+    with slowfade
+    "She uses the keypad to open up the gate once more and tells you to look out for the command center, then, without saying a word, goes back into her room."
+    "The base is structured like some of the old military bases you have explored in the past, and after some minutes you find your way to the room where Fangs is supposed to be."
+    scene d8b-18
+    play music "audio/music/mutants/command center.mp3" fadein 6
+    with w33slow
+    Zt "This must be it."
+    scene d8b-19
+    with fade
+    Muw "Three, six, nine..."
+    scene d8b-20
+    with dissolve
+    Fa "So this is everything we have..."
+    Fa "She said her people change over time, did she at least go into detail?"
+    scene d8b-21
+    with dissolve
+    Pe "She did not, but I still think it's a good opportunity."
+    Pe "The place is not that far away from here, chances are high that-"
+    "You cough..."
+    scene d8b-22
+    with dissolve
+    Fa "Yeah, what is it..."
+    Pe "..."
+    scene d8b-23
+    with dissolve
+    Fa "Ah, [persistent.player_name], I knew it, welcome back."
+    $ mq_m_1.complete()
+    $ mq_m_1.resolution = _('It seems like Fangs has big plans for the mutants. They could potentially be a force to be reckoned with in the region.')
+    Fa "None of the people in this place reduce Pepper to silence like you do. I am not sure she likes you."
+    scene d8b-24
+    with fade
+    Fa "I was almost ready to reach out to you again."
+    Fa "But here you are, deciding to take the initiative..."
+    scene d8b-25
+    with dissolve
+    Fa "Pepper, leave us alone will you."
+    Fa "And thank you for your report. I will have to think about it."
+    scene d8b-26
+    with slowfade
+    Pe "..."
+    scene d8b-27
+    with dissolve
+    Pe "{i}*sighs*"
+    scene black pic
+    with fade
+    "Everyone except you and Fangs leaves the room..."
+    scene d8b-28
+    with fade
+    Fa "So... are you here to help us?"
+    Z "I am not making any promises until I know your end goals."
+    scene d8b-29
+    with dissolve
+    Fa "I already told you, we do this to get our rightful spot in Zeta."
+    scene d8b-30
+    with dissolve
+    Z "You want me to help you destroy my home city and start a war that kills everyone?"
+    Z "You think this is why I came back?"
+    scene d8b-31
+    with dissolve
+    Fa "I don't know why you would help us, and it's not my job to care for it."
+    scene d8b-32
+    with dissolve
+    Fa "The only way to get to a normal life for those who are like us is to claim what we have been denied to get for centuries."
+    Z "If I didn't talk to you before I'd say you're either stupid or mental."
+    scene d8b-33
+    with dissolve
+    Fa "...What?"
+    Z "But since I know better, I say you're planning a pathetic jihad that will only lead to everyone's death."
+    Z "Ironic, since you seem to be so protective of your people in here."
+    Z "But you must know that you're denying reality if you think that a few hundred mutants in pre-war armor can win against thousands of Zetans, once it becomes an open war."
+    scene d8b-34
+    with dissolve
+    Fa "How... dare you call this a suicide mission."
+    scene d8b-35
+    with dissolve
+    Fa "I have built up this place and planned this mission for months."
+    Fa "Most of the people in here have suffered through things Zetans wouldn't even imagine!"
+    Fa "That city of discriminating snobs doesn't know how the world out there is, and you know it."
+    scene d8b-36
+    with hpunch
+    Fa "They will never know what it's like to be us until they get what they deserve!"
+    Z "You are going to get your people killed if you start an open conflict."
+    scene d8b-32
+    with dissolve
+    Z "And even if you win, you will never get the population on your side, no matter how much technology and firepower you pile onto your soldiers."
+    Z "The city has existed for over 400 years, Fangs, and it's been ever growing."
+    Z "So get your head straight. A nation that has been in control of their territory for so long will never surrender it."
+    Fa "..."
+    scene black pic
+    with fade
+    "She gets up..."
+    scene d8b-37
+    with dissolve
+    Fa "..."
+    Fa "Everyone in here is out for retaliation, [persistent.player_name]."
+    Fa "And I am giving them what they want."
+    scene d8b-38
+    with dissolve
+    Fa "{i}*sighs*"
+    Fa "..."
+    Fa "...I know that you are right."
+    Fa "We have been in this bunker for so long, telling each other that everything is possible."
+    Fa "That is what we want to believe... but..."
+    Fa "Maybe that is also why Ivy brought you in after all."
+    scene d8b-39
+    with dissolve
+    Fa "So... what do you propose?"
+    menu:
+        "\"I will help your people as long as you swear not to start a conflict.\"":
+            $ mq_m_2.start()
+            $ helped_mutants = True
+            Z "I will help your people as long as you swear not to start an open conflict."
+            Z "Come here and I will explain it to you."
+            scene black pic
+            with fade
+            "She walks over, standing before you..."
+            scene d8b-40
+            with fade
+            Fa "..."
+            Z "Now listen..."
+            Z "Your army is small, and your equipment is limited."
+            Z "Fighting your way through everything is not an option."
+            Z "So what you need is allies. Allies from the outside, and allies in the city."
+            Z "Scrap the idea of going to war. What you need is influence."
+            scene d8b-43
+            with dissolve
+            Z "Your hatred for the Queen is useless, I have met her."
+            scene d8b-41
+            with dissolve
+            Fa "So you can influence her..."
+            scene d8b-42
+            with dissolve
+            Z "Maybe I will."
+            Z "Zeta has, on the whole, bigger problems than to focus on enforcing the tradition of excluding and subjugating mutants."
+            Z "If you scrap your plan of becoming a hostile force and instead let me work on this diplomatically, the city could become more tolerant to your people."
+            Z "Especially if you can present yourself as a viable ally."
+            scene d8b-44
+            with dissolve
+            Fa "We don't have the numbers to be a credible ally yet."
+            scene d8b-45
+            with dissolve
+            Z "That is also correct."
+            scene d8b-46
+            with dissolve
+            Fa "Luckily I am already preparing to solve that issue."
+            if fangs_romance == False:
+                Fa "I need to verify some things first though, so why don't you take the time to get settled?"
+                jump d8b65
+            elif fangs_romance == True:
+                label re_d8b17:
+                    if _in_replay:
+                        play music "audio/music/mutants/command center.mp3" fadein 4
+                    scene d8b-47
+                    with hpunch
+                    Z "...?"
+                scene d8b-48
+                with dissolve
+                Faw "I have to admit..."
+                Faw "I knew you had it in you after our fight last time."
+                Faw "But you're showing that you have brains, not just brawn."
+                Faw "You might just be the man we need around here..."
+                scene d8b-49
+                with dissolve
+                Zw "..."
+                menu:
+                    "\"Maybe I am just the man {i}you{/i} need around here.\"":
+                        Zw "Maybe I am just the man {i}you{/i} need around here."
+                        Faw "You're one corny son of a bitch..."
+                        scene d8b-51
+                        with dissolve
+                        Fa "{i}*kissing*"
+                        scene d8b-53
+                        with dissolve
+                        Faw "Hm..."
+                        menu:
+                            "Take her top off":
+                                scene d8b-54
+                                with dissolve
+                                Fa "{i}*kissing*"
+                                scene d8b-55
+                                with dissolve
+                                Faw "But, maybe you're not entirely wrong..."
+                                scene d8b-57
+                                with dissolve
+                                pause 1.5
+                                scene d8b-58
+                                with dissolve
+                                Faw "Can that man do me a favor...?"
+                                Zw "I'm sure he can."
+                                scene d8b-60
+                                with dissolve
+                                Faw "Mh..."
+                                Z "{i}*licking*"
+                                scene d8b-61
+                                with dissolve
+                                "As you enjoy the soft feeling of her skin on your lips, you notice how tender her grip on your shoulder is."
+                                "With her caresses, she shows a sweeter side than that of the abrasive commander she must show to her people."
+                                Faw "Mh..."
+                                Faw "I'm definitely looking forward to working with you..."
+                                scene d8b-62
+                                with dissolve
+                                Zw "I think we're off to a good start."
+                                Fa "I agree..."
+                                scene d8b-63
+                                with dissolve
+                                Fa "What do you think, should we get ready?"
+                                scene d8b-64
+                                with dissolve
+                                Z "I like that new tone of yours."
+                                Fa "Don't get used to it."
+                                jump d8b65
+
+                            "Don't take it off":
+                                scene d8b-56
+                                with dissolve
+                                "You make out for a while..."
+                                scene d8b-63x
+                                with dissolve
+                                Fa "That was nice..."
+                                Fa "I'm definitely looking forward to working with you..."
+                                Z "I think we're off to a good start."
+                                Fa "I agree..."
+                                scene d8b-63x
+                                with dissolve
+                                Fa "What do you think, should we get ready?"
+                                scene d8b-64x
+                                with dissolve
+                                Z "I like that new tone of yours."
+                                Fa "Ha, don't get used to it."
+                                jump d8b65
+
+                    "\"And what do I get in return for helping you out?\"":
+                        Zw "And what do I get in return for helping you out?"
+                        Faw "Well, you've got the commander of this place on your lap, for starters."
+                        scene d8b-51
+                        with dissolve
+                        Fa "{i}*kissing*"
+                        scene d8b-53
+                        with dissolve
+                        Faw "Mh..."
+                        menu:
+                            "Take off her top":
+                                scene d8b-54
+                                with dissolve
+                                Fa "{i}*kissing*"
+                                scene d8b-55
+                                with dissolve
+                                Faw "That's not enough for you, is it?"
+                                scene d8b-56
+                                with dissolve
+                                Z "It is not indeed."
+                                scene d8b-57
+                                with dissolve
+                                Faw "You're lucky..."
+                                Faw "There are quite a few lonely girls in this bunker."
+                                scene d8b-58
+                                with dissolve
+                                Zw "What about that scientist of yours?"
+                                scene d8b-59
+                                with dissolve
+                                Faw "Hmm... I can't help you with her, sugar."
+                                Faw "But let me just say that there are simple ways to trick her. She's all about efficiency..."
+                                scene d8b-60
+                                with dissolve
+                                Faw "Mh..."
+                                Z "{i}*licking*"
+                                scene d8b-61
+                                with dissolve
+                                "As you enjoy the soft feeling of her skin on your lips, you notice how tender her grip on your shoulder is."
+                                "With her caresses, she shows a sweeter side than that of the abrasive commander she must show to her people."
+                                Faw "Hm..."
+                                scene d8b-62
+                                with dissolve
+                                Z "That does sound appealing."
+                                scene d8b-63
+                                with dissolve
+                                Fa "What do you think, should we get ready?"
+                                scene d8b-64
+                                with dissolve
+                                Z "I think that you don't need that shirt."
+                                Fa "Nice try, [persistent.player_name]."
+                                jump d8b65
+
+                            "Don't take it off":
+                                scene d8b-56
+                                with dissolve
+                                "You make out for a while..."
+                                scene d8b-63x
+                                with dissolve
+                                Fa "That was nice..."
+                                Fa "I'm definitely looking forward to working with you..."
+                                Z "I think we're off to a good start."
+                                Fa "I agree..."
+                                scene d8b-63x
+                                with dissolve
+                                Fa "What do you think, should we get ready?"
+                                scene d8b-64x
+                                with dissolve
+                                Z "I like that new tone of yours."
+                                Fa "Ha, don't get used to it."
+                                jump d8b65
+
+                    "\"Are you looking to pass on the command?\"":
+                        Zw "Are you saying I should just take over the reins of this place?"
+                        scene d8b-50
+                        with dissolve
+                        "{i}She starts laughing seductively..."
+                        Faw "Is that why you're helping me? What you hope to accomplish here?"
+                        Zw "Maybe..."
+                        scene d8b-51
+                        with dissolve
+                        Fa "{i}*kissing*"
+                        scene d8b-52
+                        with dissolve
+                        Faw "You did win last time, but don't test me on this..."
+                        scene d8b-53
+                        with dissolve
+                        Faw "Hm..."
+                        menu:
+                            "Take off her top":
+                                scene d8b-54
+                                with dissolve
+                                Fa "{i}*kissing*"
+                                scene d8b-55
+                                with dissolve
+                                Zw "Take that messy top off."
+                                Faw "I clean it every day, sugar. The stains that don't go away are of the people I've killed."
+                                scene d8b-56
+                                with dissolve
+                                Zw "Are you trying to look intimidating?"
+                                Faw "Respect is earned, you know..."
+                                Zw "You should drop your act and try being obedient, for once."
+                                scene d8b-57
+                                with dissolve
+                                Faw "{i}*kissing*"
+                                Faw "Obedient...?"
+                                scene d8b-58
+                                with dissolve
+                                Zw "Yes."
+                                Zw "Have you forgotten how?"
+                                "She's starting to sound more insecure..."
+                                Fa "No... I mean..."
+                                scene d8b-59
+                                with dissolve
+                                Z "{i}*licking*"
+                                Faw "Is that okay...?"
+                                scene d8b-61
+                                with dissolve
+                                "As you enjoy the soft feeling of her skin on your lips, you can't help noticing how she's trying to impress you."
+                                "Could it be that your words have snuck past the walls the abrasive commander puts up with everybody?"
+                                Faw "Mh..."
+                                scene d8b-62
+                                with dissolve
+                                Zw "You did well."
+                                Fa "..."
+                                scene d8b-63
+                                with dissolve
+                                Fa "I... we should get ready now."
+                                scene d8b-64
+                                with dissolve
+                                Z "We should. You can get up now."
+                                jump d8b65
+
+                            "Don't take it off":
+                                scene d8b-56
+                                with dissolve
+                                "You make out for a while..."
+                                scene d8b-63x
+                                with dissolve
+                                Fa "That was nice..."
+                                Fa "I hope that makes up for it...?"
+                                scene d8b-64x
+                                with dissolve
+                                Z "It did. We should get ready now."
+                                Fa "I agree..."
+                                jump d8b65
+
+
+        "\"I came to give you a warning, but I cannot assist you any further.\"":
+            $ denied_mutants = True
+            Z "I can't help you in your plans, since they put my House in danger."
+            Z "I will however not betray you, as long as you don't start an open war."
+            Z "Your place will stay a secret with me."
+            scene black pic
+            with fade
+            "She comes over, standing before you..."
+            scene d8b-40
+            with fade
+            Fa "Then so it is."
+            scene d8b-41
+            with dissolve
+            Fa "I will keep your words in mind."
+            scene d8b-44
+            with dissolve
+            Fa "Although I must admit that I would've preferred you stayed with us..."
+            scene d8b-42
+            with dissolve
+            Fa "..."
+            if  fangs_romance == False:
+                scene d8b-41
+                with dissolve
+                Fa "Alright then, let me escort you out."
+                stop music fadeout 4
+                scene black pic
+                with slowfade
+                "As you leave, you think about the mutant bunker. You're sure that you won't hear or see any of the mutants anytime soon, but you are satisfied that it's best for them to fight their own battles."
+                jump mission_end
+
+            elif fangs_romance == True:
+                scene d8b-47
+                with hpunch
+                Fa "Before I escort you out..."
+                scene d8b-48
+                with dissolve
+                Fa "...let me show you my appreciation, for last time."
+                scene d8b-49
+                with dissolve
+                Z "A parting gift, hm?"
+                scene d8b-50
+                with dissolve
+                Fa "You could call it that."
+                scene d8b-51
+                with dissolve
+                Fa "{i}*kissing*"
+                Zt "Her kiss is passionate."
+                Zt "It seems like I left a mark last time..."
+                scene d8b-52
+                with dissolve
+                Faw "Tell me, do you always do that..."
+                Faw "Showing up to a place, talking sense into a girl, and then disappear again?"
+                scene d8b-53
+                with dissolve
+                Fa "{i}*kissing*"
+                menu:
+                    "Take off her top":
+                        scene d8b-54
+                        with dissolve
+                        Faw "Mh..."
+                        scene d8b-55
+                        with dissolve
+                        Faw "It seems like fighting isn't necessary this time..."
+                        scene d8b-56
+                        with dissolve
+                        Z "It's your chance to show your other side for once..."
+                        scene d8b-57
+                        with dissolve
+                        pause 1.5
+                        scene d8b-58
+                        with dissolve
+                        Faw "Mh... I can do that."
+                        scene d8b-59
+                        with dissolve
+                        Faw "There you go..."
+                        scene d8b-60
+                        with dissolve
+                        Z "{i}*licking*"
+                        Fa "Mh..."
+                        scene d8b-61
+                        with dissolve
+                        "As you enjoy the soft feeling of her skin on your lips, you notice how tender her grip on your shoulder is."
+                        "With her caresses, she shows a sweeter side than that of the abrasive commander she must show to her people."
+                        Fa "Mh..."
+                        scene d8b-62
+                        with dissolve
+                        Fa "I hope I left a better impression this time."
+                        Z "You can be sure of that."
+                        scene d8b-63
+                        with dissolve
+                        Fa "So then... we should get ready."
+                        Fa "It was nice getting to know you, [persistent.player_name]. Even if it was short lived."
+                        stop music fadeout 4
+                        scene black pic
+                        with slowfade
+                        "Fangs eventually escorts you out. You're sure that you won't hear see any of the mutants anytime soon, but you decided that it's best that they fight their own battles."
+                        jump mission_end
+
+                    "Don't take it off":
+                        scene d8b-56
+                        with dissolve
+                        "You make out for a while..."
+                        scene d8b-63x
+                        with dissolve
+                        Fa "That was nice..."
+                        Fa "I have to go back to work now."
+                        Fa "It was nice getting to know you, [persistent.player_name]. Even if it was short lived."
+                        stop music fadeout 4
+                        scene black pic
+                        with slowfade
+                        "Fangs eventually escorts you out. You're sure that you won't hear see any of the mutants anytime soon, but you decided that it's best that they fight their own battles."
+                        jump mission_end
+
+    label d8b65:
+        $ renpy.end_replay()
+        scene black pic
+        with slowfade
+        "As you both get up, Fangs returns to her desk, focusing again on the work she did before you entered the room."
+        "As other soldiers come and go, you take a look at the locker you have been assigned..."
+        scene d8b-65
+        with slowfade
+        Zt "So, this is a thing now..."
+        Zt "A few weeks ago I could have never imagined a place like this still existed, or that I would find myself trying to help out a bunch of mutants. Yet, here I am."
+        scene d8b-66
+        with dissolve
+        Zt "I don't know where this is going, but the equipment this place holds could be a chance to change everything for these people."
+        Zt "That is, as long as they play their cards right."
+        play sound "audio/sounds/doors/door closed.mp3"
+        Zt "...?"
+        scene d8b-67
+        with dissolve
+        Fa "Ivy, you're back, finally."
+        scene d8b-68
+        with fade
+        Fa "Ready for a new mission? Pepper managed to get some new information out of the weird one."
+        Fa "Oh, and [persistent.player_name] came back and decided to help us out."
+        scene d8b-69
+        with dissolve
+        Fa "It looks like your intuition is paying off, once again."
+        Fa "Ha... I can see those eyes turn green from here."
+        I "..."
+        scene d8b-71
+        with slowfade
+        I "..."
+        scene d8b-73
+        with fade
+        pause 1
+        scene d8b-74
+        with dissolve
+        Zt "She's an archer?"
+        Fa "Hey, [persistent.player_name]."
+        Fa "I think I am done here, let me know when you're ready to plan your first mission with us."
+        Z "I will."
+        jump mutants_command_center
+
+label d8b76:
+    $ m_d8b_part_2 = True
+    $ d8b_day_part_2 = day
+    Z "So... what about that place to the east of here?"
+    Z "It says something about a hive?"
+    scene d8b-76
+    with dissolve
+    Fa "Yeah, that...I am still a bit iffy on the specifics, but it has potential."
+    Fa "If you want to help us with this one, there's someone you should listen to."
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    Fa "Soldier, have the new girl report to me."
+    Mu "Yes, Commander."
+    "..."
+    Fa "Do you know her?"
+    play music "audio/music/mutants/mutant hive.mp3" fadein 10
+    Z "Not really... but when I got here, she was guarding the entrance."
+    Fa "Ah... yes. I'd forgotten about that."
+    scene d8b-77
+    with fade
+    Fa "Listen up girl, our friend here is going to help us, but he needs to know more about the situation."
+    scene d8b-81
+    with dissolve
+    Fa "So talk to him."
+    scene d8b-81x
+    with dissolve
+    Mu "..."
+    Fa "Come on, speak. What were you looking for, when my soldiers found you?"
+    scene d8b-80
+    with dissolve
+    Mu "We came here to avoid the darkness."
+    "Like in your previous encounter, her voice is unsettling, layered as if composed by multiple voices."
+    Mu "Impatient. Mother is waiting for us."
+    Mu "We are not ready to see it yet. Too curious."
+    scene d8b-81
+    with dissolve
+    Fa "See, [persistent.player_name]. She's frustratingly hard to make sense of."
+    Fa "Pepper and I have been looking into this for a few days now."
+    Fa "Basically, some of my scouts found a place not too far from here, that has been isolated for a long time. That's where she's from."
+    Fa "They found her roaming the dunes. She seemed lost."
+    Fa "From what she tells us, her people are also mutants like her, all of them. They could strengthen our numbers considerably."
+    Fa "Soldier, we need you to lead us to where you come from, and introduce us to your people, so we will take you with us."
+    scene d8b-79
+    with dissolve
+    Mu "But... we are not sure to go there yet."
+    Mu "Mother will be waiting for us, wanting us to join."
+    Z "What do you mean by that?"
+    Mu "Mother needs us. In darkness. To serve the Hive that serves us."
+    Mu "Leaving, impossible."
+    scene d8b-81
+    with dissolve
+    Fa "We need you there as a show of good faith from our part."
+    scene d8b-80
+    with dissolve
+    Mu "We understand. Mediation. Conflict a possibility."
+    scene d8b-81
+    with dissolve
+    Fa "Something like that, yes... I think."
+    Fa "Anyway, you are one of us now, and if that is your choice, we will not leave you there, but we do need your help."
+    scene d8b-80
+    with dissolve
+    Mu "Good promise. Ignorance, maybe. Doubt."
+    scene d8b-81
+    with dissolve
+    Z "We will do our best to talk to your people and persuade them to join this group. Would you help us with this?"
+    Mu "We can try."
+    Fa "You can take a seat."
+    Z "We do have more questions about this Hive you talk of."
+    scene d8b-77
+    with slowfade
+    "It takes some time for you to find a way to resonate with this mutant, but her answers remain cryptic and vague, especially about her people."
+    Fa "I think she's given us all she can, or wants to. I will tell everyone to get ready to head out."
+    Fa "If you have more questions, they will have to wait until we hit the road."
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    "Taking point on a small team headed by Fangs, you climb in your car and follow her indications towards the Hive."
+    scene d8b-82
+    play music "audio/sounds/vehicles/cars driving multiple.mp3" fadein 3
+    with slowfade
+    Fa "You didn't really think that a military base stuck in the middle of the desert wouldn't come equipped with several vehicles, did you?!"
+    Z "And there I was thinking my new ride was a lucky find."
+    Fa "Don't beat yourself up over it. It was a lucky find, and it's a good ride."
+    scene d8b-83
+    with w33slow
+    To "So, what do you say, ten more minutes until we get to this place? Twenty?"
+    Re "Not to bug you, Pepper, but I'm curious as well."
+    scene d8b-84
+    with dissolve
+    Re "I'm getting tired of driving, you know."
+    scene d8b-85
+    with dissolve
+    Pe "Not unreasonable, you long for the adrenaline rush that comes with reaching the destination and facing the unknown. Driving becomes boring, after a while."
+    scene d8b-86
+    with dissolve
+    Pe "Even so, please, do try to keep your eyes on the compass, rather than on the backseat of your car."
+    Pe "As for you, Towser... Stop staring, and maybe next time find yourself a hat, instead of a fancy mouth scarf. you are 70\% more likely to get a sunstroke this way."
+    scene d8b-87
+    with dissolve
+    Pe "..."
+    scene d8b-88
+    with dissolve
+    Pe "Stop trying to think about a retort. It makes your eyes twitch."
+    scene d8b-89
+    with dissolve
+    To "..."
+    To "{i}*sighs*"
+    scene d8b-90
+    with w33slow
+    Fa "So... long story short, one of my girls found her strolling around, barely clothed, lost like a mummy in quicksand."
+    Fa "She refused to say a word, even when she was brought to us."
+    Fa "After a day or so, she finally decided to speak."
+    Fa "Her voice was... A surprise, even for the likes of us."
+    scene d8b-92
+    with dissolve
+    Fa "She told us the same things she told you earlier."
+    Fa "I still have no idea what she means with that whole darkness issue, but..."
+    scene d8b-91
+    with dissolve
+    Fa "...She seems reluctant to go, so I am convinced she's not trying to lure us into anything."
+    scene d8b-93
+    with dissolve
+    Fa "So, we're going in armed, but the objective is to learn, to talk and if possible, negotiate an alliance."
+    Fa "You said it, we need allies. Other mutants seem like a good ally to try and get."
+    scene d8b-94
+    with dissolve
+    Fa "If it serves the purpose of establishing an alliance or at least a dialogue, I am willing to hand over their missing girl."
+    scene d8b-95
+    with dissolve
+    Fa "But I'd rather not break my promise and find something to trade instead."
+    scene d8b-96
+    with dissolve
+    Mu "..."
+    scene d8b-97
+    with dissolve
+    Fa "Two of us will guard the cars."
+    Fa "If things go bad, we are not going to stay a minute longer than we need to."
+    scene black pic
+    stop music fadeout 4
+    with slowfade
+    "You eventually arrive to what seems to be your destination. There's a lot of rubble, obvious remains of an ancient city, but only one building is still standing, tall and imposing."
+    "From outside, it reminds you of some of the buildings in Cairo, a museum maybe, or something of a religious nature."
+    "Fangs is telling two of her squad members to guard the vehicles and the perimeter, while the rest will be going inside."
+    "As you enter the building, you notice it is shrouded in darkness. Heavily tinted windows caked with decades of accumulated sand do nothing to illuminate the place."
+    scene d8b-98
+    play music "audio/music/background/industrial ambience.mp3" fadein 6
+    with w33slow
+    Fa "Fuck me, this place is huge."
+    scene d8b-99
+    with fade
+    Fa "Stay close, we're going to check each of those alcoves, but we stay together."
+    To "Uhm, Commander... with all due respect to your abilities..."
+    To "...we can't see shit."
+    Z "You know...I like to think I  know a thing or two about exploring."
+    Z "In my expert opinion, this place definitely calls for the use of a torch."
+    Fa "Smartass. If I had known this was a fucking tomb, I would've prepared one."
+    Z "All I'm saying is, your girl talked about darkness.... a lot."
+    Fa "Guys, follow me, and keep close."
+    Fa "Let's not be taken by surprise."
+    play sound "audio/sounds/actions/steps in water.mp3"
+    pause 1.5
+    Ke "Eww... what is that?"
+    Z "The surprise, I guess."
+    scene d8b-102
+    with dissolve
+    Ke "The floor is all sticky and wet."
+    Ke "And what is that smell?"
+    scene d8b-103
+    with dissolve
+    Pe "It's blood. Although, the consistency is...odd."
+    Pe "I would like to take notes of this, but I can't see a thing."
+    scene d8b-100
+    with dissolve
+    Fa "Screw your notes Pepper, this is not the time."
+    Fa "Hey, hive girl, what next? Can you call your people?"
+    scene d8b-101
+    with dissolve
+    HG "We are sleeping, must not disturb."
+    HG "We will identify."
+    scene d8b-98
+    with dissolve
+    play music_1 "audio/music/mutants/spotlights start.mp3" fadein 3 noloop volume 1
+    play sound "audio/sounds/environment/cave sounds breathing.mp3"
+    stop music fadeout 3
+    pause 3
+    Pe "Uhm... Commander..."
+    Pe "I don't have any training as a soldier, but I do think..."
+    Pe "It's time to get out of here."
+    scene d8b-100
+    with dissolve
+    Fa "You're right."
+    show screen cutscene_marker
+    scene d8b-101
+    with dissolve
+    Fa "Everyone, stick together, we're getting out of-{p=2} {nw}"
+    stop sound fadeout 3
+    play music "audio/music/mutants/spotlights.mp3" noloop
+    scene d8b-99
+    with dissolve
+    pause 1.4
+    scene d8b-105
+    pause 1
+    scene d8b-106
+    with Dissolve(0.2)
+    pause 0.8
+    scene d8b-107
+    with Dissolve(0.2)
+    pause 0.9
+    scene d8b-109
+    with Dissolve(0.2)
+    pause 0.7
+    scene d8b-110x-2 at pan_up
+    stop sound fadeout 3
+    with dissolve
+    pause 3.35
+    scene d8b-110x
+    with Dissolve(0.2)
+    pause 1.9
+    scene d8b-144
+    play music "audio/sounds/vehicles/cars driving multiple.mp3"
+    hide screen cutscene_marker
+    # with Dissolve(0.1)
+    I "..."
+    Fa "You shot the wrong target, [I]."
+    Fa "These are supposed to become allies!"
+    Fa "Killing their queen, really? Great move!"
+    scene d8b-145
+    with dissolve
+    I "..."
+    Fa "Don't look at me like that! You know I'm right."
+    scene d8b-146
+    with dissolve
+    Z "If she hadn't reacted quickly, who knows how many more would've died in there."
+    Z "Two of your fucking soldiers, Fangs. Two."
+    Z "That was not her doing."
+    scene d8b-143
+    with dissolve
+    Fa "{i}*sighs*"
+    Fa "I told them to stick together..."
+    Fa "That poor girl was on her first mission."
+    play music "audio/music/mutants/spotlights action.mp3"
+    scene d8b-110
+    HQ "Daughter... You are back?"
+    scene d8b-113
+    play sound "audio/sounds/people/hive drone.mp3"
+    with dissolve
+    HQ "The Hive. The hunger is great. Control, difficult."
+    scene d8b-116
+    with dissolve
+    HQ "Did you bring food?"
+    scene d8b-123
+    with dissolve
+    Ke "..."
+    scene d8b-124
+    with dissolve
+    pause 1
+    scene d8b-126
+    with dissolve
+    pause 1
+    scene d8b-130
+    with dissolve
+    Ke "{i}*whimpers*"
+    show d8b-128-anim
+    play sound ["<silence 0.0>", "audio/sounds/people/drone attack & bite.mp3"]
+    with Dissolve(0.6)
+    pause 1.55
+    scene d8b-135
+    with hpunch
+    Ke "AAAHH!!!"
+    scene d8b-149
+    HQ "Children..."
+    play sound "audio/sounds/gore/eating flesh short.mp3"
+    Ke "AAAAHHHH!!!"
+    scene d8b-132
+    Ke "{i}*muffled*{/i} HELP ME!!!"
+    scene d8b-133
+    with dissolve
+    Ke "Hel..."
+    scene d8b-134
+    with dissolve
+    if persistent.gore == True:
+        Ke "..."
+        scene d8b-136
+        play sound "audio/sounds/gore/blood splat.mp3"
+        with vpunch
+        pause 1
+        scene d8b-137
+    play sound "audio/sounds/gore/flesh ripped.mp3"
+    with dissolve
+    Ke "..."
+    stop sound fadeout 2
+    stop music fadeout 2
+    scene d8b-147
+    play music_1 "audio/sounds/vehicles/cars driving multiple.mp3"
+    with Dissolve(0.1)
+    Fa "We were overwhelmed. I couldn't save her."
+    scene d8b-148
+    with dissolve
+    Z "I killed three of them. But there were more coming. Too many."
+    scene d8b-144
+    with dissolve
+    Z "I guess we all did the best we could."
+    I "..."
+    stop music_1
+    play music "audio/music/mutants/spotlights finale.mp3"
+    show d8b-114-anim
+    play sound ["<silence 1>", "audio/sounds/objects/bow string.mp3"]
+    pause 2.2
+    scene d8b-114x-2
+    with dissolve
+    pause 0.4
+    scene d8b-117
+    play sound "audio/sounds/people/hive drone.mp3"
+    with dissolve
+    pause 1
+    scene d8b-115
+    with dissolve
+    pause 0.5
+    play sound "audio/sounds/objects/arrow 2.mp3"
+    pause 0.9
+    scene d8b-118
+    with hpunch
+    pause 1
+    scene d8b-119
+    play sound "audio/sounds/objects/bow string.mp3"
+    with dissolve
+    pause 1
+    play sound "audio/sounds/objects/arrow 1.mp3"
+    pause 0.3
+    scene d8b-120
+    with hpunch
+    pause 1
+    scene d8b-149x
+    with dissolve
+    HQ "Stop... Children! No!"
+    play sound "audio/sounds/objects/arrow flying.mp3"
+    scene d8b-149
+    with dissolve
+    pause 1
+    scene d8b-111
+    play sound "audio/sounds/objects/arrow 3.mp3"
+    with hpunch
+    pause 1
+    scene d8b-111x
+    with dissolve
+    HQ "Wha..."
+    play sound "audio/sounds/objects/arrow 2.mp3"
+    pause 0.8
+    scene d8b-111x-2
+    with vpunch
+    pause 0.6
+    play sound "audio/sounds/actions/drop.mp3"
+    scene d8b-111x-3
+    with vpunch
+    HQ "Agh-!"
+    scene d8b-121
+    with Dissolve(0.2)
+    Pe "..."
+    scene d8b-122
+    with dissolve
+    Pe "So, why haven't we left yet?"
+    scene d8b-150
+    with Dissolve(0.2)
+    Z "There's too many, we must break through..."
+    scene d8b-151
+    play sound "audio/sounds/gore/gut rip.mp3"
+    with hpunch
+    Z "Fucker..."
+    scene d8b-152
+    play sound "audio/sounds/actions/drop.mp3"
+    with Dissolve(0.2)
+    Z "We need to leave!"
+    scene d8b-111x-3
+    with Dissolve(0.2)
+    HQ "Hghr... agh..."
+    scene d8b-111x-4
+    with Dissolve(0.2)
+    HQ "Daughter, stay!... the control..."
+    scene d8b-111x-5
+    with hpunch
+    HQ "PLEASE... GIVE HER BACK...!"
+    HQ "WE NEED..."
+    scene d8b-153
+    with Dissolve(0.2)
+    HG "..."
+    menu:
+        "Tell her to stay":
+            $ mantis_left_behind = True
+            scene d8b-154
+            with dissolve
+            Z "Girl, to salvage this, you have to help your mother now."
+            Z "We will come back for you, I promise."
+            Z "Will you be ok?"
+            scene d8b-154x
+            with dissolve
+            HG "We will try, [persistent.player_name]."
+            jump d8b155
+
+        "Take her back to base":
+            $ mantis_left_behind = False
+            scene d8b-154
+            with dissolve
+            Z "I won't leave you here, girl."
+            Z "We're going to find a way to make this right, but for now you're coming with us."
+            Z "Stay behind me."
+            scene d8b-154x
+            with dissolve
+            HG "Yes, we will follow, [persistent.player_name]."
+            jump d8b155
+
+label d8b155:
+    scene d8b-155
+    play sound "audio/sounds/people/hive drone.mp3"
+    with Dissolve(0.3)
+    Z "Fangs, time to move out!"
+    scene d8b-156x
+    with Dissolve(0.2)
+    Fa "They are endless!!"
+    scene d8b-156x-2
+    with Dissolve(0.2)
+    Fa "Everyone, let's make a run for it!"
+    scene d8b-112
+    with Dissolve(0.2)
+    Z "Ivy, take Pepper and go, now!"
+    scene d8b-156
+    with Dissolve(0.2)
+    Fa "Go, go, go!!"
+    if mantis_left_behind == False:
+        scene d8b-157
+        play music "audio/sounds/vehicles/cars driving multiple.mp3" fadeout 1
+        with Dissolve(0.1)
+        Fa "She could have stayed with her mother and negotiate another encounter, didn't you think of that?"
+        Z "I wasn't going to leave her there. I've seen enough to understand why she wanted out."
+        Z "All we can do now is think this over and see what our next step will be."
+        Fa "You bet I will think this over."
+        scene d8b-158
+        with dissolve
+        Fa "She and I though, are going to have a long thorough talk. She's got to learn to speak plainly."
+        scene d8b-159
+        with dissolve
+        Fa "Cheer up, girl. At least you didn't turn on us, so..."
+        Fa "I guess this does make you one of us now."
+        Fa "Do you even have a name?"
+        scene d8b-160
+        with dissolve
+        HG "We don't... we were Daughter..."
+        scene d8b-159
+        with dissolve
+        Fa "Then that's the first thing we're going to change."
+        Fa "...the first of many."
+        scene black pic
+        stop music fadeout 3
+        with slowfade
+        $ renpy.notify(_('Quest "Extension of politics" updated.'))
+        $ du = "Exploring the Hive was a bust. We had to run for our lives and I have decided to take the Daughter with us. If we are going to fix this, we need her with us."
+        if du not in mq_m_2o1.description:
+            $ mq_m_2o1.description.append(du)
+        "You eventually arrive back at the bunker..."
+        jump mutants_command_center
+
+    if mantis_left_behind == True:
+        scene d8b-147
+        play music "audio/sounds/vehicles/cars driving multiple.mp3" fadeout 1
+        with Dissolve(0.1)
+        Fa "It was the right choice. She belongs there, not with us, for now."
+        Fa "If we want the hive for our allies, we need her to be with them, and be our mouthpiece."
+        scene d8b-148
+        with dissolve
+        Z "Let's hope they won't hurt her for what happened today."
+        scene d8b-147x
+        with dissolve
+        Fa "At least we know what they're capable of."
+        Fa "We did not lose two soldiers today for nothing."
+        Fa "If we get those beasts on our side, no one will stop us."
+        Fa "But first... we rest."
+        scene d8b-148
+        with dissolve
+        Fa "..."
+        scene d8b-147
+        with dissolve
+        $ renpy.notify(_('Quest "Extension of politics" updated.'))
+        $ du = "Exploring the Hive was a bust. We had to run for our lives and leave the Daughter behind. I think having her back will give us more credit with the Queen, when we try to contact her again."
+        if du not in mq_m_2o1.description:
+            $ mq_m_2o1.description.append(du)
+        Fa "What a mess..."
+        jump mutants_command_center
+
+
+label d8c:
+    $ m_d8c = True
+    $ daily_lab = True
+    Zt "I'm curious about that laboratory Pepper works in. I should check it out."
+    scene black pic
+    with fade
+    "You leave the command room and head to the lab."
+    "As you approach it, it seems to be plunged in darkness."
+    play sound "audio/sounds/doors/door closed.mp3"
+    scene d8c-1
+    play music "audio/sounds/environment/soft ventilation.mp3" fadeout 3
+    with slowfade
+    Z "..."
+    scene d8c-2
+    with dissolve
+    Zt "No one here. Everything seems to be shut down, too."
+    scene d8c-3
+    with fade
+    Zt "That has to be the most uncomfortable looking bed I have ever seen..."
+    scene d8c-4
+    with dissolve
+    Zt "And what is that thing for?"
+    Zt "Maybe I should take a closer look..."
+    scene d8c-5
+    with dissolve
+    pause 1
+    show d8c-6-anim
+    play sound "audio/sounds/doors/lab door and light.mp3"
+    pause 3
+    scene d8c-8
+    pause 1
+    C "{i}*humming*"
+    scene d8c-9
+    with dissolve
+    Pe "Hmm..."
+    scene d8c-10
+    with dissolve
+    Pe "...oh, it's you."
+    Pe "Did no one tell you that this is when I take a break?"
+    scene black pic
+    with fade
+    "She steps inside..."
+    scene d8c-11
+    with fade
+    Zt "Wow. Is that Pepper?"
+    Pe "So... I assume you're here for the examination?"
+    scene d8c-12
+    with dissolve
+    Z "Examination?"
+    Pe "Yes. I figured the Commander must have told you about it."
+    scene d8c-13x
+    with fade
+    Z "I have no idea what you're talking about."
+    Pe "I guess I'll have to explain the procedure to you, then."
+    scene d8c-13x-2
+    with dissolve
+    Pe "That, however, is only possible if you're actually paying attention."
+    Z "..."
+    scene d8c-13
+    with dissolve
+    Pe "Do try to think with your...upper brain, please, or this will take forever."
+    scene black pic
+    with fade
+    "She goes to what appears to be her station."
+    scene d8c-14
+    with fade
+    Pe "So, in short, some of the machines in this lab allow me to examine blood types, sample DNA, take x-rays, and a few more things you would not understand."
+    Pe "Everyone working, living or cooperating with this bunker agreed to go through a thorough examination to let me take a few samples."
+    Pe "That's a condition set by the Commander, in case you wonder."
+    scene d8c-14x
+    with dissolve
+    Z "What do you do with the samples?"
+    scene d8c-15
+    with dissolve
+    Pe "I try to research mutations, how they come about and how the organic matter of each of us is different."
+    Pe "Now, if you're done with the questions, I suggest we start."
+    Pe "Take off your clothes and lie down on the gurney."
+    scene d8c-15x
+    with dissolve
+    Z "Why do you need me to undress?"
+    scene d8c-15x-2
+    with dissolve
+    Pe "Standard procedure, Stalker [persistent.player_name]."
+    Pe "It is best to follow my instructions. It's much more efficient this way."
+    Z "Alright then..."
+    scene black pic
+    with fade
+    "You undress and get on the sterile looking bed she pointed out to you..."
+    scene d8c-16
+    with fade
+    Z "{i}*laughs*{/i} What have I gotten myself into."
+    scene d8c-17
+    with dissolve
+    Pe "The answer is a medical examination. I am sure I just explained this."
+    scene d8c-17x
+    with dissolve
+    Z "..."
+    Pe "..."
+    Z "..."
+    Z "Yes... yes you have."
+    scene d8c-16
+    with dissolve
+    Pe "Everything is ready; I'm coming over now."
+    scene d8c-18
+    with fade
+    Z "Not the most comfortable bed I have to say."
+    Pe "That is irrelevant, it serves its purpose."
+    scene d8c-19
+    with dissolve
+    Pe "Now, as I said, this is just standard procedure, everyone before you has gone through this."
+    Pe "So you don't need to feel stressed, and if you do, remember that I know what I am doing and that you're in safe hands."
+    Pe "I will let you know once I am finished."
+    scene d8c-19x
+    with dissolve
+    Z "Sure, let's do this."
+    Pe "I need more light first."
+    scene d8c-20
+    with fade
+    Pe "Just a moment..."
+    Zt "I fear no man. But that thing..."
+    scene d8c-21
+    play sound "audio/sounds/environment/light switch loud.mp3"
+    with intenseflash
+    Z "Fuck, my eyes, this is brighter than the sun."
+    Z "Turn that down a bit, Pepper."
+    Pe "I'm sorry [persistent.player_name], I'm afraid I can't do that."
+    Pe "It's best if you close your eyes for the duration."
+    scene black pic
+    with fade
+    Pe "Hold still please."
+    Zt "This stuff is nightmare inducing, is this really what they used back in the day?"
+    show black pic
+    with redflash
+    "You feel a sudden sting in your arm..."
+    Z "What was that?!"
+    Pe "Just one moment..."
+    scene d8c-22
+    with fade
+    Pe "And that's done"
+    Pe "If someone in here loses too much blood, I can use other people's donations to help them out..."
+    Pe "...that is, as long as the blood type matches, hence this sample."
+    Z "You can do blood transfusions?"
+    Pe "Yes, this facility is capable of... how did you know the medical term?"
+    Z "I am a Stalker. Going through abandoned places is kind of what we do. Over the years, I have collected a fair bit of knowledge. I have a whole library full of pre war literature."
+    scene d8c-23
+    with dissolve
+    Pe "I guess I didn't expect Stalkers to be much into books at all."
+    scene d8c-24
+    with dissolve
+    menu:
+        "\"You live and learn, right?\"":
+            Z "You live and learn, right?"
+            Pe "Hm."
+            jump d8c26
+
+        "\"And I didn't expect someone like you to dye her hair...\"":
+            $ pepper_complimented = True
+            Z "And I didn't expect someone like you to dye her hair."
+            Z "It looks nice on you."
+            Pe "Hm."
+            jump d8c26
+
+label d8c26:
+    scene black pic
+    with fade
+    "Whilst you close your eyes again, the bright light blinding you, she takes some measurements and goes through a few more checks."
+    Pe "Okay, I'm almost done."
+    Pe "Unfortunately, I do need one more sample, then you are free to go."
+    Pe "No need for that anymore..."
+    play sound "audio/sounds/environment/light switch loud.mp3"
+    "You hear her switch off the light..."
+    Pe "As I said, one more sample, then we are finished."
+    scene d8c-25
+    with fade
+    Z "..."
+    Z "Wait, what?"
+    Pe "Do try to listen; I need to take one last sample."
+    Pe "I need to test your semen for possible reproductive qualities."
+    Z "Reproductive qualities?"
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Z "I have two daughters!"
+    Pe "{i}*sighs*"
+    scene d8c-26
+    with dissolve
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        Pe "I don't question your ability to reproduce, but I need to analyse the compatibility with certain mutations."
+    Pe "I request that you stop interfering with my work, if you want this to finish anytime soon."
+    scene d8c-26x
+    menu:
+        "\"Alright then, do what you have to do.\"":
+            $ pepper_examination = True
+            Z "Alright then, do what you have to do."
+            $ check_for_achievements()
+            Pe "..."
+            scene d8c-27
+            with dissolve
+            "She looks at it, concentrating..."
+            scene d8c-28
+            with dissolve
+            Pe "Try to relax a bit and your ejaculation should happen shortly."
+            show d8c-29-anim
+            with dissolve
+            Pe "Out of curiosity I have to ask, did you know about the full examination beforehand?"
+            Pe "You were erect throughout the entire process."
+            Z "That's for multiple reasons."
+            Z "Your attitude, body, or even that dress you're wearing underneath. Pick one."
+            Pe "I suppose with attitude you mean my professionalism."
+            Z "Yeah, right."
+            Zt "There's something unusual about how she's trying to get me off with almost mechanical precision."
+            Zt "Not terrible, but not good either..."
+            menu:
+                "Try to finish":
+                    Zt "Let's try to give her what she wants..."
+                    Z "Get ready Pepper, I'm about to..."
+                    scene d8c-48x
+                    with flash
+                    Pe "There it is, keep going...{p=2} {nw}"
+                    scene d8c-49x
+                    with dissolve
+                    Pe "Not a bad amount, I can work with this."
+                    Pe "Stay where you are, for a moment, [persistent.player_name]."
+                    scene black pic
+                    with fade
+                    "She picks up one of the vials to her right to gather the semen. As you get up and dressed..."
+                    scene d8c-50x
+                    with fade
+                    Pe "That should be enough for today."
+                    Z "For today?"
+                    Pe "I suspect I will need more as my research goes on."
+                    scene d8c-51x
+                    with dissolve
+                    Pe "You can stop by any day to donate more."
+                    Pe "Now, if you'll excuse me, more work awaits."
+                    Pe "You surely have something better to do as well?"
+                    scene d8c-52
+                    with dissolve
+                    Z "Right, sure... See you around, Pepper."
+                    scene black pic
+                    with fade
+                    "You leave the laboratory..."
+                    jump mutants_command_center
+
+                "Convince her to take off her coat":
+                    Zt "This is not working. I need something more."
+                    scene d8c-31
+                    with dissolve
+                    Z "..."
+                    Z "I think you should take off your coat again."
+                    scene d8c-33
+                    with dissolve
+                    Pe "Excuse me?"
+                    scene d8c-34
+                    with dissolve
+                    Pe "[persistent.player_name], this is my lab coat."
+                    Pe "We are here for your examination, not for private entertainment."
+                    scene d8c-35
+                    with dissolve
+                    "I will have to convince her in her own language..."
+                    Z "If you want this to succeed, I need more stimulation. This just isn't as efficient as you think."
+                    Z "Visual stimulation is important, for a man. Surely you know that."
+                    scene d8c-34
+                    with dissolve
+                    Pe " Yes, sure, I know that..."
+                    scene d8c-36
+                    with dissolve
+                    Pe "Fine, you have a valid point."
+                    scene black pic
+                    with fade
+                    "She takes off her coat and tosses it aside..."
+                    scene d8c-38
+                    with fade
+                    Pe "Now, if you don't have any other special requests, I would like to finish my work."
+                    scene d8c-37
+                    with dissolve
+                    Zt "A piece of work indeed."
+                    scene d8c-39
+                    with dissolve
+                    Z "Much better. Keep going."
+                    Pe "..."
+                    show d8c-40-anim
+                    with fade
+                    Pe "..."
+                    Zt "There she goes."
+                    menu:
+                        "Try to finish":
+                            Zt "Much better... I can now give her what she needs."
+                            Z "Almost there..."
+                            scene d8c-48
+                            with flash
+                            Pe "There it is, try to keep going.{p=2} {nw}"
+                            scene d8c-49
+                            with dissolve
+                            Pe "That's more than enough indeed."
+                            Pe "Stay put for a moment, [persistent.player_name]."
+                            scene black pic
+                            with fade
+                            "She picks up one of the vials to her right to gather the sperm. As you get up and dressed..."
+                            scene d8c-50
+                            with fade
+                            Pe "That should be enough for today."
+                            Z "For today?"
+                            Pe "I suspect I will need more as my research goes on."
+                            scene d8c-51x
+                            with dissolve
+                            Pe "You can stop by any day to donate more."
+                            Pe "Now, if you'll excuse me, more work awaits."
+                            Pe "You surely have something better to do as well?"
+                            scene d8c-52
+                            with dissolve
+                            Z "Right... See you around, Pepper."
+                            scene black pic
+                            with fade
+                            "You leave the laboratory..."
+                            jump mutants_command_center
+
+                        "Feel her up":
+                            scene d8c-41
+                            with dissolve
+                            Zt "Fuck it, you can't dress like that, jerk me off and not expect me to touch you."
+                            scene d8c-42
+                            with dissolve
+                            Zt "Such a cute ass, and those legs..."
+                            scene d8c-43
+                            with dissolve
+                            "You touch her thighs. They're quite firm, under her soft skin."
+                            Pe "[persistent.player_name], why are you touching me?"
+                            scene d8c-44
+                            with dissolve
+                            Z "Visual stimulation is nice, but the sense of touch is also important."
+                            Z "You're already touching me, I am just expanding on that."
+                            scene d8c-45
+                            with dissolve
+                            Pe "{i}*sighs*"
+                            Pe "I should have prepared more, rather than letting the patient decide."
+                            Z "You didn't do this before?"
+                            Pe "The examination, yes. This, no."
+                            scene d8c-46
+                            with dissolve
+                            Pe "Fangs suggested this addition to the examination not long ago."
+                            Z "Did she also suggest that dress to you?"
+                            Pe "It's not a suggestion, but her desired dresscode. I follow her orders."
+                            Z "She has good taste."
+                            scene d8c-47
+                            with dissolve
+                            "You more and more aggressively grope her ass and she keeps ignoring it, continuing to stroke you."
+                            Z "Almost... keep going..."
+                            show d8c-32-anim
+                            with dissolve
+                            Pe "..."
+                            Z "Hngh..."
+                            scene d8c-48
+                            with flash
+                            Pe "There you are...{p=1.5} {nw}"
+                            scene d8c-49
+                            with flash
+                            Pe "Not a bad amount, I can work with that."
+                            Pe "Stay put for a moment, [persistent.player_name]."
+                            scene black pic
+                            with fade
+                            "She picks up one of the vials to her right to gather the sperm. As you get up and dressed..."
+                            scene d8c-50
+                            with fade
+                            Pe "That should be enough for today."
+                            Z "For today?"
+                            Pe "I suspect I will need more as my research goes on."
+                            scene d8c-51
+                            with dissolve
+                            Pe "You can stop by any day to donate more."
+                            Pe "Now, if you'll excuse me, more work awaits."
+                            Pe "You surely have something better to do as well?"
+                            scene d8c-52
+                            with dissolve
+                            Z "Right... See you around, Pepper."
+                            scene black pic
+                            with fade
+                            "You leave the laboratory..."
+                            jump mutants_command_center
+
+
+        "\"Let's stop. I didn't sign up for this.\"":
+            Z "Let's stop. I didn't sign up for this."
+            Z "If Fangs has a problem with it, she can come to me."
+            scene d8c-26
+            with dissolve
+            Pe "I can't force you, but I will have to report this to the Commander."
+            scene black pic
+            with fade
+            "She lets go of you. You get up and gather your clothes..."
+            scene d8c-51x
+            with fade
+            Pe "I will let Fangs know that you took part in most of the examination."
+            Pe "Now, if you'll excuse me, more work is waiting."
+            scene d8c-52
+            with dissolve
+            Z "See you around, Pepper."
+            jump mutants_command_center
+
+label d8d:
+    $ m_d8d = True
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    pause 1
+    scene d8d-3
+    play music "audio/sounds/environment/desert wind.mp3" fadein 4
+    with slowfade
+    pause 2
+    scene d8d-2
+    with dissolve
+    play sound "audio/sounds/actions/sneaking steps.mp3"
+    "{i}*rustling*{p=3} {nw}"
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    Zt "Hm...?"
+    scene sz-1x
+    with slowfade
+    Zt "What was..."
+    "You get up, your sleep disturbed by something." ######
+    scene black pic
+    with fade
+    "You throw some clothes on and head outside..."
+    scene d8d-1
+    play music "audio/sounds/environment/desert wind.mp3" fadein 5
+    with slowfade
+    Zt "It's still night."
+    Z "Who's there?!"
+    scene d8d-4
+    with fade
+    Zt "Maybe it was just a fennec."
+    scene d8d-5
+    with fade
+    pause 1
+    scene d8d-6
+    with dissolve
+    Z "..."
+    scene d8d-7
+    with dissolve
+    Zt "It's her again..."
+    scene d8d-5x
+    with fade
+    I "..."
+    scene d8d-8
+    with dissolve
+    pause 2
+    scene d8d-9
+    with dissolve
+    I "..."
+    scene black pic
+    with fade
+    "You step in closer and lean on the balustrade..."
+    scene d8d-12
+    with fade
+    pause
+    scene d8d-10
+    with dissolve
+    "You look out towards the desert." #######
+    "A thin breeze flows in from the dunes."
+    "You soak in the moment, sharing Ivy's silence." ######
+    "It's the second time she shows up at your house uninvited. This time at night."
+    "You can't tell her reason for being here, but you sense that she doesn't mean you any harm."
+    "The peaceful silence of the sand dunes is interrupted only by your breathing as you wait for her intentions to manifest."
+    menu:
+        "\"...\"":
+            $ ivy_silent = True
+            Z "..."
+            "You say nothing..."
+            scene d8d-11
+            with dissolve
+            stop music fadeout 4
+            $ renpy.pause(delay=5, hard=True)
+            play music "audio/music/mutants/sonmis theme.mp3" fadein 3
+            I "Thank you."
+            Z "...?"
+            "You are taken aback briefly. Lost in the contemplative silence of the moment, to hear her speak was the last thing you expected."
+            scene d8d-9
+            with dissolve
+            I "..."
+            jump ivy_questions
+
+        "\"If you're here to sample my wife's cooking...\"":
+            $ ivy_joke = True
+            scene d8d-12
+            with dissolve
+            Z "If you're here to sample my wife's cooking, you should come back in a few hours. Her breakfasts are good, but you've come way too early."
+            Z "..."
+            scene d8d-11
+            with dissolve
+            stop music fadeout 4
+            $ renpy.pause(delay=5, hard=True)
+            "You hear a chuckle..."
+            pause 1.5
+            play music "audio/music/mutants/sonmis theme.mp3" fadein 3
+            I "No..."
+            Z "...?!"
+            "You are taken aback briefly. You had almost come to believe that she was unable to speak, so her soft chuckle and her simple denial take you by surprise."
+            scene d8d-9x
+            with dissolve
+            I "..."
+            scene d8d-8x
+            with dissolve
+            I "I will not stay for long."
+            scene d8d-18
+            with dissolve
+            Z "..."
+            I "I wanted to thank you."
+            jump ivy_questions
+
+        "\"You're going to disappear again, aren't you?\"":
+            $ ivy_disappear = True
+            Z "You're going to disappear again, aren't you?"
+            scene d8d-12
+            with dissolve
+            Z "..."
+            scene d8d-11
+            with dissolve
+            stop music fadeout 4
+            $ renpy.pause(delay=5, hard=True)
+            play music "audio/music/mutants/sonmis theme.mp3" fadein 3
+            I "Not this time."
+            Z "...?!"
+            "You are taken aback briefly. You had almost come to believe that she was unable to speak, so her soft voice almost didn't register with you.."
+            scene d8d-9x
+            with dissolve
+            I "..."
+            scene d8d-8x
+            with dissolve
+            I "Not right away."
+            scene d8d-18
+            with dissolve
+            Z "..."
+            I "I wanted to thank you."
+            jump ivy_questions
+
+label ivy_questions:
+    scene d8d-18
+    with dissolve
+    menu:
+        "\"I didn't expect you to speak.\"" if ivy_q1 == False:
+            $ ivy_q1 = True
+            Z "I was starting to think you were mute."
+            scene d8d-14
+            with dissolve
+            I "..."
+            "She seems to be struggling to vocalise her thoughts..."
+            "...and you can't tell if it's just her way of being, or if it is you she has a problem connecting with."
+            scene d8d-15x
+            with dissolve
+            pause 1.5
+            scene d8d-15
+            with dissolve
+            I "I had to, eventually."
+            scene d8d-13
+            with dissolve
+            I "..."
+            jump ivy_questions
+
+
+        "\"What are you thanking me for?\"" if ivy_q2 == False:
+            $ ivy_q2 = True
+            Z "What are you thanking me for?"
+            scene d8d-8
+            with dissolve
+            I "..."
+            scene d8d-8x
+            with dissolve
+            I "For saving me, back in Old Cairo."
+            scene d8d-8
+            with dissolve
+            Z "..."
+            Zt "That did not happen yesterday, why talk about it only now?"
+            scene d8d-16
+            with dissolve
+            menu:
+                "\"I don't agree with how your kind are treated.\"":
+                    scene d8d-17
+                    with dissolve
+                    Z "I always despised the way your kind are hunted."
+                    Z "Not just by the decayed, but everyone. As for those two in particular..."
+                    if ki_killed == True:
+                        Z "They had it coming for a long time."
+                    if ki_killed == False:
+                        Z "I knew they were too greedy to resist the trade."
+                    I "..."
+                    jump ivy_questions
+
+                "\"No one deserves to end up like that.\"":
+                    scene d8d-17
+                    with dissolve
+                    Z "No one deserves to end up like that."
+                    Z "Human or mutant. As for those two decayed..."
+                    if ki_killed == True:
+                        Z "They had it coming for a long time."
+                    if ki_killed == False:
+                        Z "I knew they were too greedy to resist the trade."
+                    I "..."
+                    jump ivy_questions
+
+                "\"You got yourself into a tight spot.\"":
+                    scene d8d-17
+                    with dissolve
+                    Z "You got yourself into a tight spot, that's all."
+                    Z "They were not the brightest ones, and now that I have seen you fight, I'm thinking maybe you could've tried to escape after all."
+                    I "..."
+                    scene d8d-15
+                    with dissolve
+                    I "I would have died."
+                    scene d8d-14
+                    with dissolve
+                    Z "..."
+                    jump ivy_questions
+
+
+        "\"Does Fangs need my help again?\"" if ivy_q3 == False and (ivy_q1 == True or ivy_q2 == True):
+            $ ivy_q3 = True
+            Z "Did Fangs send you to me?"
+            Z "Is that why you're here?"
+            scene d8d-8
+            with dissolve
+            I "..."
+            scene d8d-8x
+            with dissolve
+            I "It is not, no."
+            I "I... think I am here just for..."
+            scene d8d-8
+            with dissolve
+            I "..."
+            scene d8d-8x-2
+            with dissolve
+            I "I'm sorry... maybe I shouldn't have come."
+            I "I should go back home."
+            scene d8d-8x
+            scene black pic
+            with slowfade
+            "She gets up..."
+            scene d8d-19
+            with fade
+            Z "Home?"
+            Z "Is that what you call the bunker?"
+            scene d8d-19x
+            with dissolve
+            I "..."
+            Z "That place doesn't exactly scream home to me."
+            I "..."
+            scene d8d-19x-2
+            with dissolve
+            I "It's my friend... we live... somewhere else."
+            scene d8d-19x
+            with dissolve
+            I "..."
+            scene d8d-19x-3
+            with dissolve
+            I "I shouldn't have disturbed you tonight..."
+            I "...coming here now was a mistake." ###
+            I "But I will see you soon, [persistent.player_name]."
+            scene d8d-19x-4
+            with dissolve
+            menu:
+                "\"See you soon, Ivy. \"":
+                    Z "See you soon, Ivy."
+                    scene d8d-20
+                    with fade
+                    I "..."
+                    scene d8d-21
+                    with dissolve
+                    "She smiles slightly..."
+                    scene black pic
+                    with fade
+                    "...and then disappears. Again..."
+                    scene d8d-23
+                    with fade
+                    $ sq_i_1.start()
+                    Z "..."
+                    scene black pic
+                    stop music fadeout 5
+                    with slowfade3
+                    "You sit around for another while, as she disappears in the distance, until the first rays of direct sunlight hit the house, and a new day begins."
+                    jump daily_missions
+
+                "\"Your friend?\"":
+                    scene d8d-20
+                    with fade
+                    Z "Your friend?"
+                    I "..."
+                    scene d8d-22
+                    with dissolve
+                    I "I am worried about her."
+                    I "She might hurt herself..."
+                    scene black pic
+                    with fade
+                    "She leaves..."
+                    Zt "And there she goes... Again."
+                    scene d8d-23
+                    with fade
+                    $ sq_i_1.start()
+                    Z "..."
+                    scene black pic
+                    stop music fadeout 5
+                    with slowfade3
+                    "You sit around for another while, as she disappears in the distance, until the first rays of direct sunlight hit the house, and a new day begins."
+                    jump daily_missions

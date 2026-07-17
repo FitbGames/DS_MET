@@ -1,0 +1,4522 @@
+label d11a:
+    $ m_d11a = True
+    scene d11a-1
+    with fade
+    "A previous conversation with Ivy has left you with a few questions that keep nagging you."
+    Zt "There she is..."
+    scene d11a-2
+    with dissolve
+    Zt "It looks like she's getting ready for guard duty."
+    scene d11a-3
+    with dissolve
+    Z "Hey, Ivy. Do you have a moment?"
+    scene d11a-4
+    with dissolve
+    I "...?"
+    scene d11a-5
+    with fade
+    Z "I wanted to speak to you again... about something you said when you came to see me, at night."
+    Z "You told me you were concerned... Something about a friend of yours, and I don't really know what you meant by that."
+    scene d11a-6
+    with dissolve
+    Z "Do you want to help me understand?"
+    scene d11a-7
+    with dissolve
+    I "..."
+    scene d11a-8
+    stop music fadeout 3
+    with dissolve
+    Z "..."
+    Z "We don't have to talk about it here."
+    Z "But you know where to find me, if you need to."
+    scene black pic
+    with fade
+    "You start walking away..."
+    scene d11a-9
+    with fade
+    pause 0.5
+    play music "audio/music/mutants/ivys theme.mp3" fadein 6
+    pause 1
+    I "Wait."
+    Z "..."
+    scene d11a-10
+    with dissolve
+    I "..."
+    "She looks at you with an air of mixed concern and relief..."
+    scene d11a-11
+    with dissolve
+    "You can tell from her hesitation, that she's struggling to find a way to express herself."
+    "Has she ever used her actual voice, in this place?"
+    scene d11a-12
+    with dissolve
+    I "Meet me outside, in three hours. Please don't tell anyone."
+    scene d11a-13
+    with dissolve
+    Z "I'll be there."
+    scene black pic
+    with fade
+    show screen cutscene_marker
+    window hide
+    "Later...{w=1.5}{nw}"
+    show d11a-14-20-anim
+    pause 28
+    hide screen cutscene_marker
+    scene black pic
+    with fade
+    "You cruise through several landscapes, each affected differently by the devastations of the past. Finally you reach the entrance to a cave and follow Ivy inside..."
+    scene d11a-21
+    with slowfade
+    Z "Where are we?"
+    I "Follow me."
+    scene d11a-22
+    with dissolve
+    "As you head deeper into the cave, you are faced with a mixture of natural features and the remains of technological devices, sprawled across a faintly illuminated space."
+    scene d11a-23
+    with fade
+    Z "This... is your home?"
+    Z "But how do you live in here? Water... food."
+    scene d11a-23x
+    with dissolve
+    I "Follow me. The cave has a second entrance."
+    scene d11a-23x-2
+    with dissolve
+    "You follow Ivy's footsteps, absorbing the layout and the features of this sprawling cave..."
+    scene black pic
+    with fade
+    "You reach the other entrance that she mentioned..."
+    show d11a-24-27-anim
+    with fade
+    pause 28
+    Z "This place is incredible. From the other end of the cave, you'd never imagine this could exist... and this close to Zeta..."
+    scene d11a-31
+    with dissolve
+    I "We should go back inside. There's something else I need to show you."
+    scene d11a-30
+    with dissolve
+    Z "Lead the way."
+    scene d11a-32
+    stop music fadeout 10
+    play music_1 "audio/music/background/cave background.mp3"
+    with slowfade
+    "It quickly becomes apparent that the reason why you are here is not to admire the beauty of this unusual place, where the mist of Cairo and the blazing sun of the desert meet."
+    "In fact, the more you walk through the dark and blue shimmering tunnels of this place, the more it reminds you of other hideouts."
+    "The temperature is unexpectedly cool, the unusual blue lighting plays with the humidity creating a foggy film in the air."
+    "If not for artificial lighting, you would be in utter darkness."
+    scene d11a-33
+    with dissolve
+    "A construction of corrugated metal sheets stands jammed in the rock wall and you can't quite tell how old it might be."
+    "For all the glimpses of technology from bygone eras that your eyes caught on the way to this corner of the cave, despite the more than adequate living quarters..."
+    "...the place is still a cave, removed from civilized society, lost at the edges of an old world that tries to poison the new."
+    "Even so, you realize that such a prized secret is not revealed lightly. You doubt that anybody else in the Bunker is aware of its existence..."
+    scene d11a-34
+    with fade
+    I "I need to change clothes. Can you wait for a few minutes?"
+    scene d11a-35
+    with dissolve
+    Z "Sure, I'll be here."
+    scene d11a-36
+    with dissolve
+    I "You can have a look around, if you want."
+    scene d11a-37
+    with dissolve
+    Z "Uh, sure, I will check the place out."
+    scene d11a-38
+    with slowfade
+    "As she enters her room, you wonder if she actually wants you to explore the place."
+    Zt "Why does she keep these devices around, anyway? It looks like scrap metal at best."
+    scene d11a-39
+    with fade
+    "The devices look old and rusted. On the left, a bulk of unidentifiable scrap. Not even its screens are visible anymore."
+    "On the right, something that looks like a case, next to an old radio transmitter."
+    "Even in their current state, these relics from the past bring up some unexpected memories."
+    "Some of these devices have demonstrated incredible staying power, surviving, abandoned and powerless, in all manner of places."
+    "Forgotten over time, then found anew every so many decades and repaired by the scavengers of the day, usually in outposts far removed from Zeta..."
+    "You yourself have explored a few of the earliest Stalker hideouts, that were equipped with original, if powerless, radio stations meant to create a communication network."
+    "The man you now know as Lord Abrax had taught you about them and lamented how it would have served humanity if they had retained the knowledge to build and operate these devices, instead of letting them go to rot."
+    scene d11a-40
+    with fade
+    I "..."
+    scene d11a-42
+    with dissolve
+    I "You can sit down, [persistent.player_name]. Do you know how to start it up?"
+    scene d11a-41
+    with dissolve
+    Z "Start it up? What do you mean, the radio?"
+    scene d11a-43
+    with fade
+    I "No. We don't need the transmitter today."
+    scene d11a-45
+    with dissolve
+    I "The suitcase holds an old military device. We have been able to keep it running despite its age. Have you ever come across one of them?"
+    Z "Nothing in one piece or that actually worked, no..."
+    I "You can see for yourself."
+    scene d11a-44
+    with dissolve
+    Zt "I've seen the machines they have at the bunker, but I never expected that Ivy would just casually possess her own personal devices. Even just as an object of curiosity, these items have value. Could she still have a functioning one?"
+    Zt "Is there such a device that can withstand the sands of time? It has been over 400 years since these things were commonplace..."
+    Zt "She is so casual about this. As if... it's nothing special to her."
+    scene black pic
+    with fade
+    "You sit down. For the first time in years, you feel a sense of trepidation you have not felt since your first excursions into Old Cairo."
+    scene d11a-46
+    with dissolve
+    "You're careful. The case does have some rust damage and looks almost delicate."
+    scene d11a-47
+    with dissolve
+    "Opening up the case, you see a damaged screen, more rusted surfaces, and what seems to be paint where there used to be a layout of buttons."
+    "Is she pulling a prank on you?"
+    scene d11a-49
+    with fade
+    Z "It's not doing anything."
+    scene d11a-50
+    with dissolve
+    I "Of course, this must be new to you, [persistent.player_name]."
+    I "You have to press the \"On\" button on the top right."
+    Z "I've seen my share of old tech, but nothing on this level, and it was almost always unusable."
+    scene d11a-47
+    with fade
+    "Without further ado, she guides your fingers to the button that she says activates the device..."
+    jump d11a_computer_start
+
+label d11a_computer_start:
+    scene d11a-48
+    stop music_1 fadeout 10
+    with dissolve
+    Z "..."
+    play sound "audio/sounds/objects/computer beep.mp3"
+    pause 1
+    "You hear the device booting up..."
+    scene d11a-48x
+    play music "audio/music/mutants/sonmis theme.mp3" volume 0.15 fadein 25
+    with Dissolve(1)
+    pause 2.5
+    show d11a-48x-atl
+    pause 11
+    Z "Entries? Did you make some sort of diary?"
+    I "Yes, you could say that... but a diary is written daily. I've written sparsely."
+    I "Sometimes there are weeks or years in between the entries. Sometimes decades."
+    Z "Decades? How..."
+    scene d11a-50
+    with fade
+    I "The reason why I brought you here is my friend. But first... I owe you a few more details."
+    I "There are things I want you to know, that happened long before the day we met in Old Cairo. Events going back to my life in the old tower."
+    I "Some of it is hard to believe, so that's why I would like you to read for yourself."
+    scene d11a-49
+    with dissolve
+    Z "The tower; you mean the mutant bunker?"
+    scene d11a-48x-23
+    with fade
+    I "No... our old tower. In Old Cairo. Read on, it will answer some questions."
+    I "I will fill in the gaps later."
+    label ivy_computer:
+        call screen ivy_comp
+    show d11a-48x-23
+    pause 0.1
+    scene d11a-48
+    with dissolve
+    jump d11a_computer_shutdown
+
+label d11a_computer_shutdown:
+    stop music fadeout 5
+    scene d11a-46
+    with fade
+    "You close the device, sit back for a second and take in a few deep breaths."
+    scene d11a-52
+    with fade
+    Z "This is a lot to take in. The thing about your age alone is incredible."
+    Z "I can't even begin to think of the many questions you might be able to answer."
+    Z "Hell, you basically were there for a good chunk of the history of our civilisation."
+    Z "And... You're still alive to tell the tale. Pretty remarkable."
+    scene d11a-51
+    with dissolve
+    I "Our survival depended on isolating ourselves from the perils of the outside world."
+    I "Most of what you might ask, I probably don't have an answer to."
+    scene d11a-52x
+    with dissolve
+    Z "Even so, you have given me a lot to think about."
+    scene d11a-51x
+    with dissolve
+    I "I am aware. You understand now why I had to show you, rather than just tell you out of the blue?"
+    scene d11a-52
+    with dissolve
+    Z "Yes, of course."
+    Z "I want some time to wrap my head around all of this information. If it's alright with you, I will stay the night."
+    scene d11a-51x
+    with dissolve
+    I "I wasn't going to send you away this late. There's a bed inside. Make yourself comfortable."
+    scene d11a-52x
+    with dissolve
+    scene black pic
+    with slowfade
+    "You do as she suggests, and you both turn away from the device. She goes outside, whilst you head to the shack..."
+    scene d11a-55
+    with fade
+    Zt "That was a lot to take in."
+    scene black pic
+    with fade
+    "You enter the shack..."
+    scene d11a-56
+    with slowfade
+    Zt "I wonder where she will sleep? Ah well..."
+    scene d11a-57
+    with dissolve
+    Zt "Time to rest..."
+    scene d11a-59
+    with dissolve
+    "You lay down..."
+    scene black pic
+    with slowfade
+    "Hours later..."
+    scene d11a-59
+    with fade
+    Zt "Is it morning already?"
+    Zt "...I just can't tell, here in this cave."
+    scene d11a-60
+    with slowfade
+    Zt "I don't feel sleepy. It must be early morning."
+    Zt "I should tell [I] that I'll be leaving soon..."
+    scene black pic
+    play music "audio/music/background/night ambience.mp3" fadein 3
+    with fade
+    "Stepping outside of your shelter, you look around..."
+    scene d11a-63
+    with w33slow
+    Zt "I guess I was wrong."
+    scene d11a-62
+    with dissolve
+    Zt "It's still pitch black."
+    Zt "But where is [I]? She said she would be going to sleep eventually?"
+    scene d11a-64
+    with fade
+    "You move about, exploring your surroundings..."
+    scene d11a-65
+    with dissolve
+    Zt "This place is so peaceful. I can only see hints of the red mist in the clouds."
+    scene d11a-66
+    with dissolve
+    Zt "No wonder she wants to keep this place secret."
+    Zt "Setting up a command base here would disturb its peace."
+    scene d11a-67
+    with dissolve
+    "Allowing your senses to guide your steps, rather than conscious thought, you sense her presence on the other side of a rock, in the water..."
+    scene d11a-68
+    with dissolve
+    Zt "Is that... [I]... sleeping?"
+    scene d11a-69
+    with dissolve
+    I "{i}*soft breathing*"
+    "Resting peacefully, her back leaning against the stone surface, she seems to have spent the whole night in the water."
+    "You can't blame her, really. The place looks inviting, and the water clean."
+    "You consider your options..."
+    menu:
+        "Stay":
+            Zt "It won't hurt to... look around a little more, I guess."
+            jump d11a70
+
+        "Leave her be":
+            scene d11a-67
+            with dissolve
+            Zt "I better go back to sleep. I have my answers."
+            jump d11a58
+
+
+label d11a70:
+    scene d11a-70
+    with dissolve
+    if _in_replay:
+        play music "audio/music/background/night ambience.mp3" fadeout 2
+    "As you approach stealthily, you get a better look from the side."
+    "Her dark brown hair is straight, but short, resting on her shoulders."
+    "Her lightly tanned skin shimmers in the soft glare of the artificial light reflected in the water."
+    "Her dark pink lips move ever so slightly, almost shaping words. Is she dreaming of something?"
+    "You realise, maybe for the first time, that from the day you first saw her, you have felt an attraction to the woman."
+    "You can't quite put your finger on what it is that appeals to you; the eccentric features like her ears or shifting irises, her symmetrical beauty, her brooding silences or the many mysteries that still surround her..."
+    "but there is definitely something that speaks to you."
+    scene d11a-71
+    with dissolve
+    "As you ponder this notion, your senses bring you back to the present as you notice a slight tremble in her eyelids..."
+    I "...mh."
+    scene d11a-72
+    with dissolve
+    I "..."
+    Zt "Is she... waking up?"
+    scene d11a-74
+    with dissolve
+    Zt "Yep... damn. She is."
+    scene d11a-75
+    play sound "audio/sounds/environment/water swirl.mp3"
+    with dissolve
+    pause 1.6
+    play sound "audio/sounds/environment/water pour.mp3"
+    pause 0.4
+    show d11a-76-anim
+    with fade
+    pause 6
+    Z "...!"
+    show d11a-77-anim
+    with Dissolve(0.2)
+    hide d11a-76-anim
+    pause 2
+    "With her typical swiftness, she explodes out of the water on the far end of the pond."
+    show d11a-78-anim
+    with Dissolve(0.2)
+    hide d11a-77-anim
+    pause 2
+    "Leaning on the flats of her hands, her eyes closed, she breathes in deeply, her chest heaving."
+    show d11a-79-anim
+    with Dissolve(0.2)
+    hide d11a-78-anim
+    "With seemingly very little effort, she pushes herself out of the water."
+    scene d11a-80
+    with fade
+    "She stands naked, basking in the moonlight for a few more seconds."
+    scene d11a-81
+    with dissolve
+    I "...hmm..."
+    scene d11a-83
+    with dissolve
+    I "{i}*stretching*"
+    scene d11a-82
+    with dissolve
+    Zt "Holy... shit."
+    scene d11a-84
+    with dissolve
+    "You can't help but stay in place and gaze as she slowly stretches her dripping body, oblivious to your presence..."
+    scene d11a-85
+    with dissolve
+    "When she brought you to her safe place, you expected a few revelations on her part. Her naked body was maybe on your mind, but not something you anticipated to see."
+    "Yet here you are, standing in front of a creature you barely know, her perfectly proportioned frame drawing your eyes."
+    "Her full breasts stick out in the open as your eyes run down her slim waist and wide hips, the toned and athletic figure of someone who regularly fights for survival."
+    "As you admire her body with an intensity you have not felt in some time, you are acutely aware of the choices you made that led you here..."
+    scene d11a-86
+    with fade
+    "There is no way to hide now, you think. You know how this will look to her, with you standing, and gawping at her."
+    scene d11a-87
+    with dissolve
+    pause 1.5
+    scene d11a-88
+    with dissolve
+    I "..."
+    scene d11a-89
+    with hpunch
+    I "...!?"
+    "Her eye colour snaps to a shade you have not yet observed..."
+    scene d11a-90
+    with dissolve
+    I "[persistent.player_name]...?"
+    I "What are you... doing here?"
+    "You're trying to appear surprised, but it's no use."
+    "You're a man of the world and growing up in Zeta, this is not the first time you find yourself in somewhat embarrassing positions. You take a moment to respond..."
+    scene d11a-92
+    with dissolve
+    Z "Yeah... so... this wasn't planned."
+    Z "I woke up and could not tell the time of day, or night...so, I decided to come out and check up on you."
+    scene d11a-93
+    with dissolve
+    Z "When I stepped outside, I saw you swimming and getting out."
+    Z "I didn't expect you to be out here, naked..."
+    Z "So..."
+    scene d11a-95
+    with dissolve
+    Z "...good morning, I guess? Do you want me to get you a towel or something?"
+    scene d11a-96
+    with dissolve
+    I "Hm..."
+    "You can hear a slight chuckling coming from her..."
+    scene d11a-99
+    with dissolve
+    I "I am... fine, [persistent.player_name]. I have everything I need nearby."
+    scene d11a-100
+    with dissolve
+    Z "I see..."
+    show d11a-91-anim
+    with fade
+    menu:
+        "That's enough":
+            if not _in_replay:
+                $ d11a_ivy_looked = True
+            Z "I will go back inside, then."
+            scene d11a-96
+            with dissolve
+            I "..."
+            Z "But... [I]?"
+            scene d11a-95
+            with dissolve
+            I "Hm?"
+            Z "You're very pretty."
+            scene d11a-97
+            with dissolve
+            I "...?"
+            pause 0.5
+            scene d11a-98
+            with dissolve
+            I "..."
+            "With a sense of decorum that is unusual to you, you look away from her and continue..."
+            Z "See you later."
+            jump d11a58
+
+        "Watch a bit longer":
+            if not _in_replay:
+                $ d11a_ivy_stared = True
+            Z "That... makes..."
+            scene d11a-94
+            with dissolve
+            Z "...sense, I guess."
+            "Although she doesn't appear to be panicking over being exposed to you, she still tries to cover her private parts, and you can't tell if she's embarrassed or annoyed..."
+            scene d11a-98
+            with dissolve
+            I "..."
+            scene d11a-99
+            with dissolve
+            I "You should maybe... turn around, so that I can..."
+            scene d11a-100
+            with dissolve
+            Z "Ah... yeah, I should."
+            Z "But... [I]?"
+            scene d11a-95
+            with dissolve
+            I "Hm?"
+            Z "You're very pretty."
+            scene d11a-97
+            with dissolve
+            I "...?"
+            pause 0.5
+            scene d11a-98
+            with dissolve
+            I "..."
+            "You look away with the distinct impression that she is not very comfortable..."
+            jump d11a58
+
+label d11a58: #second sleep
+    if _in_replay:
+        scene black pic
+        stop music fadeout 1
+        with fade
+        $ renpy.end_replay()
+    scene black pic
+    stop music fadeout 3
+    with fade
+    "You walk back inside..."
+    scene d11a-58
+    with fade
+    Z "Let's try to get some sleep. Hopefully this time I won't wake up in the middle of the night."
+    scene d11a-59
+    with dissolve
+    pause 1
+    scene black pic
+    with slowfade
+    pause 0.5
+    scene d11a-59
+    with fade
+    Zt "This feels good."
+    scene d11a-61
+    # play music "audio/music/mutants/ivys theme.mp3" fadein 10
+    with slowfade
+    Zt "It's time to say my goodbyes to [I] and go home. There's no reason to let [W] worry for nothing."
+    scene d11a-101
+    with slowfade
+    Zt "That looks better."
+    Zt "Now... where's the elf, this time?"
+    pause 1.5
+    play music "audio/music/exploration/main theme short.mp3" volume 0.3 fadein 10
+    I "Hey, [persistent.player_name]!"
+    Z "...!"
+    Zt "I know that voice..."
+    scene d11a-102
+    with dissolve
+    Zt "There she is."
+    scene d11a-103
+    with fade
+    pause 1.5
+    scene d11a-104
+    with dissolve
+    I "..."
+    "She smiles..."
+    scene d11a-105
+    with dissolve
+    I "Good morning, [persistent.player_name]!"
+    I "Will you come back?"
+    scene d11a-104
+    with dissolve
+    menu:
+        "\"I will, soon!\"":
+            Z "I will, soon!"
+            scene d11a-106
+            with dissolve
+            I "Until then, [persistent.player_name]. Bye!"
+            jump d11a_end
+
+        "\"Wait and see!\"":
+            Z "Maybe? Wait and see!\""
+            scene d11a-105
+            with dissolve
+            I "Okay, I will."
+            scene d11a-106
+            with dissolve
+            I "Bye, [persistent.player_name]!"
+            jump d11a_end
+
+label d11a_end:
+    $ sq_i_1.advance()
+    $ sq_i_1.resolution = _("[I]'s secrets run much deeper than I thought, starting with her age. It's incredible really, and I still don't know what the issue with her friend is.")
+    scene black pic
+    stop music fadeout 5
+    with slowfade3
+    "You track your paces back towards where you accessed the hideout."
+    "You are confident that you will meet her again in Fangs' bunker, and that your visit here represents a breakthrough for [I] as well, despite the little nocturnal 'embarrassment'."
+    "You're curious to see where your new friendship will lead."
+    jump mission_end
+
+label d11b:
+    scene d11b-2
+    with fade
+    C6 "Climb up here!"
+    scene d11b-1
+    with dissolve
+    C6 "The emission will kill you! If you want to live, come here!"
+    St "Who is she?"
+    St "Was she watching me the whole time?"
+    scene d11b-3
+    with dissolve
+    St "She wants me to use the ladder. That's my chance!"
+    scene d11b-4
+    with dissolve
+    St "I need to get out of here."
+    scene black pic
+    play sound "audio/sounds/environment/emission lighting.mp3"
+    with fade
+    "Climbing up and seeking shelter inside, the emission hits immediately after, with an intensity that would have surely been devastating."
+    "A few tells to catch a breath, then the pitch dark room brightens up. The natural fires from outside still looming..."
+    scene d11b-5
+    play music "audio/sounds/environment/thunder background.mp3" fadein 3
+    with w33slow
+    S "{i}*pants*{/i} Thanks..."
+    S "I... I didn't expect all of these buildings to be boarded up."
+    scene d11b-7
+    with dissolve
+    C6 "It's not fading, yet. You're not safe to go out for now."
+    scene d11b-6
+    with dissolve
+    "The girl sternly looks outside. Her white hair gleaming in the light, she seems to ignore the new visitor."
+    St "She seems to not pay a lot of attention to me. Does she not fear me going against her?"
+    St "Do I look that harmless to her, or does she not care for her safety?"
+    scene d11b-8
+    with fade
+    S "Listen, I was on my way to the old factory, coming from the residential area."
+    S "Do you have an idea how to proceed from here? This place looks like some sort of train station. Do I just follow the rails?"
+    scene d11b-9
+    with dissolve
+    "Her gaze is focused, but weary. Traces of dust and grime suggest she has been around here for some time. But for how long?"
+    scene black pic
+    with fade
+    "She moves over to a candle-lit table..."
+    scene d11b-13
+    with fade
+    C6 "The rails are leading to a diversion. You will only detour on your path."
+    C6 "Behind this complex lies an open field."
+    scene d11b-11
+    with dissolve
+    C6 "You can see the factory from the backside of this building."
+    C6 "I have not travelled this path yet, so you will be on your own."
+    scene d11b-12
+    with dissolve
+    S "..."
+    S "I see. I will be heading there then, as soon as the storm settles."
+    scene d11b-14
+    with fade
+    St "I should check my gear before moving on. I have been lucky this time."
+    stop sound fadeout 1
+    stop music fadeout 1
+    St "How did I make this mistake? I knew that emissions can occur without warning, depending on the energy released before them. And yet..."
+    show screen cutscene_marker
+    play music "audio/sounds/objects/television.mp3" noloop
+    pause 2.5
+    scene d11b-15
+    with dissolve
+    pause 3
+    scene d11b-16
+    with Dissolve(0.1)
+    pause 0.3
+    scene d11b-15
+    with dissolve
+    pause 1
+    scene d11b-16-anim
+    St "Is that... a recording device? {w=3.5}{nw}"
+    scene d11b-17
+    with dissolve
+    S "Hey... do you... hear that?{w=3}{nw}"
+    C6 "...{w=2}{nw}"
+    scene d11b-18
+    with slowfade
+    pause 2
+    scene d11b-19
+    with dissolve
+    pause 2
+    scene d11b-20
+    with dissolve
+    pause 1
+    scene d11b-21
+    with Dissolve(3)
+    pause 2
+    scene d11b-21x
+    with dissolve
+    pause 1
+    scene d11b-21x-2
+    with dissolve
+    pause 2.5
+    scene d11b-21x-3
+    with Dissolve(0.5)
+    pause 1.5
+    scene d11b-21x-4
+    with dissolve
+    pause 1.5
+    scene d11b-21x-5
+    with Dissolve(0.7)
+    pause 0.3
+    scene d11b-21x-6
+    with Dissolve(0.7)
+    pause 0.3
+    scene d11b-21x-7
+    with Dissolve(0.3)
+    pause 0.7
+    scene black pic
+    pause 8
+    scene d11b-21x-8
+    with fade
+    pause 4
+    scene d11b-21x-9
+    with dissolve
+    pause 3
+    hide screen cutscene_marker
+    jump d11b22
+
+label d11b22:
+    scene d11b-22
+    play music "audio/music/mutants/sonmis theme.mp3" fadein 6
+    with slowfade
+    C6 "..."
+    scene d11b-22x
+    with dissolve
+    "As she reads through the pages of a book, her expression turns to one of sorrow."
+    "Did she see what the device was showing or is she too focused on what she's reading...?"
+    scene d11b-23
+    with fade
+    S "I... did you also..."
+    "She doesn't seem to react to the question. Whether she heard it or ignored it, remains unclear."
+    "Finally, she raises her head..."
+    scene d11b-24
+    with fade
+    C6 "The emission is fading. It is safe for you to go now."
+    scene d11b-25
+    with dissolve
+    S "I... see."
+    St "Her expression... is unreadable. Does she intentionally ignore what I said? Did she even see what the device was showing? Did I just imagine all of it?"
+    St "I should do as she says... and leave. I am overstaying my welcome."
+    scene d11b-26
+    with slowfade
+    C6 "As I said, the fields will lead you to your destination."
+    C6 "Head back out, turn right. Follow the hallway. There is another scaffolding outside. You will see the factory from there."
+    scene d11b-26x
+    with dissolve
+    S "I will do that. Thank you for this. You saved my life. I was careless."
+    scene d11b-9
+    with dissolve
+    S "You seem to know your way around this place. You have this room set up for you. Do you come here a lot?"
+    scene d11b-10
+    with dissolve
+    C6 "..."
+    "She looks away, seemingly uninterested in responding to the query..."
+    St "Her ears... maybe that's the reason why she is that restrained. Maybe that is why she is hiding in this place?"
+    St "I may never see her again. Should I let her know what I think?"
+    menu:
+        "\"You seem distraught. I hope things work out for you.\"":
+            $ shani_help += 1
+            S "Listen... you saved me, even though you didn't have to."
+            S "So thank you."
+            S "You seem a bit distraught, so, whatever you have going through your mind, I hope things work out for you."
+            S "...Or maybe you just want to be left alone?"
+            scene d11b-9
+            with dissolve
+            S "I don't know you, and I don't know why you're hiding here, of all places. Why do this to yourself?"
+            S "I'm sure you're needed somewhere."
+            S "Goodbye, and thank you."
+            if ivy_alive == True:
+                scene d11b-10x
+                with dissolve
+                pause 1
+                C6 "..."
+            else:
+                scene d11b-9x
+                with dissolve
+                C6 "There is nobody left for me. Now leave, and don't come back."
+            scene black pic
+            stop music fadeout 5
+            with slowfade
+            jump d11b27
+
+        "\"Why would you stay here? Pull yourself together.\"":
+            $ shani_self += 1
+            S "Look... I... don't know you. But thank you for helping me out. You had no reason to but did it anyway."
+            S "But why would you stay here, of all places? You seemed to be a bit out of sorts, just now, reading those pages."
+            scene d11b-9
+            with dissolve
+            S "I hope you can pull yourself together and find your way out of here! Don't give in to this place."
+            if ivy_alive == True:
+                scene d11b-10x
+                with dissolve
+                pause 1
+                C6 "..."
+            else:
+                scene d11b-9x
+                with dissolve
+                C6 "You're not in a position to judge me. I have nobody left."
+                C6 "Now leave. And don't come back."
+            scene black pic
+            stop music fadeout 5
+            with slowfade
+            jump d11b27
+
+        "Say nothing":
+            S "Anyways... I will be on my way."
+            scene d11b-9
+            with dissolve
+            S "Thank you again. And goodbye."
+            scene black pic
+            stop music fadeout 5
+            with slowfade
+            jump d11b27
+
+label d11b27:
+    pause 4
+    scene d11b-27
+    play music "audio/music/zone/silent fields.mp3" fadein 5
+    with slowfade3
+    St "This place... It looks so peaceful."
+    scene d11b-28
+    with dissolve
+    St "It's nothing like what was before."
+    scene black pic
+    with fade
+    "Walking downstairs..."
+    scene d11b-30
+    with fade
+    St "The directions she gave me check out.. there it is."
+    scene d11b-29
+    with fade
+    "The fog is resting atop the soft green grass, and the factory complex, described by the map paints a skyline against the horizon, in the distance."
+    "The sky above has calmed, the clouds faded, and a hint of blue sky, mixed with the remains of the dusk like emission, emerges. The usual dark grey and grim atmosphere of the zone is brightened for a little while."
+    St "The sky... it's like I am on the verge of leaving the zone. And yet, I know that I am not. I wonder how long it will stay like this?"
+    "Measuring the time needed to get to the factory, it is clear that..."
+    St "It's going to take some time to get there."
+    scene d11b-31
+    with slowfade
+    "Walking across the fields, the layer of fog that lies on this land becomes ever more evident."
+    "The dominating view of the factory complex in the distance begins to slowly, but not entirely, fade in the background as the path leading to it becomes more difficult, with hills and vertical obstacles becoming the more pressing concern."
+    show d11b-32-33-anim
+    with dissolve
+    pause 9
+    St "A... house?"
+    scene d11b-34
+    with fade
+    St "Of all places..."
+    scene d11b-35
+    with dissolve
+    St "It's so tall..."
+    St "Does someone live here?"
+    scene d11b-37
+    with dissolve
+    "The big house emerges above the fog, its carefully placed wooden elements giving the impression of a well maintained large shack."
+    "Lamplights on the sides suggest that this building is indeed inhabited. But who could that be, out here, in the Zone?"
+    St "Who would live here..."
+    show d11b-38-anim
+    with dissolve
+    pause 5
+    St "This place doesn't seem dangerous, but I need to stay on alert. [persistent.dad!c] did mention that the mind would be challenged as much as the body, and this could all be an illusion."
+    scene d11b-39
+    with fade
+    "Curiousity overcomes caution, finally, as the Factory still lies somewhere in the direction behind this house. It can wait."
+    scene d11b-40
+    with fade
+    S "..."
+    St "Barrels, a shovel. Lights..."
+    "Open windows letting the fog inside, but everything else - silent."
+    scene d11b-41
+    with fade
+    S "Is anyone here?"
+    St "This place seems empty. No sounds... except the cracking of the floor I'm stepping on."
+    C2 "H-hello...? Is that... one moment!"
+    scene d11b-42
+    with dissolve
+    "Turning around, the voice came from this direction. A feminine, high pitched voice, surprised and curious in its tone. But also... excited?"
+    scene d11b-43
+    with dissolve
+    "Stepping closer..."
+    C2 "Please, don't leave. Give me one second, I will be..."
+    scene d11b-44
+    with Dissolve(0.5)
+    "A door opens, a light giving it away. Footsteps can be heard... soft ones, almost shyly entering the room that is in front..."
+    scene d11b-45
+    with fade
+    C2 "Are you... a visitor?"
+    scene d11b-46
+    with dissolve
+    C2 "Oh my... you are!"
+    "The woman appearing seems surprised, and her expression suggests that her surprise is genuine."
+    "Her green eyes light up in excitement, and her hesitation fades..."
+    scene d11b-48
+    with dissolve
+    C2 "You must be a wanderer! I am Julia. I live here."
+    S "..."
+    scene d11b-47
+    with dissolve
+    Ju "I know, you surely must have a lot of questions. But I'm so happy to see another person out here."
+    scene d11b-49
+    with dissolve
+    Ju "You look a bit stressed. Please stay for a while, I will be a good host and prepare a meal. What do you say? You must be hungry."
+    Ju "You can put your belongings in the shelf on the right. It's safe with me. I will be waiting in the dining room!"
+    scene d11b-48
+    with dissolve
+    St "She... seems genuine. I have many questions... but she's right. I am stressed. Breathe [S], let's see where this goes..."
+    scene d11b-50
+    with slowfade
+    Ju "Please, take a seat. I have just the right thing for you."
+    scene d11b-53
+    with dissolve
+    Ju "I'm going to make you a soup. Everything's home grown, too! What do you say?"
+    scene d11b-54
+    with dissolve
+    S "That... sounds good?"
+    scene d11b-52
+    with dissolve
+    Ju "The table is set for one; myself actually, but I ate not long ago and I am not very hungry lately, so... have a seat."
+    scene d11b-51
+    with dissolve
+    "Doing as is requested of her..."
+    Ju "I hope you're ready for a hearty meal. When I was on my travels, I always used to have them. A healthy appetite, I called it. But I can only speak for myself."
+    S "Yes, I would like to. I have been walking for some time."
+    Ju "Oh, you must come from the residential area then?"
+    S "Yes, how do you know?"
+    Ju "Oh, it's just a long way to where I live. That's all."
+    Ju "Whenever my partner and I headed there to stock up, we had to walk all the way up there. So I know how long it takes. {i}*giggles*"
+    S "You have a partner? Does he live here, too?"
+    scene d11b-55
+    with dissolve
+    Ju "Oh, yes. But he's outside for some time now. We did not come here to settle down, originally. But... you know."
+    Ju "He always said he's just like his mother. Can't really settle down for so long, always up for the next challenge."
+    Ju "So thats why we were always on the move. Work here, live there, explore this place and make plans for the next. He is currently out there."
+    scene d11b-56
+    with fade
+    Ju "Here, this should fill you up nicely. I hope you enjoy it!"
+    S "Thank you, that looks amazing."
+    scene black pic
+    with fade
+    "She sits down..."
+    scene d11b-57
+    with fade
+    Ju "Anyways, look at me. I'm getting a visitor after so long and all I do is talk about myself."
+    Ju "Where are you headed to? It seems that you've been walking for some time?"
+    scene d11b-57x
+    with fade
+    S "I am heading to the old factory. I was told that there were interesting things to be found there... but I still don't know quite what to look for, exactly."
+    S "You can probably see it from here?"
+    scene d11b-57x-2
+    with dissolve
+    Ju "Ah, yes, I see. I'm sure you will find what you're looking for!"
+    scene d11b-57x-3
+    with dissolve
+    Ju "That reminds me... are you sure that you want to go today?"
+    Ju "It's getting late already. You've been on the road. I have a free bed for you, if you want it."
+    Ju "Maybe you could stay the night?"
+    Ju "We could get to know each other a little better. It's rare to find anyone out here you can talk with!"
+    scene d11b-57x
+    with dissolve
+    S "I don't know... I found a safe place... but it is a bit far away... and I have not even reached my destination yet..."
+    scene d11b-57x-2
+    with dissolve
+    Ju "Let me help you out then, please!"
+    scene black pic
+    with fade
+    "She gets up..."
+    scene d11b-61
+    with fade
+    Ju "That is, of course, after you're done eating. Take your time."
+    scene d11b-60
+    with dissolve
+    Ju "Forgive me if I seem a little much. I really mean it when I say that I've not seen anyone else in a long time now."
+    Ju "{i}*laughs*{/i} It's not like these steppes are in any way inviting."
+    Ju "Can I ask how to call you? Your name maybe?"
+    scene d11b-59
+    with dissolve
+    S "You can call me [S]."
+    scene d11b-58x-2
+    with dissolve
+    Ju "Hi [S]. That's such a pretty name."
+    if persistent.S_name != renpy.translate_string('Shani', language = _preferences.language):
+        Ju "It's so unique, too!"
+    Ju "Let me know when you're ready. I will prepare the bed for you."
+    scene black pic
+    with fade
+    "Some time later..."
+    scene d11b-62
+    with fade
+    Ju "Hey. I hope I did good with the meal. Follow me, [S]."
+    scene black pic
+    with fade
+    "Following the host, the old wood squeaks underneath each step..."
+    scene d11b-63
+    with w33slow
+    Ju "[S], do you mind a slight breeze while you sleep?"
+    Ju "I don't think it's going to be any worse tonight. The weather looks calm."
+    S "Thank you, it's fine. I'm used to much worse."
+    Ju "I see. I'm not sure if that's a good thing. {i}*chuckles*{/i}"
+    scene d11b-64
+    with dissolve
+    Ju "The bed is made. I don't use it usually. This is my partner's study."
+    Ju "But since he isn't here, it's all yours!"
+    scene d11b-65
+    with dissolve
+    Ju "Oh, and I hope you don't mind all his stuff. Kirill collects texts of all sorts."
+    Ju "You can read them if you need some help falling asleep."
+    Ju "Do you enjoy reading?"
+    scene d11b-63x-2
+    with dissolve
+    S "Yes, I really do. It helps me unwind a bit before sleeping."
+    S "Will you be going to bed as well?"
+    scene d11b-63x
+    with dissolve
+    Ju "I am not tired yet. I didn't do much today. But don't worry, I'll be up when you are for sure."
+    Ju "Sleep well for now, [S]. Hope to see you tomorrow!"
+    scene d11b-63x-2
+    with dissolve
+    S "Thank you for everything, [Ju]. I will stay the night and then head out tomorrow."
+    scene d11b-63x
+    with dissolve
+    Ju "We'll see. Maybe we can spend some time before you head out. Anyways, good night!"
+    scene black pic
+    with fade
+    "She leaves the room..."
+    scene d11b-65
+    with fade
+    St "This almost looks like [persistent.dad]'s library. Is Kirill also a Stalker?"
+    St "She said they're on the road a lot. But how is she so trusting, to live like this, so remote and in the heart of a Zone?"
+    St "Maybe this place is isolated from the dangers, somehow. I should ask..."
+    scene d11b-86
+    with fade
+    "Browsing over the pages, a few words stick out..."
+    "\"{i}The problem is we don’t notice the years pass, he thought. Screw the years— we don’t notice things change.{/i}\""
+    "\"{i}We know that things change, we’ve been told since childhood that things change, we’ve witnessed things change ourselves many a time, and yet we’re still utterly incapable of noticing the moment that change comes...{/i}\""
+    "\"{i}...or we search for change in all the wrong places.{/i}\""
+    St "I wonder who wrote this?"
+    St "Anyways. I should sleep. I'm very tired."
+    scene black pic
+    with fade
+    "The day ends with a few more pages of light reading.."
+    scene d11b-69
+    with fade
+    St "The fog is so thick, I can't even see anything outside the window."
+    scene d11b-66
+    with w33slow
+    St "I'm still curious as to why and how she lives here."
+    St "I should ask her tomorrow about this place."
+    scene d11b-67
+    with dissolve
+    St "And then I will... head out to the... factory... and find..."
+    scene d11b-68
+    with dissolve
+    St "..."
+    scene black pic
+    with fade
+    "Some time later..."
+    scene d11b-69
+    with slowfade
+    St "..."
+    St "Is it morning already? I can't tell..."
+    scene d11b-70
+    with dissolve
+    St "It must be. I should get up."
+    St "How long did I sleep for..."
+    scene d11b-72x
+    with dissolve
+    St "It feels like I slept for days."
+    St "The bed was too comfortable. If only we had such a nice bed at home."
+    scene d11b-72
+    with dissolve
+    St "Alright, time to go."
+    scene black pic
+    with fade
+    "Moving towards the kitchen..."
+    scene d11b-73
+    with fade
+    S "Good morning, [Ju]. I think I overslept."
+    scene d11b-53
+    with fade
+    Ju "Oh, hey [S]. You didn't. Not really. Come, sit down. I was preparing breakfast for you."
+    scene d11b-51
+    with dissolve
+    S "Are you sure? I need to get going and thought-"
+    Ju "Ah [S], you're too polite. It's not like you're a burden around here."
+    Ju "I'm sure you have time for a breakfast at least, right?"
+    S "Yeah, that's true."
+    scene black pic
+    with fade
+    "At the table..."
+    scene d11b-55
+    with fade
+    Ju "I hope I'm not getting on your nerves, but are you really in a rush?"
+    Ju "You see, I was thinking that I might not see you again, and I'm a bit lonely here, without Kirill."
+    scene d11b-56
+    with fade
+    Ju "Anyway, here we go, enjoy!"
+    S "Thank you."
+    S "So, you were saying?"
+    scene d11b-58x
+    with dissolve
+    Ju "Yes, I was saying... I've been kind of alone for some time now, and maybe I can show you around a little? It's really pretty here."
+    Ju "You can always continue your travels a day later, what do you think?"
+    scene d11b-59x
+    with dissolve
+    menu:
+        "Spend some time with her":
+            S "I... am not in a real hurry, no. You're right. I can stay for a bit."
+            scene d11b-58x-2
+            with dissolve
+            Ju "That's great. I will wait outside. Just exit the house from your room and take a right around the house."
+            Ju "Feel free to come outside whenever you're ready!"
+            jump d11b_stay_1
+
+        "Leave her":
+            $ d11b_julia_days = 1
+            $ shani_self += 1
+            S "I... appreciate it, [Ju]. But I am here for a short time, so I need to complete the mission and then head back home."
+            scene d11b-58x
+            with dissolve
+            Ju "I see. I understand. I guess that living in a place such as this is not for everybody, and that with it comes some sacrifice."
+            scene d11b-58
+            with dissolve
+            Ju "Let me know when you finished your meal. I will do a few chores, [S]."
+            jump d11b_julia_endings
+
+label d11b_stay_1:
+    scene black pic
+    play music_1 "audio/sounds/environment/desert wind.mp3" loop fadein 3
+    with fade
+    "Some time later..."
+    scene d11b-42
+    with fade
+    St "These meals are so filling. Okay, let's head outside. I... suppose I don't need my gear?"
+    scene d11b-93
+    with slowfade
+    St "Outside... and right..."
+    scene d11b-74
+    with w33slow
+    S "Julia, are you here? I..."
+    scene d11b-75
+    with dissolve
+    S "Wow... how did I miss that...?"
+    show screen cutscene_marker
+    show d11b-76-78-anim
+    with fade
+    pause 10
+    S "[Ju], when I arrived, I didn't see this...{w=4}{nw}"
+    S "I... have never seen a tree this big, and these colours!{w=6}{nw}"
+    Ju "It's impressive, isn't it? It was the reason why we settled here, despite how remote it is from... everything.{w=7}{nw}"
+    S "I need to ask, how does something like this exist out here? With everything that's around?{w=4}{nw}"
+    hide screen cutscene_marker
+    scene d11b-79
+    with fade
+    S "How do you live without much of a care or worry, with all the dangers that surround you?"
+    S "You must've seen everything that lays behind. But everything here is so different!"
+    show d11b-77-anim
+    with dissolve
+    Ju "I am not sure, [S]. But Kirill reads a lot, and he always reminds me of that favourite verse of his."
+    Ju "He said that when we are born, we are soft and pliable. And that when we die, we are hard and insensitive. When a tree grows, it's tender and pliant. But when it's dry and hard, it dies."
+    Ju "He said hardness and strength are death's companions. Flexibility and softness are the embodiment of life... because what has hardened will never win."
+    scene d11b-80
+    with dissolve
+    Ju "Not even out here, [S]. And that is why we chose this place."
+    scene d11b-81
+    with dissolve
+    Ju "I don't know what made it grow so tall, but I visit it every day. It helps me get by, you know..."
+    scene d11b-83
+    with dissolve
+    S "That is... a nice saying."
+    S "I guess some places just live by their own rules."
+    Ju "They do. And the more places you visit, the more there is to see, and the more you will find this to be true."
+    S "Have you visited a lot of places with him?"
+    Ju "Yes! We have! I wish I had a map somewhere, but we went to so many places. Have you ever heard about the Jebel Marra? That one fascinated me!"
+    S "No, I haven't. What is it?"
+    Ju "I will tell you, but do you want to go inside? We can prepare food for later, and I can tell you more about it?"
+    S "Okay, let's go."
+    scene black pic
+    with fade
+    "Eventually..."
+    scene d11b-85
+    with fade
+    S "[Ju], where do you get these vegetables from, anyway?!"
+    Ju "I am growing them here. It takes some effort, but the soil is good!"
+    scene d11b-73
+    with fade
+    S "I got you. They're heavy."
+    scene d11b-51
+    with dissolve
+    S "Now, about the Jebel Marra again? What and where is it?"
+    Ju "Okay, imagine this: a huge volcano, erupting so many times that the crater spans over 3000 meters."
+    S "A volcano? Whoa... I wish I could see one in real life. I have only read about them."
+    scene d11b-84
+    with dissolve
+    Ju "You never saw one? I wish I could be there when you do, then!"
+    Ju "When Kirill brought me there, it was both magical and terrifying."
+    scene d11b-56x
+    with dissolve
+    Ju "I think that should be enough, I will get the stove ready. Do you want to help?"
+    S "Okay, what do I do?"
+    scene black pic
+    stop music_1 fadeout 3
+    with fade
+    "Later..."
+    scene d11b-57x-2
+    with fade
+    Ju "Thank you so much for staying with me today, [S]."
+    Ju "I think it's getting late, maybe you should stay another night?"
+    scene d11b-57x
+    with dissolve
+    S "Now that you say that... you're right. I didn't notice the time passing."
+    scene d11b-57x-2
+    with dissolve
+    Ju "But you're sure that I'm not holding you back, right?"
+    Ju "If I was badgering you, then I'm sorry. I just really enjoy your company."
+    scene d11b-57x
+    with dissolve
+    S "Me too, don't worry. It doesn't make a lot of difference whether I go today or tomorrow, really. I am on my own this time. I can decide how long I take."
+    scene d11b-57
+    with dissolve
+    Ju "I'm glad to hear that."
+    scene d11b-63
+    with slowfade
+    Ju "{i}*sigh*{/i} It really never changes out there. Nothing, and after that more nothing."
+    Ju "The steppes are endless."
+    scene d11b-63x
+    with dissolve
+    Ju "Anyway, I think I will let you rest for now. Let's talk tomorrow again. Enjoy your sleep, [S]!"
+    scene d11b-63x-2
+    with dissolve
+    S "See you tomorrow!"
+    scene black pic
+    with fade
+    "She leaves..."
+    scene d11b-65
+    with dissolve
+    St "Today felt so long, but I have not done a lot? We were outside in the backyard, prepared a dish..."
+    St "Julia is so kind, and she has been around a lot. I feel like wanting to know more about her. Maybe I will get to know her partner as well?"
+    scene d11b-86
+    with fade
+    St "The notes... they look like papers from a book. But they're handwritten."
+    "{i}\"May everything come true. May they believe. And may they laugh at their passions. For what they call passion is not really the energy of the soul, but merely friction between the soul and the outside world.\"{/i}"
+    "{i}\"But, above all, may they believe in themselves and become as helpless as children, because weakness is a great thing, and strength is nothing.\"{/i}"
+    "{i}\"When we are born, we are soft and pliable. When we die, we are hard and insensitive. When a tree grows, it's tender and pliant. But when it's dry and hard, it dies.\"{/i}"
+    "{i}\"Hardness and strength are death's companions. Flexibility and softness are the embodiment of life. Because what has hardened will never win.\"{/i}"
+    scene d11b-69
+    with slowfade
+    pause 1.5
+    scene d11b-66
+    with fade
+    St "I wonder what the others are up to, right now. If [persistent.dad] knew where I am right now, I wonder what he would think."
+    scene d11b-67
+    with dissolve
+    pause 1
+    scene d11b-68
+    with dissolve
+    pause 1
+    scene black pic
+    with slowfade
+    "After a while..."
+    scene d11b-69
+    with slowfade
+    St "..."
+    scene d11b-70
+    with dissolve
+    pause 1
+    scene d11b-71
+    with dissolve
+    S "{i}*yawn*"
+    St "Another day in the zone..."
+    St "...how many days has it been?"
+    scene d11b-53
+    with slowfade
+    Ju "Good morning! Are you ready for breakfast? Have a seat."
+    scene d11b-54
+    with dissolve
+    S "Heh, did I? Good morning..."
+    scene d11b-58
+    with fade
+    Ju "Hey, look... I know you've stayed here for more than I can ask of you."
+    Ju "But I thought about yesterday, and it made me wonder about some things about you."
+    scene d11b-60
+    with dissolve
+    Ju "Do you mind if we sit under the tree today, at least for a bit?"
+    Ju "We could have some fruit, and talk some more. I promise that this time I will listen instead of talking your ears off. I am curious about you."
+    Ju "I still know very little about you, and the things you do, and the shadow of the tree is such a nice place to have engaging conversations."
+    Ju "So, will you stay another little while? Then you can be on your way."
+    scene d11b-59
+    with dissolve
+    menu:
+        "Spend more time together":
+            S "I'd like to, yes. My time here has been so peaceful, when I expected nothing but danger and violence."
+            scene d11b-58x-2
+            with dissolve
+            Ju "Amazing. I'll see you outside then!"
+            scene d11b-59
+            with dissolve
+            jump d11b_stay_2
+
+        "Leave her":
+            $ d11b_julia_days = 2
+            S "I really enjoyed the time here, [Ju]. But I think it's time that I leave. My time with you was great, but I do have people who are waiting for me."
+            scene d11b-58x
+            with dissolve
+            Ju "It's okay. It was great as it lasted."
+            scene d11b-58
+            with dissolve
+            Ju "I really mean it. Thank you for yesterday."
+            Ju "Let me know when you finished your meal. I will prepare everything for your departure, [S]."
+            scene d11b-59
+            with dissolve
+            jump d11b_julia_endings
+
+label d11b_stay_2:
+        scene black pic
+        with fade
+        "Later..."
+        scene d11b-83
+        with slowfade
+        Ju "Hey, [S], come here, you can lean against the grass, see?"
+        S "{i}*laughs*{/i} Are you sure that's grass? Those look more like bushes!"
+        Ju "It's not as hard as it looks."
+        scene d11b-85x
+        with dissolve
+        Ju "Can I ask you something?"
+        S "Sure... I mean, it depends on the question?"
+        Ju "Is there anything that you always wanted to do but never had a chance to?"
+        S "As in..."
+        Ju "Anything."
+        S "..."
+        scene d11b-85x-2
+        with dissolve
+        Ju "You look like you're very driven, but maybe if you allowed yourself to pause for a second, you might dream up something different for yourself."
+        Ju "I'm sure there is something that you never had the opportunity to do, but you wished you had? Could be, I don't know... eat certain food, or be a certain someone, or..."
+        scene d11b-85x-3
+        with dissolve
+        S "I think... you know... {i}*sigh*{/i} it's silly."
+        scene d11b-85x-5
+        with dissolve
+        Ju "You can tell me. I can guarantee you it's not."
+        scene d11b-85x-8
+        with dissolve
+        S "I've read about the open sea, the vaste dunes made of salt water, and the boats that ride the dunes. I wonder how it would feel like, to ride the dunes, the waves, on one of those big boats."
+        S "In the story, it seems like a grand adventure, the way they blow a horn when they take off..."
+        scene d11b-85x-10
+        with dissolve
+        S "I told you it's silly, but..."
+        scene d11b-85x-4
+        with dissolve
+        Ju "That's not silly at all! It's not silly to have these goals."
+        scene d11b-85x-3
+        with dissolve
+        S "I don't know... I don't want to assume anything, but... it does seem that people forget how things once were. You know?"
+        S "The things that were possible and we had the means to do... even if there is a... giant city in front of them, that reminds them of some of those things!"
+        scene d11b-85x-7
+        with dissolve
+        Ju "They may be too caught up in daily struggles. Or they waited for too long, and let the moment pass them by."
+        S "You look sad, [Ju]. Are you worrying about Kirill?"
+        scene d11b-85x-9
+        with dissolve
+        Ju "{i}*sigh*{/i} I don't know, [S]. To be honest, he has been out for so long, I stopped counting the days."
+        scene d11b-85x-6
+        with dissolve
+        Ju "At this point, I don't know if he will return! And I keep waiting and waiting. But what if there is nothing to wait for, and we can never continue our journey?"
+        scene d11b-85x-7
+        with dissolve
+        Ju "It has been so long since I saw someone else, and I am so happy to see you here. But what if all this waiting was in vain? What if he is no longer there?"
+        scene d11b-85x-8
+        with dissolve
+        S "We can go out there and look for him together?"
+        S "I know it's rough out there, but we can get you out of here."
+        S "You will be too lonely out here, [Ju]. Let's leave this place together?"
+        scene d11b-85x-9
+        with dissolve
+        Ju "No..."
+        "She wipes her tears away..."
+        Ju "I'm sorry, I don't know what overcame me."
+        scene d11b-85x-11
+        with dissolve
+        Ju "I promised to wait for him, and I want to do so."
+        Ju "I know that there is a chance that he won't come, but now is not yet the time to move on."
+        scene d11b-85x-4
+        with dissolve
+        Ju "Come, [S], let's go inside to your bedroom. I want to show you something."
+        S "Is it the books?"
+        Ju "No... something better."
+        scene d11b-86x
+        with slowfade
+        S "What is it? It looks so pretty."
+        Ju "Inside this... lies Kirill's gift to me."
+        Ju "He gave it to me when he proposed."
+        S "No way, he did? I'm so happy for you!"
+        S "Can I see it?"
+        scene d11b-86x-2
+        with dissolve
+        Ju "Sorry, [S]. I really like you, but this one is just between us. I'm keeping it in here, safe. It's for our eyes only, and when he returns, I will wear it!"
+        S "And this is why you're staying..."
+        scene d11b-86x-3
+        with dissolve
+        Ju "Yeah. Even though... I don't know how long it takes, or even if he comes back..."
+        Ju "But this keeps me going, you know?"
+        S "I understand."
+        label d11b_stay_end:
+            if not renpy.music.is_playing():
+                queue music "audio/music/zone/silent fields.mp3"
+            scene d11b-83
+            with dissolve
+            Ju "Say... do you also feel so tired, [S]?"
+            S "I do. It feels like it has been a long time since I slept."
+            Ju "Do you want to stay by my side? You could sleep here again, for... longer... this time. I think... I need the rest."
+            menu:
+                "Continue the mission":
+                    $ shani_help += 1
+                    $ d11b_julia_days = 3
+                    S "I'm sorry, [Ju]. But I think it's really time for me to get back on track."
+                    Ju "..."
+                    Ju "I know."
+                    scene black pic
+                    with slowfade
+                    "Eventually..."
+                    jump d11b_julia_endings
+
+                "Go to sleep":
+                    S "I think we could... maybe he will show up tomorrow?"
+                    Ju "Maybe. And if he doesn't, I will wait another day."
+                    scene d11b-93
+                    with slowfade
+                    "As she says so, she stares in the distance for a few seconds, then gives a faint smile that doesn't hide her true feelings."
+                    "She then bids a good night and goes to her room."
+                    "The next day is greeted again by Julia, who once more serves breakfast."
+                    "During breakfast, Julia places a hand atop some of the books Kirill has left behind, and starts telling the story of some of their voyages together; the people they met, the places they saw..."
+                    "Time flies and again, there's once again an opportunity for a little picnic under the shadow of the tree. The stories continue, painting a tapestry of vivid colours."
+                    scene d11b-94
+                    with Dissolve(3.0)
+                    "As the hours grow late, so the storytelling changes, moving from more personal detailed events, to a larger scale."
+                    "From the story of Julia and Kirill, the story grows into the retelling of a far gone time..."
+                    "...describing global events and a world of grand proportions, dominated by advanced technology and sciences now lost to the sands of time."
+                    scene d11b-97
+                    with slowfade
+                    "With each new story told, the world around seems to come to a standstill, and all the time passed now seems like a mere afterthought."
+                    "As the leaves start falling off the tree, two figures sit together, sharing moments of learning from one another, genuine connection, laughter, sadness and the simple joy of companionship and peace."
+                    stop music fadeout 16
+                    play music_1 "audio/sounds/environment/desert wind.mp3" fadein 3 loop
+                    scene d11b-98
+                    with dissolve
+                    pause 2
+                    show d11b-99x-anim
+                    with w33slow
+                    "A lot of time goes by, and so does the need to explore and continue along the path. The world that once was, is now as present as ever."
+                    "Life in the distance does not seem to matter anymore. Memories of the past become blurred, until the past and the present blend together..."
+                    "...fading into the embrace of an eternal rest."
+                    stop music_1 fadeout 8
+                    scene black pic
+                    with slowfade3
+                    "[S] never returned home."
+                    $ d11b_shani_died = True
+                    $ check_for_achievements()
+                    pause 1
+                    menu:
+                        "Return to the previous choice":
+                            scene black pic
+                            with fade
+                            jump d11b_stay_end
+                        "Return to the main menu":
+                            $ renpy.full_restart()
+
+label d11b_julia_endings:
+    scene d11b-87
+    with slowfade3
+    Ju "I hope you will find what you're looking for, [S]."
+    if d11b_julia_days == 1:
+        S "Thank you for letting me stay. I will not forget your kindness."
+        Ju "I am glad to have met you. I was happy to see someone else come by after so long."
+        scene d11b-88x
+        with dissolve
+        Ju "Take care out there, [S], okay?"
+        Ju "Goodbye, [S]."
+        scene d11b-88x-2
+        with dissolve
+        S "I will. Goodbye, [Ju]."
+        scene d11b-87
+        with dissolve
+        jump d11b93
+    if d11b_julia_days == 2:
+        S "Thank you for letting me stay. And for everything you showed me."
+        S "I won't forget you."
+        scene d11b-88x-3
+        with dissolve
+        S "I hope you will see him again soon. And that you will stay as kind as you are."
+        scene d11b-89
+        with dissolve
+        Ju "I will, [S]. I am sure of it."
+        scene d11b-90x
+        with dissolve
+        Ju "And you pursue everything you want, okay?"
+        Ju "Even if I don't know what it is, but there must be something."
+        scene d11b-90
+        with dissolve
+        Ju "You never know... when you will stop having the chance."
+        scene d11b-92
+        with dissolve
+        Ju "Goodbye, [S]. Farewell."
+        scene d11b-92x
+        with dissolve
+        S "Farewell, [Ju]."
+        scene d11b-92x-4
+        with dissolve
+        jump d11b93
+    if d11b_julia_days == 3:
+        S "Thank you for letting me stay. And for everything you showed me."
+        S "I won't forget you."
+        scene d11b-91
+        with dissolve
+        S "And [Ju]... you can not wait forever. Please remember that."
+        S "Some day you have to get out of here. There is a chance he won't come back."
+        scene d11b-91x-2
+        with dissolve
+        Ju "I know, [S]... I think I know that... I have to let go."
+        scene d11b-91x
+        with dissolve
+        Ju "But you, don't stop dreaming, okay?"
+        Ju "And keep looking for places. Travel around and explore as much as you can."
+        Ju "You never know when you will stop having the chance, like me."
+        Ju "Goodbye, [S]. Farewell."
+        scene d11b-91
+        with dissolve
+        Ju "I will miss you very much."
+        scene d11b-92x-2
+        with dissolve
+        S "Farewell, [Ju]."
+        S "I will miss you too."
+        scene d11b-92x-3
+        with dissolve
+        jump d11b93
+
+label d11b93:
+    show screen cutscene_marker
+    scene d11b-93
+    with slowfade3
+    play music_1 "audio/sounds/environment/desert wind.mp3" fadein 3
+    stop music fadeout 8
+    pause 2
+    scene d11b-94
+    with Dissolve(4)
+    pause 5
+    scene d11b-95
+    with slowfade
+    pause 2
+    if d11b_julia_days == 1:
+        jump d11b103anim
+    if d11b_julia_days == 2:
+        scene d11b-96
+        with dissolve
+        pause 1.2
+        scene d11b-97
+        with dissolve
+        hide screen cutscene_marker
+        pause 1.5
+        St "Julia... wha-... the tree is dead. The house..."
+        "Realisation dawns that this may well have been a mortal trap."
+        "How long was she in this place for? Was it a hallucination?"
+        scene d11b-101
+        with dissolve
+        St "Gods above, what have I done? How much time did I lose?"
+        scene d11b-102
+        with dissolve
+        St "What happened to me, really?"
+        jump d11b103anim
+    if d11b_julia_days == 3:
+        scene d11b-96
+        with dissolve
+        pause 1.2
+        scene d11b-97
+        with dissolve
+        hide screen cutscene_marker
+        St "Julia... wha-... the tree is dead. The house..."
+        "Realisation dawns that this may well have been a mortal trap."
+        "How long was she in this place for? Was it a hallucination?"
+        scene d11b-101
+        with dissolve
+        St "Gods above, what have I done? How much time did I lose?"
+        St "What happened to me, really?"
+        scene d11b-102
+        with dissolve
+        St "It seemed so... real..."
+        St "Maybe [persistent.dad] was right, back then..."
+        scene d11b-100x
+        with fade
+        Z "{i}...but some things in this world follow their own logic.{/i}"
+        Z "{i}And it is better for us not to question everything.{/i}"
+        scene d11b-102x
+        with fade
+        St "I can almost hear him say it, and I think I get what he was saying, now."
+        St "Still..."
+        scene d11b-102x-2
+        with dissolve
+        St "Julia... I hope she was able to let go."
+        jump d11b103anim
+
+# label d11b_bad_end:
+#     "As Julia convinces [S] to stick around for one more day, the thought occurs that this place isn't so bad after all."
+#     "Her tales of grand civilisations are a fascinating thing to listen to. Big cities, sprawling with life, places of congregation and shared amusement, places of higher learning..."
+#     "Everything seems to spring to life in Julia's narration, to the point that the young Stalker feels there is much to learn by sticking around a little longer."
+#     "More days pass, more meals are had, more laughter and moments of genuine connection... until the passage of time becomes a blurred notion."
+
+
+label d11b103anim:
+    hide screen cutscene_marker
+    scene black pic
+    with slowfade
+    "Some time later, closer to the factory..."
+    play music "audio/music/zone/jupiter.mp3" fadein 6
+    show d11b-103-anim
+    play sound "audio/sounds/environment/anomaly.mp3" loop
+    with w33slow
+    pause 3
+    "On the way to the factory, bursts of red light illuminate the sky, contouring the place."
+    St "That must be one of the anomalies I've read about. Although I am still far away, I can already feel the heat that emanates from there."
+    stop sound fadeout 3
+    scene d11b-104
+    with w33slow
+    St "The factory is close. And so is the dust."
+    St "I will need my mask in there."
+    scene d11b-105
+    with slowfade
+    "A huge complex of structures stretches ahead. The old factory buildings are tall, and sunlight barely pierces through them."
+    "The remains of the age of industrialisation and progress stand abandoned to the ravages of time, yet endure, after a fashion."
+    "Brown dust fills the air, as one thought surfaces: where to start?"
+    scene d11b-106
+    with dissolve
+    St "\"You will know what you're looking for when you see it.\""
+    St "I hope I won't get any unwanted surprises as I'm looking for it."
+    scene d11b-107
+    with dissolve
+    St "I should find a way into this complex..."
+    scene black pic
+    with fade
+    "Stepping inside, metal structures pave the way. Dead silence is the only thing greeting the sound of the steps of the new visitor. An industrial graveyard."
+    scene d11b-108
+    with slowfade
+    St "How can something this tall be buried by sand?"
+    scene d11b-109
+    with fade
+    St "Or maybe... just most of it?"
+    St "Either way, I should try to be as quiet and discrete as possible, just in case."
+    scene d11b-110
+    play sound "audio/sounds/actions/metal steps.mp3"
+    with fade
+    pause 2
+    scene d11b-111
+    with fade
+    "Light barely shines through. The Zone's clouds are thick and gloomy, but at least the factory roof has enough gaps in it to allow for some visibility."
+    S "{i}*sigh*"
+    St "I can see the other buildings from here... this might take an entire day to explore."
+    scene d11b-112
+    with dissolve
+    "Looking down..."
+    St "Are those...?"
+    scene d11b-113
+    with dissolve
+    St "I should climb down and take a look."
+    play sound "audio/sounds/actions/ladder climb.mp3"
+    scene d11b-114
+    with slowfade
+    pause 1
+    scene d11b-115
+    with dissolve
+    St "..."
+    scene d11b-116
+    with fade
+    St "It seems that at least I am the only living being in here."
+    St "So many bones... the dust mixes with the sand, I can barely tell what I'm stepping into."
+    scene d11b-117
+    with dissolve
+    St "But why are they all stacked up here?"
+    scene d11b-117x
+    with dissolve
+    St "..."
+    St "Is that... some kind of board?"
+    scene d11b-117x-2
+    with fade
+    "The tail end of a written text is barely noticeable on the corner of a whiteboard, hanging on a section of wall that is covered in debris. After shoving it out of the way, it appears that the debris actually has protected the writing."
+    "{i}\"Duty roster: Team 1, 3 and 7 on guard duty rotations, shift changes at 0600, 1400 and 2200.\"{/i}"
+
+    "{i}\"Team 2, maintenance duty upper levels, remember to double check the ventilation shafts. I suspect birds are trying to nest in them again. Do NOT let the machines overheat again.\"{/i}"
+
+    "{i}\"Team 4 maintenance ground level. Routine monthly checks have shown a few malfunctions in the lower pumps. I want a status report as soon as you have found the cause. The exact specifics are posted in the crew room whiteboard.\"{/i}"
+
+    "{i}\"Note to shift manager 3: team 5 and 6 are on special duty in the basement level.\"{/i}"
+    "{i}\"Remember that there is to be no shift exchanges outside these two teams, because they are the only ones with clearance to the basement level.\"{/i}"
+    "{i}\"I do not want another fuckup. We do not want to terminate another employee for having swapped a shift.\"{/i}"
+    St "I have no idea what most of this means. The only clear thing is that if they didn't want just anybody in the basement, it had to be an important place."
+    jump d11b118
+
+label d11b118:
+    scene black pic
+    with fade
+    "Following a small corridor that leads downstairs, the path leads to what looks like the entrance to a basement..."
+    scene d11b-118
+    with w33slow
+    St "One more dead body. Sorry to disturb your peace, friend..."
+    St "This leads all the way down, doesn't it..."
+    scene d11b-120
+    with dissolve
+    St "Yep... and I can't see a thing."
+    St "My eyes start hurting. It's probably the smog."
+    scene d11b-119
+    with dissolve
+    St "My goggles should help."
+    scene d11b-118x
+    play music_1 "audio/sounds/people/gas mask.mp3" loop
+    with fade
+    St "Okay... here goes nothing."
+    menu:
+        "Head downstairs":
+            jump d11b121
+
+        "Take a look at the skeleton":
+            scene d11b-118x-2
+            with fade
+            "To the side of the remains of this individual, lies a mostly ruined binder. Gently prying open the hard cover reveals a few pages of calculations and, at the bottom, barely legible, a hastily scribbled bit of text."
+            St "There is a note..."
+            "{i}\"We thought this was just a regular bombing, but they have been relentless and we have had to seal the basement to save the projects running here. I had to hear the screams of my colleagues dying behind the entrance.\"{/i}"
+            "{i}\"And now the extractor fans have stopped working. Soon the gasses will saturate this entire level. How do I tell my colleagues we are going to die? If anybody should read this, know that I did my duty, and that my soul is doomed for it.\"{/i}"
+            St "Poor people. They died down here, trapped like rats. I hope my mask holds up, and that whatever gas they were writing about has evaporated over the years."
+            St "I wonder if [persistent.dad] also encounters testimony of the End of Days, when he explores places such as this. It's kind of an odd feeling."
+            jump d11b121
+
+label d11b121:
+    scene d11b-121
+    with fade
+    St "At least the building seems stable."
+    St "I need to be careful though. I don't want to be trapped in this oversized coffin."
+    play sound "audio/sounds/actions/metal steps 2.mp3"
+    scene d11b-122
+    with fade
+    pause 2
+    scene d11b-123
+    with dissolve
+    St "I still can't see where this leads, but at least I can tell what's around me."
+    scene d11b-124
+    with dissolve
+    St "Now... where to next..."
+    St "No way down here."
+    scene d11b-125
+    with dissolve
+    St "..."
+    St "Is that ladder the only way down?"
+    St "I have to try..."
+    play sound "audio/sounds/actions/wooden steps.mp3"
+    scene black pic
+    with fade
+    "Climbing down the old ladder isn't easy, but manageable."
+    St "There must've been another way before..."
+    scene d11b-126
+    with fade
+    pause 1.5
+    scene d11b-127
+    with dissolve
+    St "..."
+    St "Where does it end..."
+    scene d11b-128
+    with dissolve
+    pause 1.5
+    scene d11b-129
+    with dissolve
+    pause 1.5
+    play sound "audio/sounds/actions/metal steps 2.mp3"
+    scene d11b-130
+    with fade
+    St "More corpses. I wonder how they came to an end; what were their final moments like?"
+    scene d11b-131
+    with dissolve
+    St "They're everywhere. So many."
+    menu:
+        "Climb down further":
+            jump d11b130
+
+        "Investigate more before climbing down":
+            scene d11b-131x
+            with fade
+            St "Once again, one of these binders seems to have preserved a bit of text."
+            scene d11b-131x-2
+            with dissolve
+            "{i}\"Transportation manifesto: 2 replacement valves for hydraulic press nr 14.\"{/i}"
+            "{i}\"3 new generator units for the outer perimeter surveillance system. 1 case of Shiraz for the director's office.\"{/i}"
+            "{i}\"1 Box nr 304087, to be retrieved from the Basement Vault.\"{/i}"
+            "{i}\"Note: only team 5 should handle the last item. Any individual involved in handling it must be logged and identity checked.\"{/i}"
+            "{i}\"Violation of the security procedures will be prosecuted to the fullest extent.\"{/i}"
+            "{i}\"45 boxes of screws nr 23. 15 new solar panels.\"{/i}"
+            St "What's a Shiraz? And what was so important in Box 304087?"
+            jump d11b130
+
+label d11b130:
+    scene d11b-130
+    with fade
+    St "I want to find out what's at the bottom of this."
+    St "I hope I didn't come here in vain."
+    scene d11b-132
+    with fade
+    "Stepping downstairs, the skeleton right ahead appears frozen in time. Its natural pose is almost eerie as it stares into the void."
+    St "Hey, friend... please stop staring at me like that."
+    scene d11b-132x
+    with dissolve
+    St "Another note..."
+    menu:
+        "Climb down the ladder":
+            jump d11b134
+
+        "Read the note":
+            St "Let's see what's over here..."
+            "{i}\"ID badges verification: 336753, 649319, 098770, 359588, 391801.\"{/i}"
+            "{i}\"Team 5 identification check completed and countersigned.\"{/i}"
+            "{i}\"Box 304087 must include the replacement unit EPB 36. Box to be locked and sealed before leaving the basement.\"{/i}"
+            "{i}\"Destination: the Station.\"{/i}"
+            St "They really wanted that box to be well looked after."
+            St "Station... isn't that what [persistent.dad] called the place where his old teacher holed up? That doesn't make much sense. There must be a different station, or maybe it means something else."
+            with dissolve
+
+
+
+label d11b134:
+    play sound "audio/sounds/actions/ladder climb.mp3"
+    scene black pic
+    with fade
+    St "It's stable... good."
+    scene d11b-134
+    with w33slow
+    St "I am deep underground, in a dead place that has not been visited for probably a century, surrounded by dead people and deadly dust."
+    St "Just... don't think about it, [S]."
+    scene d11b-135
+    with dissolve
+    St "Let's see. Behind me, a way upstairs. I think I saw more skeletons there."
+    scene d11b-136
+    with dissolve
+    St "Ahead... giant... turbines?"
+    St "But what is that... glowing thing there?"
+    St "How can anything still be working, after this much time?"
+    St "Maybe that's what the reports were mentioning?"
+    jump d11b138
+
+label d11b138:
+    scene d11b-138
+    with fade
+    St "This really is a bunker. This must be the air ventilation, or maybe a way to cool some machinery."
+    St "I wonder if it was ever running, and for how long, after the bombs fell?"
+    scene d11b-139
+    with dissolve
+    pause 1.5
+    scene d11b-140
+    with fade
+    St "Let's take a look."
+    scene d11b-140x
+    with dissolve
+    "A green device just sits there, guarded by yet another deceased corpse. It seems to irradiate light, lighting up the floor below it."
+    St "I have never seen anything like this. This might be one of those radioactive things [persistent.dad] warned me about."
+    St "My counter better not be broken, because it doesn't seem to register anything in particular..."
+    St "I can get closer probably..."
+    scene d11b-141
+    with fade
+    "Getting ever closer, the device's shape becomes clearer. Small, slim beams of light are emitted from the inside. It is put inside a box with some protective padding."
+    scene d11b-142
+    with fade
+    St "..."
+    "Fascinated by what is there to see, a question still comes up: how long has the item been here?"
+    "Has it been glowing like this since this facility and its people found their ends? Why is it here at all, in this particular spot?"
+    St "You must be that important delivery that was mentioned on the board."
+    scene d11b-144
+    with dissolve
+    St "And you... what did you leave behind?"
+    "{i}\"Team 5 supervisor personal log: The EPB 11 was made under time constraints. I was made aware that the previous EPB was soon to be discarded.\"{/i}"
+    "{i}\"No explanation was given as to why. Faulty fuselage? Defective sealants? Has it simply run its course? The latter seems unlikely.\"{/i}"
+    "{i}\"I would have liked to have more information to understand the failings of the previous one, in order to avoid repeating them. As it is, we had to make EPB 11 in record time.\"{/i}"
+    "{i}\"We did the best we could, but I want it officially recorded that we cannot take responsibility for any issues that might arise.\"{/i}"
+    "{i}\"The need for secrecy and the slow vetting process of qualified personnel also does not help.\"{/i}"
+    "{i}\"As it is, I know it will work, it will fully integrate with the Station and run the devices it is supposed to, both the Gate and the Horus System.\"{/i}"
+    "{i}\"I trust that with this, the Horus System will perform adequately and defend us from the long term consequences of the chemical fallout from the Scorched Earth Project. Durability however remains a potential issue.\"{/i}"
+    scene d11b-144
+    with dissolve
+    St "[persistent.dad!c]'s old mentor was right. I can't think of anything that stands out more than this."
+    St "This looks too valuable to be kept in the open. I will take a closer look at it once I am back in the shelter."
+    St "I should also make a copy of this note in particular. I have a feeling that whatever that Abrax guy is trying to do, it's something big."
+    St "Maybe we can find someone that can make more sense of this note."
+    scene black pic
+    with fade
+    "Placing the mysterious object in the bag was a simple task."
+    "Time to head back."
+    scene d11b-145
+    with w33slow
+    St "I'm not sure how long this mask's filter will hold."
+    scene d11b-134
+    with fade
+    St "I should go back. Careful now; no mistakes..."
+    scene black pic
+    play sound "audio/sounds/actions/ladder climb.mp3" volume 0.7
+    with slowfade
+    "After climbing out of the basement of the facility, the air inside the mask seemed to get thinner. There was not much time left, as the risk of exposure to the smog was too high."
+    stop music_1 fadeout 3
+    "As all the notes indicated that this device was unique, it would work just fine as a prize for the expedition and it would be wiser to head back to the shelter."
+    show d11b-103-anim
+    play sound "audio/sounds/environment/anomaly.mp3" loop
+    with w33slow
+    "The way back was uneventful. No mutants or mummies were roaming the area."
+    "The burning flashes of the anomaly, which could be felt even hundreds of meters away, was the only thing disturbing the quiet rest of the poor souls that met their fate in this part of the Zone."
+    scene d11b-97
+    stop sound fadeout 2
+    with w33slow
+    "The ruins next to the tree remained unaltered, the sky only showing its dark and grim self, without a hint of change."
+    "There was no shelter this time around, and no host to take care of a traveller in need. Their history lost to the Zone, like so many other things."
+    if ivy_alive == True:
+        scene d11b-13x
+        with w33slow
+        "The silver haired girl from the railway building was no longer there."
+        "The table was empty; the only trace of their passage being the remains of the long since extinguished candles."
+    if ivy_alive == False:
+        scene d11b-13x-2
+        with w33slow
+        "Upon entering the old railway building, a sad spectacle met the eyes."
+        "Dangling from a rope, the lifeless body of that same milky haired girl, hung swaying gently in the breeze."
+        "Whatever shape of despair might have pushed her over the edge towards self-destruction, forever lost to the sands of time."
+        "With her lifeless body resting almost peacefully in the otherwise empty building, the girl was yet another victim of the bleakness that pervaded this place in it's eery silence."
+        "Would this be the fate of anyone who lingered too long in such a place?"
+    scene black pic
+    stop music fadeout 3
+    with w33slow
+    "Leaving behind the open road and unsafe passages, the shelter finally came in sight."
+    "A sense of trepidation and cautious optimism seems warranted now that at least one objective to this expedition seems to have been accomplished."
+    $ m_d11b = True
+    jump bunker_overview
+
+label d11c:
+    $ m_d11c = True
+    if d10b_asha_kept_down == False:
+        scene d11c-1
+        with dissolve
+        Z "Asha, go find that General guy and his girl."
+        Z "If you manage to find them alive, bring them here."
+        scene d11c-2
+        with dissolve
+        As "We have them already captured, boss. I tried to not hurt them..."
+        scene d11c-3
+        with dissolve
+        As "...too much."
+
+    if d10b_asha_kept_down == True:
+        scene d10b-279
+        with dissolve
+        Z "Hey kid. Stop, look at me."
+        scene d10b-280
+        with dissolve
+        As "Hn?"
+        Z "Go find that General guy and his girl."
+        Z "Bring them here. Understood?"
+        scene d11c-4
+        with dissolve
+        As "Yes, boss!"
+
+    scene black pic
+    play music "audio/music/raiders/dominance.mp3" fadeout 2
+    with fade
+    "She walks out of the building."
+    "Some time later..."
+    scene d11c-5
+    with slowfade
+    C "You're starting to piss me off. MOVE!"
+    C2 "Fuck you, don't touch my sister!"
+    scene d11c-6
+    with dissolve
+    C "I'll do much worse than touching her IF YOU DON'T MOVE YOUR. FAT. ASS. GOT IT?!"
+    C2 "Don't, argh-"
+    scene d11c-7
+    play sound "audio/sounds/doors/door slam.mp3"
+    with hpunch
+    C "BOSS! I'M BAAAAACK!!!"
+    scene d11c-8
+    play music_1 "audio/sounds/actions/drop.mp3" noloop
+    with fade
+    As "I couldn't resist roughing him up a little, buuut I promise he's fine."
+    scene d11c-9
+    with dissolve
+    Zi "Urgh... what on earth is this thing."
+    scene d11c-10
+    with dissolve
+    Zi "She's just asking for it, isn't she?"
+    scene d11c-26
+    with dissolve
+    Ky "There you are. Where did you two want to go, huh? Hide in the dunes?"
+    scene d11c-11
+    with dissolve
+    As "Ah... we're going to have our fun with you two.."
+    As "I think I will carve out this one's tongue. He protests too much."
+    scene d11c-13
+    with dissolve
+    Z "You're not talking so loud anymore. Nothing left to say?"
+    As "Oh, believe me, he was shouting right until I kicked his ass in here just now."
+    scene d11c-14
+    with dissolve
+    As "Couldn't stop screaming about revenge and punishment, actually. "
+    scene d11c-15
+    with dissolve
+    #we can bring kyra in, or Z, or let zion talk. needs dialogue
+    Zi "He was still convinced his allies, or his men or whatever, would come to fight for him."
+    As "I don't think he understands how deep the shit is that he's in just now."
+    scene d11c-18
+    with fade
+    As "And what about you? Aren't you scared? Sitting here all quiet like, not saying a thing."
+    scene d11c-17
+    with dissolve
+    Kit "..."
+    As "Hey, bitch. Are you deaf?!"
+    Gen "She's not deaf, fuck- damn it. She doesn't speak. Leave her alon-"
+    Gen "agh-"
+    Zi "Shut the fuck up or I'll cut your throat."
+    scene d11c-16
+    with dissolve
+    As "Is this bitch disrespecting me, looking all pretty and acting snooty, huh? Still thinking you're this shithole's little princess?!"
+    As "I think I may have to cut some sense into you..."
+    scene d11c-19
+    with dissolve
+    Z "Alright, that's enough, Asha. I will take over from here."
+    "You stand beside Kitty and place your hand on her head..."
+    scene d11c-21
+    with dissolve
+    Z "Hey, 'General'. Are you sure she's your sister? She's a delicate and pretty thing and you... well, you're you."
+    scene d11c-22
+    with dissolve
+    Gen "Nghr-"
+    "He tries hard to break out off his chains..."
+    scene d11c-24
+    with dissolve
+    Gen "Don't you dare touch her, you bald cockroach. I should've thrown you off the bridge when I had the chance!"
+    scene d11c-23
+    with hpunch
+    Zi "Shut it, shithead. It would be a shame if you died before I had my fun with you."
+    Ky "Or without seeing what's gonna happen to your sister, {i}*chuckles*{/i}."
+    scene d11c-25
+    with dissolve
+    Gen "W-what do you mean with \"happen to her\"? What are you going to do?!"
+    scene d11c-24
+    with dissolve
+    Gen "You're not touching my Kitty. She's mine!! I own her!!"
+    scene d11c-26
+    with dissolve
+    Ky "Aw, such a pity... I almost felt guilty, until you said what you just said."
+    scene d11c-21
+    with dissolve
+    Z "It doesn't look to me like she agrees with you. I wonder if she'll even care when you're gone..."
+    scene d11c-27
+    with dissolve
+    Zi "I wonder what this fucker did to her that she doesn't speak a word. And what's with the blindfold anyway?"
+    Zi "What did you do, gouge her eyes and cut her tongue out?! You're one fucked up brother."
+    scene d11c-24
+    with dissolve
+    Gen "I didn't do shit! I would never harm her. That's just how we raised her, me and my Pa!"
+    Zi "How disappointing..."
+    Ky "Not everyone is as fucked in the head as you, Zion!"
+    Ky "The fuck you mean by raised her?!"
+    Gen "She was born mute. The blindfold was just an extra thing we used to control her."
+    Gen "A mute good for nothing runt that was only ever going to be useful if I turned her into a tool, but don't fucking tell me I hurt her. I wouldn't."
+    Ky "I take that back. This guy is even more fucked up than Asha on her period..."
+    As "Hey! I heard that!"
+    scene d11c-21
+    with dissolve
+    Gen "Listen, you got this shithole place for yourself now, right? Fine! Take it."
+    Gen "Just give me back Kitty and let us leave! She's all I got. You won't hear from me again!"
+    Ky "She's all you got? You're suddenly having feelings for her after blinding her?!"
+    Gen "What the fuck are you talking about?! She's not blind, I told you I didn't lay a finger on her!! That's just part of her act."
+    Gen "She's the only capital I got, don't you get it? I can't go in the mines! I hate the cramped spaces in there!!"
+    Zi "Don't fret, asshole. I don't think you will have to worry about where to get your next meal from anytime soon, or ever."
+    scene d11c-20
+    with fade
+    "Looking at the girl, you contemplate your next move..."
+    if persistent.forceplay == False:
+        jump d11c21
+    menu:
+        "Remove her blindfold":
+            label d11c21:
+                $ d11c_kitty_gentle = True
+                scene d11c-21
+            with dissolve
+            Z "Hm, let's see. Why don't we take a look at you first?"
+            Z "Kitty, stand up and lean against me."
+            scene d11c-25
+            with dissolve
+            Gen "What are you..."
+            Ky "Well, at least she knows how to take orders, and isn't just your little toy."
+            scene d11c-43
+            with fade
+            "You fondle her ass as she gets up. She doesn't object and leans against you as per your command."
+            Z "She really does everything she's told, huh? What a good girl."
+            scene d11c-42
+            with dissolve
+            Z "Let's take that blindfold off you and see what you really look like..."
+            Gen "You bald fucker, she needs tha-"
+            scene d11c-27
+            with hpunch
+            Zi "Will you shut up, man... You're so full of shit it stinks when you open your mouth!"
+            scene d11c-44
+            with fade
+            Kit "..."
+            "As you take off the blindfold, you are caught off guard by the intensity of her stare. Her eyes are a surprising shade of pink, an anomaly that makes you wonder if she might be at least part mutant."
+            "The expression on her round and soft features is blank and emotionless, and you can't quite tell if there's any thought behind those eyes, any curiosity towards you or her own fate."
+            Z "You're a pretty one, aren't you...?"
+            scene d11c-45
+            with dissolve
+            Z "What do you think, Asha. Quite the rare beauty we have here, right?"
+            "Asha stares at you with an expression that you didn't expect to see, a mixture of contempt and jealousy that you had not seen her exhibit before."
+            scene d11c-44
+            with dissolve
+            Z "Alright, Kitty. Come with me."
+            scene black pic
+            with fade
+            "You head over to the throne..."
+            scene d11c-46
+            with w33slow
+            Z "Hey 'General', interesting how the tables turned, huh?! You still refusing my offer?"
+            scene d11c-47
+            with dissolve
+            Gen "You...  Zetan cockroach. That's MY throne and MY girl!"
+            Gen "Don't you harm a hair on her!! -agh"
+            scene d11c-47x
+            with fade
+            Z "{i}*sigh*{/i} Who do you think I am? I'm a responsible person!"
+            Ky "{i}*laughs*{/i} Are you, now?"
+            menu:
+                "Make out with her":
+                    $ d11c_kitty_makeout = True
+                    scene d11c-47x-2
+                    with dissolve
+                    Z "But seeing such a pretty face, I don't think I can resist entirely..."
+                    scene d11c-47x-3
+                    with dissolve
+                    "You run your hands over her soft thighs..."
+                    Gen "What are you doing?! Stop touching her!"
+                    Z "Oh, I don't think I will."
+                    Z "Come here, Kitty. Kiss me."
+                    scene d11c-47x-4
+                    with dissolve
+                    "{i}*kissing*"
+                    "Without objecting to it, she does as you say, and starts kissing you..."
+                    Zi "What a slut..."
+                    Gen "RRnnnnhraaaaa!!!"
+                    scene d11c-47x-5
+                    with dissolve
+                    "You keep making out with the young girl, gently stroking her upper body."
+                    Zt "She's obediently kissing me, even though she doesn't even know me."
+                    Zt "I'm going to enjoy this girl soon enough. But this will do for now..."
+                    scene d11c-47x-6
+                    with dissolve
+                    "{i}*kissing*"
+                    Ky "Uhh... Zion? I don't think they'll be stopping soon."
+                    Gen "Fucking... rat...-"
+                    Zi "Shut it, dickhead. We're going out now."
+                    Zi "The show's over. You're going to have to deal with the fact that your little sister is making out with a complete stranger."
+                    Gen "{i}*whimpers*{/i} Fuckk..."
+                    jump d11c48
+
+                "Send the general away":
+                    scene d11c-46
+                    with dissolve
+                    Z "What do you think, Zion? I'm sensing that you're waiting for your action with the General for some time now."
+                    scene d11c-27
+                    with fade
+                    Zi "Heard that? I think the show's over here. Get on your fat feet and move!"
+                    Gen "Hngh- Fuck... you..."
+                    scene black pic
+                    stop music fadeout 3
+                    with slowfade
+                    "He does as she says and they head outside..."
+                    jump d11c48
+
+        "Ravage her in front of him" if persistent.forceplay == True:
+            $ d11c_kitty_rough = True
+            Z "Just as she said, 'General'. I think you're misunderstanding the position you're in."
+            label re_d11c19:
+                scene d11c-19
+            Z "What do you think, kid. Should we have some fun with her?!"
+            Z "How about..."
+            scene d11c-29
+            play music "audio/music/raiders/broken.mp3" fadeout 2
+            with slowfade
+            Z "...we check her out first?!"
+            As "..."
+            Gen "HEY! What are you-"
+            scene d11c-30
+            with dissolve
+            Z "See that? That's what her brother considers acceptable dress code for the wasteland."
+            Gen "Hgn... fuck you, asshole... she was sheltered in here..."
+            Z "Sheltered, huh..."
+            scene d11c-31
+            with dissolve
+            Z "What do you think, Kyra. Is that the pussy of a virgin?"
+            Ky "Looks like it to me."
+            Z "Do you think we should test whether that's true?"
+            Ky "{i}*laughs*{/i}... I think you should..."
+            scene d11c-22
+            with dissolve
+            Gen "Rrraghhh-"
+            scene d11c-23
+            with dissolve
+            Gen "Don't you dare touch my property, you piece of-"
+            with hpunch
+            Zi "Go ahead, dirtbag. Give me an excuse!"
+            scene d11c-32
+            with dissolve
+            Gen "Kitty, my girl, don't- agh- don't do it, you hear me?!"
+            Kit "{i}*soft breathing*"
+            Z "What a shame, it looks like she's truly been raised to take whatever is given to her."
+            Z "You should've thought of that earlier, maybe?! Given her some means of standing up for herself?"
+            scene d11c-33
+            with dissolve
+            Z "Alright, Asha, empty the table behind. Pinky and I are goin to know each other better."
+            Gen "No, you fucker. Leave her alone!"
+            scene d11c-34
+            play sound "audio/sounds/actions/drop.mp3"
+            with fade
+            Z "Ah yes... I'm going to enjoy this."
+            Z "Smooth skin, virgin pussy, cute tits."
+            scene d11c-35
+            with dissolve
+            Z "What a shame, she won't even see any of it. I could take off her blindfold, but who am I to change the rules around here, right?"
+            Gen "No- leave her! Fucking asshole!"
+            Zi "{i}*laughs*{/i} Kyra, your new friend really knows how to trigger this shitstain. He's furious!"
+            scene d11c-37
+            with fade
+            Ky "There's a reason why he's here, Zion."
+            Zi "Knowing you, I thought it was because of his dick size. A big girl like you..."
+            Ky "Fuck off Zion..."
+            scene d11c-38
+            with dissolve
+            As "..."
+            "You notice Asha's glaring stares directed at Kitty herself, mixing contempt with barely concealed anger."
+            scene d11c-39
+            with dissolve
+            "Her eyes run over her pink hair and smooth skin. Could the Raider wildcat be... jealous?"
+            Z "Alright, 'General'. Ready to see your beloved sister taking all of it in one go?!"
+            scene d11c-28
+            with hpunch
+            Gen "NO! PLEASE. YOU CAN'T DO THAT!!"
+            scene d11c-27
+            with dissolve
+            Zi "Aw, how cute. You even got him to say please. Today is full of surprises."
+            scene d11c-36
+            with fade
+            Z "{i}*chuckles*{/i} I'm going to enjoy this."
+            scene d11c-41
+            with dissolve
+            "You gently press your tip against her pussy..."
+            scene d11c-40
+            with fade
+            Z "Alright, here we go..."
+            show d11c-41-anim
+            with Dissolve(0.1)
+            pause 3
+            Kit "Hn..."
+            Z "Ah... that felt great!"
+            with hpunch
+            Gen "NOOOO!"
+            Ky "Holy shit, he went in raw!"
+            Zi "Damn..."
+            As "..."
+            scene d11c-39
+            with dissolve
+            Gen "You ruined her!!"
+            Zi "Calm down, she just got speared. What's wrong with that. {i}*laughs*"
+            if persistent.gore == True:
+                Z "This is gonna look messy, General. Look closer!"
+            "You slowly pull out of her deflowered pussy..."
+            if persistent.gore == True:
+                show d11c-41x-anim
+                with fade
+            else:
+                scene d11c-40
+                with fade
+            pause 1
+            Z "Mh..."
+            Ky "That's... hot..."
+            Z "Anyways, let's continue."
+            if persistent.gore == True:
+                show d11c-41x-3-anim
+                with fade
+                hide d11c-41x-anim
+            else:
+                show d11c-41x-21-anim
+                with fade
+                hide d11c-41x-3-anim
+            "You keep fucking her, the wet sounds of sex filling the room..."
+            Z "Fuck. Not bad."
+            Ky "Not bad he says, {i}*laughs*"
+            Zi "Trying to brag about the amount of virgins you had?"
+            Z "Nah, not bragging about it."
+            Gen "{i}*whimpering*"
+            if persistent.gore == True:
+                show d11c-41x-2-anim
+                with fade
+                hide d11c-41x-21-anim
+                hide d11c-41x-3-anim
+            else:
+                show d11c-41x-11a-anim
+                with dissolve
+                hide d11c-41x-2-anim
+            Zi "I think the slut isn't the only thing you broke."
+            Ky "Good point..."
+            Ky "You should totally knock that bitch up..."
+            Ky "...I mean... that's what I would do, if I could."
+            Zt "Getting closer..."
+            show d11c-41x-11b-anim
+            with dissolve
+            "You speed up your thrusts..."
+            Zi "You're saying that this manbun wearing fuck and the bald brute are becoming brother-in-laws?"
+            Ky "Did you have to say it the way you just did...?"
+            Zi "No. Not really."
+            Zi "Hey General, enjoying the show?"
+            Gen "..."
+            Gen "My... Kitty..."
+            Zi "{i}*laughs*"
+            menu:
+                "Cum inside her":
+                    Z "Yeah, I think... I'm gonna follow your advice, Kyra."
+                    Ky "What an honor! I guess... no, but seriously. Good on you!"
+                    if persistent.gore == True:
+                        show d11c-41x-9-anim
+                        with fade
+                    else:
+                        show d11c-41x-11c-anim
+                        with dissolve
+                    "You start fucking her faster..."
+                    Z "Alright then, get ready, Kitty..."
+                    with vpunch
+                    Z "Mh-"
+                    with vpunch
+                    "You keep cumming inside her as you thrust yourself in repeatedly..."
+                    if persistent.gore == True:
+                        scene d11c-41x-6
+                        with fade
+                    Z "{i}*grunts*"
+                    if persistent.gore == True:
+                        scene d11c-41x-7
+                        with dissolve
+                    else:
+                        scene d11c-41x-10
+                        with dissolve
+                    Gen "You... you... came... inside. You BASTARD!"
+                    Zi "Heyy, look who's back? Enjoyed the show?!"
+                    Zi "It was your last, because we're going outside, now."
+                    Ky "Should we not discuss what to do with hi-"
+                    Zi "No, Kyra. He's mine."
+                    # maybe stretch the dialogue here with pictures from asha etc
+                    if _in_replay:
+                        scene black pic
+                        stop music fadeout 1
+                        with fade
+                        $ renpy.end_replay()
+                    jump d11c48
+
+                "Cum inside Asha's mouth" if persistent.gore == True:
+                    Z "Mh... this is good. But I ain't gonna knock her up now."
+                    Ky "Laaame..."
+                    if persistent.gore == True:
+                        scene d11c-41x-5
+                        with fade
+                    else:
+                        scene d11c-40
+                        with fade
+                    "You pull out..."
+                    Z "Asha."
+                    Zt "This is going to get dirty."
+                    scene d11c-41x-12
+                    with dissolve
+                    As "..."
+                    if d10b_asha_kept_down == False:
+                        Z "Don't look at me like that. Come here, kid."
+                    else:
+                        Z "Stop looking like a brat. Come over here, now."
+                    scene black pic
+                    with fade
+                    "She does as you say, without objection..."
+                    scene d11c-41x-13
+                    with fade
+                    "As you turn your back on the newly deflowered girl, Asha kneels in front of you..."
+                    Z "There, good girl."
+                    scene d11c-41x-14
+                    with fade
+                    As "..."
+                    Ky "Woow... that's... pretty disgusting actually, sis."
+                    Gen "You guys... are PSYCHOPATHS!"
+                    Z "Come on, kid. You know the deal."
+                    scene d11c-41x-15
+                    with dissolve
+                    As "Ahh..."
+                    "She reluctantly moves her mouth towards the mess that is leaking around your dick..."
+                    Z "You need to do as you're told,{i} when{/i} you're told!"
+                    scene d11c-41x-16
+                    with hpunch
+                    Z "I said suck it!"
+                    As "Hmpgh-!!"
+                    Zi "What is she on about. It's just blood..."
+                    As "{i}*cough*{/i}"
+                    scene d11c-41x-17
+                    with dissolve
+                    Z "There you go... good shit..."
+                    scene d11c-41x-18
+                    with hpunch
+                    As "{i}*Ggnnbhg-*"
+                    Ky "Really [As]? You made it even worse now!"
+                    Ky "We... except those times when... nevermind!"
+                    As "{i}*retching*"
+                    scene d11c-41x-19
+                    with dissolve
+                    Z "Nasty... puking on my dick like that..."
+                    with hpunch
+                    Z "Ngh-"
+                    with hpunch
+                    "You cum inside her throat, multiple juices mixing together in one disgusting glob..."
+                    Z "Come on, kid. Clean up your mess."
+                    scene d11c-41x-20
+                    with dissolve
+                    As "{i}*slurp*"
+                    "You pull her even further down your shaft, making her gobble up all the disgusting juices."
+                    Z "Alright. Show's over, General. Asha is going to taste some more of your sister's cherryjuice."
+                    Zi "{i}*laughs*{/i} Not bad."
+                    Zi "Alright, General Assface. You and me, outside. Now."
+                    if _in_replay:
+                        scene black pic
+                        stop music fadeout 1
+                        with fade
+                        $ renpy.end_replay()
+                    jump d11c48
+
+label d11c48:
+    scene d11c-48
+    play music "audio/sounds/environment/desert wind.mp3" fadeout 3
+    with slowfade
+    Zi "You know what's coming now, don't you."
+    Gen "...yes."
+    scene d11c-49
+    with dissolve
+    Zi "Do you have any last words?"
+    Zi "You won't be able to think straight once I begin."
+    scene d11c-50
+    with dissolve
+    "His voice starts shaking..."
+    Gen "What are you even waiting for, you weird bitch? Just take my fucking head off and be done with it."
+    Gen "I've lived long enough to recognise a psycho when I see one. I know you enjoy this, so get on with it."
+    scene d11c-51
+    with dissolve
+    Zi "You're damn right. Yes I do, and I'm tired of pretending I'm not."
+    scene d11c-51x-1
+    with dissolve
+    Zi "And that is why I'm going to take my sweet time with you."
+    scene d11c-51x-2
+    with dissolve
+    Zi "Knocking an arrogant prick like you off his throne doesn't happen every day after all."
+    Zi "Kyra might follow along with her Zetan boyfriend's plans to take this shithole over."
+    Zi "But I'm gonna show these people who we really are."
+    if persistent.gore == True:
+        scene d11c-52
+    else:
+        scene black pic
+    play music "audio/music/raiders/dominance.mp3"
+    play sound "audio/sounds/gore/gore3.mp3"
+    with vpunch
+    Gen "Aaagh..."
+    if persistent.gore == True:
+        scene d11c-53
+    play sound "audio/sounds/gore/gore.mp3"
+    with vpunch
+    Gen "Haagh... {i}*winces in pain*"
+    Zi "Crying already? We barely started."
+    if persistent.gore == False:
+        "Zion finishes him off as you get back on your throne."
+        if mq_r_2.current_step == 2:
+            $ mq_r_2.advance()
+        jump raiders_command_center
+    scene d11c-54
+    with dissolve
+    Zi "Such a big boy. Who knows, in another circumstance I might have wanted to see how good a fuck you are. But now, we'll never know."
+    play sound "audio/sounds/gore/cut meat.mp3"
+    scene d11c-55
+    with dissolve
+    Gen "AAaaghaahaa..."
+    Zi "Feel that? That's the muscle tissue around your spine."
+    scene d11c-56
+    with fade
+    Zi "Now... stay still if you want this to be quick."
+    scene d11c-58
+    with dissolve
+    Gen "Fi.. nally..."
+    scene d11c-57
+    with dissolve
+    Zi "Yeah, not exactly..."
+    scene d11c-59
+    play sound "audio/sounds/gore/flesh 1.mp3"
+    with dissolve
+    Gen "Ngh-"
+    Zi "I was just after your skin, not your windpipes. Needed you to hold still for that."
+    scene d11c-59x-1
+    play sound "audio/sounds/objects/sword drop.mp3"
+    with fade
+    "She puts her machete to the side..."
+    Zi "Now let's get to the fun part."
+    scene d11c-60
+    with dissolve
+    Zi "Look up, asshole. One last thing, then you're done."
+    Gen "..."
+    scene d11c-61
+    with dissolve
+    Zi "Focus on these."
+    scene d11c-62
+    with dissolve
+    Zi "Try to not flinch."
+    Gen "Ngh... wha..."
+    scene d11c-63
+    with dissolve
+    pause 0.6
+    play sound "audio/sounds/gore/nasty knife stab 2.mp3"
+    pause 0.4
+    scene d11c-64
+    with hpunch
+    Gen "Aaaagh-"
+    Zi "Well done, I'm almost impressed... If only my boyfriend could see that. He could learn a thing or two."
+    scene d11c-65
+    with dissolve
+    Zi "Keep your mouth open."
+    scene d11c-66
+    play sound "audio/sounds/gore/knife stab.mp3"
+    with hpunch
+    Gen "Gha-"
+    Zi "That's it. You're done."
+    scene d11c-59x-2
+    with dissolve
+    "She unlocks her claws and pulls on the chain..."
+    Gen "{i}*muffled whimping*"
+    Zi "Enjoy your last seconds. I need them. This shit ain't easy with one hand."
+    Zi "..."
+    Zi "Alright..."
+    show screen cutscene_marker
+    scene d11c-67
+    play sound "audio/sounds/actions/drop.mp3"
+    with hpunch
+    Zi "See you in the afterlife, dickhead. {w=1.5}{nw}"
+    show d11c-68-anim
+    play sound "audio/sounds/objects/chain.mp3"
+    pause 1
+    # play music "audio/music/raiders/dominance.mp3"
+    play sound "audio/sounds/gore/gut rip.mp3"
+    pause 15.5
+    if mq_r_2.current_step == 2:
+        $ mq_r_2.advance()
+    stop music fadeout 3
+    pause 3
+    hide screen cutscene_marker
+    "After the shows were over, the raiders went back to their daily tasks."
+    "You decide to leave them alone to sort things out, leaving the settlement for the rest of the day."
+    jump mission_end
+
+label d11d:
+    $ m_d11d = True
+    scene black pic
+    stop music fadeout 3
+    with slowfade
+    "At the end of a long day, you decide to take a little time to spend with your wife."
+    "You don't find her anywhere in the house, so you climb to the upper floor and walk to the balcony."
+    "There she is..."
+    scene d11d-1
+    play music "audio/music/background/gymnopedie.mp3" fadein 6 volume 0.3
+    play music_1 "audio/sounds/environment/desert wind.mp3" fadein 3 loop
+    with slowfade
+    pause 1.5
+    play sound "audio/sounds/doors/door closed.mp3"
+    pause 1
+    scene d11d-2
+    with fade
+    Z "Hey, wife."
+    W "Hey, husband."
+    scene black pic
+    with fade
+    "You make yourself comfortable, behind her..."
+    scene d11d-3
+    with fade
+    "She looks out into the night, her arms leaning on the balcony..."
+    Z "I can tell you have something on your mind.. do you want to tell me about it?"
+    scene d11d-4
+    with dissolve
+    W "I was just thinking back, to when I was standing here when we finished building this place."
+    W "...And how life seems to move so quickly."
+    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+        W "First [S]... then [A]."
+    else:
+        W "When we got [S] and [A]..."
+    W "Twenty years, love, passed in what seems like the blink of an eye..."
+    W "How long, before [S] leaves us behind, to make her own life?"
+    W "Do you ever think about it?"
+    scene d11d-5
+    with dissolve
+    Z "Of course I do, but that's the way of life, is it not?"
+    scene d11d-6
+    with dissolve
+    Z "Not long before we put down roots here, you yourself were living with your parents and Rabiah."
+    Z "Could you have pictured the future we have built for ourselves, back then?"
+    scene black pic
+    with fade
+    "She turns around..."
+    label re_d11d:
+        if _in_replay:
+            play music "audio/music/background/gymnopedie.mp3" fadeout 3 volume 0.3
+            play music_1 "audio/sounds/environment/desert wind.mp3" fadein 3
+        scene d11d-8
+        with fade
+    W "I know, husband."
+    scene d11d-7
+    with dissolve
+    W "I just wish there was more time. I wish to know that she's safe."
+    scene d11d-10
+    with fade
+    Z "Her safety is not in our hands anymore. All we can do is hope for the best."
+    menu:
+        "Look her over":
+            scene d11d-11
+            with dissolve
+            Z "You still have the body of a dancer."
+            scene d11d-9
+            with dissolve
+            "The hips that turned your head so many years ago, are right in front of you, and even now, you can't help but feel lucky to call her yours."
+            scene d11d-10
+            with dissolve
+            Z "Have I told you how glad I am that you are my wife?"
+            scene d11d-9
+            with dissolve
+            W " You have, but I could stand to hear it more often."
+            jump d11d12
+
+
+        "Go to her":
+            jump d11d12
+
+
+label d11d12:
+    scene d11d-12
+    with fade
+    Z "Let me take your mind off your worries, for a while."
+    scene d11d-13
+    with dissolve
+    W "Don't think I don't know what you're doing, husband."
+    scene d11d-14
+    with dissolve
+    Z "I know you do, but can you really blame me?"
+    scene d11d-15
+    with dissolve
+    Z "Still my favourite place to rest my hands."
+    scene d11d-16
+    with fade
+    "{i}*kissing*"
+    "She leans into you, and before the kiss, she whispers in your neck."
+    scene d11d-17
+    with dissolve
+    W "Shut up, [persistent.player_name!c]. You're ruining it."
+    menu:
+        "Take her right here":
+            $ d11d_sex = True
+            Z "As you wish."
+            scene d11d-18
+            with dissolve
+            W "That's better!"
+            Z "Whatever makes you happy."
+            scene black pic
+            with fade
+            "You lift her up on the balustrade..."
+            scene d11d-19
+            with fade
+            "Your hands have a solid grip on her waist, as you lean into her."
+            scene d11d-20
+            with dissolve
+            Z "Do you trust me?"
+            scene d11d-21
+            with dissolve
+            W "Always."
+            scene d11d-22
+            with dissolve
+            Z "She will be fine. I know it."
+            "{i}*kissing*"
+            scene d11d-23
+            with dissolve
+            W "I believe you."
+            scene d11d-24
+            with dissolve
+            W "Now, try not to drop me."
+            "{i}*kissing*"
+            scene d11d-25
+            with fade
+            "Your face nestling against her cheek, buried in her hair, you nibble at your wife's neck, steadying yourself."
+            scene d11d-26
+            with dissolve
+            "As you kiss her full and carefully painted lips..."
+            scene d11d-16
+            with dissolve
+            W "..."
+            scene d11d-27
+            with dissolve
+            "You caress her gently but firmly..."
+            scene d11d-28
+            with dissolve
+            "Your hands slide back down to her buttocks ..."
+            scene d11d-29
+            with fade
+            "And you lift her up from the balustrade, impaling your manhood deep inside her."
+            show d11d-29x-anim
+            with dissolve
+            "You're not just having sex, you are making love under the darkening sky."
+            "You lift her up and down, feeling her wet insides..."
+            Z "We should do it more often under the stars, like this."
+            show d11d-29x-3-anim
+            with dissolve
+            hide d11d-29x-anim
+            W "Look at you... mh... a romantic soul after all."
+            Z "Don't mock me woman... "
+            W "Or what... you'll hurt me?"
+            "With a grimace, you respond to her provocations increasing the force of your thrusts inside her, causing [W] to whimper in response."
+            show d11d-29x-2-anim
+            with dissolve
+            hide d11d-29x-3-anim
+            W "Yes, my love... like this. Take me."
+            "Lost in the passion of the moment, you make love with abandon until, eventually, you are about to reach your climax."
+            W "Cum inside me, husband..."
+            "{i}*kissing*"
+            menu:
+                "Cum inside her":
+                    Z "Yes. I will."
+                    show d11d-29x-anim
+                    with dissolve
+                    hide d11d-29x-2-anim
+                    Z "Ngh-"
+                    scene d11d-30x-2
+                    with hpunch
+                    W "Ah..."
+                    with hpunch
+                    W "Nh..."
+                    scene d11d-30x-3
+                    with hpunch
+                    W "So... much..."
+                    Z "Ha..."
+                    "Your juices flow deep inside her, only to drip down along your shaft again..."
+                    W "I love you, [persistent.player_name]."
+                    Z "I love you too, [W]. I always will."
+                    scene black pic
+                    stop music fadeout 3
+                    stop music_1 fadeout 3
+                    with slowfade
+                    jump d11d_end
+
+                "Cum outside":
+                    Z "I've got a better idea."
+                    Z "Get down on your knees, wife."
+                    scene black pic
+                    with fade
+                    "She does as you say..."
+                    scene d11d-31
+                    with fade
+                    Z "I too remember that night. Do you recall how it ended?"
+                    W "I do..."
+                    scene d11d-32
+                    with dissolve
+                    Z "Hold still... I want to enjoy this moment."
+                    scene d11d-33
+                    with dissolve
+                    "You rub your member on her neck, feeling her soft breasts brush against your balls..."
+                    scene d11d-34
+                    with dissolve
+                    W "Will you cum in my hair, love...?"
+                    Z "I'm going to..."
+                    Z "Ngh-"
+                    scene d11d-35
+                    with hpunch
+                    Z "...!"
+                    with hpunch
+                    "You climax intensely, spraying your seed over her black, silky hair..."
+                    scene d11d-36
+                    with dissolve
+                    W "So... much..."
+                    Z "Hah..."
+                    Z "I love you, [W]."
+                    W "I love you too, [persistent.player_name], but you're going still to help me clean this mess."
+                    scene black pic
+                    stop music fadeout 3
+                    stop music_1 fadeout 3
+                    with slowfade
+                    jump d11d_end
+
+        "Make it quick":
+            scene d11d-18
+            with dissolve
+            "You lift her up..."
+            Z "You did know my mind, before you chose to marry me."
+            W "{i}*giggles*"
+            scene d11d-20
+            with fade
+            "You gently place her on the balcony and stare into her eyes..."
+            W "[persistent.player_name]..."
+            scene d11d-21
+            with dissolve
+            Z "You're beautiful, [W]. You're as beautiful as you were the day I first met you."
+            Z "I never want to miss this face, ever."
+            scene d11d-22
+            with dissolve
+            Z "{i}*kissing*"
+            W "Mh..."
+            scene d11d-23
+            with dissolve
+            Zw "Let's go to bed, wife. Tomorrow will be a long day."
+            W "Mh... okay..."
+            scene black pic
+            stop music fadeout 3
+            stop music_1 fadeout 3
+            with slowfade
+            jump d11d_end
+
+label d11d_end:
+    "You both snuggle a bit more, and then eventually head to bed together..."
+    if d11d_sex == True:
+        "...after cleaning up, that is."
+    scene sz-2
+    with fade
+    Ww "Good night, my love."
+    Zw "Goodnight, wife."
+    scene black pic
+    with fade
+    if _in_replay:
+        $ renpy.end_replay()
+    jump daily_home
+
+label d11e:
+    $ m_d11e = True
+    $ d11e_kateryna_day = day
+    if shani_zone == False:
+        scene k-13x
+        with slowfade
+    else:
+        scene k-13
+        with slowfade
+    A "...I finished the green ones. If you want more, we have to go buy some."
+    scene k-15x
+    with dissolve
+    W "That's ok, I think we still have a few yellow and red ones... we can wait a few days. I just went to the market and don't want to go shopping again, so soon."
+    scene k-23
+    with fade
+    W "Speaking of which, I met Igor."
+    W "He and Kateryna are inviting us all for a few drinks; tonight, if we want."
+    W "What do you think about it?"
+    scene k-23x
+    with dissolve
+    if kateryna_romance == False:
+        Z "You know me. The girl is nice, but I don't think she would fit in well with us."
+        Z "We will not go."
+        $ sq_k_1.complete()
+        $ sq_k_1.resolution = _("Kateryna tried to reach out to me, but I am not interested. We may occasionally encounter her again, but I think she will be happier with someone else.")
+        scene k-17x
+        with dissolve
+        W "Okay, I understand. I will talk to Igor, and her. They will understand."
+        scene black pic
+        with fade
+        jump daily_home
+    Z "Well, that sounds like something fun to do tonight. Igor knows how to treat his guests to a good time."
+    if shani_zone == False:
+        scene k-18
+        with dissolve
+        Z "What do you girls think?"
+        scene k-18x
+        with dissolve
+        S "You know I can hold a drink, [persistent.dad]."
+        scene k-19
+        with dissolve
+        S "But Mandisa invited me to train together. I shouldn't miss that either."
+        S "So I'll be sitting this one out, have fun without me."
+    else:
+        scene k-16
+        with dissolve
+        Z "What do you think, [A]? Do you feel like going out tonight?"
+    scene k-16x
+    with dissolve
+    A "Do you even have to ask, [persistent.dad]?"
+    A "But can I try out my new dress, please?"
+    scene k-15x
+    with dissolve
+    W "As long as you don't take forever to get ready... I will count the minutes, young lady!"
+    scene k-15
+    with dissolve
+    A "I know, [persistent.mom]... I will be fast, I hope."
+    scene black pic
+    with fade
+    "You finish your meal and the three of you eventually meet outside."
+    "...well, the two of you. [W] and you end up having to wait for [A], as usual."
+    scene d11e-3
+    play music "audio/music/zeta/city music long.mp3" fadeout 3
+    with w33slow
+    Z "Uff..."
+    W "This girl will drive me mad..."
+    W "She always takes forever!"
+    scene d11e-6
+    with fade
+    Zt "Aaand there it is: the glare of death."
+    Zt "Two parts attractive, one part scary and a dash of raw... something. [A] is flirting with pain."
+    menu:
+        "Look down":
+            scene d11e-7
+            with dissolve
+            Zt "At least I have something to entertain myself while waiting..."
+            Zt "Man... I would kill for these tits."
+            jump d11e5
+
+        "Don't":
+            jump d11e5
+
+label d11e5:
+    scene d11e-5
+    with dissolve
+    A "[persistent.mom!c]? [persistent.dad!c]? I'm coming!"
+    scene d11e-4
+    with dissolve
+    W "There she comes... I hope it was worth the wait."
+    scene d11e-2
+    with fade
+    A "I'm sorry, [persistent.mom]. I know I'm late. I couldn't find one of the shoes that go with the dress."
+    scene d11e-1
+    with dissolve
+    Zw "Holy shit!"
+    Zt "Worth it..."
+    scene d11e-12
+    with fade
+    "She stands in front of you..."
+    Z "You're fifteen minutes late, [A]."
+    scene d11e-8
+    with dissolve
+    Z "You know that it's bad form to keep friends waiting, does the reputation of our House mean nothing to you?"
+    "She stands in front of you, her expression unfazed, almost flirty..."
+    scene d11e-9
+    with dissolve
+    Z "And now I have to lecture you again, like a little girl, [A]. You want to look like a... grown up..."
+    menu:
+        "Stare at her tits":
+            scene d11e-11
+            with dissolve
+            Z "Your [persistent.mom] got angry...and..."
+            Z "Your... dress... is see-through..."
+            "Her huge tits are almost popping out of the loose silky dress as she sticks her chest out at you, not saying a word while you're unsuccessfully, trying to scold her."
+            scene d11e-10
+            with dissolve
+            W "I think our [persistent.da] may not be taking this seriously enough, [persistent.player_name]."
+            W "I know that look."
+            scene d11e-13
+            with dissolve
+            W "Trying to avoid responsibility by looking all innocent and playing the quiet game, huh?"
+            scene d11e-14
+            with dissolve
+            W "Don't look away, [A]. I've known your tricks since you were little."
+            W "Come here and let's get this over with."
+            scene d11e-15
+            with fade
+            "You grab her by the back of her head..."
+            Z "Your [persistent.mom] is right."
+            scene d11e-16
+            with dissolve
+            Z "We know you and your tricks, but I will let it go; this time."
+            Z "You sexy little thing."
+            "She looks at you, waiting to see where this goes..."
+            Z "Come here."
+            scene d11e-17
+            with dissolve
+            "She instinctively opens her mouth."
+            scene d11e-19
+            with dissolve
+            A "Ha..."
+            scene d11e-18
+            with dissolve
+            "{i}*kissing*"
+            "You make out with her. Your kissing is loud and sloppy..."
+            A "Ngh..."
+            W "Hmm... I love you both so much."
+            scene d11e-16
+            with dissolve
+            A "..."
+            scene d11e-20
+            with dissolve
+            Z "Let's forget about this, we're just wasting time now."
+            menu:
+                "Grab boobies":
+                    W "I love you, husband; but one day you are going to have to learn how to actually punish [A] when she misbehaves."
+                    scene d11e-21
+                    with dissolve
+                    Z "She is who she is. Maybe trying to change her is pointless. Anyway, before we go..."
+                    "You grab her chest..."
+                    scene d11e-22
+                    with dissolve
+                    Z "You know I can't resist."
+                    scene d11e-23
+                    with dissolve
+                    "Her thick nipple lay in your palm..."
+                    scene d11e-24
+                    with dissolve
+                    "...and you start groping her soft flesh."
+                    A "Ngh..."
+                    scene d11e-25
+                    with dissolve
+                    Z "This {i}is{/i} a stunning dress. It shows off all of your best features."
+                    scene d11e-26
+                    with dissolve
+                    Z "You're just like your [persistent.mom]."
+                    scene d11e-27
+                    with dissolve
+                    A "Thank you, [persistent.dad]."
+                "\"We're already late\"":
+                    pass
+            scene d11e-28
+            with dissolve
+            W "Kateryna must be thinking we're not coming. We really have to go now."
+            jump d11e29
+
+        "Don't":
+            Z "Then behave like one! Anyways... let's move out."
+            jump d11e29
+
+label d11e29:
+    scene black pic
+    with slowfade
+    "After a fairly long walk that you all have taken many times before..."
+    scene d11e-29
+    with w33slow
+    A "I haven't been to Igor's place in years."
+    W "That's true. He's a good friend, but still... Best behaviour, please."
+    A "Yeah yeah..."
+    W "[A]!"
+    A "I'm sorry, [persistent.mom]! I promise!"
+    scene d11e-30
+    with dissolve
+    Z "I'm going to knock."
+    scene d11e-32
+    with dissolve
+    A "I wonder what she's actually like. I don't really know her much."
+    A "All I know is that she likes you, [persistent.dad]."
+    scene d11e-33
+    with fade
+    Ka "Hello, [persistent.player_name]! Welcome!"
+    scene d11e-34
+    with dissolve
+    Ka "And you both! Welcome to my home, [A]!"
+    scene d11e-35
+    with dissolve
+    A "Oh... ho..."
+    Aw "...her dress is beautiful."
+    scene d11e-36
+    with dissolve
+    Ka "I missed you, [persistent.player_name]. Am glad you here!"
+    Z "I'm glad to see you too, Kateryna."
+    scene d11e-37
+    with dissolve
+    W "Look at her, falling into his arms like that..."
+    scene d11e-38
+    with dissolve
+    W "She's a hands on girl. Not so timid anymore. I like that."
+    scene d11e-39
+    with fade
+    Ka "{i}*kisses*"
+    "She gently kisses you on your cheek. She appears to have grown in confidence, since your last encounter."
+    scene d11e-40
+    with dissolve
+    Z "We're a bit late, but we're here now."
+    Z "You look extra pretty today. Can we come inside?"
+    scene d11e-41
+    with dissolve
+    Ka "Yes, [persistent.player_name]."
+    jump d11b42
+
+label d11b42:
+    scene d11e-42
+    with slowfade
+    Z "That's a lot of head."
+    scene d11e-43
+    with dissolve
+    Z "Careful with that, [W]."
+    Z "I know Igor and his drinks. They are deceptive."
+    scene d11e-44
+    with dissolve
+    W "And you're telling me this bucketload is any safer?"
+    scene d11e-45
+    with dissolve
+    Z "It's going to be fine. I've had this beer before."
+    scene d11e-46
+    with fade
+    "You look at your host in front of you, drawing another pint from the tap..."
+    scene d11e-47
+    with dissolve
+    Ig "My little Kateryna, always happy to help out."
+    scene d11e-48
+    with dissolve
+    Ig "[persistent.player_name], I say, Kateryna has been smiling a lot today, since she met [W]."
+    scene d11e-49
+    with dissolve
+    Ig "She has cleaned and fussed more than usual, and she was very curious about little [A] also."
+    scene d11e-50
+    with dissolve
+    A "What did you tell her about me? Nice things, I hope?"
+    Ig "...?"
+    scene d11e-51
+    with dissolve
+    A "I will find out if you've been saying bad things, you know?"
+    scene d11e-52
+    with dissolve
+    Ig "I never speak bad of you..."
+    scene d11e-53
+    with dissolve
+    Ig "Right, Kateryna?"
+    scene d11e-54
+    with fade
+    Ka "Where I from, more drink, and talk less. Anyone?"
+    scene d11e-55
+    with dissolve
+    Ig "{i}*laughs*{/i} she is right."
+    scene black pic
+    with fade
+    "A while later..."
+    scene d11e-56
+    with w33slow
+    Z "Urgh..."
+    Z "You really set the tempo here, Kat..."
+    scene d11e-57
+    with dissolve
+    Ka "..."
+    "She looks at the beer cups, puzzled..."
+    scene d11e-58
+    with dissolve
+    Ka "Why so many empty... Now I must wash more. I could have just poured in same mug."
+    scene d11e-59
+    with dissolve
+    Z "...because you were pouring faster than I was drinking, kid."
+    W "Uh... husband..."
+    scene d11e-62
+    with dissolve
+    W "I think... you were right about this strong drink..."
+    scene d11e-61
+    with dissolve
+    Z "{i}*laughs*{/i} I told you so."
+    scene d11e-60
+    with fade
+    "She rests against you, her cleavage propped up against the countertop..."
+    scene d11e-63
+    with dissolve
+    Z "You're going to be fine, [W]. I will carry you home and to bed, if I have to."
+    W "Mhh... you're very sweet, husband..."
+    scene d11e-64
+    with dissolve
+    Ka "...!"
+    Z "Hey, Kateryna."
+    scene d11e-65
+    with dissolve
+    Ka "Hm?"
+    menu:
+        "\"You were staring at [W]'s chest. Do you want to see more?\"":
+            $ d11e_zahra_undressed = True
+            Z "Don't think I didn't see you staring at [W]'s chest. Do you want to see more?"
+            scene d11e-66
+            with dissolve
+            Ka "...?"
+            "She seems to hesitate, looking to find a suitable reply."
+            scene d11e-68
+            with dissolve
+            Z "Don't move, wife."
+            "You undo the knot holding up her dress from behind."
+            scene d11e-69
+            with fade
+            W "Hey! What are you doing..."
+            scene d11e-71
+            with dissolve
+            Z "I'm just giving Igor's niece a little view. She was so curious."
+            W "But... this is so random..."
+            scene d11e-70
+            with dissolve
+            Z "Nothing wrong with it."
+            Ka "..."
+            scene d11e-72
+            with dissolve
+            Z "You're a funny drunk, [W]."
+            scene d11e-73
+            with dissolve
+            "You grab her boobs..."
+            W "Not drunk, only tipsy, husband."
+            scene d11e-74
+            with fade
+            Ig "..."
+            A "Hey, I'm talking to you. What are you looking at?"
+            scene d11e-75
+            with dissolve
+            A "I can see you staring at her, you know?"
+            scene d11e-76
+            with dissolve
+            A "..."
+            Ig "I... uh..."
+            scene d11e-77
+            with dissolve
+            A "So... as I was saying..."
+            scene d11e-78
+            with fade
+            Ka "..."
+            Z "Hey, Kat."
+            scene d11e-79
+            with dissolve
+            Z "Why don't you come around and have a closer look?"
+            jump d11e80
+
+        "\"Why don't you come closer?\"":
+            Z "You're all alone over there. Why don't you join us?"
+            scene d11e-66
+            with dissolve
+            Ka "..."
+            "She gives you a tentative look..."
+            jump d11e80
+
+label d11e80:
+    scene d11e-80
+    with fade
+    "She approaches you hesitantly..."
+    Z "There you are, don't be shy. You know us."
+    scene d11e-81
+    with dissolve
+    Z "I know you have seen my wife up close before."
+    if d11e_zahra_undressed == False:
+        Z "And I think there were a few things left unsaid that time."
+        Z "I think she would have liked to kiss you, last time. Like this."
+    if d11e_zahra_undressed == True:
+        Z "And I bet you've been curious since."
+        scene d11e-82
+        with dissolve
+        W "H-hey... sweetie..."
+        scene d11e-83
+        with dissolve
+        Z "Come here."
+        scene d11e-84
+        with fade
+        A "So, and then, right after school she knelt down and sucked her [persistent.dad] off! Can you believe it!"
+        Ig "{i}*laughs*{/i} These stories sure wild!"
+        scene d11e-85
+        with dissolve
+        Ka "They're so... big..."
+        scene d11e-86
+        with dissolve
+        Ka "So full and firm..."
+        scene d11e-87
+        with dissolve
+        W "Had I known you were this interested, I would have shown you last time around."
+        scene d11e-88
+        with dissolve
+        Z "I bet you embarrassed the crap out of her last time too, [W]."
+        Z "She does have a type, I reckon, if our little stroll on the Temple grounds is any indication."
+        scene d11e-89
+        with fade
+        Zt "There seems to be a natural sense of intimacy between them, beyond the liquid courage. This is special."
+        scene d11e-90
+        with dissolve
+        Zt "Even [W] seems to be taken with Kateryna. It's been a while since she last had anything similar to a plaything of her own."
+        Zt "I wonder how things will turn out, between these women."
+        Z "Hey [W], look at me."
+        jump d11e92
+
+label d11e92:
+    if d11e_zahra_undressed == True:
+        scene d11e-92
+        with fade
+    else:
+        scene d11e-92x
+        with fade
+    "{i}*kissing*"
+    W "Mh..."
+    if d11e_zahra_undressed == True:
+        scene d11e-91
+        with dissolve
+    else:
+        scene d11e-102
+        with dissolve
+    "As you make out with your wife, you have a firm grip on both their bottoms."
+    "You enjoy the buzz of the situation, the alcohol, having your hands literally full. Kateryna's ass feels plump and soft, and she even leans in a little, backing into your grasp."
+    scene d11e-93
+    with dissolve
+    "You give [W] a long kiss, exploring her lips to the fullest."
+    scene d11e-94
+    with dissolve
+    Ka "..."
+    scene d11e-95
+    with fade
+    W "Mh..."
+    scene d11e-96
+    with dissolve
+    W "You seem curious, girl."
+    W "You've told me you never really kissed anyone. Would you like to try now?"
+    W "I'm sure my man would like to help you."
+    scene d11e-98
+    with dissolve
+    Z "I would not mind at all. What do you think, Kateryna?"
+    scene d11e-97
+    with dissolve
+    Ka "Yes, please... I would like."
+    if d11e_zahra_undressed == True:
+        scene d11e-99
+        with fade
+    else:
+        scene d11e-99x
+        with fade
+    "{i}*kissing*"
+    "You wrap both women in your arms as they lean on you, and you and Kateryna join lips for the first time."
+    "Her kiss is delicate and tentative."
+    scene d11e-100
+    with dissolve
+    "Her lips taste sweet, and the change in her breathing tells you that she enjoys the experience."
+    scene d11e-101
+    with dissolve
+    W "Look at you... taking your sweet time."
+    W "What do you think, [persistent.player_name]. Do you want to take her in, for a time?"
+    W "I like what Im seeing, and I have a good feeling about her. We have the space for it and there's always room for a helping hand."
+    scene d11e-102
+    with dissolve
+    "You can feel in your hand that Kateryna is clenching her muscles, waiting with baited breath, in anticipation of your reaction..."
+    "The shared intimacy and the attentions you gave her since you first met seem to have raised her expectations."
+    Z "What do you think, Kateryna?"
+    scene d11e-103
+    with fade
+    Ka "Mh..."
+    "{i}*kissing*"
+    scene d11e-104
+    with dissolve
+    "She slowly opens her gold-speckled brown eyes and you continue kissing for a little more, her breathing turning shallow and showing her excitement..."
+    Ka "Yes, please."
+    scene d11e-106
+    with fade
+    Ig "Little Kateryna, having first kiss with [persistent.player_name]. Is still odd, but not unexpected."
+    if d11e_zahra_undressed == True:
+        scene d11e-105
+        with fade
+    else:
+        scene d11e-105x
+        with fade
+    Ka "Uncle. I want to live with [W] and [persistent.player_name]. Are you sure is ok?"
+    Ig "We have discussed this before. You are old enough to decide for yourself. I trust good friends, and you have my blessing, if this makes you happy."
+    jump d11e109
+
+label d11e109:
+    scene d11e-109
+    with dissolve
+    Z "So I guess this is really happening. Your niece wants to come live with us."
+    Z "Is there anything I should be aware of?"
+    scene black pic
+    with fade
+    "[A] and Igor move closer to you..."
+    if d11e_zahra_undressed == True:
+        scene d11e-111
+        with fade
+    else:
+        scene d11e-111x
+        with fade
+    Ig "You will be fine, friend. She is good girl. Will earn her keep."
+    Ig "Not to lie, I will miss her a lot. But my woman is coming back soon, so is ok. I will visit."
+    if d11e_zahra_undressed == True:
+        scene d11e-110
+        with dissolve
+    else:
+        scene d11e-110x
+        with dissolve
+    Z "She already showed some of what she can do. Even [W] was impressed by her cooking."
+    if d11e_zahra_undressed == True:
+        scene d11e-112
+        with dissolve
+    else:
+        scene d11e-112x
+        with dissolve
+    Z "[A], it will be your task to show her around, make sure she feels at home, and be kind to her."
+    if persistent.sharing == True:
+        scene d11e-113
+        with dissolve
+        Ig "..."
+        if d11e_zahra_undressed == True:
+            scene d11e-114
+            with dissolve
+        else:
+            pass
+        "Igor seems to be fixated on [W]'s chest, while [A] and Kateryna are starting to chatter..."
+        scene d11e-115
+        with dissolve
+        Ww "Igor seems to have lost something down my cleavage..."
+        scene d11e-116
+        with dissolve
+        if persistent.sharing is None:
+            call sh_decide from _call_sh_decide_3
+        if persistent.sharing == False:
+            $ zahra_never_shared = True
+            jump d11e_door_rings
+        else:
+            menu:
+                "\"Let it happen.\"":
+                    scene d11e-113
+                    with dissolve
+                    if d11e_zahra_undressed == True:
+                        Zw "I know. I undressed you myself, didn't I? Let him watch."
+                    else:
+                        Zw "You do look good in that dress."
+                    jump d11e_door_rings
+
+                "\"He will never do more than that.\"":
+                    scene d11e-113
+                    with dissolve
+                    $ zahra_never_shared = True
+                    Zw "I know he watches. But he will never do more than that, trust me."
+                    jump d11e_door_rings
+    jump d11e_door_rings
+
+label d11e_door_rings:
+    if persistent.sharing == False or d11e_shared_none == True:
+        scene d11e-117x
+        if _in_replay:
+            with fade
+        else:
+            with dissolve
+        "{i}*Sound of door knocking*{/i}"
+        "You hear distant chatter from outside..."
+        Ig "Is door, is probably neighbor."
+        Ig "He must have goods I am waiting for. I need to get them in storage."
+        scene d11e-115
+        with dissolve
+        W "That must be Harun and his wife... I haven't seen them in ages."
+        scene d11e-116
+        with dissolve
+        Z "Go see them. We'll enjoy ourselves here."
+        scene d11e-115
+        with dissolve
+        W "Sure. I will come back soon."
+        scene black pic
+        with fade
+        "They leave..."
+        jump d11e_kissing_kateryna
+    else:
+        jump d11e_sharing_menu
+
+label d11e_sharing_menu:
+    scene d11e-117
+    if _in_replay:
+        with fade
+    else:
+        with dissolve
+    menu:
+        "Share [A]":
+            $ d11e_shared_ain = True
+            # if d11e_sharing_intro == False:
+            Z "Tell you what, Igor. Why don't we celebrate the occasion?"
+            Z "Let me show you how much we appreciate your hospitality."
+            Z "[A], why don't you give Igor something else to stare at? Your [persistent.mom] should talk a little more with Kateryna."
+            scene d11e-128
+            with fade
+            A "Are you sure, [persistent.dad]...?"
+            Ig "I will not say no to it, [persistent.player_name]."
+            scene d11e-129
+            with dissolve
+            Ig "These boobs are big, but so small in my hands. I will enjoy much."
+            Ig "[A], let's go to couch, yes?"
+            scene d11e-130
+            with dissolve
+            A "Alright, if [persistent.dad] tells me to..."
+            # $ d11e_sharing_intro = True
+            jump d11e_kissing_kateryna
+
+        "Share [W]" if zahra_never_shared == False:
+            $ d11e_shared_zahra = True
+            # if d11e_sharing_intro == False:
+            Z "Tell you what, Igor. Why don't we celebrate the occasion?"
+            Z "[W], don't you think that if you were closer, Igor wouldn't have to stare so hard?"
+            Z "Let's show him some appreciation for his generous hospitality."
+            Z "Meanwhile, [A] and our new housemate could get to know each other a little better."
+            scene d11e-120
+            with fade
+            W "I... don't know if..."
+            Ig "Is this beer talking, [persistent.player_name]?"
+            Z "It is not, Igor. You're a good friend. Have fun."
+            scene d11e-121
+            with dissolve
+            Ig "I will. Yes."
+            scene d11e-122
+            with dissolve
+            Ig "Is privilege to enjoy company of [W]."
+            scene d11e-124
+            with dissolve
+            "He gropes her gently, as the girls keep watching..."
+            W "Nh..."
+            scene d11e-123
+            with dissolve
+            A "[persistent.mom!c] seems to like it, [persistent.dad]."
+            A "I've never seen them together like this."
+            scene d11e-125
+            with dissolve
+            Ig "I think we go to couch now, Lady [W]."
+            W "I... okay..."
+                # $ d11e_sharing_intro = True
+            jump d11e_kissing_kateryna
+
+        "Share both" if zahra_never_shared == False:
+            $ d11e_shared_both = True
+            # if d11e_sharing_intro == False:
+            Z "Tell you what, Igor. Why don't we celebrate the occasion?"
+            Z "Girls, I think Igor needs a reminder of how we treat our friends, don't you think?"
+            scene black pic
+            with fade
+            "You guide them into your friend's arms..."
+            scene d11e-126
+            with fade
+            W "Mh..."
+            Ig "Oh, [persistent.player_name], is very nice of you."
+            Z "Let's show him our appreciation for his hospitality and his generosity."
+            A "..."
+            scene d11e-127
+            with dissolve
+            Ig "Girls, let us go to couch. I want to have fun with these."
+                # $ d11e_sharing_intro = True
+            jump d11e_kissing_kateryna
+
+        "Don't share":
+            Z "Well, how about..."
+            $ d11e_shared_none = True
+            jump d11e_door_rings
+
+        "Go home":
+            $ d11e_no_sex = True
+            jump d11e_sex_end
+
+label d11e_kissing_kateryna:
+    scene d11e-118
+    with fade
+    Ka "[persistent.player_name]?"
+    Ka "Can we... do more..."
+    scene d11e-119
+    with dissolve
+    Zt "She's too sweet."
+    scene d11e-131
+    with fade
+    "{i}*kissing*"
+    "She leans into you and melts in your mouth as your hands explore her body."
+    scene d11e-132
+    with dissolve
+    Ka "Mh..."
+    show d11e-132
+    with dissolve
+    Zw "I want to see more of you, Kateryna."
+    Kaw "Is good..."
+    "You slowly pull down her skirt..."
+    scene d11e-133
+    with dissolve
+    pause 1
+    scene d11e-134
+    with dissolve
+    pause 1
+    scene d11e-135
+    with dissolve
+    "Her plump bottom is barely covered by the pink panties that are her last shred of modesty."
+    scene d11e-136
+    with hpunch
+    Ka "Ah...!"
+    "Giving in to your excitement, you grab her ass firmly. Since her interest in you first manifested, you have patiently waited for this moment, and intend to savour it."
+    jump d11e_sex_kateryna
+
+label d11e_sex_kateryna:
+    scene d11e-137
+    with fade
+    "{i}*kissing*"
+    Z "You have a great body, Kateryna."
+    Ka "Mh... you... think... it can make...?"
+    Zt "I know what she is hinting at. [W] told me about her culture in her home village, and she has expressed her interest in pregnancy many times before."
+    scene d11e-138
+    with dissolve
+    Z "Yes, why not? You are young, healthy and in great shape. I think your body is made for breeding."
+    scene d11e-139
+    with dissolve
+    "You feel her up a little more. Her thighs press against you, as she lets you play with her and says..."
+    scene d11e-140
+    with fade
+    Ka "[persistent.player_name]... Can I... please... also see more?"
+    Z "Hm..."
+    scene d11e-141
+    with dissolve
+    Z "Sure, I don't think we have to wait until we are at my home."
+    scene d11e-142
+    with fade
+    Z "Here it is."
+    Ka "Wow... it is... big..."
+    Z "You can touch it, if you want to."
+    scene d11e-143
+    with dissolve
+    "She does not hesitate for long..."
+    Ka "This feel... hard, [persistent.player_name]... but soft also."
+    if d11e_shared_ain == True or d11e_shared_both == True:
+        scene d11e-144
+    else:
+        scene d11e-144x
+    with dissolve
+    Z "This is the first time you've touched one?"
+    Ka "Yes... I never..."
+    scene d11e-145
+    with dissolve
+    "You make out more as she hesitantly starts stroking you."
+    Z "You're doing well."
+    "You slowly lower your hand..."
+    scene d11e-146
+    with dissolve
+    Kaw "Mh... [persistent.player_name]?"
+    "...and start feeling her up through her clothes..."
+    scene d11e-147
+    with dissolve
+    "She responds well, pressing her body against yours..."
+    scene d11e-148
+    with dissolve
+    Ka "[persistent.player_name]... do you..."
+    scene d11e-149
+    with dissolve
+    Ka "...think... that..."
+    scene d11e-150
+    with dissolve
+    Ka "...it will... fit?"
+    scene d11e-148
+    with dissolve
+    Z "You will learn that a woman's body, your body, is made for this. You will see..."
+    scene d11e-149
+    with dissolve
+    Ka "Can you... show... me?"
+    scene d11e-151
+    with fade
+    Ka "Oh..."
+    scene d11e-152
+    with dissolve
+    "You lift up her left leg, her thigh resting in your right palm..."
+    scene d11e-153
+    with dissolve
+    "Slowly stroking your dick on her exposed pussy, you hear her soft moans..."
+    Ka "It... feels... nice..."
+    Z "Kiss me, Kateryna."
+    scene d11e-154
+    with fade
+    pause 1
+    scene d11e-154x
+    with dissolve
+    Ka "Ah..."
+    scene d11e-154x-2
+    with dissolve
+    "Your tongue-play turns into a more explicitly sensual exchange, and it is clear to you that she is very turned on by the intimacy of your bodies together..."
+    scene d11e-155
+    with dissolve
+    Kaw "Can you... put it... inside?"
+    Zw "Are you sure you want me to, here and now?"
+    Kaw "I'm... I... don't know..."
+    scene d11e-156
+    with dissolve
+    Zw "Tell you what, Kateryna. I don't think that this is the right time for it. From what I know of your customs and about you, this is a big deal."
+    Zw "Why don't we do this properly, at home, in a more appropriate situation?"
+    Kaw "Yes... okay. Is better."
+    scene d11e-153
+    with dissolve
+    Kaw "Nh..."
+    "Despite her spoken agreement, she can't help herself and keeps grinding on you..."
+    if d11e_shared_ain == True:
+        Z "Hey [W], instead of just enjoying the show, why don't you join us?"
+        jump d11e_sex_kateryna_zahra
+    if d11e_shared_zahra == True:
+        Z "Hey [A], why don't you join us?"
+        jump d11e_sex_kateryna_ain
+    if persistent.sharing == False or d11e_shared_none == True:
+        jump d11e_sex_kateryna_continue
+    elif d11e_shared_both == True:
+        menu:
+            "Watch the others":
+                Zw "What do you think, do you want to see how the others are doing?"
+                Kaw "Yes..."
+                jump d11e_sex_igor_both
+            "Focus on Kateryna":
+                jump d11e_sex_kateryna_continue
+    else:
+        jump d11e_sex_kateryna_continue
+
+label d11e_sex_kateryna_continue:
+    menu:
+        "Cum between her thighs":
+            $ d11e_cum_kateryna_thighs = True
+            jump d11e_cum_kateryna
+
+        "Cum while she strokes you":
+            $ d11e_cum_kateryna_stroke = True
+            jump d11e_cum_kateryna
+
+        "Call [A] over":
+            if persistent.sharing == False or d11e_shared_none == True:
+                Z "Hey [A], why don't you join us?"
+            else:
+                $ d11e_shared_both = False
+                $ d11e_shared_ain = False
+                $ d11e_shared_zahra = True
+                Z "Hey [A], give Igor a little break and come over, will you?"
+            A "Okay, [persistent.dad]."
+            jump d11e_sex_kateryna_ain
+
+        "Call [W] over" if persistent.sharing == True and d11e_shared_none == False:
+            if d11e_shared_zahra == False and d11e_shared_both == False:
+                Z "Hey [W], why don't you join us?"
+            else:
+                $ d11e_shared_both = False
+                $ d11e_shared_ain = True
+                $ d11e_shared_zahra = False
+                Z "Hey Igor, hand me over my wife. You can keep the other one."
+            jump d11e_sex_kateryna_zahra
+
+label d11e_cum_kateryna:
+    if d11e_cum_kateryna_stroke == True:
+        Zw "Kateryna."
+        Kaw "Yes?"
+        scene d11e-148
+        with fade
+        "You let go of her leg, holding her next to you."
+        Zw "Keep stroking me. Make me cum."
+        scene d11e-150
+        with dissolve
+        Kaw "I will."
+        scene d11e-147
+        with dissolve
+        Zw "You're going good, kid."
+        Kaw "Nh... ah."
+        scene d11e-148
+        with dissolve
+        Zw "Keep going."
+        "You increase the pace of your finger action, and she follows your example as she pumps your manhood..."
+        scene d11e-143
+        with dissolve
+        Kaw "Can I see your cum, please?"
+        "The husky tone of excitement in her voice sends you over the edge..."
+        Z "Ngh-"
+        scene d11e-143x
+        with hpunch
+        Z "...!"
+        "Her soft hands keep stroking you as you cum, prolonging your climax..."
+        scene d11e-143x-2
+        with hpunch
+        Z "Fuck..."
+        scene d11e-143x-3
+        with dissolve
+        Kaw "So much... it can all go inside me?"
+        Zw "Yeah... I think... {i}*pant*{/i} it can."
+        scene d11e-145
+        with dissolve
+        Kaw "It's very... thick..."
+        "{i}*kissing*"
+        scene d11e-140
+        with fade
+        Zw "Look at me, Kateryna. Kiss me again."
+        scene d11e-139
+        with dissolve
+        "{i}*kissing*"
+        scene d11e-137
+        with dissolve
+        "{i}*kissing*"
+        Zt "I love this ass already."
+        Zt "Having her live with us will be fun."
+        if d11e_shared_both == True:
+            jump d11e_cum_igor_both
+        jump d11e_sex_end
+
+    if d11e_cum_kateryna_thighs == True:
+        Zt "Girl, lower your leg a little."
+        Kaw "{i}*purrs*"
+        scene d11e-153x
+        with dissolve
+        "Her soft pussy rubs on you as she does as you ordered..."
+        scene d11e-153x-2
+        with fade
+        "...and her legs start squeezing your dick as you feel coming closer to climax."
+        Kaw "Like... this?"
+        Zw "Yeah. Like that."
+        scene d11e-154x-2
+        with fade
+        "She looks into your eyes with a lustful gaze, clearly aiming to please you as much as possible..."
+        Kaw "[persistent.player_name]... do you... want to release inside me?"
+        Zw "Yeah... eventually, I think I will..."
+        scene d11e-153x-2
+        with dissolve
+        "You imagine how it must feel to cum inside her tight virgin pussy, and that brings you over the edge..."
+        Z "{i}*grunt*"
+        scene d11e-153x-3
+        with hpunch
+        Z "Hngh... Ah-"
+        scene d11e-153x-4
+        with dissolve
+        Kaw "Did I... do good?"
+        Zw "You did very well, Kateryna..."
+        if d11e_shared_both == True:
+            jump d11e_cum_igor_both
+        jump d11e_sex_end
+
+label d11e_sex_kateryna_ain:
+    if persistent.sharing == True and zahra_never_shared == True and d11e_round_two == True:
+        scene black pic
+        with fade
+        "She cleans up, puts her dress back on and hurries over."
+        "Meanwhile, [W] and Igor stay on the side, having a drink together..."
+    scene d11e-157
+    with fade
+    if persistent.sharing == True and zahra_never_shared == True and d11e_round_two == True:
+        Z "I saw your look earlier. You wanted Kateryna for yourself, now's the chance."
+        Z "So what are you thinking of?"
+    else:
+        Z "What's on your mind, [A]?"
+    scene d11e-158
+    with fade
+    A "I was thinking about how to get to know her better, since we haven't really had the chance yet since our last encounter. But..."
+    scene d11e-159
+    with dissolve
+    Z "But...?"
+    scene d11e-160
+    with dissolve
+    A "...but then I saw how wet she's getting, so I think I have a better idea."
+    Ka "[A]... what..."
+    scene d11e-161
+    with dissolve
+    Ka "Ah... Your hand..."
+    scene d11e-162
+    with dissolve
+    A "I knew you liked my [persistent.dad], but I didn't know you were so eager to have sex with him."
+    scene d11e-163
+    with dissolve
+    A "Judging by how wet you are, you really want it bad."
+    A "But if you come live with us, you'll see, he's not the only one who can have fun with you."
+    A "When [persistent.dad] is away from home, [persistent.mom!c] and I will enjoy having you around."
+    A "You know what that means, right, Kateryna?"
+    Ka "Mh... yes... okay..."
+    scene d11e-164
+    with dissolve
+    Ka "Back in old country, this was not so... open. Always secret, always shame."
+    scene d11e-165
+    with dissolve
+    Ka "Mh..."
+    A "I bet you had a few secrets to keep, even then."
+    scene d11e-166
+    with dissolve
+    A "Your lips feel soft, and wet."
+    scene d11e-167
+    with dissolve
+    A "How do you like this..."
+    "With two fingers pressing against Kateryna's clit, she forces a reaction out of her..."
+    Ka "I..."
+    scene d11e-168
+    with dissolve
+    Ka "Ahh..!"
+    Z "She's very sensitive, I think."
+    scene d11e-169
+    with dissolve
+    A "I think so too, [persistent.dad]."
+    A "You'll like what happens next."
+    scene d11e-170
+    with dissolve
+    Z "What do you have in mind, hm?"
+    scene d11e-171
+    with dissolve
+    A "..."
+    scene d11e-172
+    with fade
+    Ka "[A]... what are you..."
+    Z "Don't worry, sweetie. She knows what she's doing."
+    scene d11e-173
+    with dissolve
+    Z "Her [persistent.mom] taught her this. It's what my girls do when I am not around."
+    scene d11e-174
+    with dissolve
+    "You firmly grab the hips of your friend's niece, while your [persistent.da] is inspecting her..."
+    Ka "[A] has... learned from... Miss [W]?"
+    scene d11e-175
+    with dissolve
+    Ka "I didn't know they also have..."
+    scene d11e-176
+    with dissolve
+    Z "Of course they do. [W] has taught her [persistent.da] a lot. My wife has her needs, too."
+    scene d11e-177
+    with dissolve
+    "You rub your dick against the small of her back, as she grinds back into you..."
+    Z "Go ahead [A]."
+    scene d11e-178
+    with dissolve
+    Z "I think you should show her what you can do."
+    scene d11e-179
+    with fade
+    "You lift up her right leg..."
+    Ka "Nh... anh..."
+    scene d11e-180
+    with dissolve
+    Zw "So? How's my [persistent.da] treating you?"
+    Ka "It feels... very... good..."
+    scene d11e-181
+    with dissolve
+    Ka "Ngh..."
+    A "{i}*slurping*"
+    A "Fhe's verhy... whet... {i}*slurp*"
+    scene d11e-182
+    with dissolve
+    "[A] eagerly licks her pussy, something you have witnessed previously, between her and her [persistent.mom]..."
+    scene d11e-183
+    with fade
+    A "Ngha... {i}*lick*"
+    Ka "Nh... [A]..."
+    Z "I think she likes what you're doing, [A]."
+    A "Haa.. I shink tho too..."
+    scene d11e-184
+    with dissolve
+    A "{i}*lick*"
+    Ka "Mmh... ah..."
+    scene d11e-185
+    with fade
+    Ka "..."
+    "She keeps going for some time. Kateryna seems to be in pure bliss, barely aware of her surroundings, as her entire being is rattled by the sensations expanding from her crotch."
+    scene d11e-186
+    with dissolve
+    Ka "Mh..."
+    Zw "I want to see your cute tits finally."
+    scene d11e-187
+    with dissolve
+    Ka "Mh..."
+    "You pull her top aside..."
+    scene d11e-188
+    with dissolve
+    "She pays little attention to being undressed, and her pink nipples point outwards, stiff and perky."
+    scene d11e-187
+    with dissolve
+    A "{i}*slurp*{/i}"
+    if persistent.sharing == True and d11e_shared_zahra == True:
+        menu:
+            "See what the others are doing":
+                $ d11e_watched_igor_zahra = True
+                Z "Hey, Kateryna. Look over there, see what your uncle is doing."
+                Ka "Mh...?"
+                "You take a moment to look at your wife servicing your friend..."
+                jump d11e_sex_igor_zahra
+            "Focus on [A] and Kateryna":
+                jump d11e_sex_kateryna_ain_continue
+    else:
+        jump d11e_sex_kateryna_ain_continue
+
+label d11e_sex_kateryna_ain_continue:
+    scene d11e-189
+    with fade
+    Zt "What a sight. My [persistent.da] is pleasuring Igor's niece, who is like putty in my arms."
+    Zt "She's already fitting in perfectly. She will make a great addition to the house."
+    "All this has left you wanting more. Grinding on her has left you very excited..."
+    Z "Girls... stop for a moment. Kateryna, get on your knees."
+    scene black pic
+    with fade
+    "Slowly getting back to her senses, she does as you say and kneels next to [A]."
+    scene d11e-190
+    with fade
+    Z "[A], open your mouth. I need you."
+    A "Yesh, dad... {i}*slurp*"
+    show d11e-191-anim
+    with fade
+    "You fuck her throat, roughly and with passion, unleashing the built up tension in the act."
+    show d11e-192-anim
+    with fade
+    hide d11e-191-anim
+    A "{i}*slurp*{/i}"
+    Ka "So... rough. She is okay with this?"
+    Z "She's used to it."
+    Ka "Oh, I... see..."
+    jump d11e_cum_kateryna_ain
+
+label d11e_cum_kateryna_ain:
+    Ka "This feels good, yes?"
+    Z "You bet it does. [A] is very talented, just like her [persistent.mom]."
+    menu:
+        "Cum inside Kateryna's mouth":
+            $ d11e_cum_kateryna_mouth = True
+            scene d11e-199
+            with fade
+            "As if sensing your desire, [A] stops for a moment, turning to Kateryna..."
+            A "Are you sure you don't want to try?"
+            A "It's a pretty exciting thing to do."
+            scene d11e-197
+            with dissolve
+            Ka "I don't know if... I can take all..."
+            A "You don't have to. I'm sure [persistent.dad] will like it if you just put your lips on it."
+            scene d11e-198
+            with dissolve
+            Ka "Mh..."
+            scene d11e-200
+            with dissolve
+            Kaw "Maybe... I can..."
+            scene d11e-201
+            with dissolve
+            Ka "Mh..."
+            scene d11e-202
+            with dissolve
+            Zt "Wow... I didn't expect her to follow [A]'s directions this soon."
+            "She tries to massage the tips with her lips. Her fumbling attempts are enough to take you to the edge."
+            Z "[Ka], use your lips now."
+            scene d11e-203
+            with dissolve
+            "{i}*licking and slurping*"
+            Z "Fuck yes. You two are already working great as a team, Kateryna."
+            Z "My [persistent.da] will teach you a lot more in the future, I'm sure."
+            Z "Maybe."
+            scene d11e-204
+            with dissolve
+            Z "Kateryna, I'm cumming. Try to hold it in-"
+            with hpunch
+            Z "Ngh-"
+            scene d11e-205
+            with hpunch
+            Z "Damn..."
+            "She dutifully stays put, as you empty your balls in her mouth..."
+            scene d11e-206
+            with dissolve
+            Ka "Mh..."
+            "You came so much that some of your cum flows out of her mouth..."
+            Z "Such a good girl..."
+            scene d11e-207
+            with fade
+            "As you guide her chin up with your thumb, [A] keeps caressing your shaft..."
+            Z "Look up, girl. Show yourself to me."
+            scene d11e-208
+            with dissolve
+            Z "{i}*chuckles*{/i} What an adorable sight."
+            "She looks curious what to do with the filling in her mouth..."
+            Z "Try to swallow it. See if you like it."
+            scene d11e-209
+            with dissolve
+            Ka "{i}*gulp*"
+            scene d11e-210
+            with dissolve
+            Ka "..."
+            Z "Well done."
+            A "{i}*slurp*{/i} Shwe's ghood!"
+            scene d11e-211
+            with dissolve
+            Ka "It taste ok, not bad as I feared!"
+            scene d11e-210
+            with dissolve
+            Z "It did, huh?"
+            if persistent.sharing == True and d11e_shared_zahra == True:
+                jump d11e_cum_igor_zahra
+            else:
+                jump d11e_sex_end
+
+        "Cum inside [A]'s mouth":
+            hide d11e-192-anim
+            with fade
+            Z "Take a good look, Kateryna. I'm going to fill your new friend's mouth."
+            Z "Hold still, honey..."
+            with hpunch
+            Z "Hgnh-"
+            scene d11e-207x
+            with hpunch
+            Z "Ah..."
+            Z "...that's it."
+            scene d11e-207x-2
+            with fade
+            A "..."
+            A "{i}*gulp*"
+            Ka "She drink it..."
+            Z "Yeah, I taught her to."
+            scene d11e-207x-3
+            with dissolve
+            Ka "It is very much. But it look good on her."
+            if persistent.sharing == True and d11e_shared_zahra == True:
+                jump d11e_cum_igor_zahra
+            else:
+                jump d11e_sex_end
+
+        "Send [A] over and call [W]" if persistent.sharing == True and d11e_shared_none == False and zahra_never_shared == False:
+            $ d11e_shared_ain = True
+            $ d11e_shared_zahra = False
+            $ d11e_shared_both = False
+            Z "Hey, Igor. Let's swap. My [persistent.da] for my wife."
+            Ig "Sounds good!"
+            jump d11e_sex_kateryna_zahra
+
+        "Send [A] over and focus on Kateryna" if persistent.sharing == True and d11e_shared_none == False and zahra_never_shared == False:
+            $ d11e_shared_ain = False
+            $ d11e_shared_zahra = False
+            $ d11e_shared_both = True
+            Z "Hey, Igor. will you take care of my [persistent.da] also?"
+            Ig "{i}*laughs*{/i} You're a true friend, [persistent.player_name]."
+            jump d11e_sex_kateryna
+
+        "Call for [W] to come back" if persistent.sharing == False or d11e_shared_none == True:
+            Z "Hey, [W]! Where's my wife?"
+            scene d11e-191-anim
+            with fade
+            "You hear her hurriedly coming back while fucking your [persistent.da]'s mouth..."
+            W "I'm here, love! Igor is still helping outside. What's..."
+            W "Oh... I see..."
+            Z "I'm just about done with her. I want you to take over. Don't ask."
+            A "{i}*slurp*"
+            scene d11e-196
+            with fade
+            Z "[A], honey, get off my dick and step aside."
+            A "Okay, [persistent.dad]..."
+            Ka "..."
+            scene d11e-195
+            with dissolve
+            Z "Kateryna, get up kid. [W] has been waiting to have some fun with you."
+            W "Oh, I do..."
+            scene black pic
+            with fade
+            "As [A] gets off you, [W] comes over to Kateryna, leaning against her..."
+            jump d11e_sex_kateryna_zahra
+
+label d11e_sex_kateryna_zahra:
+    scene d11e-212
+    with fade
+    W "I'm going to enjoy this, husband. I did touch her, the last time we met. She seemed a lot less sure about things, then."
+    Z "That's unusually considerate of you, [W]."
+    W "Now... come here, girl."
+    scene d11e-214
+    with dissolve
+    W "Mmhh..."
+    "{i}*kissing*"
+    scene d11e-213
+    with dissolve
+    Ka "Nh..."
+    "Kateryna gives in as your wife leans in to kiss her..."
+    scene d11e-215
+    with dissolve
+    pause 1
+    scene d11e-216
+    with dissolve
+    "{i}*kissing*"
+    scene d11e-217
+    with dissolve
+    "She takes her sweet time exploring the intimacy with the newest potential member of the House, her newest ward."
+    W "Mh... such sweet lips..."
+    scene d11e-212
+    with dissolve
+    "You gently stroke Kateryna's belly, feeling a shudder, as a ripple of excitement crawls under her skin."
+    Z "[W]... Why don't we show Kateryna how we like to have a good time?"
+    scene d11e-218
+    with dissolve
+    Z "I want you. Now! Go to the table, and take the girl with you."
+    scene black pic
+    with fade
+    "You guide her to the dinner table, brush a few things to the side and push her down..."
+    scene d11e-220
+    with fade
+    Z "There you go... this is where I need you."
+    scene d11e-221
+    with dissolve
+    Z "Are you still with us, Kateryna? You wanted to see more; now's your chance."
+    Ka "Yes... I see..."
+    scene d11e-223
+    with dissolve
+    Ka "This will... not hurt?"
+    Z "I could make it hurt, if I wanted to, but in general, no, it doesn't."
+    Ka "But it's so big. I am not sure if it fit?"
+    Z "We have done this many many times over the years."
+    scene d11e-225
+    with dissolve
+    Ka "Woa... is so long, too..."
+    Ka "You will make more babies...?"
+    Ka "[A] will get new sister?"
+    scene d11e-224
+    with dissolve
+    Z "Maybe in the future, but not today."
+    Z "Today is to teach you."
+    scene d11e-219
+    with dissolve
+    W "Ah..."
+    Z "You see that? She's very wet. That means we can start soon."
+    Ka "Yes... I... think I am too..."
+    Z "[W] is always very excited when she's had a few. So I'm going to fuck her rougher today."
+    if persistent.sharing == True and d11e_shared_ain == True:
+        menu:
+            "See what the others are doing":
+                $ d11e_watched_igor_ain = True
+                "You take a moment to look at your [persistent.da] servicing your friend..."
+                jump d11e_sex_igor_ain
+            "Focus on [W]":
+                jump d11e_sex_kateryna_zahra_continue
+    elif persistent.sharing == False:
+        jump d11e_sex_kateryna_zahra_continue
+
+label d11e_sex_kateryna_zahra_continue:
+    scene d11e-222
+    with fade
+    Z "Alright..."
+    Ka "Oh... this is how..."
+    Z "This is how it's done?"
+    Ka "Yes... I saw men doing with my mother. But I never see so close..."
+    Ka "They always said I will take her place soon, then make me leave."
+    scene d11e-226
+    with fade
+    W "Nh... yes..."
+    "You start fucking your wife hard and fast. Her pussy responds drawing you in, her lips a wet and slippery mess..."
+    Z "I love it when she makes these noises."
+    Ka "You mean... the slapping noise?"
+    Z "Yeah... and her moans, too."
+    "You find a regular pace, banging your wife hard, grinding her into the table with each thrust."
+    jump d11e_cum_kateryna_zahra
+
+label d11e_cum_kateryna_zahra:
+    menu:
+        "Cum inside [W]":
+            Z "Fuck, I'm going to cum."
+            Ka "You breed her, yes?"
+            scene d11e-226x-3
+            with dissolve
+            Z "Maybe... hngh-"
+            with hpunch
+            W "Ah... nh... husband..."
+            scene d11e-226x-4
+            with dissolve
+            Ka "Wow... this seem to be much."
+            Ka "I think it feels good...?"
+            W "It does..."
+            if (persistent.sharing == True and d11e_shared_ain == True and d11e_watched_igor_ain == True) or (persistent.sharing == True and zahra_never_shared == True and d11e_shared_none == False):
+                scene black pic
+                with fade
+                "Meanwhile..."
+                jump d11e_cum_igor_ain
+            else:
+                jump d11e_sex_end
+
+        "Cum on her back":
+            scene d11e-221
+            with dissolve
+            Z "I'm going to cum on her back. watch this, girl."
+            scene d11e-226x
+            with hpunch
+            Z "Ah-"
+            Ka "Wow..."
+            scene d11e-226x-2
+            with dissolve
+            Ka "This is so much."
+            Ka "If it was inside..."
+            Z "Not today. And even if we did, there's no guarantee..."
+            Z "My wife looks beautiful like this, doesn't she?"
+            if (persistent.sharing == True and d11e_shared_ain == True and d11e_watched_igor_ain == True) or (persistent.sharing == True and zahra_never_shared == True and d11e_shared_none == False):
+                scene black pic
+                with fade
+                "Meanwhile..."
+                jump d11e_cum_igor_ain
+            else:
+                jump d11e_sex_end
+
+        "Send [W] over and call [A]" if persistent.sharing == True and zahra_never_shared == False and d11e_shared_none == False:
+            $ d11e_shared_ain = False
+            $ d11e_shared_zahra = True
+            Z "Hey, Igor. Why don't you send my [persistent.da] to me? [W] will join you instead."
+            Ig "Lady [W]? Very well!"
+            "You pull out..."
+            scene d11e-224
+            with fade
+            Z "Hey, kid. Let's get back over to the counter. I'm done here."
+            scene d11e-225
+            with dissolve
+            Ka "Yes... okay..."
+            jump d11e_sex_kateryna_ain
+
+        "Send [W] over and focus on Kateryna" if persistent.sharing == True and zahra_never_shared == False and d11e_shared_none == False:
+            $ d11e_shared_both = True
+            $ d11e_shared_zahra = False
+            $ d11e_shared_ain = False
+            Z "Hey, Igor. Do you think you can handle my wife also?"
+            Ig "Do camels shit in desert, friend [persistent.player_name]?"
+            "You pull out..."
+            scene d11e-224
+            with fade
+            Z "Hey, kid. Let's get back over to the counter. I'm done here."
+            scene d11e-225
+            with dissolve
+            Ka "Yes... okay..."
+            jump d11e_sex_kateryna
+
+
+label d11e_sex_igor_ain:
+    scene d11e-228
+    with fade
+    A "You're just lucky my [persistent.dad] has your niece now, Igor."
+    A "If he wasn't so busy, he would see what you're doing."
+    scene d11e-227
+    with dissolve
+    Ig "{i}*laughs*{/i} Oh little lady [A]. Trying to stir trouble? Be nice to old man Igor; my little Kateryna leave me today, at least I can have fun too, no?"
+    scene d11e-229
+    with dissolve
+    Ig "Also, little [A], your [persistent.dad] would maybe not like you grow a little Igor in your belly? So your butt I take. I am good friend, you see? Considerate."
+    A "{i}*sigh*{/i} Yea yea... Horny goat!"
+    Ig "Your body does not lie [A]. Igor knows you are having fun."
+    scene d11e-230
+    with dissolve
+    "He rubs his dick between her asscheeks..."
+    Ig "Oh... [A], your little butt feel good. Is so soft..."
+    A "Start already!"
+    scene d11e-231
+    with dissolve
+    Ig "You must understand, [A]. It maybe hurt a bit."
+    scene d11e-231x
+    with dissolve
+    "He slowly but steadily pushes the tip of his manhood between her cheeks..."
+    A "Ngh...!!"
+    scene d11e-228x
+    with hpunch
+    A "Agh-!"
+    Ig "You do good, little [A]. Pain will go away soon."
+    show d11e-231x-2-anim
+    with dissolve
+    A "It... doesn't... hurt..."
+    Ig "Good girl. So I can go faster, too."
+    Ig"Take this, girl."
+    A "That's it... ooh."
+    show d11e-231x-3-anim
+    with dissolve
+    hide d11e-231x-2-anim
+    A "Yes, like this!"
+    jump d11e_sex_kateryna_zahra_continue
+
+label d11e_cum_igor_ain:
+    show d11e-231x-2-anim
+    with fade
+    A "Nh..."
+    A "Fuck..."
+    Z "Hey, Igor. How's my [persistent.da] doing? Is she being a good girl?"
+    Ig "{i}*laughs*{/i} Yes, friend. She is best girl."
+    show d11e-231x-3-anim
+    with dissolve
+    hide d11e-231x-2-anim
+    Ig "I am close to finish."
+    menu:
+        "Tell him he can cum all over her":
+            Z "Just help her clean up the mess after you're done, if you're going to spray her down."
+            Z "I don't fancy walking her home covered in your baby juice."
+            A "Nh... {i}*moaning*"
+            Ig "{i}*laughs*{/i} I have manners, friend."
+            scene d11e-231x-2-anim
+            with dissolve
+            hide d11e-231x-3-anim
+            Ig "I am close, young [A]. Your [persistent.dad] had good idea."
+            Ig "Stay... still..."
+            with hpunch
+            Ig "Oh-"
+            scene d11e-232
+            with fade
+            Ig "I... cum."
+            scene d11e-232x
+            with hpunch
+            Ig "Ngh-!"
+            scene d11e-232x-2
+            with dissolve
+            Ig "This was very intense..."
+            scene d11e-231
+            with dissolve
+            Ig "Hey, Miss [A]. You are so quiet now?"
+            A "{i}*heavy breathing*{/i} ...yes... uh..what..."
+            Ig "Nothing. Just funny, how you seemed more cocky before."
+            Ig "Let me help to clean up now."
+            if zahra_never_shared == True:
+                $ d11e_round_two = True
+                Z "Do that, and then send her over to me."
+                Z "I'm feeling a round two."
+                jump d11e_sex_kateryna_ain
+            jump d11e_sex_end
+
+        "Tell him he can cum inside her":
+            Z "She likes to be filled up, but I'd rather you didn't get her pregnant."
+            A "You know I can tell him that myself, right?"
+            Ig "I think friend [persistent.player_name] has forgotten how making babies work."
+            hide d11e-231x-3-anim
+            show d11e-231x-2-anim
+            with dissolve
+            hide d11e-231x-3-anim
+            Ig "But I will follow advice of your [persistent.dad], young [A]."
+            Ig "Take it, [A]... take it."
+            scene d11e-231x
+            with dissolve
+            Ig "Hn..."
+            with hpunch
+            Ig "Oh-"
+            scene d11e-232x-3
+            with dissolve
+            A "Nha...Oh, I'm coming as well!"
+            Ig "I come a lot, Miss [A]."
+            A "I... feel that..."
+            scene d11e-231
+            with dissolve
+            Ig "Hey, Miss [A]. Are you okay?"
+            A "{i}*heavy breathing*{/i} ...yes... I, my legs."
+            Ig "It is funny how quiet you become after the sex."
+            Ig "Let me help to clean up now."
+            if zahra_never_shared == True:
+                $ d11e_round_two = True
+                Z "Do that, and then send her over to me."
+                Z "I'm feeling a second round."
+                jump d11e_sex_kateryna_ain
+            jump d11e_sex_end
+
+label d11e_sex_igor_zahra:
+    scene d11e-233
+    with fade
+    W "I have seen you looking at my chest the entire time, Igor. Is this what you were thinking of, huh?"
+    Ig "Uh... Yes, Miss [W]."
+    scene d11e-234
+    with dissolve
+    W "I guess I should give you what you want then."
+    W "Tell me, you have shared these things before, but how does it feel, now that it's your niece?"
+    scene d11e-235
+    with dissolve
+    Ig "I... can not complain. She is having good time, and I am with you now."
+    scene d11e-236
+    with dissolve
+    W "Then why do I see you peeking at her?"
+    Ig "Is just... I never think I see Kateryna like this."
+    W "Does it upset you?"
+    Ig "No, no. She is own woman now. She is free. Not insecure, not repressed. I just remember little Kateryna bouncing on knees."
+    Ig "And now... is different bounce."
+    scene d11e-237
+    with dissolve
+    W "I'm sure she will change more soon. You will see."
+    W "Now let me have my own fun here... Sit back."
+    jump d11e_sex_kateryna_ain_continue
+
+label d11e_cum_igor_zahra:
+    scene d11e-234
+    with fade
+    W "Did you see that?"
+    if d11e_cum_kateryna_mouth == True:
+        W "I think my husband just came in her mouth."
+    scene d11e-235
+    with dissolve
+    Ig "Yes... I saw."
+    scene d11e-237
+    with dissolve
+    W "Is it a coincidence that I can feel your dick getting even harder...?"
+    Ig "{i}*grunts*"
+    W "Seems like you like watching that innocent girl exploring her sexuality."
+    scene d11e-236
+    with dissolve
+    Ig "That is not... true."
+    "She keeps pleasuring his dick with her breasts..."
+    scene d11e-237x
+    with dissolve
+    W "You can deny it, but I am feeling the truth."
+    W "You should know that I am also going to have my fun with her once she moved in."
+    W "Just so we're honest abou-"
+    scene d11e-237x-2
+    with hpunch
+    Ig "Ngh-"
+    scene d11e-237x-3
+    with dissolve
+    W "Ah..."
+    "Your friend's cum splatters on your wife's face..."
+    Ig "Oh... sorry Miss [W]."
+    Ig "Your breast feel too good, I think."
+    jump d11e_sex_end
+
+label d11e_sex_igor_both:
+    # if d11e_sex_igor_both_first_time == True:
+    scene d11e-240
+    with fade
+    "{i}*slurp*"
+    A "What a weird request..."
+    W "You heard your [persistent.dad]. And we both know you're having fun."
+    scene d11e-241
+    with dissolve
+    A "I think he really looked forward to this, [persistent.mom]..."
+    W "It sure looks that way."
+    scene d11e-239
+    with dissolve
+    Ig "Oh, ladies. This is very great. Is dream come true."
+    scene d11e-238
+    with dissolve
+    Ig "[persistent.player_name], the lucky bastard. His life is blessed by women with large breast."
+    "{i}*slurp*"
+    A "Don't bite me..."
+    scene d11e-242
+    with dissolve
+    W "Nh..."
+    A "[persistent.mom!c], why are you moaning that much...?"
+    W "Mh... nothing baby. Just focus... on what you're doing..."
+    scene d11e-243
+    with dissolve
+    W "Ah..."
+    "Igor fingers [W] as she's servicing him with her breasts..."
+    scene d11e-156x-2
+    with dissolve
+    Kaw "He really like them..."
+    Kaw "Is because they have big boobies, I think."
+    scene d11e-150
+    with dissolve
+    Zw "I think he's as fascinated with them as you are."
+    Kaw "Yes, they are really pretty."
+    scene d11e-150
+    with dissolve
+    Kaw "They make you happy too, every night, yes?"
+    scene d11e-148
+    with dissolve
+    Zw "They do, whenever I want, indeed."
+    scene d11e-149
+    with dissolve
+    Kaw "It must feel very good..."
+    jump d11e_sex_kateryna_continue
+
+label d11e_cum_igor_both:
+    scene d11e-243
+    with dissolve
+    Ig "Keep going, Lady [W]..."
+    scene d11e-244
+    with dissolve
+    Ig "Oh... I am-"
+    scene d11e-245
+    with hpunch
+    Ig "Ngh-"
+    scene d11e-246
+    with dissolve
+    Ig "{i}*sucking*"
+    A "Did he cum, [persistent.mom]?"
+    W "Yes, he did..."
+    jump d11e_sex_end
+
+label d11e_sex_end:
+    scene black pic
+    with slowfade
+    if d11e_no_sex == True:
+        scene d11e-248
+        with fade
+        Z "It was fun, Igor. Your drinks are great. But it's about time we head home."
+    elif persistent.sharing == False or (d11e_shared_both == False and d11e_shared_ain == False and d11e_shared_zahra == False):
+        "As the excitement dies down a bit, you eventually realize that you're fucking in your friend's house, so you get dressed and wait for him to return."
+    else:
+        "As the excitement dies down a bit, you eventually come back together..."
+        "...except for [A] and Kateryna, who promptly moved on to the couch, gossiping and giggling."
+    $ renpy.end_replay()
+    if d11e_no_sex == False:
+        scene d11e-248
+        with fade
+    Ig "This was really good evening, friends!"
+    Z "That's true, old friend."
+    W "You're always a gracious host, Igor."
+    Z "My [persistent.da] also seems to get along with your niece now."
+    Ig "I am glad to see my niece has new friends now."
+    Z "So, we're gonna do this, right? Kateryna is going to move in with us for now."
+    Ig "Yes, I am not concerned. She will be happy with you. She was since we first visited you."
+    $ sq_k_1.advance()
+    $ sq_k_1.resolution = _("It looks like Kateryna's invitation to her home wasn't just resulting in Igor and me getting drunk. After [W] and my friend's niece got together for a bit, my wife suggested she could move in with us. Kateryna promptly accepted and it looks like we will need to arrange for a spare bedroom soon.")
+    Z "I will keep you updated, and invite you again, to see how she's doing for yourself."
+    W "I'm sure my husband will take *good* care of her. I will as well."
+    Z "We're leaving now. Thanks for the beer, Igor."
+    W "And the strong drinks!"
+    if d11e_shared_both == True or d11e_shared_ain == True or d11e_shared_zahra == True:
+        Ig "And thank you for giving me sweet time, too, friend!"
+    scene black pic
+    with slowfade
+    "You eventually walk home..."
+    jump mission_end

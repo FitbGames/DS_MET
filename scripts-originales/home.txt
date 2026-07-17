@@ -1,0 +1,2628 @@
+ # --------------- New Day (Home) --------------- #
+label newday:
+    $ daytime = 'afternoon'
+    hide hd_overlay
+    with Dissolve(0.95)
+    $ daytime = 'night'
+    pause 1
+    jump daily_wakeup
+
+label daily_reset:
+    $ day += 1
+    $ home_day_fade = False
+    $ daily_kitchen = False
+    $ daily_harem = False
+    $ daily_ain = False
+    $ daily_shani = False
+    $ daily_zahra = False
+    $ daily_zahra = False
+    $ daily_basement = False
+    $ daily_basement_ain = False
+    $ daily_emilia = False
+    $ daily_main_mission = False
+    $ daily_side_mission = False
+    $ daily_notification = False
+    $ daily_practice_win = False
+    $ daily_practice_defeat = False
+    $ daily_temple = False
+    # Daily fairy stuff
+    $ daily_basement_fairy = False
+    $ fbd_deepthroat = False # fairy broken daily
+    $ fbd_drink = False
+    # FACTIONS
+    $ daily_kyra_basement = False
+    $ daily_lab = False
+    $ daily_gym = False
+    $ daily_hive = False
+    $ daily_raiders_throne = False
+    $ daily_raiders_reward = False
+    $ daily_kyra_sex = False
+    # Rabiah's family
+    $ daily_omar = False
+    $ daily_family = False
+    $ daily_nadia = False
+    $ daily_rabiah = False
+    $ family_limit = 0
+    # Quest update check
+    if day - fairy_outcome_day >= 2 and sq_f_1.current_step == 5:
+        $ sq_f_1.advance()
+    if m_d15b == False and m_d13i == True and (day - d13i_day) >= 1 and mq_z_1.current_step == 11 and mq_z_1.active == True:
+        $ mq_z_1.advance()
+    if sq_l_1.current_step == 11 or sq_l_1.current_step == 13:
+        $ sq_l_1.advance()
+    if sq_l_1.current_step == 2 and (day - lirah_step_2_day) >= 2:
+        $ sq_l_1.advance()
+    if sq_l_1.current_step == 4 and (day - lirah_step_4_day) >= 3:
+        $ sq_l_1.advance()
+    if sq_l_1.current_step == 6 and (day - lirah_step_6_day) >= 3:
+        $ sq_l_1.advance()
+    if sq_l_1.current_step == 8 and (day - lirah_step_8_day) >= 2:
+        $ sq_l_1.advance()
+    # Flush persistent variables
+    # $ renpy.save_persistent()
+    $ check_for_achievements()
+    return
+
+label daily_wakeup:
+    $ renpy.music.set_volume(1, delay = 3, channel="music")
+    call daily_reset from _call_daily_reset
+    ### Night events
+    if ev_d8d.is_active:
+        jump d8d
+    if ev_d13f.is_active: # Shani nightmare
+        jump d13f
+    if ev_d13g.is_active: # Shani/Ain/Zahra
+        jump d13g
+    # scene home day
+    # with Dissolve(1.5)
+    jump daily_missions
+
+label daily_missions:
+    $ daytime = 'day'
+    if daily_main_mission == True and daily_notification == False:
+        Z "Enough adventures for today, time to focus on the house, and prepare for bed."
+        $ daily_notification = True
+    if ev_d5h.is_active:
+    #The homeday is showing because after the night image, the homeday image needs to show before jumping into an event. Paz is hereby allowed to (metaphorically) kick me in the nuts if this was a dumb idea after all. :)
+        jump d5h
+    if ev_d6a.is_active:
+        jump d6a #TODO: make this postpone-able
+    if ev_d9a.is_active: # m8 and (kyra_rescued + m8timer) or (raiders + raider timer + d8 timer)
+        jump d9a
+    if ev_d12c.is_active:
+        jump d12c #ain shower scene
+    if ev_d13a_no_sp.is_active:
+        jump d13a_no_sp
+    if ev_d14a_part_1.is_active:
+        jump d14a_part_1
+    if ev_d16b.is_active:
+        jump d16b
+    if ev_d18e.is_active: #Queen visit
+        jump d18e
+    jump daily_home
+
+
+label daily_home:
+    $ check_for_achievements()
+    if not renpy.get_screen("toggle_ql"):
+        show screen toggle_ql
+    
+    $ daytime = 'day'
+    $ hd = random_image(
+        {
+            "home_day_front_2": "shani_zone_returned == True",
+            "home_day_front_3": "fairy_broken == True and shani_zone_returned == True",
+            "home_day_front_3x": "fairy_broken == True and shani_zone_returned == False",
+            "home_day_front_4": "shani_zone_returned == True and introduction_emilia == True and introduction_fairy == True",
+            "home_day_front_4x": "shani_zone_returned == False and introduction_emilia == True and introduction_fairy == True",
+            "home_day_front_5": "shani_zone_returned == True",
+            "home_day_front_5x": "shani_zone == False and shani_zone_returned == False",
+            "home_day_front_6": "shani_zone == False and shani_zone_returned == True",
+            "home_day_front_6x": "shani_zone == False and shani_zone_returned == False",
+            "home_day_front_7": "introduction_emilia == True and shani_zone_returned == True",
+            "home_day_front_7x": "introduction_emilia == True and shani_zone_returned == False",
+            "home_day_front_8": "introduction_kateryna == True and ain_basement == False and shani_zone_returned == True",
+            "home_day_front_8x": "introduction_kateryna == True and ain_basement == False and shani_zone_returned == False",
+            "home_day_front_9": "introduction_emilia == True and introduction_kateryna == True and shani_zone_returned == True",
+            "home_day_front_9x": "introduction_emilia == True and introduction_kateryna == True and shani_zone_returned == False",
+            "home_day_front_10": "shani_zone == False and shani_zone_returned == True",
+            "home_day_front_10x": "shani_zone == False and shani_zone_returned == False",
+            "home_day_front_11": "ain_basement == False and introduction_emilia == True and shani_zone_returned == True",
+            "home_day_front_11x": "ain_basement == False and introduction_emilia == True and shani_zone_returned == False",
+            "home_day_front_12": "introduction_fairy == True and introduction_emilia == True and shani_zone_returned == True",
+            "home_day_front_12x": "introduction_fairy == True and introduction_emilia == True and shani_zone_returned == False",
+            "home_day_front_13": "introduction_emilia == True and shani_zone_returned == True",
+            "home_day_front_13x": "introduction_emilia == True and shani_zone_returned == False",
+            "home_day_front_14": "ain_basement == False and shani_zone_returned == True",
+            "home_day_front_14x": "ain_basement == False and shani_zone_returned == False",
+            "home_day_front_15": "shani_zone == False and shani_zone_returned == True",
+            "home_day_front_15x": "shani_zone == False and shani_zone_returned == False"
+    
+        },
+        coeff = 0.8
+    )
+    if home_day_fade == True:
+        scene black
+        show home day
+        if hd is not None:
+            show expression hd as hd_overlay
+        with fade
+        
+    else:
+        if not renpy.showing('home day'):
+            show home day
+        if hd is not None:
+            show expression hd as hd_overlay
+        with Dissolve(1)
+
+        
+    $ home_day_fade = True
+    if renpy.music.get_playing(channel='music') == "audio/music/home/dream town.mp3":
+        queue music ["audio/music/home/dream town.mp3"]
+    else:
+        play music ["audio/music/home/dream town.mp3"]
+    stop music_1 fadeout 1
+    stop music_2 fadeout 1
+    stop music_3 fadeout 1
+    stop sound fadeout 1
+    if m_d13c == True and m_d13d == True and mq_z_1.current_step == 7:
+        $ mq_z_1.advance()
+    if m_d13c == True and m_d13d == True and mq_d_1.current_step == 4:
+        $ mq_d_1.advance()
+        pause 3
+    call screen nav_menu
+
+# --------------- Home Menu --------------- #
+
+label visit_zahra:
+    if renpy.random.random() < 0.3:
+        $ event_list = ['vzi_1', 'vzi_2', 'vzi_3', 'vzi_4']
+        jump expression renpy.random.choice(event_list)
+    else:
+        scene vz1-0
+        with fade
+        pause 0.6
+        scene vz1-1
+        with dissolve
+        pause 1
+        scene vz1-2
+        with fade
+        W "Hello husband. {w=1} {nw}"
+        scene vz1-3
+        with dissolve
+        Z "Hey [W]. Let us lay down for a bit. {w=1.5}{nw}" #TODO: change the laying down to standing
+        scene vz1-5
+        with fade
+        jump zahra_conversations
+
+label visit_ain:
+    if renpy.random.random() < 0.3:
+        $ event_list = ['vai_1', 'vai_6', 'vai_7']
+        if introduction_kateryna == True:
+            $ event_list.append('vai_2')
+        if shani_zone == False:
+            $ event_list.extend(['vai_3', 'vai_4', 'vai_5'])
+        jump expression renpy.random.choice(event_list)
+    else:
+        scene va1-1
+        with fade
+        A "Hey [persistent.dad]! Did you come to hang out? {w=1.7} {nw}"
+        scene va1-7
+        with fade
+        jump ain_conversations
+
+label visit_shani:
+    if renpy.random.random() < 0.3:
+        $ event_list = ['vsi_2', 'vsi_3']
+        if introduction_emilia == True:
+            $ event_list.extend(['vsi_4', 'vsi_5'])
+        if ain_basement == False:
+            $ event_list.extend(['vsi_1'])
+        jump expression renpy.random.choice(event_list)
+    else:
+        scene vs1-9
+        with fade
+        Z "Hey [S]."
+        scene vs1-10
+        with dissolve
+        S "Hey [persistent.dad]."
+        Z "Do you want to hang out for a bit?"
+        S "Sure, if you don't mind me reading?"
+        Z "Of course not."
+        scene vs1-12
+        with fade
+        jump shani_conversations
+
+label sleep_zahra:
+    $ sz_groped = False
+    $ sz_bj = False
+    scene sz-2x
+    with fade
+    label sz_menu:
+        menu:
+            "Continue sleeping":
+                jump wakeup_zahra
+
+            "Feel her up":
+                if sz_groped == False:
+                    scene sz-3
+                    with fade
+                    pause 1
+                    scene sz-4
+                    with dissolve
+                    pause
+                $ sz_groped = True
+                scene sz-5
+                with dissolve
+                pause
+                scene sz-6
+                with dissolve
+                pause
+                scene sz-7
+                with dissolve
+                pause
+                scene sz-5
+                with dissolve
+                pause
+                scene sz-4
+                with dissolve
+                jump sz_menu
+
+            "Sleeping blowjob" if sz_bj == False:
+                $ sz_bj = True
+                scene sz-8
+                with fade
+                pause
+                scene sz-9
+                with dissolve
+                Zt "Her mouth feels so warm..."
+                scene sz-10
+                with dissolve
+                Zt "How could I ever resist her?"
+                scene sz-11
+                with dissolve
+                pause 1
+                show sz-16-anim
+                with dissolve
+                Zt "I will never regret marrying this woman."
+                Zt "On top of being a good wife, she's also the greatest lover."
+                Zt "Always available, even when asleep."
+                scene sz-15
+                with dissolve
+                W "{i}*sucking*"
+                show sz-14-anim
+                with dissolve
+                Zt "She's so good at this..."
+                scene sz-17
+                with dissolve
+                Z "Hnghr...{p=1.5} {nw}"
+                scene sz-18
+                with hpunch
+                Z "...!"
+                scene sz-19
+                with hpunch
+                Z "Mh..."
+                scene sz-20
+                with dissolve
+                Zt "Good girl."
+                scene sz-21
+                with dissolve
+                Zt "She looks lovely."
+                W "Mgrff.."
+                Zt "But that's my cue to clean her up, before she truly wakes up."
+                scene sz-9
+                with slowfade
+                W "{i}*sucking*"
+                "You push your cum off her lips and in her mouth. She swallows and licks her lips in an automatic reflex, before going limp in your embrace."
+                scene sz-8
+                with dissolve
+                Zt "That was... different."
+                jump sz_menu
+
+            "Have sex":
+                scene sz-4
+                with fade
+                Z "..."
+                Zt "Damn... there's no sleeping, like this."
+                Zw "Hey... [W]...."
+                scene sz-1x-2
+                with dissolve
+                W "...Whu.."
+                Zw "I want you..."
+                scene sz-23
+                with slowfade
+                Ww "I can tell."
+                Zw "Yeah..."
+                scene sz-24
+                with dissolve
+                Ww "We could have done this before I fell asleep, you know?"
+                Zw "...I do. Yet here we are."
+                scene sz-25
+                with dissolve
+                Ww "Well then, let's not waste any time."
+                scene sz-26
+                with dissolve
+                scene sz-27
+                with fade
+                Ww "Mh..."
+                "You enter her..."
+                show sz-28-anim
+                with fade
+                "She's riding you, [W]'s hips guiding the speed at a practiced and sensual pace that she knows you are both comfortable with."
+                show sz-29-anim
+                with dissolve
+                hide sz-28-anim
+                Zw "Gods, you're so fucking hot..."
+                Ww "Mh... and you..."
+                show sz-30-anim
+                with dissolve
+                hide sz-29-anim
+                "Her wide hips weigh on you as she confidently thrusts up and down..."
+                Ww "Do you think the other girls can hear us...?"
+                Zw "They heard us before. Maybe..."
+                Ww "Then let's give them something to fantasize about..."
+                show sz-31-anim
+                with dissolve
+                hide sz-30-anim
+                Ww "At least you woke me up this time."
+                Zw "I wanted you to enjoy it as well."
+                Ww "Nh... I definitely am..."
+                "Her full tits are bouncing in front of you..."
+                show sz-32-anim
+                with dissolve
+                hide sz-31-anim
+                Zw "I'm almost there."
+                Ww "Mhh..."
+                menu:
+                    "Cum inside her":
+                        Zw "You're... doing good. Keep going..."
+                        Ww "Cum inside me, love."
+                        scene sz-33
+                        with dissolve
+                        Z "Mh-"
+                        with hpunch
+                        Z "...!"
+                        with hpunch
+                        Ww "So much..."
+                        scene sz-34
+                        with dissolve
+                        Ww "...do you want me to get up?"
+                        Zw "Yeah. Show me more."
+                        scene sz-35
+                        with dissolve
+                        "She slowly gets off you, cum leaking out of her pussy..."
+                        scene black pic
+                        with fade
+                        "She eventually cuddles back up to you..."
+                        scene sz-3
+                        with fade
+                        Zw "That's just what I needed. Goodnight, [W]."
+                        Ww "{i}*snoozing*{/i} Goodnight... love..."
+                        jump wakeup_zahra
+
+                    "Cum outside":
+                        Z "Ngh- [W], lay down with me."
+                        scene black pic
+                        with fade
+                        "She does as you say..."
+                        show sz-16-anim
+                        with fade
+                        "{i}*slurp*"
+                        Zw "There you go..."
+                        Zw "I'm ready..."
+                        menu:
+                            "Cum inside her mouth":
+                                scene sz-17
+                                with dissolve
+                                Zw "Hnghr...{p=1.5} {nw}"
+                                scene sz-18
+                                with hpunch
+                                Z "...!"
+                                scene sz-19
+                                with hpunch
+                                Z "Mh..."
+                                scene sz-20
+                                with dissolve
+                                Zw "That's my wife..."
+                                scene sz-19
+                                with dissolve
+                                Zw "Don't stop now... Not yet."
+                                W "{i}*sucking*"
+                                scene sz-15
+                                with dissolve
+                                "You enjoy her warm mouth for a little longer, before bringing an end to this moment of intimacy and going back to sleep..."
+                                jump wakeup_zahra
+
+                            "Tell her to jerk you off":
+                                Zw "That's enough, my dear. Give me your hand, I'm about to come."
+                                scene sz-36
+                                with dissolve
+                                Ww "Mh... like this?"
+                                Zw "Yeah..."
+                                scene sz-37
+                                with dissolve
+                                Ww "Cum for me, husband..."
+                                scene sz-38
+                                with hpunch
+                                Z "Ngh-"
+                                W "Ah..."
+                                scene sz-39
+                                with dissolve
+                                Ww "So much..."
+                                show sz-16-anim
+                                with dissolve
+                                Zw "Now, clean it up..."
+                                Ww "{i}*sucking*"
+                                scene sz-15
+                                with dissolve
+                                "You enjoy her warm mouth for a bit longer, before bringing an end to this moment of intimacy and going back to sleep..."
+                                jump wakeup_zahra
+
+label wakeup_zahra:
+    scene black pic
+    with fade
+    pause 1
+    $wz_event = random_event(
+        {
+            "wz_emilia_fairy_1": "introduction_fairy == True and introduction_emilia == True",
+            "wz_kateryna_1": "introduction_kateryna == True",
+            "wz_kateryna_2": "introduction_kateryna == True",
+            "wz_ain_1": "ain_basement == False",
+            "wz_ain_2": "ain_basement == False"
+        },
+        fallback = "wz_nothing",
+        chance = 0.7,
+        re = True
+    )
+    jump expression wz_event
+
+label shani_workout:
+    if shani_workout_repeat == False:
+        $ shani_workout_repeat = True
+    $ daily_shani = True
+    Z "Want to work out together?"
+    S "Sure! Good idea."
+    scene black pic
+    with fade
+    "{i}Some time later..."
+    scene d4c-2
+    with fade
+    S "Hmm..."
+    Z "..."
+    scene d4c-10
+    with fade
+    S "{i}*stretching*{/i}"
+    scene d4c-9
+    with fade
+    S "Ngh..."
+    scene d4c-11
+    with vpunch
+    S "Ah.. damn it..."
+    S "Oww.."
+    Z "Everything okay?"
+    scene d5a-2
+    with dissolve
+    S "No... not really."
+    S "Ouch..."
+    scene d5a-1
+    with dissolve
+    S "I ... overdid it again..."
+    menu:
+        "Offer a massage":
+            Z "You look like you need a massage."
+            S "That...would be nice."
+            scene black
+            with fade
+            "You both get to the bed..."
+            scene d5a-3
+            with fade
+            Z "..."
+            jump replaymassage
+
+        "Tell her to take a break":
+            Z "Can I help you up?"
+            S "No... it's fine... let me get up..."
+            scene d4c-12
+            with fade
+            S "I think I had enough for today."
+            scene d4c-13
+            with dissolve
+            Z "I can prepare a bath for you, if you want?"
+            scene d4c-12
+            with dissolve
+            S "Thank you, [persistent.dad]. But not now."
+            S "I will just lay down for a bit."
+            scene d4c-13
+            with dissolve
+            Z "Alright, catch you later sweetie."
+            jump daily_home
+
+    label replaymassage:
+        Z "Where do you want to start?"
+        S "Doesn't matter..."
+        S "Everything hurts."
+        scene d5a-4
+        with fade
+        Z "I will start with your shoulders."
+        S "Okay..."
+        scene d5a-5
+        with dissolve
+        Z "..."
+        scene d5a-6
+        with fade
+        Z "Does it feel better there?"
+        S "Yes..."
+        S "Hah..."
+        S "I bet you can feel how stiff my neck is."
+        scene d5a-7
+        with fade
+        Z "Yes.. You should definitely take a break for a couple of days."
+        S "...I'm sure I will be..."
+        S "...fine tomorrow..."
+        S "This feels amazing."
+        S "I always liked your massages..."
+        S "...[persistent.mom]'s hands just are not the same."
+        S "But it always seemed you didn't want to do this..."
+        S "Can you get my back too?"
+        Z "Sure."
+        scene d5a-8
+        with dissolve
+        Z "..."
+        S "You should do this more often..."
+        S "Especially... after..."
+        S "...another tomb raid..."
+        Z "..."
+        if shani_romance == False:
+            Zt "Why is she so attractive..."
+            S "Are you thinking of something?"
+            Z "I'm focused..."
+        scene d5a-9
+        with dissolve
+        "{i}You start massaging her back muscles with a fist motion..."
+        S "Oww... this is too nice..."
+        scene d5a-8
+        with dissolve
+        S "Can you go lower?"
+        S "That cramp is still killing me..."
+        Z "..."
+        S "...hello?"
+        if shani_romance == False:
+            Z "Look, I already told you-"
+            S "Uff.. come on [persistent.dad]."
+            S "I get it..."
+            S "...but it's not like I'm pleasuring you in front of your guests..."
+            S "...Or warming your bed every night, like [persistent.da]s in other families do..."
+            S "I know that's [A]'s role..."
+            S "But at least ..."
+            S "{i}*yawns*"
+            S "...at least give me a normal massage..."
+        else:
+            Z "You can be distracting, you know..."
+        menu:
+            "Keep going":
+                scene d5a-10
+                with fade
+                S "..."
+                Z "How's this?"
+                S "Yes..."
+                S "I could just... fall asleep..."
+                S "..."
+                scene d5a-11
+                with fade
+                Z "..."
+                Zt "Her ass is so perfect."
+                Zt "Focus [persistent.player_name]... it's just a massage..."
+                scene d5a-13
+                with dissolve
+                Z "I almost forgot your arms..."
+                S "Yes..."
+                S "Swords are... heavy..."
+                scene d5a-14
+                with fade
+                Z "..."
+                S "Hnn..."
+                scene d5a-15
+                with dissolve
+                Zt "Her ass is so inviting..."
+                Z "..."
+                menu:
+                    "Keep going":
+                        if shani_romance == True and m_d15b == True:
+                            Zt "I can't resist..."
+                            scene vst-1
+                            with fade
+                            pause 0.8
+                            scene vst-2
+                            with dissolve
+                            Zw "Nh... fuck..."
+                            Zt "She is... wet..."
+                            scene vst-3
+                            with dissolve
+                            Zt "[S]..."
+                            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                                "You are hard and deep inside your [persistent.da]'s cunt."
+                            "She made no audible noise when you entered her, and yet it was easy to enter her wide hips."
+                            scene vst-4
+                            with dissolve
+                            S "*{i}quiet breathing*"
+                            scene vst-5
+                            with fade
+                            Zw "I'm sorry, girl."
+                            S "Mh..."
+                            scene vst-6-anim
+                            with Dissolve(0.1)
+                            "You can't hold yourself, and start fucking the young woman's toned lower body intensely."
+                            Zw "Mh... You're so perfect."
+                            scene vst-7-anim
+                            with dissolve
+                            if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                                "You plow the pussy that you created. The one that fits you like almost no other."
+                                "Knowing that you are moments away of impregnating your own [persistent.da] gets you riled up more than any street slave ever could."
+                            else:
+                                "You plow her pussy passionately, her juices flitching in and out with every jerk of your rhythm."
+                            scene vst-8-anim
+                            with dissolve
+                            Sw "Mh... [persistent.dad]...?"
+                            Sw "What... ngh... is happening..."
+                            scene vst-9-anim
+                            with dissolve
+                            Zw "Nothing... I..."
+                            Sw "Nh..."
+                            Zw "Fuck... [S]..."
+                            scene vst-10
+                            with fade
+                            Sw "Are you... having me again..."
+                            Sw "...while I am... dozy...?"
+                            scene vst-9x-anim
+                            with fade
+                            Zw "I couldn't resist, [S]."
+                            Sw "{i}*muffled moaning*{/i}"
+                            menu:
+                                "Cum on her back":
+                                    scene vst-11
+                                    with fade
+                                    Z "Ngh..."
+                                    scene vst-12
+                                    with vpunch
+                                    pause 0.5
+                                    scene vst-13
+                                    with dissolve
+                                    Z "...!"
+                                    scene vst-14
+                                    with vpunch
+                                    pause 0.5
+                                    scene vst-15
+                                    with dissolve
+                                    Sw "[persistent.dad!c]...?"
+                                    scene vst-16
+                                    with dissolve
+                                    Zt "I made a mess..."
+                                    scene vst-17
+                                    with dissolve
+                                    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                                        "You will never grow tired of this. Whether it's [S] or her sister, cumming on your [persistent.da]s always makes your day."
+                                    else:
+                                        "You will never grow tired of this. Whether it's [S] or her sister, cumming on either of them always makes your day."
+                                    scene vst-19
+                                    with dissolve
+                                    Sw "...mh... so sticky..."
+                                    scene vst-20
+                                    with fade
+                                    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                                        S "You are the worst [persistent.dad] ever, do you know that?"
+                                    else:
+                                        S "You are the worst, do you know that?"
+                                    S "Now I have to take a bath..."
+                                    scene vst-21
+                                    with dissolve
+                                    Z "Hey... See it this way; you just worked out anyway."
+                                    scene vst-22
+                                    with dissolve
+                                    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                                        S "You can't keep surprising me like that, [persistent.dad]..."
+                                    else:
+                                        S "You can't keep surprising me like that..."
+                                    scene black pic
+                                    with fade
+                                    "You eventually head out..."
+                                    jump daily_home
+
+                                "Ask for her feet":
+                                    Z "Hey... Can you help me out?"
+                                    scene vst-23
+                                    with fade
+                                    S "You're a pervert, [persistent.dad]..."
+                                    S "Giving your [persistent.da] a massage, only to take her while she's out."
+                                    scene vst-24
+                                    with dissolve
+                                    Z "Good thing I taught her how to handle me."
+                                    scene vst-25
+                                    with dissolve
+                                    S "It's hard to not see it..."
+                                    scene vst-26
+                                    with dissolve
+                                    S "You've been staring at them for some years now..."
+                                    Zt "This girl..."
+                                    scene vst-27
+                                    with dissolve
+                                    S "It's like I'm giving a massage, too... {i}*giggle*{/i}"
+                                    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                                        "The slim and curvy feet, and the way your [persistent.da] is using them, drive you crazy."
+                                    else:
+                                        "The slim and curvy feet, and the way she is using them, drive you crazy."
+                                    scene vst-28
+                                    with dissolve
+                                    S "How am I doing...?"
+                                    Z "Amazing..."
+                                    scene vst-29
+                                    with dissolve
+                                    S "I can feel something..."
+                                    Z "Mhm..."
+                                    scene vst-30
+                                    with vpunch
+                                    pause 0.5
+                                    scene vst-31
+                                    with dissolve
+                                    S "There..."
+                                    scene vst-32
+                                    with vpunch
+                                    pause 0.5
+                                    scene vst-33
+                                    with dissolve
+                                    Z "Nh..."
+                                    S "[persistent.dad!c]...  {i}*sigh*{/i}"
+                                    Z "Wha...?"
+                                    scene vst-34
+                                    with fade
+                                    Z "Oh..."
+                                    scene vst-35
+                                    with dissolve
+                                    S "At least it went on me, and not inside of me."
+                                    scene vst-36
+                                    with dissolve
+                                    Z "That's... right..."
+                                    scene vst-37
+                                    with dissolve
+                                    Z "You are very much... right about this."
+                                    scene black pic
+                                    with fade
+                                    "As [S] prepares to take a bath, you eventually head out..."
+                                    jump daily_home
+
+                            
+                            
+                        else:
+                            Zt "Just a little bit..."
+                            scene d5a-16
+                            with dissolve
+                            Zt "Yes..."
+                            Zt "Damn it [S]..."
+                            scene d5a-17
+                            with fade
+                            Zt "Sometimes I regret raising you to be my heir..."
+                            scene d5a-18
+                            with dissolve
+                            Zt "...when instead I could have both my [persistent.da]'s in my bed every morning..."
+                            scene d5a-17
+                            with dissolve
+                            Zt "She has such child bearing hips too..."
+                            scene d5a-18
+                            with dissolve
+                            Zt "Putting babies into her would be so easy..."
+                            scene d5a-17
+                            with dissolve
+                            Z "..."
+                            S "*{i}quiet breathing*"
+                            Z "Alright, [S]."
+                            scene black pic
+                            with fade
+                            "{i}You get off the bed..."
+                            S "Wha..."
+                            Z "Did you fall asleep?"
+                            S "..."
+                            S "I might have... sorry."
+                            Z "It's okay. I was done anyways."
+                            Z "I hope you're feeling better."
+                            Z "Catch you later, sweetie."
+                            "{i}Moments later..."
+                            jump shaniworkoutmenu1
+
+                    "Restrain yourself":
+                        Zt "No... not happening."
+                        scene black pic
+                        with fade
+                        "{i}You get off the bed..."
+                        Z "I think you should be better, right?"
+                        S "Yes, [persistent.dad]. Thank you. If I can do something in return, let me know."
+                        Z "Don't worry about it. Catch you later, sweetie."
+                        "{i} Moments later..."
+                        jump shaniworkoutmenu1
+
+                        label shaniworkoutmenu1:
+                            if shani_romance == False:
+                                Zt "If it can't be her, someone else has to do."
+                            else:
+                                Zt "Someone else can help me out tonight."
+                            if emilia_joined == True:
+                                scene d5a-19
+                            if emilia_joined == False:
+                                scene d5a-19x
+                                jump shaniworkoutzahra
+                            with fade
+                            menu:
+                                "Choose [E]" if emilia_joined == True:
+                                    if emilia_love >= emilia_sub:
+                                        Z "[E], I need your service."
+                                        scene d5a-21
+                                        with fade
+                                        E "Always ready for you, [mas]."
+                                        scene d5a-21x
+                                        with dissolve
+                                        Z "Move a bit to your right, will you."
+                                        jump sorlemilia1
+                                    if emilia_sub > emilia_love:
+                                        Z "Maid, get on your knees."
+                                        scene d5a-21
+                                        with fade
+                                        E "Yes.. always, [mas]."
+                                        scene d5a-21x
+                                        with dissolve
+                                        jump sorlemilia1
+                                        label sorlemilia1:
+                                            scene d5a-22
+                                            with fade
+                                            if emilia_love >= emilia_sub:
+                                                Z "Beautiful."
+                                            if emilia_sub > emilia_love:
+                                                Z "Open."
+                                            scene d5a-23
+                                            with dissolve
+                                            E "{i}*sucking noises*"
+                                            W "I'm glad I have a servant for this kind of work."
+                                            W "You need a helping hand, [E]?"
+                                            scene d5a-24
+                                            with fade
+                                            W "Let me guess, husband."
+                                            W "You were visiting [S] again?"
+                                            Z "...pretty much."
+                                            with vpunch
+                                            Z "Hngh..."
+                                            with vpunch
+                                            W "That sounds like a lot..."
+                                            W "Let her catch a breath..."
+                                            scene d5a-25
+                                            with dissolve
+                                            E "Haa..."
+                                            Z "..."
+                                            Z "Thank you, girls."
+                                            $ renpy.end_replay()
+                                            jump daily_home
+
+                                "Choose [W]":
+                                    label shaniworkoutzahra:
+                                    if emilia_joined == True:
+                                        Z "Hello ladies..."
+                                        scene d5a-20
+                                        with fade
+                                    if emilia_joined == False:
+                                        Z "Hey [W]."
+                                        scene d5a-20x
+                                        with fade
+                                    W "Hello husband."
+                                    W "Everything alright?"
+                                    Z "Yes. I was just working out with [S]."
+                                    W "Yes. I can see that..."
+                                    scene d5a-26
+                                    with dissolve
+                                    W "I know it's difficult."
+                                    if shani_romance == False:
+                                        W "Having such an attractive [persistent.da] and restraining your urges..."
+                                    W "Dont worry, I'll take care of you..."
+                                    Z "..."
+                                    scene d5a-27
+                                    with vpunch
+                                    pause 0.5
+                                    scene d5a-28
+                                    with dissolve
+                                    Z "Fuck..."
+                                    W "I guess you seasoned my meal..."
+                                    Z "..."
+                                    if emilia_joined == True:
+                                        Z "I think you should share this meal with our hard working maid."
+                                        W "Good idea, husband."
+                                    else:
+                                        Z "Bon appetit."
+                                        W "My special husband..."
+                                    $ renpy.end_replay()
+                                    jump daily_home
+
+
+
+            "End the massage":
+                if shani_romance == False:
+                    Z "Sorry; I must keep my word."
+                else:
+                    Z "That's enough for today."
+                S "Alright..."
+                S "Thank you anyway..."
+                scene black pic
+                with fade
+                "{i}You eventually get up and leave the room."
+                $ renpy.end_replay()
+                jump daily_home
+
+label shani_practice:
+    Z "Are you up for another sparring session?"
+    if shani_practice == False:
+        Z "You have had a few fights, but, fortunately, you didn't have to face the one rule of these lands yet."
+        S "I know what you mean... accepting and facing the consequences, whatever they may be."
+        Z "We should practise that."
+        S "Whoever loses, has to accept the conditions of the victor...?"
+        Z "..."
+        Z "I have prepared some new clothes for you. Go change into them."
+        scene black pic
+        with fade   
+    else:
+        S "Yes, my mentor!" 
+    "Minutes later..."
+    scene vst-38
+    with fade
+    Z "Are you ready?"
+    scene vst-39
+    with dissolve
+    S "I am. Come here..."
+    scene vst-40
+    with dissolve
+    if shani_practice == False:
+        scene vst-41
+        with fade
+        S "Thanks for the new clothes, by the way. I can see why you liked them..."
+        scene vst-42
+        with dissolve
+        Z "Distraction can be... a useful tool in a fight."
+    else:
+        scene vst-41
+        with fade
+        $ temp = renpy.random.random()
+        if temp < 0.33:
+            S "Let's see what you got, [persistent.dad]."
+            scene vst-42
+            with dissolve
+            Z "Don't get cocky, [persistent.da]."
+        elif temp < 0.66:
+            S "Can you still teach me something?"
+            scene vst-42
+            with dissolve
+            Z "You shall find out."
+        else:
+            S "Don't get distracted."
+            scene vst-42
+            with dissolve
+            Z "I will try."
+
+    menu:
+        "Start the fight":
+            jump vst_fight
+
+        "Try your best":
+            $ daily_practice_win = True
+            jump shani_practice_win
+
+        "Get distracted":
+            $ daily_practice_defeat = True
+            jump shani_practice_distracted
+
+
+    label vst_fight:
+        scene vst-43
+        with fade
+        with vpunch
+        S "..."
+        show expression renpy.random.choice(['vst-44', 'vst-45', 'vst-46'])
+        with vpunch
+        pause 1.5
+        if daily_practice_win == True:
+            jump shani_practice_win
+        elif daily_practice_defeat == True:
+            jump shani_practice_distracted
+        else:
+            if renpy.random.random() > 0.5:
+                jump shani_practice_win
+            else:
+                jump shani_practice_distracted
+        
+        label shani_practice_win:
+            scene vst-47
+            with vpunch
+            S "Ngh-"
+            scene vst-48
+            with vpunch
+            S "Ah..."
+            Z "{i}*chuckles*{/i}"
+            scene vst-49
+            with fade
+            random:
+                S "You almost had me."
+                S "Too bad."
+                S "You fought well."
+            scene vst-50
+            with dissolve
+            random:
+                S "I guess I lost..."
+                S "Not my day."
+                S "Fine... I concede."
+            scene vst-51
+            with dissolve
+            Z "..."
+            scene vst-52
+            with dissolve
+            Z "You know the rules..."
+            S "Yeah..."
+            Z "Get on your knees."
+            scene vst-53
+            with fade
+            $ temp = renpy.random.random()
+            if temp < 0.33:
+                Z "What should I do with you now..."     
+                scene vst-54
+                with dissolve
+                S "Please... don't kill me. I will do anything it takes."
+                scene vst-55
+                with dissolve
+                Z "Anything?"
+            elif temp < 0.66:
+                Z "I don't usually take prisoners, you know..."     
+                scene vst-54
+                with dissolve
+                S "Please... maybe I can convince you?"
+                scene vst-55
+                with dissolve
+                Z "Hm... what can you offer me?"
+            else:
+                Z "I will enjoy this."     
+                scene vst-54
+                with dissolve
+                S "But... will you let me go?"
+                scene vst-55
+                with dissolve
+                Z "I will consider it."
+
+        scene vst-56
+        with dissolve
+        S "I... could make it worth your time..."
+        scene vst-57
+        with dissolve
+        random:
+            S "My [persistent.dad] never wanted me to fight, you know..."
+            S "I have other qualities, too..."
+            S "...if you allow me?"
+        scene vst-58
+        with fade
+        Z "I..."
+        scene vst-59
+        with dissolve
+        S "I will do anything. Please, let me live..."
+        scene vst-60
+        with fade
+        Z "Fine... but one move, and you're dead."
+        S "Yes, sir."
+        scene vst-61
+        with dissolve
+        $ temp = renpy.random.random()
+        if temp > 0.5:
+            Z "You're too pretty to be a fighter."
+            S "Yet I am fighting..."
+            scene vst-62
+            with dissolve
+            Z "Pff.. fighting..."
+            Z "You should've found a husband and lived a nice life."
+            Z "Instead... you ended up facing me."
+        
+        else:
+            Z "Your father must've been proud. Sending his daughter out there..."
+            S "He... never wanted me to go. He wanted me for himself..."
+            scene vst-62
+            with dissolve
+            Z "Understandable. Who wouldn't want those big tits for himself."
+            Z "But now... I get to use them."
+        
+        scene vst-63
+        with dissolve
+        Z "I will fuck your tits. One move, and I'll slice your neck. Understood?"
+        scene vst-64
+        with dissolve
+        S "Yes... Anything..."
+        scene vst-65-anim 
+        with fade
+        Z "Fuck... this feels nice."
+        if temp > 0.5:
+            Z "I think I'll keep you after this."
+            Z "Not like anyone's gonna miss a lone wanderer like you."
+            S "Mh..."
+            Z "I can have a lot of fun this way."
+            if persistent.sharing == True:
+                Z "Maybe I'll let my brother have a go at you. I owe him some gold still..."
+            scene vst-65x-anim 
+            with dissolve
+            S "Ngh..."
+            Z "Or maybe..."
+            Z "There is this slave auction..."
+            Z "I will break you first, and then I'll sell you for a large sum."
+
+        else:
+            Z "Did your daddy ever get to fuck those tits, slut?"
+            S "Mh... I don't want to... ngh... say..."
+            Z "I bet he did. How could he refuse."
+            S "..."
+            scene vst-65x-anim 
+            with dissolve
+            Z "There you go..."
+            Z "What else... ngh... did he do, huh?"
+            S "He... mh... took my virginity... when I became of age..."
+            S "I am now pregnant... just like my younger sister..."
+            Z "A real father, I guess..."
+            S "Can you... please let me go, now that you know...?"
+            Z "Mh..."
+
+        scene vst-66
+        with vpunch
+        "You drop the blade..."
+        Z "Mh... Fuck this. Keep still, or I'll break your neck instead."
+        scene vst-67
+        with vpunch
+        Z "Come here. I am about to cum."
+        scene vst-68
+        with dissolve
+        Z "Hold still, young slut."
+        scene vst-69
+        with vpunch
+        Z "Agh-"
+        scene vst-70
+        with dissolve
+        Z "Fuck..."
+        with vpunch
+        S "Nh..."
+        scene vst-71
+        with dissolve
+        Z "Mgh..."
+        scene vst-72
+        with dissolve
+        Z "I'm still..."
+        scene vst-73
+        with dissolve
+        S "..."
+        scene vst-74
+        with fade
+        Z "{i}*pant*{/i} You're such a turn on."
+        Z "I will keep you for su-"
+        scene vst-75
+        with vpunch
+        S "Don't... make a move."
+        Z "..."
+        Z "{i}*chuckles*{/i}"
+        scene vst-76
+        with fade
+        random:
+            S "Guess you got a little too distracted?"
+            S "How did I do?"
+        scene vst-77
+        with dissolve
+        if shani_practice == False:
+            Z "Well done. You got me off balance."
+        else:
+            Z "You're getting the hang of it."
+            Z "Good girl. Never give up."
+        Z "That concludes our training for today."
+        Z "I think you... are ready for a bath."
+        scene black pic
+        with fade
+        $ shani_practice = True
+        jump daily_home
+
+    label shani_practice_distracted:
+        scene vst-78
+        with vpunch
+        Z "...!"
+        scene vst-79
+        with dissolve
+        S "Got you this time."
+        scene vst-80
+        with dissolve
+        Z "You do... indeed."
+        Z "Alright. I concede. What are your demands?"
+        scene vst-81
+        with dissolve
+        S "The rules are rules. I demand you lay on the bed."
+        scene vst-82
+        with dissolve
+        Z "As you wish."
+        scene black
+        with fade
+        "Moments later..."
+        scene vst-83
+        with fade
+        S "Hm... what should I do with you..."
+        scene vst-84
+        with dissolve
+        random:
+            Z "What can a girl like you do anyway..."
+            Z "I don't like that look."
+            Z "What are you looking at?"
+        scene vst-85
+        with dissolve
+        random:
+            S "Oh... nothing. You will see."
+            S "I will get what I deserve."
+            S "Might makes right, [persistent.dad]..."
+        scene vst-86
+        with dissolve
+        Z "..."
+        scene vst-87
+        with fade
+        if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+            S "I think you need a reminder that you are not the only person who can be dominant in this family."
+        else:
+            S "I think you need a reminder that you are not the only person who can be dominant in this household."
+        random:
+            S "Enjoying your new position, slave? That's what you will be from now on."
+            S "Are you ready to service me? Make sure you do it well."
+        scene vst-88
+        with dissolve
+        Z "Ngh..."
+        scene vst-89
+        with dissolve
+        S "And don't you dare trying something silly."
+        scene vst-90
+        with dissolve
+        S "I am ready to use the blade. Don't dare to test me."
+        scene vst-91
+        with dissolve
+        S "Lay down. Come on!"
+        Z "{i}*sigh*{/i} Fine."
+        scene vst-92
+        with fade
+        Z "Mgh-"
+        S "Ah..."
+        scene vst-93
+        with dissolve
+        S "Oh... it feels..."
+        scene vst-94
+        with dissolve
+        random:
+            S "...amazing."
+            S "...so nice."
+            S "...ah... you really are... giving your best."
+        scene vst-95
+        with dissolve
+        random:
+            S "Mh... look at that..."
+            S "...hey... there..."
+        menu:
+            "Ask her to return the favor": #TODO CYNICAL from here
+                if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                    Z "Mh... feel free to return the favor, [persistent.da]..."
+                else:
+                    Z "Mh... feel free to return the favor..."
+                scene vst-96
+                with dissolve
+                S "Nh... maybe I could..."
+                scene vst-102
+                with fade
+                S "...thank my servant a little, indeed..."
+                $ temp = renpy.random.random()
+                if temp < 0.5:
+                    Z "{i}*chuckles*{/i} I knew you would."
+                    scene vst-103
+                    with dissolve
+                    if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                        S "Heh... shut up, [persistent.dad]..."
+                    else:
+                        S "Heh... shut up."
+                elif temp < 0.5:
+                    Z "{i}*slurp*{/i}"
+                    scene vst-103
+                    with dissolve
+                    S "Ah... someone is... excited..."
+                scene vst-104
+                with dissolve
+                if renpy.random.choice([shani_perspective, False]):
+                    if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                        St "[persistent.dad!c] is always so hard when he's with me."
+                    else:
+                        St "He is always so hard when he's with me."
+                    scene vst-105
+                    with dissolve
+                    St "I never thought I'd anticipate to taste it that much..."
+                    scene vst-106
+                    with dissolve
+                    S "Mh...."
+                    Z "Ngh... [S]..."
+                else:
+                    S "Fine... I might as well..."
+                    scene vst-105
+                    with dissolve
+                    Z "Ngh... [S]..."
+                    scene vst-106
+                    with dissolve
+                    S "Mh..."
+                
+                show vst-107-anim
+                with fade
+                S "{i}*slurp*{/i}"
+                Z "Fuck..."
+                "She starts massaging your cock with her hand and mouth..."
+                Z "[S]... mh..."
+                S "{i}*muffled moaning*{/i}"
+                "You try to focus on eating her out, despite the sensation..."
+                show vst-108-anim
+                with dissolve
+                hide vst-107-anim
+                S "Mmmh..."
+                if shani_perspective == True:
+                    St "Gods... why is this turning me on so much..."
+                    if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                        St "Do I really just like sucking of my [persistent.dad]... or is it his tongue inside me?"
+                Z "{i}*slurp*{/i}"
+                S "{i}*moaning*{/i}"
+                "In trance, you two quietly continue the exchange."
+                "You keep kissing and licking her sensitive pussylips, while she carefully massages your tip and shaft with her lips."
+                show vst-109-anim
+                with dissolve
+                hide vst-108-anim
+                "If it weren't for the lustful moaning, it could almost be confused with the sex of a loving couple."
+                S "Mhh... {i}*slurp*{/i}"
+                if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                    "In reality, it is increasingly obvious that you and your [persistent.da] are closer to competing in a race of who can make the other climax faster."
+                else:
+                    "In reality, it is increasingly obvious that you two are closer to competing in a race of who can make the other climax faster."
+                S "Mmmnhh..."
+                Zt "Fuck... she's... good..."
+                menu:
+                    "Driver her over the edge":
+                        scene vst-110
+                        with hpunch
+                        S "Mmhh?!"
+                        Z "{i}*slurp*{/i}"
+                        if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                            S "[persistent.dad!c], what are you..."
+                        else:
+                            S "What are you..."
+                        scene vst-111
+                        with dissolve
+                        S "{i}*muffled moans*{/i}"
+                        "Your tongue goes deep into her, and you can feel her walls twitching from the pleasure..."
+                        S "Mmmh... ffuuck... {i}*slurp*{/i}"
+                        scene vst-112
+                        with dissolve
+                        if shani_perspective == True:
+                            St "He's... making me..."
+                        with hpunch
+                        if shani_perspective == True:
+                            St "...cum!"
+                        Z "Fuck... I can't hold it..."
+                        scene vst-113
+                        with hpunch
+                        S "...!"
+                        Z "Agh-"
+                        if shani_perspective == True:
+                            St "[persistent.dad!c]'s... cumming in my mouth..."
+                        scene vst-114
+                        with dissolve
+                        Z "Gods..."
+                        St "It's flowing out..."
+                        scene vst-115
+                        with dissolve
+                        if shani_perspective == True:
+                            St "...but the taste makes it easy to... keep going."
+                        Z "[S]... keep going..."
+                        scene vst-116
+                        with dissolve
+                        S "{i}*schlurp*{/i}"
+                        Z "[S]... ngh..."
+                        scene vst-111
+                        with dissolve
+                        "You keep eating out her freshly juiced pussy as she strokes the last bit of cum from you." #corniest writing ever
+                        S "Mh..."
+                        Zt "She's amazing..."
+                        scene black
+                        with fade
+                        "A few minutes later..."
+                        jump vst100
+                        
+                    "Push her down and cum":
+                        scene vst-117
+                        with hpunch
+                        S "Ngh..?!"
+                        Z "I can't hold it..."
+                        scene vst-118
+                        with dissolve
+                        Z "Open wide, you slut."
+                        scene vst-119
+                        with vpunch
+                        S "Nnghh-!"
+                        Z "Ahh... fuck..."
+                        S "{i}*cough*{/i}"
+                        scene vst-120
+                        with dissolve
+                        Z "I'm sorry, [S]... just pretend... to be..."
+                        scene vst-121
+                        with vpunch
+                        Z "Ngh...!"
+                        Z "...your sister for a moment..."
+                        with hpunch
+                        Z "Agh..."
+                        "You cum deep into her throat..."
+                        scene vst-122
+                        with dissolve
+                        S "...nh."
+                        if shani_perspective == True:
+                            St "He just... pushed me down like that..."
+                            if d20a_shani_blowjob == True:
+                                St "...he reminds me of that rough bandit leader."
+                        with hpunch
+                        Z "Fuck..."
+                        scene vst-123
+                        with dissolve
+                        S "...ngh."
+                        menu:
+                            "Pull it together":
+                                scene black
+                                with fade
+                                "You let go of her..."
+                                scene vst-102x
+                                with fade
+                                S "Haaah..."
+                                Z "Fuck, I lost myself for a moment, there."
+                                scene vst-103x
+                                with dissolve
+                                S "Nh... you can be rough, sometimes..."
+                                Z "I know... {i}*huffs*{/i}... blame your [persistent.mom] and sister."
+                                scene vst-104
+                                with dissolve
+                                if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                                    S "I'm not blaming you for it... but you're still hard, [persistent.dad]."
+                                else:
+                                    S "I'm not blaming you for it... but you're still hard..."
+                                scene vst-106
+                                with dissolve
+                                S "Mh..."
+                                Z "Oh, fuck... want another round, huh..."
+                                scene vst-110
+                                with dissolve
+                                Zt "I guess the apple doesn't fall far from the tree. My [persistent.da] is as insatiable as I am."
+                                Z "{i}*slurp*{/i}"
+                                S "Nhaa..."
+                                Zt "Not that I mind..."
+                                scene black
+                                with fade
+                                $ shani_practice = True
+                                jump daily_home
+
+                            "Push her back down":
+                                Z "Ngh...-"
+                                scene vst-121x
+                                with vpunch
+                                S "{i}*cough*{/i}"
+                                if shani_perspective == True:
+                                    St "I can't... breathe..."
+                                scene vst-120x
+                                with dissolve
+                                Z "Fuck..."
+                                Zt "I don't want it to end..."
+                                scene vst-121x
+                                with vpunch
+                                S "Kgh-"
+                                St "He... treats me like he owns me..."
+                                scene vst-120x
+                                with dissolve
+                                Z "[S]..."
+                                scene vst-121x
+                                with vpunch
+                                S "{i}*cough*{/i}"
+                                St "Is this... what my life would be... if [persistent.dad] raised me like [A]?"
+                                scene vst-122
+                                with dissolve
+                                St "I should be upset, but..."
+                                scene vst-123
+                                with dissolve
+                                S "{i}*slurp*{/i}"
+                                with vpunch
+                                Z "Ngh..."
+                                "Turned on by the depravity of fucking your heir's throat, you came a second time..."
+                                # scene vst-124 #TODO backcamera
+                                # with dissolve
+                                "You bury your tongue back into her pussy..."
+                                Z "[S]... just a little longer..."
+                                S "...mmh... {i}*slurp*{/i}"
+                                if shani_perspective == True:
+                                    if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+                                        St "[persistent.dad!c]... you brute..."
+                                    else:
+                                        St "He is such a brute..."
+                                scene black
+                                with fade
+                                $ shani_practice = True
+                                jump daily_home #CYNICAL until here
+
+            "Make her cum":
+                scene vst-96
+                with dissolve
+                S "Nh..."
+                "You lick and explore her wet pussy with your tongue, increasing your arousal in the process..."
+                scene vst-97
+                with dissolve
+                random:
+                    S "I guess... you do like your role..."
+                    S "Keep... going... I'm..."
+                scene vst-98
+                with vpunch
+                S "Ah...!"
+                Z "{i}*slurp*{/i}"
+                scene vst-99
+                with vpunch
+                S "Mhhh...!"
+                scene vst-98
+                with dissolve
+                random:
+                    S "Ah... that was... intense..."
+                    S "I... I liked that..."
+                scene vst-97
+                with dissolve
+                jump vst100
+
+        label vst100:
+            scene black pic
+            with fade
+            "Moments later..."
+            scene vst-100
+            with fade
+            $ temp = renpy.random.random()
+            if temp < 0.33:
+                S "Well... I don't think I will ever get tired of winning."
+                scene vst-101
+                with dissolve
+                Z "Yeah... I can see why you'd like it."
+            elif temp < 0.66:
+                S "You know... you play the role of an obedient servant quite well, [persistent.dad]."
+                scene vst-101
+                with dissolve
+                Z "Don't let your sister know. She might get the wrong ideas."
+            else:
+                S "I bet [persistent.mom] can't get enough of that tongue either."
+                scene vst-101
+                with dissolve
+                Z "You will have to ask her..."
+            
+            Z "Guess you had your fun, but that's enough practice for today."
+            scene black pic
+            with fade
+            $ shani_practice = True
+            jump daily_home
+
+label sleep_shani:
+    scene ss-65
+    with fade
+    pause 0.8
+    menu:
+        "Continue sleeping":
+            jump daily_wakeup
+
+        "Touch her":
+            scene ss-66
+            with fade
+            Zt "She's so attractive..."
+            scene ss-67
+            with dissolve
+            pause 0.7
+            scene ss-68
+            with dissolve
+            S "{i}*snoozing*{/i}"
+            scene ss-69
+            with dissolve
+            S "Mh..."
+            scene ss-70
+            with dissolve
+            S "Nha..."
+            scene ss-71
+            with dissolve
+            "You keep fondling her ass..."
+            scene ss-72
+            with fade
+            Sw "Nh... [persistent.dad]..."
+            scene ss-73
+            with dissolve
+            Sw "...are you..."
+            scene ss-74
+            with dissolve
+            pause 1
+            scene ss-75
+            with fade
+            S "[persistent.dad!c]... what were you doing...?"
+            scene ss-77
+            with dissolve
+            Z "I couldn't resist."
+            scene ss-76
+            with dissolve
+            S "Well, thank you. Now I can't sleep either."
+            scene ss-78
+            with dissolve
+            S "Should we do something... to release the tension?"
+            scene ss-79
+            with dissolve
+            menu:
+                "Let her pleasure you":
+                    Z "Can you help me with this?"
+                    scene ss-76
+                    with dissolve
+                    S "You know I can."
+                    scene ss-77
+                    with dissolve
+                    scene ss-44
+                    with fade
+                    Z "[S]..."
+                    scene ss-46
+                    with dissolve
+                    S "Let's see if this does the trick..."
+                    scene ss-49
+                    with dissolve
+                    S "Ah..."
+                    scene ss-50
+                    with dissolve
+                    "She slowly licks the tip..."
+                    scene ss-52
+                    with dissolve
+                    S "..."
+                    scene ss-52-anim
+                    with Dissolve(0.1)
+                    "She starts to passionately suck you off..."
+                    S "Mh..."
+                    S "{i}*sucking*{/i}"
+                    Z "Whoa... [S]..."
+                    pause 1.5
+                    "She keeps stroking you while focusing her efforts on your tip."
+                    Zt "A natural talent."
+                    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                        extend "...like her mother."
+                    else:
+                        extend "...like [W]."
+                    S "{i}*slurp*{/i}"
+                    pause 1.5
+                    Z "You're... wow."
+                    S "Mh..."
+                    pause 1.5
+                    "She keeps her focus up, trying her best to go as deep as she can."
+                    Z "That will surely help me sleep..."
+                    S "{i}*sucking*{/i}"
+                    pause 1.5
+                    Z "A little bit more..."
+                    pause 1.5
+                    Z "[S]... careful. I'm..."
+                    Z "Ah... this is too much..-"
+                    scene ss-56
+                    with fade
+                    Z "Ah... this is too much...-"
+                    scene ss-57
+                    with hpunch
+                    Z "Ngh-"
+                    scene ss-58
+                    with dissolve
+                    pause 0.6
+                    scene ss-59
+                    with dissolve
+                    pause 0.9
+                    scene ss-60
+                    with dissolve
+                    pause 0.4
+                    scene ss-61
+                    with hpunch
+                    Z "Mgh..."
+                    scene ss-60
+                    with dissolve
+                    S "nha.."
+                    scene ss-61
+                    with hpunch
+                    pause 0.6
+                    scene ss-62
+                    with dissolve
+                    Z "{i}*pant*{/i}"
+                    scene ss-62x-2
+                    with dissolve
+                    S "{i}*gulp*{/i}"
+                    scene ss-62x-3
+                    with dissolve
+                    S "Do you feel better?"
+                    scene ss-62x-4
+                    with dissolve
+                    Z "Much better."
+                    scene ss-66
+                    with fade
+                    "After the climax, you're much more relaxed and both swiftly fall asleep."
+                    jump daily_wakeup
+
+                "Have sex":
+                    Z "Let's have some fun?"
+                    scene ss-76
+                    with dissolve
+                    S "Just like last time, then."
+                    scene ss-77
+                    with dissolve
+                    scene ss-1
+                    with fade
+                    S "{i}*giggles*{/i}"
+                    scene ss-5
+                    with fade
+                    S "[persistent.dad!c]..."
+                    scene ss-4
+                    with dissolve
+                    S "You're... always so big..."
+                    scene ss-7
+                    with dissolve
+                    Z "I can't help it."
+                    scene ss-8
+                    with dissolve
+                    S "I think I'm ready."
+                    scene ss-9
+                    with dissolve
+                    scene ss-10
+                    with fade
+                    S "Mh..."
+                    scene ss-11
+                    with dissolve
+                    S "You can..."
+                    scene ss-12
+                    with dissolve
+                    S "Go on..."
+                    scene ss-13
+                    with dissolve
+                    S "Nh..."
+                    scene ss-15
+                    with fade
+                    Z "I'm going to put it in."
+                    S "Yes... sir..."
+                    scene ss-16-anim
+                    with dissolve
+                    S "Ah...!"
+                    Z "Mgh..."
+                    scene ss-18
+                    with fade
+                    S "Damn... it's..."
+                    scene ss-19
+                    with dissolve
+                    Z "It's perfect, [S]."
+                    scene ss-24
+                    with dissolve
+                    S "Ah..."
+                    scene ss-25-anim
+                    with fade
+                    "She moans sensually..."
+                    S "Nh... you're... filling me so nicely..."
+                    pause 1.5
+                    Z "Ngh..."
+                    S "It feels so good..."
+                    scene ss-25x-anim
+                    with fade
+                    pause 1.5
+                    S "You..."
+                    extend " you're always so... big."
+                    S "...but it's so nice... nh..."
+                    scene ss-25x-2-anim
+                    with fade
+                    pause 1.5
+                    "Her pussy feels welcoming and wet, but tight..."
+                    "All you can hear is the sound of your bodies slapping against each other, and her short, trembling moans."
+                    pause 1.5
+                    Z "I'm... getting close already."
+                    S "{i}*giggles*{/i} Do I.. ah..."
+                    S "...do I excite you that much? Nh..."
+                    scene ss-13
+                    with fade
+                    S "[persistent.dad!c]... I'm feeling something..."
+                    scene ss-23
+                    with fade
+                    S "Can you... push it in...!"
+                    Z "Like this...?"
+                    scene ss-23x
+                    with vpunch
+                    S "Ah...!!"
+                    S "Ngh...-"
+                    with vpunch
+                    S "I..."
+                    scene ss-23
+                    with dissolve
+                    Z "Cum for me, [S]."
+                    scene ss-23x
+                    with vpunch
+                    S "Nhaaa~"
+                    S "Ah... oh..."
+                    with vpunch
+                    "You feel her twitching on your dick as her orgasm washes over her..."
+                    scene ss-25-anim
+                    with Dissolve(0.1)
+                    "You keep going..."
+                    S "[persistent.dad!c]... my gods..."
+                    S "That... ah..."
+                    scene ss-25x-2-anim
+                    with fade
+                    S "Damn... {i}*giggles*{/i}"
+                    S "I came so much..."
+                    "Her voice is smooth as silk, and her orgasming while you're inside her brings you even quicker over the edge now."
+                    Z "I'm going to... cum as well..."
+                    if persistent.da == renpy.translate_string("daughter", language = _preferences.language):
+                        "The image of cumming deep inside your [persistent.da]'s womb makes you so intensely excited, that climax is approaching fast."
+                    else:
+                        "The image of cumming deep inside her womb makes you so intensely excited, that climax is approaching fast."
+                    scene ss-26
+                    with fade
+                    S "Mh..."
+                    Z "[S]... ngh-"
+                    scene ss-27
+                    with vpunch
+                    pause 0.6
+                    scene ss-28
+                    with dissolve
+                    Z "Agh-"
+                    scene ss-29
+                    with vpunch
+                    pause 0.6
+                    scene ss-30
+                    with dissolve
+                    S "So much..."
+                    Z "Fuck..."
+                    scene ss-31
+                    with vpunch
+                    pause 0.6
+                    scene ss-32
+                    with dissolve
+                    S "Wow..."
+                    scene ss-33
+                    with dissolve
+                    Z "{i}*heavy beathing*{/i}"
+                    Zt "So much again. I can't get enough of her."
+                    scene ss-34
+                    with dissolve
+                    S "Do you... do you feel better now?"
+                    Z "I do..."
+                    scene ss-35
+                    with dissolve
+                    Z "Yeah. That was very nice."
+                    scene black pic
+                    with fade
+                    "You clean her up, before laying down next to her..."
+                    scene ss-66x
+                    with fade
+                    Z "Goodnight, [S]."
+                    S "Goodnight, [persistent.dad]. That was nice..."
+                    S "...I'm going to... sleep..."
+                    jump daily_wakeup
+                                
+label car_menu:
+    if m_d6b == False:
+        scene home_car_1
+        with fade
+    else:
+        scene home_car_2
+        with fade
+    menu:
+        "Visit [I]" (important = True) if ev_d15c.is_active:
+            jump d15c
+        "Buy groceries" (important = True) if shani_killed_thug_girl == False and m_d7a == True and m_d9c == False:
+            jump d9c
+        "Check fuel" (important = True) if ev_d5f.is_active:
+            jump d5f
+        "Check condition" (important = True) if ev_d6b_a.is_active:
+            Z "Let's check how my old baby is doing..."
+            jump d6b1
+        "Look for the new car" (important = True) if ev_d6b_b.is_active:
+            jump d6b1
+        "Head to the highway settlement" (important = True) if m_d9a == True and m_d10b == False and daily_main_mission == False:
+            jump d10b
+        "Visit [Asa] again" (important = True) if m_d6b == True and d6b_asani_sex == True and (day - d6b_visited_asani_day >= 2) and m_d14b == False:
+            jump d14b
+        "Meet Lirah" (important = True) if ev_d16a115.is_active:
+            jump d16a115
+        "Meet Lirah at the oasis" (important = True) if ev_d16a142.is_active:
+            jump d16a142
+        "Head to the market" (important = True) if ev_d16a246.is_active:
+            jump d16a246
+        "Meet Talia & Lirah" (important = True) if ev_d16a261.is_active:
+            jump d16a261
+        "Revisit [I]" (important = True) if ev_d21a.is_active:
+            jump d21a
+        "Check on [I]" (important = True) if ev_d21b.is_active:
+            jump d21b
+        "Back":
+            jump daily_home
+
+label wz_emilia_fairy_1:
+    show expression renpy.random.choice(['wz-1', 'wz-2', 'wz-3', 'wz-4'])
+    with fade
+    random:
+        F "{i}*slurp*{/i}"
+        E "Mh..."
+    #TODO:ANIMATION scene wz-5-anim
+    # with fade
+    F "{i}*sucking*{/i}" (multiple=2)
+    E "{i}Mh... {i}*slurp*{/i}" (multiple=2)
+    random:
+        "Your slaves are committed to your service..."
+        Zt "It looks like I'm getting a morning blowjob today."
+        "As you wake up, you see Emilia and [F] obediently servicing your dick."
+    scene wz-6
+    with dissolve
+    Z "Ngh..."
+    scene wz-7
+    with dissolve
+    pause 1
+    scene wz-8
+    with dissolve
+    E "Good morning, Master."
+    random:
+        E "I hope you enjoyed our service."
+        E "I hope you enjoyed your slaves. Do you wish some breakfast in bed next?"
+    scene wz-9
+    with dissolve
+    pause 0.7
+    jump wz_end
+
+label wz_kateryna_1:
+    scene expression renpy.random.choice(['wz-10-anim', 'wz-11-anim'])
+    with fade
+    Ka "Hah... nh..."
+    if renpy.random.random() < 0.66:
+        random:
+            "The young woman rides you passionately..."
+            Ka "So... big..."
+    else:
+        pass
+    if renpy.showing('wz-11-anim'):
+        scene wz-12-anim    
+        with fade
+    Ka "Mh..."
+    scene wz-15
+    with dissolve
+    random:
+        Ka "Good... {i}*pant*{/i} morning..!"
+        Ka "Oh... I... good morning..."
+    random:
+        Ka "I... saw it was hard and..."
+        Ka "It always feel very nice, even when you sleep, [persistent.player_name]."
+        Ka "[S] and [W] say I can wake you up like this..."
+    scene wz-16
+    with dissolve
+    random:
+        Z "That's... a nice way to wake up..."
+        Z "Can't pass a chance to make some more babies, huh?"
+        Zt "I will never decline a young woman waking me up like this..."
+        Z "I bet you've been on top of me for some time, haven't you?"
+    random:
+        Z "Now, let me get up, will you. It's time for me to start my day."
+        Z "Alright, kid. You've had your fun. Now help me up."
+    jump wz_end
+
+label wz_kateryna_2:
+    show expression renpy.random.choice(['wz-17', 'wz-18'])
+    random:
+        Ka "Um... [persistent.player_name]?"
+        Kaw "[persistent.player_name]...?"
+    with fade
+    scene wz-19
+    with fade
+    random:
+        Ka "Good morning! I prepared breakfast, if you want?"
+        Kaw "Good morning! I hope I not wake up too early for breakfast?"
+    scene wz-20
+    with dissolve
+    random:
+        Z "{i}*Yawn*{/i} Good morning. Of course, serve it up when it's ready."
+        Z "{i}*chuckles*{/i} You can never start the day too early. I will join you in a moment."
+        Z "Good morning, sweetheart. I will be right with you."
+        Z "You're the best, thank you. I indeed could use a good breakfast."
+    jump wz_end
+            
+    # elif renpy.random.random() < 0.8:
+
+label wz_ain_1:
+    show expression renpy.random.choice(['wz-21', 'wz-22', 'wz-23'])
+    with fade
+    random:
+        A "{i}*humming*"
+        Aw "Hey... [persistent.dad]... Hey, [persistent.dad]!"
+        Aw "Such a heavy sleeper...!"
+    scene wz-24
+    with fade
+    random:
+        A "Hey! There you are! Good morning!"
+        A "I thought you'd never wake up, hehe."
+        A "Hey! Good morning, [persistent.dad]!"
+    scene wz-25
+    with dissolve
+    random:
+        Z "{i}*yawn*{/i} Good morning, [A]."
+        Z "And a good morning to you too. You look great today."
+        Z "Good morning. That's a nice way to wake up."
+    Z "Alright, fetch me my pants. It's time to get up."
+    jump wz_end
+
+label wz_ain_2:
+    scene wz-27
+    with fade
+    C "{i}*slurp*{/i}"
+    scene wz-26
+    with fade
+    random:
+        Z "{i}*yawn*{/i} Good morning, you little cocksucker."
+        Z "Mh... good morning, [persistent.da]."
+        Z "{i}*yawn*{/i} I should put a slave collar on you, and tie you to the bed every night."
+    scene wz-28
+    with dissolve
+    pause 0.6
+    scene wz-29
+    with fade
+    A "{i}*sucking*{/i}"
+    random:
+        Z "I will never get tired of these ponytails."
+        Z "What a slut of a [persistent.da]..."
+    scene wz-30
+    with dissolve
+    A "{i}*gluck*{/i}"
+    with vpunch
+    Z "Mh..."
+    scene wz-31
+    with vpunch
+    A "Hn..."
+    A "{i}*gulp*{/i}"
+    random:
+        Zt "Swallowing her [persistent.dad]'s cum like she was born for it."
+        Z "Good girl. I taught you well."
+    scene wz-32
+    with dissolve
+    A "Mmmmh..."
+    random:
+        "She looks at you, like a dog bringing back the stick..."
+        "Having cleaned up your shaft, she pauses for you to see..."
+    random:
+        Z "Well done. Now, let me get up."
+        Z "Good girl. Your [persistent.dad] is proud of you. Now I can start the day."
+    jump wz_end
+
+label wz_nothing:
+    jump wz_end
+    
+label wz_end:
+    $ daytime = 'day'
+    scene black pic
+    show home day
+    with fade
+    jump daily_wakeup
+        
+label sleep_ain:
+    $ sa_awake = False
+    scene sa-1
+    with slowfade
+    A "{i}*Soft breathing*"
+    scene sa-2
+    with dissolve
+    Zt "...this girl..."
+    scene sa-3
+    with dissolve
+    pause 1
+    scene sa-4
+    with dissolve
+    A "..."
+    Zt "Sometimes I wonder if she does this on purpose..."
+    scene sa-5
+    with dissolve
+    menu:
+        "Go back to sleep":
+            scene home_night_full_1
+            with slowfade
+            jump daily_wakeup
+
+        "Have some fun with her":
+            Z "..."
+            Zt "I can't sleep like this."
+            scene black pic
+            with fade
+            "You get up slowly..."
+            scene sa-6
+            with fade
+            Z "..."
+            scene sa-7
+            with dissolve
+            pause 1.5
+            scene sa-8
+            with dissolve
+            A "..."
+            scene sa-9
+            with fade
+            Zt "I love this dress... easy access."
+            scene black pic
+            with slowfade
+            "You move her in a better position..."
+            scene sa-10
+            with w33slow
+            Zt "Such a heavy sleeper, like her [persistent.mom]."
+            scene sa-12
+            with dissolve
+            Zt "She's still out of it."
+            Zt "I could wake her up, or..."
+            scene sa-13
+            with dissolve
+            menu:
+                "Wake her up":
+                    $ sa_awake = True
+                    Zw "Hey, [A]... wake up."
+                    scene sa-11
+                    with dissolve
+                    A "..."
+                    scene sa-11x
+                    with dissolve
+                    A "...?"
+                    Zw "Take this off, I want you, now."
+                    scene black pic
+                    with fade
+                    "She sheepishly follows your directions..."
+                    jump sa17
+
+                "Undress her quietly":
+                    scene sa-11
+                    with dissolve
+                    Zw "She doesn't need to wake up, I can just take her like that."
+                    scene black pic
+                    with fade
+                    "You undress her, and gently push yourself inside her..."
+                    jump sa17
+
+label sa17:
+    scene sa-17
+    with fade
+    Zt "There..."
+    scene sa-16
+    with dissolve
+    if sa_awake == True:
+        Aw "Nh..."
+        Zw "That's what you get for stroking me while I'm sleeping."
+        Aw "I did...? Mh..."
+        show sa-14-anim-bundle
+        with dissolve
+        Zw "...you look perfect."
+        A "..."
+        "She looks at you, her eyes half open, clearly enjoying the attention and the rhythm."
+        "Looking at her, you once again appreciate what an obedient [persistent.da] you and [W] have raised..."
+        Zw "Your [persistent.mom] taught you well."
+        "She gives you a sensual stare that reminds you of a young [W]."
+        "That expression of both obedience and confident participation you love to see in both."
+        "She knows she's pleasing you, this is where she is most confident. Her ample tits, her short figure, her eagerness to please and let you do whatever you like to her..."
+        "She grinds herself against you in just the way she knows you like, and makes the most of the moment of fleeting power she has over you."
+        Zw "Just a bit more, baby..."
+        "Sensing your upcoming climax, she clenches her pelvic muscles at just the right time..."
+        Zt "Damn it..."
+        jump sa19
+
+    else:
+        A "..."
+        Zt "That's just what I needed..."
+        show sa-14x-anim-bundle
+        with dissolve
+        "You wonder how she can keep sleeping like this, or if she's pretending for your sake, or to play her own little game."
+        A "{i}*soft moaning*"
+        "Her moans don't go unnoticed by you. Maybe she's dreaming about this exact scenario, you think to yourself."
+        "Regardless, while looking at her, you once again appreciate what an obedient [persistent.da] you and [W] have raised."
+        "You continue screwing her gently. While plunging deep in her warm pussy, you appreciate her oversized tits gently bouncing along."
+        if persistent.da == renpy.translate_string('daughter', language = _preferences.language):
+            Zt "I always knew none of [W]'s daughters would be just as hot. But this..."
+        else:
+            Zt "I always knew our [persistent.da]s would grow up to be pretty. But she's beyond that..."
+        A "..."
+        "You eventually reach the climax you have been building up to..."
+        Zt "Ngh..."
+        jump sa19
+
+label sa19:
+    menu:
+        "Cum inside":
+            scene sa-17
+            with fade
+            Zw "Take it..."
+            if sa_awake == True:
+                A "Ngh..."
+            with vpunch
+            Zw "Hghn-"
+            scene sa-18
+            with dissolve
+            Z "..."
+            scene sa-19
+            with dissolve
+            Z "Mgh..."
+            if sa_awake == True:
+                A "Nh... [persistent.dad!c]... so much..."
+                "As you finish inside her, you consider the ever present risk of impregnation, and you realise she must be aware of this as well."
+                "If she was surprised at your decision to cum inside her, she does not express it and takes it without question, like the obedient [persistent.da] she always is..."
+            else:
+                "As you release inside her, you consider the ever present risk of impregnation..."
+            scene black pic
+            with slowfade
+            "You get up and move next to her..."
+            scene sa-23x
+            with slowfade
+            if sa_awake == False:
+                Zw "[A]... Wake up. Now... open your mouth."
+            else:
+                Zw "You did well. Now clean me off."
+            A "{i}*licking*"
+            Zw "Good girl."
+            scene sa-25
+            with dissolve
+            "You firmly grab her head and rub your dick on her face, making her clean your dick properly..."
+            scene sa-24-3
+            with dissolve
+            A "{i}*licking*"
+            Zw "What do you say; want to go back to sleep?"
+            A "Nhn..."
+            scene black pic
+            with slowfade
+            "And with her agreeing, you lie beside her, letting sleep embrace you."
+            scene sa-26
+            with slowfade
+            Zw "Good night [A]."
+            Aw "Good night, [persistent.dad]."
+            if shani_zone_returned == False:
+                scene home_night_full_1x
+            else:
+                scene home_night_full_1
+            with slowfade
+            jump daily_wakeup
+
+        "Cum on her face":
+            if sa_awake == True:
+                Zw "Hold tight, sweetie."
+            else:
+                Zt "Fuck it."
+            scene black pic
+            with fade
+            "You pull out of her and rush towards her..."
+            scene sa-21
+            with fade
+            if sa_awake == True:
+                pause 1.5
+                scene sa-22
+                with dissolve
+                Zw "Look at me, [A]."
+                scene sa-22x
+                with dissolve
+                A "Mh?"
+                Zw "You know what to do."
+                scene sa-23
+                with dissolve
+                A "{i}*licking*"
+                Zw "There you go..."
+                scene sa-24
+                with dissolve
+                Zw "Keep your mouth open..."
+                Zw "Ngh-"
+                scene sa-24-2
+                with vpunch
+                Z "...!"
+                scene sa-24-3
+                with dissolve
+                Zw "Mh..."
+                "She starts playing around with her tongue, licking some of the cum off you..."
+                Zw "You're the best..."
+                Zw "Let's go back to sleep now..."
+                scene black pic
+                with slowfade
+                "You go back to your sleeping position..."
+                scene sa-26
+                with slowfade
+                Zw "Good night [A]."
+                Aw "Good night, [persistent.dad]."
+                if shani_zone_returned == False:
+                    scene home_night_full_1x
+                else:
+                    scene home_night_full_1
+                with slowfade
+                jump daily_wakeup
+            else:
+                pause 1.5
+                scene sa-22
+                with dissolve
+                Zt "This will do."
+                scene sa-20
+                with dissolve
+                A "..."
+                scene sa-23
+                with dissolve
+                "You rub your dick on her face, getting you closer to finish..."
+                scene sa-24x
+                with dissolve
+                Zt "...!"
+                scene sa-24x-2
+                with vpunch
+                pause 0.8
+                scene sa-24x-3
+                with dissolve
+                Zw "Ngh..."
+                "As if by instinct, her mouth opens, and your cum flows inside her mouth..."
+                Zt "That was great. Now I'm able to sleep."
+                scene black pic
+                with slowfade
+                "You go back to a sleeping position..."
+                scene sa-26
+                with slowfade
+                Z "..."
+                if shani_zone_returned == False:
+                    scene home_night_full_1x
+                else:
+                    scene home_night_full_1
+                with slowfade
+                jump daily_wakeup
+
+
+
+label library_intro:
+    call codex_unlock from _call_codex_unlock
+    call codex_content_update from _call_codex_content_update
+    scene l-1
+    with fade
+    pause 0.5
+    scene l-2
+    with dissolve
+    pause 0.7
+    scene l-3
+    with fade
+    Zt "What will I read about, today...?"
+    menu library_menu:
+        "Personal library":
+            scene l-4
+            with fade
+            pause 0.6
+            call screen codex
+            jump daily_home
+
+        "Recovered scriptures" (important = not ev_la1.is_completed, repeatable = ev_la1.is_completed) if ev_la1.is_active or ev_la1.is_completed:
+            scene l-5
+            with dissolve
+            "You look at the chest, where you keep the recovered scriptures..."
+            menu:
+                "Archeologists pt.1: Sec. Vale" (important = not ev_la1.is_completed, repeatable = ev_la1.is_completed) if ev_la1.is_active or ev_la1.is_completed:
+                    scene l-6
+                    with fade
+                    pause 0.6
+                    scene black
+                    stop music fadeout 2
+                    with fade
+                    "You try to immerse yourself into the detailed writings of Elder Paris..."
+                    jump la1
+                    
+                "Change your mind":
+                    scene l-3
+                    with dissolve
+                    jump library_menu
+
+        "Leave":
+            scene black
+            with fade
+            jump daily_home
+
+label codex_unlock:
+    if faction_mutants:
+        if not persistent.lore_mutants.discovered:
+            $ persistent.lore_mutants.discovered = True
+        if not persistent.lore_fangs.discovered:
+            $ persistent.lore_fangs.discovered = True
+        if not persistent.lore_ivy.discovered:
+            $ persistent.lore_ivy.discovered = True
+    if faction_raiders:
+        if not persistent.lore_raiders.discovered:
+            $ persistent.lore_raiders.discovered = True
+        if not persistent.lore_asha.discovered:
+            $ persistent.lore_asha.discovered = True
+        if not persistent.lore_adira.discovered:
+            $ persistent.lore_adira.discovered = True
+    if faction_decayed:
+        if not persistent.lore_la.discovered:
+            $ persistent.lore_la.discovered = True
+        if not persistent.lore_tlw.discovered:
+            $ persistent.lore_tlw.discovered = True
+        if not persistent.lore_cairo.discovered:
+            $ persistent.lore_cairo.discovered = True
+    if m_d4a and not persistent.lore_kyra.discovered:
+        $ persistent.lore_kyra.discovered = True
+    if not persistent.lore_decayed.discovered and (d1b_kinzi_met or faction_decayed):
+        $ persistent.lore_decayed.discovered = True
+    if m_d6a and not persistent.lore_kateryna.discovered:
+        $ persistent.lore_kateryna.discovered = True
+    if introduction_emilia and not persistent.lore_emilia.discovered:
+        $ persistent.lore_emilia.discovered = True
+    if m_d2c and not persistent.lore_merneith.discovered:
+        $ persistent.lore_merneith.discovered = True
+    if m_d3c and not persistent.lore_desertstorms.discovered:
+        $ persistent.lore_desertstorms.discovered = True
+    if m_d4b and not persistent.lore_trainee.discovered:
+        $ persistent.lore_trainee.discovered = True
+    if m_d4b and not persistent.lore_ffn.discovered:
+        $ persistent.lore_ffn.discovered = True
+    if m_d7c and not persistent.lore_nadia.discovered:
+        $ persistent.lore_nadia.discovered = True
+    if m_d11c and not persistent.lore_zion.discovered:
+        $ persistent.lore_zion.discovered = True
+    if m_d11c and not persistent.lore_kitty.discovered:
+        $ persistent.lore_kitty.discovered = True
+    if repeatfairy_1 == True and not persistent.lore_fairy.discovered:
+        $ persistent.lore_fairy.discovered = True
+    if m_d6b == True and asani_alive == True and not persistent.lore_asani.discovered:
+        $ persistent.lore_asani.discovered = True
+    if m_d7a == True and not persistent.lore_sharifa.discovered:
+        $ persistent.lore_sharifa.discovered = True
+    if m_d17a_part_2 == True and not persistent.lore_sapa.discovered:
+        $ persistent.lore_sapa.discovered = True
+    if m_d10a == True and not persistent.lore_hive.discovered:
+        $ persistent.lore_hive.discovered = True
+    if m_d17a_part_2 == True and not persistent.lore_krait.discovered:
+        $ persistent.lore_krait.discovered = True
+    if m_d17a_part_2 == True and not persistent.lore_pepper.discovered:
+        $ persistent.lore_pepper.discovered = True
+    if m_d17a_part_2 == True and not persistent.lore_chili.discovered:
+        $ persistent.lore_chili.discovered = True
+    if m_d10b == True and not persistent.lore_overpass.discovered:
+        $ persistent.lore_overpass.discovered = True
+    $ renpy.save_persistent()
+    return
+
+label codex_content_update:
+    $ persistent.lore_kateryna.content = [_p("""
+Igor's niece, she hails from his land of origin somewhere in what used to be called Eastern Europe, which she left behind not too long ago. Igor must have told her some tall stories about me, because she seemed taken with me from the first time we met.
+\nA few occasional encounters later, I am starting to learn that the subject of pregnancy has a strong attraction for her. I have the feeling she really has an eagerness for it. Whether it's to experience the joys of motherhood or some other, more sensual expression of her desires, is maybe soon to tell.. and for some reason she seems determined to find a place in my House. 
+My wife seems to not oppose the idea.
+
+She has brown, shoulder-length hair and pale skin. Her smile is pretty and sweet, with eyes that seem to be always wide with excitement as she discovers new things about Zeta and its people.
+""")]
+    $ persistent.lore_fairy.content = [_p("""
+I found her in chains, in the depths of the main Decayed settlement in Old Cairo. She was handed to me almost gift wrapped. A broken gift that barely spoke or seemed to understand her surroundings.
+\nI think she was abused and used for so long that a part of her took refuge in the mind of a small child-like creature, responding to basic needs by learned impulse, and running on fear rather than sustenance.
+\nAs I write this, the only thing she seems to understand is violence inflicted upon her, and she responds by trading fear with lust, clearly used to making herself available as a way to survive the day.
+\nWhat is true is that she is a remarkable beauty, with features that are uncommon and a skin that seems to bruise with exposition to the sun more than it did when she lived in the fumes of Old Cairo.
+\nHer fiery red curls are such a rarity that she would stand out even if nothing else of her was visible.
+""")]
+    ####################
+    $ persistent.lore_emilia.content = [_p("""
+She is a slave who appears to be quite content with her status.
+Her heritage seems to be tied to one of the northernmost regions of Old Europe.
+
+As generations went by, she seems to retain the persistently pale skin and blonde hair of her ancestors, and even remembers some of the language they spoke.
+It is remarkable what people who find themselves in slavery are able to pass on despite their hardships. 
+
+Born into slavery, she has learned to be an accomplished servant and house maid; to the point that her docile nature and her skills have seen her elevated to serving at the Queen's palace.
+She is in fact a gift from Queen Merneith, for services rendered.
+
+I have observed her carefully, as has my wife.
+She gladly pledged her life and her service to my House, and by all accounts seems to be committed to proving herself.
+She is an adult woman, closer to my wife in age than to my [persistent.da]s, and seems to be well versed in many ways. Her exotic looks are striking. 
+""")]
+    $ persistent.lore_asha.content = [_p("""
+A leader of one of the gangs of Raiders, she's the younger sibling to Kyra, the top dog in her group.
+
+As far as I know, Adira is a chaotic mess of a place, where different raider gangs control different parts of the town. The two sisters have carved their control over one of those gangs in blood. Between the two, she's the wildcat, the enforcer.
+
+Prone to violence and truly embracing the raider lifestyle, she always goes all in and doesn't seem to know when to use her head.
+
+Maybe she just needs a strong hand to teach her that.
+""")]
+    $ persistent.lore_kyra.content = [_p("""
+Brash, aggressive, intelligent and voracious are some of the traits this woman possesses in abundance.
+She's one of the leaders of the Raiders, and one of the few people of Asian descent I know.
+
+She and her sister Asha seem to be at the head of one of the stronger Raider groups.
+Both have a debt towards me, and it is in my best interest to remind them of that occasionally.
+
+I don't exactly know if it is due to heavy drug abuse, the tough Adiran climate they live in, or the toxic fumes they breath in all day long, but Kyra and her sister are both unusually pale for wastelanders who live under the open Sun. Both favour wearing their hair in long pigtails. Kyras can be distinguished by a streak of purple hair.
+""")]
+    $ persistent.lore_fangs.content = [_p("""
+Only recently have I found out that the few mutants that still live in these parts are trying to organise themselves to look out for one another.
+Fangs, one of their leaders, if not their main leader, is an impressive creature.
+
+Dark skin, blonde hair styled in a sharp bob, sunglasses, toned muscles and teeth as sharp as razors, which explains her name... She is a hot blooded soldier who is confrontational, physical, but tries hard to be strategically minded.
+I should try to understand her long term objectives better, and find out where she got her training from.
+That might give me a better insight into her personality and motives.
+
+She does not like the Queen, for what she represents, for her role in society and the oppression of mutants that occurs in her name, but I don't think she actually thinks much about the queen herself, as a person.
+Under the circumstances, I can't blame her.
+""")]
+    $ persistent.lore_merneith.content = [_p("""
+The young Queen of Zeta.
+She has not been in power for long yet, a couple of years now, but, as is to be expected, her role puts her at the center of the religious beliefs of Zetans who pray to her name.
+She is in good standing with her subjects, who adore her as most Zetans are taught to do.
+
+I believe that she has gained their respect also, and has done so by being just and intelligent in her dealings with the city.
+However, she is a complex woman, with many sides to her.
+[S] has seen her more violent streak, her thirst for excitement.
+
+I myself have seen how she is extending her control slowly, by testing those around her and learning how to control the various people at her service.
+It is a good thing. A Queen should know the full extent of her powers, and the extent of the loyalty of those around her, and test those regularly.
+
+I however, have my own thoughts about whether I should or should not obey her blindly.
+""")]
+    $ persistent.lore_zahra.content = [_p("""
+My rose of the desert.
+She has been my faithful partner for more than two decades now.
+Fierce, loving, wise beyond her years and intelligent, I could not ask for a better companion to lead this House with.
+She knows me better than myself, knows how to calm the storm in my mind, and the temper in my heart.
+
+Her body is still that of the young woman I took for a wife, and she responds to my touch as the first time I laid my fingers on her.
+Never jealous, but fiercely protective of her dignity and her standing, she truly is my counterpart in more ways than I can count.
+
+Our love and companionship are the columns that support the strength of our House.
+She understands our [persistent.da]s in ways that I cannot, and knows how to keep order in our affairs when I am not there.
+Woe to the man or woman who tries to hurt her. Not the biggest storm nor the greatest distance would shield them from my wrath.
+""")]
+    $ persistent.lore_ivy.content = [_p("""
+She is a mysterious creature, for sure. 
+Her pointy ears are the first thing that people mention when they refer to people like her as elves, but that is not their only distinctive trait, apparently. Ivy has learned to survive under the glare of the wasteland Sun for many years.
+
+She is quick and extremely agile, which has obviously served her well. She keeps her hair at shoulder length, often covering part of her face as she hides in the shadows. There is just some quality to her that speak of innocence but also a potential for so much more.
+
+By the time I am writing this, I have not yet heard Ivy speak; her eyes seem to do that for her, as they have the remarkable ability to change colour. I'm told that the colour reflects her state of mind or emotions towards individuals, but what each colour precisely means is still a mystery even for those who told me the name she seems to go by, a name they gave her.
+
+Is she loyal to the mutants who seem to rely on her abilities to find more of them?
+Does she have her own agenda?
+
+All I can say is that she seems to have taken an interest in me. I will see what more I can learn about her. They tell me she does have the ability to speak, even if she does so rarely, and not with everybody.
+""")]
+    return
+
+label navigation_help:
+    show screen nav_help
+    "{i}This is the home navingation UI. you can use it to access the various rooms and/or perform available actions."
+    "{i}You can access this overview again by pressing M on the keyboard."
+    hide screen nav_help
+    if not nav_help_seen:
+        $ nav_help_seen = True
+    return
+
+screen nav_help():
+    if not main_menu and not _menu:
+        add 'gui/menu_hint.png'
+
+## To be removed
+# transform dt():
+#     xalign 0.42
+#     yalign 0.5
+#     on hide:
+#         easeout 3.0 alpha 0.0
+#
+#
+# transform dn():
+#     xalign 0.55
+#     yalign 0.5
+#     on show:
+#         ypos 0.5
+#         alpha 1.0
+#     on hide:
+#         easeout 3.0 alpha 0.0
+#     on replace:
+#         alpha 0.0
+#         ypos 0.65
+#         parallel:
+#             easein 2.0 ypos 0.5
+#         parallel:
+#             easeout 2.0 alpha 1.0
+#     on replaced:
+#         parallel:
+#             easein 2.0 ypos 0.35
+#         parallel:
+#             easein 2.0 alpha 0.0
+#
+# label change_day:
+#     hide screen toggle_ql
+#     $ day = 3
+#     $ nd = day + 1
+#     scene black with dissolve
+#     show expression Text("Day", size=150, color="#d78128", font='gui/fonts/ArefRuqaa-Regular.ttf') at dt
+#     show expression Text("[day]", size=150, color="#d78128", font='gui/fonts/ArefRuqaa-Regular.ttf') as d_image at dn
+#     pause 2.0
+#     show expression Text("[nd]", size=150, color="#d78128", font='gui/fonts/ArefRuqaa-Regular.ttf') as d_image at dn
+#     pause 2.0
+#     hide expression Text("[nd]", text_size=150, color="#d78128", font='gui/fonts/ArefRuqaa-Regular.ttf') as d_image at dn
+#     hide expression Text("Day", size=150, color="#d78128", font='gui/fonts/ArefRuqaa-Regular.ttf')
+#     pause 3.0
+#     jump daily_home
